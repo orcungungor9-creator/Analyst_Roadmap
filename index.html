@@ -9,414 +9,12 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Montserrat:wght@700;900&display=swap"
         rel="stylesheet">
 
-    <style>
-        /* =========================================
-           TEMEL DEĞİŞKENLER VE SIFIRLAMA
-           ========================================= */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    <link rel="stylesheet" href="styles.css">
 
-        :root {
-            --bg-dark: #0b1120;
-            --glass-bg: rgba(30, 41, 59, 0.4);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --neon-blue: #38bdf8;
-            --neon-green: #34d399;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --font-main: 'Inter', sans-serif;
-            --font-title: 'Montserrat', sans-serif;
-        }
-
-        body {
-            font-family: var(--font-main);
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            min-height: 100vh;
-            overflow-x: hidden;
-            /* Hacker / Matrix tarzı, derinlik katan süzülen renkli gradientler */
-            background-image:
-                radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.1) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(52, 211, 153, 0.1) 0%, transparent 40%);
-            background-attachment: fixed;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* =========================================
-           ORTAK SINIFLAR (GLASSMORPHISM & ANIMASYONLAR)
-           ========================================= */
-        .glass {
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, var(--neon-blue), var(--neon-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .floating {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-
-            100% {
-                transform: translateY(0px);
-            }
-        }
-
-        /* =========================================
-           1. ÜST YAPI (HEADER & NAVİGASYON)
-           ========================================= */
-        header {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 40px 20px 20px 20px;
-            z-index: 10;
-            position: relative;
-        }
-
-        .site-title {
-            font-family: var(--font-title);
-            font-size: 3.5rem;
-            letter-spacing: 2px;
-            margin-bottom: 25px;
-            text-transform: uppercase;
-            text-shadow: 0 0 30px rgba(56, 189, 248, 0.4);
-            animation: fadeInDown 0.8s ease-out;
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .nav-bar {
-            display: flex;
-            gap: 15px;
-            padding: 10px 20px;
-            border-radius: 40px;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .nav-btn {
-            background: transparent;
-            color: var(--text-main);
-            border: 1px solid transparent;
-            padding: 12px 24px;
-            border-radius: 30px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .nav-btn:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: var(--neon-blue);
-            color: var(--neon-blue);
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
-            transform: translateY(-2px);
-        }
-
-        /* =========================================
-           3. ANA SAYFA GÖVDESİ (YAZILIM PROGRAMLARI VİTRİNİ)
-           ========================================= */
-        main {
-            width: 90%;
-            max-width: 1200px;
-            padding: 40px 0 80px 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 30px;
-            z-index: 5;
-        }
-
-        .tool-card {
-            position: relative;
-            height: 200px;
-            border-radius: 20px;
-            cursor: pointer;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .tool-card:hover {
-            border-color: var(--neon-blue);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(56, 189, 248, 0.2);
-            transform: translateY(-8px) scale(1.02);
-        }
-
-        /* Kartın ön yüzü (Sadece İsim) */
-        .card-front {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2;
-            transition: transform 0.4s ease, opacity 0.4s ease;
-        }
-
-        .card-front h2 {
-            font-family: var(--font-title);
-            font-size: 2rem;
-            color: var(--text-main);
-            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            letter-spacing: 1px;
-        }
-
-        /* Kartın arka yüzü (Bulanık arkaplan + Açıklama) */
-        .card-back {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            padding: 20px;
-            z-index: 3;
-            opacity: 0;
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            transform: translateY(20px);
-            transition: transform 0.4s ease, opacity 0.4s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .card-back p {
-            color: var(--neon-blue);
-            font-size: 1.05rem;
-            line-height: 1.5;
-            font-weight: 600;
-        }
-
-        .tool-card:hover .card-front {
-            opacity: 0;
-            transform: translateY(-20px);
-        }
-
-        .tool-card:hover .card-back {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Float animasyonlarına ufak gecikmeler ekleyerek organik bir his verelim */
-        .tool-card:nth-child(2n) {
-            animation-delay: 1s;
-        }
-
-        .tool-card:nth-child(3n) {
-            animation-delay: 2s;
-        }
-
-        .tool-card:nth-child(4n) {
-            animation-delay: 0.5s;
-        }
-
-        /* =========================================
-           2. İSTATİSTİKSEL FORMÜLLER PANELİ (MODAL)
-           ========================================= */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            z-index: 100;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.4s ease;
-        }
-
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-content {
-            width: 90%;
-            max-width: 900px;
-            max-height: 85vh;
-            overflow-y: auto;
-            padding: 40px;
-            position: relative;
-            transform: translateY(-50px);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .modal-overlay.active .modal-content {
-            transform: translateY(0);
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            background: transparent;
-            border: none;
-            color: var(--text-muted);
-            font-size: 2rem;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        .close-btn:hover {
-            color: var(--neon-red);
-        }
-
-        .modal-title {
-            font-family: var(--font-title);
-            font-size: 2.2rem;
-            margin-bottom: 30px;
-            border-bottom: 1px solid var(--glass-border);
-            padding-bottom: 15px;
-        }
-
-        /* Formül Listesi Stili */
-        .formula-item {
-            margin-bottom: 30px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            transition: border-color 0.3s;
-        }
-
-        .formula-item:hover {
-            border-color: var(--neon-blue);
-        }
-
-        .formula-item h3 {
-            font-size: 1.4rem;
-            color: var(--neon-blue);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .formula-item h3::before {
-            content: '∑';
-            font-family: 'Fira Code', monospace;
-            color: var(--neon-green);
-        }
-
-        .f-section {
-            margin-bottom: 10px;
-            line-height: 1.6;
-        }
-
-        .f-label {
-            font-weight: 800;
-            display: inline-block;
-            width: 130px;
-        }
-
-        .label-good {
-            color: var(--neon-green);
-        }
-
-        .label-bad {
-            color: var(--neon-red);
-        }
-
-        /* Scrollbar özelleştirme */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-dark);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: rgba(56, 189, 248, 0.5);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--neon-blue);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .site-title {
-                font-size: 2.5rem;
-            }
-
-            .nav-bar {
-                flex-direction: column;
-                width: 100%;
-                gap: 10px;
-            }
-
-            .nav-btn {
-                text-align: center;
-            }
-
-            .modal-content {
-                padding: 25px;
-            }
-
-            .f-label {
-                display: block;
-                margin-bottom: 5px;
-            }
-        }
-    </style>
+    <!-- KaTeX CSS ve JS (Matematiksel Sembollerin Render Edilmesi İçin) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
 </head>
 
 <body>
@@ -426,6 +24,7 @@
         <h1 class="site-title gradient-text">DATA HUB</h1>
         <nav class="nav-bar glass">
             <button class="nav-btn" onclick="openModal('formulas-modal')">İstatistiksel Formüller</button>
+            <button class="nav-btn" onclick="openModal('datatypes-modal')">Veri Türleri</button>
             <!-- Dış Bağlantı -->
             <a href="https://www.kaggle.com/datasets" target="_blank" class="nav-btn">Veri Setleri (Kaggle)</a>
             <button class="nav-btn" onclick="openModal('about-modal')">Hakkında</button>
@@ -436,7 +35,7 @@
     <main>
         <!-- Araç Kartları (Grid) -->
         <div class="tool-card glass floating">
-            <div class="card-front">
+            <div class="card-front" data-logo="r">
                 <h2>R Studio</h2>
             </div>
             <div class="card-back">
@@ -445,7 +44,7 @@
         </div>
 
         <div class="tool-card glass floating">
-            <div class="card-front">
+            <div class="card-front" data-logo="python">
                 <h2>Python</h2>
             </div>
             <div class="card-back">
@@ -454,7 +53,7 @@
         </div>
 
         <div class="tool-card glass floating">
-            <div class="card-front">
+            <div class="card-front" data-logo="sql">
                 <h2>SQL</h2>
             </div>
             <div class="card-back">
@@ -463,7 +62,7 @@
         </div>
 
         <div class="tool-card glass floating">
-            <div class="card-front">
+            <div class="card-front" data-logo="excel">
                 <h2>Excel</h2>
             </div>
             <div class="card-back">
@@ -472,7 +71,7 @@
         </div>
 
         <div class="tool-card glass floating">
-            <div class="card-front">
+            <div class="card-front" data-logo="powerbi">
                 <h2>Power BI</h2>
             </div>
             <div class="card-back">
@@ -481,7 +80,7 @@
         </div>
 
         <div class="tool-card glass floating">
-            <div class="card-front">
+            <div class="card-front" data-logo="tableau">
                 <h2>Tableau</h2>
             </div>
             <div class="card-back">
@@ -490,7 +89,7 @@
         </div>
 
         <div class="tool-card glass floating">
-            <div class="card-front">
+            <div class="card-front" data-logo="spss">
                 <h2>SPSS</h2>
             </div>
             <div class="card-back">
@@ -499,7 +98,7 @@
         </div>
 
         <div class="tool-card glass floating">
-            <div class="card-front">
+            <div class="card-front" data-logo="stata">
                 <h2>Stata</h2>
             </div>
             <div class="card-back">
@@ -508,7 +107,7 @@
         </div>
 
         <div class="tool-card glass floating">
-            <div class="card-front">
+            <div class="card-front" data-logo="eviews">
                 <h2>EViews</h2>
             </div>
             <div class="card-back">
@@ -517,7 +116,7 @@
         </div>
 
         <div class="tool-card glass floating">
-            <div class="card-front">
+            <div class="card-front" data-logo="gretl">
                 <h2>Gretl</h2>
             </div>
             <div class="card-back">
@@ -526,7 +125,7 @@
         </div>
 
         <div class="tool-card glass floating">
-            <div class="card-front">
+            <div class="card-front" data-logo="sas">
                 <h2>SAS</h2>
             </div>
             <div class="card-back">
@@ -535,7 +134,7 @@
         </div>
 
         <div class="tool-card glass floating">
-            <div class="card-front">
+            <div class="card-front" data-logo="julia">
                 <h2>Julia</h2>
             </div>
             <div class="card-back">
@@ -547,70 +146,170 @@
 
     <!-- 2. İSTATİSTİKSEL FORMÜLLER PANELİ (MODAL) -->
     <div id="formulas-modal" class="modal-overlay">
-        <div class="modal-content glass">
-            <button class="close-btn" onclick="closeModal('formulas-modal')">&times;</button>
-            <h2 class="modal-title gradient-text">Analitik Formüller Sözlüğü</h2>
-
-            <div class="formula-item">
-                <h3>R² (Belirtme Katsayısı)</h3>
-                <div class="f-section"><span class="f-label" style="color:var(--text-main);">Ne İşe Yarar:</span>
-                    Bağımsız değişkenlerin, bağımlı değişkendeki değişimin yüzde kaçını açıkladığını gösterir. Modelin
-                    genel açıklayıcılık gücüdür.</div>
-                <div class="f-section"><span class="f-label label-good">İyi Yönü:</span> Modelin uyum iyiliğini ölçmek
-                    için sezgisel ve anlaşılması kolay bir metriktir. Her zaman 0 ile 1 arasında değer alır.</div>
-                <div class="f-section"><span class="f-label label-bad">Riskli Yönü:</span> Modele anlamsız değişkenler
-                    eklendiğinde bile değeri matematiksel olarak artma eğilimindedir. (Bu yüzden Düzeltilmiş R²
-                    kullanılması önerilir).</div>
-            </div>
-
-            <div class="formula-item">
-                <h3>Doğrusal Regresyon (EKK)</h3>
-                <div class="f-section"><span class="f-label" style="color:var(--text-main);">Ne İşe Yarar:</span> En
-                    Küçük Kareler (OLS) yöntemiyle, iki veya daha fazla değişken arasındaki doğrusal ilişkiyi modeller
-                    ve bilinmeyen değerler için tahminleme yapar.</div>
-                <div class="f-section"><span class="f-label label-good">İyi Yönü:</span> Yorumlanması basittir.
-                    Değişkenler arasındaki ilişkinin yönünü (pozitif/negatif) ve büyüklüğünü net şekilde verir.</div>
-                <div class="f-section"><span class="f-label label-bad">Riskli Yönü:</span> Aykırı değerlere (outliers)
-                    karşı çok hassastır ve sadece doğrusal ilişkileri yakalayabildiği için non-lineer problemlerde
-                    yanıltıcı sonuçlar verir.</div>
-            </div>
-
-            <div class="formula-item">
-                <h3>Varyans & Standart Sapma</h3>
-                <div class="f-section"><span class="f-label" style="color:var(--text-main);">Ne İşe Yarar:</span> Bir
-                    veri setindeki değerlerin aritmetik ortalamadan ne kadar saptığını, yani verinin ne kadar geniş bir
-                    alana yayıldığını ölçer.</div>
-                <div class="f-section"><span class="f-label label-good">İyi Yönü:</span> Finans ve risk analizinde
-                    oynaklığı (volatiliteyi) saptamak için en güvenilir matematiksel temeldir.</div>
-                <div class="f-section"><span class="f-label label-bad">Riskli Yönü:</span> Varyansın birimi verinin
-                    karesidir (örn. yaş², TL²), bu nedenle doğrudan yorumlamak mantıksızdır. Karekökü alınarak Standart
-                    Sapma'ya dönüştürülmelidir.</div>
-            </div>
-
-            <div class="formula-item">
-                <h3>T-Testi (Student's t-test)</h3>
-                <div class="f-section"><span class="f-label" style="color:var(--text-main);">Ne İşe Yarar:</span> İki
-                    grubun ortalamaları arasında şans eseri olmayan, istatistiksel olarak anlamlı bir fark olup
-                    olmadığını test eder (Örn: A ve B sınıfı not ortalamaları).</div>
-                <div class="f-section"><span class="f-label label-good">İyi Yönü:</span> Özellikle küçük örneklem
-                    boyutlarında (n < 30) ve evren standart sapması bilinmediğinde ortalama karşılaştırması yapmak için
-                        idealdir.</div>
-                        <div class="f-section"><span class="f-label label-bad">Riskli Yönü:</span> Verinin normal
-                            dağılıma uyduğunu ve varyansların homojen olduğunu varsayar. Varsayımlar ihlal edilirse
-                            parametrik olmayan alternatifler (Mann-Whitney U) gerekir.</div>
+        <!-- Mevcut glass sınıfına ek olarak özel yapı -->
+        <div class="modal-content glass panel-redesign">
+            
+            <!-- STICKY HEADER ALANI -->
+            <div class="modal-sticky-header">
+                <button class="close-btn" onclick="closeModal('formulas-modal')">&times;</button>
+                <h2 class="modal-title gradient-text" style="border-bottom:none; margin-bottom: 20px; padding-bottom:0;">Analitik Formüller Sözlüğü</h2>
+                
+                <!-- Arama Çubuğu -->
+                <div class="search-wrapper">
+                    <!-- Büyüteç İkonu (SVG) -->
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input type="text" id="formula-search" class="search-input" placeholder="Formül veya açıklama ara (Örn: Regresyon, Standart Sapma)...">
                 </div>
 
-                <div class="formula-item">
-                    <h3>ANOVA (Varyans Analizi)</h3>
-                    <div class="f-section"><span class="f-label" style="color:var(--text-main);">Ne İşe Yarar:</span> Üç
-                        veya daha fazla bağımsız grubun ortalamalarını eşzamanlı olarak karşılaştırarak aralarında
-                        istatistiksel bir fark olup olmadığını bulur.</div>
-                    <div class="f-section"><span class="f-label label-good">İyi Yönü:</span> 3 grup için ayrı ayrı üç
-                        tane T-testi yapmaktan doğacak Tip-I Hata (yanlış pozitif) enflasyonu riskini ortadan kaldırır.
+                <!-- Kategori Butonları (Pill Buttons) -->
+                <div class="category-filters">
+                    <button class="filter-btn active" data-filter="all">Tümü</button>
+                    <button class="filter-btn" data-filter="temel">Temel İstatistik</button>
+                    <button class="filter-btn" data-filter="cikarimsal">Çıkarımsal İstatistik</button>
+                    <button class="filter-btn" data-filter="ekonometri">Ekonometri & Regresyon</button>
+                    <button class="filter-btn" data-filter="makine">Makine Öğrenmesi</button>
+                </div>
+            </div>
+
+            <!-- SCROLL EDİLEBİLİR FORMÜL LİSTESİ -->
+            <div class="modal-body-scroll" id="formula-list">
+                
+                <!-- BURASI DATA.JS TARAFINDAN DİNAMİK OLARAK DOLDURULACAKTIR -->
+
+                <!-- Sonuç bulunamadı mesajı -->
+                <div id="no-results" style="display: none; text-align: center; padding: 40px; color: var(--text-muted);">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 15px; opacity: 0.5;">
+                        <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><path d="M8 11h6"></path>
+                    </svg>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 10px; color: var(--text-main);">Eşleşen Formül Bulunamadı</h3>
+                    <p>Lütfen farklı bir arama terimi deneyin veya filtreyi "Tümü" olarak değiştirin.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+        <!-- VERİ TÜRLERİ PANELİ (MODAL) -->
+        <div id="datatypes-modal" class="modal-overlay">
+            <div class="modal-content glass dt-modal">
+                <button class="close-btn" onclick="closeModal('datatypes-modal')">&times;</button>
+                <h2 class="modal-title gradient-text">Veri Türleri Rehberi</h2>
+                <p class="dt-subtitle">Veriyi doğru sınıflandırmak, doğru analiz yöntemini seçmenin temelidir.</p>
+
+                <!-- ANA AĞAÇ -->
+                <div class="dt-tree">
+
+                    <!-- NİTEL -->
+                    <div class="dt-branch">
+                        <div class="dt-node dt-node-nitel">
+                            <span class="dt-icon">🏷️</span>
+                            <div>
+                                <strong>Nitel (Kategorik) Veri</strong>
+                                <p>Sayısal olmayan, sınıflandırmaya dayalı verilerdir. Matematiksel işlem uygulanamaz.</p>
+                                <em>Örn: Cinsiyet, Renk, Meslek, Ülke</em>
+                            </div>
+                        </div>
+                        <div class="dt-children">
+                            <div class="dt-leaf dt-leaf-nominal">
+                                <span class="dt-leaf-badge">Nominal</span>
+                                <p>Kategoriler arasında hiçbir sıralama ya da hiyerarşi yoktur. Sadece isim farkı vardır.</p>
+                                <div class="dt-examples">
+                                    <span>🔵 Kan Grubu (A, B, AB, 0)</span>
+                                    <span>🔵 Göz Rengi</span>
+                                    <span>🔵 Medeni Durum</span>
+                                </div>
+                                <div class="dt-tip">✅ Mod hesaplanabilir &nbsp;|&nbsp; ❌ Aritmetik Ortalama alınamaz</div>
+                            </div>
+                            <div class="dt-leaf dt-leaf-ordinal">
+                                <span class="dt-leaf-badge">Ordinal (Sıralı)</span>
+                                <p>Kategoriler arasında anlamlı bir sıralama vardır, ancak aradaki fark eşit değildir.</p>
+                                <div class="dt-examples">
+                                    <span>🟡 Eğitim Seviyesi (İlk → Orta → Lise → Üniversite)</span>
+                                    <span>🟡 Likert Ölçeği (Hiç Katılmıyorum → Kesinlikle Katılıyorum)</span>
+                                    <span>🟡 Sosyoekonomik Sınıf</span>
+                                </div>
+                                <div class="dt-tip">✅ Medyan & Mod hesaplanabilir &nbsp;|&nbsp; ❌ "1. sınıf ile 2. sınıf arası fark" eşit değildir</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="f-section"><span class="f-label label-bad">Riskli Yönü:</span> Yalnızca "gruplar
-                        arasında bir fark var" sonucunu verir. Farkın tam olarak hangi spesifik gruplar arasında
-                        olduğunu söylemez; bunun için Post-Hoc (Tukey vb.) testleri yapılması zorunludur.</div>
+
+                    <!-- NİCEL -->
+                    <div class="dt-branch">
+                        <div class="dt-node dt-node-nicel">
+                            <span class="dt-icon">📐</span>
+                            <div>
+                                <strong>Nicel (Sayısal) Veri</strong>
+                                <p>Sayısal değer taşır, matematiksel işlemlere (toplama, çarpma vb.) uygundur.</p>
+                                <em>Örn: Boy, Kilo, Gelir, Sıcaklık, Nüfus</em>
+                            </div>
+                        </div>
+                        <div class="dt-children">
+                            <div class="dt-leaf dt-leaf-discrete">
+                                <span class="dt-leaf-badge">Kesikli (Discrete)</span>
+                                <p>Sayılabilen, tam sayı değerler alır. İki değer arasında boşluk vardır, kesirli olmaz.</p>
+                                <div class="dt-examples">
+                                    <span>🔴 Bir sınıftaki öğrenci sayısı (27, 28, 29 — 28.5 olamaz)</span>
+                                    <span>🔴 Bir ailedeki çocuk sayısı</span>
+                                    <span>🔴 Bir web sitesinin günlük ziyaretçi sayısı</span>
+                                    <span>🔴 Atılan zar sonucu (1, 2, 3, 4, 5, 6)</span>
+                                </div>
+                                <div class="dt-tip">✅ Poisson & Binom dağılımlarıyla modellenir &nbsp;|&nbsp; ❌ 2.7 çocuk olamaz</div>
+                            </div>
+                            <div class="dt-leaf dt-leaf-continuous">
+                                <span class="dt-leaf-badge">Sürekli (Continuous)</span>
+                                <p>İki nokta arasında sonsuz değer alabilir. Ölçüm cihazının hassasiyetiyle sınırlıdır.</p>
+                                <div class="dt-examples">
+                                    <span>🟢 Boy (1.7234... metre olabilir)</span>
+                                    <span>🟢 Sıcaklık (36.6°C, 36.61°C, 36.612°C...)</span>
+                                    <span>🟢 Zaman (süre)</span>
+                                    <span>🟢 Hisse Senedi Fiyatı</span>
+                                </div>
+                                <div class="dt-tip">✅ Normal, Üstel, Beta dağılımlarıyla modellenir &nbsp;|&nbsp; ✅ Tüm istatistiksel işlemlere uygundur</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ÖLÇEK NOTLARI -->
+                    <div class="dt-scale-section">
+                        <h3 class="dt-scale-title">📏 Ölçüm Ölçekleri (Measurement Scales)</h3>
+                        <div class="dt-scale-grid">
+                            <div class="dt-scale-card">
+                                <strong>Nominal</strong>
+                                <ul>
+                                    <li>Eşitlik/Eşitsizlik karşılaştırması</li>
+                                    <li>Sıralama ❌ &nbsp; Fark ❌ &nbsp; Oran ❌</li>
+                                    <li><em>Örn: Cinsiyet, Kan Grubu</em></li>
+                                </ul>
+                            </div>
+                            <div class="dt-scale-card">
+                                <strong>Ordinal</strong>
+                                <ul>
+                                    <li>Sıralama ✅ &nbsp; Eşit Fark ❌ &nbsp; Oran ❌</li>
+                                    <li>Farkların büyüklüğü yorumlanamaz</li>
+                                    <li><em>Örn: Likert, Derece</em></li>
+                                </ul>
+                            </div>
+                            <div class="dt-scale-card">
+                                <strong>Aralık (Interval)</strong>
+                                <ul>
+                                    <li>Sıralama ✅ &nbsp; Eşit Fark ✅ &nbsp; Oran ❌</li>
+                                    <li>Gerçek sıfır noktası yok</li>
+                                    <li><em>Örn: Sıcaklık (°C), IQ</em></li>
+                                </ul>
+                            </div>
+                            <div class="dt-scale-card">
+                                <strong>Oran (Ratio)</strong>
+                                <ul>
+                                    <li>Sıralama ✅ &nbsp; Fark ✅ &nbsp; Oran ✅</li>
+                                    <li>Gerçek sıfır noktası var</li>
+                                    <li><em>Örn: Kilo, Boy, Gelir, Yaş</em></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -632,57 +331,8 @@
             </div>
         </div>
 
-
-        <!-- =========================================
-         JAVASCRIPT KODLARI (MODAL KONTROLLERİ)
-         ========================================= -->
-        <script>
-            /**
-             * Belirtilen ID'ye sahip modalı açar.
-             */
-            function openModal(modalId) {
-                const modal = document.getElementById(modalId);
-                if (modal) {
-                    modal.classList.add('active');
-                    // Modal açıldığında arkadaki scroll'u engelle
-                    document.body.style.overflow = 'hidden';
-                }
-            }
-
-            /**
-             * Belirtilen ID'ye sahip modalı kapatır.
-             */
-            function closeModal(modalId) {
-                const modal = document.getElementById(modalId);
-                if (modal) {
-                    modal.classList.remove('active');
-                    // Scroll'u geri getir
-                    document.body.style.overflow = 'auto';
-                }
-            }
-
-            // Kullanıcı modalın dışındaki bulanık alana (overlay) tıklarsa modalı kapat
-            document.querySelectorAll('.modal-overlay').forEach(overlay => {
-                overlay.addEventListener('click', function (event) {
-                    // Eğer tıklanan element direkt olarak overlay'in kendisiyse (içindeki içerik değilse)
-                    if (event.target === this) {
-                        this.classList.remove('active');
-                        document.body.style.overflow = 'auto';
-                    }
-                });
-            });
-
-            // ESC tuşuna basıldığında açık olan modalı kapat
-            document.addEventListener('keydown', function (event) {
-                if (event.key === 'Escape') {
-                    const activeModal = document.querySelector('.modal-overlay.active');
-                    if (activeModal) {
-                        activeModal.classList.remove('active');
-                        document.body.style.overflow = 'auto';
-                    }
-                }
-            });
-        </script>
+        <script src="data.js"></script>
+        <script src="script.js"></script>
 </body>
 
 </html>
