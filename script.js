@@ -1,9 +1,28 @@
+// Mobil Nav Dropdown
+function toggleNavMenu() {
+    const extra = document.getElementById('nav-extra');
+    const btn   = document.getElementById('nav-dots-btn');
+    const isOpen = extra.classList.toggle('open');
+    btn.classList.toggle('open', isOpen);
+}
+
+// Menü dışına tıklanınca kapat
+document.addEventListener('click', function(e) {
+    const nav = document.getElementById('main-nav');
+    if (nav && !nav.contains(e.target)) {
+        document.getElementById('nav-extra')?.classList.remove('open');
+        document.getElementById('nav-dots-btn')?.classList.remove('open');
+    }
+});
+
 function openModal(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
         modal.classList.add('active');
-        // Modal açıldığında arkadaki scroll'u engelle
         document.body.style.overflow = 'hidden';
+        // Mobil menüyü kapat
+        document.getElementById('nav-extra')?.classList.remove('open');
+        document.getElementById('nav-dots-btn')?.classList.remove('open');
     }
 }
 

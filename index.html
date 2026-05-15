@@ -22,12 +22,16 @@
     <!-- 1. ÜST YAPI (HEADER & NAVİGASYON) -->
     <header>
         <h1 class="site-title gradient-text">DATA HUB</h1>
-        <nav class="nav-bar glass">
+        <nav class="nav-bar glass" id="main-nav">
             <button class="nav-btn" onclick="openModal('formulas-modal')">İstatistiksel Formüller</button>
-            <button class="nav-btn" onclick="openModal('datatypes-modal')">Veri Türleri</button>
-            <!-- Dış Bağlantı -->
-            <a href="https://www.kaggle.com/datasets" target="_blank" class="nav-btn">Veri Setleri (Kaggle)</a>
-            <button class="nav-btn" onclick="openModal('about-modal')">Hakkında</button>
+            <div class="nav-extra" id="nav-extra">
+                <button class="nav-btn" onclick="openModal('datatypes-modal')" >Veri Türleri</button>
+                <a href="https://www.kaggle.com/datasets" target="_blank" class="nav-btn">Veri Setleri (Kaggle)</a>
+                <button class="nav-btn" onclick="openModal('about-modal')">Hakkında</button>
+            </div>
+            <button class="nav-dots-btn" id="nav-dots-btn" onclick="toggleNavMenu()" aria-label="Menü">
+                <span></span><span></span><span></span>
+            </button>
         </nav>
     </header>
 

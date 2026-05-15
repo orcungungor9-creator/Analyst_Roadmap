@@ -105,10 +105,12 @@
 
         .nav-bar {
             display: flex;
+            align-items: center;
             gap: 15px;
             padding: 10px 20px;
             border-radius: 40px;
             animation: fadeInUp 0.8s ease-out;
+            position: relative;
         }
 
         @keyframes fadeInUp {
@@ -123,6 +125,44 @@
             }
         }
 
+        .nav-extra {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Üç Nokta Butonu — sadece mobilden görünür */
+        .nav-dots-btn {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            cursor: pointer;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+        .nav-dots-btn span {
+            width: 5px;
+            height: 5px;
+            background: var(--neon-blue);
+            border-radius: 50%;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        .nav-dots-btn:hover {
+            background: rgba(56,189,248,0.15);
+            border-color: var(--neon-blue);
+        }
+        .nav-dots-btn.open span:nth-child(2) { transform: scale(0); }
+        .nav-dots-btn.open span:nth-child(1) { transform: translateY(10px) rotate(45deg); }
+        .nav-dots-btn.open span:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
+
         .nav-btn {
             background: transparent;
             color: var(--text-main);
@@ -134,6 +174,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
+            white-space: nowrap;
         }
 
         .nav-btn:hover {
@@ -142,6 +183,56 @@
             color: var(--neon-blue);
             box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
             transform: translateY(-2px);
+        }
+
+        /* ---- MOBİL (<=640px) ---- */
+        @media (max-width: 640px) {
+            .nav-bar {
+                border-radius: 20px;
+                flex-wrap: nowrap;
+                gap: 8px;
+            }
+
+            /* Gizli grup — başlangıçta dropdown olarak gizli */
+            .nav-extra {
+                display: none;
+                position: absolute;
+                top: calc(100% + 10px);
+                right: 0;
+                left: 0;
+                flex-direction: column;
+                background: rgba(15, 23, 42, 0.97);
+                backdrop-filter: blur(18px);
+                -webkit-backdrop-filter: blur(18px);
+                border: 1px solid var(--glass-border);
+                border-radius: 16px;
+                padding: 10px;
+                gap: 4px;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+                z-index: 100;
+                animation: fadeInUp 0.25s ease;
+            }
+
+            .nav-extra.open {
+                display: flex;
+            }
+
+            .nav-extra .nav-btn {
+                width: 100%;
+                text-align: left;
+                padding: 14px 18px;
+                border-radius: 10px;
+                font-size: 1rem;
+            }
+
+            .nav-extra .nav-btn:hover {
+                background: rgba(56,189,248,0.1);
+            }
+
+            .nav-dots-btn {
+                display: flex;
+                flex-shrink: 0;
+            }
         }
 
         /* =========================================
