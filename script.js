@@ -23,7 +23,43 @@ function openModal(modalId) {
         // Mobil menüyü kapat
         document.getElementById('nav-extra')?.classList.remove('open');
         document.getElementById('nav-dots-btn')?.classList.remove('open');
+
+        // Formüller modalı açılınca search panel'i sıfırla (açık yap)
+        if (modalId === 'formulas-modal') {
+            const panel = document.getElementById('search-panel');
+            const btn   = document.getElementById('search-toggle-btn');
+            if (panel) { panel.classList.remove('collapsed'); }
+            if (btn)   { btn.classList.remove('collapsed'); }
+
+            // Scroll listener: aşağı kaydırınca otomatik kapat (yukarı gelince açmaz)
+            const body = document.getElementById('formula-list');
+            if (body && !body._searchScrollBound) {
+                body._searchScrollBound = true;
+                let lastScroll = 0;
+                body.addEventListener('scroll', function() {
+                    const curr = body.scrollTop;
+                    const panel = document.getElementById('search-panel');
+                    const btn   = document.getElementById('search-toggle-btn');
+                    if (!panel) return;
+                    if (curr > lastScroll && curr > 60) {
+                        // Aşağı kayıyor → kapat
+                        panel.classList.add('collapsed');
+                        btn && btn.classList.add('collapsed');
+                    }
+                    lastScroll = curr;
+                });
+            }
+        }
     }
+}
+
+// Arama paneli manuel toggle
+function toggleSearchPanel() {
+    const panel = document.getElementById('search-panel');
+    const btn   = document.getElementById('search-toggle-btn');
+    if (!panel) return;
+    panel.classList.toggle('collapsed');
+    btn && btn.classList.toggle('collapsed');
 }
 
 /**
