@@ -70,6 +70,86 @@ body {
 }
 
 /* =========================================
+   ARKA PLAN DİNAMİK GRAFİK AĞI (BG ANALYTICS MESH)
+   ========================================= */
+.bg-analytics-mesh {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.bg-chart-item {
+    position: absolute;
+    opacity: 0.15;
+    filter: drop-shadow(0 0 15px var(--neon-blue-glow));
+    transition: all 0.5s ease;
+}
+
+.bg-chart-1 {
+    top: 10%;
+    left: 5%;
+    width: 350px;
+    height: 200px;
+    animation: float-chart-1 12s ease-in-out infinite alternate;
+}
+
+.bg-chart-2 {
+    top: 60%;
+    right: 5%;
+    width: 300px;
+    height: 300px;
+    animation: float-chart-2 15s ease-in-out infinite alternate;
+}
+
+.bg-chart-3 {
+    top: 65%;
+    left: 8%;
+    width: 250px;
+    height: 250px;
+    animation: float-chart-3 14s ease-in-out infinite alternate;
+}
+
+.bg-chart-4 {
+    top: 15%;
+    right: 8%;
+    width: 280px;
+    height: 220px;
+    animation: float-chart-4 16s ease-in-out infinite alternate;
+}
+
+@keyframes float-chart-1 {
+    0% { transform: translateY(0) rotate(-2deg) scale(1); }
+    100% { transform: translateY(-25px) rotate(3deg) scale(1.05); }
+}
+
+@keyframes float-chart-2 {
+    0% { transform: translateY(0) rotate(0deg) scale(1); }
+    100% { transform: translateY(-30px) rotate(15deg) scale(1.08); }
+}
+
+@keyframes float-chart-3 {
+    0% { transform: translateY(0) rotate(5deg) scale(1); }
+    100% { transform: translateY(25px) rotate(-5deg) scale(1.05); }
+}
+
+@keyframes float-chart-4 {
+    0% { transform: translateY(0) rotate(-5deg) scale(1); }
+    100% { transform: translateY(20px) rotate(5deg) scale(1.06); }
+}
+
+@media (max-width: 768px) {
+    .bg-chart-1 { width: 220px; height: 130px; top: 12%; left: -5%; opacity: 0.1; }
+    .bg-chart-2 { width: 200px; height: 200px; top: 65%; right: -5%; opacity: 0.1; }
+    .bg-chart-3 { width: 160px; height: 160px; top: 75%; left: -5%; opacity: 0.1; }
+    .bg-chart-4 { width: 180px; height: 140px; top: 22%; right: -5%; opacity: 0.1; }
+}
+
+/* =========================================
    ORTAK SINIFLAR & EFEKTLER
    ========================================= */
 
@@ -875,12 +955,12 @@ body {
 .dt-node em { color: var(--text-muted); font-size: 0.9rem; opacity: 0.75; }
 .dt-icon { font-size: 2.5rem; flex-shrink: 0; }
 
-.dt-children { display: grid; grid-template-columns: 1fr 1fr; background: rgba(0, 0, 0, 0.2); }
+.dt-children { display: grid; grid-template-columns: 1fr 1fr; background: var(--bg-inner-box); }
 .dt-leaf { padding: 24px 28px; border-right: 1px solid var(--glass-border); transition: background 0.3s; }
 .dt-leaf:last-child { border-right: none; }
-.dt-leaf:hover { background: rgba(255, 255, 255, 0.03); }
+.dt-leaf:hover { background: var(--bg-filter-btn-hover); }
 
-.dt-leaf p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin: 14px 0; }
+.dt-leaf p { color: var(--text-main); font-size: 0.98rem; line-height: 1.6; margin: 14px 0; font-weight: 500; }
 .dt-leaf-badge { display: inline-block; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; }
 
 .dt-leaf-nominal .dt-leaf-badge { background: rgba(192, 132, 252, 0.15); color: var(--neon-purple); border: 1px solid rgba(192, 132, 252, 0.3); }
@@ -889,19 +969,19 @@ body {
 .dt-leaf-continuous .dt-leaf-badge { background: rgba(52, 211, 153, 0.15); color: var(--neon-green); border: 1px solid rgba(52, 211, 153, 0.3); }
 
 .dt-examples { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
-.dt-examples span { font-size: 0.9rem; color: var(--text-main); opacity: 0.9; }
+.dt-examples span { font-size: 0.92rem; color: var(--text-main); opacity: 0.95; font-weight: 500; }
 
-.dt-tip { font-size: 0.85rem; padding: 12px 16px; border-radius: 12px; background: var(--bg-inner-box); border: 1px dashed var(--border-inner-box); color: var(--text-muted); line-height: 1.6; }
+.dt-tip { font-size: 0.88rem; padding: 12px 16px; border-radius: 12px; background: var(--bg-card); border: 1px solid var(--glass-border); color: var(--text-main); font-weight: 600; line-height: 1.6; box-shadow: var(--shadow-card); }
 
 .dt-scale-section { margin-top: 16px; }
 .dt-scale-title { font-size: 1.4rem; font-family: var(--font-title); color: var(--text-main); margin-bottom: 20px; padding-left: 14px; border-left: 4px solid var(--neon-green); }
 .dt-scale-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
-.dt-scale-card { background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); border-radius: 16px; padding: 20px; transition: all 0.3s ease; }
-.dt-scale-card:hover { border-color: var(--neon-blue); transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
-.dt-scale-card strong { display: block; font-size: 1.1rem; color: var(--neon-blue); margin-bottom: 12px; font-family: var(--font-title); }
+.dt-scale-card { background: var(--bg-inner-box); border: 1px solid var(--glass-border); border-radius: 16px; padding: 20px; transition: all 0.3s ease; box-shadow: var(--shadow-card); }
+.dt-scale-card:hover { border-color: var(--neon-blue); transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
+.dt-scale-card strong { display: block; font-size: 1.15rem; color: var(--neon-blue); margin-bottom: 12px; font-family: var(--font-title); }
 .dt-scale-card ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; }
-.dt-scale-card li { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; }
-.dt-scale-card em { font-size: 0.85rem; opacity: 0.7; }
+.dt-scale-card li { font-size: 0.9rem; color: var(--text-main); line-height: 1.5; font-weight: 500; }
+.dt-scale-card em { font-size: 0.85rem; color: var(--text-muted); opacity: 0.8; }
 
 /* =========================================
    3. VERİ SETİ TÜRLERİ MODALİ
@@ -1499,6 +1579,41 @@ body.theme-amber {
     --neon-green: #eab308;
     --neon-green-glow: rgba(234, 179, 8, 0.4);
     --neon-purple: #d97706;
+}
+
+body.theme-dark-sakura {
+    --bg-dark: #0d060a;
+    --bg-card: rgba(24, 11, 18, 0.55);
+    --glass-bg: rgba(24, 11, 18, 0.75);
+    --glass-border: rgba(219, 39, 119, 0.2);
+    --glass-border-hover: rgba(219, 39, 119, 0.4);
+    --neon-blue: #db2777;
+    --neon-blue-glow: rgba(219, 39, 119, 0.25);
+    --neon-green: #be185d;
+    --neon-green-glow: rgba(190, 24, 93, 0.25);
+    --neon-purple: #9333ea;
+    --text-main: #f8fafc;
+    --text-muted: #f472b6;
+    --header-bg: rgba(13, 6, 10, 0.85);
+    --modal-bg: rgba(18, 8, 14, 0.85);
+    --close-bg: rgba(255, 255, 255, 0.06);
+    --mobile-menu-bg: rgba(13, 6, 10, 0.96);
+    --mobile-item-bg: rgba(255, 255, 255, 0.05);
+    --nav-btn-hover-bg: rgba(255, 255, 255, 0.06);
+    --shadow-glass: 0 10px 30px rgba(0, 0, 0, 0.5);
+    --shadow-card: 0 8px 25px rgba(0, 0, 0, 0.4);
+    --shadow-card-hover: 0 15px 35px rgba(0, 0, 0, 0.6);
+
+    --bg-inner-box: rgba(0, 0, 0, 0.35);
+    --border-inner-box: rgba(255, 255, 255, 0.15);
+    --bg-input: rgba(255, 255, 255, 0.04);
+    --bg-input-focus: rgba(255, 255, 255, 0.07);
+    --bg-filter-btn: rgba(255, 255, 255, 0.05);
+    --bg-filter-btn-hover: rgba(255, 255, 255, 0.1);
+
+    --tool-svg-filter: invert(1) opacity(0.85);
+    --tool-svg-filter-hover: invert(1) opacity(1);
+    --bg-tool-logo: rgba(255, 255, 255, 0.05);
 }
 
 /* AÇIK TEMALAR */
