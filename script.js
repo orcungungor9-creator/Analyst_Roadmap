@@ -7,6 +7,7 @@ function initFormulas() {
     const noResultsMsg = document.getElementById('no-results');
 
     if (!searchInput || !filterBtns.length || !formulaListContainer) return;
+    if (document.body.classList.contains('formulas-page')) return;
     if (formulaListContainer.hasAttribute('data-initialized')) return;
     formulaListContainer.setAttribute('data-initialized', 'true');
 
@@ -111,12 +112,97 @@ function setTheme(themeName) {
     initTheme();
 }
 
+// Category drag scroll management
+function initCategoryDragScroll() {
+    const slider = document.querySelector('.category-filters');
+    if (!slider) return;
+
+    let isDown = false;
+    let isDragging = false;
+    let startX;
+    let scrollLeft;
+
+    slider.addEventListener('mousedown', (e) => {
+        isDown = true;
+        isDragging = false;
+        slider.classList.add('dragging');
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+    });
+
+    slider.addEventListener('mouseleave', () => {
+        isDown = false;
+        slider.classList.remove('dragging');
+    });
+
+    slider.addEventListener('mouseup', () => {
+        isDown = false;
+        slider.classList.remove('dragging');
+        setTimeout(() => { isDragging = false; }, 50);
+    });
+
+    slider.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX);
+        if (Math.abs(walk) > 5) {
+            isDragging = true;
+        }
+        slider.scrollLeft = scrollLeft - walk;
+    });
+
+    slider.addEventListener('click', (e) => {
+        if (isDragging) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    }, true);
+}
+
+// Search dropdown management
+function toggleSearchDropdown(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    const dropdown = document.getElementById('search-dropdown-menu');
+    if (dropdown) {
+        dropdown.classList.toggle('show');
+    }
+}
+
+function selectDropdownCategory(cat) {
+    document.querySelectorAll('.dropdown-item').forEach(item => {
+        item.classList.remove('active');
+    });
+    const selectedItem = document.querySelector(`.dropdown-item[onclick*="${cat}"]`);
+    if (selectedItem) selectedItem.classList.add('active');
+
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    filterBtns.forEach(btn => btn.classList.remove('active'));
+    const targetBtn = document.querySelector(`.filter-btn[data-filter="${cat}"]`);
+    if (targetBtn) {
+        targetBtn.classList.add('active');
+        targetBtn.click();
+    }
+
+    const dropdown = document.getElementById('search-dropdown-menu');
+    if (dropdown) dropdown.classList.remove('show');
+}
+
+document.addEventListener('click', (e) => {
+    const dropdown = document.getElementById('search-dropdown-menu');
+    const btn = document.querySelector('.search-hamburger-btn');
+    if (dropdown && dropdown.classList.contains('show') && !dropdown.contains(e.target) && (!btn || !btn.contains(e.target))) {
+        dropdown.classList.remove('show');
+    }
+});
+
 // Initialize after DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     initTheme();
+    initCategoryDragScroll();
     if (window.initNavOutsideClick) window.initNavOutsideClick();
     if (window.initModal) window.initModal();
-    // If data.js was already loaded synchronously, initialize formulas now
     if (typeof window.formulasData !== 'undefined' || typeof formulasData !== 'undefined') {
         initFormulas();
     }
@@ -138,3 +224,5 @@ window.initFormulas = initFormulas;
 window.toggleSearchPanel = toggleSearchPanel;
 window.setTheme = setTheme;
 window.initTheme = initTheme;
+window.toggleSearchDropdown = toggleSearchDropdown;
+window.selectDropdownCategory = selectDropdownCategory;

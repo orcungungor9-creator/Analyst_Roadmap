@@ -7,6 +7,8 @@ function initStandaloneFormulas() {
     const noResultsMsg = document.getElementById('no-results');
 
     if (!searchInput || !filterBtns.length || !formulaListContainer) return;
+    if (formulaListContainer.hasAttribute('data-initialized')) return;
+    formulaListContainer.setAttribute('data-initialized', 'true');
 
     const data = typeof window.formulasData !== 'undefined' ? window.formulasData : (typeof formulasData !== 'undefined' ? formulasData : null);
 
@@ -34,7 +36,10 @@ function initStandaloneFormulas() {
                     <span class="category-badge" style="${badgeStyle}">${item.badge}</span>
                     <h3>${item.title}</h3>
                 </div>
-                <div class="f-section"><span class="f-label">Ne İşe Yarar:</span> <p class="f-desc">${item.desc}</p></div>
+                <div class="f-section f-desc-section">
+                    <span class="f-label-modern">💡 Ne İşe Yarar?</span>
+                    <p class="f-desc">${item.desc}</p>
+                </div>
             `;
 
             if (item.formula) {
@@ -43,10 +48,20 @@ function initStandaloneFormulas() {
 
             let footerHtml = '';
             if (item.good) {
-                footerHtml += `<div class="f-section f-pro-con"><span class="f-label label-good">İyi Yönü:</span> <p>${item.good}</p></div>`;
+                footerHtml += `
+                    <div class="f-pro-con f-good-box">
+                        <span class="f-label-modern label-good">✔️ İyi Yönü</span>
+                        <p>${item.good}</p>
+                    </div>
+                `;
             }
             if (item.bad) {
-                footerHtml += `<div class="f-section f-pro-con"><span class="f-label label-bad">Riskli Yönü:</span> <p>${item.bad}</p></div>`;
+                footerHtml += `
+                    <div class="f-pro-con f-bad-box">
+                        <span class="f-label-modern label-bad">⚠️ Riskli Yönü</span>
+                        <p>${item.bad}</p>
+                    </div>
+                `;
             }
 
             if (footerHtml) {

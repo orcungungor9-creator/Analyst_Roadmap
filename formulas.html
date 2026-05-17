@@ -9,7 +9,7 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="styles.css?v=2.0">
+    <link rel="stylesheet" href="styles.css?v=2.6">
 
     <!-- KaTeX CSS ve JS (Matematiksel Sembollerin Render Edilmesi İçin) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
@@ -94,6 +94,20 @@
             </svg>
             <input type="text" id="formula-search" class="search-input"
                 placeholder="Formül adı, sembol veya açıklama ara (Örn: OLS, Varyans)...">
+            <button class="search-hamburger-btn" onclick="toggleSearchDropdown(event)" aria-label="Kategori Seç" title="Kategori Seç">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+            <div class="search-dropdown-menu glass-card" id="search-dropdown-menu">
+                <button class="dropdown-item active" onclick="selectDropdownCategory('all')">Tümü</button>
+                <button class="dropdown-item" onclick="selectDropdownCategory('temel')">Temel İstatistik</button>
+                <button class="dropdown-item" onclick="selectDropdownCategory('cikarimsal')">Çıkarımsal İstatistik</button>
+                <button class="dropdown-item" onclick="selectDropdownCategory('ekonometri')">Ekonometri &amp; Regresyon</button>
+                <button class="dropdown-item" onclick="selectDropdownCategory('makine')">Makine Öğrenmesi</button>
+            </div>
         </div>
         <div class="category-filters">
             <button class="filter-btn active" data-filter="all">Tümü</button>

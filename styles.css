@@ -1071,16 +1071,188 @@ body {
 .static-filter-container {
     position: relative;
     width: 100%;
-    max-width: 1300px;
+    max-width: 1000px;
     margin: 0 auto 50px auto;
-    padding: 32px 36px;
+    padding: 0 24px !important;
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    border-radius: 24px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-    background: var(--glass-bg);
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+.search-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.search-input {
+    width: 100%;
+    padding: 20px 76px 20px 64px !important;
+    border-radius: 100px;
+    background: var(--bg-card);
+    border: 2px solid var(--glass-border);
+    color: var(--text-main);
+    font-size: 1.1rem;
+    box-shadow: var(--shadow-card);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.search-input:focus {
+    background: var(--bg-input-focus);
+    border-color: var(--neon-blue);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 0 0 25px var(--neon-blue-glow);
+    outline: none;
+}
+
+.search-icon {
+    position: absolute;
+    left: 26px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    stroke: var(--neon-blue);
+    stroke-width: 2.5;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.search-hamburger-btn {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--bg-filter-btn);
     border: 1px solid var(--glass-border);
+    color: var(--neon-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.search-hamburger-btn:hover {
+    background: var(--neon-blue);
+    color: #fff;
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 18px var(--neon-blue-glow);
+    transform: translateY(-50%) scale(1.05);
+}
+
+.search-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    width: 260px;
+    padding: 12px;
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 100;
+    animation: fadeInUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.search-dropdown-menu.show {
+    display: flex;
+}
+
+.dropdown-item {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dropdown-item:hover {
+    background: var(--bg-input-focus);
+    color: var(--text-main);
+    transform: translateX(4px);
+}
+
+.dropdown-item.active {
+    background: rgba(56, 189, 248, 0.15);
+    color: var(--neon-blue);
+    border-left: 4px solid var(--neon-blue);
+    font-weight: 700;
+}
+
+.category-filters {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px !important;
+    margin-top: 32px;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    padding: 10px 24px 20px 24px !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    cursor: grab;
+    width: 100%;
+    max-width: 100%;
+}
+
+.category-filters::-webkit-scrollbar {
+    display: none;
+}
+
+.category-filters:active {
+    cursor: grabbing;
+}
+
+.filter-btn {
+    background: var(--bg-filter-btn);
+    border: 1px solid var(--glass-border);
+    color: var(--text-muted);
+    padding: 14px 32px !important;
+    border-radius: 100px !important;
+    font-size: 1.05rem !important;
+    font-weight: 600 !important;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.filter-btn:hover {
+    background: var(--bg-filter-btn-hover);
+    color: var(--text-main);
+    border-color: var(--neon-blue);
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background: var(--neon-blue);
+    color: #fff;
+    border-color: var(--neon-blue);
+    box-shadow: 0 8px 25px var(--neon-blue-glow);
+    transform: translateY(-2px);
 }
 
 .search-trigger-btn {
@@ -1113,9 +1285,11 @@ body {
 
 .formulas-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
     gap: 32px;
     width: 100%;
+    min-width: 0;
+    max-width: 100%;
 }
 
 .formula-card {
@@ -1127,6 +1301,9 @@ body {
     background: var(--bg-card);
     border: 1px solid var(--glass-border);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .formula-card:hover {
@@ -1160,11 +1337,33 @@ body {
     font-size: 1.7rem;
 }
 
+.f-desc-section {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+}
+
+.f-label-modern {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 800;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    color: var(--text-main);
+}
+.f-label-modern.label-good { color: var(--neon-green); }
+.f-label-modern.label-bad { color: var(--neon-red); }
+
 .f-desc {
     color: var(--text-muted);
     font-size: 1rem;
     line-height: 1.6;
-    margin-top: 6px;
+    margin: 0;
 }
 
 .formula-math-box {
@@ -1177,22 +1376,48 @@ body {
     overflow-x: auto;
     border: 1px dashed var(--border-inner-box);
     box-shadow: inset 0 4px 15px rgba(0, 0, 0, 0.2);
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+.formula-math-box .katex-display {
+    margin: 0 !important;
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 100%;
 }
 
 .formula-card-footer {
     margin-top: 24px;
-    padding-top: 20px;
+    padding-top: 24px;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 16px;
+}
+
+.f-good-box {
+    background: rgba(52, 211, 153, 0.05);
+    border: 1px solid rgba(52, 211, 153, 0.2);
+    padding: 18px 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.f-bad-box {
+    background: rgba(248, 113, 113, 0.05);
+    border: 1px solid rgba(248, 113, 113, 0.2);
+    padding: 18px 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .f-pro-con p {
     color: var(--text-main);
     font-size: 0.95rem;
     line-height: 1.5;
-    margin-top: 4px;
+    margin: 0;
 }
 
 @media (max-width: 768px) {
@@ -1575,37 +1800,46 @@ body.theme-light-emerald {
 
     /* 3. Arama ve Kategori Filtreleri (Yatay Kaydırılabilir Hap Butonlar) */
     .static-filter-container {
-        padding: 20px 16px !important;
-        gap: 16px !important;
-        margin-bottom: 30px !important;
-        border-radius: 20px !important;
+        padding: 0 16px !important;
+        margin-bottom: 35px !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
     }
     .search-input {
-        padding: 14px 20px 14px 44px !important;
+        padding: 16px 60px 16px 50px !important;
         font-size: 0.95rem !important;
+        border-radius: 100px !important;
+    }
+    .search-hamburger-btn {
+        right: 12px !important;
+        width: 38px !important;
+        height: 38px !important;
     }
     .search-icon {
-        left: 16px !important;
-        width: 18px !important;
-        height: 18px !important;
+        left: 20px !important;
+        width: 20px !important;
+        height: 20px !important;
     }
     .category-filters {
         flex-wrap: nowrap !important;
         overflow-x: auto !important;
-        padding-bottom: 6px !important;
+        padding: 10px 16px 20px 16px !important;
         justify-content: flex-start !important;
+        gap: 14px !important;
+        margin-top: 24px !important;
         -webkit-overflow-scrolling: touch;
-        scrollbar-width: none; /* Firefox */
-        gap: 8px !important;
+        scrollbar-width: none;
     }
     .category-filters::-webkit-scrollbar {
         display: none; /* Chrome, Safari, Opera */
     }
     .filter-btn {
         white-space: nowrap !important;
-        padding: 8px 16px !important;
-        font-size: 0.85rem !important;
+        padding: 12px 26px !important;
+        font-size: 0.95rem !important;
         flex-shrink: 0 !important;
+        border-radius: 100px !important;
     }
 
     /* 4. Ana İçerik ve Grid Yapıları */
@@ -1623,15 +1857,23 @@ body.theme-light-emerald {
         font-size: 0.95rem !important;
     }
     .quick-guides-grid, .tools-grid, .formulas-grid {
-        grid-template-columns: 1fr !important;
+        grid-template-columns: minmax(0, 1fr) !important;
         gap: 16px !important;
+        width: 100% !important;
+        max-width: 100% !important;
     }
     .guide-card, .tool-card-new, .formula-card {
-        padding: 22px !important;
+        padding: 20px !important;
         border-radius: 20px !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
     }
     .guide-card h3, .tool-card-new h3, .formula-card h3 {
         font-size: 1.3rem !important;
+        word-break: break-word !important;
     }
     .guide-card p, .tool-card-new p, .f-desc {
         font-size: 0.9rem !important;
@@ -1640,6 +1882,17 @@ body.theme-light-emerald {
         padding: 16px !important;
         font-size: 1.15rem !important;
         margin: 16px 0 !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        overflow-x: auto !important;
+        box-sizing: border-box !important;
+    }
+    .formula-math-box .katex-display {
+        margin: 0 !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        max-width: 100% !important;
     }
 
     /* 5. Modaller ve İçerik Optimizasyonu */
@@ -1710,6 +1963,22 @@ body.theme-light-emerald {
     }
     .f-section {
         font-size: 0.95rem !important;
+    }
+    .f-desc-section, .f-good-box, .f-bad-box {
+        padding: 16px !important;
+        border-radius: 14px !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        word-break: break-word !important;
+    }
+    .f-label-modern {
+        font-size: 0.9rem !important;
+        margin-bottom: 8px !important;
+    }
+    .formula-math-box .katex-display {
+        font-size: 1.1rem !important;
     }
 
     /* Veri Türleri & Veri Setleri Modalları */
