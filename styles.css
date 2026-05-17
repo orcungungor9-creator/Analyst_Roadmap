@@ -1490,3 +1490,290 @@ body.theme-light-emerald {
     flex: 1;
     height: 100%;
 }
+
+/* ==========================================================================
+   ULTIMATE MOBILE OPTIMIZATION (PREMIUM RESPONSIVE DESIGN)
+   ========================================================================== */
+
+/* Ortak Modal ve Padding Düzenleyici Sınıflar (Inline style'ları ezecek) */
+.modal-custom-pad {
+    max-width: 650px;
+    text-align: left;
+    padding: 48px;
+}
+
+.about-box {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 22px 26px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 2px 10px rgba(0,0,0,0.2);
+}
+
+/* 900px Altı (Tablet & Mobil Geçiş) */
+@media (max-width: 900px) {
+    .desktop-nav {
+        display: none !important;
+    }
+    .hamburger-btn {
+        display: flex !important;
+    }
+    .header-container {
+        padding: 14px 20px;
+    }
+}
+
+/* 768px Altı (Tam Mobil Görünüm) */
+@media (max-width: 768px) {
+    /* 1. Header & Navigasyon */
+    .header-container {
+        padding: 12px 16px;
+    }
+    .logo {
+        font-size: 1.25rem !important;
+        letter-spacing: 0.5px;
+    }
+    .back-btn {
+        padding: 8px 14px !important;
+        font-size: 0.9rem !important;
+    }
+    .back-text {
+        display: none !important;
+    }
+    .hamburger-btn {
+        width: 28px;
+        height: 20px;
+    }
+    
+    /* 2. Hero Bölümü */
+    .hero-section, .formulas-hero {
+        padding: 40px 16px 30px 16px !important;
+    }
+    .hero-title {
+        font-size: 2.3rem !important;
+        margin-bottom: 16px !important;
+    }
+    .hero-subtitle {
+        font-size: 1.05rem !important;
+        margin-bottom: 24px !important;
+        padding: 0 10px;
+    }
+    .badge-pill {
+        padding: 5px 14px !important;
+        font-size: 0.8rem !important;
+        margin-bottom: 16px !important;
+    }
+    .btn-hero {
+        padding: 14px 24px !important;
+        font-size: 1rem !important;
+        width: 100%;
+        justify-content: center;
+    }
+    .hero-actions {
+        gap: 14px !important;
+    }
+
+    /* 3. Arama ve Kategori Filtreleri (Yatay Kaydırılabilir Hap Butonlar) */
+    .static-filter-container {
+        padding: 20px 16px !important;
+        gap: 16px !important;
+        margin-bottom: 30px !important;
+        border-radius: 20px !important;
+    }
+    .search-input {
+        padding: 14px 20px 14px 44px !important;
+        font-size: 0.95rem !important;
+    }
+    .search-icon {
+        left: 16px !important;
+        width: 18px !important;
+        height: 18px !important;
+    }
+    .category-filters {
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        padding-bottom: 6px !important;
+        justify-content: flex-start !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+        gap: 8px !important;
+    }
+    .category-filters::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+    .filter-btn {
+        white-space: nowrap !important;
+        padding: 8px 16px !important;
+        font-size: 0.85rem !important;
+        flex-shrink: 0 !important;
+    }
+
+    /* 4. Ana İçerik ve Grid Yapıları */
+    .main-container {
+        padding: 0 16px 80px 16px !important;
+        gap: 50px !important;
+    }
+    .section-title {
+        font-size: 1.7rem !important;
+    }
+    .icon-title {
+        font-size: 2rem !important;
+    }
+    .section-desc {
+        font-size: 0.95rem !important;
+    }
+    .quick-guides-grid, .tools-grid, .formulas-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+    }
+    .guide-card, .tool-card-new, .formula-card {
+        padding: 22px !important;
+        border-radius: 20px !important;
+    }
+    .guide-card h3, .tool-card-new h3, .formula-card h3 {
+        font-size: 1.3rem !important;
+    }
+    .guide-card p, .tool-card-new p, .f-desc {
+        font-size: 0.9rem !important;
+    }
+    .formula-math-box {
+        padding: 16px !important;
+        font-size: 1.15rem !important;
+        margin: 16px 0 !important;
+    }
+
+    /* 5. Modaller ve İçerik Optimizasyonu */
+    .modal-overlay {
+        padding: 16px !important;
+    }
+    .modal-content {
+        max-width: 100% !important;
+        max-height: 92vh !important;
+        border-radius: 20px !important;
+    }
+    .modal-custom-pad {
+        padding: 28px 20px !important;
+    }
+    .close-btn {
+        top: 16px !important;
+        right: 16px !important;
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 1.2rem !important;
+    }
+    .modal-title {
+        font-size: 1.8rem !important;
+    }
+    .about-box {
+        padding: 16px 18px !important;
+    }
+    
+    /* Tema Modalı Grid Düzeni (2 Kolon) */
+    .theme-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+        margin-top: 20px !important;
+    }
+    .theme-card {
+        padding: 16px 12px !important;
+        gap: 10px !important;
+    }
+    .theme-palette-preview {
+        width: 42px !important;
+        height: 42px !important;
+    }
+
+    /* Diğer Modal İçerikleri (Formüller, Veri Türleri vb.) */
+    .modal-sticky-header {
+        padding: 20px !important;
+        border-radius: 20px 20px 0 0 !important;
+    }
+    .modal-body-scroll {
+        padding: 20px !important;
+    }
+    .formula-item {
+        padding: 20px !important;
+        margin-bottom: 24px !important;
+        border-radius: 16px !important;
+    }
+    .formula-item h3 {
+        font-size: 1.35rem !important;
+    }
+    .formula-math {
+        font-size: 1.1rem !important;
+        padding: 14px !important;
+        margin: 16px 0 !important;
+    }
+    .f-label {
+        width: 120px !important;
+        font-size: 0.95rem !important;
+    }
+    .f-section {
+        font-size: 0.95rem !important;
+    }
+
+    /* Veri Türleri & Veri Setleri Modalları */
+    .dt-modal {
+        padding: 20px !important;
+    }
+    .dt-node {
+        padding: 18px !important;
+        gap: 12px !important;
+    }
+    .dt-node strong {
+        font-size: 1.25rem !important;
+    }
+    .dt-icon, .dst-icon {
+        font-size: 2rem !important;
+    }
+    .dt-leaf {
+        padding: 18px !important;
+    }
+    .dst-card {
+        padding: 20px !important;
+        gap: 14px !important;
+    }
+    .dst-header strong {
+        font-size: 1.15rem !important;
+    }
+    .dst-detail-grid > div, .dst-panel-type {
+        padding: 16px !important;
+    }
+
+    /* Grafikler Modalı */
+    .chart-cat-title {
+        font-size: 1.2rem !important;
+        padding: 12px 16px !important;
+    }
+    .chart-card {
+        border-radius: 16px !important;
+    }
+    .chart-preview {
+        height: 90px !important;
+    }
+    .chart-info {
+        padding: 16px !important;
+    }
+    .chart-info strong {
+        font-size: 1.05rem !important;
+    }
+    .chart-guide-item {
+        padding: 16px !important;
+    }
+}
+
+/* 480px Altı (Ekstra Küçük Ekranlar) */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem !important;
+    }
+    .section-title {
+        font-size: 1.5rem !important;
+    }
+    .modal-title {
+        font-size: 1.6rem !important;
+    }
+    .theme-grid {
+        grid-template-columns: 1fr !important; /* Çok küçük ekranda tek kolon ama taşma yok */
+    }
+}
