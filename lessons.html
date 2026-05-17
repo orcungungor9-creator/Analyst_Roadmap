@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programlama Dersleri | My Analyst LogBook</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="formulas-page">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('analyst_theme');
+            if (savedTheme && savedTheme !== 'theme-dark') {
+                document.body.classList.add(savedTheme);
+            }
+        })();
+    </script>
+
+    <!-- 1. ÜST BİLGİ ÇUBUĞU (HEADER) -->
+    <header class="site-header glass-header">
+        <div class="header-container">
+            <a href="index.html" class="nav-btn back-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Ana Sayfaya Dön
+            </a>
+
+            <a href="index.html" class="logo gradient-text">My Analyst LogBook</a>
+
+            <div class="desktop-nav" style="display: flex; align-items: center; gap: 12px;">
+                <a href="https://www.kaggle.com/datasets" target="_blank" class="nav-btn external-btn">Kaggle ↗</a>
+                <button class="nav-btn icon-btn" onclick="openModal('theme-modal')" title="Görünüm Ayarları / Tema Seç">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.836-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. HERO & BAŞLIK BÖLÜMÜ -->
+    <section class="formulas-hero">
+        <div class="hero-content">
+            <div class="badge-pill floating-slow">Yazılım &amp; Analitik Araçlar</div>
+            <h1 class="hero-title">Programlama <span class="gradient-text">Dersleri</span></h1>
+            <p class="hero-subtitle">
+                R, Python, SQL ve veri analitiği araçları üzerine uygulamalı dersler, ipuçları ve kod kütüphanesi. Vizyonunuza göre şekillenecek modül altyapısı.
+            </p>
+        </div>
+    </section>
+
+    <!-- 3. ANA İÇERİK -->
+    <main class="formulas-main" style="max-width: 1200px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
+        <div class="glass" style="padding: 64px 48px; border-radius: 28px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 1px solid var(--glass-border); text-align: center;">
+            <div style="font-size: 3rem; margin-bottom: 24px; color: var(--neon-blue);">💻</div>
+            <h2 style="font-family: var(--font-heading); font-size: 2.2rem; margin-bottom: 16px; color: var(--text-main);">Ders İçerikleri Hazırlanıyor</h2>
+            <p style="color: var(--text-muted); font-size: 1.15rem; max-width: 650px; margin: 0 auto 32px auto; line-height: 1.6;">
+                Bu alan, veri analitiği programlama dilleri ve araçlarına dair vizyonunuz doğrultusunda özel olarak tasarlanacaktır. Müfredat, kod blokları ve interaktif araçlar eklenecektir.
+            </p>
+            <div style="display: inline-flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 14px 28px; border-radius: 100px;">
+                <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--neon-green); box-shadow: 0 0 10px var(--neon-green); animation: pulse 2s infinite;"></span>
+                <span style="color: var(--text-main); font-size: 1.05rem; font-weight: 500;">Altyapı Hazır — Tasarım Bekleniyor</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- TEMA SEÇİM PANELİ (MODAL) -->
+    <div id="theme-modal" class="modal-overlay">
+        <div class="modal-content glass" style="max-width: 650px; text-align: left; padding: 48px;">
+            <button class="close-btn" onclick="closeModal('theme-modal')">&times;</button>
+            
+            <div style="display: flex; align-items: center; gap: 18px; margin-bottom: 32px;">
+                <div style="width: 60px; height: 60px; border-radius: 50%; background: rgba(56, 189, 248, 0.15); border: 2px solid var(--neon-blue); display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);">
+                    🎨
+                </div>
+                <div>
+                    <h2 class="modal-title gradient-text" style="margin-bottom: 4px; font-size: 2.2rem;">Görünüm Ayarları</h2>
+                    <span style="color: var(--neon-blue); font-size: 0.95rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">Arayüz Temasını Özelleştirin</span>
+                </div>
+            </div>
+
+            <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 24px;">
+                Çalışma tarzınıza ve zevkinize en uygun renk paletini seçin. Seçiminiz tarayıcınızda kaydedilecek ve tüm sayfalarda geçerli olacaktır.
+            </p>
+
+            <div class="theme-grid">
+                <!-- Tema 1: Fütüristik -->
+                <div class="theme-card active" data-theme="theme-dark" onclick="setTheme('theme-dark'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #38bdf8;">
+                        <span style="background: #090e17;"></span>
+                        <span style="background: #38bdf8;"></span>
+                        <span style="background: #34d399;"></span>
+                    </div>
+                    <strong>Fütüristik</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Koyu &amp; Neon</span>
+                </div>
+
+                <!-- Tema 2: Ocean -->
+                <div class="theme-card" data-theme="theme-ocean" onclick="setTheme('theme-ocean'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #0ea5e9;">
+                        <span style="background: #030f1a;"></span>
+                        <span style="background: #0ea5e9;"></span>
+                        <span style="background: #06b6d4;"></span>
+                    </div>
+                    <strong>Ocean</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Derin Okyanus</span>
+                </div>
+
+                <!-- Tema 3: Sunset -->
+                <div class="theme-card" data-theme="theme-sunset" onclick="setTheme('theme-sunset'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #f43f5e;">
+                        <span style="background: #160b19;"></span>
+                        <span style="background: #f43f5e;"></span>
+                        <span style="background: #fb923c;"></span>
+                    </div>
+                    <strong>Sunset</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Gece Yarısı Moru</span>
+                </div>
+
+                <!-- Tema 4: Emerald -->
+                <div class="theme-card" data-theme="theme-emerald" onclick="setTheme('theme-emerald'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #10b981;">
+                        <span style="background: #051611;"></span>
+                        <span style="background: #10b981;"></span>
+                        <span style="background: #34d399;"></span>
+                    </div>
+                    <strong>Emerald</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Zümrüt Yeşili</span>
+                </div>
+
+                <!-- Tema 5: Cyberpunk -->
+                <div class="theme-card" data-theme="theme-cyberpunk" onclick="setTheme('theme-cyberpunk'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #ec4899;">
+                        <span style="background: #150917;"></span>
+                        <span style="background: #ec4899;"></span>
+                        <span style="background: #eab308;"></span>
+                    </div>
+                    <strong>Cyberpunk</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Neon Gece</span>
+                </div>
+
+                <!-- Tema 6: Amber -->
+                <div class="theme-card" data-theme="theme-amber" onclick="setTheme('theme-amber'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #f59e0b;">
+                        <span style="background: #1c1917;"></span>
+                        <span style="background: #f59e0b;"></span>
+                        <span style="background: #eab308;"></span>
+                    </div>
+                    <strong>Amber</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Altın Gece</span>
+                </div>
+
+                <!-- Tema 7: Aydınlık -->
+                <div class="theme-card" data-theme="theme-light-pure" onclick="setTheme('theme-light-pure'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #0284c7;">
+                        <span style="background: #f8fafc;"></span>
+                        <span style="background: #0284c7;"></span>
+                        <span style="background: #16a34a;"></span>
+                    </div>
+                    <strong>Aydınlık</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Minimalist Beyaz</span>
+                </div>
+
+                <!-- Tema 8: Ilık Krem -->
+                <div class="theme-card" data-theme="theme-light-warm" onclick="setTheme('theme-light-warm'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #d97706;">
+                        <span style="background: #fefce8;"></span>
+                        <span style="background: #d97706;"></span>
+                        <span style="background: #ca8a04;"></span>
+                    </div>
+                    <strong>Ilık Krem</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Açık Amber</span>
+                </div>
+
+                <!-- Tema 9: Sakura Pembesi -->
+                <div class="theme-card" data-theme="theme-pink" onclick="setTheme('theme-pink'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #db2777;">
+                        <span style="background: #fdf2f8;"></span>
+                        <span style="background: #db2777;"></span>
+                        <span style="background: #be185d;"></span>
+                    </div>
+                    <strong>Sakura</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Pembe Düşler</span>
+                </div>
+
+                <!-- Tema 10: Mint -->
+                <div class="theme-card" data-theme="theme-light-emerald" onclick="setTheme('theme-light-emerald'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #059669;">
+                        <span style="background: #ecfdf5;"></span>
+                        <span style="background: #059669;"></span>
+                        <span style="background: #10b981;"></span>
+                    </div>
+                    <strong>Mint</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Açık Zümrüt</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="nav.js"></script>
+    <script src="modal.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analist Günlüğüm | Veri Analisti Merkezi</title>
+    <title>My Analyst LogBook | Veri Analisti Merkezi</title>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Montserrat:wght@700;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css">
@@ -18,997 +18,425 @@
 </head>
 
 <body>
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('analyst_theme');
+            if (savedTheme && savedTheme !== 'theme-dark') {
+                document.body.classList.add(savedTheme);
+            }
+        })();
+    </script>
 
     <!-- 1. ÜST YAPI (HEADER & NAVİGASYON) -->
-    <header>
-        <h1 class="site-title gradient-text">Analist Günlüğüm</h1>
-        <nav class="nav-bar glass" id="main-nav">
-            <button class="nav-btn" onclick="openModal('formulas-modal')">İstatistiksel Formüller</button>
-            <div class="nav-extra" id="nav-extra">
-                <button class="nav-btn" onclick="openModal('datatypes-modal')">Veri Türleri</button>
-                <button class="nav-btn" onclick="openModal('datasets-modal')">Veri Seti Türleri</button>
-                <button class="nav-btn" onclick="openModal('charts-modal')">Grafik Türleri</button>
-                <a href="https://www.kaggle.com/datasets" target="_blank" class="nav-btn">Veri Setleri (Kaggle)</a>
-                <button class="nav-btn" onclick="openModal('about-modal')">Hakkında</button>
-            </div>
-            <button class="nav-dots-btn" id="nav-dots-btn" onclick="toggleNavMenu()" aria-label="Menü">
+    <header class="site-header glass-header">
+        <div class="header-container">
+            <a href="#" class="logo gradient-text">My Analyst LogBook</a>
+            
+            <!-- Masaüstü Navigasyon -->
+            <nav class="desktop-nav" id="desktop-nav">
+                <button class="nav-btn" onclick="window.location.href='formulas.html'">İstatistiksel Formüller</button>
+                <button class="nav-btn" onclick="window.location.href='datatypes.html'">Veri Türleri</button>
+                <button class="nav-btn" onclick="window.location.href='datasets.html'">Veri Seti Türleri</button>
+                <button class="nav-btn" onclick="window.location.href='charts.html'">Grafik Türleri</button>
+                <a href="https://www.kaggle.com/datasets" target="_blank" class="nav-btn external-btn">Kaggle ↗</a>
+                <button class="nav-btn icon-btn" onclick="openModal('about-modal')" title="Hakkında">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+                </button>
+                <button class="nav-btn icon-btn" onclick="openModal('theme-modal')" title="Görünüm Ayarları / Tema Seç">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.836-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+                </button>
+            </nav>
+
+            <!-- Mobil Hamburger Butonu -->
+            <button class="hamburger-btn" id="hamburger-btn" onclick="toggleNavMenu()" aria-label="Menü">
                 <span></span><span></span><span></span>
             </button>
-        </nav>
+        </div>
+
+        <!-- Mobil Açılır Menü -->
+        <div class="mobile-nav-menu glass-mobile" id="mobile-nav-menu">
+            <button class="mobile-nav-item" onclick="window.location.href='formulas.html'">⚡ İstatistiksel Formüller</button>
+            <button class="mobile-nav-item" onclick="window.location.href='datatypes.html'">🏷️ Veri Türleri Rehberi</button>
+            <button class="mobile-nav-item" onclick="window.location.href='datasets.html'">📁 Veri Seti Türleri</button>
+            <button class="mobile-nav-item" onclick="window.location.href='charts.html'">📊 Grafik Türleri Rehberi</button>
+            <a href="https://www.kaggle.com/datasets" target="_blank" class="mobile-nav-item">🌐 Veri Setleri (Kaggle) ↗</a>
+            <button class="mobile-nav-item" onclick="openModal('about-modal')">ℹ️ Hakkında</button>
+            <button class="mobile-nav-item" onclick="openModal('theme-modal')">🎨 Görünüm Ayarları</button>
+        </div>
     </header>
 
-    <!-- 3. ANA SAYFA GÖVDESİ (YAZILIM PROGRAMLARI VİTRİNİ) -->
-    <main>
-        <!-- Araç Kartları (Grid) -->
-        <div class="tool-card glass floating">
-            <div class="card-front" data-logo="r">
-                <h2>R Studio</h2>
-            </div>
-            <div class="card-back">
-                <p>İstatistiksel hesaplama, akademik düzey veri manipülasyonu ve gelişmiş modelleme.</p>
+    <!-- 2. HERO (KAHRAMAN) BÖLÜMÜ -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="badge-pill floating-slow">Analist Günlüğüme Hoş Geldiniz</div>
+            <h1 class="hero-title">Veri Analitiği &amp; <span class="gradient-text">İstatistik Merkezi</span></h1>
+            <p class="hero-subtitle">
+                İstatistiksel formüller, nitel/nicel veri türleri, ekonometrik veri setleri ve görselleştirme rehberini tek bir ekranda, fütüristik bir arayüzle keşfedin.
+            </p>
+            <div class="hero-actions">
+                <button class="btn-hero btn-hero-formulas" onclick="window.location.href='lessons.html'">
+                    <svg class="btn-hero-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                    Programlama Dersleri
+                </button>
+                <button class="btn-hero btn-hero-charts" onclick="window.location.href='quiz.html'">
+                    <svg class="btn-hero-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                    Test Çöz
+                </button>
             </div>
         </div>
+    </section>
 
-        <div class="tool-card glass floating">
-            <div class="card-front" data-logo="python">
-                <h2>Python</h2>
-            </div>
-            <div class="card-back">
-                <p>Makine öğrenmesi, derin öğrenme, web scraping ve genel amaçlı veri bilimi süreçleri.</p>
-            </div>
-        </div>
+    <!-- ANA İÇERİK KAPSAYICISI -->
+    <main class="main-container">
 
-        <div class="tool-card glass floating">
-            <div class="card-front" data-logo="sql">
-                <h2>SQL</h2>
+        <!-- 3. HIZLI REHBER KARTLARI (ÖNE ÇIKAN BİLGİ MERKEZLERİ) -->
+        <section class="section-container">
+            <div class="section-header">
+                <h2 class="section-title"><span class="icon-title">🚀</span> Hızlı Analitik Rehberler</h2>
+                <p class="section-desc">Veri analitiği süreçlerinizde ihtiyaç duyduğunuz tüm teorik ve pratik referanslara anında erişin.</p>
             </div>
-            <div class="card-back">
-                <p>Büyük ilişkisel veritabanlarından hızlı veri çekme, sorgulama ve ilişkilendirme.</p>
-            </div>
-        </div>
 
-        <div class="tool-card glass floating">
-            <div class="card-front" data-logo="excel">
-                <h2>Excel</h2>
-            </div>
-            <div class="card-back">
-                <p>Hızlı veri analizi, pivot tablolar ve günlük temel raporlama işlemleri.</p>
-            </div>
-        </div>
+            <div class="quick-guides-grid">
+                <!-- Rehber 1: Formüller -->
+                <div class="guide-card glass-card" onclick="window.location.href='formulas.html'">
+                    <div class="guide-card-icon blue-glow">⚡</div>
+                    <h3>İstatistiksel Formüller Sözlüğü</h3>
+                    <p>Tüm temel, çıkarımsal ve ekonometrik formüller, KaTeX matematiksel gösterimi ve risk/avantaj analizleriyle.</p>
+                    <span class="guide-link">Formülleri İncele &rarr;</span>
+                </div>
 
-        <div class="tool-card glass floating">
-            <div class="card-front" data-logo="powerbi">
-                <h2>Power BI</h2>
-            </div>
-            <div class="card-back">
-                <p>İnteraktif iş zekası panoları (dashboard) ve dinamik kurumsal veri görselleştirme.</p>
-            </div>
-        </div>
+                <!-- Rehber 2: Veri Türleri -->
+                <div class="guide-card glass-card" onclick="window.location.href='datatypes.html'">
+                    <div class="guide-card-icon purple-glow">🏷️</div>
+                    <h3>Veri Türleri &amp; Ölçüm Ölçekleri</h3>
+                    <p>Nominal, Ordinal, Aralık ve Oran ölçekleri ile Nitel/Nicel veri sınıflandırma rehberi.</p>
+                    <span class="guide-link">Veri Türlerini İncele &rarr;</span>
+                </div>
 
-        <div class="tool-card glass floating">
-            <div class="card-front" data-logo="tableau">
-                <h2>Tableau</h2>
-            </div>
-            <div class="card-back">
-                <p>Gelişmiş veri görselleştirme ve karmaşık veriler için sürükle-bırak analitik yetenekleri.</p>
-            </div>
-        </div>
+                <!-- Rehber 3: Veri Setleri -->
+                <div class="guide-card glass-card" onclick="window.location.href='datasets.html'">
+                    <div class="guide-card-icon yellow-glow">📁</div>
+                    <h3>Veri Seti Türleri &amp; Ekonometri</h3>
+                    <p>Panel veri (Dengeli/Dengesiz), Zaman Serisi, Yatay Kesit ve Havuzlanmış veri modelleme rehberi.</p>
+                    <span class="guide-link">Veri Setlerini İncele &rarr;</span>
+                </div>
 
-        <div class="tool-card glass floating">
-            <div class="card-front" data-logo="spss">
-                <h2>SPSS</h2>
+                <!-- Rehber 4: Grafikler -->
+                <div class="guide-card glass-card" onclick="window.location.href='charts.html'">
+                    <div class="guide-card-icon green-glow">📊</div>
+                    <h3>Grafik Seçim &amp; Görselleştirme</h3>
+                    <p>Hangi veride hangi grafiği kullanmalısınız? Karşılaştırma, dağılım, zaman serisi ve oran grafikleri.</p>
+                    <span class="guide-link">Grafik Rehberini İncele &rarr;</span>
+                </div>
             </div>
-            <div class="card-back">
-                <p>Sosyal bilimler ve anket analizlerinde yaygın kullanılan, arayüz tabanlı istatistiksel yazılım.</p>
-            </div>
-        </div>
+        </section>
 
-        <div class="tool-card glass floating">
-            <div class="card-front" data-logo="stata">
-                <h2>Stata</h2>
+        <!-- 4. YAZILIM PROGRAMLARI VİTRİNİ (YENİLENMİŞ, İÇERİĞİ GÖRÜNEN KARTLAR) -->
+        <section class="section-container">
+            <div class="section-header">
+                <h2 class="section-title"><span class="icon-title">🛠️</span> Popüler Analitik &amp; İş Zekası Araçları</h2>
+                <p class="section-desc">Veri madenciliği, istatistiksel modelleme ve iş zekası süreçlerinde kullanılan endüstri standardı yazılımlar.</p>
             </div>
-            <div class="card-back">
-                <p>Ekonometri ve panel veri analizlerinde güçlü, hem komut hem arayüz tabanlı araç.</p>
-            </div>
-        </div>
 
-        <div class="tool-card glass floating">
-            <div class="card-front" data-logo="eviews">
-                <h2>EViews</h2>
-            </div>
-            <div class="card-back">
-                <p>Zaman serisi analizi ve makroekonomik finansal modellemede endüstri standardı.</p>
-            </div>
-        </div>
+            <div class="tools-grid">
+                <!-- R Studio -->
+                <div class="tool-card-new glass-card" data-tool="r">
+                    <div class="tool-top">
+                        <div class="tool-logo-box"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/r.svg" alt="R Logo" class="tool-svg"></div>
+                        <span class="tool-tag tag-blue">İstatistik &amp; Modelleme</span>
+                    </div>
+                    <h3>R Studio</h3>
+                    <p>İstatistiksel hesaplama, akademik düzey veri manipülasyonu ve gelişmiş ekonometrik modelleme.</p>
+                </div>
 
-        <div class="tool-card glass floating">
-            <div class="card-front" data-logo="gretl">
-                <h2>Gretl</h2>
-            </div>
-            <div class="card-back">
-                <p>Ekonometrik analizler için açık kaynaklı, C ile yazılmış kullanıcı dostu yazılım.</p>
-            </div>
-        </div>
+                <!-- Python -->
+                <div class="tool-card-new glass-card" data-tool="python">
+                    <div class="tool-top">
+                        <div class="tool-logo-box"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/python.svg" alt="Python Logo" class="tool-svg"></div>
+                        <span class="tool-tag tag-yellow">Veri Bilimi &amp; Yapay Zeka</span>
+                    </div>
+                    <h3>Python</h3>
+                    <p>Makine öğrenmesi, derin öğrenme, web scraping ve genel amaçlı veri bilimi süreçleri.</p>
+                </div>
 
-        <div class="tool-card glass floating">
-            <div class="card-front" data-logo="sas">
-                <h2>SAS</h2>
-            </div>
-            <div class="card-back">
-                <p>Büyük ölçekli kurumsal veri yönetimi ve güvenilir, ileri düzey istatistiksel modelleme.</p>
-            </div>
-        </div>
+                <!-- SQL -->
+                <div class="tool-card-new glass-card" data-tool="sql">
+                    <div class="tool-top">
+                        <div class="tool-logo-box"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/postgresql.svg" alt="SQL Logo" class="tool-svg"></div>
+                        <span class="tool-tag tag-blue">Veritabanı</span>
+                    </div>
+                    <h3>SQL</h3>
+                    <p>Büyük ilişkisel veritabanlarından hızlı veri çekme, sorgulama, dönüştürme ve ilişkilendirme.</p>
+                </div>
 
-        <div class="tool-card glass floating">
-            <div class="card-front" data-logo="julia">
-                <h2>Julia</h2>
+                <!-- Excel -->
+                <div class="tool-card-new glass-card" data-tool="excel">
+                    <div class="tool-top">
+                        <div class="tool-logo-box"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/microsoftexcel.svg" alt="Excel Logo" class="tool-svg"></div>
+                        <span class="tool-tag tag-green">Tablo &amp; Raporlama</span>
+                    </div>
+                    <h3>Excel</h3>
+                    <p>Hızlı veri analizi, pivot tablolar ve günlük temel iş raporlama işlemleri.</p>
+                </div>
+
+                <!-- Power BI -->
+                <div class="tool-card-new glass-card" data-tool="powerbi">
+                    <div class="tool-top">
+                        <div class="tool-logo-box"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/powerbi.svg" alt="Power BI Logo" class="tool-svg"></div>
+                        <span class="tool-tag tag-yellow">İş Zekası (BI)</span>
+                    </div>
+                    <h3>Power BI</h3>
+                    <p>İnteraktif iş zekası panoları (dashboard) ve dinamik kurumsal veri görselleştirme.</p>
+                </div>
+
+                <!-- Tableau -->
+                <div class="tool-card-new glass-card" data-tool="tableau">
+                    <div class="tool-top">
+                        <div class="tool-logo-box"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/tableau.svg" alt="Tableau Logo" class="tool-svg"></div>
+                        <span class="tool-tag tag-orange">Görselleştirme</span>
+                    </div>
+                    <h3>Tableau</h3>
+                    <p>Gelişmiş veri görselleştirme ve karmaşık veriler için sürükle-bırak analitik yetenekleri.</p>
+                </div>
+
+                <!-- SPSS -->
+                <div class="tool-card-new glass-card" data-tool="spss">
+                    <div class="tool-top">
+                        <div class="tool-logo-box"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/ibm.svg" alt="SPSS Logo" class="tool-svg"></div>
+                        <span class="tool-tag tag-blue">Sosyal Bilimler</span>
+                    </div>
+                    <h3>SPSS</h3>
+                    <p>Sosyal bilimler ve anket analizlerinde yaygın kullanılan, arayüz tabanlı istatistiksel yazılım.</p>
+                </div>
+
+                <!-- Stata -->
+                <div class="tool-card-new glass-card" data-tool="stata">
+                    <div class="tool-top">
+                        <div class="tool-logo-box"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/plotly.svg" alt="Stata Logo" class="tool-svg"></div>
+                        <span class="tool-tag tag-purple">Ekonometri</span>
+                    </div>
+                    <h3>Stata</h3>
+                    <p>Ekonometri ve panel veri analizlerinde güçlü, hem komut hem arayüz tabanlı endüstri aracı.</p>
+                </div>
+
+                <!-- EViews -->
+                <div class="tool-card-new glass-card" data-tool="eviews">
+                    <div class="tool-top">
+                        <div class="tool-logo-box"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/googleanalytics.svg" alt="EViews Logo" class="tool-svg"></div>
+                        <span class="tool-tag tag-orange">Zaman Serisi</span>
+                    </div>
+                    <h3>EViews</h3>
+                    <p>Zaman serisi analizi ve makroekonomik finansal modellemede endüstri standardı.</p>
+                </div>
+
+                <!-- Gretl -->
+                <div class="tool-card-new glass-card" data-tool="gretl">
+                    <div class="tool-top">
+                        <div class="tool-logo-box"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/gnu.svg" alt="Gretl Logo" class="tool-svg"></div>
+                        <span class="tool-tag tag-red">Açık Kaynak</span>
+                    </div>
+                    <h3>Gretl</h3>
+                    <p>Ekonometrik analizler için açık kaynaklı, C ile yazılmış kullanıcı dostu yazılım.</p>
+                </div>
+
+                <!-- SAS -->
+                <div class="tool-card-new glass-card" data-tool="sas">
+                    <div class="tool-top">
+                        <div class="tool-logo-box"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/databricks.svg" alt="SAS Logo" class="tool-svg"></div>
+                        <span class="tool-tag tag-blue">Kurumsal Analitik</span>
+                    </div>
+                    <h3>SAS</h3>
+                    <p>Büyük ölçekli kurumsal veri yönetimi ve güvenilir, ileri düzey istatistiksel modelleme.</p>
+                </div>
+
+                <!-- Julia -->
+                <div class="tool-card-new glass-card" data-tool="julia">
+                    <div class="tool-top">
+                        <div class="tool-logo-box"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/julia.svg" alt="Julia Logo" class="tool-svg"></div>
+                        <span class="tool-tag tag-purple">Yüksek Performans</span>
+                    </div>
+                    <h3>Julia</h3>
+                    <p>Makine öğrenmesi ve bilimsel modelleme için C hızında yüksek performanslı sayısal hesaplama.</p>
+                </div>
             </div>
-            <div class="card-back">
-                <p>Makine öğrenmesi ve bilimsel modelleme için C hızında yüksek performanslı sayısal hesaplama.</p>
-            </div>
-        </div>
+        </section>
+
     </main>
 
+    <!-- ========================================================
+         MODAL PENCERELERİ (HAKKINDA PANELİ)
+         ======================================================== -->
 
-    <!-- 2. İSTATİSTİKSEL FORMÜLLER PANELİ (MODAL) -->
-    <div id="formulas-modal" class="modal-overlay">
-        <!-- Mevcut glass sınıfına ek olarak özel yapı -->
-        <div class="modal-content glass panel-redesign">
-
-            <!-- STICKY HEADER ALANI -->
-            <div class="modal-sticky-header" id="formula-sticky-header">
-                <div class="sticky-header-top">
-                    <h2 class="modal-title gradient-text" style="border-bottom:none; margin:0; padding:0;">Analitik
-                        Formüller Sözlüğü</h2>
-                    <div style="display:flex; align-items:center; gap:10px; margin-left:auto;">
-                        <!-- Collapse Toggle Butonu -->
-                        <button class="search-toggle-btn" id="search-toggle-btn" onclick="toggleSearchPanel()"
-                            title="Ara/Filtrele">
-                            <svg id="search-toggle-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="18 15 12 9 6 15"></polyline>
-                            </svg>
-                        </button>
-                        <button class="close-btn" style="position:static; transform:none;"
-                            onclick="closeModal('formulas-modal')">&times;</button>
-                    </div>
-                </div>
-
-                <!-- Daraltılabilir Arama + Filtre Alanı -->
-                <div class="search-panel" id="search-panel">
-                    <!-- Arama Çubuğu -->
-                    <div class="search-wrapper">
-                        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        </svg>
-                        <input type="text" id="formula-search" class="search-input"
-                            placeholder="Formül veya açıklama ara...">
-                    </div>
-                    <!-- Kategori Butonları -->
-                    <div class="category-filters">
-                        <button class="filter-btn active" data-filter="all">Tümü</button>
-                        <button class="filter-btn" data-filter="temel">Temel İstatistik</button>
-                        <button class="filter-btn" data-filter="cikarimsal">Çıkarımsal İstatistik</button>
-                        <button class="filter-btn" data-filter="ekonometri">Ekonometri &amp; Regresyon</button>
-                        <button class="filter-btn" data-filter="makine">Makine Öğrenmesi</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SCROLL EDİLEBİLİR FORMÜL LİSTESİ -->
-            <div class="modal-body-scroll" id="formula-list">
-
-                <!-- BURASI DATA.JS TARAFINDAN DİNAMİK OLARAK DOLDURULACAKTIR -->
-
-                <!-- Sonuç bulunamadı mesajı -->
-                <div id="no-results"
-                    style="display: none; text-align: center; padding: 40px; color: var(--text-muted);">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                        style="margin-bottom: 15px; opacity: 0.5;">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <path d="M8 11h6"></path>
-                    </svg>
-                    <h3 style="font-size: 1.2rem; margin-bottom: 10px; color: var(--text-main);">Eşleşen Formül
-                        Bulunamadı</h3>
-                    <p>Lütfen farklı bir arama terimi deneyin veya filtreyi "Tümü" olarak değiştirin.</p>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- VERİ TÜRLERİ PANELİ (MODAL) -->
-    <div id="datatypes-modal" class="modal-overlay">
-        <div class="modal-content glass dt-modal">
-            <button class="close-btn" onclick="closeModal('datatypes-modal')">&times;</button>
-            <h2 class="modal-title gradient-text">Veri Türleri Rehberi</h2>
-            <p class="dt-subtitle">Veriyi doğru sınıflandırmak, doğru analiz yöntemini seçmenin temelidir.</p>
-
-            <!-- ANA AĞAÇ -->
-            <div class="dt-tree">
-
-                <!-- NİTEL -->
-                <div class="dt-branch">
-                    <div class="dt-node dt-node-nitel">
-                        <span class="dt-icon">🏷️</span>
-                        <div>
-                            <strong>Nitel (Kategorik) Veri</strong>
-                            <p>Sayısal olmayan, sınıflandırmaya dayalı verilerdir. Matematiksel işlem uygulanamaz.</p>
-                            <em>Örn: Cinsiyet, Renk, Meslek, Ülke</em>
-                        </div>
-                    </div>
-                    <div class="dt-children">
-                        <div class="dt-leaf dt-leaf-nominal">
-                            <span class="dt-leaf-badge">Nominal</span>
-                            <p>Kategoriler arasında hiçbir sıralama ya da hiyerarşi yoktur. Sadece isim farkı vardır.
-                            </p>
-                            <div class="dt-examples">
-                                <span>🔵 Kan Grubu (A, B, AB, 0)</span>
-                                <span>🔵 Göz Rengi</span>
-                                <span>🔵 Medeni Durum</span>
-                            </div>
-                            <div class="dt-tip">✅ Mod hesaplanabilir &nbsp;|&nbsp; ❌ Aritmetik Ortalama alınamaz</div>
-                        </div>
-                        <div class="dt-leaf dt-leaf-ordinal">
-                            <span class="dt-leaf-badge">Ordinal (Sıralı)</span>
-                            <p>Kategoriler arasında anlamlı bir sıralama vardır, ancak aradaki fark eşit değildir.</p>
-                            <div class="dt-examples">
-                                <span>🟡 Eğitim Seviyesi (İlk → Orta → Lise → Üniversite)</span>
-                                <span>🟡 Likert Ölçeği (Hiç Katılmıyorum → Kesinlikle Katılıyorum)</span>
-                                <span>🟡 Sosyoekonomik Sınıf</span>
-                            </div>
-                            <div class="dt-tip">✅ Medyan & Mod hesaplanabilir &nbsp;|&nbsp; ❌ "1. sınıf ile 2. sınıf
-                                arası fark" eşit değildir</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- NİCEL -->
-                <div class="dt-branch">
-                    <div class="dt-node dt-node-nicel">
-                        <span class="dt-icon">📐</span>
-                        <div>
-                            <strong>Nicel (Sayısal) Veri</strong>
-                            <p>Sayısal değer taşır, matematiksel işlemlere (toplama, çarpma vb.) uygundur.</p>
-                            <em>Örn: Boy, Kilo, Gelir, Sıcaklık, Nüfus</em>
-                        </div>
-                    </div>
-                    <div class="dt-children">
-                        <div class="dt-leaf dt-leaf-discrete">
-                            <span class="dt-leaf-badge">Kesikli (Discrete)</span>
-                            <p>Sayılabilen, tam sayı değerler alır. İki değer arasında boşluk vardır, kesirli olmaz.</p>
-                            <div class="dt-examples">
-                                <span>🔴 Bir sınıftaki öğrenci sayısı (27, 28, 29 — 28.5 olamaz)</span>
-                                <span>🔴 Bir ailedeki çocuk sayısı</span>
-                                <span>🔴 Bir web sitesinin günlük ziyaretçi sayısı</span>
-                                <span>🔴 Atılan zar sonucu (1, 2, 3, 4, 5, 6)</span>
-                            </div>
-                            <div class="dt-tip">✅ Poisson & Binom dağılımlarıyla modellenir &nbsp;|&nbsp; ❌ 2.7 çocuk
-                                olamaz</div>
-                        </div>
-                        <div class="dt-leaf dt-leaf-continuous">
-                            <span class="dt-leaf-badge">Sürekli (Continuous)</span>
-                            <p>İki nokta arasında sonsuz değer alabilir. Ölçüm cihazının hassasiyetiyle sınırlıdır.</p>
-                            <div class="dt-examples">
-                                <span>🟢 Boy (1.7234... metre olabilir)</span>
-                                <span>🟢 Sıcaklık (36.6°C, 36.61°C, 36.612°C...)</span>
-                                <span>🟢 Zaman (süre)</span>
-                                <span>🟢 Hisse Senedi Fiyatı</span>
-                            </div>
-                            <div class="dt-tip">✅ Normal, Üstel, Beta dağılımlarıyla modellenir &nbsp;|&nbsp; ✅ Tüm
-                                istatistiksel işlemlere uygundur</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ÖLÇEK NOTLARI -->
-                <div class="dt-scale-section">
-                    <h3 class="dt-scale-title">📏 Ölçüm Ölçekleri (Measurement Scales)</h3>
-                    <div class="dt-scale-grid">
-                        <div class="dt-scale-card">
-                            <strong>Nominal</strong>
-                            <ul>
-                                <li>Eşitlik/Eşitsizlik karşılaştırması</li>
-                                <li>Sıralama ❌ &nbsp; Fark ❌ &nbsp; Oran ❌</li>
-                                <li><em>Örn: Cinsiyet, Kan Grubu</em></li>
-                            </ul>
-                        </div>
-                        <div class="dt-scale-card">
-                            <strong>Ordinal</strong>
-                            <ul>
-                                <li>Sıralama ✅ &nbsp; Eşit Fark ❌ &nbsp; Oran ❌</li>
-                                <li>Farkların büyüklüğü yorumlanamaz</li>
-                                <li><em>Örn: Likert, Derece</em></li>
-                            </ul>
-                        </div>
-                        <div class="dt-scale-card">
-                            <strong>Aralık (Interval)</strong>
-                            <ul>
-                                <li>Sıralama ✅ &nbsp; Eşit Fark ✅ &nbsp; Oran ❌</li>
-                                <li>Gerçek sıfır noktası yok</li>
-                                <li><em>Örn: Sıcaklık (°C), IQ</em></li>
-                            </ul>
-                        </div>
-                        <div class="dt-scale-card">
-                            <strong>Oran (Ratio)</strong>
-                            <ul>
-                                <li>Sıralama ✅ &nbsp; Fark ✅ &nbsp; Oran ✅</li>
-                                <li>Gerçek sıfır noktası var</li>
-                                <li><em>Örn: Kilo, Boy, Gelir, Yaş</em></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- VERİ SETİ TÜRLERİ PANELİ (MODAL) -->
-    <div id="datasets-modal" class="modal-overlay">
-        <div class="modal-content glass dt-modal">
-            <button class="close-btn" onclick="closeModal('datasets-modal')">&times;</button>
-            <h2 class="modal-title gradient-text">Veri Seti Türleri Rehberi</h2>
-            <p class="dt-subtitle">Doğru veri yapısını tanımak, doğru ekonometrik/istatistiksel modeli seçmenin ön
-                koşuludur.</p>
-
-            <div class="dt-tree">
-
-                <!-- PANEL VERİ (1. sıra) -->
-                <div class="dst-card dst-panel">
-                    <div class="dst-header">
-                        <span class="dst-icon">📁</span>
-                        <div>
-                            <strong>Panel Veri (Panel / Longitudinal Data)</strong>
-                            <span class="dst-badge dst-badge-star">⭐ En Güçlü</span>
-                        </div>
-                    </div>
-                    <p>Hem birden fazla birim hem de birden fazla zaman boyutunu aynı anda içeren verilerdir. Kesitsel
-                        ve zaman serisi verinin birleşimidir.</p>
-                    <div class="dst-panel-types">
-                        <div class="dst-panel-type">
-                            <strong>Dengeli Panel (Balanced)</strong>
-                            <p>Tüm birimler için eksiksiz zaman gözlemleri mevcuttur.</p>
-                            <em>Örn: 30 ülke × 20 yıl = 600 gözlem (tamam)</em>
-                        </div>
-                        <div class="dst-panel-type">
-                            <strong>Dengesiz Panel (Unbalanced)</strong>
-                            <p>Bazı birimler için eksik gözlemler vardır. Gerçek hayatta daha yaygındır.</p>
-                            <em>Örn: Bir yıl iflas eden firma verisi eksik kalabilir</em>
-                        </div>
-                    </div>
-                    <div class="dst-detail-grid">
-                        <div>
-                            <h4>Yapı &amp; Özellik</h4>
-                            <ul>
-                                <li>N birim, T zaman dilimi</li>
-                                <li>Sabit Etkiler (FE) modeli</li>
-                                <li>Rassal Etkiler (RE) modeli</li>
-                                <li>Hausman Testi ile seçim</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4>Kullanılan Modeller</h4>
-                            <ul>
-                                <li>Sabit Etkiler (Within)</li>
-                                <li>Rassal Etkiler (GLS)</li>
-                                <li>Diferans-Diferans (DiD)</li>
-                                <li>Dinamik Panel (GMM)</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4>Gerçek Dünya Örnekleri</h4>
-                            <ul>
-                                <li>Dünya Bankası ülke-yıl verisi</li>
-                                <li>Firma-dönem muhasebe paneli</li>
-                                <li>Bireylerin yıllık gelir takibi</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="dt-tip">✅ En güçlü yapı: Hem birey-özgü gizli değişkenleri (sabit etkiyle) kontrol eder
-                        hem de zamana bağlı değişimleri (zaman etkisiyle) yakalar.</div>
-                </div>
-
-                <!-- ZAMAN SERİSİ (2. sıra) -->
-                <div class="dst-card dst-time">
-                    <div class="dst-header">
-                        <span class="dst-icon">📈</span>
-                        <div>
-                            <strong>Zaman Serisi (Time Series Data)</strong>
-                            <span class="dst-badge">Tek Birim — Çok Zaman</span>
-                        </div>
-                    </div>
-                    <p><strong>Tek bir birim</strong> hakkında <strong>birden fazla zaman noktasında</strong> sıralı
-                        şekilde toplanan verilerdir. Sıra önemlidir.</p>
-                    <div class="dst-detail-grid">
-                        <div>
-                            <h4>Yapı &amp; Özellik</h4>
-                            <ul>
-                                <li>1 birim, T zaman dilimi</li>
-                                <li>Gecişmilik (Autocorrelation) sorunu</li>
-                                <li>Birim kök (Durgunluk) testi şart</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4>Kullanılan Modeller</h4>
-                            <ul>
-                                <li>ARIMA / SARIMA</li>
-                                <li>VAR (Vektör Oto-Regresyon)</li>
-                                <li>GARCH (Oynaklık)</li>
-                                <li>Eşbutkın Analiz (VECM)</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4>Gerçek Dünya Örnekleri</h4>
-                            <ul>
-                                <li>Aylık enflasyon serisi</li>
-                                <li>Günlük hisse senedi fiyatları</li>
-                                <li>Yıllık GSYİH büyimesi</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="dt-tip">⚠️ Dikkat: Durağan olmayan (non-stationary) serilerde regresyon kurmak Sahte
-                        Regresyon (Spurious Regression) tehlikesi doğurur. Her zaman ADF/PP testi uygulayın.</div>
-                </div>
-
-                <!-- KESİTSEL VERİ (3. sıra) -->
-                <div class="dst-card dst-cross">
-                    <div class="dst-header">
-                        <span class="dst-icon">📊</span>
-                        <div>
-                            <strong>Kesitsel Veri (Cross-Sectional Data)</strong>
-                            <span class="dst-badge">Tek An — Çok Birim</span>
-                        </div>
-                    </div>
-                    <p>Birden fazla birim (birey, şirket, ülke...) hakkında <strong>tek bir zaman noktasında</strong>
-                        toplanan verilerdir. Zaman boyutu yoktur.</p>
-                    <div class="dst-detail-grid">
-                        <div>
-                            <h4>Yapı &amp; Özellik</h4>
-                            <ul>
-                                <li>N birim, 1 zaman dilimi</li>
-                                <li>Bireyler arası karşılaştırma</li>
-                                <li>Sebep-sonuç çıkarımı kısıtlıdır</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4>Kullanılan Modeller</h4>
-                            <ul>
-                                <li>OLS Regresyon</li>
-                                <li>Lojistik Regresyon</li>
-                                <li>Probit / Tobit</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4>Gerçek Dünya Örnekleri</h4>
-                            <ul>
-                                <li>2023 yılı nüfus sayımı</li>
-                                <li>Tek seferlik anket</li>
-                                <li>Yıllık ülke ekonomi raporu</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="dt-tip">⚠️ Dikkat: Gizli değişken sorunu (Omitted Variable Bias) çok sık görülür.
-                        Nedensellik iddia etmek için dikkatli olmak gerekir.</div>
-                </div>
-
-                <!-- HAVUZLANMIŞ VERİ -->
-                <div class="dst-card dst-pooled">
-                    <div class="dst-header">
-                        <span class="dst-icon">🔄</span>
-                        <div>
-                            <strong>Havuzlanmış Veri (Pooled Data)</strong>
-                            <span class="dst-badge dst-badge-pooled">Panel Türevi</span>
-                        </div>
-                    </div>
-                    <p>Panel verinin birim &amp; zaman ayrımı <strong>yapılmadan</strong> tek bir yığın olarak ele
-                        alındığı halidir. Heterojenliği göz ardı eder.</p>
-                    <div class="dst-detail-grid">
-                        <div>
-                            <h4>Yapı &amp; Özellik</h4>
-                            <ul>
-                                <li>N×T gözlem, ayrım yok</li>
-                                <li>Bireysel farklılıklar maskelenir</li>
-                                <li>Hata terimleri bağımsız sayılır</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4>Kullanılan Modeller</h4>
-                            <ul>
-                                <li>Pooled OLS</li>
-                                <li>Pooled Probit / Logit</li>
-                                <li>Kümeleme (Clustered SE)</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4>Ne Zaman Kullanılır?</h4>
-                            <ul>
-                                <li>Sabit etkinin anlamlı olmadığı durumlar</li>
-                                <li>Hızlı ilk analiz aşaması</li>
-                                <li>Çok kısa panel (T küçük)</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="dt-tip">⚠️ Risk: Bireysel farklılıklar yok sayıldığında tahminler yanlı (biased) ve
-                        tutarsız (inconsistent) olabilir. Hausman testi ile FE/RE kıyaslaması yapın.</div>
-                </div>
-
-                <!-- TSCS -->
-                <div class="dst-card dst-tscs">
-                    <div class="dst-header">
-                        <span class="dst-icon">🔀</span>
-                        <div>
-                            <strong>Yatay Kesit Zaman Serisi (TSCS)</strong>
-                            <span class="dst-badge dst-badge-tscs">T &gt;&gt; N</span>
-                        </div>
-                    </div>
-                    <p>Panel veriye çok benzer; ancak <strong>zaman boyutu birim sayısından çok daha uzun</strong>
-                        olduğunda kullanılır. Karşılaştırmalı politika analizinde yaygındır.</p>
-                    <div class="dst-detail-grid">
-                        <div>
-                            <h4>Yapı &amp; Özellik</h4>
-                            <ul>
-                                <li>T &gt;&gt; N (Örn: 5 ülke, 100 yıl)</li>
-                                <li>Zaman bağımlılığı ön planda</li>
-                                <li>Otokorelasyon kritik sorun</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4>Kullanılan Modeller</h4>
-                            <ul>
-                                <li>PCSE (Panel Corrected SE)</li>
-                                <li>FGLS (Feasible GLS)</li>
-                                <li>Prais-Winsten</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4>Gerçek Dünya Örnekleri</h4>
-                            <ul>
-                                <li>Az ülke, uzun dönem tarihsel veri</li>
-                                <li>Karşılaştırmalı siyaset bilimi</li>
-                                <li>Uzun dönem ekonomik tarih analizi</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="dt-tip">✅ Beck &amp; Katz (1995) PCSE yöntemi: TSCS verilerinde standart hataların
-                        düzeltilmesi için akademik standarttır.</div>
-                </div>
-
-                <!-- BOYLAMSAL -->
-                <div class="dst-card dst-long">
-                    <div class="dst-header">
-                        <span class="dst-icon">📝</span>
-                        <div>
-                            <strong>Boylamsal Veri (Longitudinal)</strong>
-                            <span class="dst-badge dst-badge-long">Tıp &amp; Sosyal Bilim</span>
-                        </div>
-                    </div>
-                    <p>Panel verinin <strong>tıbbi ve sosyal bilimler</strong> versiyonudur. Aynı bireylerin
-                        <strong>uzun yıllar boyunca</strong> takip edildiği kohört çalışmalarını kapsar.
-                    </p>
-                    <div class="dst-detail-grid">
-                        <div>
-                            <h4>Yapı &amp; Özellik</h4>
-                            <ul>
-                                <li>Aynı bireyler, uzun süre takip</li>
-                                <li>Kayıp veri (attrition) sorunu</li>
-                                <li>Yaşam olayları önemli</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4>Kullanılan Modeller</h4>
-                            <ul>
-                                <li>Karma Etkiler (Mixed Effects)</li>
-                                <li>Büyüme Eğrisi Modeli</li>
-                                <li>Hayatta Kalma Analizi</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4>Gerçek Dünya Örnekleri</h4>
-                            <ul>
-                                <li>Sağlık kohört takip çalışması</li>
-                                <li>Doğumdan yetişkinliğe eğitim takibi</li>
-                                <li>Kronik hastalık uzun dönem izlemi</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="dt-tip">⚠️ Seçici Kayıp (Selective Attrition): Çalışmadan ayrılan bireyler rastgele
-                        değilse (Örn: sağlıksızlar erken ayrılırsa) sonuçlar yanlı olur.</div>
-                </div>
-
-                <!-- UZAMSAL -->
-                <div class="dst-card dst-spatial">
-                    <div class="dst-header">
-                        <span class="dst-icon">🌐</span>
-                        <div>
-                            <strong>Uzamsal Veri (Spatial Data)</strong>
-                            <span class="dst-badge dst-badge-spatial">Coğrafi Konum</span>
-                        </div>
-                    </div>
-                    <p>Her gözlemin <strong>coğrafi konum bilgisi</strong> (enlem, boylam, bölge) taşıdığı verilerdir.
-                        Komşu birimler birbirini etkiler.</p>
-                    <div class="dst-detail-grid">
-                        <div>
-                            <h4>Yapı &amp; Özellik</h4>
-                            <ul>
-                                <li>Moran's I ile uzamsal otokorelasyon</li>
-                                <li>Komşuluk matrisi (W) kritik</li>
-                                <li>Mesafe ağırlıklı bağımlılık</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4>Kullanılan Modeller</h4>
-                            <ul>
-                                <li>Uzamsal Lag Modeli (SAR)</li>
-                                <li>Uzamsal Hata Modeli (SEM)</li>
-                                <li>Kriging / GWR</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4>Gerçek Dünya Örnekleri</h4>
-                            <ul>
-                                <li>İl bazında suç yoğunluğu haritası</li>
-                                <li>Bölgesel ekonomik büyüme kümeleri</li>
-                                <li>Salgın hastalık yayılma analizi</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="dt-tip">✅ Tobler'ın 1. Coğrafya Yasası: "Her şey her şeyle ilgilidir; ama yakın şeyler
-                        uzak şeylerden daha fazla ilgilidir."</div>
-                </div>
-
-                <!-- METİN -->
-                <div class="dst-card dst-text">
-                    <div class="dst-header">
-                        <span class="dst-icon">💬</span>
-                        <div>
-                            <strong>Metin &amp; NLP Verisi (Text)</strong>
-                            <span class="dst-badge dst-badge-text">Yapılandırılmamış</span>
-                        </div>
-                    </div>
-                    <p><strong>Yapılandırılmamış</strong> ham metinlerdir. Sayısal analize açmak için ön işleme ve
-                        vektörleştirme zorunludur.</p>
-                    <div class="dst-detail-grid">
-                        <div>
-                            <h4>Yapı &amp; Özellik</h4>
-                            <ul>
-                                <li>Tokenizasyon, Stop-word temizliği</li>
-                                <li>Yüksek boyutlu özellik uzayı</li>
-                                <li>Bağlam ve anlam bağımlılığı</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4>Kullanılan Yöntemler</h4>
-                            <ul>
-                                <li>TF-IDF, Bag of Words</li>
-                                <li>Word2Vec / GloVe (Embedding)</li>
-                                <li>BERT / GPT (Transformer)</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4>Gerçek Dünya Örnekleri</h4>
-                            <ul>
-                                <li>Sosyal medya duygu analizi</li>
-                                <li>Haber makalesi sınıflandırma</li>
-                                <li>Müşteri yorum analizi (NPS)</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="dt-tip">✅ BERT ve GPT gibi transformer modeller, bağlamı çift yönlü öğrenerek NLP
-                        görevlerinde insanüstü başarı elde etmiştir.</div>
-                </div>
-
-                <!-- STREAMING -->
-                <div class="dst-card dst-stream">
-                    <div class="dst-header">
-                        <span class="dst-icon">🛠️</span>
-                        <div>
-                            <strong>Akış Verisi (Streaming Data)</strong>
-                            <span class="dst-badge dst-badge-stream">Gerçek Zamanlı</span>
-                        </div>
-                    </div>
-                    <p>Sürekli ve sonsuz akan, <strong>gerçek zamanlı</strong> işlenmesi gereken verilerdir. IoT
-                        sensörlerinden sosyal medya akışına kadar her alanda görülür.</p>
-                    <div class="dst-detail-grid">
-                        <div>
-                            <h4>Yapı &amp; Özellik</h4>
-                            <ul>
-                                <li>Sonsuz, sıralı veri akışı</li>
-                                <li>Gecikmesiz (low-latency) işleme</li>
-                                <li>Windowing (pencere) tekniği</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4>Kullanılan Araçlar</h4>
-                            <ul>
-                                <li>Apache Kafka</li>
-                                <li>Spark Streaming</li>
-                                <li>Flink / Kinesis</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4>Gerçek Dünya Örnekleri</h4>
-                            <ul>
-                                <li>Borsa tick verisi (ms bazında)</li>
-                                <li>IoT sensör alarmları</li>
-                                <li>Gerçek zamanlı dolandırıcılık tespiti</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="dt-tip">✅ Lambda Mimarisi: Gerçek zamanlı (speed layer) ile toplu işleme (batch layer)
-                        katmanlarını birleştirerek hem hız hem doğruluk sağlar.</div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- GRAFİK TÜRLERİ PANELİ (MODAL) -->
-    <div id="charts-modal" class="modal-overlay">
-        <div class="modal-content glass dt-modal">
-            <button class="close-btn" onclick="closeModal('charts-modal')">&times;</button>
-            <h2 class="modal-title gradient-text">Grafik Türleri Rehberi</h2>
-            <p class="dt-subtitle">Doğru grafik seçimi, verinin anlatısını güçlendirir; yanlış seçim okuyucuyu yanıltır.
-            </p>
-
-            <!-- KATEGORİ: KARŞILAŞTIRMA -->
-            <div class="chart-section">
-                <h3 class="chart-cat-title"><span class="chart-cat-icon">📊</span> Karşılaştırma Grafikleri</h3>
-                <div class="chart-grid">
-                    <div class="chart-card">
-                        <div class="chart-preview bar-preview"></div>
-                        <div class="chart-info">
-                            <strong>Bar / Sütun Grafiği</strong>
-                            <p>Kategoriler arasındaki farklılıkları gösterir. Yatay bar uzun etiketler için daha
-                                okunaklıdır.</p>
-                            <div class="chart-tags"><span>✅ Kategorik</span><span>✅ Nitel/Nicel</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Birkaç kategorinin değerlerini kıyaslarken
-                            </div>
-                        </div>
-                    </div>
-                    <div class="chart-card">
-                        <div class="chart-preview grouped-bar-preview"></div>
-                        <div class="chart-info">
-                            <strong>Gruplu / Yığılmış Bar</strong>
-                            <p>Birden fazla grubu aynı anda karşılaştırır. Yığılmış bar toplamı da gösterir.</p>
-                            <div class="chart-tags"><span>✅ Zaman/Grup</span><span>✅ Oransal</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Çoklu kategori karşılaştırması</div>
-                        </div>
-                    </div>
-                    <div class="chart-card">
-                        <div class="chart-preview radar-preview"></div>
-                        <div class="chart-info">
-                            <strong>Radar (Spider) Grafiği</strong>
-                            <p>Çok boyutlu verileri tek bir görselde karşılaştırır. Performans değerlendirmesinde
-                                idealdir.</p>
-                            <div class="chart-tags"><span>✅ Çok değişken</span><span>✅ Skor</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Birden fazla birimi çok metrikte kıyaslarken
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- KATEGORİ: DAĞILIM -->
-            <div class="chart-section">
-                <h3 class="chart-cat-title"><span class="chart-cat-icon">🔵</span> Dağılım Grafikleri</h3>
-                <div class="chart-grid">
-                    <div class="chart-card">
-                        <div class="chart-preview hist-preview"></div>
-                        <div class="chart-info">
-                            <strong>Histogram</strong>
-                            <p>Sürekli değişkenin frekans dağılımını gösterir. Dağılımın şekli (normal, çarpık)
-                                anlaşılır.</p>
-                            <div class="chart-tags"><span>✅ Sürekli</span><span>✅ Dağılım</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Verinin dağılımını keşfetmek için</div>
-                        </div>
-                    </div>
-                    <div class="chart-card">
-                        <div class="chart-preview box-preview"></div>
-                        <div class="chart-info">
-                            <strong>Kutu Grafiği (Box Plot)</strong>
-                            <p>Medyan, çeyrekler, aşırı değerleri tek görselde özetler. Gruplar arası dağılım
-                                karşılaştırmasında üstlandır.</p>
-                            <div class="chart-tags"><span>✅ Robust</span><span>✅ Aykırı</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Grupların dağılımını kıyaslarken</div>
-                        </div>
-                    </div>
-                    <div class="chart-card">
-                        <div class="chart-preview scatter-preview"></div>
-                        <div class="chart-info">
-                            <strong>Saçılım Grafiği (Scatter Plot)</strong>
-                            <p>İki değişken arasındaki ilişkiyi ve korelasyonu gösterir. Regresyon hattı eklenebilir.
-                            </p>
-                            <div class="chart-tags"><span>✅ Korelasyon</span><span>✅ Sürekli×Sürekli</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> İki değişken arasındaki bağı keşfetmek için
-                            </div>
-                        </div>
-                    </div>
-                    <div class="chart-card">
-                        <div class="chart-preview violin-preview"></div>
-                        <div class="chart-info">
-                            <strong>Violin Grafiği</strong>
-                            <p>Box plot + yoğunluk tahmini (KDE). Dağılımın biçimini ve yoğunluğunu birlikte gösterir.
-                            </p>
-                            <div class="chart-tags"><span>✅ Dağılım</span><span>✅ KDE</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Dağılım biçimini ayrıntılı görmek için</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- KATEGORİ: ZAMAN SERİSİ -->
-            <div class="chart-section">
-                <h3 class="chart-cat-title"><span class="chart-cat-icon">📈</span> Zaman Serisi Grafikleri</h3>
-                <div class="chart-grid">
-                    <div class="chart-card">
-                        <div class="chart-preview line-preview"></div>
-                        <div class="chart-info">
-                            <strong>Çizgi Grafiği (Line Chart)</strong>
-                            <p>Zaman içindeki eğilimi gösterir. Seri başına tek değer olmalıdır.</p>
-                            <div class="chart-tags"><span>✅ Trend</span><span>✅ Zaman</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Değişimin sürekliliği önemliyken</div>
-                        </div>
-                    </div>
-                    <div class="chart-card">
-                        <div class="chart-preview area-preview"></div>
-                        <div class="chart-info">
-                            <strong>Alan Grafiği (Area Chart)</strong>
-                            <p>Çizgi grafiğine alt alan dolgusu eklenerek hacim vurgulanmış halidir.</p>
-                            <div class="chart-tags"><span>✅ Hacim</span><span>✅ Birikim</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Miktar birikimini vurgulamak için</div>
-                        </div>
-                    </div>
-                    <div class="chart-card">
-                        <div class="chart-preview candlestick-preview"></div>
-                        <div class="chart-info">
-                            <strong>Mum Grafiği (Candlestick)</strong>
-                            <p>Finansal varlukların Açılış-Yüksek-Düşük-Kapanış değerlerini gösterir.</p>
-                            <div class="chart-tags"><span>✅ Finans</span><span>✅ OHLC</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Hisse/döviz analizi</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- KATEGORİ: ORAN/PARÇA -->
-            <div class="chart-section">
-                <h3 class="chart-cat-title"><span class="chart-cat-icon">🥧</span> Oran ve Bütün Grafikleri</h3>
-                <div class="chart-grid">
-                    <div class="chart-card">
-                        <div class="chart-preview pie-preview"></div>
-                        <div class="chart-info">
-                            <strong>Pasta Grafiği (Pie Chart)</strong>
-                            <p>Bütünün parçalarını gösterir. En fazla 5–6 kategori için kullanın; fazlası okumayı
-                                zorlaştırır.</p>
-                            <div class="chart-tags"><span>✅ Oran</span><span>⚠️ Max 6 kategori</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Pazar payı, bütçe dağılımı</div>
-                        </div>
-                    </div>
-                    <div class="chart-card">
-                        <div class="chart-preview donut-preview"></div>
-                        <div class="chart-info">
-                            <strong>Halka Grafiği (Donut)</strong>
-                            <p>Pasta grafiğinin ortası boş versiyonu; merkeze toplam veya ek bilgi yazılabilir.</p>
-                            <div class="chart-tags"><span>✅ Oran</span><span>✅ Modern</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Pasta’dan estetik ama aynı amaç</div>
-                        </div>
-                    </div>
-                    <div class="chart-card">
-                        <div class="chart-preview treemap-preview"></div>
-                        <div class="chart-info">
-                            <strong>Treemap (Ağaç Haritası)</strong>
-                            <p>Hiyerarşik verileri iç içe dikdörtgenlerle gösterir. Büyüklük değer orantılıdır.</p>
-                            <div class="chart-tags"><span>✅ Hiyerarşi</span><span>✅ Boyut</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Dosya boyutları, portföy dağılımı</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- KATEGORİ: İLİŞKİ / DİĞER -->
-            <div class="chart-section">
-                <h3 class="chart-cat-title"><span class="chart-cat-icon">🔗</span> İlişki ve Diğer Grafik Türleri</h3>
-                <div class="chart-grid">
-                    <div class="chart-card">
-                        <div class="chart-preview heatmap-preview"></div>
-                        <div class="chart-info">
-                            <strong>Isı Haritası (Heatmap)</strong>
-                            <p>Matris yapısındaki değerleri renk yoğunluğuyla gösterir. Korelasyon matrislerinde sık
-                                kullanılır.</p>
-                            <div class="chart-tags"><span>✅ Korelasyon</span><span>✅ Matris</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Değişkenler arası ilişki örgüsü</div>
-                        </div>
-                    </div>
-                    <div class="chart-card">
-                        <div class="chart-preview bubble-preview"></div>
-                        <div class="chart-info">
-                            <strong>Balon Grafiği (Bubble Chart)</strong>
-                            <p>Scatter’a 3. boyut ekler: X, Y koordinatına ek olarak balonun büyüklüğü 3. değişkeni
-                                ifade eder.</p>
-                            <div class="chart-tags"><span>✅ 3 Değişken</span><span>✅ Boyut</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Ülke/şirket 3 metrik kıyaslaması</div>
-                        </div>
-                    </div>
-                    <div class="chart-card">
-                        <div class="chart-preview sankey-preview"></div>
-                        <div class="chart-info">
-                            <strong>Sankey / Akış Diyagramı</strong>
-                            <p>Akış miktarlarını gösterir. Bağlantı genişliği değerle orantılıdır.</p>
-                            <div class="chart-tags"><span>✅ Akış</span><span>✅ Kaynak-Hedef</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Enerji, para, trafik akışları</div>
-                        </div>
-                    </div>
-                    <div class="chart-card">
-                        <div class="chart-preview funnel-preview"></div>
-                        <div class="chart-info">
-                            <strong>Huni Grafiği (Funnel)</strong>
-                            <p>Aşamalar arası dönüşüm oranını gösterir. Her aşamada kayıp ne kadar?</p>
-                            <div class="chart-tags"><span>✅ Satış</span><span>✅ Dönüşüm</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Satış/pazarlama hunu analizi</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- HANGI GRAFİĞİ SEÇMELİYİM? -->
-            <div class="chart-guide">
-                <h3 class="dt-scale-title">🧠 Hangi Grafiği Seçmeliyim?</h3>
-                <div class="chart-guide-grid">
-                    <div class="chart-guide-item">
-                        <span>📊 Kategoriler karşılaştırıyorum</span>
-                        <strong>→ Bar Grafiği</strong>
-                    </div>
-                    <div class="chart-guide-item">
-                        <span>⏱️ Zaman içindeki değişimi gösteriyorum</span>
-                        <strong>→ Çizgi / Alan Grafiği</strong>
-                    </div>
-                    <div class="chart-guide-item">
-                        <span>🔍 İki değişken arası ilişkiyi araştırıyorum</span>
-                        <strong>→ Saçılım / Isı Haritası</strong>
-                    </div>
-                    <div class="chart-guide-item">
-                        <span>🥧 Oranı / payı gösteriyorum</span>
-                        <strong>→ Halka / Treemap</strong>
-                    </div>
-                    <div class="chart-guide-item">
-                        <span>📆 Dağılım biçimini anıyorum</span>
-                        <strong>→ Histogram / Violin</strong>
-                    </div>
-                    <div class="chart-guide-item">
-                        <span>💹 Finansal veri analiz ediyorum</span>
-                        <strong>→ Mum (Candlestick)</strong>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- HAKKINDA PANELİ (MODAL) -->
+    <!-- 5. HAKKINDA PANELİ (MODAL) -->
     <div id="about-modal" class="modal-overlay">
-        <div class="modal-content glass" style="max-width: 600px; text-align: center;">
+        <div class="modal-content glass" style="max-width: 650px; text-align: left; padding: 48px;">
             <button class="close-btn" onclick="closeModal('about-modal')">&times;</button>
-            <h2 class="modal-title gradient-text">Hakkında</h2>
-            <p style="font-size: 1.1rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 20px;">
-                <strong>Data Hub</strong>, veri analistleri, istatistikçiler ve veri bilimine ilgi duyan herkes için
-                temel araçları ve istatistiksel metodolojileri tek bir çatı altında toplayan interaktif bir
-                merkezdir.
-            </p>
-            <p style="font-size: 1rem; color: var(--text-main);">
-                Gelişmiş <em>Glassmorphism</em> ve <em>Antigravity</em> tasarım dilleri kullanılarak
-                gözü yormayan, fütüristik bir kullanıcı deneyimi sunmak amacıyla tasarlanmıştır.
-            </p>
+            
+            <div style="display: flex; align-items: center; gap: 18px; margin-bottom: 32px;">
+                <div style="width: 60px; height: 60px; border-radius: 50%; background: rgba(56, 189, 248, 0.15); border: 2px solid var(--neon-blue); display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);">
+                    👋
+                </div>
+                <div>
+                    <h2 class="modal-title gradient-text" style="margin-bottom: 4px; font-size: 2.2rem;">Hakkımda</h2>
+                    <span style="color: var(--neon-blue); font-size: 0.95rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">Seyir Defterime Hoş Geldiniz</span>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 20px; font-size: 1.08rem; line-height: 1.7; color: var(--text-main);">
+                <p style="color: var(--text-muted); font-size: 1.15rem; font-weight: 500; border-left: 3px solid var(--neon-green); padding-left: 16px; margin-bottom: 4px;">
+                    Öncelikle sayfama geldiğiniz için teşekkür ederim.
+                </p>
+                
+                <p>
+                    Ben <strong style="color: var(--neon-blue); font-weight: 700;">Orçun</strong>. <strong style="color: #fff;">My Analyst LogBook</strong>, istatistik ve ekonometri dünyasına dair kavramları bir araya getirdiğim, veri analistlerinin kullandığı programlama dillerini ve araçları tanıttığım kapsamlı bir dijital arşivdir.
+                </p>
+
+                <p style="background: rgba(255, 255, 255, 0.03); padding: 22px 26px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: inset 0 2px 10px rgba(0,0,0,0.2);">
+                    Karmaşık teorilerden analitik araçlara kadar birçok konuyu, sıkıcı akademik dilden uzaklaşarak <em style="color: var(--neon-green); font-style: normal; font-weight: 700;">"kendi penceremden"</em> not düşüyorum. Amacım hem kendi gelişim sürecimi bu seyir defterinde arşivlemek hem de veri dünyasına adım atan veya bu alanda çalışan diğer insanlarla bilgi dolu, ortak bir zemin yaratmak.
+                </p>
+
+                <p style="color: var(--text-muted); font-size: 1.05rem; margin-top: 12px; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 24px;">
+                    Umarım bu sayfalarda kendi analiz serüveniniz için faydalı bir şeyler bulursunuz.
+                </p>
+            </div>
         </div>
     </div>
 
-    <script src="data.js"></script>
+    <!-- TEMA SEÇİM PANELİ (MODAL) -->
+    <div id="theme-modal" class="modal-overlay">
+        <div class="modal-content glass" style="max-width: 650px; text-align: left; padding: 48px;">
+            <button class="close-btn" onclick="closeModal('theme-modal')">&times;</button>
+            
+            <div style="display: flex; align-items: center; gap: 18px; margin-bottom: 32px;">
+                <div style="width: 60px; height: 60px; border-radius: 50%; background: rgba(56, 189, 248, 0.15); border: 2px solid var(--neon-blue); display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);">
+                    🎨
+                </div>
+                <div>
+                    <h2 class="modal-title gradient-text" style="margin-bottom: 4px; font-size: 2.2rem;">Görünüm Ayarları</h2>
+                    <span style="color: var(--neon-blue); font-size: 0.95rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">Arayüz Temasını Özelleştirin</span>
+                </div>
+            </div>
+
+            <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 24px;">
+                Çalışma tarzınıza ve zevkinize en uygun renk paletini seçin. Seçiminiz tarayıcınızda kaydedilecek ve tüm sayfalarda geçerli olacaktır.
+            </p>
+
+            <div class="theme-grid">
+                <!-- Tema 1: Fütüristik -->
+                <div class="theme-card active" data-theme="theme-dark" onclick="setTheme('theme-dark'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #38bdf8;">
+                        <span style="background: #090e17;"></span>
+                        <span style="background: #38bdf8;"></span>
+                        <span style="background: #34d399;"></span>
+                    </div>
+                    <strong>Fütüristik</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Koyu &amp; Neon</span>
+                </div>
+
+                <!-- Tema 2: Ocean -->
+                <div class="theme-card" data-theme="theme-ocean" onclick="setTheme('theme-ocean'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #0ea5e9;">
+                        <span style="background: #030f1a;"></span>
+                        <span style="background: #0ea5e9;"></span>
+                        <span style="background: #06b6d4;"></span>
+                    </div>
+                    <strong>Ocean</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Derin Okyanus</span>
+                </div>
+
+                <!-- Tema 3: Sunset -->
+                <div class="theme-card" data-theme="theme-sunset" onclick="setTheme('theme-sunset'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #f43f5e;">
+                        <span style="background: #160b19;"></span>
+                        <span style="background: #f43f5e;"></span>
+                        <span style="background: #fb923c;"></span>
+                    </div>
+                    <strong>Sunset</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Gece Yarısı Moru</span>
+                </div>
+
+                <!-- Tema 4: Emerald -->
+                <div class="theme-card" data-theme="theme-emerald" onclick="setTheme('theme-emerald'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #10b981;">
+                        <span style="background: #051611;"></span>
+                        <span style="background: #10b981;"></span>
+                        <span style="background: #34d399;"></span>
+                    </div>
+                    <strong>Emerald</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Zümrüt Yeşili</span>
+                </div>
+
+                <!-- Tema 5: Cyberpunk -->
+                <div class="theme-card" data-theme="theme-cyberpunk" onclick="setTheme('theme-cyberpunk'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #ec4899;">
+                        <span style="background: #150917;"></span>
+                        <span style="background: #ec4899;"></span>
+                        <span style="background: #eab308;"></span>
+                    </div>
+                    <strong>Cyberpunk</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Neon Gece</span>
+                </div>
+
+                <!-- Tema 6: Amber -->
+                <div class="theme-card" data-theme="theme-amber" onclick="setTheme('theme-amber'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #f59e0b;">
+                        <span style="background: #1c1917;"></span>
+                        <span style="background: #f59e0b;"></span>
+                        <span style="background: #eab308;"></span>
+                    </div>
+                    <strong>Amber</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Altın Gece</span>
+                </div>
+
+                <!-- Tema 7: Aydınlık -->
+                <div class="theme-card" data-theme="theme-light-pure" onclick="setTheme('theme-light-pure'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #0284c7;">
+                        <span style="background: #f8fafc;"></span>
+                        <span style="background: #0284c7;"></span>
+                        <span style="background: #16a34a;"></span>
+                    </div>
+                    <strong>Aydınlık</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Minimalist Beyaz</span>
+                </div>
+
+                <!-- Tema 8: Ilık Krem -->
+                <div class="theme-card" data-theme="theme-light-warm" onclick="setTheme('theme-light-warm'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #d97706;">
+                        <span style="background: #fefce8;"></span>
+                        <span style="background: #d97706;"></span>
+                        <span style="background: #ca8a04;"></span>
+                    </div>
+                    <strong>Ilık Krem</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Açık Amber</span>
+                </div>
+
+                <!-- Tema 9: Sakura Pembesi -->
+                <div class="theme-card" data-theme="theme-pink" onclick="setTheme('theme-pink'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #db2777;">
+                        <span style="background: #fdf2f8;"></span>
+                        <span style="background: #db2777;"></span>
+                        <span style="background: #be185d;"></span>
+                    </div>
+                    <strong>Sakura</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Pembe Düşler</span>
+                </div>
+
+                <!-- Tema 10: Mint -->
+                <div class="theme-card" data-theme="theme-light-emerald" onclick="setTheme('theme-light-emerald'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #059669;">
+                        <span style="background: #ecfdf5;"></span>
+                        <span style="background: #059669;"></span>
+                        <span style="background: #10b981;"></span>
+                    </div>
+                    <strong>Mint</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Açık Zümrüt</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="nav.js"></script>
+    <script src="modal.js"></script>
     <script src="script.js"></script>
 </body>
 

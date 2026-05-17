@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veri Seti Türleri & Ekonometri Rehberi | My Analyst LogBook</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+</head>
+
+<body class="formulas-page">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('analyst_theme');
+            if (savedTheme && savedTheme !== 'theme-dark') {
+                document.body.classList.add(savedTheme);
+            }
+        })();
+    </script>
+
+    <!-- 1. ÜST BİLGİ ÇUBUĞU (HEADER) -->
+    <header class="site-header glass-header">
+        <div class="header-container">
+            <a href="index.html" class="nav-btn back-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Ana Sayfaya Dön
+            </a>
+
+            <a href="index.html" class="logo gradient-text">My Analyst LogBook</a>
+
+            <div class="desktop-nav" style="display: flex; align-items: center; gap: 12px;">
+                <a href="https://www.kaggle.com/datasets" target="_blank" class="nav-btn external-btn">Kaggle ↗</a>
+                <button class="nav-btn icon-btn" onclick="openModal('theme-modal')" title="Görünüm Ayarları / Tema Seç">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.836-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. HERO & BAŞLIK BÖLÜMÜ -->
+    <section class="formulas-hero">
+        <div class="hero-content">
+            <div class="badge-pill floating-slow">Ekonometri & Modelleme Hub'ı</div>
+            <h1 class="hero-title">Veri Seti Türleri &amp; <span class="gradient-text">Ekonometri Rehberi</span></h1>
+            <p class="hero-subtitle">
+                Doğru veri yapısını tanımak, doğru ekonometrik ve istatistiksel modeli seçmenin ön koşuludur. Panel veri, zaman serisi ve kesitsel modelleri inceleyin.
+            </p>
+        </div>
+    </section>
+
+    <!-- 3. ANA İÇERİK -->
+    <main class="formulas-main" style="max-width: 1200px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
+        <div class="glass" style="padding: 48px; border-radius: 28px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 1px solid var(--glass-border);">
+            
+            <div class="dt-tree">
+
+                <!-- PANEL VERİ -->
+                <div class="dst-card dst-panel">
+                    <div class="dst-header">
+                        <span class="dst-icon">📁</span>
+                        <div>
+                            <strong>Panel Veri (Panel / Longitudinal Data)</strong>
+                            <span class="dst-badge dst-badge-star">⭐ En Güçlü</span>
+                        </div>
+                    </div>
+                    <p>Hem birden fazla birim hem de birden fazla zaman boyutunu aynı anda içeren verilerdir. Kesitsel ve zaman serisi verinin birleşimidir.</p>
+                    <div class="dst-panel-types">
+                        <div class="dst-panel-type">
+                            <strong>Dengeli Panel (Balanced)</strong>
+                            <p>Tüm birimler için eksiksiz zaman gözlemleri mevcuttur.</p>
+                            <em>Örn: 30 ülke × 20 yıl = 600 gözlem (tamam)</em>
+                        </div>
+                        <div class="dst-panel-type">
+                            <strong>Dengesiz Panel (Unbalanced)</strong>
+                            <p>Bazı birimler için eksik gözlemler vardır. Gerçek hayatta daha yaygındır.</p>
+                            <em>Örn: Bir yıl iflas eden firma verisi eksik kalabilir</em>
+                        </div>
+                    </div>
+                    <div class="dst-detail-grid">
+                        <div>
+                            <h4>Yapı &amp; Özellik</h4>
+                            <ul>
+                                <li>N birim, T zaman dilimi</li>
+                                <li>Sabit Etkiler (FE) modeli</li>
+                                <li>Rassal Etkiler (RE) modeli</li>
+                                <li>Hausman Testi ile seçim</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Kullanılan Modeller</h4>
+                            <ul>
+                                <li>Sabit Etkiler (Within)</li>
+                                <li>Rassal Etkiler (GLS)</li>
+                                <li>Diferans-Diferans (DiD)</li>
+                                <li>Dinamik Panel (GMM)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Gerçek Dünya Örnekleri</h4>
+                            <ul>
+                                <li>Dünya Bankası ülke-yıl verisi</li>
+                                <li>Firma-dönem muhasebe paneli</li>
+                                <li>Bireylerin yıllık gelir takibi</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="dt-tip">✅ En güçlü yapı: Hem birey-özgü gizli değişkenleri (sabit etkiyle) kontrol eder hem de zamana bağlı değişimleri (zaman etkisiyle) yakalar.</div>
+                </div>
+
+                <!-- ZAMAN SERİSİ -->
+                <div class="dst-card dst-time">
+                    <div class="dst-header">
+                        <span class="dst-icon">📈</span>
+                        <div>
+                            <strong>Zaman Serisi (Time Series Data)</strong>
+                            <span class="dst-badge">Tek Birim — Çok Zaman</span>
+                        </div>
+                    </div>
+                    <p><strong>Tek bir birim</strong> hakkında <strong>birden fazla zaman noktasında</strong> sıralı şekilde toplanan verilerdir. Sıra önemlidir.</p>
+                    <div class="dst-detail-grid">
+                        <div>
+                            <h4>Yapı &amp; Özellik</h4>
+                            <ul>
+                                <li>1 birim, T zaman dilimi</li>
+                                <li>Otokorelasyon sorunu</li>
+                                <li>Birim kök (Durgunluk) testi şart</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Kullanılan Modeller</h4>
+                            <ul>
+                                <li>ARIMA / SARIMA</li>
+                                <li>VAR (Vektör Oto-Regresyon)</li>
+                                <li>GARCH (Oynaklık)</li>
+                                <li>Eşbütünleşme Analizi (VECM)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Gerçek Dünya Örnekleri</h4>
+                            <ul>
+                                <li>Aylık enflasyon serisi</li>
+                                <li>Günlük hisse senedi fiyatları</li>
+                                <li>Yıllık GSYİH büyümesi</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="dt-tip">⚠️ Dikkat: Durağan olmayan (non-stationary) serilerde regresyon kurmak Sahte Regresyon (Spurious Regression) tehlikesi doğurur. Her zaman ADF/PP testi uygulayın.</div>
+                </div>
+
+                <!-- KESİTSEL VERİ -->
+                <div class="dst-card dst-cross">
+                    <div class="dst-header">
+                        <span class="dst-icon">📊</span>
+                        <div>
+                            <strong>Kesitsel Veri (Cross-Sectional Data)</strong>
+                            <span class="dst-badge">Tek An — Çok Birim</span>
+                        </div>
+                    </div>
+                    <p>Birden fazla birim (birey, şirket, ülke...) hakkında <strong>tek bir zaman noktasında</strong> toplanan verilerdir. Zaman boyutu yoktur.</p>
+                    <div class="dst-detail-grid">
+                        <div>
+                            <h4>Yapı &amp; Özellik</h4>
+                            <ul>
+                                <li>N birim, 1 zaman dilimi</li>
+                                <li>Bireyler arası karşılaştırma</li>
+                                <li>Sebep-sonuç çıkarımı kısıtlıdır</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Kullanılan Modeller</h4>
+                            <ul>
+                                <li>OLS Regresyon</li>
+                                <li>Lojistik Regresyon</li>
+                                <li>Probit / Tobit</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Gerçek Dünya Örnekleri</h4>
+                            <ul>
+                                <li>2023 yılı nüfus sayımı</li>
+                                <li>Tek seferlik anket</li>
+                                <li>Yıllık ülke ekonomi raporu</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="dt-tip">⚠️ Dikkat: Gizli değişken sorunu (Omitted Variable Bias) çok sık görülür. Nedensellik iddia etmek için dikkatli olmak gerekir.</div>
+                </div>
+
+                <!-- HAVUZLANMIŞ VERİ -->
+                <div class="dst-card dst-pooled">
+                    <div class="dst-header">
+                        <span class="dst-icon">🔄</span>
+                        <div>
+                            <strong>Havuzlanmış Veri (Pooled Data)</strong>
+                            <span class="dst-badge dst-badge-pooled">Panel Türevi</span>
+                        </div>
+                    </div>
+                    <p>Panel verinin birim &amp; zaman ayrımı <strong>yapılmadan</strong> tek bir yığın olarak ele alındığı halidir. Heterojenliği göz ardı eder.</p>
+                    <div class="dst-detail-grid">
+                        <div>
+                            <h4>Yapı &amp; Özellik</h4>
+                            <ul>
+                                <li>N×T gözlem, ayrım yok</li>
+                                <li>Bireysel farklılıklar maskelenir</li>
+                                <li>Hata terimleri bağımsız sayılır</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Kullanılan Modeller</h4>
+                            <ul>
+                                <li>Pooled OLS</li>
+                                <li>Pooled Probit / Logit</li>
+                                <li>Kümeleme (Clustered SE)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Ne Zaman Kullanılır?</h4>
+                            <ul>
+                                <li>Sabit etkinin anlamlı olmadığı durumlar</li>
+                                <li>Hızlı ilk analiz aşaması</li>
+                                <li>Çok kısa panel (T küçük)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="dt-tip">⚠️ Risk: Bireysel farklılıklar yok sayıldığında tahminler yanlı (biased) ve tutarsız (inconsistent) olabilir. Hausman testi ile FE/RE kıyaslaması yapın.</div>
+                </div>
+
+                <!-- TSCS -->
+                <div class="dst-card dst-tscs">
+                    <div class="dst-header">
+                        <span class="dst-icon">🔀</span>
+                        <div>
+                            <strong>Yatay Kesit Zaman Serisi (TSCS)</strong>
+                            <span class="dst-badge dst-badge-tscs">T &gt;&gt; N</span>
+                        </div>
+                    </div>
+                    <p>Panel veriye çok benzer; ancak <strong>zaman boyutu birim sayısından çok daha uzun</strong> olduğunda kullanılır. Karşılaştırmalı politika analizinde yaygındır.</p>
+                    <div class="dst-detail-grid">
+                        <div>
+                            <h4>Yapı &amp; Özellik</h4>
+                            <ul>
+                                <li>T &gt;&gt; N (Örn: 5 ülke, 100 yıl)</li>
+                                <li>Zaman bağımlılığı ön planda</li>
+                                <li>Otokorelasyon kritik sorun</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Kullanılan Modeller</h4>
+                            <ul>
+                                <li>PCSE (Panel Corrected SE)</li>
+                                <li>FGLS (Feasible GLS)</li>
+                                <li>Prais-Winsten</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Gerçek Dünya Örnekleri</h4>
+                            <ul>
+                                <li>Az ülke, uzun dönem tarihsel veri</li>
+                                <li>Karşılaştırmalı siyaset bilimi</li>
+                                <li>Uzun dönem ekonomik tarih analizi</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="dt-tip">✅ Beck &amp; Katz (1995) PCSE yöntemi: TSCS verilerinde standart hataların düzeltilmesi için akademik standarttır.</div>
+                </div>
+
+                <!-- BOYLAMSAL -->
+                <div class="dst-card dst-long">
+                    <div class="dst-header">
+                        <span class="dst-icon">📝</span>
+                        <div>
+                            <strong>Boylamsal Veri (Longitudinal)</strong>
+                            <span class="dst-badge dst-badge-long">Tıp &amp; Sosyal Bilim</span>
+                        </div>
+                    </div>
+                    <p>Panel verinin <strong>tıbbi ve sosyal bilimler</strong> versiyonudur. Aynı bireylerin <strong>uzun yıllar boyunca</strong> takip edildiği kohört çalışmalarını kapsar.</p>
+                    <div class="dst-detail-grid">
+                        <div>
+                            <h4>Yapı &amp; Özellik</h4>
+                            <ul>
+                                <li>Aynı bireyler, uzun süre takip</li>
+                                <li>Kayıp veri (attrition) sorunu</li>
+                                <li>Yaşam olayları önemli</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Kullanılan Modeller</h4>
+                            <ul>
+                                <li>Karma Etkiler (Mixed Effects)</li>
+                                <li>Büyüme Eğrisi Modeli</li>
+                                <li>Hayatta Kalma Analizi</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Gerçek Dünya Örnekleri</h4>
+                            <ul>
+                                <li>Sağlık kohört takip çalışması</li>
+                                <li>Doğumdan yetişkinliğe eğitim takibi</li>
+                                <li>Kronik hastalık uzun dönem izlemi</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="dt-tip">⚠️ Seçici Kayıp (Selective Attrition): Çalışmadan ayrılan bireyler rastgele değilse sonuçlar yanlı olur.</div>
+                </div>
+
+                <!-- UZAMSAL -->
+                <div class="dst-card dst-spatial">
+                    <div class="dst-header">
+                        <span class="dst-icon">🌐</span>
+                        <div>
+                            <strong>Uzamsal Veri (Spatial Data)</strong>
+                            <span class="dst-badge dst-badge-spatial">Coğrafi Konum</span>
+                        </div>
+                    </div>
+                    <p>Her gözlemin <strong>coğrafi konum bilgisi</strong> (enlem, boylam, bölge) taşıdığı verilerdir. Komşu birimler birbirini etkiler.</p>
+                    <div class="dst-detail-grid">
+                        <div>
+                            <h4>Yapı &amp; Özellik</h4>
+                            <ul>
+                                <li>Moran's I ile uzamsal otokorelasyon</li>
+                                <li>Komşuluk matrisi (W) kritik</li>
+                                <li>Mesafe ağırlıklı bağımlılık</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Kullanılan Modeller</h4>
+                            <ul>
+                                <li>Uzamsal Lag Modeli (SAR)</li>
+                                <li>Uzamsal Hata Modeli (SEM)</li>
+                                <li>Kriging / GWR</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Gerçek Dünya Örnekleri</h4>
+                            <ul>
+                                <li>İl bazında suç yoğunluğu haritası</li>
+                                <li>Bölgesel ekonomik büyüme Haritası</li>
+                                <li>Salgın hastalık yayılma analizi</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="dt-tip">✅ Tobler'ın 1. Coğrafya Yasası: "Her şey her şeyle ilgilidir; ama yakın şeyler uzak şeylerden daha fazla ilgilidir."</div>
+                </div>
+
+                <!-- METİN -->
+                <div class="dst-card dst-text">
+                    <div class="dst-header">
+                        <span class="dst-icon">💬</span>
+                        <div>
+                            <strong>Metin &amp; NLP Verisi (Text)</strong>
+                            <span class="dst-badge dst-badge-text">Yapılandırılmamış</span>
+                        </div>
+                    </div>
+                    <p><strong>Yapılandırılmamış</strong> ham metinlerdir. Sayısal analize açmak için ön işleme ve vektörleştirme zorunludur.</p>
+                    <div class="dst-detail-grid">
+                        <div>
+                            <h4>Yapı &amp; Özellik</h4>
+                            <ul>
+                                <li>Tokenizasyon, Stop-word temizliği</li>
+                                <li>Yüksek boyutlu özellik uzayı</li>
+                                <li>Bağlam ve anlam bağımlılığı</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Kullanılan Yöntemler</h4>
+                            <ul>
+                                <li>TF-IDF, Bag of Words</li>
+                                <li>Word2Vec / GloVe (Embedding)</li>
+                                <li>BERT / GPT (Transformer)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Gerçek Dünya Örnekleri</h4>
+                            <ul>
+                                <li>Sosyal medya duygu analizi</li>
+                                <li>Haber makalesi sınıflandırma</li>
+                                <li>Müşteri yorum analizi (NPS)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="dt-tip">✅ BERT ve GPT gibi transformer modeller, bağlamı çift yönlü öğrenerek NLP görevlerinde insanüstü başarı elde etmiştir.</div>
+                </div>
+
+                <!-- STREAMING -->
+                <div class="dst-card dst-stream">
+                    <div class="dst-header">
+                        <span class="dst-icon">🛠️</span>
+                        <div>
+                            <strong>Akış Verisi (Streaming Data)</strong>
+                            <span class="dst-badge dst-badge-stream">Gerçek Zamanlı</span>
+                        </div>
+                    </div>
+                    <p>Sürekli ve sonsuz akan, <strong>gerçek zamanlı</strong> işlenmesi gereken verilerdir. IoT sensörlerinden sosyal medya akışına kadar her alanda görülür.</p>
+                    <div class="dst-detail-grid">
+                        <div>
+                            <h4>Yapı &amp; Özellik</h4>
+                            <ul>
+                                <li>Sonsuz, sıralı veri akışı</li>
+                                <li>Gecikmesiz (low-latency) işleme</li>
+                                <li>Windowing (pencere) tekniği</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Kullanılan Araçlar</h4>
+                            <ul>
+                                <li>Apache Kafka</li>
+                                <li>Spark Streaming</li>
+                                <li>Flink / Kinesis</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Gerçek Dünya Örnekleri</h4>
+                            <ul>
+                                <li>Borsa tick verisi (ms bazında)</li>
+                                <li>IoT sensör alarmları</li>
+                                <li>Gerçek zamanlı dolandırıcılık tespiti</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="dt-tip">✅ Lambda Mimarisi: Gerçek zamanlı (speed layer) ile toplu işleme (batch layer) katmanlarını birleştirerek hem hız hem doğruluk sağlar.</div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- TEMA SEÇİM PANELİ (MODAL) -->
+    <div id="theme-modal" class="modal-overlay">
+        <div class="modal-content glass" style="max-width: 650px; text-align: left; padding: 48px;">
+            <button class="close-btn" onclick="closeModal('theme-modal')">&times;</button>
+            
+            <div style="display: flex; align-items: center; gap: 18px; margin-bottom: 32px;">
+                <div style="width: 60px; height: 60px; border-radius: 50%; background: rgba(56, 189, 248, 0.15); border: 2px solid var(--neon-blue); display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);">
+                    🎨
+                </div>
+                <div>
+                    <h2 class="modal-title gradient-text" style="margin-bottom: 4px; font-size: 2.2rem;">Görünüm Ayarları</h2>
+                    <span style="color: var(--neon-blue); font-size: 0.95rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">Arayüz Temasını Özelleştirin</span>
+                </div>
+            </div>
+
+            <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 24px;">
+                Çalışma tarzınıza ve zevkinize en uygun renk paletini seçin. Seçiminiz tarayıcınızda kaydedilecek ve tüm sayfalarda geçerli olacaktır.
+            </p>
+
+            <div class="theme-grid">
+                <!-- Tema 1: Fütüristik -->
+                <div class="theme-card active" data-theme="theme-dark" onclick="setTheme('theme-dark'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #38bdf8;">
+                        <span style="background: #090e17;"></span>
+                        <span style="background: #38bdf8;"></span>
+                        <span style="background: #34d399;"></span>
+                    </div>
+                    <strong>Fütüristik</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Koyu &amp; Neon</span>
+                </div>
+
+                <!-- Tema 2: Ocean -->
+                <div class="theme-card" data-theme="theme-ocean" onclick="setTheme('theme-ocean'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #0ea5e9;">
+                        <span style="background: #030f1a;"></span>
+                        <span style="background: #0ea5e9;"></span>
+                        <span style="background: #06b6d4;"></span>
+                    </div>
+                    <strong>Ocean</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Derin Okyanus</span>
+                </div>
+
+                <!-- Tema 3: Sunset -->
+                <div class="theme-card" data-theme="theme-sunset" onclick="setTheme('theme-sunset'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #f43f5e;">
+                        <span style="background: #160b19;"></span>
+                        <span style="background: #f43f5e;"></span>
+                        <span style="background: #fb923c;"></span>
+                    </div>
+                    <strong>Sunset</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Gece Yarısı Moru</span>
+                </div>
+
+                <!-- Tema 4: Emerald -->
+                <div class="theme-card" data-theme="theme-emerald" onclick="setTheme('theme-emerald'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #10b981;">
+                        <span style="background: #051611;"></span>
+                        <span style="background: #10b981;"></span>
+                        <span style="background: #34d399;"></span>
+                    </div>
+                    <strong>Emerald</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Zümrüt Yeşili</span>
+                </div>
+
+                <!-- Tema 5: Cyberpunk -->
+                <div class="theme-card" data-theme="theme-cyberpunk" onclick="setTheme('theme-cyberpunk'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #ec4899;">
+                        <span style="background: #150917;"></span>
+                        <span style="background: #ec4899;"></span>
+                        <span style="background: #eab308;"></span>
+                    </div>
+                    <strong>Cyberpunk</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Neon Gece</span>
+                </div>
+
+                <!-- Tema 6: Amber -->
+                <div class="theme-card" data-theme="theme-amber" onclick="setTheme('theme-amber'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #f59e0b;">
+                        <span style="background: #1c1917;"></span>
+                        <span style="background: #f59e0b;"></span>
+                        <span style="background: #eab308;"></span>
+                    </div>
+                    <strong>Amber</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Altın Gece</span>
+                </div>
+
+                <!-- Tema 7: Aydınlık -->
+                <div class="theme-card" data-theme="theme-light-pure" onclick="setTheme('theme-light-pure'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #0284c7;">
+                        <span style="background: #f8fafc;"></span>
+                        <span style="background: #0284c7;"></span>
+                        <span style="background: #16a34a;"></span>
+                    </div>
+                    <strong>Aydınlık</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Minimalist Beyaz</span>
+                </div>
+
+                <!-- Tema 8: Ilık Krem -->
+                <div class="theme-card" data-theme="theme-light-warm" onclick="setTheme('theme-light-warm'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #d97706;">
+                        <span style="background: #fefce8;"></span>
+                        <span style="background: #d97706;"></span>
+                        <span style="background: #ca8a04;"></span>
+                    </div>
+                    <strong>Ilık Krem</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Açık Amber</span>
+                </div>
+
+                <!-- Tema 9: Sakura Pembesi -->
+                <div class="theme-card" data-theme="theme-pink" onclick="setTheme('theme-pink'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #db2777;">
+                        <span style="background: #fdf2f8;"></span>
+                        <span style="background: #db2777;"></span>
+                        <span style="background: #be185d;"></span>
+                    </div>
+                    <strong>Sakura</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Pembe Düşler</span>
+                </div>
+
+                <!-- Tema 10: Mint -->
+                <div class="theme-card" data-theme="theme-light-emerald" onclick="setTheme('theme-light-emerald'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #059669;">
+                        <span style="background: #ecfdf5;"></span>
+                        <span style="background: #059669;"></span>
+                        <span style="background: #10b981;"></span>
+                    </div>
+                    <strong>Mint</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Açık Zümrüt</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="nav.js"></script>
+    <script src="modal.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '\\(', right: '\\)', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

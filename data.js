@@ -474,3 +474,5 @@ const formulasData = [
         bad: "Milyonlarca satırlık veri setlerinde çalışması inanılmaz yavaştır ve çok fazla RAM harcar."
     }
 ];
+
+window.formulasData = formulasData;

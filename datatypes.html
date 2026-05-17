@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veri Türleri & Ölçüm Ölçekleri Rehberi | My Analyst LogBook</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="formulas-page">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('analyst_theme');
+            if (savedTheme && savedTheme !== 'theme-dark') {
+                document.body.classList.add(savedTheme);
+            }
+        })();
+    </script>
+
+    <!-- 1. ÜST BİLGİ ÇUBUĞU (HEADER) -->
+    <header class="site-header glass-header">
+        <div class="header-container">
+            <a href="index.html" class="nav-btn back-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Ana Sayfaya Dön
+            </a>
+
+            <a href="index.html" class="logo gradient-text">My Analyst LogBook</a>
+
+            <div class="desktop-nav" style="display: flex; align-items: center; gap: 12px;">
+                <a href="https://www.kaggle.com/datasets" target="_blank" class="nav-btn external-btn">Kaggle ↗</a>
+                <button class="nav-btn icon-btn" onclick="openModal('theme-modal')" title="Görünüm Ayarları / Tema Seç">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.836-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. HERO & BAŞLIK BÖLÜMÜ -->
+    <section class="formulas-hero">
+        <div class="hero-content">
+            <div class="badge-pill floating-slow">Kavramsal Temel Hub'ı</div>
+            <h1 class="hero-title">Veri Türleri &amp; <span class="gradient-text">Ölçüm Ölçekleri Rehberi</span></h1>
+            <p class="hero-subtitle">
+                Veriyi doğru sınıflandırmak, doğru analiz yöntemini ve ekonometrik modeli seçmenin temelidir. Nitel ve nicel veri yapılarını detaylıca keşfedin.
+            </p>
+        </div>
+    </section>
+
+    <!-- 3. ANA İÇERİK -->
+    <main class="formulas-main" style="max-width: 1200px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
+        <div class="glass" style="padding: 48px; border-radius: 28px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 1px solid var(--glass-border);">
+            
+            <!-- ANA AĞAÇ -->
+            <div class="dt-tree">
+
+                <!-- NİTEL -->
+                <div class="dt-branch">
+                    <div class="dt-node dt-node-nitel">
+                        <span class="dt-icon">🏷️</span>
+                        <div>
+                            <strong>Nitel (Kategorik) Veri</strong>
+                            <p>Sayısal olmayan, sınıflandırmaya dayalı verilerdir. Matematiksel işlem uygulanamaz.</p>
+                            <em>Örn: Cinsiyet, Renk, Meslek, Ülke</em>
+                        </div>
+                    </div>
+                    <div class="dt-children">
+                        <div class="dt-leaf dt-leaf-nominal">
+                            <span class="dt-leaf-badge">Nominal</span>
+                            <p>Kategoriler arasında hiçbir sıralama ya da hiyerarşi yoktur. Sadece isim farkı vardır.</p>
+                            <div class="dt-examples">
+                                <span>🔵 Kan Grubu (A, B, AB, 0)</span>
+                                <span>🔵 Göz Rengi</span>
+                                <span>🔵 Medeni Durum</span>
+                            </div>
+                            <div class="dt-tip">✅ Mod hesaplanabilir &nbsp;|&nbsp; ❌ Aritmetik Ortalama alınamaz</div>
+                        </div>
+                        <div class="dt-leaf dt-leaf-ordinal">
+                            <span class="dt-leaf-badge">Ordinal (Sıralı)</span>
+                            <p>Kategoriler arasında anlamlı bir sıralama vardır, ancak aradaki fark eşit değildir.</p>
+                            <div class="dt-examples">
+                                <span>🟡 Eğitim Seviyesi (İlk → Orta → Lise → Üniversite)</span>
+                                <span>🟡 Likert Ölçeği (Hiç Katılmıyorum → Kesinlikle Katılıyorum)</span>
+                                <span>🟡 Sosyoekonomik Sınıf</span>
+                            </div>
+                            <div class="dt-tip">✅ Medyan &amp; Mod hesaplanabilir &nbsp;|&nbsp; ❌ Farklar eşit değildir</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NİCEL -->
+                <div class="dt-branch">
+                    <div class="dt-node dt-node-nicel">
+                        <span class="dt-icon">📐</span>
+                        <div>
+                            <strong>Nicel (Sayısal) Veri</strong>
+                            <p>Sayısal değer taşır, matematiksel işlemlere (toplama, çarpma vb.) uygundur.</p>
+                            <em>Örn: Boy, Kilo, Gelir, Sıcaklık, Nüfus</em>
+                        </div>
+                    </div>
+                    <div class="dt-children">
+                        <div class="dt-leaf dt-leaf-discrete">
+                            <span class="dt-leaf-badge">Kesikli (Discrete)</span>
+                            <p>Sayılabilen, tam sayı değerler alır. İki değer arasında boşluk vardır, kesirli olmaz.</p>
+                            <div class="dt-examples">
+                                <span>🔴 Bir sınıftaki öğrenci sayısı (27, 28, 29 — 28.5 olamaz)</span>
+                                <span>🔴 Bir ailedeki çocuk sayısı</span>
+                                <span>🔴 Bir web sitesinin günlük ziyaretçi sayısı</span>
+                                <span>🔴 Atılan zar sonucu (1, 2, 3, 4, 5, 6)</span>
+                            </div>
+                            <div class="dt-tip">✅ Poisson &amp; Binom dağılımlarıyla modellenir &nbsp;|&nbsp; ❌ Kesirli olamaz</div>
+                        </div>
+                        <div class="dt-leaf dt-leaf-continuous">
+                            <span class="dt-leaf-badge">Sürekli (Continuous)</span>
+                            <p>İki nokta arasında sonsuz değer alabilir. Ölçüm cihazının hassasiyetiyle sınırlıdır.</p>
+                            <div class="dt-examples">
+                                <span>🟢 Boy (1.7234... metre olabilir)</span>
+                                <span>🟢 Sıcaklık (36.6°C, 36.61°C, 36.612°C...)</span>
+                                <span>🟢 Zaman (süre)</span>
+                                <span>🟢 Hisse Senedi Fiyatı</span>
+                            </div>
+                            <div class="dt-tip">✅ Normal, Üstel, Beta dağılımlarıyla modellenir &nbsp;|&nbsp; ✅ Tüm işlemlere uygundur</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ÖLÇEK NOTLARI -->
+                <div class="dt-scale-section" style="margin-top: 24px;">
+                    <h3 class="dt-scale-title">📏 Ölçüm Ölçekleri (Measurement Scales)</h3>
+                    <div class="dt-scale-grid" style="margin-top: 24px;">
+                        <div class="dt-scale-card">
+                            <strong>Nominal</strong>
+                            <ul>
+                                <li>Eşitlik/Eşitsizlik karşılaştırması</li>
+                                <li>Sıralama ❌ &nbsp; Fark ❌ &nbsp; Oran ❌</li>
+                                <li><em>Örn: Cinsiyet, Kan Grubu</em></li>
+                            </ul>
+                        </div>
+                        <div class="dt-scale-card">
+                            <strong>Ordinal</strong>
+                            <ul>
+                                <li>Sıralama ✅ &nbsp; Eşit Fark ❌ &nbsp; Oran ❌</li>
+                                <li>Farkların büyüklüğü yorumlanamaz</li>
+                                <li><em>Örn: Likert, Derece</em></li>
+                            </ul>
+                        </div>
+                        <div class="dt-scale-card">
+                            <strong>Aralık (Interval)</strong>
+                            <ul>
+                                <li>Sıralama ✅ &nbsp; Eşit Fark ✅ &nbsp; Oran ❌</li>
+                                <li>Gerçek sıfır noktası yok</li>
+                                <li><em>Örn: Sıcaklık (°C), IQ</em></li>
+                            </ul>
+                        </div>
+                        <div class="dt-scale-card">
+                            <strong>Oran (Ratio)</strong>
+                            <ul>
+                                <li>Sıralama ✅ &nbsp; Fark ✅ &nbsp; Oran ✅</li>
+                                <li>Gerçek sıfır noktası var</li>
+                                <li><em>Örn: Kilo, Boy, Gelir, Yaş</em></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- TEMA SEÇİM PANELİ (MODAL) -->
+    <div id="theme-modal" class="modal-overlay">
+        <div class="modal-content glass" style="max-width: 650px; text-align: left; padding: 48px;">
+            <button class="close-btn" onclick="closeModal('theme-modal')">&times;</button>
+            
+            <div style="display: flex; align-items: center; gap: 18px; margin-bottom: 32px;">
+                <div style="width: 60px; height: 60px; border-radius: 50%; background: rgba(56, 189, 248, 0.15); border: 2px solid var(--neon-blue); display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);">
+                    🎨
+                </div>
+                <div>
+                    <h2 class="modal-title gradient-text" style="margin-bottom: 4px; font-size: 2.2rem;">Görünüm Ayarları</h2>
+                    <span style="color: var(--neon-blue); font-size: 0.95rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">Arayüz Temasını Özelleştirin</span>
+                </div>
+            </div>
+
+            <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 24px;">
+                Çalışma tarzınıza ve zevkinize en uygun renk paletini seçin. Seçiminiz tarayıcınızda kaydedilecek ve tüm sayfalarda geçerli olacaktır.
+            </p>
+
+            <div class="theme-grid">
+                <!-- Tema 1: Fütüristik -->
+                <div class="theme-card active" data-theme="theme-dark" onclick="setTheme('theme-dark'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #38bdf8;">
+                        <span style="background: #090e17;"></span>
+                        <span style="background: #38bdf8;"></span>
+                        <span style="background: #34d399;"></span>
+                    </div>
+                    <strong>Fütüristik</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Koyu &amp; Neon</span>
+                </div>
+
+                <!-- Tema 2: Ocean -->
+                <div class="theme-card" data-theme="theme-ocean" onclick="setTheme('theme-ocean'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #0ea5e9;">
+                        <span style="background: #030f1a;"></span>
+                        <span style="background: #0ea5e9;"></span>
+                        <span style="background: #06b6d4;"></span>
+                    </div>
+                    <strong>Ocean</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Derin Okyanus</span>
+                </div>
+
+                <!-- Tema 3: Sunset -->
+                <div class="theme-card" data-theme="theme-sunset" onclick="setTheme('theme-sunset'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #f43f5e;">
+                        <span style="background: #160b19;"></span>
+                        <span style="background: #f43f5e;"></span>
+                        <span style="background: #fb923c;"></span>
+                    </div>
+                    <strong>Sunset</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Gece Yarısı Moru</span>
+                </div>
+
+                <!-- Tema 4: Emerald -->
+                <div class="theme-card" data-theme="theme-emerald" onclick="setTheme('theme-emerald'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #10b981;">
+                        <span style="background: #051611;"></span>
+                        <span style="background: #10b981;"></span>
+                        <span style="background: #34d399;"></span>
+                    </div>
+                    <strong>Emerald</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Zümrüt Yeşili</span>
+                </div>
+
+                <!-- Tema 5: Cyberpunk -->
+                <div class="theme-card" data-theme="theme-cyberpunk" onclick="setTheme('theme-cyberpunk'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #ec4899;">
+                        <span style="background: #150917;"></span>
+                        <span style="background: #ec4899;"></span>
+                        <span style="background: #eab308;"></span>
+                    </div>
+                    <strong>Cyberpunk</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Neon Gece</span>
+                </div>
+
+                <!-- Tema 6: Amber -->
+                <div class="theme-card" data-theme="theme-amber" onclick="setTheme('theme-amber'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #f59e0b;">
+                        <span style="background: #1c1917;"></span>
+                        <span style="background: #f59e0b;"></span>
+                        <span style="background: #eab308;"></span>
+                    </div>
+                    <strong>Amber</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Altın Gece</span>
+                </div>
+
+                <!-- Tema 7: Aydınlık -->
+                <div class="theme-card" data-theme="theme-light-pure" onclick="setTheme('theme-light-pure'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #0284c7;">
+                        <span style="background: #f8fafc;"></span>
+                        <span style="background: #0284c7;"></span>
+                        <span style="background: #16a34a;"></span>
+                    </div>
+                    <strong>Aydınlık</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Minimalist Beyaz</span>
+                </div>
+
+                <!-- Tema 8: Ilık Krem -->
+                <div class="theme-card" data-theme="theme-light-warm" onclick="setTheme('theme-light-warm'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #d97706;">
+                        <span style="background: #fefce8;"></span>
+                        <span style="background: #d97706;"></span>
+                        <span style="background: #ca8a04;"></span>
+                    </div>
+                    <strong>Ilık Krem</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Açık Amber</span>
+                </div>
+
+                <!-- Tema 9: Sakura Pembesi -->
+                <div class="theme-card" data-theme="theme-pink" onclick="setTheme('theme-pink'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #db2777;">
+                        <span style="background: #fdf2f8;"></span>
+                        <span style="background: #db2777;"></span>
+                        <span style="background: #be185d;"></span>
+                    </div>
+                    <strong>Sakura</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Pembe Düşler</span>
+                </div>
+
+                <!-- Tema 10: Mint -->
+                <div class="theme-card" data-theme="theme-light-emerald" onclick="setTheme('theme-light-emerald'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #059669;">
+                        <span style="background: #ecfdf5;"></span>
+                        <span style="background: #059669;"></span>
+                        <span style="background: #10b981;"></span>
+                    </div>
+                    <strong>Mint</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Açık Zümrüt</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="nav.js"></script>
+    <script src="modal.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

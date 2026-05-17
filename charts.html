@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafik Seçim & Görselleştirme Rehberi | My Analyst LogBook</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="formulas-page">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('analyst_theme');
+            if (savedTheme && savedTheme !== 'theme-dark') {
+                document.body.classList.add(savedTheme);
+            }
+        })();
+    </script>
+
+    <!-- 1. ÜST BİLGİ ÇUBUĞU (HEADER) -->
+    <header class="site-header glass-header">
+        <div class="header-container">
+            <a href="index.html" class="nav-btn back-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Ana Sayfaya Dön
+            </a>
+
+            <a href="index.html" class="logo gradient-text">My Analyst LogBook</a>
+
+            <div class="desktop-nav" style="display: flex; align-items: center; gap: 12px;">
+                <a href="https://www.kaggle.com/datasets" target="_blank" class="nav-btn external-btn">Kaggle ↗</a>
+                <button class="nav-btn icon-btn" onclick="openModal('theme-modal')" title="Görünüm Ayarları / Tema Seç">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.836-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. HERO & BAŞLIK BÖLÜMÜ -->
+    <section class="formulas-hero">
+        <div class="hero-content">
+            <div class="badge-pill floating-slow">Görselleştirme & Karar Hub'ı</div>
+            <h1 class="hero-title">Grafik Seçim &amp; <span class="gradient-text">Görselleştirme Rehberi</span></h1>
+            <p class="hero-subtitle">
+                Doğru grafik seçimi verinin anlatısını güçlendirir, yanlış seçim ise okuyucuyu yanıltır. Verinizin yapısına en uygun görselleştirme yöntemini belirleyin.
+            </p>
+        </div>
+    </section>
+
+    <!-- 3. ANA İÇERİK -->
+    <main class="formulas-main" style="max-width: 1300px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
+        <div class="glass" style="padding: 48px; border-radius: 28px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 1px solid var(--glass-border);">
+            
+            <!-- KATEGORİ: KARŞILAŞTIRMA -->
+            <div class="chart-section">
+                <h3 class="chart-cat-title"><span class="chart-cat-icon">📊</span> Karşılaştırma Grafikleri</h3>
+                <div class="chart-grid">
+                    <div class="chart-card">
+                        <div class="chart-preview bar-preview"></div>
+                        <div class="chart-info">
+                            <strong>Bar / Sütun Grafiği</strong>
+                            <p>Kategoriler arasındaki farklılıkları gösterir. Yatay bar uzun etiketler için daha okunaklıdır.</p>
+                            <div class="chart-tags"><span>✅ Kategorik</span><span>✅ Nitel/Nicel</span></div>
+                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Birkaç kategorinin değerlerini kıyaslarken</div>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="chart-preview grouped-bar-preview"></div>
+                        <div class="chart-info">
+                            <strong>Gruplu / Yığılmış Bar</strong>
+                            <p>Birden fazla grubu aynı anda karşılaştırır. Yığılmış bar toplamı da gösterir.</p>
+                            <div class="chart-tags"><span>✅ Zaman/Grup</span><span>✅ Oransal</span></div>
+                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Çoklu kategori karşılaştırması</div>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="chart-preview radar-preview"></div>
+                        <div class="chart-info">
+                            <strong>Radar (Spider) Grafiği</strong>
+                            <p>Çok boyutlu verileri tek bir görselde karşılaştırır. Performans değerlendirmesinde idealdir.</p>
+                            <div class="chart-tags"><span>✅ Çok değişken</span><span>✅ Skor</span></div>
+                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Birden fazla birimi çok metrikte kıyaslarken</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KATEGORİ: DAĞILIM -->
+            <div class="chart-section">
+                <h3 class="chart-cat-title"><span class="chart-cat-icon">🔵</span> Dağılım Grafikleri</h3>
+                <div class="chart-grid">
+                    <div class="chart-card">
+                        <div class="chart-preview hist-preview"></div>
+                        <div class="chart-info">
+                            <strong>Histogram</strong>
+                            <p>Sürekli değişkenin frekans dağılımını gösterir. Dağılımın şekli (normal, çarpık) anlaşılır.</p>
+                            <div class="chart-tags"><span>✅ Sürekli</span><span>✅ Dağılım</span></div>
+                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Verinin dağılımını keşfetmek için</div>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="chart-preview box-preview"></div>
+                        <div class="chart-info">
+                            <strong>Kutu Grafiği (Box Plot)</strong>
+                            <p>Medyan, çeyrekler, aşırı değerleri tek görselde özetler. Gruplar arası dağılım karşılaştırmasında standarttır.</p>
+                            <div class="chart-tags"><span>✅ Robust</span><span>✅ Aykırı</span></div>
+                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Grupların dağılımını kıyaslarken</div>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="chart-preview scatter-preview"></div>
+                        <div class="chart-info">
+                            <strong>Saçılım Grafiği (Scatter Plot)</strong>
+                            <p>İki değişken arasındaki ilişkiyi ve korelasyonu gösterir. Regresyon hattı eklenebilir.</p>
+                            <div class="chart-tags"><span>✅ Korelasyon</span><span>✅ Sürekli×Sürekli</span></div>
+                            <div class="chart-when">🎯 <em>Ne Zaman:</em> İki değişken arasındaki bağı keşfetmek için</div>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="chart-preview violin-preview"></div>
+                        <div class="chart-info">
+                            <strong>Violin Grafiği</strong>
+                            <p>Box plot + yoğunluk tahmini (KDE). Dağılımın biçimini ve yoğunluğunu birlikte gösterir.</p>
+                            <div class="chart-tags"><span>✅ Dağılım</span><span>✅ KDE</span></div>
+                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Dağılım biçimini ayrıntılı görmek için</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KATEGORİ: ZAMAN SERİSİ -->
+            <div class="chart-section">
+                <h3 class="chart-cat-title"><span class="chart-cat-icon">📈</span> Zaman Serisi Grafikleri</h3>
+                <div class="chart-grid">
+                    <div class="chart-card">
+                        <div class="chart-preview line-preview"></div>
+                        <div class="chart-info">
+                            <strong>Çizgi Grafiği (Line Chart)</strong>
+                            <p>Zaman içindeki eğilimi gösterir. Seri başına tek değer olmalıdır.</p>
+                            <div class="chart-tags"><span>✅ Trend</span><span>✅ Zaman</span></div>
+                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Değişimin sürekliliği önemliyken</div>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="chart-preview area-preview"></div>
+                        <div class="chart-info">
+                            <strong>Alan Grafiği (Area Chart)</strong>
+                            <p>Çizgi grafiğine alt alan dolgusu eklenerek hacim vurgulanmış halidir.</p>
+                            <div class="chart-tags"><span>✅ Hacim</span><span>✅ Birikim</span></div>
+                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Miktar birikimini vurgulamak için</div>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="chart-preview candlestick-preview"></div>
+                        <div class="chart-info">
+                            <strong>Mum Grafiği (Candlestick)</strong>
+                            <p>Finansal varlıkların Açılış-Yüksek-Düşük-Kapanış değerlerini gösterir.</p>
+                            <div class="chart-tags"><span>✅ Finans</span><span>✅ OHLC</span></div>
+                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Hisse/döviz analizi</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KATEGORİ: ORAN/PARÇA -->
+            <div class="chart-section">
+                <h3 class="chart-cat-title"><span class="chart-cat-icon">🥧</span> Oran ve Bütün Grafikleri</h3>
+                <div class="chart-grid">
+                    <div class="chart-card">
+                        <div class="chart-preview pie-preview"></div>
+                        <div class="chart-info">
+                            <strong>Pasta Grafiği (Pie Chart)</strong>
+                            <p>Bütünün parçalarını gösterir. En fazla 5–6 kategori için kullanın; fazlası okumayı zorlaştırır.</p>
+                            <div class="chart-tags"><span>✅ Oran</span><span>⚠️ Max 6 kategori</span></div>
+                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Pazar payı, bütçe dağılımı</div>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="chart-preview donut-preview"></div>
+                        <div class="chart-info">
+                            <strong>Halka Grafiği (Donut)</strong>
+                            <p>Pasta grafiğinin ortası boş versiyonu; merkeze toplam veya ek bilgi yazılabilir.</p>
+                            <div class="chart-tags"><span>✅ Oran</span><span>✅ Modern</span></div>
+                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Pasta’dan estetik ama aynı amaç</div>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="chart-preview treemap-preview"></div>
+                        <div class="chart-info">
+                            <strong>Treemap (Ağaç Haritası)</strong>
+                            <p>Hiyerarşik verileri iç içe dikdörtgenlerle gösterir. Büyüklük değer orantılıdır.</p>
+                            <div class="chart-tags"><span>✅ Hiyerarşi</span><span>✅ Boyut</span></div>
+                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Dosya boyutları, portföy dağılımı</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KATEGORİ: İLİŞKİ / DİĞER -->
+            <div class="chart-section">
+                <h3 class="chart-cat-title"><span class="chart-cat-icon">🔗</span> İlişki ve Diğer Grafik Türleri</h3>
+                <div class="chart-grid">
+                    <div class="chart-card">
+                        <div class="chart-preview heatmap-preview"></div>
+                        <div class="chart-info">
+                            <strong>Isı Haritası (Heatmap)</strong>
+                            <p>Matris yapısındaki değerleri renk yoğunluğuyla gösterir. Korelasyon matrislerinde sık kullanılır.</p>
+                            <div class="chart-tags"><span>✅ Korelasyon</span><span>✅ Matris</span></div>
+                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Değişkenler arası ilişki matrisi</div>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="chart-preview bubble-preview"></div>
+                        <div class="chart-info">
+                            <strong>Balon Grafiği (Bubble Chart)</strong>
+                            <p>Scatter’a 3. boyut ekler: X, Y koordinatına ek olarak balonun büyüklüğü 3. değişkeni ifade eder.</p>
+                            <div class="chart-tags"><span>✅ 3 Değişken</span><span>✅ Boyut</span></div>
+                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Ülke/şirket 3 metrik kıyaslaması</div>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="chart-preview sankey-preview"></div>
+                        <div class="chart-info">
+                            <strong>Sankey / Akış Diyagramı</strong>
+                            <p>Akış miktarlarını gösterir. Bağlantı genişliği değerle orantılıdır.</p>
+                            <div class="chart-tags"><span>✅ Akış</span><span>✅ Kaynak-Hedef</span></div>
+                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Enerji, para, trafik akışları</div>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="chart-preview funnel-preview"></div>
+                        <div class="chart-info">
+                            <strong>Huni Grafiği (Funnel)</strong>
+                            <p>Aşamalar arası dönüşüm oranını gösterir. Her aşamada kayıp ne kadar?</p>
+                            <div class="chart-tags"><span>✅ Satış</span><span>✅ Dönüşüm</span></div>
+                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Satış/pazarlama huni analizi</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HANGI GRAFİĞİ SEÇMELİYİM? -->
+            <div class="chart-guide">
+                <h3 class="dt-scale-title">🧠 Hangi Grafiği Seçmeliyim?</h3>
+                <div class="chart-guide-grid" style="margin-top: 20px;">
+                    <div class="chart-guide-item">
+                        <span>📊 Kategoriler karşılaştırıyorum</span>
+                        <strong>→ Bar Grafiği</strong>
+                    </div>
+                    <div class="chart-guide-item">
+                        <span>⏱️ Zaman içindeki değişimi gösteriyorum</span>
+                        <strong>→ Çizgi / Alan Grafiği</strong>
+                    </div>
+                    <div class="chart-guide-item">
+                        <span>🔍 İki değişken arası ilişkiyi araştırıyorum</span>
+                        <strong>→ Saçılım / Isı Haritası</strong>
+                    </div>
+                    <div class="chart-guide-item">
+                        <span>🥧 Oranı / payı gösteriyorum</span>
+                        <strong>→ Halka / Treemap</strong>
+                    </div>
+                    <div class="chart-guide-item">
+                        <span>📆 Dağılım biçimini anlıyorum</span>
+                        <strong>→ Histogram / Violin</strong>
+                    </div>
+                    <div class="chart-guide-item">
+                        <span>💹 Finansal veri analiz ediyorum</span>
+                        <strong>→ Mum (Candlestick)</strong>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- TEMA SEÇİM PANELİ (MODAL) -->
+    <div id="theme-modal" class="modal-overlay">
+        <div class="modal-content glass" style="max-width: 650px; text-align: left; padding: 48px;">
+            <button class="close-btn" onclick="closeModal('theme-modal')">&times;</button>
+            
+            <div style="display: flex; align-items: center; gap: 18px; margin-bottom: 32px;">
+                <div style="width: 60px; height: 60px; border-radius: 50%; background: rgba(56, 189, 248, 0.15); border: 2px solid var(--neon-blue); display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);">
+                    🎨
+                </div>
+                <div>
+                    <h2 class="modal-title gradient-text" style="margin-bottom: 4px; font-size: 2.2rem;">Görünüm Ayarları</h2>
+                    <span style="color: var(--neon-blue); font-size: 0.95rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">Arayüz Temasını Özelleştirin</span>
+                </div>
+            </div>
+
+            <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 24px;">
+                Çalışma tarzınıza ve zevkinize en uygun renk paletini seçin. Seçiminiz tarayıcınızda kaydedilecek ve tüm sayfalarda geçerli olacaktır.
+            </p>
+
+            <div class="theme-grid">
+                <!-- Tema 1: Fütüristik -->
+                <div class="theme-card active" data-theme="theme-dark" onclick="setTheme('theme-dark'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #38bdf8;">
+                        <span style="background: #090e17;"></span>
+                        <span style="background: #38bdf8;"></span>
+                        <span style="background: #34d399;"></span>
+                    </div>
+                    <strong>Fütüristik</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Koyu &amp; Neon</span>
+                </div>
+
+                <!-- Tema 2: Ocean -->
+                <div class="theme-card" data-theme="theme-ocean" onclick="setTheme('theme-ocean'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #0ea5e9;">
+                        <span style="background: #030f1a;"></span>
+                        <span style="background: #0ea5e9;"></span>
+                        <span style="background: #06b6d4;"></span>
+                    </div>
+                    <strong>Ocean</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Derin Okyanus</span>
+                </div>
+
+                <!-- Tema 3: Sunset -->
+                <div class="theme-card" data-theme="theme-sunset" onclick="setTheme('theme-sunset'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #f43f5e;">
+                        <span style="background: #160b19;"></span>
+                        <span style="background: #f43f5e;"></span>
+                        <span style="background: #fb923c;"></span>
+                    </div>
+                    <strong>Sunset</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Gece Yarısı Moru</span>
+                </div>
+
+                <!-- Tema 4: Emerald -->
+                <div class="theme-card" data-theme="theme-emerald" onclick="setTheme('theme-emerald'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #10b981;">
+                        <span style="background: #051611;"></span>
+                        <span style="background: #10b981;"></span>
+                        <span style="background: #34d399;"></span>
+                    </div>
+                    <strong>Emerald</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Zümrüt Yeşili</span>
+                </div>
+
+                <!-- Tema 5: Cyberpunk -->
+                <div class="theme-card" data-theme="theme-cyberpunk" onclick="setTheme('theme-cyberpunk'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #ec4899;">
+                        <span style="background: #150917;"></span>
+                        <span style="background: #ec4899;"></span>
+                        <span style="background: #eab308;"></span>
+                    </div>
+                    <strong>Cyberpunk</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Neon Gece</span>
+                </div>
+
+                <!-- Tema 6: Amber -->
+                <div class="theme-card" data-theme="theme-amber" onclick="setTheme('theme-amber'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #f59e0b;">
+                        <span style="background: #1c1917;"></span>
+                        <span style="background: #f59e0b;"></span>
+                        <span style="background: #eab308;"></span>
+                    </div>
+                    <strong>Amber</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Altın Gece</span>
+                </div>
+
+                <!-- Tema 7: Aydınlık -->
+                <div class="theme-card" data-theme="theme-light-pure" onclick="setTheme('theme-light-pure'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #0284c7;">
+                        <span style="background: #f8fafc;"></span>
+                        <span style="background: #0284c7;"></span>
+                        <span style="background: #16a34a;"></span>
+                    </div>
+                    <strong>Aydınlık</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Minimalist Beyaz</span>
+                </div>
+
+                <!-- Tema 8: Ilık Krem -->
+                <div class="theme-card" data-theme="theme-light-warm" onclick="setTheme('theme-light-warm'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #d97706;">
+                        <span style="background: #fefce8;"></span>
+                        <span style="background: #d97706;"></span>
+                        <span style="background: #ca8a04;"></span>
+                    </div>
+                    <strong>Ilık Krem</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Açık Amber</span>
+                </div>
+
+                <!-- Tema 9: Sakura Pembesi -->
+                <div class="theme-card" data-theme="theme-pink" onclick="setTheme('theme-pink'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #db2777;">
+                        <span style="background: #fdf2f8;"></span>
+                        <span style="background: #db2777;"></span>
+                        <span style="background: #be185d;"></span>
+                    </div>
+                    <strong>Sakura</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Pembe Düşler</span>
+                </div>
+
+                <!-- Tema 10: Mint -->
+                <div class="theme-card" data-theme="theme-light-emerald" onclick="setTheme('theme-light-emerald'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #059669;">
+                        <span style="background: #ecfdf5;"></span>
+                        <span style="background: #059669;"></span>
+                        <span style="background: #10b981;"></span>
+                    </div>
+                    <strong>Mint</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Açık Zümrüt</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="nav.js"></script>
+    <script src="modal.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
