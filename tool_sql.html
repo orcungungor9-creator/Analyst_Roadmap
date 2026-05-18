@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programlama Dersleri | My Analyst LogBook</title>
+    <title>SQL - Veritabanı Yönetimi & İleri Düzey Sorgulama Rehberi | My Analyst LogBook</title>
+    <meta name="description" content="SQL dilinin veri analitiğindeki önemi, ilişkisel veritabanı sorgulama teknikleri (JOIN, CTE, Window Functions) ve gelişmiş analitik kod örnekleri.">
     <link rel="stylesheet" href="styles.css?v=2.1">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
 </head>
@@ -19,92 +20,33 @@
         })();
     </script>
 
-    <!-- DİNAMİK ARKA PLAN GRAFİK AĞI (BG ANALYTICS MESH) -->
+    <!-- DİNAMİK ARKA PLAN GRAFİK AĞI -->
     <div class="bg-analytics-mesh">
-        <!-- SVG 1: İniş Çıkış Trend Çizgisi (Line & Area Chart) -->
         <div class="bg-chart-item bg-chart-1">
             <svg viewBox="0 0 400 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                    <linearGradient id="bg-area-grad-7" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="var(--neon-blue)" stop-opacity="0.4"/>
-                        <stop offset="100%" stop-color="var(--neon-blue)" stop-opacity="0.0"/>
+                    <linearGradient id="bg-area-grad-sql" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#336791" stop-opacity="0.4"/>
+                        <stop offset="100%" stop-color="#336791" stop-opacity="0.0"/>
                     </linearGradient>
                 </defs>
-                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40 L 370,190 L 10,190 Z" fill="url(#bg-area-grad-7)"/>
-                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40" fill="none" stroke="var(--neon-blue)" stroke-width="4" stroke-linecap="round"/>
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40 L 370,190 L 10,190 Z" fill="url(#bg-area-grad-sql)"/>
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40" fill="none" stroke="#336791" stroke-width="4" stroke-linecap="round"/>
                 <circle cx="130" cy="150" r="6" fill="var(--neon-green)"/>
                 <circle cx="250" cy="90" r="6" fill="var(--neon-purple)"/>
-                <circle cx="370" cy="40" r="8" fill="var(--neon-blue)">
+                <circle cx="370" cy="40" r="8" fill="#336791">
                     <animate attributeName="r" values="6;10;6" dur="3s" repeatCount="indefinite"/>
                 </circle>
             </svg>
         </div>
-
-        <!-- SVG 2: Pasta / Donut Grafiği -->
         <div class="bg-chart-item bg-chart-2">
             <svg viewBox="0 0 200 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                 <g transform="translate(100,100)">
-                    <!-- Dilim 1 (%45) -->
-                    <path d="M 0,-80 A 80,80 0 0,1 76,25 L 57,18 A 60,60 0 0,0 0,-60 Z" fill="var(--neon-blue)"/>
-                    <!-- Dilim 2 (%35) -->
+                    <path d="M 0,-80 A 80,80 0 0,1 76,25 L 57,18 A 60,60 0 0,0 0,-60 Z" fill="#336791"/>
                     <path d="M 76,25 A 80,80 0 0,1 -64,48 L -48,36 A 60,60 0 0,0 57,18 Z" fill="var(--neon-green)"/>
-                    <!-- Dilim 3 (%20) -->
                     <path d="M -64,48 A 80,80 0 0,1 0,-80 L 0,-60 A 60,60 0 0,0 -48,36 Z" fill="var(--neon-purple)"/>
                     <circle cx="0" cy="0" r="45" fill="none" stroke="var(--glass-border)" stroke-width="2" stroke-dasharray="5,5"/>
                 </g>
-            </svg>
-        </div>
-
-        <!-- SVG 3: Sütun Grafiği (Bar Chart) -->
-        <div class="bg-chart-item bg-chart-3">
-            <svg viewBox="0 0 250 250" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                <!-- Arka plan grid çizgileri -->
-                <line x1="20" y1="50" x2="230" y2="50" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4"/>
-                <line x1="20" y1="100" x2="230" y2="100" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4"/>
-                <line x1="20" y1="150" x2="230" y2="150" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4"/>
-                <line x1="20" y1="200" x2="230" y2="200" stroke="var(--glass-border)" stroke-width="2"/>
-                
-                <!-- Sütun 1 -->
-                <rect x="35" y="120" width="30" height="80" rx="6" fill="var(--neon-blue)">
-                    <animate attributeName="height" values="80;100;80" dur="4s" repeatCount="indefinite"/>
-                    <animate attributeName="y" values="120;100;120" dur="4s" repeatCount="indefinite"/>
-                </rect>
-                <!-- Sütun 2 -->
-                <rect x="85" y="70" width="30" height="130" rx="6" fill="var(--neon-green)">
-                    <animate attributeName="height" values="130;160;130" dur="5s" repeatCount="indefinite"/>
-                    <animate attributeName="y" values="70;40;70" dur="5s" repeatCount="indefinite"/>
-                </rect>
-                <!-- Sütun 3 -->
-                <rect x="135" y="150" width="30" height="50" rx="6" fill="var(--neon-purple)">
-                    <animate attributeName="height" values="50;70;50" dur="3.5s" repeatCount="indefinite"/>
-                    <animate attributeName="y" values="150;130;150" dur="3.5s" repeatCount="indefinite"/>
-                </rect>
-                <!-- Sütun 4 -->
-                <rect x="185" y="90" width="30" height="110" rx="6" fill="var(--neon-blue)">
-                    <animate attributeName="height" values="110;140;110" dur="4.5s" repeatCount="indefinite"/>
-                    <animate attributeName="y" values="90;60;90" dur="4.5s" repeatCount="indefinite"/>
-                </rect>
-            </svg>
-        </div>
-
-        <!-- SVG 4: Mum & Radar Grafiği (Candlestick) -->
-        <div class="bg-chart-item bg-chart-4">
-            <svg viewBox="0 0 280 220" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                <!-- Mum 1 -->
-                <line x1="50" y1="30" x2="50" y2="170" stroke="var(--neon-green)" stroke-width="3"/>
-                <rect x="38" y="70" width="24" height="60" rx="4" fill="var(--neon-green)"/>
-                
-                <!-- Mum 2 -->
-                <line x1="110" y1="50" x2="110" y2="190" stroke="var(--neon-blue)" stroke-width="3"/>
-                <rect x="98" y="90" width="24" height="70" rx="4" fill="var(--neon-blue)"/>
-                
-                <!-- Mum 3 -->
-                <line x1="170" y1="20" x2="170" y2="150" stroke="var(--neon-purple)" stroke-width="3"/>
-                <rect x="158" y="50" width="24" height="50" rx="4" fill="var(--neon-purple)"/>
-
-                <!-- Mum 4 -->
-                <line x1="230" y1="60" x2="230" y2="200" stroke="var(--neon-green)" stroke-width="3"/>
-                <rect x="218" y="100" width="24" height="55" rx="4" fill="var(--neon-green)"/>
             </svg>
         </div>
     </div>
@@ -148,29 +90,167 @@
     </div>
 
     <!-- 2. HERO & BAŞLIK BÖLÜMÜ -->
-    <section class="formulas-hero">
-        <div class="hero-content">
-            <div class="badge-pill floating-slow">Yazılım &amp; Analitik Araçlar</div>
-            <h1 class="hero-title">Programlama <span class="gradient-text">Dersleri</span></h1>
-            <p class="hero-subtitle">
-                R, Python, SQL ve veri analitiği araçları üzerine uygulamalı dersler, ipuçları ve kod kütüphanesi. Vizyonunuza göre şekillenecek modül altyapısı.
+    <section class="formulas-hero" style="padding-top: 140px; padding-bottom: 60px;">
+        <div class="hero-content" style="max-width: 900px;">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 24px;">
+                <div style="width: 80px; height: 80px; border-radius: 22px; background: rgba(51, 103, 145, 0.15); border: 2px solid #336791; display: flex; align-items: center; justify-content: center; padding: 16px; box-shadow: 0 0 30px rgba(51, 103, 145, 0.4);">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/postgresql.svg" alt="SQL Logo" style="width: 100%; height: 100%; filter: invert(35%) sepia(50%) saturate(674%) hue-rotate(167deg) brightness(95%) contrast(88%);">
+                </div>
+                <div style="text-align: left;">
+                    <div class="badge-pill" style="margin-bottom: 6px; background: rgba(51, 103, 145, 0.2); color: #38bdf8; border-color: #336791;">Veritabanı &amp; Sorgulama Temeli</div>
+                    <h1 class="hero-title" style="font-size: 2.8rem; margin: 0;">SQL <span style="color: #38bdf8;">(Structured Query Language)</span></h1>
+                </div>
+            </div>
+            <p class="hero-subtitle" style="font-size: 1.25rem; line-height: 1.6;">
+                Milyonlarca satırlık devasa ilişkisel veritabanlarından saniyeler içinde bilgi çekmek, tabloları birleştirmek ve analitik veri ambarlarını yönetmek için kullanılan evrensel veri dili.
             </p>
         </div>
     </section>
 
     <!-- 3. ANA İÇERİK -->
     <main class="formulas-main" style="max-width: 1200px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
-        <div class="glass" style="padding: 64px 48px; border-radius: 28px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 1px solid var(--glass-border); text-align: center;">
-            <div style="font-size: 3rem; margin-bottom: 24px; color: var(--neon-blue);">💻</div>
-            <h2 style="font-family: var(--font-heading); font-size: 2.2rem; margin-bottom: 16px; color: var(--text-main);">Ders İçerikleri Hazırlanıyor</h2>
-            <p style="color: var(--text-muted); font-size: 1.15rem; max-width: 650px; margin: 0 auto 32px auto; line-height: 1.6;">
-                Bu alan, veri analitiği programlama dilleri ve araçlarına dair vizyonunuz doğrultusunda özel olarak tasarlanacaktır. Müfredat, kod blokları ve interaktif araçlar eklenecektir.
-            </p>
-            <div style="display: inline-flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 14px 28px; border-radius: 100px;">
-                <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--neon-green); box-shadow: 0 0 10px var(--neon-green); animation: pulse 2s infinite;"></span>
-                <span style="color: var(--text-main); font-size: 1.05rem; font-weight: 500;">Altyapı Hazır — Tasarım Bekleniyor</span>
+        
+        <!-- YAPAY ZEKA GÖRSEL EKRAN GÖRÜNTÜSÜ PANELİ -->
+        <div class="glass" style="padding: 32px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+                <div>
+                    <h2 style="font-size: 1.8rem; color: var(--text-main); margin: 0 0 8px 0;">🖥️ Profesyonel SQL Veritabanı İstemci Arayüzü</h2>
+                    <p style="color: var(--text-muted); margin: 0; font-size: 1.05rem;">İlişkisel veritabanı yönetim aracında karmaşık sorgular, tablo şemaları ve sorgu yürütme sonuçları.</p>
+                </div>
+                <span class="badge-pill" style="background: rgba(51, 103, 145, 0.2); color: #38bdf8; border-color: #336791;">AI Generated Client Preview</span>
+            </div>
+            <div style="border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.6);">
+                <img src="img/sql_client_preview_1779067574864.png" alt="SQL Client Preview" style="width: 100%; height: auto; display: block;">
             </div>
         </div>
+
+        <!-- ÖZET BİLGİ KARTLARI (GRID) -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 48px;">
+            <div class="glass" style="padding: 32px; border-radius: 24px; border: 1px solid var(--glass-border);">
+                <h3 style="color: #38bdf8; font-size: 1.4rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
+                    <span>🔗</span> Güçlü İlişkisel Sorgulama
+                </h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">
+                    <code>INNER JOIN</code>, <code>LEFT JOIN</code> ve alt sorgular (subqueries) sayesinde dağınık tabloları tek bir mantıksal çerçevede birleştirebilir, karmaşık iş kurallarını veritabanı seviyesinde çözebilirsiniz.
+                </p>
+            </div>
+
+            <div class="glass" style="padding: 32px; border-radius: 24px; border: 1px solid var(--glass-border);">
+                <h3 style="color: var(--neon-green); font-size: 1.4rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
+                    <span>⚡</span> Analitik (Window) Fonksiyonlar
+                </h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">
+                    <code>ROW_NUMBER()</code>, <code>RANK()</code>, <code>LAG()</code> ve <code>LEAD()</code> gibi gelişmiş pencere fonksiyonları ile gruplar arası hareketli ortalamaları, kümülatif toplamları ve dönemler arası farkları kolayca hesaplayın.
+                </p>
+            </div>
+
+            <div class="glass" style="padding: 32px; border-radius: 24px; border: 1px solid var(--glass-border);">
+                <h3 style="color: var(--neon-purple); font-size: 1.4rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
+                    <span>🚀</span> Yüksek Performanslı ETL
+                </h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">
+                    Verileri analiz araçlarına (Python, R, Power BI) taşımadan önce veritabanı motorunun gücünü kullanarak filtreleyip (WHERE/HAVING) toplulaştırmak (GROUP BY) analiz süreçlerini 10 kata kadar hızlandırır.
+                </p>
+            </div>
+        </div>
+
+        <!-- DETAYLI İNCELEME BÖLÜMÜ -->
+        <div class="glass" style="padding: 48px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
+            <h2 style="font-size: 2rem; color: var(--text-main); margin-bottom: 28px; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 16px;">
+                SQL'in Artıları ve Eksileri
+            </h2>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
+                <!-- Artıları -->
+                <div style="background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.2); padding: 32px; border-radius: 20px;">
+                    <h3 style="color: var(--neon-green); font-size: 1.5rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                        <span>✅</span> Avantajları
+                    </h3>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 14px; color: var(--text-muted);">
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: var(--neon-green);">▪</span> <strong>Evrensel Geçerlilik:</strong> PostgreSQL, MySQL, Oracle, SQL Server, BigQuery veya Snowflake; sözdizimi temelde her yerde aynıdır.
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: var(--neon-green);">▪</span> <strong>Hız ve Verimlilik:</strong> Veritabanı motorları (query optimizers) sorguları en uygun yürütme planı (execution plan) ile çalıştırarak olağanüstü hız sağlar.
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: var(--neon-green);">▪</span> <strong>Veri Bütünlüğü:</strong> ACID standartlarına uygun yapısı sayesinde verilerin güvenli, tutarlı ve hatasız saklanmasını garanti eder.
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: var(--neon-green);">▪</span> <strong>İş Hayatının Olmazsa Olmazı:</strong> Hangi analiz aracını kullanırsanız kullanın, veriyi kaynağından çekmek için SQL bilmek şarttır.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Eksileri -->
+                <div style="background: rgba(244, 63, 94, 0.05); border: 1px solid rgba(244, 63, 94, 0.2); padding: 32px; border-radius: 20px;">
+                    <h3 style="color: #f43f5e; font-size: 1.5rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                        <span>⚠️</span> Dikkat Edilmesi Gerekenler
+                    </h3>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 14px; color: var(--text-muted);">
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: #f43f5e;">▪</span> <strong>İstatistiksel Sınırlamalar:</strong> SQL bir sorgulama dilidir; karmaşık istatistiksel testler (T-Test, ANOVA) veya makine öğrenmesi algoritmaları için tasarlanmamıştır.
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: #f43f5e;">▪</span> <strong>Görselleştirme Yokluğu:</strong> Doğrudan grafik çizemez; sonuçları görselleştirmek için BI araçlarına (Power BI, Tableau) ihtiyaç duyar.
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: #f43f5e;">▪</span> <strong>Ölçeklendirme Zorluğu (NoSQL Karşısında):</strong> Geleneksel ilişkisel veritabanları yatay ölçeklemede (horizontal scaling) NoSQL sistemlerine göre daha maliyetli olabilir.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SYNTAX / KOD ÖRNEĞİ -->
+        <div class="glass" style="padding: 48px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+                <h2 style="font-size: 2rem; color: var(--text-main); margin: 0;">💻 SQL Syntax &amp; Kullanım Örneği</h2>
+                <span class="badge-pill" style="background: rgba(51, 103, 145, 0.1); color: #38bdf8; border-color: #336791;">CTE &amp; Window Functions (Pencere Fonksiyonları)</span>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem;">
+                Aşağıdaki gelişmiş SQL sorgusunda, Ortak Tablo İfadeleri (CTE) ve Analitik Pencere Fonksiyonları kullanılarak çalışanların departman bazında maaş sıralamasının yapılması ve her departmandaki en yüksek maaşlı ilk 3 kişinin belirlenmesi gösterilmektedir:
+            </p>
+
+            <div style="background: #0d1117; border: 1px solid #30363d; border-radius: 16px; padding: 24px; overflow-x: auto; font-family: 'Fira Code', monospace; font-size: 1rem; line-height: 1.7; color: #e6edf3;">
+<pre style="margin: 0;"><code><span style="color: #8b949e;">-- CTE (Common Table Expression) Tanımlaması</span>
+<span style="color: #ff7b72;">WITH</span> RankedSalaries <span style="color: #ff7b72;">AS</span> (
+    <span style="color: #ff7b72;">SELECT</span> 
+        emp.employee_id,
+        emp.first_name || <span style="color: #a5d6ff;">' '</span> || emp.last_name <span style="color: #ff7b72;">AS</span> full_name,
+        dept.department_name,
+        emp.salary,
+        <span style="color: #8b949e;">-- Analitik Pencere Fonksiyonu: Departman bazında maaşa göre azalan sıralama</span>
+        <span style="color: #79c0ff;">DENSE_RANK() OVER</span> (<span style="color: #ff7b72;">PARTITION BY</span> emp.department_id <span style="color: #ff7b72;">ORDER BY</span> emp.salary <span style="color: #ff7b72;">DESC</span>) <span style="color: #ff7b72;">AS</span> salary_rank,
+        <span style="color: #8b949e;">-- Analitik Pencere Fonksiyonu: Departman ortalama maaş hesabı</span>
+        <span style="color: #79c0ff;">ROUND</span>(<span style="color: #79c0ff;">AVG</span>(emp.salary) <span style="color: #79c0ff;">OVER</span> (<span style="color: #ff7b72;">PARTITION BY</span> emp.department_id), <span style="color: #a5d6ff;">2</span>) <span style="color: #ff7b72;">AS</span> dept_avg_salary
+    <span style="color: #ff7b72;">FROM</span> employees emp
+    <span style="color: #ff7b72;">INNER JOIN</span> departments dept <span style="color: #ff7b72;">ON</span> emp.department_id = dept.department_id
+    <span style="color: #ff7b72;">WHERE</span> emp.is_active = <span style="color: #79c0ff;">TRUE</span>
+)
+<span style="color: #8b949e;">-- CTE üzerinden nihai filtreleme ve sıralama</span>
+<span style="color: #ff7b72;">SELECT</span> 
+    department_name,
+    full_name,
+    salary,
+    dept_avg_salary,
+    salary_rank
+<span style="color: #ff7b72;">FROM</span> RankedSalaries
+<span style="color: #ff7b72;">WHERE</span> salary_rank &lt;= <span style="color: #a5d6ff;">3</span>
+<span style="color: #ff7b72;">ORDER BY</span> department_name <span style="color: #ff7b72;">ASC</span>, salary_rank <span style="color: #ff7b72;">ASC</span>;</code></pre>
+            </div>
+        </div>
+
+        <!-- ALT YÖNLENDİRME BUTONLARI -->
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+            <button class="btn-hero" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);" onclick="window.location.href='tool_python.html'">
+                &larr; Önceki: Python
+            </button>
+            <button class="btn-hero btn-hero-formulas" onclick="window.location.href='tool_excel.html'">
+                Sonraki Araç: Excel &rarr;
+            </button>
+        </div>
+
     </main>
 
     <!-- 5. HAKKINDA PANELİ (MODAL) -->
@@ -228,7 +308,6 @@
             </p>
 
             <div class="theme-grid">
-                <!-- Tema 1: Fütüristik -->
                 <div class="theme-card active" data-theme="theme-dark" onclick="setTheme('theme-dark'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #38bdf8;">
                         <span style="background: #090e17;"></span>
@@ -239,7 +318,6 @@
                     <span style="font-size: 0.85rem; color: var(--text-muted);">Koyu &amp; Neon</span>
                 </div>
 
-                <!-- Tema 2: Ocean -->
                 <div class="theme-card" data-theme="theme-ocean" onclick="setTheme('theme-ocean'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #0ea5e9;">
                         <span style="background: #030f1a;"></span>
@@ -250,7 +328,6 @@
                     <span style="font-size: 0.85rem; color: var(--text-muted);">Derin Okyanus</span>
                 </div>
 
-                <!-- Tema 3: Sunset -->
                 <div class="theme-card" data-theme="theme-sunset" onclick="setTheme('theme-sunset'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #f43f5e;">
                         <span style="background: #160b19;"></span>
@@ -261,7 +338,6 @@
                     <span style="font-size: 0.85rem; color: var(--text-muted);">Gece Yarısı Moru</span>
                 </div>
 
-                <!-- Tema 4: Emerald -->
                 <div class="theme-card" data-theme="theme-emerald" onclick="setTheme('theme-emerald'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #10b981;">
                         <span style="background: #051611;"></span>
@@ -272,7 +348,6 @@
                     <span style="font-size: 0.85rem; color: var(--text-muted);">Zümrüt Yeşili</span>
                 </div>
 
-                <!-- Tema 5: Cyberpunk -->
                 <div class="theme-card" data-theme="theme-cyberpunk" onclick="setTheme('theme-cyberpunk'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #ec4899;">
                         <span style="background: #150917;"></span>
@@ -283,7 +358,6 @@
                     <span style="font-size: 0.85rem; color: var(--text-muted);">Neon Gece</span>
                 </div>
 
-                <!-- Tema 6: Amber -->
                 <div class="theme-card" data-theme="theme-amber" onclick="setTheme('theme-amber'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #f59e0b;">
                         <span style="background: #1c1917;"></span>
@@ -294,7 +368,6 @@
                     <span style="font-size: 0.85rem; color: var(--text-muted);">Altın Gece</span>
                 </div>
 
-                <!-- Tema 6.5: Gece Sakura -->
                 <div class="theme-card" data-theme="theme-dark-sakura" onclick="setTheme('theme-dark-sakura'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #db2777;">
                         <span style="background: #0d060a;"></span>
@@ -305,7 +378,6 @@
                     <span style="font-size: 0.85rem; color: var(--text-muted);">Koyu Kiraz Çiçeği</span>
                 </div>
 
-                <!-- Tema 7: Aydınlık -->
                 <div class="theme-card" data-theme="theme-light-pure" onclick="setTheme('theme-light-pure'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #0284c7;">
                         <span style="background: #f8fafc;"></span>
@@ -316,7 +388,6 @@
                     <span style="font-size: 0.85rem; color: var(--text-muted);">Minimalist Beyaz</span>
                 </div>
 
-                <!-- Tema 8: Ilık Krem -->
                 <div class="theme-card" data-theme="theme-light-warm" onclick="setTheme('theme-light-warm'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #d97706;">
                         <span style="background: #fefce8;"></span>
@@ -327,7 +398,6 @@
                     <span style="font-size: 0.85rem; color: var(--text-muted);">Açık Amber</span>
                 </div>
 
-                <!-- Tema 9: Sakura Pembesi -->
                 <div class="theme-card" data-theme="theme-pink" onclick="setTheme('theme-pink'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #db2777;">
                         <span style="background: #fdf2f8;"></span>
@@ -338,7 +408,6 @@
                     <span style="font-size: 0.85rem; color: var(--text-muted);">Pembe Düşler</span>
                 </div>
 
-                <!-- Tema 10: Mint -->
                 <div class="theme-card" data-theme="theme-light-emerald" onclick="setTheme('theme-light-emerald'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #059669;">
                         <span style="background: #ecfdf5;"></span>
