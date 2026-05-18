@@ -333,9 +333,9 @@ function initFullScreenViewer() {
                     <h3 id="fullscreen-title" class="fullscreen-topbar-title">Kod / Arayüz Önizleme</h3>
                 </div>
                 <div class="fullscreen-topbar-right">
-                    <button id="fullscreen-copy-btn" class="fullscreen-copy-btn" onclick="copyFullScreenCode()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                        <span>Kodu Kopyala</span>
+                    <button id="fullscreen-copy-btn" class="fullscreen-copy-btn" onclick="copyFullScreenCode()" title="Kodu Kopyala">
+                        <svg id="fullscreen-copy-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                        <span id="fullscreen-copy-text">Kodu Kopyala</span>
                     </button>
                     <button class="fullscreen-close-btn" onclick="closeFullScreenViewer()" title="Kapat (ESC)">&times;</button>
                 </div>
@@ -395,8 +395,8 @@ function initFullScreenViewer() {
             openFullScreenViewer({
                 type: 'code',
                 content: pre.querySelector('code') ? pre.querySelector('code').innerHTML : pre.innerHTML,
-                title: '💻 Kod Sözdizimi & Kullanım Örneği',
-                icon: '💻'
+                title: 'Kod Sözdizimi & Kullanım Örneği',
+                icon: '<>'
             });
         });
 
@@ -431,7 +431,7 @@ function initFullScreenViewer() {
             openFullScreenViewer({
                 type: 'image',
                 src: img.src,
-                title: img.alt || '🖥️ Arayüz & Dashboard Önizleme',
+                title: img.alt ? img.alt.replace(/^🖥️\s*/, '') : 'Arayüz & Dashboard Önizleme',
                 icon: '🖥️'
             });
         });
@@ -461,6 +461,11 @@ function openFullScreenViewer({ type, content, src, title, icon }) {
         copyBtn.style.display = 'flex';
         const span = copyBtn.querySelector('span');
         if (span) span.textContent = 'Kodu Kopyala';
+        const newIcon = copyBtn.querySelector('svg');
+        if (newIcon && copyBtn.dataset.origSvg) {
+            newIcon.outerHTML = copyBtn.dataset.origSvg;
+        }
+        copyBtn.classList.remove('copied');
     } else {
         codeBox.style.display = 'none';
         imgEl.style.display = 'block';
@@ -487,9 +492,20 @@ function copyFullScreenCode() {
     const text = codeEl.innerText || codeEl.textContent;
     navigator.clipboard.writeText(text).then(() => {
         const span = copyBtn.querySelector('span');
+        const iconEl = copyBtn.querySelector('svg');
         if (span) span.textContent = 'Kopyalandı! ✓';
+        if (iconEl) {
+            if (!copyBtn.dataset.origSvg) copyBtn.dataset.origSvg = iconEl.outerHTML;
+            iconEl.outerHTML = `<svg id="fullscreen-copy-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+        }
+        copyBtn.classList.add('copied');
         setTimeout(() => {
             if (span) span.textContent = 'Kodu Kopyala';
+            const newIcon = copyBtn.querySelector('svg');
+            if (newIcon && copyBtn.dataset.origSvg) {
+                newIcon.outerHTML = copyBtn.dataset.origSvg;
+            }
+            copyBtn.classList.remove('copied');
         }, 2000);
     }).catch(err => {
         console.error('Kopyalama başarısız:', err);
