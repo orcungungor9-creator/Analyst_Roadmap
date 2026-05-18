@@ -207,6 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof window.formulasData !== 'undefined' || typeof formulasData !== 'undefined') {
         initFormulas();
     }
+    initFullScreenViewer();
 }); // end DOMContentLoaded
 
 // Search panel toggle
@@ -315,6 +316,176 @@ function initCarouselDragScroll() {
     }
 }
 
+// ==========================================
+// FULLSCREEN LIGHTBOX & PREVIEW MANAGEMENT
+// ==========================================
+function initFullScreenViewer() {
+    // 1. Create Modal DOM if not exists
+    let modal = document.getElementById('fullscreen-viewer-modal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'fullscreen-viewer-modal';
+        modal.className = 'fullscreen-viewer-modal';
+        modal.innerHTML = `
+            <div class="fullscreen-topbar">
+                <div class="fullscreen-topbar-left">
+                    <span id="fullscreen-modal-icon" style="font-size: 1.5rem;">🖥️</span>
+                    <h3 id="fullscreen-title" class="fullscreen-topbar-title">Kod / Arayüz Önizleme</h3>
+                </div>
+                <div class="fullscreen-topbar-right">
+                    <button id="fullscreen-copy-btn" class="fullscreen-copy-btn" onclick="copyFullScreenCode()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                        <span>Kodu Kopyala</span>
+                    </button>
+                    <button class="fullscreen-close-btn" onclick="closeFullScreenViewer()" title="Kapat (ESC)">&times;</button>
+                </div>
+            </div>
+            <div class="fullscreen-content-container" onclick="if(event.target === this) closeFullScreenViewer()">
+                <img id="fullscreen-img" class="fullscreen-img" alt="Fullscreen Preview">
+                <div id="fullscreen-code-box" class="fullscreen-code-box">
+                    <pre><code id="fullscreen-code"></code></pre>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+
+        // Escape key listener for closing
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeFullScreenViewer();
+            }
+        });
+    }
+
+    // 2. Add Fullscreen buttons to Code Blocks (<pre>)
+    document.querySelectorAll('pre').forEach((pre) => {
+        // Skip if already processed or if it's inside the fullscreen modal itself
+        if (pre.closest('#fullscreen-viewer-modal') || pre.hasAttribute('data-fs-init')) return;
+        pre.setAttribute('data-fs-init', 'true');
+
+        const parent = pre.parentElement;
+        if (!parent) return;
+
+        // Check if parent has position relative/absolute, if not make it relative
+        const style = window.getComputedStyle(parent);
+        if (style.position === 'static') {
+            parent.style.position = 'relative';
+        }
+
+        const btn = document.createElement('button');
+        btn.className = 'fullscreen-toggle-btn';
+        btn.title = 'Tam Ekran Göster';
+        btn.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+            <span>Tam Ekran</span>
+        `;
+        
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            openFullScreenViewer({
+                type: 'code',
+                content: pre.querySelector('code') ? pre.querySelector('code').innerHTML : pre.innerHTML,
+                title: '💻 Kod Sözdizimi & Kullanım Örneği',
+                icon: '💻'
+            });
+        });
+
+        parent.appendChild(btn);
+    });
+
+    // 3. Add Fullscreen buttons to Preview Images (img[src*="preview"], etc.)
+    document.querySelectorAll('img[src*="preview"], img[src*="dashboard"], img[src*="interface"]').forEach((img) => {
+        // Skip if already processed or inside fullscreen modal
+        if (img.closest('#fullscreen-viewer-modal') || img.hasAttribute('data-fs-init')) return;
+        img.setAttribute('data-fs-init', 'true');
+
+        const parent = img.parentElement;
+        if (!parent) return;
+
+        if (window.getComputedStyle(parent).position === 'static') {
+            parent.style.position = 'relative';
+        }
+
+        const btn = document.createElement('button');
+        btn.className = 'fullscreen-toggle-btn';
+        btn.title = 'Tam Ekran Göster';
+        btn.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+            <span>Tam Ekran</span>
+        `;
+
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            openFullScreenViewer({
+                type: 'image',
+                src: img.src,
+                title: img.alt || '🖥️ Arayüz & Dashboard Önizleme',
+                icon: '🖥️'
+            });
+        });
+
+        parent.appendChild(btn);
+    });
+}
+
+function openFullScreenViewer({ type, content, src, title, icon }) {
+    const modal = document.getElementById('fullscreen-viewer-modal');
+    if (!modal) return;
+
+    const titleEl = document.getElementById('fullscreen-title');
+    const iconEl = document.getElementById('fullscreen-modal-icon');
+    const copyBtn = document.getElementById('fullscreen-copy-btn');
+    const imgEl = document.getElementById('fullscreen-img');
+    const codeBox = document.getElementById('fullscreen-code-box');
+    const codeEl = document.getElementById('fullscreen-code');
+
+    if (titleEl) titleEl.textContent = title;
+    if (iconEl) iconEl.textContent = icon || '🖥️';
+
+    if (type === 'code') {
+        imgEl.style.display = 'none';
+        codeBox.style.display = 'block';
+        codeEl.innerHTML = content;
+        copyBtn.style.display = 'flex';
+        const span = copyBtn.querySelector('span');
+        if (span) span.textContent = 'Kodu Kopyala';
+    } else {
+        codeBox.style.display = 'none';
+        imgEl.style.display = 'block';
+        imgEl.src = src;
+        copyBtn.style.display = 'none';
+    }
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeFullScreenViewer() {
+    const modal = document.getElementById('fullscreen-viewer-modal');
+    if (!modal) return;
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+function copyFullScreenCode() {
+    const codeEl = document.getElementById('fullscreen-code');
+    const copyBtn = document.getElementById('fullscreen-copy-btn');
+    if (!codeEl || !copyBtn) return;
+
+    const text = codeEl.innerText || codeEl.textContent;
+    navigator.clipboard.writeText(text).then(() => {
+        const span = copyBtn.querySelector('span');
+        if (span) span.textContent = 'Kopyalandı! ✓';
+        setTimeout(() => {
+            if (span) span.textContent = 'Kodu Kopyala';
+        }, 2000);
+    }).catch(err => {
+        console.error('Kopyalama başarısız:', err);
+    });
+}
+
 window.initFormulas = initFormulas;
 window.toggleSearchPanel = toggleSearchPanel;
 window.setTheme = setTheme;
@@ -323,3 +494,7 @@ window.toggleSearchDropdown = toggleSearchDropdown;
 window.selectDropdownCategory = selectDropdownCategory;
 window.scrollCarousel = scrollCarousel;
 window.initCarouselDragScroll = initCarouselDragScroll;
+window.initFullScreenViewer = initFullScreenViewer;
+window.openFullScreenViewer = openFullScreenViewer;
+window.closeFullScreenViewer = closeFullScreenViewer;
+window.copyFullScreenCode = copyFullScreenCode;

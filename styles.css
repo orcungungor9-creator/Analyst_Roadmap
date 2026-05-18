@@ -2134,6 +2134,79 @@ body.theme-light-purple {
         max-width: 100% !important;
     }
 
+    /* 4.5. Araç İnceleme Sayfaları (Tool Pages) Mobil Optimizasyonları */
+    .formulas-main {
+        padding: 0 16px !important;
+        gap: 24px !important;
+        margin-bottom: 60px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    .formulas-main .glass {
+        padding: 20px !important;
+        border-radius: 20px !important;
+        margin-bottom: 24px !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
+    }
+    .formulas-main > div[style*="display: grid"],
+    .formulas-main .glass > div[style*="display: grid"] {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 16px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    .formulas-main .glass > div[style*="display: grid"] > div {
+        padding: 20px !important;
+        border-radius: 16px !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
+    }
+    .formulas-main ul[style*="display: flex"] {
+        gap: 12px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    .formulas-main ul li[style*="display: flex"] {
+        display: block !important;
+        line-height: 1.6 !important;
+        margin-bottom: 12px !important;
+        word-break: break-word !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    .formulas-main ul li[style*="display: flex"] > span:first-child {
+        display: inline-block !important;
+        margin-right: 6px !important;
+    }
+    .formulas-main div[style*="overflow-x: auto"] {
+        padding: 16px !important;
+        font-size: 0.95rem !important;
+        border-radius: 14px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    .formulas-main div[style*="display: flex"][style*="justify-content: space-between"] {
+        flex-direction: column !important;
+        gap: 14px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    .formulas-main div[style*="display: flex"][style*="justify-content: space-between"] > button {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+
     /* 5. Modaller ve İçerik Optimizasyonu */
     .modal-overlay {
         padding: 16px !important;
@@ -2284,4 +2357,217 @@ body.theme-light-purple {
     .theme-grid {
         grid-template-columns: 1fr !important; /* Çok küçük ekranda tek kolon ama taşma yok */
     }
+}
+
+/* ==========================================================================
+   TAM EKRAN KOD & ARAYÜZ GÖRSELİ ÖNİZLEME (FULLSCREEN LIGHTBOX)
+   ========================================================================== */
+
+.fullscreen-toggle-btn {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 10;
+    background: rgba(15, 23, 42, 0.85);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fullscreen-toggle-btn:hover {
+    background: rgba(56, 189, 248, 0.25);
+    border-color: rgba(56, 189, 248, 0.7);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(56, 189, 248, 0.3);
+}
+
+.fullscreen-toggle-btn svg {
+    width: 16px;
+    height: 16px;
+    stroke-width: 2.5;
+    transition: transform 0.3s ease;
+}
+
+.fullscreen-toggle-btn:hover svg {
+    transform: scale(1.15);
+}
+
+.fullscreen-viewer-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999999;
+    background: rgba(4, 7, 13, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fullscreen-viewer-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.fullscreen-topbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 76px;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(15, 23, 42, 0.75);
+    border-bottom: 1px solid var(--glass-border);
+    z-index: 1000000;
+    box-sizing: border-box;
+}
+
+.fullscreen-topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.fullscreen-topbar-title {
+    color: #fff;
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-family: var(--font-title);
+    letter-spacing: 0.5px;
+}
+
+.fullscreen-topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.fullscreen-copy-btn {
+    background: rgba(56, 189, 248, 0.15);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    padding: 10px 22px;
+    border-radius: 100px;
+    font-family: var(--font-main);
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.fullscreen-copy-btn:hover {
+    background: var(--neon-blue);
+    color: #fff;
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 20px var(--neon-blue-glow);
+    transform: translateY(-2px);
+}
+
+.fullscreen-close-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--glass-border);
+    color: var(--text-muted);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 1.6rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.fullscreen-close-btn:hover {
+    background: rgba(248, 113, 113, 0.2);
+    border-color: var(--neon-red);
+    color: var(--neon-red);
+    transform: rotate(90deg);
+}
+
+.fullscreen-content-container {
+    width: 92%;
+    height: calc(100vh - 140px);
+    margin-top: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    box-sizing: border-box;
+    transform: scale(0.95);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fullscreen-viewer-modal.active .fullscreen-content-container {
+    transform: scale(1);
+}
+
+.fullscreen-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 20px;
+    box-shadow: 0 25px 70px rgba(0,0,0,0.8);
+    border: 1px solid var(--glass-border);
+    display: none;
+}
+
+.fullscreen-code-box {
+    width: 100%;
+    max-width: 1400px;
+    max-height: 100%;
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 20px;
+    padding: 40px;
+    overflow: auto;
+    font-family: 'Fira Code', monospace;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #e6edf3;
+    box-shadow: 0 25px 70px rgba(0,0,0,0.8);
+    display: none;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.fullscreen-code-box pre {
+    margin: 0;
+    overflow: visible;
+}
+
+@media (max-width: 768px) {
+    .fullscreen-topbar { padding: 0 20px; height: 66px; }
+    .fullscreen-content-container { height: calc(100vh - 100px); margin-top: 66px; width: 96%; }
+    .fullscreen-topbar-title { font-size: 1.1rem; }
+    .fullscreen-copy-btn { padding: 8px 16px; font-size: 0.85rem; }
+    .fullscreen-close-btn { width: 38px; height: 38px; font-size: 1.4rem; }
+    .fullscreen-code-box { padding: 24px; font-size: 1rem; }
 }

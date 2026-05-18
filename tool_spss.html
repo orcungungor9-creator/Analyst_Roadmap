@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPSS - Sosyal Bilimler & Anket Analizi İstatistik Rehberi | My Analyst LogBook</title>
     <meta name="description" content="IBM SPSS Statistics yazılımının sosyal bilimlerdeki yeri, anket analizi (faktör analizi, güvenilirlik), hipotez testleri ve SPSS Syntax örnekleri.">
-    <link rel="stylesheet" href="styles.css?v=2.1">
+    <link rel="stylesheet" href="styles.css?v=3.0">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
 </head>
 
@@ -314,7 +314,9 @@ ONEWAY Gelir BY Egitim_Durumu
             </p>
 
             <div class="theme-grid">
-                <div class="theme-card active" data-theme="theme-dark" onclick="setTheme('theme-dark'); closeModal('theme-modal');">
+                <!-- Tema 1: Fütüristik -->
+                <div class="theme-card active" data-theme="theme-dark"
+                    onclick="setTheme('theme-dark'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #38bdf8;">
                         <span style="background: #090e17;"></span>
                         <span style="background: #38bdf8;"></span>
@@ -324,7 +326,9 @@ ONEWAY Gelir BY Egitim_Durumu
                     <span style="font-size: 0.85rem; color: var(--text-muted);">Koyu &amp; Neon</span>
                 </div>
 
-                <div class="theme-card" data-theme="theme-ocean" onclick="setTheme('theme-ocean'); closeModal('theme-modal');">
+                <!-- Tema 2: Ocean -->
+                <div class="theme-card" data-theme="theme-ocean"
+                    onclick="setTheme('theme-ocean'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #0ea5e9;">
                         <span style="background: #030f1a;"></span>
                         <span style="background: #0ea5e9;"></span>
@@ -334,17 +338,22 @@ ONEWAY Gelir BY Egitim_Durumu
                     <span style="font-size: 0.85rem; color: var(--text-muted);">Derin Okyanus</span>
                 </div>
 
-                <div class="theme-card" data-theme="theme-sunset" onclick="setTheme('theme-sunset'); closeModal('theme-modal');">
-                    <div class="theme-palette-preview" style="border-color: #f43f5e;">
-                        <span style="background: #160b19;"></span>
-                        <span style="background: #f43f5e;"></span>
-                        <span style="background: #fb923c;"></span>
+
+                <!-- Tema 3.5: Royal Purple -->
+                <div class="theme-card" data-theme="theme-purple"
+                    onclick="setTheme('theme-purple'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #c084fc;">
+                        <span style="background: #0f071a;"></span>
+                        <span style="background: #c084fc;"></span>
+                        <span style="background: #e879f9;"></span>
                     </div>
-                    <strong>Sunset</strong>
-                    <span style="font-size: 0.85rem; color: var(--text-muted);">Gece Yarısı Moru</span>
+                    <strong>Kraliyet Moru</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Derin Ametist</span>
                 </div>
 
-                <div class="theme-card" data-theme="theme-emerald" onclick="setTheme('theme-emerald'); closeModal('theme-modal');">
+                <!-- Tema 4: Emerald -->
+                <div class="theme-card" data-theme="theme-emerald"
+                    onclick="setTheme('theme-emerald'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #10b981;">
                         <span style="background: #051611;"></span>
                         <span style="background: #10b981;"></span>
@@ -354,7 +363,9 @@ ONEWAY Gelir BY Egitim_Durumu
                     <span style="font-size: 0.85rem; color: var(--text-muted);">Zümrüt Yeşili</span>
                 </div>
 
-                <div class="theme-card" data-theme="theme-cyberpunk" onclick="setTheme('theme-cyberpunk'); closeModal('theme-modal');">
+                <!-- Tema 5: Cyberpunk -->
+                <div class="theme-card" data-theme="theme-cyberpunk"
+                    onclick="setTheme('theme-cyberpunk'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #ec4899;">
                         <span style="background: #150917;"></span>
                         <span style="background: #ec4899;"></span>
@@ -364,7 +375,9 @@ ONEWAY Gelir BY Egitim_Durumu
                     <span style="font-size: 0.85rem; color: var(--text-muted);">Neon Gece</span>
                 </div>
 
-                <div class="theme-card" data-theme="theme-amber" onclick="setTheme('theme-amber'); closeModal('theme-modal');">
+                <!-- Tema 6: Amber -->
+                <div class="theme-card" data-theme="theme-amber"
+                    onclick="setTheme('theme-amber'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #f59e0b;">
                         <span style="background: #1c1917;"></span>
                         <span style="background: #f59e0b;"></span>
@@ -374,7 +387,9 @@ ONEWAY Gelir BY Egitim_Durumu
                     <span style="font-size: 0.85rem; color: var(--text-muted);">Altın Gece</span>
                 </div>
 
-                <div class="theme-card" data-theme="theme-dark-sakura" onclick="setTheme('theme-dark-sakura'); closeModal('theme-modal');">
+                <!-- Tema 6.5: Gece Sakura -->
+                <div class="theme-card" data-theme="theme-dark-sakura"
+                    onclick="setTheme('theme-dark-sakura'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #db2777;">
                         <span style="background: #0d060a;"></span>
                         <span style="background: #db2777;"></span>
@@ -384,7 +399,9 @@ ONEWAY Gelir BY Egitim_Durumu
                     <span style="font-size: 0.85rem; color: var(--text-muted);">Koyu Kiraz Çiçeği</span>
                 </div>
 
-                <div class="theme-card" data-theme="theme-light-pure" onclick="setTheme('theme-light-pure'); closeModal('theme-modal');">
+                <!-- Tema 7: Aydınlık -->
+                <div class="theme-card" data-theme="theme-light-pure"
+                    onclick="setTheme('theme-light-pure'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #0284c7;">
                         <span style="background: #f8fafc;"></span>
                         <span style="background: #0284c7;"></span>
@@ -394,7 +411,9 @@ ONEWAY Gelir BY Egitim_Durumu
                     <span style="font-size: 0.85rem; color: var(--text-muted);">Minimalist Beyaz</span>
                 </div>
 
-                <div class="theme-card" data-theme="theme-light-warm" onclick="setTheme('theme-light-warm'); closeModal('theme-modal');">
+                <!-- Tema 8: Ilık Krem -->
+                <div class="theme-card" data-theme="theme-light-warm"
+                    onclick="setTheme('theme-light-warm'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #d97706;">
                         <span style="background: #fefce8;"></span>
                         <span style="background: #d97706;"></span>
@@ -404,7 +423,9 @@ ONEWAY Gelir BY Egitim_Durumu
                     <span style="font-size: 0.85rem; color: var(--text-muted);">Açık Amber</span>
                 </div>
 
-                <div class="theme-card" data-theme="theme-pink" onclick="setTheme('theme-pink'); closeModal('theme-modal');">
+                <!-- Tema 9: Sakura Pembesi -->
+                <div class="theme-card" data-theme="theme-pink"
+                    onclick="setTheme('theme-pink'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #db2777;">
                         <span style="background: #fdf2f8;"></span>
                         <span style="background: #db2777;"></span>
@@ -414,7 +435,9 @@ ONEWAY Gelir BY Egitim_Durumu
                     <span style="font-size: 0.85rem; color: var(--text-muted);">Pembe Düşler</span>
                 </div>
 
-                <div class="theme-card" data-theme="theme-light-emerald" onclick="setTheme('theme-light-emerald'); closeModal('theme-modal');">
+                <!-- Tema 10: Mint -->
+                <div class="theme-card" data-theme="theme-light-emerald"
+                    onclick="setTheme('theme-light-emerald'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #059669;">
                         <span style="background: #ecfdf5;"></span>
                         <span style="background: #059669;"></span>
@@ -422,6 +445,18 @@ ONEWAY Gelir BY Egitim_Durumu
                     </div>
                     <strong>Mint</strong>
                     <span style="font-size: 0.85rem; color: var(--text-muted);">Açık Zümrüt</span>
+                </div>
+
+                <!-- Tema 10.5: Açık Lavanta -->
+                <div class="theme-card" data-theme="theme-light-purple"
+                    onclick="setTheme('theme-light-purple'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #9333ea;">
+                        <span style="background: #faf5ff;"></span>
+                        <span style="background: #9333ea;"></span>
+                        <span style="background: #c084fc;"></span>
+                    </div>
+                    <strong>Açık Lavanta</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Ferah &amp; Asil</span>
                 </div>
             </div>
         </div>

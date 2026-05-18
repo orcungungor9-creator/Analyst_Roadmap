@@ -5,13 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grafik Seçim & Görselleştirme Rehberi | My Analyst LogBook</title>
-    <link rel="stylesheet" href="styles.css?v=2.1">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=3.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap"
+        rel="stylesheet">
 </head>
 
 <body class="formulas-page">
     <script>
-        (function() {
+        (function () {
             const savedTheme = localStorage.getItem('analyst_theme');
             if (savedTheme && savedTheme !== 'theme-dark') {
                 document.body.classList.add(savedTheme);
@@ -26,16 +28,18 @@
             <svg viewBox="0 0 400 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <linearGradient id="bg-area-grad-5" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="var(--neon-blue)" stop-opacity="0.4"/>
-                        <stop offset="100%" stop-color="var(--neon-blue)" stop-opacity="0.0"/>
+                        <stop offset="0%" stop-color="var(--neon-blue)" stop-opacity="0.4" />
+                        <stop offset="100%" stop-color="var(--neon-blue)" stop-opacity="0.0" />
                     </linearGradient>
                 </defs>
-                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40 L 370,190 L 10,190 Z" fill="url(#bg-area-grad-5)"/>
-                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40" fill="none" stroke="var(--neon-blue)" stroke-width="4" stroke-linecap="round"/>
-                <circle cx="130" cy="150" r="6" fill="var(--neon-green)"/>
-                <circle cx="250" cy="90" r="6" fill="var(--neon-purple)"/>
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40 L 370,190 L 10,190 Z"
+                    fill="url(#bg-area-grad-5)" />
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40" fill="none" stroke="var(--neon-blue)"
+                    stroke-width="4" stroke-linecap="round" />
+                <circle cx="130" cy="150" r="6" fill="var(--neon-green)" />
+                <circle cx="250" cy="90" r="6" fill="var(--neon-purple)" />
                 <circle cx="370" cy="40" r="8" fill="var(--neon-blue)">
-                    <animate attributeName="r" values="6;10;6" dur="3s" repeatCount="indefinite"/>
+                    <animate attributeName="r" values="6;10;6" dur="3s" repeatCount="indefinite" />
                 </circle>
             </svg>
         </div>
@@ -45,12 +49,13 @@
             <svg viewBox="0 0 200 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                 <g transform="translate(100,100)">
                     <!-- Dilim 1 (%45) -->
-                    <path d="M 0,-80 A 80,80 0 0,1 76,25 L 57,18 A 60,60 0 0,0 0,-60 Z" fill="var(--neon-blue)"/>
+                    <path d="M 0,-80 A 80,80 0 0,1 76,25 L 57,18 A 60,60 0 0,0 0,-60 Z" fill="var(--neon-blue)" />
                     <!-- Dilim 2 (%35) -->
-                    <path d="M 76,25 A 80,80 0 0,1 -64,48 L -48,36 A 60,60 0 0,0 57,18 Z" fill="var(--neon-green)"/>
+                    <path d="M 76,25 A 80,80 0 0,1 -64,48 L -48,36 A 60,60 0 0,0 57,18 Z" fill="var(--neon-green)" />
                     <!-- Dilim 3 (%20) -->
-                    <path d="M -64,48 A 80,80 0 0,1 0,-80 L 0,-60 A 60,60 0 0,0 -48,36 Z" fill="var(--neon-purple)"/>
-                    <circle cx="0" cy="0" r="45" fill="none" stroke="var(--glass-border)" stroke-width="2" stroke-dasharray="5,5"/>
+                    <path d="M -64,48 A 80,80 0 0,1 0,-80 L 0,-60 A 60,60 0 0,0 -48,36 Z" fill="var(--neon-purple)" />
+                    <circle cx="0" cy="0" r="45" fill="none" stroke="var(--glass-border)" stroke-width="2"
+                        stroke-dasharray="5,5" />
                 </g>
             </svg>
         </div>
@@ -59,30 +64,33 @@
         <div class="bg-chart-item bg-chart-3">
             <svg viewBox="0 0 250 250" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                 <!-- Arka plan grid çizgileri -->
-                <line x1="20" y1="50" x2="230" y2="50" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4"/>
-                <line x1="20" y1="100" x2="230" y2="100" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4"/>
-                <line x1="20" y1="150" x2="230" y2="150" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4"/>
-                <line x1="20" y1="200" x2="230" y2="200" stroke="var(--glass-border)" stroke-width="2"/>
-                
+                <line x1="20" y1="50" x2="230" y2="50" stroke="var(--glass-border)" stroke-width="1"
+                    stroke-dasharray="4,4" />
+                <line x1="20" y1="100" x2="230" y2="100" stroke="var(--glass-border)" stroke-width="1"
+                    stroke-dasharray="4,4" />
+                <line x1="20" y1="150" x2="230" y2="150" stroke="var(--glass-border)" stroke-width="1"
+                    stroke-dasharray="4,4" />
+                <line x1="20" y1="200" x2="230" y2="200" stroke="var(--glass-border)" stroke-width="2" />
+
                 <!-- Sütun 1 -->
                 <rect x="35" y="120" width="30" height="80" rx="6" fill="var(--neon-blue)">
-                    <animate attributeName="height" values="80;100;80" dur="4s" repeatCount="indefinite"/>
-                    <animate attributeName="y" values="120;100;120" dur="4s" repeatCount="indefinite"/>
+                    <animate attributeName="height" values="80;100;80" dur="4s" repeatCount="indefinite" />
+                    <animate attributeName="y" values="120;100;120" dur="4s" repeatCount="indefinite" />
                 </rect>
                 <!-- Sütun 2 -->
                 <rect x="85" y="70" width="30" height="130" rx="6" fill="var(--neon-green)">
-                    <animate attributeName="height" values="130;160;130" dur="5s" repeatCount="indefinite"/>
-                    <animate attributeName="y" values="70;40;70" dur="5s" repeatCount="indefinite"/>
+                    <animate attributeName="height" values="130;160;130" dur="5s" repeatCount="indefinite" />
+                    <animate attributeName="y" values="70;40;70" dur="5s" repeatCount="indefinite" />
                 </rect>
                 <!-- Sütun 3 -->
                 <rect x="135" y="150" width="30" height="50" rx="6" fill="var(--neon-purple)">
-                    <animate attributeName="height" values="50;70;50" dur="3.5s" repeatCount="indefinite"/>
-                    <animate attributeName="y" values="150;130;150" dur="3.5s" repeatCount="indefinite"/>
+                    <animate attributeName="height" values="50;70;50" dur="3.5s" repeatCount="indefinite" />
+                    <animate attributeName="y" values="150;130;150" dur="3.5s" repeatCount="indefinite" />
                 </rect>
                 <!-- Sütun 4 -->
                 <rect x="185" y="90" width="30" height="110" rx="6" fill="var(--neon-blue)">
-                    <animate attributeName="height" values="110;140;110" dur="4.5s" repeatCount="indefinite"/>
-                    <animate attributeName="y" values="90;60;90" dur="4.5s" repeatCount="indefinite"/>
+                    <animate attributeName="height" values="110;140;110" dur="4.5s" repeatCount="indefinite" />
+                    <animate attributeName="y" values="90;60;90" dur="4.5s" repeatCount="indefinite" />
                 </rect>
             </svg>
         </div>
@@ -91,20 +99,20 @@
         <div class="bg-chart-item bg-chart-4">
             <svg viewBox="0 0 280 220" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                 <!-- Mum 1 -->
-                <line x1="50" y1="30" x2="50" y2="170" stroke="var(--neon-green)" stroke-width="3"/>
-                <rect x="38" y="70" width="24" height="60" rx="4" fill="var(--neon-green)"/>
-                
+                <line x1="50" y1="30" x2="50" y2="170" stroke="var(--neon-green)" stroke-width="3" />
+                <rect x="38" y="70" width="24" height="60" rx="4" fill="var(--neon-green)" />
+
                 <!-- Mum 2 -->
-                <line x1="110" y1="50" x2="110" y2="190" stroke="var(--neon-blue)" stroke-width="3"/>
-                <rect x="98" y="90" width="24" height="70" rx="4" fill="var(--neon-blue)"/>
-                
+                <line x1="110" y1="50" x2="110" y2="190" stroke="var(--neon-blue)" stroke-width="3" />
+                <rect x="98" y="90" width="24" height="70" rx="4" fill="var(--neon-blue)" />
+
                 <!-- Mum 3 -->
-                <line x1="170" y1="20" x2="170" y2="150" stroke="var(--neon-purple)" stroke-width="3"/>
-                <rect x="158" y="50" width="24" height="50" rx="4" fill="var(--neon-purple)"/>
+                <line x1="170" y1="20" x2="170" y2="150" stroke="var(--neon-purple)" stroke-width="3" />
+                <rect x="158" y="50" width="24" height="50" rx="4" fill="var(--neon-purple)" />
 
                 <!-- Mum 4 -->
-                <line x1="230" y1="60" x2="230" y2="200" stroke="var(--neon-green)" stroke-width="3"/>
-                <rect x="218" y="100" width="24" height="55" rx="4" fill="var(--neon-green)"/>
+                <line x1="230" y1="60" x2="230" y2="200" stroke="var(--neon-green)" stroke-width="3" />
+                <rect x="218" y="100" width="24" height="55" rx="4" fill="var(--neon-green)" />
             </svg>
         </div>
     </div>
@@ -129,10 +137,24 @@
                 <div class="desktop-nav">
                     <a href="https://www.kaggle.com/datasets" target="_blank" class="nav-btn external-btn">Kaggle ↗</a>
                     <button class="nav-btn icon-btn" onclick="openModal('about-modal')" title="Hakkında">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 16v-4"></path>
+                            <path d="M12 8h.01"></path>
+                        </svg>
                     </button>
-                    <button class="nav-btn icon-btn" onclick="openModal('theme-modal')" title="Görünüm Ayarları / Tema Seç">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.836-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+                    <button class="nav-btn icon-btn" onclick="openModal('theme-modal')"
+                        title="Görünüm Ayarları / Tema Seç">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" />
+                            <circle cx="17.5" cy="10.5" r=".5" fill="currentColor" />
+                            <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" />
+                            <circle cx="6.5" cy="12.5" r=".5" fill="currentColor" />
+                            <path
+                                d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.836-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z" />
+                        </svg>
                     </button>
                 </div>
 
@@ -146,28 +168,46 @@
 
     <!-- Açılır Navigasyon Menüsü (Masaüstü & Mobil Ortak) -->
     <div class="mobile-nav-menu glass-mobile" id="mobile-nav-menu">
-        <div class="nav-menu-scroll-container" style="max-height: 85vh; overflow-y: auto; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 20px 0;">
+        <div class="nav-menu-scroll-container"
+            style="max-height: 85vh; overflow-y: auto; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 20px 0;">
             <button class="mobile-nav-item" onclick="window.location.href='index.html'">🏠 Ana Sayfaya Dön</button>
-            
-            <div style="width: 100%; max-width: 320px; margin: 12px 0 4px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
-                <span style="font-size: 0.85rem; font-weight: 800; color: var(--neon-blue); letter-spacing: 1px; text-transform: uppercase;">🚀 Hızlı Analitik Rehberler</span>
-            </div>
-            <button class="mobile-nav-item" onclick="window.location.href='formulas.html'">⚡ İstatistiksel Formüller Sözlüğü</button>
-            <button class="mobile-nav-item" onclick="window.location.href='datatypes.html'">🏷️ Veri Türleri &amp; Ölçüm Ölçekleri</button>
-            <button class="mobile-nav-item" onclick="window.location.href='datasets.html'">📁 Veri Seti Türleri &amp; Ekonometri</button>
-            <button class="mobile-nav-item" onclick="window.location.href='charts.html'">📊 Grafik Seçim &amp; Görselleştirme</button>
 
-            <div style="width: 100%; max-width: 320px; margin: 12px 0 4px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
-                <span style="font-size: 0.85rem; font-weight: 800; color: var(--neon-green); letter-spacing: 1px; text-transform: uppercase;">🛠️ Analitik Araçlar Vitrini</span>
+            <div
+                style="width: 100%; max-width: 320px; margin: 12px 0 4px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
+                <span
+                    style="font-size: 0.85rem; font-weight: 800; color: var(--neon-blue); letter-spacing: 1px; text-transform: uppercase;">🚀
+                    Hızlı Analitik Rehberler</span>
             </div>
-            <button class="mobile-nav-item" onclick="window.location.href='index.html#tools-section'; closeNavMenu();">🛠️ Popüler Analitik &amp; İş Zekası Araçları</button>
+            <button class="mobile-nav-item" onclick="window.location.href='formulas.html'">⚡ İstatistiksel Formüller
+                Sözlüğü</button>
+            <button class="mobile-nav-item" onclick="window.location.href='datatypes.html'">🏷️ Veri Türleri &amp; Ölçüm
+                Ölçekleri</button>
+            <button class="mobile-nav-item" onclick="window.location.href='datasets.html'">📁 Veri Seti Türleri &amp;
+                Ekonometri</button>
+            <button class="mobile-nav-item" onclick="window.location.href='charts.html'">📊 Grafik Seçim &amp;
+                Görselleştirme</button>
 
-            <div style="width: 100%; max-width: 320px; margin: 12px 0 4px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
-                <span style="font-size: 0.85rem; font-weight: 800; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase;">Bağlantılar &amp; Ayarlar</span>
+            <div
+                style="width: 100%; max-width: 320px; margin: 12px 0 4px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
+                <span
+                    style="font-size: 0.85rem; font-weight: 800; color: var(--neon-green); letter-spacing: 1px; text-transform: uppercase;">🛠️
+                    Analitik Araçlar Vitrini</span>
             </div>
-            <a href="https://www.kaggle.com/datasets" target="_blank" class="mobile-nav-item">🌐 Veri Setleri (Kaggle) ↗</a>
+            <button class="mobile-nav-item"
+                onclick="window.location.href='index.html#tools-section'; closeNavMenu();">🛠️ Popüler Analitik &amp; İş
+                Zekası Araçları</button>
+
+            <div
+                style="width: 100%; max-width: 320px; margin: 12px 0 4px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
+                <span
+                    style="font-size: 0.85rem; font-weight: 800; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase;">Bağlantılar
+                    &amp; Ayarlar</span>
+            </div>
+            <a href="https://www.kaggle.com/datasets" target="_blank" class="mobile-nav-item">🌐 Veri Setleri (Kaggle)
+                ↗</a>
             <button class="mobile-nav-item" onclick="openModal('about-modal'); closeNavMenu();">ℹ️ Hakkında</button>
-            <button class="mobile-nav-item" onclick="openModal('theme-modal'); closeNavMenu();">🎨 Görünüm Ayarları</button>
+            <button class="mobile-nav-item" onclick="openModal('theme-modal'); closeNavMenu();">🎨 Görünüm
+                Ayarları</button>
         </div>
     </div>
 
@@ -177,15 +217,17 @@
             <div class="badge-pill floating-slow">Görselleştirme & Karar Hub'ı</div>
             <h1 class="hero-title">Grafik Seçim &amp; <span class="gradient-text">Görselleştirme Rehberi</span></h1>
             <p class="hero-subtitle">
-                Doğru grafik seçimi verinin anlatısını güçlendirir, yanlış seçim ise okuyucuyu yanıltır. Verinizin yapısına en uygun görselleştirme yöntemini belirleyin.
+                Doğru grafik seçimi verinin anlatısını güçlendirir, yanlış seçim ise okuyucuyu yanıltır. Verinizin
+                yapısına en uygun görselleştirme yöntemini belirleyin.
             </p>
         </div>
     </section>
 
     <!-- 3. ANA İÇERİK -->
     <main class="formulas-main" style="max-width: 1300px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
-        <div class="glass" style="padding: 48px; border-radius: 28px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 1px solid var(--glass-border);">
-            
+        <div class="glass"
+            style="padding: 48px; border-radius: 28px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 1px solid var(--glass-border);">
+
             <!-- KATEGORİ: KARŞILAŞTIRMA -->
             <div class="chart-section">
                 <h3 class="chart-cat-title"><span class="chart-cat-icon">📊</span> Karşılaştırma Grafikleri</h3>
@@ -194,9 +236,11 @@
                         <div class="chart-preview bar-preview"></div>
                         <div class="chart-info">
                             <strong>Bar / Sütun Grafiği</strong>
-                            <p>Kategoriler arasındaki farklılıkları gösterir. Yatay bar uzun etiketler için daha okunaklıdır.</p>
+                            <p>Kategoriler arasındaki farklılıkları gösterir. Yatay bar uzun etiketler için daha
+                                okunaklıdır.</p>
                             <div class="chart-tags"><span>✅ Kategorik</span><span>✅ Nitel/Nicel</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Birkaç kategorinin değerlerini kıyaslarken</div>
+                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Birkaç kategorinin değerlerini kıyaslarken
+                            </div>
                         </div>
                     </div>
                     <div class="chart-card">
@@ -212,9 +256,11 @@
                         <div class="chart-preview radar-preview"></div>
                         <div class="chart-info">
                             <strong>Radar (Spider) Grafiği</strong>
-                            <p>Çok boyutlu verileri tek bir görselde karşılaştırır. Performans değerlendirmesinde idealdir.</p>
+                            <p>Çok boyutlu verileri tek bir görselde karşılaştırır. Performans değerlendirmesinde
+                                idealdir.</p>
                             <div class="chart-tags"><span>✅ Çok değişken</span><span>✅ Skor</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Birden fazla birimi çok metrikte kıyaslarken</div>
+                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Birden fazla birimi çok metrikte kıyaslarken
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -228,7 +274,8 @@
                         <div class="chart-preview hist-preview"></div>
                         <div class="chart-info">
                             <strong>Histogram</strong>
-                            <p>Sürekli değişkenin frekans dağılımını gösterir. Dağılımın şekli (normal, çarpık) anlaşılır.</p>
+                            <p>Sürekli değişkenin frekans dağılımını gösterir. Dağılımın şekli (normal, çarpık)
+                                anlaşılır.</p>
                             <div class="chart-tags"><span>✅ Sürekli</span><span>✅ Dağılım</span></div>
                             <div class="chart-when">🎯 <em>Ne Zaman:</em> Verinin dağılımını keşfetmek için</div>
                         </div>
@@ -237,7 +284,8 @@
                         <div class="chart-preview box-preview"></div>
                         <div class="chart-info">
                             <strong>Kutu Grafiği (Box Plot)</strong>
-                            <p>Medyan, çeyrekler, aşırı değerleri tek görselde özetler. Gruplar arası dağılım karşılaştırmasında standarttır.</p>
+                            <p>Medyan, çeyrekler, aşırı değerleri tek görselde özetler. Gruplar arası dağılım
+                                karşılaştırmasında standarttır.</p>
                             <div class="chart-tags"><span>✅ Robust</span><span>✅ Aykırı</span></div>
                             <div class="chart-when">🎯 <em>Ne Zaman:</em> Grupların dağılımını kıyaslarken</div>
                         </div>
@@ -246,16 +294,19 @@
                         <div class="chart-preview scatter-preview"></div>
                         <div class="chart-info">
                             <strong>Saçılım Grafiği (Scatter Plot)</strong>
-                            <p>İki değişken arasındaki ilişkiyi ve korelasyonu gösterir. Regresyon hattı eklenebilir.</p>
+                            <p>İki değişken arasındaki ilişkiyi ve korelasyonu gösterir. Regresyon hattı eklenebilir.
+                            </p>
                             <div class="chart-tags"><span>✅ Korelasyon</span><span>✅ Sürekli×Sürekli</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> İki değişken arasındaki bağı keşfetmek için</div>
+                            <div class="chart-when">🎯 <em>Ne Zaman:</em> İki değişken arasındaki bağı keşfetmek için
+                            </div>
                         </div>
                     </div>
                     <div class="chart-card">
                         <div class="chart-preview violin-preview"></div>
                         <div class="chart-info">
                             <strong>Violin Grafiği</strong>
-                            <p>Box plot + yoğunluk tahmini (KDE). Dağılımın biçimini ve yoğunluğunu birlikte gösterir.</p>
+                            <p>Box plot + yoğunluk tahmini (KDE). Dağılımın biçimini ve yoğunluğunu birlikte gösterir.
+                            </p>
                             <div class="chart-tags"><span>✅ Dağılım</span><span>✅ KDE</span></div>
                             <div class="chart-when">🎯 <em>Ne Zaman:</em> Dağılım biçimini ayrıntılı görmek için</div>
                         </div>
@@ -305,7 +356,8 @@
                         <div class="chart-preview pie-preview"></div>
                         <div class="chart-info">
                             <strong>Pasta Grafiği (Pie Chart)</strong>
-                            <p>Bütünün parçalarını gösterir. En fazla 5–6 kategori için kullanın; fazlası okumayı zorlaştırır.</p>
+                            <p>Bütünün parçalarını gösterir. En fazla 5–6 kategori için kullanın; fazlası okumayı
+                                zorlaştırır.</p>
                             <div class="chart-tags"><span>✅ Oran</span><span>⚠️ Max 6 kategori</span></div>
                             <div class="chart-when">🎯 <em>Ne Zaman:</em> Pazar payı, bütçe dağılımı</div>
                         </div>
@@ -339,7 +391,8 @@
                         <div class="chart-preview heatmap-preview"></div>
                         <div class="chart-info">
                             <strong>Isı Haritası (Heatmap)</strong>
-                            <p>Matris yapısındaki değerleri renk yoğunluğuyla gösterir. Korelasyon matrislerinde sık kullanılır.</p>
+                            <p>Matris yapısındaki değerleri renk yoğunluğuyla gösterir. Korelasyon matrislerinde sık
+                                kullanılır.</p>
                             <div class="chart-tags"><span>✅ Korelasyon</span><span>✅ Matris</span></div>
                             <div class="chart-when">🎯 <em>Ne Zaman:</em> Değişkenler arası ilişki matrisi</div>
                         </div>
@@ -348,7 +401,8 @@
                         <div class="chart-preview bubble-preview"></div>
                         <div class="chart-info">
                             <strong>Balon Grafiği (Bubble Chart)</strong>
-                            <p>Scatter’a 3. boyut ekler: X, Y koordinatına ek olarak balonun büyüklüğü 3. değişkeni ifade eder.</p>
+                            <p>Scatter’a 3. boyut ekler: X, Y koordinatına ek olarak balonun büyüklüğü 3. değişkeni
+                                ifade eder.</p>
                             <div class="chart-tags"><span>✅ 3 Değişken</span><span>✅ Boyut</span></div>
                             <div class="chart-when">🎯 <em>Ne Zaman:</em> Ülke/şirket 3 metrik kıyaslaması</div>
                         </div>
@@ -412,31 +466,43 @@
     <div id="about-modal" class="modal-overlay">
         <div class="modal-content glass modal-custom-pad">
             <button class="close-btn" onclick="closeModal('about-modal')">&times;</button>
-            
+
             <div style="display: flex; align-items: center; gap: 18px; margin-bottom: 32px;">
-                <div style="width: 60px; height: 60px; border-radius: 50%; background: rgba(56, 189, 248, 0.15); border: 2px solid var(--neon-blue); display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);">
+                <div
+                    style="width: 60px; height: 60px; border-radius: 50%; background: rgba(56, 189, 248, 0.15); border: 2px solid var(--neon-blue); display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);">
                     👋
                 </div>
                 <div>
                     <h2 class="modal-title gradient-text" style="margin-bottom: 4px; font-size: 2.2rem;">Hakkımda</h2>
-                    <span style="color: var(--neon-blue); font-size: 0.95rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">Seyir Defterime Hoş Geldiniz</span>
+                    <span
+                        style="color: var(--neon-blue); font-size: 0.95rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">Seyir
+                        Defterime Hoş Geldiniz</span>
                 </div>
             </div>
 
-            <div style="display: flex; flex-direction: column; gap: 20px; font-size: 1.08rem; line-height: 1.7; color: var(--text-main);">
-                <p style="color: var(--text-muted); font-size: 1.15rem; font-weight: 500; border-left: 3px solid var(--neon-green); padding-left: 16px; margin-bottom: 4px;">
+            <div
+                style="display: flex; flex-direction: column; gap: 20px; font-size: 1.08rem; line-height: 1.7; color: var(--text-main);">
+                <p
+                    style="color: var(--text-muted); font-size: 1.15rem; font-weight: 500; border-left: 3px solid var(--neon-green); padding-left: 16px; margin-bottom: 4px;">
                     Öncelikle sayfama geldiğiniz için teşekkür ederim.
                 </p>
-                
+
                 <p>
-                    Ben <strong style="color: var(--neon-blue); font-weight: 700;">Orçun</strong>. <strong style="color: #fff;">My Analyst LogBook</strong>, istatistik ve ekonometri dünyasına dair kavramları bir araya getirdiğim, veri analistlerinin kullandığı programlama dillerini ve araçları tanıttığım kapsamlı bir dijital arşivdir.
+                    Ben <strong style="color: var(--neon-blue); font-weight: 700;">Orçun</strong>. <strong
+                        style="color: #fff;">My Analyst LogBook</strong>, istatistik ve ekonometri dünyasına dair
+                    kavramları bir araya getirdiğim, veri analistlerinin kullandığı programlama dillerini ve araçları
+                    tanıttığım kapsamlı bir dijital arşivdir.
                 </p>
 
                 <p class="about-box">
-                    Karmaşık teorilerden analitik araçlara kadar birçok konuyu, sıkıcı akademik dilden uzaklaşarak <em style="color: var(--neon-green); font-style: normal; font-weight: 700;">"kendi penceremden"</em> not düşüyorum. Amacım hem kendi gelişim sürecimi bu seyir defterinde arşivlemek hem de veri dünyasına adım atan veya bu alanda çalışan diğer insanlarla bilgi dolu, ortak bir zemin yaratmak.
+                    Karmaşık teorilerden analitik araçlara kadar birçok konuyu, sıkıcı akademik dilden uzaklaşarak <em
+                        style="color: var(--neon-green); font-style: normal; font-weight: 700;">"kendi penceremden"</em>
+                    not düşüyorum. Amacım hem kendi gelişim sürecimi bu seyir defterinde arşivlemek hem de veri
+                    dünyasına adım atan veya bu alanda çalışan diğer insanlarla bilgi dolu, ortak bir zemin yaratmak.
                 </p>
 
-                <p style="color: var(--text-muted); font-size: 1.05rem; margin-top: 12px; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 24px;">
+                <p
+                    style="color: var(--text-muted); font-size: 1.05rem; margin-top: 12px; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 24px;">
                     Umarım bu sayfalarda kendi analiz serüveniniz için faydalı bir şeyler bulursunuz.
                 </p>
             </div>
@@ -447,24 +513,30 @@
     <div id="theme-modal" class="modal-overlay">
         <div class="modal-content glass modal-custom-pad">
             <button class="close-btn" onclick="closeModal('theme-modal')">&times;</button>
-            
+
             <div style="display: flex; align-items: center; gap: 18px; margin-bottom: 32px;">
-                <div style="width: 60px; height: 60px; border-radius: 50%; background: rgba(56, 189, 248, 0.15); border: 2px solid var(--neon-blue); display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);">
+                <div
+                    style="width: 60px; height: 60px; border-radius: 50%; background: rgba(56, 189, 248, 0.15); border: 2px solid var(--neon-blue); display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);">
                     🎨
                 </div>
                 <div>
-                    <h2 class="modal-title gradient-text" style="margin-bottom: 4px; font-size: 2.2rem;">Görünüm Ayarları</h2>
-                    <span style="color: var(--neon-blue); font-size: 0.95rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">Arayüz Temasını Özelleştirin</span>
+                    <h2 class="modal-title gradient-text" style="margin-bottom: 4px; font-size: 2.2rem;">Görünüm
+                        Ayarları</h2>
+                    <span
+                        style="color: var(--neon-blue); font-size: 0.95rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">Arayüz
+                        Temasını Özelleştirin</span>
                 </div>
             </div>
 
             <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 24px;">
-                Çalışma tarzınıza ve zevkinize en uygun renk paletini seçin. Seçiminiz tarayıcınızda kaydedilecek ve tüm sayfalarda geçerli olacaktır.
+                Çalışma tarzınıza ve zevkinize en uygun renk paletini seçin. Seçiminiz tarayıcınızda kaydedilecek ve tüm
+                sayfalarda geçerli olacaktır.
             </p>
 
             <div class="theme-grid">
                 <!-- Tema 1: Fütüristik -->
-                <div class="theme-card active" data-theme="theme-dark" onclick="setTheme('theme-dark'); closeModal('theme-modal');">
+                <div class="theme-card active" data-theme="theme-dark"
+                    onclick="setTheme('theme-dark'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #38bdf8;">
                         <span style="background: #090e17;"></span>
                         <span style="background: #38bdf8;"></span>
@@ -475,7 +547,8 @@
                 </div>
 
                 <!-- Tema 2: Ocean -->
-                <div class="theme-card" data-theme="theme-ocean" onclick="setTheme('theme-ocean'); closeModal('theme-modal');">
+                <div class="theme-card" data-theme="theme-ocean"
+                    onclick="setTheme('theme-ocean'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #0ea5e9;">
                         <span style="background: #030f1a;"></span>
                         <span style="background: #0ea5e9;"></span>
@@ -487,7 +560,8 @@
 
 
                 <!-- Tema 3.5: Royal Purple -->
-                <div class="theme-card" data-theme="theme-purple" onclick="setTheme('theme-purple'); closeModal('theme-modal');">
+                <div class="theme-card" data-theme="theme-purple"
+                    onclick="setTheme('theme-purple'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #c084fc;">
                         <span style="background: #0f071a;"></span>
                         <span style="background: #c084fc;"></span>
@@ -498,7 +572,8 @@
                 </div>
 
                 <!-- Tema 4: Emerald -->
-                <div class="theme-card" data-theme="theme-emerald" onclick="setTheme('theme-emerald'); closeModal('theme-modal');">
+                <div class="theme-card" data-theme="theme-emerald"
+                    onclick="setTheme('theme-emerald'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #10b981;">
                         <span style="background: #051611;"></span>
                         <span style="background: #10b981;"></span>
@@ -509,7 +584,8 @@
                 </div>
 
                 <!-- Tema 5: Cyberpunk -->
-                <div class="theme-card" data-theme="theme-cyberpunk" onclick="setTheme('theme-cyberpunk'); closeModal('theme-modal');">
+                <div class="theme-card" data-theme="theme-cyberpunk"
+                    onclick="setTheme('theme-cyberpunk'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #ec4899;">
                         <span style="background: #150917;"></span>
                         <span style="background: #ec4899;"></span>
@@ -520,7 +596,8 @@
                 </div>
 
                 <!-- Tema 6: Amber -->
-                <div class="theme-card" data-theme="theme-amber" onclick="setTheme('theme-amber'); closeModal('theme-modal');">
+                <div class="theme-card" data-theme="theme-amber"
+                    onclick="setTheme('theme-amber'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #f59e0b;">
                         <span style="background: #1c1917;"></span>
                         <span style="background: #f59e0b;"></span>
@@ -531,7 +608,8 @@
                 </div>
 
                 <!-- Tema 6.5: Gece Sakura -->
-                <div class="theme-card" data-theme="theme-dark-sakura" onclick="setTheme('theme-dark-sakura'); closeModal('theme-modal');">
+                <div class="theme-card" data-theme="theme-dark-sakura"
+                    onclick="setTheme('theme-dark-sakura'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #db2777;">
                         <span style="background: #0d060a;"></span>
                         <span style="background: #db2777;"></span>
@@ -542,7 +620,8 @@
                 </div>
 
                 <!-- Tema 7: Aydınlık -->
-                <div class="theme-card" data-theme="theme-light-pure" onclick="setTheme('theme-light-pure'); closeModal('theme-modal');">
+                <div class="theme-card" data-theme="theme-light-pure"
+                    onclick="setTheme('theme-light-pure'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #0284c7;">
                         <span style="background: #f8fafc;"></span>
                         <span style="background: #0284c7;"></span>
@@ -553,7 +632,8 @@
                 </div>
 
                 <!-- Tema 8: Ilık Krem -->
-                <div class="theme-card" data-theme="theme-light-warm" onclick="setTheme('theme-light-warm'); closeModal('theme-modal');">
+                <div class="theme-card" data-theme="theme-light-warm"
+                    onclick="setTheme('theme-light-warm'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #d97706;">
                         <span style="background: #fefce8;"></span>
                         <span style="background: #d97706;"></span>
@@ -564,7 +644,8 @@
                 </div>
 
                 <!-- Tema 9: Sakura Pembesi -->
-                <div class="theme-card" data-theme="theme-pink" onclick="setTheme('theme-pink'); closeModal('theme-modal');">
+                <div class="theme-card" data-theme="theme-pink"
+                    onclick="setTheme('theme-pink'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #db2777;">
                         <span style="background: #fdf2f8;"></span>
                         <span style="background: #db2777;"></span>
@@ -575,7 +656,8 @@
                 </div>
 
                 <!-- Tema 10: Mint -->
-                <div class="theme-card" data-theme="theme-light-emerald" onclick="setTheme('theme-light-emerald'); closeModal('theme-modal');">
+                <div class="theme-card" data-theme="theme-light-emerald"
+                    onclick="setTheme('theme-light-emerald'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #059669;">
                         <span style="background: #ecfdf5;"></span>
                         <span style="background: #059669;"></span>
@@ -586,7 +668,8 @@
                 </div>
 
                 <!-- Tema 10.5: Açık Lavanta -->
-                <div class="theme-card" data-theme="theme-light-purple" onclick="setTheme('theme-light-purple'); closeModal('theme-modal');">
+                <div class="theme-card" data-theme="theme-light-purple"
+                    onclick="setTheme('theme-light-purple'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #9333ea;">
                         <span style="background: #faf5ff;"></span>
                         <span style="background: #9333ea;"></span>
