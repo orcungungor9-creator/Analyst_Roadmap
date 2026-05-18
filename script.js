@@ -363,14 +363,23 @@ function initFullScreenViewer() {
         if (pre.closest('#fullscreen-viewer-modal') || pre.hasAttribute('data-fs-init')) return;
         pre.setAttribute('data-fs-init', 'true');
 
-        const parent = pre.parentElement;
-        if (!parent) return;
+        const parent = pre.parentElement; // This is the dark box with background #0d1117 and overflow-x: auto
+        if (!parent || !parent.parentNode) return;
 
-        // Check if parent has position relative/absolute, if not make it relative
-        const style = window.getComputedStyle(parent);
-        if (style.position === 'static') {
-            parent.style.position = 'relative';
-        }
+        // Create a wrapper div to hold the dark box and the absolute button
+        const wrapper = document.createElement('div');
+        wrapper.className = 'code-fullscreen-wrapper';
+        wrapper.style.position = 'relative';
+        wrapper.style.width = '100%';
+        
+        // Preserve any bottom margin from the parent
+        const parentStyle = window.getComputedStyle(parent);
+        wrapper.style.marginBottom = parentStyle.marginBottom;
+        parent.style.marginBottom = '0';
+
+        // Insert wrapper before parent, then move parent inside wrapper
+        parent.parentNode.insertBefore(wrapper, parent);
+        wrapper.appendChild(parent);
 
         const btn = document.createElement('button');
         btn.className = 'fullscreen-toggle-btn';
@@ -391,7 +400,8 @@ function initFullScreenViewer() {
             });
         });
 
-        parent.appendChild(btn);
+        // Append button to WRAPPER (outside the overflow-x: auto box) so it stays visible at top right
+        wrapper.appendChild(btn);
     });
 
     // 3. Add Fullscreen buttons to Preview Images (img[src*="preview"], etc.)
