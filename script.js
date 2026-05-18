@@ -335,7 +335,7 @@ function initCarouselInteractive() {
     });
 
     function startMomentum() {
-        let speed = velocity * 15; // İvme katsayısı
+        let speed = velocity * 5; // İvme katsayısı daha da düşürüldü (Çok daha garantili/kontrollü hız)
         if (Math.abs(speed) < 1) {
             finishDrag();
             return;

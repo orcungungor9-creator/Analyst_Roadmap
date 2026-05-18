@@ -640,9 +640,21 @@ body {
 .carousel-arrow.right-arrow { right: -20px; }
 
 @media (max-width: 768px) {
-    .carousel-arrow.left-arrow { left: -10px; }
-    .carousel-arrow.right-arrow { right: -10px; }
-    .carousel-card { flex: 0 0 85vw; }
+    /* Mobilde dokunmatik kaydırma olduğu için okları gizliyoruz */
+    .carousel-arrow { 
+        display: none !important; 
+    }
+    
+    /* Kartları mobilde biraz daha daraltıp yanlardaki kartların ekrana daha çok girmesini sağlıyoruz */
+    .carousel-card { 
+        flex: 0 0 72vw; 
+        min-height: 240px; 
+    }
+
+    /* Kart boyutu değiştiği için başlangıç hizalamasını (padding) 72vw'nin yarısı olan 36vw'ye göre güncelliyoruz */
+    .quick-guides-carousel {
+        padding: 30px calc(50% - 36vw);
+    }
 }
 
 .guide-card {
