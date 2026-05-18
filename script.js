@@ -201,7 +201,8 @@ document.addEventListener('click', (e) => {
 document.addEventListener('DOMContentLoaded', () => {
     initTheme();
     initCategoryDragScroll();
-    initCarouselDragScroll();
+    initCarouselObserver();
+    initCarouselInteractive();
     if (window.initNavOutsideClick) window.initNavOutsideClick();
     if (window.initModal) window.initModal();
     if (typeof window.formulasData !== 'undefined' || typeof formulasData !== 'undefined') {
@@ -223,12 +224,13 @@ function toggleSearchPanel() {
 }
 
 // ==========================================
-// CAROUSEL SLIDER & MOMENTUM DRAG MANAGEMENT
+// CAROUSEL SLIDER & OBSERVER MANAGEMENT
 // ==========================================
 function scrollCarousel(direction, carouselId) {
     const carousel = document.getElementById(carouselId);
     if (!carousel) return;
-    const scrollAmount = carousel.offsetWidth * 0.8;
+    const firstCard = carousel.querySelector('.carousel-card');
+    const scrollAmount = firstCard ? firstCard.offsetWidth + 24 : carousel.offsetWidth * 0.8;
     if (direction === 'left') {
         carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
     } else {
@@ -236,7 +238,37 @@ function scrollCarousel(direction, carouselId) {
     }
 }
 
-function initCarouselDragScroll() {
+function initCarouselObserver() {
+    const carousel = document.getElementById('quick-guides-carousel');
+    const cards = document.querySelectorAll('.carousel-card');
+    if (!carousel || cards.length === 0) return;
+
+    const observerOptions = {
+        root: carousel,
+        rootMargin: '0px -49% 0px -49%',
+        threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                cards.forEach(c => c.classList.remove('active-card'));
+                entry.target.classList.add('active-card');
+            }
+        });
+    }, observerOptions);
+
+    cards.forEach(card => observer.observe(card));
+
+    // Başlangıçta 3. karta (index 2) odaklan
+    if (cards[2]) {
+        setTimeout(() => {
+            cards[2].scrollIntoView({ behavior: 'instant', inline: 'center', block: 'nearest' });
+        }, 50);
+    }
+}
+
+function initCarouselInteractive() {
     const carousel = document.getElementById('quick-guides-carousel');
     if (!carousel) return;
 
@@ -249,10 +281,17 @@ function initCarouselDragScroll() {
     let timestamp = 0;
     let momentumID;
 
+    // Tarayıcının varsayılan sürükle-bırak (örn: görsel sürükleme) davranışını iptal et
+    carousel.addEventListener('dragstart', (e) => {
+        e.preventDefault();
+    });
+
     carousel.addEventListener('mousedown', (e) => {
         isDown = true;
         isDragging = false;
-        carousel.classList.add('dragging');
+        carousel.style.scrollSnapType = 'none'; // Sürüklerken snap yapmayı geçici durdur
+        carousel.style.scrollBehavior = 'auto'; // Anlık tepki için smooth'u kapat
+        carousel.style.cursor = 'grabbing';
         startX = e.pageX - carousel.offsetLeft;
         scrollLeft = carousel.scrollLeft;
         prevX = e.pageX;
@@ -261,23 +300,24 @@ function initCarouselDragScroll() {
     });
 
     carousel.addEventListener('mouseleave', () => {
-        if (isDown) {
-            isDown = false;
-            carousel.classList.remove('dragging');
-            startMomentum();
-        }
+        if (!isDown) return;
+        isDown = false;
+        carousel.style.cursor = 'grab';
+        startMomentum();
     });
 
     carousel.addEventListener('mouseup', () => {
+        if (!isDown) return;
         isDown = false;
-        carousel.classList.remove('dragging');
+        carousel.style.cursor = 'grab';
         startMomentum();
+        // Tıklama olayının sürükleme olarak algılanmaması için ufak bir gecikme
         setTimeout(() => { isDragging = false; }, 50);
     });
 
     carousel.addEventListener('mousemove', (e) => {
         if (!isDown) return;
-        e.preventDefault();
+        e.preventDefault(); // Metin seçimi vb. varsayılan olayları engelle
         const x = e.pageX - carousel.offsetLeft;
         const walk = (x - startX);
         if (Math.abs(walk) > 5) {
@@ -294,26 +334,55 @@ function initCarouselDragScroll() {
         timestamp = now;
     });
 
-    carousel.addEventListener('click', (e) => {
-        if (isDragging) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
-    }, true);
-
     function startMomentum() {
-        let speed = velocity * 25; // Momentum katsayısı
-        if (Math.abs(speed) < 1) return;
+        let speed = velocity * 15; // İvme katsayısı
+        if (Math.abs(speed) < 1) {
+            finishDrag();
+            return;
+        }
 
         function step() {
             carousel.scrollLeft -= speed;
-            speed *= 0.92; // Sürtünme / yavaşlama
+            speed *= 0.92; // Sürtünme
             if (Math.abs(speed) > 0.5) {
                 momentumID = requestAnimationFrame(step);
+            } else {
+                finishDrag();
             }
         }
         momentumID = requestAnimationFrame(step);
     }
+
+    function finishDrag() {
+        carousel.style.scrollSnapType = 'x mandatory';
+        carousel.style.scrollBehavior = 'smooth';
+    }
+
+    // TIKLAMA YAKALAMA (Capture Phase)
+    carousel.addEventListener('click', (e) => {
+        // 1. Eğer kaydırma (drag) yapılıyorsa, tüm tıklamaları iptal et
+        if (isDragging) {
+            e.preventDefault();
+            e.stopPropagation();
+            return;
+        }
+
+        // 2. Tıklanan elementi bul
+        const clickedCard = e.target.closest('.carousel-card');
+        if (clickedCard) {
+            // Eğer kart aktif (merkezde) DEĞİLSE
+            if (!clickedCard.classList.contains('active-card')) {
+                // Yönlendirmeyi tamamen engelle
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Sadece kartı merkeze kaydır
+                carousel.style.scrollBehavior = 'smooth'; // Smooth'un açık olduğundan emin ol
+                clickedCard.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            }
+            // Kart aktifse HİÇBİR ŞEY YAPMA, varsayılan inline onclick çalışıp sayfaya yönlendirsin.
+        }
+    }, true);
 }
 
 // ==========================================
@@ -519,7 +588,8 @@ window.initTheme = initTheme;
 window.toggleSearchDropdown = toggleSearchDropdown;
 window.selectDropdownCategory = selectDropdownCategory;
 window.scrollCarousel = scrollCarousel;
-window.initCarouselDragScroll = initCarouselDragScroll;
+window.initCarouselObserver = initCarouselObserver;
+window.initCarouselInteractive = initCarouselInteractive;
 window.initFullScreenViewer = initFullScreenViewer;
 window.openFullScreenViewer = openFullScreenViewer;
 window.closeFullScreenViewer = closeFullScreenViewer;

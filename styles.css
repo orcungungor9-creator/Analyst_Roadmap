@@ -571,11 +571,12 @@ body {
     overflow-x: auto;
     scroll-behavior: smooth;
     overscroll-behavior-x: contain;
-    padding: 20px 24px;
+    padding: 40px calc(50% - min(160px, 42.5vw));
     -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    width: 100%;
     cursor: grab;
     user-select: none;
-    width: 100%;
     scrollbar-width: none; /* Firefox */
     /* Sağ ve sol kenarlarda muazzam opaklaşma (fade-out) efekti */
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%);
@@ -586,14 +587,21 @@ body {
     display: none; /* Chrome/Safari */
 }
 
-.quick-guides-carousel.dragging {
-    scroll-behavior: auto; /* Sürükleme anında anında tepki için smooth iptal */
-    cursor: grabbing;
-}
-
 .carousel-card {
     flex: 0 0 min(320px, 85vw);
     min-height: 280px;
+    scroll-snap-align: center;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: scale(0.85);
+    opacity: 0.5;
+}
+
+.carousel-card.active-card {
+    transform: scale(1.05);
+    opacity: 1;
+    box-shadow: 0 0 35px rgba(192, 132, 252, 0.4) !important;
+    border-color: var(--neon-purple) !important;
+    z-index: 2;
 }
 
 .carousel-arrow {
