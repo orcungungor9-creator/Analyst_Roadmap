@@ -263,7 +263,9 @@ function initCarouselObserver() {
     // Başlangıçta 3. karta (index 2) odaklan
     if (cards[2]) {
         setTimeout(() => {
-            cards[2].scrollIntoView({ behavior: 'instant', inline: 'center', block: 'nearest' });
+            const target = cards[2];
+            const scrollPos = target.offsetLeft - (carousel.offsetWidth / 2) + (target.offsetWidth / 2);
+            carousel.scrollTo({ left: scrollPos, behavior: 'instant' });
         }, 50);
     }
 }
@@ -378,7 +380,8 @@ function initCarouselInteractive() {
                 
                 // Sadece kartı merkeze kaydır
                 carousel.style.scrollBehavior = 'smooth'; // Smooth'un açık olduğundan emin ol
-                clickedCard.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                const scrollPos = clickedCard.offsetLeft - (carousel.offsetWidth / 2) + (clickedCard.offsetWidth / 2);
+                carousel.scrollTo({ left: scrollPos, behavior: 'smooth' });
             }
             // Kart aktifse HİÇBİR ŞEY YAPMA, varsayılan inline onclick çalışıp sayfaya yönlendirsin.
         }

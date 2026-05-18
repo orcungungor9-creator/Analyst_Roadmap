@@ -640,9 +640,35 @@ body {
 .carousel-arrow.right-arrow { right: -20px; }
 
 @media (max-width: 768px) {
-    /* Mobilde dokunmatik kaydırma olduğu için okları gizliyoruz */
+    /* Mobilde okları kartın altına, ortaya yan yana konumlandırıyoruz */
+    .carousel-container {
+        padding-bottom: 70px; /* Oklar için alt kısımda boşluk */
+    }
+
     .carousel-arrow { 
-        display: none !important; 
+        display: flex !important; 
+        top: auto;
+        bottom: 5px; /* Kapsayıcının en altına al */
+        transform: none; /* Dikey ortalamayı iptal et */
+        width: 48px;
+        height: 48px;
+    }
+
+    .carousel-arrow.left-arrow { 
+        left: calc(50% - 58px); 
+    }
+
+    .carousel-arrow.right-arrow { 
+        right: auto;
+        left: calc(50% + 10px); 
+    }
+
+    /* Hover ve Active durumlarında translateY'nin devreye girip zıplamasını engelle */
+    .carousel-arrow:hover {
+        transform: scale(1.1);
+    }
+    .carousel-arrow:active {
+        transform: scale(0.95);
     }
     
     /* Kartları mobilde biraz daha daraltıp yanlardaki kartların ekrana daha çok girmesini sağlıyoruz */
