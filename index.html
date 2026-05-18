@@ -122,37 +122,52 @@
         <div class="header-container">
             <a href="#" class="logo gradient-text">My Analyst LogBook</a>
             
-            <!-- Masaüstü Navigasyon -->
-            <nav class="desktop-nav" id="desktop-nav">
-                <button class="nav-btn" onclick="window.location.href='formulas.html'">İstatistiksel Formüller</button>
-                <button class="nav-btn" onclick="window.location.href='datatypes.html'">Veri Türleri</button>
-                <button class="nav-btn" onclick="window.location.href='datasets.html'">Veri Seti Türleri</button>
-                <button class="nav-btn" onclick="window.location.href='charts.html'">Grafik Türleri</button>
-                <a href="https://www.kaggle.com/datasets" target="_blank" class="nav-btn external-btn">Kaggle ↗</a>
-                <button class="nav-btn icon-btn" onclick="openModal('about-modal')" title="Hakkında">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
-                </button>
-                <button class="nav-btn icon-btn" onclick="openModal('theme-modal')" title="Görünüm Ayarları / Tema Seç">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.836-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
-                </button>
-            </nav>
+            <!-- Sağ Butonlar ve Hamburger Kapsayıcısı -->
+            <div class="header-right">
+                <!-- Masaüstü Navigasyon -->
+                <nav class="desktop-nav" id="desktop-nav">
+                    <a href="https://www.kaggle.com/datasets" target="_blank" class="nav-btn external-btn">Kaggle ↗</a>
+                    <button class="nav-btn icon-btn" onclick="openModal('about-modal')" title="Hakkında">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+                    </button>
+                    <button class="nav-btn icon-btn" onclick="openModal('theme-modal')" title="Görünüm Ayarları / Tema Seç">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.836-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+                    </button>
+                </nav>
 
-            <!-- Mobil Hamburger Butonu -->
-            <button class="hamburger-btn" id="hamburger-btn" onclick="toggleNavMenu()" aria-label="Menü">
-                <span></span><span></span><span></span>
-            </button>
+                <!-- Mobil Hamburger Butonu -->
+                <button class="hamburger-btn" id="hamburger-btn" onclick="toggleNavMenu()" aria-label="Menü">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
         </div>
     </header>
 
-    <!-- Mobil Açılır Menü -->
+    <!-- Açılır Navigasyon Menüsü (Masaüstü & Mobil Ortak) -->
     <div class="mobile-nav-menu glass-mobile" id="mobile-nav-menu">
-        <button class="mobile-nav-item" onclick="window.location.href='formulas.html'">⚡ İstatistiksel Formüller</button>
-        <button class="mobile-nav-item" onclick="window.location.href='datatypes.html'">🏷️ Veri Türleri Rehberi</button>
-        <button class="mobile-nav-item" onclick="window.location.href='datasets.html'">📁 Veri Seti Türleri</button>
-        <button class="mobile-nav-item" onclick="window.location.href='charts.html'">📊 Grafik Türleri Rehberi</button>
-        <a href="https://www.kaggle.com/datasets" target="_blank" class="mobile-nav-item">🌐 Veri Setleri (Kaggle) ↗</a>
-        <button class="mobile-nav-item" onclick="openModal('about-modal')">ℹ️ Hakkında</button>
-        <button class="mobile-nav-item" onclick="openModal('theme-modal')">🎨 Görünüm Ayarları</button>
+        <div class="nav-menu-scroll-container" style="max-height: 85vh; overflow-y: auto; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 20px 0;">
+            <button class="mobile-nav-item" onclick="closeNavMenu()">❌ Menüyü Kapat</button>
+            
+            <div style="width: 100%; max-width: 320px; margin: 12px 0 4px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
+                <span style="font-size: 0.85rem; font-weight: 800; color: var(--neon-blue); letter-spacing: 1px; text-transform: uppercase;">🚀 Hızlı Analitik Rehberler</span>
+            </div>
+            <button class="mobile-nav-item" onclick="window.location.href='formulas.html'">⚡ İstatistiksel Formüller Sözlüğü</button>
+            <button class="mobile-nav-item" onclick="window.location.href='datatypes.html'">🏷️ Veri Türleri &amp; Ölçüm Ölçekleri</button>
+            <button class="mobile-nav-item" onclick="window.location.href='datasets.html'">📁 Veri Seti Türleri &amp; Ekonometri</button>
+            <button class="mobile-nav-item" onclick="window.location.href='charts.html'">📊 Grafik Seçim &amp; Görselleştirme</button>
+
+            <div style="width: 100%; max-width: 320px; margin: 12px 0 4px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
+                <span style="font-size: 0.85rem; font-weight: 800; color: var(--neon-green); letter-spacing: 1px; text-transform: uppercase;">🛠️ Analitik Araçlar Vitrini</span>
+            </div>
+            <button class="mobile-nav-item" onclick="window.location.href='index.html#tools-section'; closeNavMenu();">🛠️ Popüler Analitik &amp; İş Zekası Araçları</button>
+
+            <div style="width: 100%; max-width: 320px; margin: 12px 0 4px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
+                <span style="font-size: 0.85rem; font-weight: 800; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase;">Bağlantılar &amp; Ayarlar</span>
+            </div>
+            <a href="https://www.kaggle.com/datasets" target="_blank" class="mobile-nav-item">🌐 Veri Setleri (Kaggle) ↗</a>
+            <button class="mobile-nav-item" onclick="openModal('about-modal'); closeNavMenu();">ℹ️ Hakkında</button>
+            <button class="mobile-nav-item" onclick="openModal('theme-modal'); closeNavMenu();">🎨 Görünüm Ayarları</button>
+        </div>
     </div>
 
     <!-- 2. HERO (KAHRAMAN) BÖLÜMÜ -->
@@ -186,43 +201,57 @@
                 <p class="section-desc">Veri analitiği süreçlerinizde ihtiyaç duyduğunuz tüm teorik ve pratik referanslara anında erişin.</p>
             </div>
 
-            <div class="quick-guides-grid">
-                <!-- Rehber 1: Formüller -->
-                <div class="guide-card glass-card" onclick="window.location.href='formulas.html'">
-                    <div class="guide-card-icon blue-glow">⚡</div>
-                    <h3>İstatistiksel Formüller Sözlüğü</h3>
-                    <p>Tüm temel, çıkarımsal ve ekonometrik formüller, KaTeX matematiksel gösterimi ve risk/avantaj analizleriyle.</p>
-                    <span class="guide-link">Formülleri İncele &rarr;</span>
+            <!-- YATAY CAROUSEL / SLIDER KAPSAYICISI -->
+            <div class="carousel-container">
+                <!-- Sol Ok Butonu -->
+                <button class="carousel-arrow left-arrow" onclick="scrollCarousel('left', 'quick-guides-carousel')" aria-label="Sola Kaydır">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+
+                <!-- Kaydırma Alanı -->
+                <div class="quick-guides-carousel" id="quick-guides-carousel">
+                    <!-- Rehber 1: Formüller -->
+                    <div class="guide-card glass-card carousel-card" onclick="window.location.href='formulas.html'">
+                        <div class="guide-card-icon blue-glow">⚡</div>
+                        <h3>İstatistiksel Formüller Sözlüğü</h3>
+                        <p>Tüm temel, çıkarımsal ve ekonometrik formüller, KaTeX matematiksel gösterimi ve risk/avantaj analizleriyle.</p>
+                        <span class="guide-link">Formülleri İncele &rarr;</span>
+                    </div>
+
+                    <!-- Rehber 2: Veri Türleri -->
+                    <div class="guide-card glass-card carousel-card" onclick="window.location.href='datatypes.html'">
+                        <div class="guide-card-icon purple-glow">🏷️</div>
+                        <h3>Veri Türleri &amp; Ölçüm Ölçekleri</h3>
+                        <p>Nominal, Ordinal, Aralık ve Oran ölçekleri ile Nitel/Nicel veri sınıflandırma rehberi.</p>
+                        <span class="guide-link">Veri Türlerini İncele &rarr;</span>
+                    </div>
+
+                    <!-- Rehber 3: Veri Setleri -->
+                    <div class="guide-card glass-card carousel-card" onclick="window.location.href='datasets.html'">
+                        <div class="guide-card-icon yellow-glow">📁</div>
+                        <h3>Veri Seti Türleri &amp; Ekonometri</h3>
+                        <p>Panel veri (Dengeli/Dengesiz), Zaman Serisi, Yatay Kesit ve Havuzlanmış veri modelleme rehberi.</p>
+                        <span class="guide-link">Veri Setlerini İncele &rarr;</span>
+                    </div>
+
+                    <!-- Rehber 4: Grafikler -->
+                    <div class="guide-card glass-card carousel-card" onclick="window.location.href='charts.html'">
+                        <div class="guide-card-icon green-glow">📊</div>
+                        <h3>Grafik Seçim &amp; Görselleştirme</h3>
+                        <p>Hangi veride hangi grafiği kullanmalısınız? Karşılaştırma, dağılım, zaman serisi ve oran grafikleri.</p>
+                        <span class="guide-link">Grafik Rehberini İncele &rarr;</span>
+                    </div>
                 </div>
 
-                <!-- Rehber 2: Veri Türleri -->
-                <div class="guide-card glass-card" onclick="window.location.href='datatypes.html'">
-                    <div class="guide-card-icon purple-glow">🏷️</div>
-                    <h3>Veri Türleri &amp; Ölçüm Ölçekleri</h3>
-                    <p>Nominal, Ordinal, Aralık ve Oran ölçekleri ile Nitel/Nicel veri sınıflandırma rehberi.</p>
-                    <span class="guide-link">Veri Türlerini İncele &rarr;</span>
-                </div>
-
-                <!-- Rehber 3: Veri Setleri -->
-                <div class="guide-card glass-card" onclick="window.location.href='datasets.html'">
-                    <div class="guide-card-icon yellow-glow">📁</div>
-                    <h3>Veri Seti Türleri &amp; Ekonometri</h3>
-                    <p>Panel veri (Dengeli/Dengesiz), Zaman Serisi, Yatay Kesit ve Havuzlanmış veri modelleme rehberi.</p>
-                    <span class="guide-link">Veri Setlerini İncele &rarr;</span>
-                </div>
-
-                <!-- Rehber 4: Grafikler -->
-                <div class="guide-card glass-card" onclick="window.location.href='charts.html'">
-                    <div class="guide-card-icon green-glow">📊</div>
-                    <h3>Grafik Seçim &amp; Görselleştirme</h3>
-                    <p>Hangi veride hangi grafiği kullanmalısınız? Karşılaştırma, dağılım, zaman serisi ve oran grafikleri.</p>
-                    <span class="guide-link">Grafik Rehberini İncele &rarr;</span>
-                </div>
+                <!-- Sağ Ok Butonu -->
+                <button class="carousel-arrow right-arrow" onclick="scrollCarousel('right', 'quick-guides-carousel')" aria-label="Sağa Kaydır">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
             </div>
         </section>
 
         <!-- 4. YAZILIM PROGRAMLARI VİTRİNİ (YENİLENMİŞ, İÇERİĞİ GÖRÜNEN KARTLAR) -->
-        <section class="section-container">
+        <section class="section-container" id="tools-section">
             <div class="section-header">
                 <h2 class="section-title"><span class="icon-title">🛠️</span> Popüler Analitik &amp; İş Zekası Araçları</h2>
                 <p class="section-desc">Veri madenciliği, istatistiksel modelleme ve iş zekası süreçlerinde kullanılan endüstri standardı yazılımlar.</p>
@@ -332,7 +361,7 @@
                 <!-- SAS -->
                 <div class="tool-card-new glass-card" data-tool="sas" onclick="window.location.href='tool_sas.html'" style="cursor: pointer;">
                     <div class="tool-top">
-                        <div class="tool-logo-box"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/sas.svg" alt="SAS Logo" class="tool-svg"></div>
+                        <div class="tool-logo-box"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/databricks.svg" alt="SAS Logo" class="tool-svg"></div>
                         <span class="tool-tag tag-blue">Kurumsal Analitik</span>
                     </div>
                     <h3>SAS</h3>
@@ -434,15 +463,16 @@
                     <span style="font-size: 0.85rem; color: var(--text-muted);">Derin Okyanus</span>
                 </div>
 
-                <!-- Tema 3: Sunset -->
-                <div class="theme-card" data-theme="theme-sunset" onclick="setTheme('theme-sunset'); closeModal('theme-modal');">
-                    <div class="theme-palette-preview" style="border-color: #f43f5e;">
-                        <span style="background: #160b19;"></span>
-                        <span style="background: #f43f5e;"></span>
-                        <span style="background: #fb923c;"></span>
+
+                <!-- Tema 3.5: Royal Purple -->
+                <div class="theme-card" data-theme="theme-purple" onclick="setTheme('theme-purple'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #c084fc;">
+                        <span style="background: #0f071a;"></span>
+                        <span style="background: #c084fc;"></span>
+                        <span style="background: #e879f9;"></span>
                     </div>
-                    <strong>Sunset</strong>
-                    <span style="font-size: 0.85rem; color: var(--text-muted);">Gece Yarısı Moru</span>
+                    <strong>Kraliyet Moru</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Derin Ametist</span>
                 </div>
 
                 <!-- Tema 4: Emerald -->
@@ -531,6 +561,17 @@
                     </div>
                     <strong>Mint</strong>
                     <span style="font-size: 0.85rem; color: var(--text-muted);">Açık Zümrüt</span>
+                </div>
+
+                <!-- Tema 10.5: Açık Lavanta -->
+                <div class="theme-card" data-theme="theme-light-purple" onclick="setTheme('theme-light-purple'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #9333ea;">
+                        <span style="background: #faf5ff;"></span>
+                        <span style="background: #9333ea;"></span>
+                        <span style="background: #c084fc;"></span>
+                    </div>
+                    <strong>Açık Lavanta</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Ferah &amp; Asil</span>
                 </div>
             </div>
         </div>

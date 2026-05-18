@@ -237,6 +237,12 @@ body {
     text-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
 }
 
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
 .desktop-nav {
     display: flex;
     align-items: center;
@@ -286,7 +292,7 @@ body {
 
 /* Hamburger Butonu */
 .hamburger-btn {
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 32px;
@@ -505,6 +511,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 32px;
+    scroll-margin-top: 100px;
 }
 
 .section-header {
@@ -541,6 +548,87 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 24px;
+}
+
+/* YATAY CAROUSEL / SLIDER STİLLERİ */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 24px 0 48px 0;
+}
+
+.quick-guides-carousel {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    overscroll-behavior-x: contain;
+    padding: 20px 24px;
+    -webkit-overflow-scrolling: touch;
+    cursor: grab;
+    user-select: none;
+    width: 100%;
+    scrollbar-width: none; /* Firefox */
+    /* Sağ ve sol kenarlarda muazzam opaklaşma (fade-out) efekti */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%);
+}
+
+.quick-guides-carousel::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+.quick-guides-carousel.dragging {
+    scroll-behavior: auto; /* Sürükleme anında anında tepki için smooth iptal */
+    cursor: grabbing;
+}
+
+.carousel-card {
+    flex: 0 0 min(320px, 85vw);
+    min-height: 280px;
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
+}
+
+.carousel-arrow:hover {
+    background: var(--neon-blue);
+    border-color: #fff;
+    box-shadow: 0 0 25px var(--neon-blue);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-arrow:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.carousel-arrow.left-arrow { left: -20px; }
+.carousel-arrow.right-arrow { right: -20px; }
+
+@media (max-width: 768px) {
+    .carousel-arrow.left-arrow { left: -10px; }
+    .carousel-arrow.right-arrow { right: -10px; }
+    .carousel-card { flex: 0 0 85vw; }
 }
 
 .guide-card {
@@ -1529,17 +1617,18 @@ body.theme-ocean {
     --neon-purple: #6366f1;
 }
 
-body.theme-sunset {
-    --bg-dark: #160b19;
-    --bg-card: rgba(43, 18, 37, 0.55);
-    --glass-bg: rgba(43, 18, 37, 0.75);
-    --glass-border: rgba(244, 63, 94, 0.2);
-    --glass-border-hover: rgba(244, 63, 94, 0.5);
-    --neon-blue: #f43f5e;
-    --neon-blue-glow: rgba(244, 63, 94, 0.4);
-    --neon-green: #fb923c;
-    --neon-green-glow: rgba(251, 146, 60, 0.4);
-    --neon-purple: #c084fc;
+
+body.theme-purple {
+    --bg-dark: #0f071a;
+    --bg-card: rgba(30, 14, 48, 0.55);
+    --glass-bg: rgba(30, 14, 48, 0.75);
+    --glass-border: rgba(192, 132, 252, 0.2);
+    --glass-border-hover: rgba(192, 132, 252, 0.5);
+    --neon-blue: #c084fc;
+    --neon-blue-glow: rgba(192, 132, 252, 0.4);
+    --neon-green: #e879f9;
+    --neon-green-glow: rgba(232, 121, 249, 0.4);
+    --neon-purple: #38bdf8;
 }
 
 body.theme-emerald {
@@ -1744,6 +1833,41 @@ body.theme-light-emerald {
     --shadow-glass: 0 10px 30px rgba(0, 0, 0, 0.12);
     --shadow-card: 0 8px 25px rgba(0, 0, 0, 0.08);
     --shadow-card-hover: 0 15px 35px rgba(0, 0, 0, 0.15);
+
+    --bg-inner-box: rgba(0, 0, 0, 0.04);
+    --border-inner-box: rgba(0, 0, 0, 0.1);
+    --bg-input: rgba(0, 0, 0, 0.03);
+    --bg-input-focus: rgba(0, 0, 0, 0.06);
+    --bg-filter-btn: rgba(0, 0, 0, 0.04);
+    --bg-filter-btn-hover: rgba(0, 0, 0, 0.08);
+
+    --tool-svg-filter: invert(0) opacity(0.85);
+    --tool-svg-filter-hover: invert(0) opacity(1);
+    --bg-tool-logo: rgba(0, 0, 0, 0.05);
+}
+
+body.theme-light-purple {
+    --bg-dark: #faf5ff;
+    --bg-card: rgba(255, 255, 255, 0.75);
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(147, 51, 234, 0.15);
+    --glass-border-hover: rgba(147, 51, 234, 0.4);
+    --neon-blue: #9333ea;
+    --neon-blue-glow: rgba(147, 51, 234, 0.25);
+    --neon-green: #c084fc;
+    --neon-green-glow: rgba(192, 132, 252, 0.25);
+    --neon-purple: #db2777;
+    --text-main: #3b0764;
+    --text-muted: #7e22ce;
+    --header-bg: rgba(255, 255, 255, 0.85);
+    --modal-bg: rgba(255, 255, 255, 0.92);
+    --close-bg: rgba(0, 0, 0, 0.06);
+    --mobile-menu-bg: rgba(255, 255, 255, 0.96);
+    --mobile-item-bg: rgba(0, 0, 0, 0.05);
+    --nav-btn-hover-bg: rgba(147, 51, 234, 0.08);
+    --shadow-glass: 0 10px 30px rgba(147, 51, 234, 0.1);
+    --shadow-card: 0 8px 25px rgba(147, 51, 234, 0.08);
+    --shadow-card-hover: 0 15px 35px rgba(147, 51, 234, 0.18);
 
     --bg-inner-box: rgba(0, 0, 0, 0.04);
     --border-inner-box: rgba(0, 0, 0, 0.1);

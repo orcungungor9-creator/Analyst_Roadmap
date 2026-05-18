@@ -201,6 +201,7 @@ document.addEventListener('click', (e) => {
 document.addEventListener('DOMContentLoaded', () => {
     initTheme();
     initCategoryDragScroll();
+    initCarouselDragScroll();
     if (window.initNavOutsideClick) window.initNavOutsideClick();
     if (window.initModal) window.initModal();
     if (typeof window.formulasData !== 'undefined' || typeof formulasData !== 'undefined') {
@@ -220,9 +221,105 @@ function toggleSearchPanel() {
     }
 }
 
+// ==========================================
+// CAROUSEL SLIDER & MOMENTUM DRAG MANAGEMENT
+// ==========================================
+function scrollCarousel(direction, carouselId) {
+    const carousel = document.getElementById(carouselId);
+    if (!carousel) return;
+    const scrollAmount = carousel.offsetWidth * 0.8;
+    if (direction === 'left') {
+        carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    } else {
+        carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+}
+
+function initCarouselDragScroll() {
+    const carousel = document.getElementById('quick-guides-carousel');
+    if (!carousel) return;
+
+    let isDown = false;
+    let isDragging = false;
+    let startX;
+    let scrollLeft;
+    let velocity = 0;
+    let prevX = 0;
+    let timestamp = 0;
+    let momentumID;
+
+    carousel.addEventListener('mousedown', (e) => {
+        isDown = true;
+        isDragging = false;
+        carousel.classList.add('dragging');
+        startX = e.pageX - carousel.offsetLeft;
+        scrollLeft = carousel.scrollLeft;
+        prevX = e.pageX;
+        timestamp = performance.now();
+        cancelAnimationFrame(momentumID);
+    });
+
+    carousel.addEventListener('mouseleave', () => {
+        if (isDown) {
+            isDown = false;
+            carousel.classList.remove('dragging');
+            startMomentum();
+        }
+    });
+
+    carousel.addEventListener('mouseup', () => {
+        isDown = false;
+        carousel.classList.remove('dragging');
+        startMomentum();
+        setTimeout(() => { isDragging = false; }, 50);
+    });
+
+    carousel.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - carousel.offsetLeft;
+        const walk = (x - startX);
+        if (Math.abs(walk) > 5) {
+            isDragging = true;
+        }
+        carousel.scrollLeft = scrollLeft - walk;
+
+        const now = performance.now();
+        const elapsed = now - timestamp;
+        if (elapsed > 0) {
+            velocity = (e.pageX - prevX) / elapsed;
+        }
+        prevX = e.pageX;
+        timestamp = now;
+    });
+
+    carousel.addEventListener('click', (e) => {
+        if (isDragging) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    }, true);
+
+    function startMomentum() {
+        let speed = velocity * 25; // Momentum katsayısı
+        if (Math.abs(speed) < 1) return;
+
+        function step() {
+            carousel.scrollLeft -= speed;
+            speed *= 0.92; // Sürtünme / yavaşlama
+            if (Math.abs(speed) > 0.5) {
+                momentumID = requestAnimationFrame(step);
+            }
+        }
+        momentumID = requestAnimationFrame(step);
+    }
+}
+
 window.initFormulas = initFormulas;
 window.toggleSearchPanel = toggleSearchPanel;
 window.setTheme = setTheme;
 window.initTheme = initTheme;
 window.toggleSearchDropdown = toggleSearchDropdown;
 window.selectDropdownCategory = selectDropdownCategory;
+window.scrollCarousel = scrollCarousel;
+window.initCarouselDragScroll = initCarouselDragScroll;
