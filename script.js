@@ -91,7 +91,7 @@ function initFormulas() {
 
 // Theme management
 function initTheme() {
-    const savedTheme = localStorage.getItem('analyst_theme') || 'theme-dark';
+    const savedTheme = localStorage.getItem('analyst_theme') || 'theme-light-purple';
     document.body.className = document.body.className.replace(/\btheme-\S+/g, '').trim();
     if (savedTheme !== 'theme-dark') {
         document.body.classList.add(savedTheme);

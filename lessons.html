@@ -14,8 +14,8 @@
 <body class="formulas-page">
     <script>
         (function () {
-            const savedTheme = localStorage.getItem('analyst_theme');
-            if (savedTheme && savedTheme !== 'theme-dark') {
+            const savedTheme = localStorage.getItem('analyst_theme') || 'theme-light-purple';
+            if (savedTheme !== 'theme-dark') {
                 document.body.classList.add(savedTheme);
             }
         })();
