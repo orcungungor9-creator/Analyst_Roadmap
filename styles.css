@@ -493,6 +493,29 @@ body {
     transform: scale(1.2);
 }
 
+.btn-hero-start {
+    background: rgba(192, 132, 252, 0.12);
+    border: 1px solid rgba(192, 132, 252, 0.4);
+    color: var(--text-main);
+    box-shadow: 0 8px 25px rgba(192, 132, 252, 0.2);
+}
+
+.btn-hero-start .btn-hero-icon {
+    color: var(--neon-purple);
+    transition: transform 0.3s ease;
+}
+
+.btn-hero-start:hover {
+    background: rgba(192, 132, 252, 0.25);
+    border-color: var(--neon-purple);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(192, 132, 252, 0.4), 0 0 20px rgba(192, 132, 252, 0.3);
+}
+
+.btn-hero-start:hover .btn-hero-icon {
+    transform: scale(1.2);
+}
+
 @media (max-width: 768px) {
     .hero-section { padding: 50px 20px 40px 20px; }
     .hero-title { font-size: 2.5rem; }
@@ -2957,3 +2980,580 @@ body.theme-light-purple {
     .reason-card h3 { font-size: 1.3rem; }
     .reason-card p { font-size: 0.95rem; }
 }
+
+/* ==========================================================================
+   ADDITIONAL CUSTOM STYLES - CAREER BRANCH & LIFECYCLE TIMELINE REDESIGN
+   ========================================================================== */
+
+/* 1. Career Tree Styling */
+.career-tree-container {
+    position: relative;
+    padding: 20px 0 60px 0;
+}
+
+.career-card {
+    padding: 32px !important;
+    min-height: 290px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    overflow: visible !important; /* Ensure badges and glow aren't clipped */
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-sizing: border-box;
+}
+
+.career-card h3 {
+    color: var(--text-main) !important;
+    margin-bottom: 8px;
+}
+
+.career-card p {
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.bi-role {
+    transform: translateY(30px);
+}
+
+/* SVG Connection Lines for desktop view */
+.tree-connections-desktop {
+    position: absolute;
+    top: 130px;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Responsive Overrides for Career Tree */
+@media (max-width: 900px) {
+    .bi-role {
+        transform: none !important; /* Align vertically on tablet/mobile */
+    }
+    .career-tree-container {
+        padding-bottom: 20px;
+    }
+    .tree-connections-desktop {
+        display: none !important; /* Hide background connections on small screens */
+    }
+}
+
+/* 2. Lifecycle Timeline Styling */
+.timeline-container {
+    position: relative;
+    padding-left: 64px;
+    margin-top: 40px;
+    box-sizing: border-box;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 24px;
+    top: 10px;
+    bottom: 10px;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--neon-blue), var(--neon-purple), #db2777, var(--neon-green));
+    border-radius: 4px;
+    z-index: 1;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-circle {
+    position: absolute;
+    left: -54px; /* Perfect center align (64px padding - 54px = 10px offset. Circle width 32px, center at 26px. Line is at 26px) */
+    top: 18px;
+    width: 32px;
+    height: 32px;
+    background: var(--bg-dark);
+    border: 3px solid var(--neon-blue);
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-main);
+    font-weight: 800;
+    font-size: 0.9rem;
+    z-index: 2;
+}
+
+.timeline-card {
+    padding: 28px !important;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.timeline-card h3 {
+    margin: 0;
+    font-size: 1.35rem;
+    color: var(--text-main) !important;
+    font-family: var(--font-title);
+    font-weight: 700;
+}
+
+.timeline-card p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .timeline-container {
+        padding-left: 48px;
+    }
+    .timeline-line {
+        left: 16px;
+    }
+    .timeline-circle {
+        left: -44px; /* Alignment adjust for mobile padding (48px - 44px = 4px offset. Circle width 28px, center at 18px. Line is at 18px) */
+        width: 28px;
+        height: 28px;
+        top: 20px;
+    }
+    .timeline-card {
+        padding: 20px !important;
+    }
+    .timeline-card h3 {
+        font-size: 1.2rem !important;
+    }
+}
+
+/* =========================================
+   ROADMAP TIMELINE AND THEME-ADAPTIVE BACK BUTTON
+   ========================================= */
+.roadmap-tracker-container {
+    margin-bottom: 60px;
+    padding: 30px 40px;
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 60px; /* Highly rounded / capsule shape */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15), 0 0 25px rgba(124, 58, 237, 0.05);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: visible;
+}
+
+.roadmap-tracker {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+    position: relative;
+    padding: 10px 0;
+}
+
+/* Connecting timeline line behind the tracker bubbles (Desktop only) */
+.roadmap-tracker::before {
+    content: '';
+    position: absolute;
+    top: 30px; /* Aligns perfectly with the center of the 40px bubbles */
+    left: 20px;
+    right: 20px;
+    height: 3px;
+    background: linear-gradient(to right, 
+        var(--neon-green), 
+        var(--neon-blue), 
+        var(--neon-purple), 
+        #db2777, 
+        #06b6d4, 
+        #f43f5e, 
+        #fb923c, 
+        #3b82f6, 
+        var(--neon-yellow)
+    );
+    z-index: 1;
+    opacity: 0.6;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(124, 58, 237, 0.15);
+}
+
+.tracker-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    z-index: 2;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.tracker-bubble {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.05rem;
+    font-family: var(--font-title);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    z-index: 2;
+}
+
+/* 3D Glassmorphism glare effect inside bubbles */
+.tracker-bubble::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    height: 35%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+    border-radius: 50% 50% 20% 20%;
+    pointer-events: none;
+}
+
+.tracker-step span {
+    font-size: 0.8rem;
+    font-weight: 800;
+    font-family: var(--font-title);
+    color: var(--text-main);
+    text-align: center;
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+}
+
+/* Individual colors and glow intensities for each step */
+.tracker-step-1 { --step-color: var(--neon-green); --step-glow: rgba(52, 211, 153, 0.45); }
+.tracker-step-2 { --step-color: var(--neon-blue); --step-glow: rgba(56, 189, 248, 0.45); }
+.tracker-step-3 { --step-color: var(--neon-purple); --step-glow: rgba(192, 132, 252, 0.45); }
+.tracker-step-4 { --step-color: #db2777; --step-glow: rgba(219, 39, 119, 0.45); }
+.tracker-step-5 { --step-color: #06b6d4; --step-glow: rgba(6, 182, 212, 0.45); }
+.tracker-step-6 { --step-color: #f43f5e; --step-glow: rgba(244, 63, 94, 0.45); }
+.tracker-step-7 { --step-color: #fb923c; --step-glow: rgba(251, 146, 60, 0.45); }
+.tracker-step-8 { --step-color: #3b82f6; --step-glow: rgba(59, 130, 246, 0.45); }
+.tracker-step-9 { --step-color: var(--neon-yellow); --step-glow: rgba(251, 191, 36, 0.45); }
+
+.tracker-bubble {
+    background: var(--bg-body, #0f0f19);
+    border: 2px solid var(--step-color);
+    color: var(--step-color);
+    box-shadow: 0 0 12px var(--step-glow), inset 0 0 8px var(--step-glow);
+}
+
+/* Hover animations */
+.tracker-step:hover {
+    transform: translateY(-6px);
+}
+
+.tracker-step:hover .tracker-bubble {
+    transform: scale(1.22);
+    box-shadow: 0 0 25px var(--step-color), inset 0 0 10px var(--step-color);
+    background: var(--step-color);
+    color: #fff;
+    border-color: #fff;
+}
+
+.tracker-step:hover span {
+    color: var(--step-color);
+    transform: scale(1.05);
+}
+
+.tracker-arrow {
+    display: none !important; /* Hide old arrows entirely */
+}
+
+.btn-back-home {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 36px;
+    border-radius: 30px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    font-family: var(--font-title);
+    cursor: pointer;
+    background: color-mix(in srgb, var(--neon-blue) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--neon-blue) 40%, transparent);
+    color: var(--text-main);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    text-decoration: none;
+}
+
+.btn-back-home:hover {
+    background: color-mix(in srgb, var(--neon-blue) 22%, transparent);
+    border-color: var(--neon-blue);
+    color: var(--text-main);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px var(--neon-blue-glow);
+}
+
+.btn-back-home .btn-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-back-home:hover .btn-icon {
+    transform: translateX(-4px);
+}
+
+@media (max-width: 992px) {
+    .roadmap-tracker-container {
+        border-radius: 35px;
+        padding: 24px 20px;
+    }
+    .roadmap-tracker::before {
+        display: none !important; /* Hide line on grid wrapper */
+    }
+    .roadmap-tracker {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    .tracker-step {
+        width: 100%;
+        min-width: 0;
+    }
+    .tracker-step span {
+        white-space: normal; /* Allow text wrapping on mobile/tablet grid */
+    }
+}
+
+@media (max-width: 480px) {
+    .roadmap-tracker {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+    .tracker-step span {
+        font-size: 0.72rem;
+    }
+    .tracker-bubble {
+        width: 34px;
+        height: 34px;
+        font-size: 0.95rem;
+    }
+}
+
+/* PREMIUM STEPPED ROADMAP PATH LAYOUT */
+.premium-roadmap-path {
+    position: relative;
+    max-width: 900px;
+    margin: 60px auto 80px auto;
+    padding-left: 60px;
+}
+
+/* Vertical line */
+.premium-roadmap-path::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    left: 20px;
+    width: 3px;
+    background: linear-gradient(to bottom, 
+        var(--neon-green), 
+        var(--neon-blue), 
+        var(--neon-purple), 
+        #db2777, 
+        #06b6d4, 
+        #f43f5e, 
+        #fb923c, 
+        #3b82f6, 
+        var(--neon-yellow)
+    );
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+    border-radius: 4px;
+}
+
+/* Individual roadmap step */
+.roadmap-step-item {
+    position: relative;
+    margin-bottom: 50px;
+    opacity: 0.95;
+    transition: all 0.4s ease;
+}
+
+.roadmap-step-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Glowing step circle on the line */
+.roadmap-step-marker {
+    position: absolute;
+    left: -60px;
+    top: 10px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--bg-dark);
+    border: 3px solid var(--step-color, var(--neon-blue));
+    color: var(--step-color, var(--neon-blue));
+    box-shadow: 0 0 20px var(--step-glow, rgba(56, 189, 248, 0.4));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.15rem;
+    font-family: var(--font-title);
+    z-index: 5;
+    transition: all 0.3s ease;
+}
+
+.roadmap-step-item:hover .roadmap-step-marker {
+    transform: scale(1.15);
+    background: var(--step-color, var(--neon-blue));
+    color: var(--bg-dark);
+    box-shadow: 0 0 30px var(--step-color, var(--neon-blue));
+}
+
+/* Roadmap step detail card */
+.roadmap-step-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-left: 5px solid var(--step-color, var(--neon-blue));
+    border-radius: 16px;
+    padding: 30px 28px;
+    box-shadow: var(--shadow-card);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.roadmap-step-item:hover .roadmap-step-card {
+    border-color: color-mix(in srgb, var(--step-color) 40%, var(--glass-border));
+    box-shadow: var(--shadow-card-hover), 0 0 25px var(--step-glow, rgba(56, 189, 248, 0.3));
+    transform: translateX(10px) translateY(-2px);
+}
+
+/* Card Header */
+.roadmap-step-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.roadmap-step-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.roadmap-step-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: 6px;
+    width: fit-content;
+    background: color-mix(in srgb, var(--step-color) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--step-color) 30%, transparent);
+    color: var(--step-color);
+}
+
+.roadmap-step-title {
+    font-family: var(--font-title);
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--text-main);
+    transition: color 0.3s ease;
+}
+
+.roadmap-step-item:hover .roadmap-step-title {
+    color: var(--step-color);
+}
+
+.roadmap-step-icon {
+    font-size: 2.2rem;
+    line-height: 1;
+    transition: transform 0.4s ease;
+}
+
+.roadmap-step-item:hover .roadmap-step-icon {
+    transform: scale(1.15) rotate(5deg);
+}
+
+/* Description & Content */
+.roadmap-step-desc {
+    color: var(--text-muted);
+    font-size: 0.98rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.roadmap-step-content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 20px;
+    margin-bottom: 20px;
+}
+
+.roadmap-step-content-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.roadmap-step-content-box strong {
+    color: var(--text-main);
+    font-size: 0.95rem;
+}
+
+.roadmap-step-content-box span {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+/* Responsive path layout */
+@media (max-width: 768px) {
+    .premium-roadmap-path {
+        padding-left: 45px;
+    }
+    .premium-roadmap-path::before {
+        left: 20px;
+    }
+    .roadmap-step-marker {
+        left: -40px;
+        width: 36px;
+        height: 36px;
+        font-size: 0.95rem;
+        border-width: 2.5px;
+    }
+    .roadmap-step-card {
+        padding: 22px 20px;
+    }
+    .roadmap-step-title {
+        font-size: 1.25rem;
+    }
+    .roadmap-step-icon {
+        font-size: 1.8rem;
+    }
+    .roadmap-step-item:hover .roadmap-step-card {
+        transform: translateY(-2px);
+    }
+}
+
+
+
