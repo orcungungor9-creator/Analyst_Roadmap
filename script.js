@@ -231,10 +231,20 @@ function scrollCarousel(direction, carouselId) {
     if (!carousel) return;
     const firstCard = carousel.querySelector('.carousel-card');
     const scrollAmount = firstCard ? firstCard.offsetWidth + 24 : carousel.offsetWidth * 0.8;
+    const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+
     if (direction === 'left') {
-        carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        if (carousel.scrollLeft <= 10) {
+            carousel.scrollTo({ left: maxScroll, behavior: 'smooth' });
+        } else {
+            carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        }
     } else {
-        carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        if (carousel.scrollLeft >= maxScroll - 10) {
+            carousel.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+            carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
     }
 }
 
