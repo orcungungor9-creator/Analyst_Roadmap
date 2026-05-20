@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power BI - İş Zekası (BI), DAX & Dinamik Pano Rehberi | My Analyst LogBook</title>
+    <meta name="description" content="Microsoft Power BI ile iş zekası süreçleri, veri modelleme (Star Schema), DAX fonksiyonları (CALCULATE, Time Intelligence) ve pano tasarım ilkeleri.">
+    <link rel="stylesheet" href="../../css/styles.css?v=3.3">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="formulas-page">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('analyst_theme') || 'theme-light-purple';
+            if (savedTheme !== 'theme-dark') {
+                document.body.classList.add(savedTheme);
+            }
+        })();
+    </script>
+
+    <!-- DİNAMİK ARKA PLAN GRAFİK AĞI -->
+    <div class="bg-analytics-mesh">
+        <div class="bg-chart-item bg-chart-1">
+            <svg viewBox="0 0 400 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="bg-area-grad-pbi" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#F2C811" stop-opacity="0.4"/>
+                        <stop offset="100%" stop-color="#F2C811" stop-opacity="0.0"/>
+                    </linearGradient>
+                </defs>
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40 L 370,190 L 10,190 Z" fill="url(#bg-area-grad-pbi)"/>
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40" fill="none" stroke="#F2C811" stroke-width="4" stroke-linecap="round"/>
+                <circle cx="130" cy="150" r="6" fill="var(--neon-green)"/>
+                <circle cx="250" cy="90" r="6" fill="var(--neon-purple)"/>
+                <circle cx="370" cy="40" r="8" fill="#F2C811">
+                    <animate attributeName="r" values="6;10;6" dur="3s" repeatCount="indefinite"/>
+                </circle>
+            </svg>
+        </div>
+        <div class="bg-chart-item bg-chart-2">
+            <svg viewBox="0 0 200 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <g transform="translate(100,100)">
+                    <path d="M 0,-80 A 80,80 0 0,1 76,25 L 57,18 A 60,60 0 0,0 0,-60 Z" fill="#F2C811"/>
+                    <path d="M 76,25 A 80,80 0 0,1 -64,48 L -48,36 A 60,60 0 0,0 57,18 Z" fill="var(--neon-green)"/>
+                    <path d="M -64,48 A 80,80 0 0,1 0,-80 L 0,-60 A 60,60 0 0,0 -48,36 Z" fill="var(--neon-purple)"/>
+                    <circle cx="0" cy="0" r="45" fill="none" stroke="var(--glass-border)" stroke-width="2" stroke-dasharray="5,5"/>
+                </g>
+            </svg>
+        </div>
+    </div>
+
+    <!-- 1. ÜST BİLGİ ÇUBUĞU (HEADER) -->
+
+    <!-- Mobil Açılır Menü -->
+
+    <!-- 2. HERO & BAŞLIK BÖLÜMÜ -->
+    <section class="formulas-hero" style="padding-top: 140px; padding-bottom: 60px;">
+        <div class="hero-content" style="max-width: 900px;">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 24px;">
+                <div style="width: 80px; height: 80px; border-radius: 22px; background: rgba(242, 200, 17, 0.15); border: 2px solid #F2C811; display: flex; align-items: center; justify-content: center; padding: 16px; box-shadow: 0 0 30px rgba(242, 200, 17, 0.4);">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/powerbi.svg" alt="Power BI Logo" style="width: 100%; height: 100%; filter: invert(81%) sepia(45%) saturate(1637%) hue-rotate(357deg) brightness(101%) contrast(98%);">
+                </div>
+                <div style="text-align: left;">
+                    <div class="badge-pill" style="margin-bottom: 6px; background: rgba(242, 200, 17, 0.2); color: #F2C811; border-color: #F2C811;">İş Zekası &amp; Kurumsal Panolar</div>
+                    <h1 class="hero-title" style="font-size: 2.8rem; margin: 0;">Power BI <span style="color: #F2C811;">(BI &amp; DAX)</span></h1>
+                </div>
+            </div>
+            <p class="hero-subtitle" style="font-size: 1.25rem; line-height: 1.6;">
+                Kurumsal verileri etkileşimli görsel panolara (dashboard) dönüştürmek, gelişmiş veri modelleri kurmak ve karar alıcılar için anlık stratejik içgörüler üretmek için tasarlanmış lider İş Zekası platformu.
+            </p>
+        </div>
+    </section>
+
+    <!-- 3. ANA İÇERİK -->
+    <main class="formulas-main" style="max-width: 1200px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
+        
+        <!-- YAPAY ZEKA GÖRSEL EKRAN GÖRÜNTÜSÜ PANELİ -->
+        <div class="glass" style="padding: 32px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+                <div>
+                    <h2 style="font-size: 1.8rem; color: var(--text-main); margin: 0 0 8px 0;">🖥️ Power BI Kurumsal İş Zekası Panosu</h2>
+                    <p style="color: var(--text-muted); margin: 0; font-size: 1.05rem;">Power BI Desktop ekranında etkileşimli haritalar, finansal grafikler ve kurumsal KPI göstergeleri.</p>
+                </div>
+                <span class="badge-pill" style="background: rgba(242, 200, 17, 0.2); color: #F2C811; border-color: #F2C811;">AI Generated Dashboard Preview</span>
+            </div>
+            <div style="border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.6);">
+                <img src="powerbi_dashboard_preview_1779067592142.png" alt="Power BI Dashboard Preview" style="width: 100%; height: auto; display: block;">
+            </div>
+        </div>
+
+        <!-- ÖZET BİLGİ KARTLARI (GRID) -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 48px;">
+            <div class="glass" style="padding: 32px; border-radius: 24px; border: 1px solid var(--glass-border);">
+                <h3 style="color: #F2C811; font-size: 1.4rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
+                    <span>🕸️</span> Veri Modelleme (Star Schema)
+                </h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">
+                    Farklı kaynaklardan gelen tabloları (Boyut ve Gerçek tabloları) 1-Çok ilişkilerle birbirine bağlayarak yüksek performanslı Yıldız Şema (Star Schema) veri ambarı modelleri oluşturun.
+                </p>
+            </div>
+
+            <div class="glass" style="padding: 32px; border-radius: 24px; border: 1px solid var(--glass-border);">
+                <h3 style="color: var(--neon-blue); font-size: 1.4rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
+                    <span>🧮</span> DAX Formül Gücü
+                </h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">
+                    DAX (Data Analysis Expressions) dili sayesinde filtre bağlamını (filter context) dinamik olarak yönetebilir, gelişmiş zaman zekası (Time Intelligence) hesaplamaları ve kümülatif ölçüler (measures) yazabilirsiniz.
+                </p>
+            </div>
+
+            <div class="glass" style="padding: 32px; border-radius: 24px; border: 1px solid var(--glass-border);">
+                <h3 style="color: var(--neon-green); font-size: 1.4rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
+                    <span>📊</span> İnteraktif Görselleştirme
+                </h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">
+                    Bir grafikteki sütuna tıkladığınızda sayfadaki diğer tüm grafiklerin anında filtrelenmesini sağlayan "cross-filtering" yeteneği ile rapor okuyucularına muazzam bir keşif deneyimi sunar.
+                </p>
+            </div>
+        </div>
+
+        <!-- DETAYLI İNCELEME BÖLÜMÜ -->
+        <div class="glass" style="padding: 48px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
+            <h2 style="font-size: 2rem; color: var(--text-main); margin-bottom: 28px; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 16px;">
+                Power BI'ın Artıları ve Eksileri
+            </h2>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
+                <!-- Artıları -->
+                <div style="background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.2); padding: 32px; border-radius: 20px;">
+                    <h3 style="color: var(--neon-green); font-size: 1.5rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                        <span>✅</span> Avantajları
+                    </h3>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 14px; color: var(--text-muted);">
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: var(--neon-green);">▪</span> <strong>Microsoft Ekosistemi:</strong> Excel, Azure, Teams ve SharePoint ile yerleşik, pürüzsüz bir entegrasyona sahiptir.
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: var(--neon-green);">▪</span> <strong>Gelişmiş ETL (Power Query):</strong> Excel'deki Power Query altyapısının aynısını kullandığı için öğrenmesi ve veri temizlemesi çok kolaydır.
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: var(--neon-green);">▪</span> <strong>Maliyet Avantajı:</strong> Masaüstü sürümü (Power BI Desktop) tamamen ücretsizdir; Pro lisansı ise diğer BI araçlarına göre oldukça ekonomiktk.
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: var(--neon-green);">▪</span> <strong>Sık Güncelleme:</strong> Microsoft tarafından her ay yeni yapay zeka özellikleri ve görsel araçlar eklenir.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Eksileri -->
+                <div style="background: rgba(244, 63, 94, 0.05); border: 1px solid rgba(244, 63, 94, 0.2); padding: 32px; border-radius: 20px;">
+                    <h3 style="color: #f43f5e; font-size: 1.5rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                        <span>⚠️</span> Dikkat Edilmesi Gerekenler
+                    </h3>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 14px; color: var(--text-muted);">
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: #f43f5e;">▪</span> <strong>DAX Öğrenme Zorluğu:</strong> Basit formüller yazmak kolay olsa da, filtre bağlamını (filter context) ve gelişmiş DAX fonksiyonlarını anlamak ciddi bir uzmanlık gerektirir.
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: #f43f5e;">▪</span> <strong>Sadece Windows Desteği:</strong> Power BI Desktop uygulaması macOS veya Linux üzerinde yerel olarak çalışmaz (sanal makine gerektirir).
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: #f43f5e;">▪</span> <strong>Büyük Veri Tıkanması:</strong> Import modunda çok büyük veri setlerinde (milyarlarca satır) DirectQuery kullanmak zorunludur ve bu da rapor hızını düşürebilir.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SYNTAX / KOD ÖRNEĞİ -->
+        <div class="glass" style="padding: 48px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+                <h2 style="font-size: 2rem; color: var(--text-main); margin: 0;">💻 DAX Formül &amp; KPI Örneği</h2>
+                <span class="badge-pill" style="background: rgba(242, 200, 17, 0.1); color: #F2C811; border-color: #F2C811;">Time Intelligence &amp; Dinamik Ölçüler</span>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem;">
+                Aşağıdaki örnekte, Power BI'ın kalbi olan DAX dilinde <code>CALCULATE</code> fonksiyonu ile filtre bağlamının değiştirilmesi, geçen yılın aynı dönemine göre satış büyüme oranının (YoY Growth) hesaplanması gösterilmektedir:
+            </p>
+
+            <div style="background: #0d1117; border: 1px solid #30363d; border-radius: 16px; padding: 24px; overflow-x: auto; font-family: 'Fira Code', monospace; font-size: 1rem; line-height: 1.7; color: #e6edf3;">
+<pre style="margin: 0;"><code><span style="color: #8b949e;">// 1. Toplam Satış Tutarının Hesaplanması (Temel Ölçü)</span>
+Toplam_Satis = <span style="color: #79c0ff;">SUM</span>(Satislar[Tutar])
+
+<span style="color: #8b949e;">// 2. CALCULATE ve FILTER ile Belirli Bir Ürün Grubunun Satışı (Filtre Bağlamını Değiştirme)</span>
+Elektronik_Satis = 
+<span style="color: #79c0ff;">CALCULATE</span>(
+    [Toplam_Satis],
+    Urunler[Kategori] = <span style="color: #a5d6ff;">"Elektronik"</span>
+)
+
+<span style="color: #8b949e;">// 3. Geçen Yılın Aynı Dönemindeki Satış Tutarı (Time Intelligence)</span>
+Gecen_Yil_Satis = 
+<span style="color: #79c0ff;">CALCULATE</span>(
+    [Toplam_Satis],
+    <span style="color: #79c0ff;">SAMEPERIODLASTYEAR</span>(Takvim[Tarih])
+)
+
+<span style="color: #8b949e;">// 4. Yıllık Büyüme Oranı (YoY Growth %) Hesaplaması (DIVIDE ile Güvenli Bölme)</span>
+Yillik_Buyume_Orani = 
+<span style="color: #79c0ff;">DIVIDE</span>(
+    [Toplam_Satis] - [Gecen_Yil_Satis],
+    [Gecen_Yil_Satis],
+    <span style="color: #a5d6ff;">0</span>
+)</code></pre>
+            </div>
+        </div>
+
+        <!-- ALT YÖNLENDİRME BUTONLARI -->
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+            <button class="btn-hero" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);" onclick="window.location.href='../excel/index.html'">
+                &larr; Önceki: Excel
+            </button>
+            <button class="btn-hero btn-hero-formulas" onclick="window.location.href='../tableau/index.html'">
+                Sonraki Araç: Tableau &rarr;
+            </button>
+        </div>
+
+    </main>
+
+    <!-- 5. HAKKINDA PANELİ (MODAL) -->
+
+    <!-- TEMA SEÇİM PANELİ (MODAL) -->
+
+    <script src="../../js/components.js"></script>
+    <script src="../../js/nav.js"></script>
+    <script src="../../js/modal.js"></script>
+    <script src="../../js/script.js"></script>
+</body>
+
+</html>

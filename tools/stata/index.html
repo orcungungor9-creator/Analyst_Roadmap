@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stata - Ekonometri, Panel Veri & Mikroekonomik Analiz Rehberi | My Analyst LogBook</title>
+    <meta name="description" content="Stata yazılımının ekonometrideki önemi, panel veri modelleri (xtreg, sabit etkiler), enstrümantal değişkenler ve Stata Do-file kod örnekleri.">
+    <link rel="stylesheet" href="../../css/styles.css?v=3.3">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="formulas-page">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('analyst_theme') || 'theme-light-purple';
+            if (savedTheme !== 'theme-dark') {
+                document.body.classList.add(savedTheme);
+            }
+        })();
+    </script>
+
+    <!-- DİNAMİK ARKA PLAN GRAFİK AĞI -->
+    <div class="bg-analytics-mesh">
+        <div class="bg-chart-item bg-chart-1">
+            <svg viewBox="0 0 400 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="bg-area-grad-stata" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#3F4F75" stop-opacity="0.4"/>
+                        <stop offset="100%" stop-color="#3F4F75" stop-opacity="0.0"/>
+                    </linearGradient>
+                </defs>
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40 L 370,190 L 10,190 Z" fill="url(#bg-area-grad-stata)"/>
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40" fill="none" stroke="#3F4F75" stroke-width="4" stroke-linecap="round"/>
+                <circle cx="130" cy="150" r="6" fill="var(--neon-green)"/>
+                <circle cx="250" cy="90" r="6" fill="var(--neon-purple)"/>
+                <circle cx="370" cy="40" r="8" fill="#3F4F75">
+                    <animate attributeName="r" values="6;10;6" dur="3s" repeatCount="indefinite"/>
+                </circle>
+            </svg>
+        </div>
+        <div class="bg-chart-item bg-chart-2">
+            <svg viewBox="0 0 200 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <g transform="translate(100,100)">
+                    <path d="M 0,-80 A 80,80 0 0,1 76,25 L 57,18 A 60,60 0 0,0 0,-60 Z" fill="#3F4F75"/>
+                    <path d="M 76,25 A 80,80 0 0,1 -64,48 L -48,36 A 60,60 0 0,0 57,18 Z" fill="var(--neon-green)"/>
+                    <path d="M -64,48 A 80,80 0 0,1 0,-80 L 0,-60 A 60,60 0 0,0 -48,36 Z" fill="var(--neon-purple)"/>
+                    <circle cx="0" cy="0" r="45" fill="none" stroke="var(--glass-border)" stroke-width="2" stroke-dasharray="5,5"/>
+                </g>
+            </svg>
+        </div>
+    </div>
+
+
+
+    <!-- 2. HERO & BAŞLIK BÖLÜMÜ -->
+    <section class="formulas-hero" style="padding-top: 140px; padding-bottom: 60px;">
+        <div class="hero-content" style="max-width: 900px;">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 24px;">
+                <div style="width: 80px; height: 80px; border-radius: 22px; background: rgba(63, 79, 117, 0.15); border: 2px solid #3F4F75; display: flex; align-items: center; justify-content: center; padding: 16px; box-shadow: 0 0 30px rgba(63, 79, 117, 0.4);">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/plotly.svg" alt="Stata Logo" style="width: 100%; height: 100%; filter: invert(30%) sepia(21%) saturate(928%) hue-rotate(182deg) brightness(96%) contrast(87%);">
+                </div>
+                <div style="text-align: left;">
+                    <div class="badge-pill" style="margin-bottom: 6px; background: rgba(63, 79, 117, 0.2); color: #a855f7; border-color: #3F4F75;">Ekonometri &amp; Panel Veri Standardı</div>
+                    <h1 class="hero-title" style="font-size: 2.8rem; margin: 0;">Stata <span style="color: #a855f7;">(Ekonometri)</span></h1>
+                </div>
+            </div>
+            <p class="hero-subtitle" style="font-size: 1.25rem; line-height: 1.6;">
+                Ekonometri, sağlık bilimleri ve mikroekonomik analizlerde yüksek güvenilirliği, hızlı komut satırı ve eşsiz panel veri yetenekleri ile bilinen endüstri standardı yazılım.
+            </p>
+        </div>
+    </section>
+
+    <!-- 3. ANA İÇERİK -->
+    <main class="formulas-main" style="max-width: 1200px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
+        
+        <!-- YAPAY ZEKA GÖRSEL EKRAN GÖRÜNTÜSÜ PANELİ -->
+        <div class="glass" style="padding: 32px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+                <div>
+                    <h2 style="font-size: 1.8rem; color: var(--text-main); margin: 0 0 8px 0;">🖥️ Stata Ekonometri &amp; Do-file Editör Arayüzü</h2>
+                    <p style="color: var(--text-muted); margin: 0; font-size: 1.05rem;">Stata çalışma ortamında ekonometrik regresyon çıktıları, komut konsolu ve veri tarayıcısı.</p>
+                </div>
+                <span class="badge-pill" style="background: rgba(63, 79, 117, 0.2); color: #a855f7; border-color: #3F4F75;">AI Generated UI Preview</span>
+            </div>
+            <div style="border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.6);">
+                <img src="stata_interface_preview_1779067634546.png" alt="Stata Interface Preview" style="width: 100%; height: auto; display: block;">
+            </div>
+        </div>
+
+        <!-- ÖZET BİLGİ KARTLARI (GRID) -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 48px;">
+            <div class="glass" style="padding: 32px; border-radius: 24px; border: 1px solid var(--glass-border);">
+                <h3 style="color: #a855f7; font-size: 1.4rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
+                    <span>📊</span> Güçlü Panel Veri (xt)
+                </h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">
+                    <code>xtreg</code>, <code>xtabond</code> ve <code>xtlogit</code> gibi komutlarla yatay ve zaman boyutlu (panel) veri setlerini Sabit Etkiler (Fixed Effects) ve Rassal Etkiler (Random Effects) ile saniyeler içinde modelleyin.
+                </p>
+            </div>
+
+            <div class="glass" style="padding: 32px; border-radius: 24px; border: 1px solid var(--glass-border);">
+                <h3 style="color: var(--neon-blue); font-size: 1.4rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
+                    <span>⚡</span> Hızlı Komut Satırı (Do-file)
+                </h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">
+                    Hem menü arayüzü hem de Do-file komut dosyası altyapısını bir arada sunar. Yazdığınız kısa komutlarla devasa veri setlerini anında manipüle edip regresyon sonuçları alabilirsiniz.
+                </p>
+            </div>
+
+            <div class="glass" style="padding: 32px; border-radius: 24px; border: 1px solid var(--glass-border);">
+                <h3 style="color: var(--neon-green); font-size: 1.4rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
+                    <span>🔬</span> Gelişmiş Ekonometri
+                </h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">
+                    Enstrümantal değişkenler (IV/2SLS), Genelleştirilmiş Momentler Yöntemi (GMM), Heckman seçim modelleri ve zaman serisi (VAR/VECM) analizlerinde rakipsiz bir kütüphaneye sahiptir.
+                </p>
+            </div>
+        </div>
+
+        <!-- DETAYLI İNCELEME BÖLÜMÜ -->
+        <div class="glass" style="padding: 48px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
+            <h2 style="font-size: 2rem; color: var(--text-main); margin-bottom: 28px; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 16px;">
+                Stata'nın Artıları ve Eksileri
+            </h2>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
+                <!-- Artıları -->
+                <div style="background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.2); padding: 32px; border-radius: 20px;">
+                    <h3 style="color: var(--neon-green); font-size: 1.5rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                        <span>✅</span> Avantajları
+                    </h3>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 14px; color: var(--text-muted);">
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: var(--neon-green);">▪</span> <strong>Ekonometrik Derinlik:</strong> Ekonomi, finans ve epidemiyoloji alanlarında en çok tercih edilen ve güvenilen yazılımdır.
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: var(--neon-green);">▪</span> <strong>Mükemmel Dokümantasyon:</strong> Stata'nın yardım dosyaları (help files) ve PDF kılavuzları adeta birer istatistik/ekonometri ders kitabı kalitesindedir.
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: var(--neon-green);">▪</span> <strong>Kullanıcı Topluluğu (SSC):</strong> <code>ssc install</code> komutu ile dünya çapındaki ekonomistlerin yazdığı binlerce yeni paketi anında indirebilirsiniz.
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: var(--neon-green);">▪</span> <strong>Kararlılık ve Hız:</strong> C ile yazılmış çekirdeği sayesinde büyük veri setlerinde (Stata/MP sürümü ile) çok çekirdekli yüksek performans sunar.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Eksileri -->
+                <div style="background: rgba(244, 63, 94, 0.05); border: 1px solid rgba(244, 63, 94, 0.2); padding: 32px; border-radius: 20px;">
+                    <h3 style="color: #f43f5e; font-size: 1.5rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                        <span>⚠️</span> Dikkat Edilmesi Gerekenler
+                    </h3>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 14px; color: var(--text-muted);">
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: #f43f5e;">▪</span> <strong>Tek Veri Seti Sınırı (Eski Sürümler):</strong> Stata 16 öncesinde aynı anda sadece tek bir veri seti bellekte tutulabiliyordu (yeni sürümlerde frames özelliği ile aşıldı).
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: #f43f5e;">▪</span> <strong>Yüksek Lisans Ücretleri:</strong> Stata/SE ve özellikle çok çekirdek destekli Stata/MP sürümleri kurumsal bütçeler için oldukça pahalıdır.
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: #f43f5e;">▪</span> <strong>Genel Programlama Kısıtı:</strong> Python veya R gibi genel amaçlı bir dil değildir; web scraping veya sistem otomasyonu için uygun değildir.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SYNTAX / KOD ÖRNEĞİ -->
+        <div class="glass" style="padding: 48px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+                <h2 style="font-size: 2rem; color: var(--text-main); margin: 0;">💻 Stata Do-file Syntax &amp; Örneği</h2>
+                <span class="badge-pill" style="background: rgba(63, 79, 117, 0.1); color: #a855f7; border-color: #3F4F75;">Panel Veri Analizi (xtreg &amp; Hausman)</span>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem;">
+                Aşağıdaki <code>Do-file</code> örneğinde, bir panel veri setinin tanımlanması (ülke ve yıl bazında), Sabit Etkiler (Fixed Effects) ile Rassal Etkiler (Random Effects) modellerinin kurulması ve Hausman testi ile model seçimi yapılması gösterilmektedir:
+            </p>
+
+            <div style="background: #0d1117; border: 1px solid #30363d; border-radius: 16px; padding: 24px; overflow-x: auto; font-family: 'Fira Code', monospace; font-size: 1rem; line-height: 1.7; color: #e6edf3;">
+<pre style="margin: 0;"><code><span style="color: #8b949e;">* 1. Veri setinin yüklenmesi ve Panel Veri yapısının tanıtılması</span>
+<span style="color: #8b949e;">* Birey/Ülke değişkeni: country_id, Zaman değişkeni: year</span>
+use <span style="color: #a5d6ff;">"world_econ_panel.dta"</span>, clear
+xtset country_id year
+
+<span style="color: #8b949e;">* 2. Tanımlayıcı istatistiklerin ve panel veri özetinin alınması</span>
+xtdescribe
+xtsum gdp_growth inflation fdi_inflow
+
+<span style="color: #8b949e;">* 3. Sabit Etkiler (Fixed Effects - fe) Modelinin Kurulması ve Kaydedilmesi</span>
+<span style="color: #8b949e;">* Bağımlı: gdp_growth, Bağımsız: inflation, fdi_inflow, trade_openness</span>
+xtreg gdp_growth inflation fdi_inflow trade_openness, fe robust
+estimates store fixed_model
+
+<span style="color: #8b949e;">* 4. Rassal Etkiler (Random Effects - re) Modelinin Kurulması ve Kaydedilmesi</span>
+xtreg gdp_growth inflation fdi_inflow trade_openness, re
+estimates store random_model
+
+<span style="color: #8b949e;">* 5. Hausman Testi ile Sabit Etkiler vs. Rassal Etkiler Karşılaştırması</span>
+<span style="color: #8b949e;">* H0: Rassal etkiler modeli uygundur (p > 0.05 ise RE, p < 0.05 ise FE seçilir)</span>
+hausman fixed_model random_model</code></pre>
+            </div>
+        </div>
+
+        <!-- ALT YÖNLENDİRME BUTONLARI -->
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+            <button class="btn-hero" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);" onclick="window.location.href='../spss/index.html'">
+                &larr; Önceki: SPSS
+            </button>
+            <button class="btn-hero btn-hero-formulas" onclick="window.location.href='../eviews/index.html'">
+                Sonraki Araç: EViews &rarr;
+            </button>
+        </div>
+
+    </main>
+
+    <script src="../../js/components.js"></script>
+
+    <script src="../../js/nav.js"></script>
+    <script src="../../js/modal.js"></script>
+    <script src="../../js/script.js"></script>
+</body>
+
+</html>

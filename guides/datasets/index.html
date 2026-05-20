@@ -1,0 +1,526 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veri Seti Türleri & Ekonometri Rehberi | My Analyst LogBook</title>
+    <link rel="stylesheet" href="../../css/styles.css?v=3.4">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+</head>
+
+<body class="formulas-page">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('analyst_theme') || 'theme-light-purple';
+            if (savedTheme !== 'theme-dark') {
+                document.body.classList.add(savedTheme);
+            }
+        })();
+    </script>
+
+    <!-- DİNAMİK ARKA PLAN GRAFİK AĞI (BG ANALYTICS MESH) -->
+    <div class="bg-analytics-mesh">
+        <!-- SVG 1: İniş Çıkış Trend Çizgisi (Line & Area Chart) -->
+        <div class="bg-chart-item bg-chart-1">
+            <svg viewBox="0 0 400 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="bg-area-grad-4" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="var(--neon-blue)" stop-opacity="0.4"/>
+                        <stop offset="100%" stop-color="var(--neon-blue)" stop-opacity="0.0"/>
+                    </linearGradient>
+                </defs>
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40 L 370,190 L 10,190 Z" fill="url(#bg-area-grad-4)"/>
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40" fill="none" stroke="var(--neon-blue)" stroke-width="4" stroke-linecap="round"/>
+                <circle cx="130" cy="150" r="6" fill="var(--neon-green)"/>
+                <circle cx="250" cy="90" r="6" fill="var(--neon-purple)"/>
+                <circle cx="370" cy="40" r="8" fill="var(--neon-blue)">
+                    <animate attributeName="r" values="6;10;6" dur="3s" repeatCount="indefinite"/>
+                </circle>
+            </svg>
+        </div>
+
+        <!-- SVG 2: Pasta / Donut Grafiği -->
+        <div class="bg-chart-item bg-chart-2">
+            <svg viewBox="0 0 200 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <g transform="translate(100,100)">
+                    <!-- Dilim 1 (%45) -->
+                    <path d="M 0,-80 A 80,80 0 0,1 76,25 L 57,18 A 60,60 0 0,0 0,-60 Z" fill="var(--neon-blue)"/>
+                    <!-- Dilim 2 (%35) -->
+                    <path d="M 76,25 A 80,80 0 0,1 -64,48 L -48,36 A 60,60 0 0,0 57,18 Z" fill="var(--neon-green)"/>
+                    <!-- Dilim 3 (%20) -->
+                    <path d="M -64,48 A 80,80 0 0,1 0,-80 L 0,-60 A 60,60 0 0,0 -48,36 Z" fill="var(--neon-purple)"/>
+                    <circle cx="0" cy="0" r="45" fill="none" stroke="var(--glass-border)" stroke-width="2" stroke-dasharray="5,5"/>
+                </g>
+            </svg>
+        </div>
+
+        <!-- SVG 3: Sütun Grafiği (Bar Chart) -->
+        <div class="bg-chart-item bg-chart-3">
+            <svg viewBox="0 0 250 250" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <!-- Arka plan grid çizgileri -->
+                <line x1="20" y1="50" x2="230" y2="50" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4"/>
+                <line x1="20" y1="100" x2="230" y2="100" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4"/>
+                <line x1="20" y1="150" x2="230" y2="150" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4"/>
+                <line x1="20" y1="200" x2="230" y2="200" stroke="var(--glass-border)" stroke-width="2"/>
+                
+                <!-- Sütun 1 -->
+                <rect x="35" y="120" width="30" height="80" rx="6" fill="var(--neon-blue)">
+                    <animate attributeName="height" values="80;100;80" dur="4s" repeatCount="indefinite"/>
+                    <animate attributeName="y" values="120;100;120" dur="4s" repeatCount="indefinite"/>
+                </rect>
+                <!-- Sütun 2 -->
+                <rect x="85" y="70" width="30" height="130" rx="6" fill="var(--neon-green)">
+                    <animate attributeName="height" values="130;160;130" dur="5s" repeatCount="indefinite"/>
+                    <animate attributeName="y" values="70;40;70" dur="5s" repeatCount="indefinite"/>
+                </rect>
+                <!-- Sütun 3 -->
+                <rect x="135" y="150" width="30" height="50" rx="6" fill="var(--neon-purple)">
+                    <animate attributeName="height" values="50;70;50" dur="3.5s" repeatCount="indefinite"/>
+                    <animate attributeName="y" values="150;130;150" dur="3.5s" repeatCount="indefinite"/>
+                </rect>
+                <!-- Sütun 4 -->
+                <rect x="185" y="90" width="30" height="110" rx="6" fill="var(--neon-blue)">
+                    <animate attributeName="height" values="110;140;110" dur="4.5s" repeatCount="indefinite"/>
+                    <animate attributeName="y" values="90;60;90" dur="4.5s" repeatCount="indefinite"/>
+                </rect>
+            </svg>
+        </div>
+
+        <!-- SVG 4: Mum & Radar Grafiği (Candlestick) -->
+        <div class="bg-chart-item bg-chart-4">
+            <svg viewBox="0 0 280 220" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <!-- Mum 1 -->
+                <line x1="50" y1="30" x2="50" y2="170" stroke="var(--neon-green)" stroke-width="3"/>
+                <rect x="38" y="70" width="24" height="60" rx="4" fill="var(--neon-green)"/>
+                
+                <!-- Mum 2 -->
+                <line x1="110" y1="50" x2="110" y2="190" stroke="var(--neon-blue)" stroke-width="3"/>
+                <rect x="98" y="90" width="24" height="70" rx="4" fill="var(--neon-blue)"/>
+                
+                <!-- Mum 3 -->
+                <line x1="170" y1="20" x2="170" y2="150" stroke="var(--neon-purple)" stroke-width="3"/>
+                <rect x="158" y="50" width="24" height="50" rx="4" fill="var(--neon-purple)"/>
+
+                <!-- Mum 4 -->
+                <line x1="230" y1="60" x2="230" y2="200" stroke="var(--neon-green)" stroke-width="3"/>
+                <rect x="218" y="100" width="24" height="55" rx="4" fill="var(--neon-green)"/>
+            </svg>
+        </div>
+    </div>
+
+
+
+    <!-- 2. HERO & BAŞLIK BÖLÜMÜ -->
+    <section class="formulas-hero">
+        <div class="hero-content">
+            <div class="badge-pill floating-slow">Ekonometri & Modelleme Hub'ı</div>
+            <h1 class="hero-title">Veri Seti Türleri &amp; <span class="gradient-text">Ekonometri Rehberi</span></h1>
+            <p class="hero-subtitle">
+                Doğru veri yapısını tanımak, doğru ekonometrik ve istatistiksel modeli seçmenin ön koşuludur. Panel veri, zaman serisi ve kesitsel modelleri inceleyin.
+            </p>
+        </div>
+    </section>
+
+    <!-- 3. ANA İÇERİK -->
+    <main class="formulas-main" style="max-width: 1200px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
+        <div class="glass" style="padding: 48px; border-radius: 28px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 1px solid var(--glass-border);">
+            
+            <div class="dt-tree">
+
+                <!-- PANEL VERİ -->
+                <div class="dst-card dst-panel">
+                    <div class="dst-header">
+                        <span class="dst-icon">📁</span>
+                        <div>
+                            <strong>Panel Veri (Panel / Longitudinal Data)</strong>
+                            <span class="dst-badge dst-badge-star">⭐ En Güçlü</span>
+                        </div>
+                    </div>
+                    <p>Hem birden fazla birim hem de birden fazla zaman boyutunu aynı anda içeren verilerdir. Kesitsel ve zaman serisi verinin birleşimidir.</p>
+                    <div class="dst-panel-types">
+                        <div class="dst-panel-type">
+                            <strong>Dengeli Panel (Balanced)</strong>
+                            <p>Tüm birimler için eksiksiz zaman gözlemleri mevcuttur.</p>
+                            <em>Örn: 30 ülke × 20 yıl = 600 gözlem (tamam)</em>
+                        </div>
+                        <div class="dst-panel-type">
+                            <strong>Dengesiz Panel (Unbalanced)</strong>
+                            <p>Bazı birimler için eksik gözlemler vardır. Gerçek hayatta daha yaygındır.</p>
+                            <em>Örn: Bir yıl iflas eden firma verisi eksik kalabilir</em>
+                        </div>
+                    </div>
+                    <div class="dst-detail-grid">
+                        <div>
+                            <h4>Yapı &amp; Özellik</h4>
+                            <ul>
+                                <li>N birim, T zaman dilimi</li>
+                                <li>Sabit Etkiler (FE) modeli</li>
+                                <li>Rassal Etkiler (RE) modeli</li>
+                                <li>Hausman Testi ile seçim</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Kullanılan Modeller</h4>
+                            <ul>
+                                <li>Sabit Etkiler (Within)</li>
+                                <li>Rassal Etkiler (GLS)</li>
+                                <li>Diferans-Diferans (DiD)</li>
+                                <li>Dinamik Panel (GMM)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Gerçek Dünya Örnekleri</h4>
+                            <ul>
+                                <li>Dünya Bankası ülke-yıl verisi</li>
+                                <li>Firma-dönem muhasebe paneli</li>
+                                <li>Bireylerin yıllık gelir takibi</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="dt-tip">✅ En güçlü yapı: Hem birey-özgü gizli değişkenleri (sabit etkiyle) kontrol eder hem de zamana bağlı değişimleri (zaman etkisiyle) yakalar.</div>
+                </div>
+
+                <!-- ZAMAN SERİSİ -->
+                <div class="dst-card dst-time">
+                    <div class="dst-header">
+                        <span class="dst-icon">📈</span>
+                        <div>
+                            <strong>Zaman Serisi (Time Series Data)</strong>
+                            <span class="dst-badge">Tek Birim — Çok Zaman</span>
+                        </div>
+                    </div>
+                    <p><strong>Tek bir birim</strong> hakkında <strong>birden fazla zaman noktasında</strong> sıralı şekilde toplanan verilerdir. Sıra önemlidir.</p>
+                    <div class="dst-detail-grid">
+                        <div>
+                            <h4>Yapı &amp; Özellik</h4>
+                            <ul>
+                                <li>1 birim, T zaman dilimi</li>
+                                <li>Otokorelasyon sorunu</li>
+                                <li>Birim kök (Durgunluk) testi şart</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Kullanılan Modeller</h4>
+                            <ul>
+                                <li>ARIMA / SARIMA</li>
+                                <li>VAR (Vektör Oto-Regresyon)</li>
+                                <li>GARCH (Oynaklık)</li>
+                                <li>Eşbütünleşme Analizi (VECM)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Gerçek Dünya Örnekleri</h4>
+                            <ul>
+                                <li>Aylık enflasyon serisi</li>
+                                <li>Günlük hisse senedi fiyatları</li>
+                                <li>Yıllık GSYİH büyümesi</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="dt-tip">⚠️ Dikkat: Durağan olmayan (non-stationary) serilerde regresyon kurmak Sahte Regresyon (Spurious Regression) tehlikesi doğurur. Her zaman ADF/PP testi uygulayın.</div>
+                </div>
+
+                <!-- KESİTSEL VERİ -->
+                <div class="dst-card dst-cross">
+                    <div class="dst-header">
+                        <span class="dst-icon">📊</span>
+                        <div>
+                            <strong>Kesitsel Veri (Cross-Sectional Data)</strong>
+                            <span class="dst-badge">Tek An — Çok Birim</span>
+                        </div>
+                    </div>
+                    <p>Birden fazla birim (birey, şirket, ülke...) hakkında <strong>tek bir zaman noktasında</strong> toplanan verilerdir. Zaman boyutu yoktur.</p>
+                    <div class="dst-detail-grid">
+                        <div>
+                            <h4>Yapı &amp; Özellik</h4>
+                            <ul>
+                                <li>N birim, 1 zaman dilimi</li>
+                                <li>Bireyler arası karşılaştırma</li>
+                                <li>Sebep-sonuç çıkarımı kısıtlıdır</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Kullanılan Modeller</h4>
+                            <ul>
+                                <li>OLS Regresyon</li>
+                                <li>Lojistik Regresyon</li>
+                                <li>Probit / Tobit</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Gerçek Dünya Örnekleri</h4>
+                            <ul>
+                                <li>2023 yılı nüfus sayımı</li>
+                                <li>Tek seferlik anket</li>
+                                <li>Yıllık ülke ekonomi raporu</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="dt-tip">⚠️ Dikkat: Gizli değişken sorunu (Omitted Variable Bias) çok sık görülür. Nedensellik iddia etmek için dikkatli olmak gerekir.</div>
+                </div>
+
+                <!-- HAVUZLANMIŞ VERİ -->
+                <div class="dst-card dst-pooled">
+                    <div class="dst-header">
+                        <span class="dst-icon">🔄</span>
+                        <div>
+                            <strong>Havuzlanmış Veri (Pooled Data)</strong>
+                            <span class="dst-badge dst-badge-pooled">Panel Türevi</span>
+                        </div>
+                    </div>
+                    <p>Panel verinin birim &amp; zaman ayrımı <strong>yapılmadan</strong> tek bir yığın olarak ele alındığı halidir. Heterojenliği göz ardı eder.</p>
+                    <div class="dst-detail-grid">
+                        <div>
+                            <h4>Yapı &amp; Özellik</h4>
+                            <ul>
+                                <li>N×T gözlem, ayrım yok</li>
+                                <li>Bireysel farklılıklar maskelenir</li>
+                                <li>Hata terimleri bağımsız sayılır</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Kullanılan Modeller</h4>
+                            <ul>
+                                <li>Pooled OLS</li>
+                                <li>Pooled Probit / Logit</li>
+                                <li>Kümeleme (Clustered SE)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Ne Zaman Kullanılır?</h4>
+                            <ul>
+                                <li>Sabit etkinin anlamlı olmadığı durumlar</li>
+                                <li>Hızlı ilk analiz aşaması</li>
+                                <li>Çok kısa panel (T küçük)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="dt-tip">⚠️ Risk: Bireysel farklılıklar yok sayıldığında tahminler yanlı (biased) ve tutarsız (inconsistent) olabilir. Hausman testi ile FE/RE kıyaslaması yapın.</div>
+                </div>
+
+                <!-- TSCS -->
+                <div class="dst-card dst-tscs">
+                    <div class="dst-header">
+                        <span class="dst-icon">🔀</span>
+                        <div>
+                            <strong>Yatay Kesit Zaman Serisi (TSCS)</strong>
+                            <span class="dst-badge dst-badge-tscs">T &gt;&gt; N</span>
+                        </div>
+                    </div>
+                    <p>Panel veriye çok benzer; ancak <strong>zaman boyutu birim sayısından çok daha uzun</strong> olduğunda kullanılır. Karşılaştırmalı politika analizinde yaygındır.</p>
+                    <div class="dst-detail-grid">
+                        <div>
+                            <h4>Yapı &amp; Özellik</h4>
+                            <ul>
+                                <li>T &gt;&gt; N (Örn: 5 ülke, 100 yıl)</li>
+                                <li>Zaman bağımlılığı ön planda</li>
+                                <li>Otokorelasyon kritik sorun</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Kullanılan Modeller</h4>
+                            <ul>
+                                <li>PCSE (Panel Corrected SE)</li>
+                                <li>FGLS (Feasible GLS)</li>
+                                <li>Prais-Winsten</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Gerçek Dünya Örnekleri</h4>
+                            <ul>
+                                <li>Az ülke, uzun dönem tarihsel veri</li>
+                                <li>Karşılaştırmalı siyaset bilimi</li>
+                                <li>Uzun dönem ekonomik tarih analizi</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="dt-tip">✅ Beck &amp; Katz (1995) PCSE yöntemi: TSCS verilerinde standart hataların düzeltilmesi için akademik standarttır.</div>
+                </div>
+
+                <!-- BOYLAMSAL -->
+                <div class="dst-card dst-long">
+                    <div class="dst-header">
+                        <span class="dst-icon">📝</span>
+                        <div>
+                            <strong>Boylamsal Veri (Longitudinal)</strong>
+                            <span class="dst-badge dst-badge-long">Tıp &amp; Sosyal Bilim</span>
+                        </div>
+                    </div>
+                    <p>Panel verinin <strong>tıbbi ve sosyal bilimler</strong> versiyonudur. Aynı bireylerin <strong>uzun yıllar boyunca</strong> takip edildiği kohört çalışmalarını kapsar.</p>
+                    <div class="dst-detail-grid">
+                        <div>
+                            <h4>Yapı &amp; Özellik</h4>
+                            <ul>
+                                <li>Aynı bireyler, uzun süre takip</li>
+                                <li>Kayıp veri (attrition) sorunu</li>
+                                <li>Yaşam olayları önemli</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Kullanılan Modeller</h4>
+                            <ul>
+                                <li>Karma Etkiler (Mixed Effects)</li>
+                                <li>Büyüme Eğrisi Modeli</li>
+                                <li>Hayatta Kalma Analizi</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Gerçek Dünya Örnekleri</h4>
+                            <ul>
+                                <li>Sağlık kohört takip çalışması</li>
+                                <li>Doğumdan yetişkinliğe eğitim takibi</li>
+                                <li>Kronik hastalık uzun dönem izlemi</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="dt-tip">⚠️ Seçici Kayıp (Selective Attrition): Çalışmadan ayrılan bireyler rastgele değilse sonuçlar yanlı olur.</div>
+                </div>
+
+                <!-- UZAMSAL -->
+                <div class="dst-card dst-spatial">
+                    <div class="dst-header">
+                        <span class="dst-icon">🌐</span>
+                        <div>
+                            <strong>Uzamsal Veri (Spatial Data)</strong>
+                            <span class="dst-badge dst-badge-spatial">Coğrafi Konum</span>
+                        </div>
+                    </div>
+                    <p>Her gözlemin <strong>coğrafi konum bilgisi</strong> (enlem, boylam, bölge) taşıdığı verilerdir. Komşu birimler birbirini etkiler.</p>
+                    <div class="dst-detail-grid">
+                        <div>
+                            <h4>Yapı &amp; Özellik</h4>
+                            <ul>
+                                <li>Moran's I ile uzamsal otokorelasyon</li>
+                                <li>Komşuluk matrisi (W) kritik</li>
+                                <li>Mesafe ağırlıklı bağımlılık</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Kullanılan Modeller</h4>
+                            <ul>
+                                <li>Uzamsal Lag Modeli (SAR)</li>
+                                <li>Uzamsal Hata Modeli (SEM)</li>
+                                <li>Kriging / GWR</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Gerçek Dünya Örnekleri</h4>
+                            <ul>
+                                <li>İl bazında suç yoğunluğu haritası</li>
+                                <li>Bölgesel ekonomik büyüme Haritası</li>
+                                <li>Salgın hastalık yayılma analizi</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="dt-tip">✅ Tobler'ın 1. Coğrafya Yasası: "Her şey her şeyle ilgilidir; ama yakın şeyler uzak şeylerden daha fazla ilgilidir."</div>
+                </div>
+
+                <!-- METİN -->
+                <div class="dst-card dst-text">
+                    <div class="dst-header">
+                        <span class="dst-icon">💬</span>
+                        <div>
+                            <strong>Metin &amp; NLP Verisi (Text)</strong>
+                            <span class="dst-badge dst-badge-text">Yapılandırılmamış</span>
+                        </div>
+                    </div>
+                    <p><strong>Yapılandırılmamış</strong> ham metinlerdir. Sayısal analize açmak için ön işleme ve vektörleştirme zorunludur.</p>
+                    <div class="dst-detail-grid">
+                        <div>
+                            <h4>Yapı &amp; Özellik</h4>
+                            <ul>
+                                <li>Tokenizasyon, Stop-word temizliği</li>
+                                <li>Yüksek boyutlu özellik uzayı</li>
+                                <li>Bağlam ve anlam bağımlılığı</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Kullanılan Yöntemler</h4>
+                            <ul>
+                                <li>TF-IDF, Bag of Words</li>
+                                <li>Word2Vec / GloVe (Embedding)</li>
+                                <li>BERT / GPT (Transformer)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Gerçek Dünya Örnekleri</h4>
+                            <ul>
+                                <li>Sosyal medya duygu analizi</li>
+                                <li>Haber makalesi sınıflandırma</li>
+                                <li>Müşteri yorum analizi (NPS)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="dt-tip">✅ BERT ve GPT gibi transformer modeller, bağlamı çift yönlü öğrenerek NLP görevlerinde insanüstü başarı elde etmiştir.</div>
+                </div>
+
+                <!-- STREAMING -->
+                <div class="dst-card dst-stream">
+                    <div class="dst-header">
+                        <span class="dst-icon">🛠️</span>
+                        <div>
+                            <strong>Akış Verisi (Streaming Data)</strong>
+                            <span class="dst-badge dst-badge-stream">Gerçek Zamanlı</span>
+                        </div>
+                    </div>
+                    <p>Sürekli ve sonsuz akan, <strong>gerçek zamanlı</strong> işlenmesi gereken verilerdir. IoT sensörlerinden sosyal medya akışına kadar her alanda görülür.</p>
+                    <div class="dst-detail-grid">
+                        <div>
+                            <h4>Yapı &amp; Özellik</h4>
+                            <ul>
+                                <li>Sonsuz, sıralı veri akışı</li>
+                                <li>Gecikmesiz (low-latency) işleme</li>
+                                <li>Windowing (pencere) tekniği</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Kullanılan Araçlar</h4>
+                            <ul>
+                                <li>Apache Kafka</li>
+                                <li>Spark Streaming</li>
+                                <li>Flink / Kinesis</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Gerçek Dünya Örnekleri</h4>
+                            <ul>
+                                <li>Borsa tick verisi (ms bazında)</li>
+                                <li>IoT sensör alarmları</li>
+                                <li>Gerçek zamanlı dolandırıcılık tespiti</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="dt-tip">✅ Lambda Mimarisi: Gerçek zamanlı (speed layer) ile toplu işleme (batch layer) katmanlarını birleştirerek hem hız hem doğruluk sağlar.</div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+
+
+    <script src="../../js/components.js"></script>
+    <script src="../../js/nav.js"></script>
+    <script src="../../js/modal.js"></script>
+    <script src="../../js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '\\(', right: '\\)', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
