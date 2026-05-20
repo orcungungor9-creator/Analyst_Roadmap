@@ -1,0 +1,133 @@
+/* Mathematics 2 page styles */
+
+.lesson-content-box h2 {
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    color: #ec4899;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 8px;
+}
+
+.lesson-content-box h2:not(:first-child) {
+    margin-top: 36px;
+}
+
+.lesson-content-box p {
+    color: var(--text-main);
+    line-height: 1.8;
+    font-size: 1.05rem;
+    margin-bottom: 16px;
+}
+
+.lesson-content-box ul {
+    margin-left: 24px;
+    margin-bottom: 16px;
+}
+
+.lesson-content-box li {
+    line-height: 1.8;
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+
+.inner-info-box {
+    background: var(--bg-inner-box);
+    border: 1px solid rgba(236, 72, 153, 0.15);
+    padding: 24px;
+    border-radius: 16px;
+}
+
+/* Riemann Sum layout */
+.riemann-layout {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 40px;
+    align-items: center;
+    margin-top: 24px;
+}
+
+.canvas-wrapper {
+    background: var(--bg-inner-box);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#riemann-canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+.riemann-controls {
+    display: flex;
+    flex-direction: column;
+}
+
+.riemann-slider {
+    width: 100%;
+    height: 6px;
+    background: var(--glass-border);
+    border-radius: 100px;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.riemann-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #ec4899;
+    box-shadow: 0 0 10px #ec4899;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.riemann-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+.result-card {
+    background: var(--bg-inner-box);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.result-card:hover {
+    border-color: #ec4899;
+    box-shadow: 0 0 15px rgba(236, 72, 153, 0.15);
+    transform: translateY(-3px);
+}
+
+.result-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.result-value {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #ec4899;
+    font-family: 'Outfit', sans-serif;
+}
+
+@media (max-width: 900px) {
+    .riemann-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}

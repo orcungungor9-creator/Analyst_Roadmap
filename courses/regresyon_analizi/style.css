@@ -1,0 +1,128 @@
+/* Regression analysis page styles */
+
+.lesson-content-box h2 {
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    color: var(--neon-yellow);
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 8px;
+}
+
+.lesson-content-box h2:not(:first-child) {
+    margin-top: 36px;
+}
+
+.lesson-content-box p {
+    color: var(--text-main);
+    line-height: 1.8;
+    font-size: 1.05rem;
+    margin-bottom: 16px;
+}
+
+.lesson-content-box ul {
+    margin-left: 24px;
+    margin-bottom: 16px;
+}
+
+.lesson-content-box li {
+    line-height: 1.8;
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+
+.inner-info-box {
+    background: var(--bg-inner-box);
+    border: 1px solid rgba(251, 191, 36, 0.15);
+    padding: 24px;
+    border-radius: 16px;
+}
+
+/* OLS Regression Layout */
+.regression-layout {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 40px;
+    align-items: center;
+    margin-top: 24px;
+}
+
+.canvas-wrapper {
+    background: var(--bg-inner-box);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#regression-canvas {
+    max-width: 100%;
+    height: auto;
+    background: rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+
+.regression-stats {
+    display: flex;
+    flex-direction: column;
+}
+
+.result-card {
+    background: var(--bg-inner-box);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.result-card:hover {
+    border-color: var(--neon-yellow);
+    box-shadow: 0 0 15px rgba(251, 191, 36, 0.15);
+    transform: translateY(-3px);
+}
+
+.result-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.result-value {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--neon-yellow);
+    font-family: 'Outfit', sans-serif;
+}
+
+.sim-btn {
+    background: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--glass-border);
+    padding: 10px 18px;
+    border-radius: 16px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.outline-btn:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+    .regression-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}

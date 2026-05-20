@@ -1,11 +1,32 @@
-const isIndexPage = window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/') || window.location.pathname === '';
-const isFormulasPage = window.location.pathname.endsWith('formulas.html');
+const courseNames = [
+    'istatistik',
+    'olasilik',
+    'matematiksel_istatistik',
+    'istatistiksel_yontemler',
+    'regresyon_analizi',
+    'hipotez_testleri',
+    'matematik_1',
+    'matematik_2'
+];
+const normalizedPath = window.location.pathname.replace(/\\/g, '/');
+const isInsideCourseFolder = courseNames.some(name => 
+    normalizedPath.includes(`/courses/${name}/`) || normalizedPath.endsWith(`/courses/${name}`)
+);
+
+const isIndexPage = (normalizedPath.endsWith('index.html') || normalizedPath.endsWith('/') || normalizedPath === '') && !isInsideCourseFolder;
+const isFormulasPage = normalizedPath.endsWith('formulas.html');
+
+// Determine path prefix to root directory dynamically
+let pathPrefix = '';
+if (isInsideCourseFolder) {
+    pathPrefix = '../../';
+}
 
 const HEADER_HTML = `
     <header class="site-header glass-header">
         <div class="header-container">
             ${isIndexPage ? '' : `
-            <a href="index.html" class="nav-btn back-btn">
+            <a href="${pathPrefix}index.html" class="nav-btn back-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="19" y1="12" x2="5" y2="12"></line>
@@ -14,7 +35,7 @@ const HEADER_HTML = `
                 <span class="back-text">Ana Sayfaya Dön</span>
             </a>`}
 
-            <a href="${isIndexPage ? '#' : 'index.html'}" class="logo" style="color: var(--neon-blue);">Analyst Roadmap</a>
+            <a href="${isIndexPage ? '#' : pathPrefix + 'index.html'}" class="logo" style="color: var(--neon-blue);">Analyst Roadmap</a>
 
             <div class="header-right">
                 <nav class="desktop-nav" id="desktop-nav">
@@ -63,22 +84,27 @@ const MOBILE_NAV_HTML = `
             style="max-height: 85vh; overflow-y: auto; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 20px 0;">
             ${isIndexPage ? 
                 `<button class="mobile-nav-item" onclick="closeNavMenu()">❌ Menüyü Kapat</button>` : 
-                `<button class="mobile-nav-item" onclick="window.location.href='index.html'">🏠 Ana Sayfaya Dön</button>`
+                `<button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}index.html'">🏠 Ana Sayfaya Dön</button>`
             }
+
+            <div style="width: 100%; max-width: 320px; margin: 12px 0 4px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
+                <span style="font-size: 0.85rem; font-weight: 800; color: var(--neon-purple); letter-spacing: 1px; text-transform: uppercase;">📚 Ders Müfredatı</span>
+            </div>
+            <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}courses.html'">📚 Akademik Dersler</button>
 
             <div style="width: 100%; max-width: 320px; margin: 12px 0 4px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
                 <span style="font-size: 0.85rem; font-weight: 800; color: var(--neon-blue); letter-spacing: 1px; text-transform: uppercase;">🚀 Hızlı Analitik Rehberler</span>
             </div>
-            <button class="mobile-nav-item" onclick="window.location.href='basics.html'">📦 İstatistiğin Yapı Taşları (101)</button>
-            <button class="mobile-nav-item" onclick="window.location.href='formulas.html'">⚡ İstatistiksel Formüller Sözlüğü</button>
-            <button class="mobile-nav-item" onclick="window.location.href='datatypes.html'">🏷️ Veri Türleri &amp; Ölçüm Ölçekleri</button>
-            <button class="mobile-nav-item" onclick="window.location.href='datasets.html'">📁 Veri Seti Türleri &amp; Ekonometri</button>
-            <button class="mobile-nav-item" onclick="window.location.href='charts.html'">📊 Grafik Seçim &amp; Görselleştirme</button>
+            <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}basics.html'">📦 İstatistiğin Yapı Taşları (101)</button>
+            <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}formulas.html'">⚡ İstatistiksel Formüller Sözlüğü</button>
+            <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}datatypes.html'">🏷️ Veri Türleri &amp; Ölçüm Ölçekleri</button>
+            <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}datasets.html'">📁 Veri Seti Türleri &amp; Ekonometri</button>
+            <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}charts.html'">📊 Grafik Seçim &amp; Görselleştirme</button>
 
             <div style="width: 100%; max-width: 320px; margin: 12px 0 4px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
                 <span style="font-size: 0.85rem; font-weight: 800; color: var(--neon-green); letter-spacing: 1px; text-transform: uppercase;">🛠️ Analitik Araçlar Vitrini</span>
             </div>
-            <button class="mobile-nav-item" onclick="window.location.href='index.html#tools-section'; closeNavMenu();">🛠️ Popüler Analitik &amp; İş Zekası Araçları</button>
+            <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}index.html#tools-section'; closeNavMenu();">🛠️ Popüler Analitik &amp; İş Zekası Araçları</button>
 
             <div style="width: 100%; max-width: 320px; margin: 12px 0 4px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
                 <span style="font-size: 0.85rem; font-weight: 800; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase;">Bağlantılar &amp; Ayarlar</span>

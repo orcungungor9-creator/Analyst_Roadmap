@@ -429,22 +429,23 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    gap: 16px;
+    flex-wrap: nowrap;
 }
 
 .btn-hero {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 16px 36px;
+    gap: 10px;
+    padding: 14px 24px;
     border-radius: 30px;
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 700;
     cursor: pointer;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    white-space: nowrap;
 }
 
 .btn-hero-formulas {
@@ -494,25 +495,48 @@ body {
 }
 
 .btn-hero-start {
+    background: rgba(251, 146, 60, 0.12);
+    border: 1px solid rgba(251, 146, 60, 0.4);
+    color: var(--text-main);
+    box-shadow: 0 8px 25px rgba(251, 146, 60, 0.2);
+}
+
+.btn-hero-start .btn-hero-icon {
+    color: var(--neon-orange);
+    transition: transform 0.3s ease;
+}
+
+.btn-hero-start:hover {
+    background: rgba(251, 146, 60, 0.25);
+    border-color: var(--neon-orange);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(251, 146, 60, 0.4), 0 0 20px rgba(251, 146, 60, 0.3);
+}
+
+.btn-hero-start:hover .btn-hero-icon {
+    transform: scale(1.2);
+}
+
+.btn-hero-courses {
     background: rgba(192, 132, 252, 0.12);
     border: 1px solid rgba(192, 132, 252, 0.4);
     color: var(--text-main);
     box-shadow: 0 8px 25px rgba(192, 132, 252, 0.2);
 }
 
-.btn-hero-start .btn-hero-icon {
+.btn-hero-courses .btn-hero-icon {
     color: var(--neon-purple);
     transition: transform 0.3s ease;
 }
 
-.btn-hero-start:hover {
+.btn-hero-courses:hover {
     background: rgba(192, 132, 252, 0.25);
     border-color: var(--neon-purple);
     transform: translateY(-4px);
     box-shadow: 0 15px 35px rgba(192, 132, 252, 0.4), 0 0 20px rgba(192, 132, 252, 0.3);
 }
 
-.btn-hero-start:hover .btn-hero-icon {
+.btn-hero-courses:hover .btn-hero-icon {
     transform: scale(1.2);
 }
 
@@ -520,6 +544,7 @@ body {
     .hero-section { padding: 50px 20px 40px 20px; }
     .hero-title { font-size: 2.5rem; }
     .hero-subtitle { font-size: 1.05rem; }
+    .hero-actions { flex-wrap: wrap; }
     .btn-hero { width: 100%; justify-content: center; padding: 14px 28px; }
 }
 

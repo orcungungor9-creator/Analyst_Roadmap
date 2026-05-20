@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matematiksel İstatistik | Akademik Dersler</title>
+    <link rel="stylesheet" href="../../styles.css?v=3.4">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .coming-soon-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            padding: 24px;
+            text-align: center;
+        }
+        .coming-soon-box {
+            padding: 60px 40px;
+            border-radius: 28px;
+            border: 1px solid var(--glass-border);
+            max-width: 500px;
+            width: 100%;
+        }
+        .coming-soon-title {
+            font-family: var(--font-title);
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 16px;
+            text-shadow: 0 0 20px rgba(192, 132, 252, 0.4);
+            color: var(--neon-purple);
+        }
+        .coming-soon-subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body class="formulas-page">
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('analyst_theme') || 'theme-light-purple';
+            if (savedTheme !== 'theme-dark') {
+                document.body.classList.add(savedTheme);
+            }
+        })();
+    </script>
+    <div class="bg-analytics-mesh"></div>
+    <div class="coming-soon-container">
+        <div class="glass coming-soon-box">
+            <h1 class="coming-soon-title">Yakında</h1>
+            <p class="coming-soon-subtitle">Matematiksel İstatistik ders notları ve interaktif simülatörler yakında burada olacak.</p>
+            <a href="../../courses.html" class="nav-btn" style="border-color: rgba(192, 132, 252, 0.4); color: var(--neon-purple); display: inline-flex; justify-content: center; width: 100%; padding: 14px; text-decoration: none;">
+                &larr; Akademik Derslere Dön
+            </a>
+        </div>
+    </div>
+    <script src="../../components.js"></script>
+    <script src="../../nav.js"></script>
+    <script src="../../modal.js"></script>
+    <script src="../../script.js"></script>
+</body>
+</html>
