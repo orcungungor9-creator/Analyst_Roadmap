@@ -1,0 +1,9 @@
+/* ==========================================================================
+   CHARTS.CSS - CHARTS PAGE SPECIFIC STYLES
+   ==========================================================================
+   NOT: Bu sayfanın tüm stilleri (.chart-section, .chart-cat-title, .chart-grid,
+   .chart-card, .chart-preview, tüm grafik önizleme sınıfları, .chart-info,
+   .chart-tags, .chart-when, .chart-guide-grid vb.) ortak css/styles.css içinde
+   "4. GRAFİK TÜRLERİ MODALİ" başlığı altında tutulmaktadır.
+   Styles.css bu sayfanın hem modal hem de standalone render'ı için yeterlidir.
+   ========================================================================== */

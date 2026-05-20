@@ -540,13 +540,7 @@ body {
     transform: scale(1.2);
 }
 
-@media (max-width: 768px) {
-    .hero-section { padding: 50px 20px 40px 20px; }
-    .hero-title { font-size: 2.5rem; }
-    .hero-subtitle { font-size: 1.05rem; }
-    .hero-actions { flex-wrap: wrap; }
-    .btn-hero { width: 100%; justify-content: center; padding: 14px 28px; }
-}
+
 
 /* =========================================
    ANA İÇERİK & BÖLÜMLER
@@ -883,10 +877,7 @@ body {
     line-height: 1.6;
 }
 
-@media (max-width: 768px) {
-    .section-title { font-size: 1.8rem; }
-    .section-desc { font-size: 1rem; }
-}
+
 
 /* ==========================================================================
    MODAL PENCERELERİ (ORTAK & ÖZEL TASARIMLAR)
@@ -1033,46 +1024,9 @@ body {
 .search-toggle-btn svg { transition: transform 0.35s ease; }
 .search-toggle-btn.collapsed svg { transform: rotate(180deg); }
 
-.search-wrapper { position: relative; margin-bottom: 20px; }
-.search-input {
-    width: 100%;
-    padding: 16px 24px 16px 50px;
-    background: var(--bg-input);
-    border: 1px solid var(--glass-border);
-    border-radius: 30px;
-    color: var(--text-main);
-    font-size: 1.05rem;
-    font-family: var(--font-main);
-    transition: all 0.3s ease;
-    outline: none;
-}
-.search-input:focus {
-    border-color: var(--neon-blue);
-    box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
-    background: var(--bg-input-focus);
-}
-.search-input::placeholder { color: var(--text-muted); opacity: 0.7; }
-.search-icon { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
-
-.category-filters { display: flex; gap: 10px; flex-wrap: wrap; }
-.filter-btn {
-    background: var(--bg-filter-btn);
-    border: 1px solid var(--glass-border);
-    color: var(--text-muted);
-    padding: 10px 20px;
-    border-radius: 20px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-.filter-btn:hover { color: var(--text-main); background: var(--bg-filter-btn-hover); }
-.filter-btn.active {
-    background: rgba(56, 189, 248, 0.15);
-    border-color: var(--neon-blue);
-    color: var(--neon-blue);
-    box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
-}
+/* .search-wrapper, .search-input, .search-icon, .category-filters, .filter-btn
+   → Tam tanımlar aşağıda "STANDALONE FORMÜLLER SAYFASI" bölümünde yer alır.
+   Cascade sayesinde buraya ayrıca eklenmesi gereksiz (dead code önleme). */
 
 .modal-body-scroll {
     padding: 36px;
@@ -1659,11 +1613,7 @@ body {
     margin: 0;
 }
 
-@media (max-width: 768px) {
-    .static-filter-container { padding: 24px 20px; border-radius: 16px; margin-bottom: 30px; }
-    .formulas-grid { grid-template-columns: 1fr; gap: 24px; }
-    .formula-card { padding: 24px; }
-}
+
 
 /* Scrollbar Özelleştirme */
 ::-webkit-scrollbar { width: 8px; }

@@ -1,0 +1,8 @@
+/* ==========================================================================
+   DATASETS.CSS - DATASETS PAGE SPECIFIC STYLES
+   ==========================================================================
+   NOT: Bu sayfanın tüm stilleri (.dst-card, .dst-panel, .dst-time, .dst-cross,
+   .dst-badge, .dst-detail-grid, .dst-panel-types vb.) ortak css/styles.css içinde
+   "3. VERİ SETİ TÜRLERİ MODALİ" başlığı altında tutulmaktadır.
+   Styles.css bu sayfanın hem modal hem de standalone render'ı için yeterlidir.
+   ========================================================================== */
