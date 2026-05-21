@@ -1,0 +1,970 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İstatistiğin Yapı Taşları (101) | My Analyst LogBook</title>
+    <link rel="stylesheet" href="../../css/styles.css?v=3.4">
+    <link rel="stylesheet" href="basics.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- KaTeX CSS ve JS (Matematiksel Sembollerin Render Edilmesi İçin) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+</head>
+
+<body class="formulas-page">
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('analyst_theme') || 'theme-light-purple';
+            if (savedTheme !== 'theme-dark') {
+                document.body.classList.add(savedTheme);
+            }
+        })();
+    </script>
+
+    <!-- DİNAMİK ARKA PLAN GRAFİK AĞI (BG ANALYTICS MESH) -->
+    <div class="bg-analytics-mesh">
+        <!-- SVG 1: İniş Çıkış Trend Çizgisi (Line & Area Chart) -->
+        <div class="bg-chart-item bg-chart-1">
+            <svg viewBox="0 0 400 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="bg-area-grad-3" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="var(--neon-blue)" stop-opacity="0.4" />
+                        <stop offset="100%" stop-color="var(--neon-blue)" stop-opacity="0.0" />
+                    </linearGradient>
+                </defs>
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40 L 370,190 L 10,190 Z"
+                    fill="url(#bg-area-grad-3)" />
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40" fill="none" stroke="var(--neon-blue)"
+                    stroke-width="4" stroke-linecap="round" />
+                <circle cx="130" cy="150" r="6" fill="var(--neon-green)" />
+                <circle cx="250" cy="90" r="6" fill="var(--neon-purple)" />
+                <circle cx="370" cy="40" r="8" fill="var(--neon-blue)">
+                    <animate attributeName="r" values="6;10;6" dur="3s" repeatCount="indefinite" />
+                </circle>
+            </svg>
+        </div>
+
+        <!-- SVG 2: Pasta / Donut Grafiği -->
+        <div class="bg-chart-item bg-chart-2">
+            <svg viewBox="0 0 200 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <g transform="translate(100,100)">
+                    <!-- Dilim 1 (%45) -->
+                    <path d="M 0,-80 A 80,80 0 0,1 76,25 L 57,18 A 60,60 0 0,0 0,-60 Z" fill="var(--neon-blue)" />
+                    <!-- Dilim 2 (%35) -->
+                    <path d="M 76,25 A 80,80 0 0,1 -64,48 L -48,36 A 60,60 0 0,0 57,18 Z" fill="var(--neon-green)" />
+                    <!-- Dilim 3 (%20) -->
+                    <path d="M -64,48 A 80,80 0 0,1 0,-80 L 0,-60 A 60,60 0 0,0 -48,36 Z" fill="var(--neon-purple)" />
+                    <circle cx="0" cy="0" r="45" fill="none" stroke="var(--glass-border)" stroke-width="2"
+                        stroke-dasharray="5,5" />
+                </g>
+            </svg>
+        </div>
+
+        <!-- SVG 3: Sütun Grafiği (Bar Chart) -->
+        <div class="bg-chart-item bg-chart-3">
+            <svg viewBox="0 0 250 250" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <line x1="20" y1="50" x2="230" y2="50" stroke="var(--glass-border)" stroke-width="1"
+                    stroke-dasharray="4,4" />
+                <line x1="20" y1="100" x2="230" y2="100" stroke="var(--glass-border)" stroke-width="1"
+                    stroke-dasharray="4,4" />
+                <line x1="20" y1="150" x2="230" y2="150" stroke="var(--glass-border)" stroke-width="1"
+                    stroke-dasharray="4,4" />
+                <line x1="20" y1="200" x2="230" y2="200" stroke="var(--glass-border)" stroke-width="2" />
+
+                <rect x="35" y="120" width="30" height="80" rx="6" fill="var(--neon-blue)">
+                    <animate attributeName="height" values="80;100;80" dur="4s" repeatCount="indefinite" />
+                    <animate attributeName="y" values="120;100;120" dur="4s" repeatCount="indefinite" />
+                </rect>
+                <rect x="85" y="70" width="30" height="130" rx="6" fill="var(--neon-green)">
+                    <animate attributeName="height" values="130;160;130" dur="5s" repeatCount="indefinite" />
+                    <animate attributeName="y" values="70;40;70" dur="5s" repeatCount="indefinite" />
+                </rect>
+                <rect x="135" y="150" width="30" height="50" rx="6" fill="var(--neon-purple)">
+                    <animate attributeName="height" values="50;70;50" dur="3.5s" repeatCount="indefinite" />
+                    <animate attributeName="y" values="150;130;150" dur="3.5s" repeatCount="indefinite" />
+                </rect>
+                <rect x="185" y="90" width="30" height="110" rx="6" fill="var(--neon-blue)">
+                    <animate attributeName="height" values="110;140;110" dur="4.5s" repeatCount="indefinite" />
+                    <animate attributeName="y" values="90;60;90" dur="4.5s" repeatCount="indefinite" />
+                </rect>
+            </svg>
+        </div>
+
+        <!-- SVG 4: Mum & Radar Grafiği (Candlestick) -->
+        <div class="bg-chart-item bg-chart-4">
+            <svg viewBox="0 0 280 220" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <line x1="50" y1="30" x2="50" y2="170" stroke="var(--neon-green)" stroke-width="3" />
+                <rect x="38" y="70" width="24" height="60" rx="4" fill="var(--neon-green)" />
+
+                <line x1="110" y1="50" x2="110" y2="190" stroke="var(--neon-blue)" stroke-width="3" />
+                <rect x="98" y="90" width="24" height="70" rx="4" fill="var(--neon-blue)" />
+
+                <line x1="170" y1="20" x2="170" y2="150" stroke="var(--neon-purple)" stroke-width="3" />
+                <rect x="158" y="50" width="24" height="50" rx="4" fill="var(--neon-purple)" />
+
+                <line x1="230" y1="60" x2="230" y2="200" stroke="var(--neon-green)" stroke-width="3" />
+                <rect x="218" y="100" width="24" height="55" rx="4" fill="var(--neon-green)" />
+            </svg>
+        </div>
+    </div>
+
+    <!-- 2. HERO & BAŞLIK BÖLÜMÜ -->
+    <section class="formulas-hero">
+        <div class="hero-content">
+            <div class="badge-pill floating-slow">İstatistiğin Temelleri (101)</div>
+            <h1 class="hero-title">İstatistiğin <span class="gradient-text">Yapı Taşları (101)</span></h1>
+            <p class="hero-subtitle">
+                Ham verinin arkasındaki teorik hiyerarşiyi anlamak için en temel 5 kavramı bir zincirin halkaları gibi
+                keşfedin ve örnekleme teorisinin temellerine hakim olun.
+            </p>
+        </div>
+    </section>
+
+    <!-- 3. ANA İÇERİK -->
+    <main class="formulas-main" style="max-width: 1200px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
+
+        <!-- BÖLÜM 1 & 2: İSTATİSTİK NEDİR VE DALLARI -->
+        <!-- BÖLÜM 1 & 2: İSTATİSTİK NEDİR VE DALLARI -->
+        <div class="glass" style="padding: 48px; border-radius: 28px; margin-bottom: 48px;">
+            <div class="section-header" style="margin-bottom: 32px;">
+                <h2 class="section-title" style="font-size: 2.2rem;"><span class="icon-title">📊</span> İstatistiğin
+                    Temel Felsefesi &amp; Dalları</h2>
+                <p class="section-desc">Ham veriyi bilgiye dönüştürme sanatının temel tanımı ve analitik dünyadaki iki
+                    büyük çalışma alanı.</p>
+            </div>
+
+            <!-- 1. İstatistik Nedir? -->
+            <div
+                style="background: var(--bg-inner-box); border: 1px solid var(--border-inner-box); border-left: 4px solid var(--neon-blue); border-radius: 0 20px 20px 0; padding: 32px; margin-bottom: 40px;">
+                <h3
+                    style="color: var(--neon-blue); font-size: 1.5rem; margin-bottom: 16px; display: flex; align-items: center; gap: 12px;">
+                    <span style="font-size: 1.8rem;">💡</span> 1. İstatistik Nedir?
+                </h3>
+                <p style="color: var(--text-main); font-size: 1.15rem; line-height: 1.7; margin-bottom: 16px;">
+                    İstatistik, ham verileri toplayarak, düzenleyerek, analiz ederek ve yorumlayarak anlamlı bilgilere
+                    dönüştüren bir bilim dalıdır. Olaylar hakkında doğru kararlar almayı, eğilimleri görmeyi ve geleceğe
+                    dair tahminler yapmayı sağlar.
+                </p>
+                <p style="color: var(--text-main); font-size: 1.15rem; line-height: 1.7; margin: 0;">
+                    Ayrıca istatistik; yalnızca belirsizlik altında karar almakla sınırlı kalmayan, aynı zamanda
+                    evrendeki ve süreçlerdeki varyasyonu (değişkenliği) anlamak, büyük veri yığınları içindeki gizli
+                    örüntüleri (pattern) keşfetmek, geçmişi modelleyerek geleceğe yönelik güçlü tahminlerde
+                    (forecasting) bulunmak ve karmaşık sistemleri optimize etmek için kullanılan çok boyutlu bir bilim
+                    ve metodolojidir. Modern veri bilimi, yapay zeka ve ekonometrik analizlerin temel motoru olan
+                    istatistik; kısaca <strong style="color: var(--neon-green); font-weight: 700;">ham ve kaotik veriyi,
+                        stratejik ve eyleme geçirilebilir bilgiye dönüştürme sanatıdır</strong>.
+                    Günlük hayatta"istatistik" terimi genellikle araştırmalar sonucu ortaya çıkan sayısal verileri ifade
+                    eder. Temel işleyiş süreci 4 adımdan oluşur.
+                </p>
+            </div>
+
+            <!-- İSTATİSTİĞİN 4 TEMEL ADIMI (İŞLEYİŞ SÜRECİ) -->
+            <div style="margin-bottom: 56px;">
+                <h4
+                    style="color: var(--text-main); font-size: 1.4rem; margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
+                    <span style="font-size: 1.6rem;">🔄</span> İstatistiğin 4 Temel İşleyiş Adımı
+                </h4>
+
+                <!-- GÖZ ALICI SVG AKIŞ ŞEMASI (PROCESS FLOW) -->
+                <div
+                    style="background: var(--bg-inner-box); border: 1px solid var(--border-inner-box); border-radius: 24px; padding: 32px 20px; margin-bottom: 32px; box-shadow: var(--shadow-card); overflow: hidden;">
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <span class="badge-pill"
+                            style="background: var(--bg-filter-btn); color: var(--neon-blue); border: 1px solid var(--neon-blue);">Görsel
+                            Akış: Ham Veriden Stratejik Karara</span>
+                    </div>
+                    <svg viewBox="0 0 800 220" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <filter id="glow-step" x="-20%" y="-20%" width="140%" height="140%">
+                                <feGaussianBlur stdDeviation="6" result="blur" />
+                                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                            </filter>
+                            <marker id="arrow-step-1" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6"
+                                markerHeight="6" orient="auto-start-reverse">
+                                <path d="M 0 1 L 10 5 L 0 9 z" fill="var(--neon-blue)" />
+                            </marker>
+                            <marker id="arrow-step-2" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6"
+                                markerHeight="6" orient="auto-start-reverse">
+                                <path d="M 0 1 L 10 5 L 0 9 z" fill="var(--neon-purple)" />
+                            </marker>
+                            <marker id="arrow-step-3" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6"
+                                markerHeight="6" orient="auto-start-reverse">
+                                <path d="M 0 1 L 10 5 L 0 9 z" fill="var(--neon-green)" />
+                            </marker>
+                        </defs>
+
+                        <!-- BAĞLANTI ÇİZGİLERİ (OKLAR) -->
+                        <path d="M 175 90 L 235 90" stroke="var(--neon-blue)" stroke-width="4" stroke-dasharray="6,6"
+                            marker-end="url(#arrow-step-1)" />
+                        <path d="M 365 90 L 425 90" stroke="var(--neon-purple)" stroke-width="4" stroke-dasharray="6,6"
+                            marker-end="url(#arrow-step-2)" />
+                        <path d="M 555 90 L 615 90" stroke="var(--neon-green)" stroke-width="4" stroke-dasharray="6,6"
+                            marker-end="url(#arrow-step-3)" />
+
+                        <!-- ADIM 1: VERİ TOPLAMA -->
+                        <g transform="translate(110, 90)">
+                            <circle cx="0" cy="0" r="56" fill="var(--bg-filter-btn)" stroke="var(--neon-blue)" stroke-width="3" filter="url(#glow-step)" />
+                            <text x="0" y="12" text-anchor="middle" fill="var(--text-main)" font-size="34">📥</text>
+                            <text x="0" y="84" text-anchor="middle" fill="var(--neon-blue)" font-family="var(--font-title)" font-size="15" font-weight="800" letter-spacing="1">1. TOPLAMA</text>
+                        </g>
+
+                        <!-- ADIM 2: DÜZENLEME -->
+                        <g transform="translate(300, 90)">
+                            <circle cx="0" cy="0" r="56" fill="var(--bg-filter-btn)" stroke="var(--neon-purple)" stroke-width="3" filter="url(#glow-step)" />
+                            <text x="0" y="12" text-anchor="middle" fill="var(--text-main)" font-size="34">📊</text>
+                            <text x="0" y="84" text-anchor="middle" fill="var(--neon-purple)" font-family="var(--font-title)" font-size="15" font-weight="800" letter-spacing="1">2. DÜZENLEME</text>
+                        </g>
+
+                        <!-- ADIM 3: ANALİZ -->
+                        <g transform="translate(490, 90)">
+                            <circle cx="0" cy="0" r="56" fill="var(--bg-filter-btn)" stroke="var(--neon-green)" stroke-width="3" filter="url(#glow-step)" />
+                            <text x="0" y="12" text-anchor="middle" fill="var(--text-main)" font-size="34">🧮</text>
+                            <text x="0" y="84" text-anchor="middle" fill="var(--neon-green)" font-family="var(--font-title)" font-size="15" font-weight="800" letter-spacing="1">3. ANALİZ</text>
+                        </g>
+
+                        <!-- ADIM 4: YORUMLAMA -->
+                        <g transform="translate(680, 90)">
+                            <circle cx="0" cy="0" r="56" fill="var(--bg-filter-btn)" stroke="var(--neon-yellow)" stroke-width="3" filter="url(#glow-step)" />
+                            <text x="0" y="12" text-anchor="middle" fill="var(--text-main)" font-size="34">💡</text>
+                            <text x="0" y="84" text-anchor="middle" fill="var(--neon-yellow)" font-family="var(--font-title)" font-size="15" font-weight="800" letter-spacing="1">4. YORUMLAMA</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <!-- 4 ADIM KARTLARI (GRID) -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px;">
+                    <!-- Adım 1 -->
+                    <div class="glass-card"
+                        style="padding: 28px 24px; border-radius: 20px; border-top: 4px solid var(--neon-blue); display: flex; flex-direction: column; gap: 16px;">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <span
+                                style="background: var(--bg-filter-btn); color: var(--neon-blue); padding: 6px 14px; border-radius: 12px; font-weight: 800; font-size: 0.9rem; border: 1px solid var(--neon-blue);">ADIM
+                                1</span>
+                            <span style="font-size: 1.6rem;">📥</span>
+                        </div>
+                        <h5 style="color: var(--text-main); font-size: 1.25rem; margin: 0; font-weight: 700;">Veri
+                            Toplama</h5>
+                        <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin: 0;">
+                            Anket, gözlem veya ölçüm yoluyla bilgilerin elde edilmesi.
+                        </p>
+                    </div>
+
+                    <!-- Adım 2 -->
+                    <div class="glass-card"
+                        style="padding: 28px 24px; border-radius: 20px; border-top: 4px solid var(--neon-purple); display: flex; flex-direction: column; gap: 16px;">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <span
+                                style="background: var(--bg-filter-btn); color: var(--neon-purple); padding: 6px 14px; border-radius: 12px; font-weight: 800; font-size: 0.9rem; border: 1px solid var(--neon-purple);">ADIM
+                                2</span>
+                            <span style="font-size: 1.6rem;">📊</span>
+                        </div>
+                        <h5 style="color: var(--text-main); font-size: 1.25rem; margin: 0; font-weight: 700;">Düzenleme
+                        </h5>
+                        <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin: 0;">
+                            Toplanan verilerin tablolar veya grafikler ile özetlenmesi.
+                        </p>
+                    </div>
+
+                    <!-- Adım 3 -->
+                    <div class="glass-card"
+                        style="padding: 28px 24px; border-radius: 20px; border-top: 4px solid var(--neon-green); display: flex; flex-direction: column; gap: 16px;">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <span
+                                style="background: var(--bg-filter-btn); color: var(--neon-green); padding: 6px 14px; border-radius: 12px; font-weight: 800; font-size: 0.9rem; border: 1px solid var(--neon-green);">ADIM
+                                3</span>
+                            <span style="font-size: 1.6rem;">🧮</span>
+                        </div>
+                        <h5 style="color: var(--text-main); font-size: 1.25rem; margin: 0; font-weight: 700;">Analiz
+                        </h5>
+                        <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin: 0;">
+                            Veriler arasındaki ilişkilerin matematiksel ve mantıksal yöntemlerle çözümlenmesi.
+                        </p>
+                    </div>
+
+                    <!-- Adım 4 -->
+                    <div class="glass-card"
+                        style="padding: 28px 24px; border-radius: 20px; border-top: 4px solid var(--neon-yellow); display: flex; flex-direction: column; gap: 16px;">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <span
+                                style="background: var(--bg-filter-btn); color: var(--neon-yellow); padding: 6px 14px; border-radius: 12px; font-weight: 800; font-size: 0.9rem; border: 1px solid var(--neon-yellow);">ADIM
+                                4</span>
+                            <span style="font-size: 1.6rem;">💡</span>
+                        </div>
+                        <h5 style="color: var(--text-main); font-size: 1.25rem; margin: 0; font-weight: 700;">Yorumlama
+                        </h5>
+                        <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin: 0;">
+                            Analiz edilen sonuçların bir anlam ifade edecek şekilde açıklanması ve kararlara temel
+                            oluşturması.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. İstatistik Hangi Dallara Ayrılır? -->
+            <h3
+                style="color: var(--text-main); font-size: 1.6rem; margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
+                <span style="font-size: 1.8rem;">🔀</span> 2. İstatistik Hangi Dallara Ayrılır?
+            </h3>
+            <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 28px;">İstatistik temelde iki ana kola
+                ayrılır:</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px;">
+                <!-- Betimsel İstatistik -->
+                <div class="glass-card"
+                    style="padding: 36px; border-radius: 24px; display: flex; flex-direction: column; gap: 20px; position: relative; overflow: hidden;">
+                    <div
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--neon-blue);">
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 16px;">
+                        <div
+                            style="width: 56px; height: 56px; border-radius: 16px; background: var(--bg-filter-btn); border: 1px solid var(--neon-blue); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);">
+                            📈</div>
+                        <h4 style="font-size: 1.45rem; color: var(--text-main); margin: 0; font-weight: 800;">Betimsel
+                            <span
+                                style="color: var(--neon-blue); font-size: 1.1rem; display: block; font-weight: 600;">(Tanımlayıcı)
+                                İstatistik</span>
+                        </h4>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin: 0;">
+                        Sadece elimizdeki mevcut veriyi özetlemek, organize etmek ve görselleştirmekle ilgilenir.
+                        Verinin ötesine geçmez, genelleme yapmaz.
+                    </p>
+                    <div
+                        style="background: var(--bg-inner-box); border: 1px solid var(--border-inner-box); padding: 18px 22px; border-radius: 16px; margin-top: auto;">
+                        <strong
+                            style="color: var(--neon-blue); font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;">❓
+                            Ne Yapar?</strong>
+                        <span style="color: var(--text-main); font-size: 1rem;">Ortalama alır, standart sapma hesaplar,
+                            grafik çizer.</span>
+                    </div>
+                    <div class="analyst-example-box" style="margin: 0;">
+                        <span class="example-icon">👨‍💻</span>
+                        <div class="example-text">
+                            <strong>Örnek:</strong> "Geçen ayki satış ortalamamız 50.000 TL idi."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Çıkarımsal İstatistik -->
+                <div class="glass-card"
+                    style="padding: 36px; border-radius: 24px; display: flex; flex-direction: column; gap: 20px; position: relative; overflow: hidden;">
+                    <div
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--neon-purple);">
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 16px;">
+                        <div
+                            style="width: 56px; height: 56px; border-radius: 16px; background: var(--bg-filter-btn); border: 1px solid var(--neon-purple); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; box-shadow: 0 0 20px rgba(192, 132, 252, 0.2);">
+                            🎯</div>
+                        <h4 style="font-size: 1.45rem; color: var(--text-main); margin: 0; font-weight: 800;">Çıkarımsal
+                            <span
+                                style="color: var(--neon-purple); font-size: 1.1rem; display: block; font-weight: 600;">(Tümevarımsal)
+                                İstatistik</span>
+                        </h4>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin: 0;">
+                        Elimizdeki küçük bir veri grubundan (örneklem) yola çıkarak, büyük resim (kütle) hakkında
+                        tahminlerde bulunma ve karar verme sürecidir.
+                    </p>
+                    <div
+                        style="background: var(--bg-inner-box); border: 1px solid var(--border-inner-box); padding: 18px 22px; border-radius: 16px; margin-top: auto;">
+                        <strong
+                            style="color: var(--neon-purple); font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;">❓
+                            Ne Yapar?</strong>
+                        <span style="color: var(--text-main); font-size: 1rem;">Hipotez testleri yapar, gelecek
+                            tahminlerinde bulunur.</span>
+                    </div>
+                    <div class="analyst-example-box" style="margin: 0;">
+                        <span class="example-icon">👨‍💻</span>
+                        <div class="example-text">
+                            <strong>Örnek:</strong> "Elimizdeki verilere dayanarak %95 güvenle söyleyebiliriz ki, tüm
+                            müşterilerimizin harcama ortalaması 45.000 TL ile 55.000 TL arasındadır."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BÖLÜM 3: KÜTLE VE ÖRNEKLEM (GÖRSEL DESTEKLİ) -->
+        <div class="glass" style="padding: 48px; border-radius: 28px; margin-bottom: 48px;">
+            <div class="section-header" style="margin-bottom: 36px;">
+                <h2 class="section-title" style="font-size: 2.2rem;"><span class="icon-title">🌐</span> 3. Kütle ve
+                    Örneklem (Kısa Hatırlatma)</h2>
+                <p class="section-desc">Büyük resim ile onun içinden seçilen temsilci alt küme arasındaki ilişkinin
+                    görsel ve teorik incelemesi.</p>
+            </div>
+
+            <!-- GÖZ ALICI SVG GÖRSELLEŞTİRME (TARGET POPULATION VS SAMPLE) -->
+            <div
+                style="background: var(--bg-inner-box); border: 1px solid var(--border-inner-box); border-radius: 24px; padding: 40px 20px; margin-bottom: 40px; box-shadow: var(--shadow-card); overflow: hidden;">
+                <div style="text-align: center; margin-bottom: 24px;">
+                    <span class="badge-pill"
+                        style="background: var(--bg-filter-btn); color: var(--neon-green); border: 1px solid var(--neon-green);">Görsel
+                        Konsept: Target Population &rarr; Sample</span>
+                </div>
+                <svg viewBox="0 0 850 380" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <filter id="glow-green" x="-20%" y="-20%" width="140%" height="140%">
+                            <feGaussianBlur stdDeviation="8" result="blur" />
+                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                        </filter>
+                        <filter id="glow-blue" x="-20%" y="-20%" width="140%" height="140%">
+                            <feGaussianBlur stdDeviation="6" result="blur" />
+                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                        </filter>
+                        <filter id="glow-purple" x="-20%" y="-20%" width="140%" height="140%">
+                            <feGaussianBlur stdDeviation="6" result="blur" />
+                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                        </filter>
+                        <marker id="arrow-purple" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="8" markerHeight="8"
+                            orient="auto-start-reverse">
+                            <path d="M 0 1 L 10 5 L 0 9 z" fill="var(--neon-purple)" />
+                        </marker>
+                    </defs>
+
+                    <!-- SOL KISIM: TARGET POPULATION -->
+                    <g transform="translate(260, 190)">
+                        <!-- Büyük Kütle Elipsi -->
+                        <ellipse cx="0" cy="0" rx="230" ry="165" fill="var(--bg-filter-btn)" stroke="var(--neon-blue)"
+                            stroke-width="2" stroke-dasharray="8,4" />
+                        <text x="0" y="-130" text-anchor="middle" fill="var(--neon-blue)"
+                            font-family="var(--font-title)" font-size="22" font-weight="bold">Target Population
+                            (Kütle)</text>
+
+                        <!-- Kütle İçindeki Rastgele İnsan Figürleri (Gri/Beyaz/Mavi/Sarı vb.) -->
+                        <!-- Figür 1 -->
+                        <g transform="translate(-150, -60)">
+                            <circle cx="0" cy="-12" r="6" fill="#94a3b8" />
+                            <path d="M-8,0 Q0,-8 8,0 L6,20 L-6,20 Z" fill="#64748b" />
+                        </g>
+                        <!-- Figür 2 -->
+                        <g transform="translate(-110, -100)">
+                            <circle cx="0" cy="-12" r="6" fill="#f8fafc" />
+                            <path d="M-8,0 Q0,-8 8,0 L6,20 L-6,20 Z" fill="#cbd5e1" />
+                        </g>
+                        <!-- Figür 3 -->
+                        <g transform="translate(-160, 30)">
+                            <circle cx="0" cy="-12" r="6" fill="#f43f5e" />
+                            <path d="M-8,0 Q0,-8 8,0 L6,20 L-6,20 Z" fill="#be123c" />
+                        </g>
+                        <!-- Figür 4 -->
+                        <g transform="translate(-100, 80)">
+                            <circle cx="0" cy="-12" r="6" fill="#f8fafc" />
+                            <path d="M-8,0 Q0,-8 8,0 L6,20 L-6,20 Z" fill="#cbd5e1" />
+                        </g>
+                        <!-- Figür 5 -->
+                        <g transform="translate(-40, -110)">
+                            <circle cx="0" cy="-12" r="6" fill="#fb923c" />
+                            <path d="M-8,0 Q0,-8 8,0 L6,20 L-6,20 Z" fill="#c2410c" />
+                        </g>
+                        <!-- Figür 6 -->
+                        <g transform="translate(-60, -30)">
+                            <circle cx="0" cy="-12" r="6" fill="#94a3b8" />
+                            <path d="M-8,0 Q0,-8 8,0 L6,20 L-6,20 Z" fill="#64748b" />
+                        </g>
+                        <!-- Figür 7 -->
+                        <g transform="translate(-70, 40)">
+                            <circle cx="0" cy="-12" r="6" fill="#38bdf8" />
+                            <path d="M-8,0 Q0,-8 8,0 L6,20 L-6,20 Z" fill="#0284c7" />
+                        </g>
+                        <!-- Figür 8 -->
+                        <g transform="translate(-20, 110)">
+                            <circle cx="0" cy="-12" r="6" fill="#fbbf24" />
+                            <path d="M-8,0 Q0,-8 8,0 L6,20 L-6,20 Z" fill="#b45309" />
+                        </g>
+                        <!-- Figür 9 -->
+                        <g transform="translate(60, -100)">
+                            <circle cx="0" cy="-12" r="6" fill="#c084fc" />
+                            <path d="M-8,0 Q0,-8 8,0 L6,20 L-6,20 Z" fill="#7e22ce" />
+                        </g>
+                        <!-- Figür 10 -->
+                        <g transform="translate(140, -60)">
+                            <circle cx="0" cy="-12" r="6" fill="#f8fafc" />
+                            <path d="M-8,0 Q0,-8 8,0 L6,20 L-6,20 Z" fill="#cbd5e1" />
+                        </g>
+                        <!-- Figür 11 -->
+                        <g transform="translate(160, 40)">
+                            <circle cx="0" cy="-12" r="6" fill="#fbbf24" />
+                            <path d="M-8,0 Q0,-8 8,0 L6,20 L-6,20 Z" fill="#b45309" />
+                        </g>
+                        <!-- Figür 12 -->
+                        <g transform="translate(90, 100)">
+                            <circle cx="0" cy="-12" r="6" fill="#94a3b8" />
+                            <path d="M-8,0 Q0,-8 8,0 L6,20 L-6,20 Z" fill="#64748b" />
+                        </g>
+
+                        <!-- İÇ SEÇİM ALANI (TARGET SUBSET) -->
+                        <circle cx="45" cy="10" r="85" fill="var(--bg-input-focus)" stroke="var(--neon-purple)"
+                            stroke-width="2" stroke-dasharray="6,6" />
+
+                        <!-- Seçilen 4 Özel Figür (Örnekleme Gidecek Olanlar) -->
+                        <!-- Seçilen 1 (Kırmızı) -->
+                        <g transform="translate(5, -25)">
+                            <circle cx="0" cy="-12" r="6" fill="#f43f5e" />
+                            <path d="M-8,0 Q0,-8 8,0 L6,20 L-6,20 Z" fill="#be123c" />
+                        </g>
+                        <!-- Seçilen 2 (Beyaz) -->
+                        <g transform="translate(50, -50)">
+                            <circle cx="0" cy="-12" r="6" fill="#f8fafc" />
+                            <path d="M-8,0 Q0,-8 8,0 L6,20 L-6,20 Z" fill="#cbd5e1" />
+                        </g>
+                        <!-- Seçilen 3 (Siyah/Koyu) -->
+                        <g transform="translate(55, 25)">
+                            <circle cx="0" cy="-12" r="6" fill="#94a3b8" />
+                            <path d="M-8,0 Q0,-8 8,0 L6,20 L-6,20 Z" fill="#334155" />
+                        </g>
+                        <!-- Seçilen 4 (Turuncu/Sarı) -->
+                        <g transform="translate(95, 20)">
+                            <circle cx="0" cy="-12" r="6" fill="#fb923c" />
+                            <path d="M-8,0 Q0,-8 8,0 L6,20 L-6,20 Z" fill="#c2410c" />
+                        </g>
+                    </g>
+
+                    <!-- ORTA KISIM: BÜYÜK OK (SAMPLING PROCESS) -->
+                    <path d="M 400 190 L 590 190" stroke="var(--neon-purple)" stroke-width="8"
+                        marker-end="url(#arrow-purple)" filter="url(#glow-purple)">
+                    </path>
+                    <text x="500" y="165" text-anchor="middle" fill="var(--neon-purple)" font-family="var(--font-title)"
+                        font-size="16" font-weight="bold" letter-spacing="1">ÖRNEKLEME SÜRECİ</text>
+
+                    <!-- SAĞ KISIM: SAMPLE (ÖRNEKLEM) -->
+                    <g transform="translate(710, 190)">
+                        <!-- Örneklem Yeşil Dairesi -->
+                        <circle cx="0" cy="10" r="105" fill="var(--neon-green)" fill-opacity="0.15"
+                            stroke="var(--neon-green)" stroke-width="3" filter="url(#glow-green)" />
+                        <text x="0" y="155" text-anchor="middle" fill="var(--neon-green)"
+                            font-family="var(--font-title)" font-size="24" font-weight="bold">Sample (Örneklem)</text>
+
+                        <!-- Örneklem İçine Gelen 4 Figür (Aynı Renkler ve Konumlar, Hareketsiz) -->
+                        <!-- Seçilen 1 (Kırmızı) -->
+                        <g transform="translate(-40, -15)">
+                            <circle cx="0" cy="-12" r="7" fill="#f43f5e" />
+                            <path d="M-9,0 Q0,-9 9,0 L7,22 L-7,22 Z" fill="#be123c" />
+                        </g>
+                        <!-- Seçilen 2 (Beyaz) -->
+                        <g transform="translate(5, -40)">
+                            <circle cx="0" cy="-12" r="7" fill="#f8fafc" />
+                            <path d="M-9,0 Q0,-9 9,0 L7,22 L-7,22 Z" fill="#cbd5e1" />
+                        </g>
+                        <!-- Seçilen 3 (Siyah/Koyu) -->
+                        <g transform="translate(10, 35)">
+                            <circle cx="0" cy="-12" r="7" fill="#94a3b8" />
+                            <path d="M-9,0 Q0,-9 9,0 L7,22 L-7,22 Z" fill="#334155" />
+                        </g>
+                        <!-- Seçilen 4 (Turuncu/Sarı) -->
+                        <g transform="translate(50, 30)">
+                            <circle cx="0" cy="-12" r="7" fill="#fb923c" />
+                            <path d="M-9,0 Q0,-9 9,0 L7,22 L-7,22 Z" fill="#c2410c" />
+                        </g>
+                    </g>
+                </svg>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px;">
+                <!-- Kütle Kartı -->
+                <div class="glass-card"
+                    style="padding: 36px; border-radius: 24px; display: flex; flex-direction: column; gap: 20px;">
+                    <h4
+                        style="color: var(--text-main); font-size: 1.5rem; margin-bottom: 16px; display: flex; align-items: center; gap: 12px;">
+                        <span>🌐</span> Kütle (Popülasyon)
+                    </h4>
+                    <p style="color: var(--text-main); font-size: 1.1rem; line-height: 1.6; margin-bottom: 24px;">
+                        İlgilendiğimiz araştırmanın kapsamına giren tüm elemanların bütünüdür.
+                    </p>
+                    <div class="analyst-example-box" style="margin: 0;">
+                        <span class="example-icon">👨‍💻</span>
+                        <div class="example-text">
+                            <strong>Örnek:</strong> Türkiye'deki tüm üniversite öğrencileri.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Örneklem Kartı -->
+                <div class="glass-card"
+                    style="padding: 36px; border-radius: 24px; display: flex; flex-direction: column; gap: 20px;">
+                    <h4
+                        style="color: var(--neon-green); font-size: 1.5rem; margin-bottom: 16px; display: flex; align-items: center; gap: 12px;">
+                        <span>🎯</span> Örneklem
+                    </h4>
+                    <p style="color: var(--text-main); font-size: 1.1rem; line-height: 1.6; margin-bottom: 24px;">
+                        Tüm kütleye ulaşmak imkansız veya çok maliyetli olduğu için, kütleyi temsil etmesi amacıyla
+                        seçilen alt kümedir.
+                    </p>
+                    <div class="analyst-example-box" style="margin: 0;">
+                        <span class="example-icon">👨‍💻</span>
+                        <div class="example-text">
+                            <strong>Örnek:</strong> Türkiye'den rastgele seçilen 10.000 üniversite öğrencisi.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BÖLÜM 4: PARAMETRE VE İSTATİSTİK (ÖRNEKLEM DEĞERİ) -->
+        <div class="glass" style="padding: 48px; border-radius: 28px; margin-bottom: 64px;">
+            <div class="section-header" style="margin-bottom: 32px;">
+                <h2 class="section-title" style="font-size: 2.2rem;"><span class="icon-title">⚖️</span> 4. Parametre ve
+                    İstatistik (Örneklem Değeri)</h2>
+                <p class="section-desc">Akademik ve pratik analiz dünyasında en çok karıştırılan iki temel kavramın net
+                    ve kalıcı ayrımı.</p>
+            </div>
+
+            <p
+                style="color: var(--text-main); font-size: 1.15rem; line-height: 1.7; margin-bottom: 36px; background: var(--bg-inner-box); border: 1px solid var(--border-inner-box); border-left: 4px solid var(--neon-purple); padding: 20px 28px; border-radius: 0 16px 16px 0;">
+                İşte en çok karıştırılan ve tam oturması gereken yer burası. Akademik literatürde "Örneklem Parametresi"
+                terimi pek kullanılmaz, bunun yerine doğrudan <strong
+                    style="color: var(--neon-blue); font-weight: 700;">"İstatistik"</strong> denir. Ayrım şudur:
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px;">
+                <!-- Kütle Parametresi -->
+                <div class="glass-card"
+                    style="padding: 36px; border-radius: 24px; display: flex; flex-direction: column; gap: 20px; position: relative; overflow: hidden;">
+                    <div
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--neon-yellow);">
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 16px;">
+                        <div
+                            style="width: 56px; height: 56px; border-radius: 16px; background: var(--bg-filter-btn); border: 1px solid var(--neon-yellow); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; box-shadow: 0 0 20px rgba(251, 191, 36, 0.2);">
+                            🏛️</div>
+                        <h4 style="font-size: 1.45rem; color: var(--text-main); margin: 0; font-weight: 800;">Kütle
+                            Parametresi <span
+                                style="color: var(--neon-yellow); font-size: 1.1rem; display: block; font-weight: 600;">(Parameter)</span>
+                        </h4>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin: 0;">
+                        Kütlenin tamamını hesaplayarak bulduğumuz, genellikle sabit ama gerçek hayatta asla tam olarak
+                        bilinemeyen değerdir. <strong style="color: var(--neon-yellow);">Yunan harfleriyle</strong>
+                        gösterilir.
+                    </p>
+                    <div
+                        style="background: var(--bg-inner-box); border: 1px solid var(--border-inner-box); padding: 16px; border-radius: 16px; text-align: center; font-size: 1.5rem; color: var(--neon-yellow); font-weight: 700; letter-spacing: 4px; margin: 10px 0;">
+                        $$\mu, \sigma, \sigma^2, \rho$$
+                    </div>
+                    <div class="analyst-example-box" style="margin-top: auto;">
+                        <span class="example-icon">👨‍💻</span>
+                        <div class="example-text">
+                            <strong>Örnek:</strong> Türkiye'deki tüm öğrencilerin gerçek yaş ortalaması (Kütle
+                            Ortalaması: \(\mu\)).
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Örneklem İstatistiği -->
+                <div class="glass-card"
+                    style="padding: 36px; border-radius: 24px; display: flex; flex-direction: column; gap: 20px; position: relative; overflow: hidden;">
+                    <div
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--neon-blue);">
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 16px;">
+                        <div
+                            style="width: 56px; height: 56px; border-radius: 16px; background: var(--bg-filter-btn); border: 1px solid var(--neon-blue); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);">
+                            📊</div>
+                        <h4 style="font-size: 1.45rem; color: var(--text-main); margin: 0; font-weight: 800;">Örneklem
+                            İstatistiği <span
+                                style="color: var(--neon-blue); font-size: 1.1rem; display: block; font-weight: 600;">(Statistic)</span>
+                        </h4>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin: 0;">
+                        Sadece seçtiğimiz örneklemdeki veriler kullanılarak hesaplanan değerdir. Amacı, o bilemediğimiz
+                        kütle parametresini tahmin etmektir. <strong style="color: var(--neon-blue);">Latin
+                            harfleriyle</strong> gösterilir.
+                    </p>
+                    <div
+                        style="background: var(--bg-inner-box); border: 1px solid var(--border-inner-box); padding: 16px; border-radius: 16px; text-align: center; font-size: 1.5rem; color: var(--neon-blue); font-weight: 700; letter-spacing: 4px; margin: 10px 0;">
+                        $$\bar{x}, s, s^2, r$$
+                    </div>
+                    <div class="analyst-example-box" style="margin-top: auto;">
+                        <span class="example-icon">👨‍💻</span>
+                        <div class="example-text">
+                            <strong>Örnek:</strong> Seçtiğimiz 10.000 öğrencinin yaş ortalaması (Örneklem Ortalaması:
+                            \(\bar{x}\)).
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEORİK HİYERARŞİ ZİNCİRİ (5 TEMEL KAVRAM) -->
+        <div class="glass"
+            style="padding: 48px; border-radius: 28px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 1px solid var(--glass-border);">
+            <div class="section-header" style="margin-bottom: 16px;">
+                <h2 class="section-title"><span class="icon-title">🔗</span> Teorik Hiyerarşi Zinciri</h2>
+                <p class="section-desc">Ham verinin arkasındaki teorik hiyerarşiyi anlamak için en temel 5 kavramı bir
+                    zincirin halkaları gibi konumlandırabiliriz:</p>
+            </div>
+
+            <div class="hierarchy-chain">
+
+                <!-- Halka 1: Birim -->
+                <div class="chain-item">
+                    <div class="chain-badge">1</div>
+                    <div class="chain-content">
+                        <div class="chain-header">
+                            <span class="chain-icon">🔬</span>
+                            <h3>Birim <span class="chain-sub">(Unit / Element)</span></h3>
+                        </div>
+                        <div class="chain-body">
+                            <p class="chain-def"><strong>Tanım:</strong> Hakkında bilgi toplanan, araştırmaya veya
+                                analize konu olan en küçük, bölünemez yapı taşıdır.</p>
+                            <div class="analyst-example-box">
+                                <span class="example-icon">👨‍💻</span>
+                                <div class="example-text">
+                                    <strong>Analist Örneği:</strong> Bir ekonomik araştırmada "bir hanehalkı" veya "bir
+                                    şirket"; bir borsa analizinde "bir hisse senedi"; bir eğitim analizinde ise "bir
+                                    öğrenci" birimdir.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chain-connector">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <polyline points="19 12 12 19 5 12"></polyline>
+                    </svg>
+                </div>
+
+                <!-- Halka 2: Vasıf -->
+                <div class="chain-item">
+                    <div class="chain-badge">2</div>
+                    <div class="chain-content">
+                        <div class="chain-header">
+                            <span class="chain-icon">🏷️</span>
+                            <h3>Vasıf <span class="chain-sub">(Değişken / Attribute / Variable)</span></h3>
+                        </div>
+                        <div class="chain-body">
+                            <p class="chain-def"><strong>Tanım:</strong> Birimlerin sahip olduğu, onları birbirinden
+                                ayıran ve ölçülebilen/gözlenebilen özelliklerdir. Birim sabit kalır ama vasıf birimden
+                                birime değişir.</p>
+                            <div class="analyst-example-box">
+                                <span class="example-icon">👨‍💻</span>
+                                <div class="example-text">
+                                    <strong>Analist Örneği:</strong> Birimimiz "Şirket" ise; şirketin cirosu, çalışan
+                                    sayısı, sektörü veya kuruluş yılı birer vasıftır.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chain-connector">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <polyline points="19 12 12 19 5 12"></polyline>
+                    </svg>
+                </div>
+
+                <!-- Halka 3: Gözlem Değeri -->
+                <div class="chain-item">
+                    <div class="chain-badge">3</div>
+                    <div class="chain-content">
+                        <div class="chain-header">
+                            <span class="chain-icon">📝</span>
+                            <h3>Gözlem Değeri <span class="chain-sub">(Data Point / Observation Value)</span></h3>
+                        </div>
+                        <div class="chain-body">
+                            <p class="chain-def"><strong>Tanım:</strong> Birimin sahip olduğu vasfın ölçülmesi,
+                                tartılması veya sayılması sonucu elde edilen somut, ham değerdir.</p>
+                            <div class="analyst-example-box">
+                                <span class="example-icon">👨‍💻</span>
+                                <div class="example-text">
+                                    <strong>Analist Örneği:</strong> Birim: Şirket A &rarr; Vasıf: Çalışan Sayısı &rarr;
+                                    Gözlem Değeri: 45. (İşte veri setindeki o tek bir hücre bu gözlem değeridir).
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chain-connector">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <polyline points="19 12 12 19 5 12"></polyline>
+                    </svg>
+                </div>
+
+                <!-- Halka 4: Kütle -->
+                <div class="chain-item">
+                    <div class="chain-badge">4</div>
+                    <div class="chain-content">
+                        <div class="chain-header">
+                            <span class="chain-icon">🌐</span>
+                            <h3>Kütle <span class="chain-sub">(Anakütle / Popülasyon / Population)</span></h3>
+                        </div>
+                        <div class="chain-body">
+                            <p class="chain-def"><strong>Tanım:</strong> Araştırma kapsamına giren, aynı nitelikteki
+                                (aynı vasıfları taşıyan) tüm birimlerin oluşturduğu eksiksiz, genel kümedir.</p>
+                            <div class="analyst-example-box">
+                                <span class="example-icon">👨‍💻</span>
+                                <div class="example-text">
+                                    <strong>Analist Örneği:</strong> Türkiye'deki tüm tescilli yazılım şirketleri veya
+                                    bir üniversitede kayıtlı olan tüm öğrenciler birer kütledir.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chain-connector">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <polyline points="19 12 12 19 5 12"></polyline>
+                    </svg>
+                </div>
+
+                <!-- Halka 5: Örneklem -->
+                <div class="chain-item">
+                    <div class="chain-badge">5</div>
+                    <div class="chain-content">
+                        <div class="chain-header">
+                            <span class="chain-icon">🎯</span>
+                            <h3>Örneklem <span class="chain-sub">(Sample)</span></h3>
+                        </div>
+                        <div class="chain-body">
+                            <p class="chain-def"><strong>Tanım:</strong> Kütlenin özelliklerini en iyi şekilde
+                                yansıtması amacıyla, belirli bilimsel yöntemlerle o kütlenin içerisinden seçilen ve
+                                üzerinde çalışılan alt kümedir.</p>
+                            <div class="analyst-example-box">
+                                <span class="example-icon">👨‍💻</span>
+                                <div class="example-text">
+                                    <strong>Analist Örneği:</strong> Türkiye'deki tüm yazılım şirketlerini (Kütle)
+                                    incelemek yerine, seçilen rastgele 500 yazılım şirketi (Örneklem).
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- KRİTİK SORU: ÖRNEKLEM NEDEN ALINIR? (NEDEN TÜM KÜTLE DEĞİL?) -->
+        <div class="critical-question-banner glass">
+            <div class="cq-header">
+                <div class="cq-icon">🎯</div>
+                <div>
+                    <span class="cq-subtitle">Örnekleme Teorisi &amp; Mantığı</span>
+                    <h2 class="cq-title">Kritik Soru: Örneklem Neden Alınır? <span
+                            style="font-size: 1.8rem; opacity: 0.9; display: block; font-weight: 700; color: #f8fafc; margin-top: 6px;">(Neden
+                            Tüm Kütle Değil?)</span></h2>
+                </div>
+            </div>
+
+            <p class="cq-intro">
+                Kullanıcıların paneline girdiğinde göreceği en can alıcı teorik altyapı burası olmalı. Bir analist neden
+                tüm kütle yerine örneklemle çalışır? İşte veri biliminde ve istatistiksel araştırmalarda örneklem
+                almanın 6 temel dayanağı:
+            </p>
+
+            <div class="reasons-grid">
+
+                <!-- Neden 1: Maliyet Tasarrufu -->
+                <div class="reason-card glass-card">
+                    <div class="reason-card-header">
+                        <div class="reason-icon"
+                            style="color: var(--neon-green); box-shadow: 0 0 15px rgba(52, 211, 153, 0.2);">💸</div>
+                        <h3>Maliyet Tasarrufu</h3>
+                    </div>
+                    <p>Milyonlarca birimden oluşan bir kütlenin tamamına ulaşıp veri toplamak devasa bir finansal yük
+                        getirir. Örneklem bütçeyi korur.</p>
+                </div>
+
+                <!-- Neden 2: Zaman Kısıtı -->
+                <div class="reason-card glass-card">
+                    <div class="reason-card-header">
+                        <div class="reason-icon"
+                            style="color: var(--neon-yellow); box-shadow: 0 0 15px rgba(251, 191, 36, 0.2);">⏳</div>
+                        <h3>Zaman Kısıtı</h3>
+                    </div>
+                    <p>Veriyi toplamak, temizlemek ve işlemek ciddi zaman ister. Tüm kütleyi analiz etmeye çalışırken
+                        geçen sürede veri güncelliğini yitirebilir. Örneklem hız sağlar.</p>
+                </div>
+
+                <!-- Neden 3: Pratik İmkansızlıklar -->
+                <div class="reason-card glass-card">
+                    <div class="reason-card-header">
+                        <div class="reason-icon" style="color: #ec4899; box-shadow: 0 0 15px rgba(236, 72, 153, 0.2);">
+                            🧪</div>
+                        <h3>Pratik İmkansızlıklar <span
+                                style="font-size: 1rem; opacity: 0.8; display: block; font-weight: 600;">(Yıkıcı
+                                Testler)</span></h3>
+                    </div>
+                    <p>Bazı durumlarda kütlenin tamamını incelemek mantıksızdır. Örneğin, bir fabrikanın ürettiği
+                        ampullerin dayanıklılık ömrünü test etmek için tüm ampulleri yakıp tüketemezsiniz. Veya bir
+                        hastanın kan değerine bakmak için vücudundaki tüm kanı alamazsınız.</p>
+                </div>
+
+                <!-- Neden 4: Veri Kalitesi ve Kontrol -->
+                <div class="reason-card glass-card">
+                    <div class="reason-card-header">
+                        <div class="reason-icon"
+                            style="color: var(--neon-blue); box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);">🎯</div>
+                        <h3>Veri Kalitesi ve Kontrol</h3>
+                    </div>
+                    <p>1 milyon kişiden üstünkörü veri toplamaktansa, iyi seçilmiş 1000 kişiden çok daha derinlemesine,
+                        kontrollü ve hatasız veri toplamak analizin doğruluğunu (güvenilirliğini) artırır.</p>
+                </div>
+
+                <!-- Neden 5: Kapsam ve Ulaşılabilirlik -->
+                <div class="reason-card glass-card">
+                    <div class="reason-card-header">
+                        <div class="reason-icon"
+                            style="color: var(--neon-purple); box-shadow: 0 0 15px rgba(168, 85, 247, 0.2);">🌍</div>
+                        <h3>Kapsam &amp; Ulaşılabilirlik <span
+                                style="font-size: 1rem; opacity: 0.8; display: block; font-weight: 600;">(Coğrafi Dağılım)</span></h3>
+                    </div>
+                    <p>Kütle elemanları çok geniş bir coğrafyaya yayılmış veya fiziksel olarak erişilmesi son derece güç yerlerde olabilir. Her birime tek tek ulaşmaya çalışmak lojistik olarak imkansızdır; iyi seçilmiş bir örneklem bu bariyeri aşar.</p>
+                </div>
+
+                <!-- Neden 6: Dinamik ve Sonsuz Kütleler -->
+                <div class="reason-card glass-card">
+                    <div class="reason-card-header">
+                        <div class="reason-icon"
+                            style="color: var(--neon-yellow); box-shadow: 0 0 15px rgba(251, 191, 36, 0.2);">🌊</div>
+                        <h3>Dinamik &amp; Sonsuz Kütleler <span
+                                style="font-size: 1rem; opacity: 0.8; display: block; font-weight: 600;">(Sürekli Akış)</span></h3>
+                    </div>
+                    <p>Gerçek hayatta birçok kütle sabit değil, sürekli büyüyen (örneğin e-ticaret tıklamaları veya sensör verileri) yapıdadır. Sonsuz veya sürekli değişen bir kütlenin tamamını ölçmek bitmeyen bir süreçtir; örneklem anlık durumun fotoğrafını çeker.</p>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+
+
+    <script src="../../js/components.js"></script>
+
+    <!-- SCRIPTS -->
+    <script src="../../js/nav.js"></script>
+    <script src="../../js/modal.js"></script>
+    <script src="../../js/script.js"></script>
+    <script src="basics.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false },
+                        { left: '\\(', right: '\\)', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
