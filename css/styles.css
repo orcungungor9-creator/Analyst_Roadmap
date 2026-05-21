@@ -2055,6 +2055,7 @@ body.theme-light-purple {
         justify-content: center;
     }
     .hero-actions {
+        flex-direction: column !important;
         gap: 14px !important;
     }
 
