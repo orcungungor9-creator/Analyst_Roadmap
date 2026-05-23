@@ -24,17 +24,76 @@ const isFormulasPage = window.location.pathname.includes('/guides/formulas/');
 const HEADER_HTML = `
     <header class="site-header glass-header">
         <div class="header-container">
-            ${isIndexPage ? '' : `
-            <a href="${pathPrefix}index.html" class="nav-btn back-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="19" y1="12" x2="5" y2="12"></line>
-                    <polyline points="12 19 5 12 12 5"></polyline>
-                </svg>
-                <span class="back-text">Ana Sayfaya Dön</span>
-            </a>`}
+            <div class="header-left" style="display: flex; align-items: center; gap: 16px;">
+                ${isIndexPage ? '' : `
+                <a href="${pathPrefix}index.html" class="nav-btn back-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    <span class="back-text">Ana Sayfaya Dön</span>
+                </a>`}
+                <a href="${isIndexPage ? '#' : pathPrefix + 'index.html'}" class="logo" style="color: var(--neon-blue);">Analyst Roadmap</a>
+            </div>
 
-            <a href="${isIndexPage ? '#' : pathPrefix + 'index.html'}" class="logo" style="color: var(--neon-blue);">Analyst Roadmap</a>
+            <nav class="desktop-main-nav">
+                <!-- DERSLER DROPDOWN -->
+                <div class="nav-dropdown-container">
+                    <button class="nav-btn" style="color: var(--text-main); font-weight: 700;">
+                        📚 Dersler <span style="font-size: 0.8rem; margin-left: 4px; color: var(--neon-purple);">▼</span>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a href="${pathPrefix}courses/courses.html" class="dropdown-item purple-hover" style="border-bottom: 1px dashed rgba(192, 132, 252, 0.3); border-radius: 0; justify-content: center;">📚 Tüm Akademik Dersler</a>
+                        <a href="${pathPrefix}courses/istatistik/istatistik.html" class="dropdown-item purple-hover">📊 İstatistik</a>
+                        <a href="${pathPrefix}courses/olasilik/olasilik.html" class="dropdown-item purple-hover">🎲 Olasılık</a>
+                        <a href="${pathPrefix}courses/matematiksel_istatistik/matematiksel_istatistik.html" class="dropdown-item purple-hover">🧮 Mat. İstatistik</a>
+                        <a href="${pathPrefix}courses/istatistiksel_yontemler/istatistiksel_yontemler.html" class="dropdown-item purple-hover">🧪 İst. Yöntemler</a>
+                        <a href="${pathPrefix}courses/regresyon_analizi/regresyon_analizi.html" class="dropdown-item purple-hover">📈 Regresyon Analizi</a>
+                        <a href="${pathPrefix}courses/hipotez_testleri/hipotez_testleri.html" class="dropdown-item purple-hover">📉 Hipotez Testleri</a>
+                        <a href="${pathPrefix}courses/matematik_1/matematik_1.html" class="dropdown-item purple-hover">📐 Matematik 1</a>
+                        <a href="${pathPrefix}courses/matematik_2/matematik_2.html" class="dropdown-item purple-hover">✏️ Matematik 2</a>
+                        <a href="${pathPrefix}courses/lineer_cebir/lineer_cebir.html" class="dropdown-item purple-hover">📏 Lineer Cebir</a>
+                    </div>
+                </div>
+
+                <!-- REHBERLER DROPDOWN -->
+                <div class="nav-dropdown-container">
+                    <button class="nav-btn" style="color: var(--text-main); font-weight: 700;">
+                        🚀 Rehberler <span style="font-size: 0.8rem; margin-left: 4px; color: var(--neon-blue);">▼</span>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a href="${pathPrefix}index.html#guides-section" class="dropdown-item blue-hover" style="border-bottom: 1px dashed rgba(56, 189, 248, 0.3); border-radius: 0; justify-content: center;">🚀 Tüm Rehberleri Gör</a>
+                        <a href="${pathPrefix}guides/basics/basics.html" class="dropdown-item blue-hover">📦 İstatistiğin Yapı Taşları (101)</a>
+                        <a href="${pathPrefix}guides/formulas/formulas.html" class="dropdown-item blue-hover">⚡ İstatistiksel Formüller Sözlüğü</a>
+                        <a href="${pathPrefix}guides/datatypes/datatypes.html" class="dropdown-item blue-hover">🏷️ Veri Türleri &amp; Ölçüm Ölçekleri</a>
+                        <a href="${pathPrefix}guides/datasets/datasets.html" class="dropdown-item blue-hover">📁 Veri Seti Türleri &amp; Ekonometri</a>
+                        <a href="${pathPrefix}guides/charts/charts.html" class="dropdown-item blue-hover">📊 Grafik Seçim &amp; Görselleştirme</a>
+                    </div>
+                </div>
+
+                <!-- ARAÇLAR DROPDOWN -->
+                <div class="nav-dropdown-container">
+                    <button class="nav-btn" style="color: var(--text-main); font-weight: 700;">
+                        🛠️ Araçlar <span style="font-size: 0.8rem; margin-left: 4px; color: var(--neon-green);">▼</span>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a href="${pathPrefix}index.html#tools-section" class="dropdown-item green-hover" style="border-bottom: 1px dashed rgba(52, 211, 153, 0.3); border-radius: 0; justify-content: center;">🛠️ Tüm Araçları Gör</a>
+                        <a href="${pathPrefix}tools/python/python.html" class="dropdown-item green-hover">Python</a>
+                        <a href="${pathPrefix}tools/r/r.html" class="dropdown-item green-hover">R Programlama</a>
+                        <a href="${pathPrefix}tools/sql/sql.html" class="dropdown-item green-hover">SQL</a>
+                        <a href="${pathPrefix}tools/excel/excel.html" class="dropdown-item green-hover">Excel</a>
+                        <a href="${pathPrefix}tools/powerbi/powerbi.html" class="dropdown-item green-hover">Power BI</a>
+                        <a href="${pathPrefix}tools/tableau/tableau.html" class="dropdown-item green-hover">Tableau</a>
+                        <a href="${pathPrefix}tools/spss/spss.html" class="dropdown-item green-hover">SPSS</a>
+                        <a href="${pathPrefix}tools/stata/stata.html" class="dropdown-item green-hover">Stata</a>
+                        <a href="${pathPrefix}tools/eviews/eviews.html" class="dropdown-item green-hover">EViews</a>
+                        <a href="${pathPrefix}tools/gretl/gretl.html" class="dropdown-item green-hover">Gretl</a>
+                        <a href="${pathPrefix}tools/sas/sas.html" class="dropdown-item green-hover">SAS</a>
+                        <a href="${pathPrefix}tools/julia/julia.html" class="dropdown-item green-hover">Julia</a>
+                    </div>
+                </div>
+            </nav>
 
             <div class="header-right">
                 <nav class="desktop-nav" id="desktop-nav">
@@ -78,34 +137,66 @@ const HEADER_HTML = `
 `;
 
 const MOBILE_NAV_HTML = `
-    <div class="mobile-nav-menu glass-mobile" id="mobile-nav-menu">
-        <div class="nav-menu-scroll-container"
-            style="max-height: 85vh; overflow-y: auto; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 20px 0;">
-            ${isIndexPage ? 
-                `<button class="mobile-nav-item" onclick="closeNavMenu()">❌ Menüyü Kapat</button>` : 
-                `<button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}index.html'">🏠 Ana Sayfaya Dön</button>`
-            }
-
-            <div style="width: 100%; max-width: 320px; margin: 12px 0 4px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
-                <span style="font-size: 0.85rem; font-weight: 800; color: var(--neon-purple); letter-spacing: 1px; text-transform: uppercase;">📚 Ders Müfredatı</span>
+    <div class="mobile-nav-menu" id="mobile-nav-menu">
+        <div class="mobile-nav-panel">
+            <div style="width: 100%; display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <span style="font-family: var(--font-title); font-size: 1.2rem; font-weight: 800; color: var(--neon-blue);">Menü</span>
+                <button onclick="closeNavMenu()" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: 50%; color: var(--text-main); width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer; transition: all 0.3s ease;">&times;</button>
             </div>
-            <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}courses/courses.html'">📚 Akademik Dersler</button>
+            
+            ${isIndexPage ? '' : `<button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}index.html'">🏠 Ana Sayfaya Dön</button>`}
 
-            <div style="width: 100%; max-width: 320px; margin: 12px 0 4px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
-                <span style="font-size: 0.85rem; font-weight: 800; color: var(--neon-blue); letter-spacing: 1px; text-transform: uppercase;">🚀 Hızlı Analitik Rehberler</span>
+            <button class="mobile-nav-item" onclick="toggleMobileAccordion('courses-accordion', this)" style="display: flex; justify-content: space-between; align-items: center; border-color: var(--neon-purple); background: rgba(192, 132, 252, 0.05); margin-top: 12px; margin-bottom: 4px;">
+                <span style="font-weight: 800; color: var(--neon-purple); letter-spacing: 0.5px; text-transform: uppercase; font-size: 0.85rem;">📚 Ders Müfredatı</span>
+                <span class="accordion-arrow" style="transition: transform 0.3s; font-size: 0.9rem; color: var(--neon-purple);">▼</span>
+            </button>
+            <div id="courses-accordion" style="display: none; flex-direction: column; gap: 8px; width: 100%; margin-top: -4px; margin-bottom: 8px; padding-left: 16px; border-left: 2px solid rgba(192, 132, 252, 0.3);">
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}courses/courses.html'" style="font-size: 0.9rem; padding: 12px 16px; border-bottom: 1px dashed rgba(192, 132, 252, 0.3); border-radius: 0;">📚 Tüm Akademik Dersler</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}courses/istatistik/istatistik.html'" style="font-size: 0.9rem; padding: 12px 16px;">📊 İstatistik</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}courses/olasilik/olasilik.html'" style="font-size: 0.9rem; padding: 12px 16px;">🎲 Olasılık</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}courses/matematiksel_istatistik/matematiksel_istatistik.html'" style="font-size: 0.9rem; padding: 12px 16px;">🧮 Mat. İstatistik</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}courses/istatistiksel_yontemler/istatistiksel_yontemler.html'" style="font-size: 0.9rem; padding: 12px 16px;">🧪 İst. Yöntemler</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}courses/regresyon_analizi/regresyon_analizi.html'" style="font-size: 0.9rem; padding: 12px 16px;">📈 Regresyon Analizi</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}courses/hipotez_testleri/hipotez_testleri.html'" style="font-size: 0.9rem; padding: 12px 16px;">📉 Hipotez Testleri</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}courses/matematik_1/matematik_1.html'" style="font-size: 0.9rem; padding: 12px 16px;">📐 Matematik 1</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}courses/matematik_2/matematik_2.html'" style="font-size: 0.9rem; padding: 12px 16px;">✏️ Matematik 2</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}courses/lineer_cebir/lineer_cebir.html'" style="font-size: 0.9rem; padding: 12px 16px;">📏 Lineer Cebir</button>
             </div>
-            <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}guides/basics/basics.html'">📦 İstatistiğin Yapı Taşları (101)</button>
-            <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}guides/formulas/formulas.html'">⚡ İstatistiksel Formüller Sözlüğü</button>
-            <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}guides/datatypes/datatypes.html'">🏷️ Veri Türleri &amp; Ölçüm Ölçekleri</button>
-            <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}guides/datasets/datasets.html'">📁 Veri Seti Türleri &amp; Ekonometri</button>
-            <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}guides/charts/charts.html'">📊 Grafik Seçim &amp; Görselleştirme</button>
 
-            <div style="width: 100%; max-width: 320px; margin: 12px 0 4px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
-                <span style="font-size: 0.85rem; font-weight: 800; color: var(--neon-green); letter-spacing: 1px; text-transform: uppercase;">🛠️ Analitik Araçlar Vitrini</span>
+            <button class="mobile-nav-item" onclick="toggleMobileAccordion('guides-accordion', this)" style="display: flex; justify-content: space-between; align-items: center; border-color: var(--neon-blue); background: rgba(56, 189, 248, 0.05); margin-top: 12px; margin-bottom: 4px;">
+                <span style="font-weight: 800; color: var(--neon-blue); letter-spacing: 0.5px; text-transform: uppercase; font-size: 0.85rem;">🚀 Hızlı Analitik Rehberler</span>
+                <span class="accordion-arrow" style="transition: transform 0.3s; font-size: 0.9rem; color: var(--neon-blue);">▼</span>
+            </button>
+            <div id="guides-accordion" style="display: none; flex-direction: column; gap: 8px; width: 100%; margin-top: -4px; margin-bottom: 8px; padding-left: 16px; border-left: 2px solid rgba(56, 189, 248, 0.3);">
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}index.html#guides-section'; closeNavMenu();" style="font-size: 0.9rem; padding: 12px 16px; border-bottom: 1px dashed rgba(56, 189, 248, 0.3); border-radius: 0;">🚀 Tüm Rehberleri Gör</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}guides/basics/basics.html'" style="font-size: 0.9rem; padding: 12px 16px;">📦 İstatistiğin Yapı Taşları (101)</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}guides/formulas/formulas.html'" style="font-size: 0.9rem; padding: 12px 16px;">⚡ İstatistiksel Formüller Sözlüğü</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}guides/datatypes/datatypes.html'" style="font-size: 0.9rem; padding: 12px 16px;">🏷️ Veri Türleri &amp; Ölçüm Ölçekleri</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}guides/datasets/datasets.html'" style="font-size: 0.9rem; padding: 12px 16px;">📁 Veri Seti Türleri &amp; Ekonometri</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}guides/charts/charts.html'" style="font-size: 0.9rem; padding: 12px 16px;">📊 Grafik Seçim &amp; Görselleştirme</button>
             </div>
-            <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}index.html#tools-section'; closeNavMenu();">🛠️ Popüler Analitik &amp; İş Zekası Araçları</button>
 
-            <div style="width: 100%; max-width: 320px; margin: 12px 0 4px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
+            <button class="mobile-nav-item" onclick="toggleMobileAccordion('tools-accordion', this)" style="display: flex; justify-content: space-between; align-items: center; border-color: var(--neon-green); background: rgba(52, 211, 153, 0.05); margin-top: 12px; margin-bottom: 4px;">
+                <span style="font-weight: 800; color: var(--neon-green); letter-spacing: 0.5px; text-transform: uppercase; font-size: 0.85rem;">🛠️ Analitik Araçlar Vitrini</span>
+                <span class="accordion-arrow" style="transition: transform 0.3s; font-size: 0.9rem; color: var(--neon-green);">▼</span>
+            </button>
+            <div id="tools-accordion" style="display: none; flex-direction: column; gap: 8px; width: 100%; margin-top: -4px; margin-bottom: 8px; padding-left: 16px; border-left: 2px solid rgba(52, 211, 153, 0.3);">
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}index.html#tools-section'; closeNavMenu();" style="font-size: 0.9rem; padding: 12px 16px; border-bottom: 1px dashed rgba(52, 211, 153, 0.3); border-radius: 0;">🛠️ Tüm Araçları Gör</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/python/python.html'" style="font-size: 0.9rem; padding: 12px 16px;">Python</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/r/r.html'" style="font-size: 0.9rem; padding: 12px 16px;">R Programlama</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/sql/sql.html'" style="font-size: 0.9rem; padding: 12px 16px;">SQL</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/excel/excel.html'" style="font-size: 0.9rem; padding: 12px 16px;">Excel</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/powerbi/powerbi.html'" style="font-size: 0.9rem; padding: 12px 16px;">Power BI</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/tableau/tableau.html'" style="font-size: 0.9rem; padding: 12px 16px;">Tableau</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/spss/spss.html'" style="font-size: 0.9rem; padding: 12px 16px;">SPSS</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/stata/stata.html'" style="font-size: 0.9rem; padding: 12px 16px;">Stata</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/eviews/eviews.html'" style="font-size: 0.9rem; padding: 12px 16px;">EViews</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/gretl/gretl.html'" style="font-size: 0.9rem; padding: 12px 16px;">Gretl</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/sas/sas.html'" style="font-size: 0.9rem; padding: 12px 16px;">SAS</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/julia/julia.html'" style="font-size: 0.9rem; padding: 12px 16px;">Julia</button>
+            </div>
+
+            <div style="width: 100%; margin: 12px 0 4px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
                 <span style="font-size: 0.85rem; font-weight: 800; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase;">Bağlantılar &amp; Ayarlar</span>
             </div>
             <a href="https://www.kaggle.com/datasets" target="_blank" class="mobile-nav-item">🌐 Veri Setleri (Kaggle) ↗</a>

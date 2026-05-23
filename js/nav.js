@@ -23,8 +23,10 @@ function initNavOutsideClick() {
     document.addEventListener('click', function (e) {
         const header = document.querySelector('header');
         const mobileNav = document.getElementById('mobile-nav-menu');
-        if (header && !header.contains(e.target) && mobileNav && mobileNav.classList.contains('open')) {
-            closeNavMenu();
+        if (mobileNav && mobileNav.classList.contains('open')) {
+            if (e.target === mobileNav || (header && !header.contains(e.target) && !mobileNav.contains(e.target))) {
+                closeNavMenu();
+            }
         }
     });
 
@@ -39,3 +41,31 @@ function initNavOutsideClick() {
 window.toggleNavMenu = toggleNavMenu;
 window.closeNavMenu = closeNavMenu;
 window.initNavOutsideClick = initNavOutsideClick;
+
+function toggleMobileAccordion(id, btnElement) {
+    const content = document.getElementById(id);
+    if (!content) return;
+    
+    const isClosed = content.style.display === 'none' || content.style.display === '';
+    
+    // Tüm akordeonları kapat
+    const allAccordions = ['courses-accordion', 'guides-accordion', 'tools-accordion'];
+    allAccordions.forEach(accId => {
+        const accContent = document.getElementById(accId);
+        if (accContent) {
+            accContent.style.display = 'none';
+            if (accContent.previousElementSibling) {
+                const arr = accContent.previousElementSibling.querySelector('.accordion-arrow');
+                if (arr) arr.style.transform = 'rotate(0deg)';
+            }
+        }
+    });
+    
+    // Eğer kapalıysa, tıklananı aç
+    if (isClosed) {
+        content.style.display = 'flex';
+        const arrow = btnElement.querySelector('.accordion-arrow');
+        if (arrow) arrow.style.transform = 'rotate(180deg)';
+    }
+}
+window.toggleMobileAccordion = toggleMobileAccordion;

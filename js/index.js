@@ -136,10 +136,13 @@ function initCarouselObserver() {
 
     cards.forEach(card => observer.observe(card));
 
-    // Focus on the 3rd card (index 2) on start
-    if (cards[2]) {
+    // Focus on the 3rd card (index 2) on start for desktop, 1st card (index 0) on mobile
+    const isMobile = window.innerWidth <= 768;
+    const targetIndex = isMobile ? 0 : 2;
+
+    if (cards[targetIndex]) {
         setTimeout(() => {
-            const target = cards[2];
+            const target = cards[targetIndex];
             const scrollPos = target.offsetLeft - (carousel.offsetWidth / 2) + (target.offsetWidth / 2);
             carousel.scrollTo({ left: scrollPos, behavior: 'instant' });
         }, 50);
