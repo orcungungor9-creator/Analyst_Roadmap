@@ -146,7 +146,7 @@ const MOBILE_NAV_HTML = `
             
             ${isIndexPage ? '' : `<button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}index.html'">🏠 Ana Sayfaya Dön</button>`}
 
-            <button class="mobile-nav-item" onclick="toggleMobileAccordion('courses-accordion', this)" style="display: flex; justify-content: space-between; align-items: center; border-color: var(--neon-purple); background: rgba(192, 132, 252, 0.05); margin-top: 12px; margin-bottom: 4px;">
+            <button class="mobile-nav-item courses-hdr" onclick="toggleMobileAccordion('courses-accordion', this)" style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px; margin-bottom: 4px;">
                 <span style="font-weight: 800; color: var(--neon-purple); letter-spacing: 0.5px; text-transform: uppercase; font-size: 0.85rem;">📚 Ders Müfredatı</span>
                 <span class="accordion-arrow" style="transition: transform 0.3s; font-size: 0.9rem; color: var(--neon-purple);">▼</span>
             </button>
@@ -163,7 +163,7 @@ const MOBILE_NAV_HTML = `
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}courses/lineer_cebir/lineer_cebir.html'" style="font-size: 0.9rem; padding: 12px 16px;">📏 Lineer Cebir</button>
             </div>
 
-            <button class="mobile-nav-item" onclick="toggleMobileAccordion('guides-accordion', this)" style="display: flex; justify-content: space-between; align-items: center; border-color: var(--neon-blue); background: rgba(56, 189, 248, 0.05); margin-top: 12px; margin-bottom: 4px;">
+            <button class="mobile-nav-item guides-hdr" onclick="toggleMobileAccordion('guides-accordion', this)" style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px; margin-bottom: 4px;">
                 <span style="font-weight: 800; color: var(--neon-blue); letter-spacing: 0.5px; text-transform: uppercase; font-size: 0.85rem;">🚀 Hızlı Analitik Rehberler</span>
                 <span class="accordion-arrow" style="transition: transform 0.3s; font-size: 0.9rem; color: var(--neon-blue);">▼</span>
             </button>
@@ -176,7 +176,7 @@ const MOBILE_NAV_HTML = `
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}guides/charts/charts.html'" style="font-size: 0.9rem; padding: 12px 16px;">📊 Grafik Seçim &amp; Görselleştirme</button>
             </div>
 
-            <button class="mobile-nav-item" onclick="toggleMobileAccordion('tools-accordion', this)" style="display: flex; justify-content: space-between; align-items: center; border-color: var(--neon-green); background: rgba(52, 211, 153, 0.05); margin-top: 12px; margin-bottom: 4px;">
+            <button class="mobile-nav-item tools-hdr" onclick="toggleMobileAccordion('tools-accordion', this)" style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px; margin-bottom: 4px;">
                 <span style="font-weight: 800; color: var(--neon-green); letter-spacing: 0.5px; text-transform: uppercase; font-size: 0.85rem;">🛠️ Analitik Araçlar Vitrini</span>
                 <span class="accordion-arrow" style="transition: transform 0.3s; font-size: 0.9rem; color: var(--neon-green);">▼</span>
             </button>
@@ -294,6 +294,14 @@ const THEME_MODAL_HTML = `
                     <strong>Cyberpunk</strong>
                     <span style="font-size: 0.85rem; color: var(--text-muted);">Neon Gece</span>
                 </div>
+                <!-- Tema 5.5: Cyberpunk Neon -->
+                <div class="theme-card" data-theme="theme-cyber-neon" onclick="setTheme('theme-cyber-neon'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #ff007f;">
+                        <span style="background: #020005;"></span><span style="background: #ff007f;"></span><span style="background: #9d00ff;"></span>
+                    </div>
+                    <strong>Cyberpunk Neon</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Ekstra Parlak</span>
+                </div>
                 <!-- Tema 6: Amber -->
                 <div class="theme-card" data-theme="theme-amber" onclick="setTheme('theme-amber'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #f59e0b;">
@@ -310,6 +318,14 @@ const THEME_MODAL_HTML = `
                     <strong>Gece Sakura</strong>
                     <span style="font-size: 0.85rem; color: var(--text-muted);">Koyu Kiraz Çiçeği</span>
                 </div>
+                <!-- Tema 6.7: Siyah Beyaz -->
+                <div class="theme-card" data-theme="theme-mono-dark" onclick="setTheme('theme-mono-dark'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #ffffff;">
+                        <span style="background: #000000;"></span><span style="background: #ffffff;"></span><span style="background: #888888;"></span>
+                    </div>
+                    <strong>Siyah Beyaz</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Saf Karanlık</span>
+                </div>
                 <!-- Tema 7: Aydınlık -->
                 <div class="theme-card" data-theme="theme-light-pure" onclick="setTheme('theme-light-pure'); closeModal('theme-modal');">
                     <div class="theme-palette-preview" style="border-color: #0284c7;">
@@ -317,6 +333,14 @@ const THEME_MODAL_HTML = `
                     </div>
                     <strong>Aydınlık</strong>
                     <span style="font-size: 0.85rem; color: var(--text-muted);">Minimalist Beyaz</span>
+                </div>
+                <!-- Tema 7.2: Beyaz Siyah -->
+                <div class="theme-card" data-theme="theme-mono-light" onclick="setTheme('theme-mono-light'); closeModal('theme-modal');">
+                    <div class="theme-palette-preview" style="border-color: #000000;">
+                        <span style="background: #ffffff;"></span><span style="background: #000000;"></span><span style="background: #666666;"></span>
+                    </div>
+                    <strong>Beyaz Siyah</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Saf Aydınlık</span>
                 </div>
                 <!-- Tema 8: Ilık Krem -->
                 <div class="theme-card" data-theme="theme-light-warm" onclick="setTheme('theme-light-warm'); closeModal('theme-modal');">
