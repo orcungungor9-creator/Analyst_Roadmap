@@ -1,126 +1,552 @@
-/* Mathematics 1 page styles */
+/* Matematik 1 Dikey Akış Tasarımı (V3 - Performans & Sadeleştirme) */
 
-.lesson-content-box h2 {
-    font-family: var(--font-title);
-    font-size: 1.8rem;
-    font-weight: 800;
-    margin-bottom: 16px;
-    color: #06b6d4;
-    border-bottom: 1px solid var(--glass-border);
-    padding-bottom: 8px;
+:root {
+    --m1-accent: #06b6d4;
+    --m1-accent-glow: rgba(6, 182, 212, 0.1);
+    --m1-accent-border: rgba(6, 182, 212, 0.2);
 }
 
-.lesson-content-box h2:not(:first-child) {
-    margin-top: 36px;
-}
-
-.lesson-content-box p {
-    color: var(--text-main);
-    line-height: 1.8;
-    font-size: 1.05rem;
-    margin-bottom: 16px;
-}
-
-.lesson-content-box ul {
-    margin-left: 24px;
-    margin-bottom: 16px;
-}
-
-.lesson-content-box li {
-    line-height: 1.8;
-    margin-bottom: 8px;
-    color: var(--text-main);
-}
-
-.inner-info-box {
-    background: var(--bg-inner-box);
-    border: 1px solid rgba(6, 182, 212, 0.15);
-    padding: 24px;
-    border-radius: 16px;
-}
-
-/* Derivative Simulator Layout */
-.derivative-layout {
+/* Dashboard Grid Layout (Desktop) */
+.m1-dashboard-layout {
     display: grid;
-    grid-template-columns: 1.4fr 1fr;
+    grid-template-columns: 300px 1fr;
     gap: 40px;
-    align-items: center;
-    margin-top: 24px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 100px auto;
+    padding: 0 24px;
+    align-items: start;
 }
 
-.canvas-wrapper {
-    background: var(--bg-inner-box);
+/* Sidebar Index (Desktop Sticky) */
+.m1-sidebar {
+    background: var(--bg-card);
     border: 1px solid var(--glass-border);
     border-radius: 20px;
-    padding: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#derivative-canvas {
-    max-width: 100%;
-    height: auto;
-}
-
-.derivative-controls {
-    display: flex;
-    flex-direction: column;
-}
-
-.derivative-select-field {
-    width: 100%;
-    padding: 12px 18px;
-    border-radius: 12px;
-    border: 1px solid var(--glass-border);
-    background: var(--bg-inner-box);
-    color: var(--text-main);
-    font-size: 1.1rem;
-    outline: none;
-    transition: border-color 0.3s;
-    cursor: pointer;
-}
-
-.derivative-select-field:focus {
-    border-color: #06b6d4;
-}
-
-.result-card {
-    background: var(--bg-inner-box);
-    border: 1px solid var(--glass-border);
-    border-radius: 16px;
     padding: 20px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-card);
+    position: sticky;
+    top: 90px;
+    max-height: calc(100vh - 120px);
     display: flex;
     flex-direction: column;
+    gap: 16px;
+    z-index: 10;
+}
+
+.m1-sidebar-header h3 {
+    font-family: var(--font-title);
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--text-main);
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--glass-border);
+    margin: 0;
+}
+
+.m1-sidebar-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+/* Custom Scrollbar for Sidebar List */
+.m1-sidebar-list::-webkit-scrollbar {
+    width: 4px;
+}
+.m1-sidebar-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+.m1-sidebar-list::-webkit-scrollbar-thumb {
+    background: var(--glass-border);
+    border-radius: 4px;
+}
+
+/* Sidebar Navigation Items */
+.m1-sidebar-item {
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 10px 12px;
+    text-align: left;
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.m1-sidebar-item:hover {
+    color: var(--text-main);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.m1-sidebar-item.active {
+    color: var(--m1-accent);
+    background: rgba(6, 182, 212, 0.06);
+    border-color: rgba(6, 182, 212, 0.2);
+    font-weight: 700;
+}
+
+.m1-item-number {
+    display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.result-card:hover {
-    border-color: #06b6d4;
-    box-shadow: 0 0 15px rgba(6, 182, 212, 0.15);
-    transform: translateY(-3px);
-}
-
-.result-label {
-    font-size: 0.85rem;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    font-size: 0.75rem;
+    font-weight: 700;
     color: var(--text-muted);
-    font-weight: 600;
 }
 
-.result-value {
-    font-size: 1.5rem;
+.m1-sidebar-item.active .m1-item-number {
+    background: var(--m1-accent);
+    color: #fff;
+}
+
+.m1-item-text {
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Content Area - Dikey Konu Kartları */
+.m1-content-area {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    min-width: 0;
+}
+
+/* Teacher Welcome Card (Giriş Kartı) */
+.m1-welcome-card {
+    padding: 32px;
+    border-radius: 24px;
+    border: 1px solid var(--glass-border);
+    border-left: 4px solid #a855f7;
+    background: var(--bg-card);
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.m1-welcome-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.m1-welcome-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(168, 85, 247, 0.1);
+    border: 1px solid rgba(168, 85, 247, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.15);
+}
+
+.m1-welcome-header h3 {
+    font-family: var(--font-title);
+    font-size: 1.25rem;
     font-weight: 800;
-    color: #06b6d4;
-    font-family: 'Outfit', sans-serif;
+    color: var(--text-main);
+    margin: 0;
 }
 
-@media (max-width: 900px) {
-    .derivative-layout {
+.m1-welcome-subtitle {
+    color: #a855f7;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: block;
+    margin-top: 4px;
+}
+
+.m1-welcome-body p {
+    color: var(--text-muted);
+    line-height: 1.7;
+    font-size: 0.98rem;
+    margin: 0 0 16px 0;
+}
+
+.m1-welcome-body p:last-child {
+    margin-bottom: 0;
+}
+
+/* Konu Kartı (Chapter Card) */
+.m1-chapter-card {
+    padding: 36px;
+    border-radius: 24px;
+    border: 1px solid var(--glass-border);
+    background: var(--bg-card);
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    scroll-margin-top: 100px; /* Jump target spacing */
+}
+
+.m1-content-header {
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 16px;
+}
+
+.m1-chapter-number {
+    color: var(--m1-accent);
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    display: inline-block;
+    margin-bottom: 6px;
+}
+
+.m1-chapter-card h2 {
+    font-family: var(--font-title);
+    font-size: 1.85rem;
+    font-weight: 900;
+    color: var(--text-main);
+    margin: 0;
+}
+
+/* Alt Bölümler */
+.m1-section-block {
+    margin-top: 24px;
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.005);
+}
+
+.m1-section-block h4 {
+    font-family: var(--font-title);
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-top: 0;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-main);
+}
+
+.m1-block-icon {
+    font-size: 1.15rem;
+}
+
+.m1-section-block p, .m1-section-block div {
+    color: var(--text-muted);
+    line-height: 1.65;
+    font-size: 0.98rem;
+    margin: 0;
+}
+
+/* Nedir? Kutusu */
+.m1-concept-box {
+    border-left: 4px solid var(--m1-accent);
+    background: rgba(6, 182, 212, 0.01);
+}
+
+/* Matematiksel Özellikler Kutusu */
+.m1-properties-box {
+    border-left: 4px solid #3b82f6;
+}
+
+.m1-properties-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 16px;
+}
+
+.m1-property-item {
+    border-top: 1px solid var(--glass-border);
+    padding-top: 16px;
+}
+
+.m1-property-item:first-child {
+    border-top: none;
+    padding-top: 0;
+}
+
+.m1-property-title {
+    font-weight: 700;
+    color: var(--text-main);
+    font-size: 1.02rem;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.m1-property-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+/* Özelliğe Özel Çözümlü Örnek */
+.m1-example-item {
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.005);
+    margin-top: 12px;
+    overflow: hidden;
+}
+
+.m1-example-question {
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid var(--glass-border);
+    font-weight: 600;
+    color: var(--text-main);
+    font-size: 0.94rem;
+}
+
+.m1-example-solution {
+    padding: 16px;
+    background: rgba(16, 185, 129, 0.01);
+    border-left: 3px solid #10b981;
+    color: var(--text-muted);
+    font-size: 0.93rem;
+    line-height: 1.6;
+    white-space: pre-line;
+}
+
+/* Veri Biliminde Yeri Ne? Kutusu */
+.m1-guide-box {
+    border-left: 4px solid #a855f7;
+    background: rgba(168, 85, 247, 0.01);
+}
+
+.m1-guide-box:hover {
+    border-color: #a855f7;
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.05);
+}
+
+/* ========================================================
+   MOBİL İÇİN SOL YAN ÇEKMECE & PULL TAB (iOS/Android Tarzı)
+   ======================================================== */
+.m1-edge-pull-tab {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 64px;
+    border-radius: 0 16px 16px 0;
+    background: var(--m1-accent);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-left: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 4px 0 15px rgba(6, 182, 212, 0.3);
+    z-index: 99;
+    transition: transform 0.2s, background-color 0.2s, opacity 0.2s, left 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.m1-edge-pull-tab:hover {
+    background: #0891b2;
+}
+
+.m1-edge-pull-tab:active {
+    transform: translateY(-50%) scale(0.92);
+}
+
+/* Background Overlay */
+.m1-drawer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.m1-drawer-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Left-sliding Side Drawer */
+.m1-mobile-drawer {
+    position: fixed;
+    top: 0;
+    left: -320px; /* Hidden off-screen to the left */
+    width: 280px;
+    height: 100vh;
+    background: var(--bg-card);
+    border-right: 1px solid var(--glass-border);
+    border-radius: 0 24px 24px 0;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 10px 0 40px rgba(0, 0, 0, 0.4);
+    z-index: 101;
+    display: flex;
+    flex-direction: column;
+    transition: left 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.m1-mobile-drawer.active {
+    left: 0;
+}
+
+.m1-drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--glass-border);
+    flex-shrink: 0;
+}
+
+.m1-drawer-header h3 {
+    font-family: var(--font-title);
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin: 0;
+    color: var(--text-main);
+}
+
+.m1-drawer-close-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+    line-height: 1;
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.m1-drawer-close-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-main);
+}
+
+.m1-drawer-content {
+    overflow-y: auto;
+    padding: 20px 20px 40px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-grow: 1;
+}
+
+/* Drawer Link Item */
+.m1-drawer-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid var(--glass-border);
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: left;
+    transition: all 0.2s;
+}
+
+.m1-drawer-item:hover {
+    color: var(--text-main);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.m1-drawer-item.active {
+    background: rgba(6, 182, 212, 0.08);
+    color: var(--m1-accent);
+    border-color: rgba(6, 182, 212, 0.25);
+    font-weight: 700;
+}
+
+.m1-drawer-item-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.m1-drawer-item.active .m1-drawer-item-num {
+    background: var(--m1-accent);
+    color: #fff;
+}
+
+/* Responsive Rules */
+@media (max-width: 960px) {
+    .m1-dashboard-layout {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 24px;
+        margin-bottom: 60px;
+    }
+
+    .m1-sidebar {
+        display: none; /* Hide desktop sidebar */
+    }
+
+    .m1-edge-pull-tab {
+        display: flex; /* Show edge pull tab on mobile */
+    }
+
+    .m1-welcome-card {
+        padding: 24px;
+        border-radius: 20px;
+        margin-bottom: 24px;
+    }
+
+    .m1-welcome-header h3 {
+        font-size: 1.15rem;
+    }
+
+    .m1-chapter-card {
+        padding: 24px;
+        border-radius: 20px;
+    }
+
+    .m1-chapter-card h2 {
+        font-size: 1.5rem;
+    }
+
+    .m1-section-block {
+        padding: 16px;
+        border-radius: 12px;
     }
 }

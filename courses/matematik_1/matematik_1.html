@@ -1,44 +1,21 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matematik 1 | Akademik Dersler</title>
+    <title>Matematik 1 | Akademik Dersler | My Analyst LogBook</title>
+    
+    <!-- Global CSS -->
     <link rel="stylesheet" href="../../css/styles.css?v=3.4">
+    <!-- Local CSS -->
     <link rel="stylesheet" href="matematik_1.css">
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
-    <style>
-        .coming-soon-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 80vh;
-            padding: 24px;
-            text-align: center;
-        }
-        .coming-soon-box {
-            padding: 60px 40px;
-            border-radius: 28px;
-            border: 1px solid var(--glass-border);
-            max-width: 500px;
-            width: 100%;
-        }
-        .coming-soon-title {
-            font-family: var(--font-title);
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 16px;
-            text-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
-            color: #06b6d4;
-        }
-        .coming-soon-subtitle {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            margin-bottom: 32px;
-            line-height: 1.6;
-        }
-    </style>
+    
+    <!-- KaTeX CSS ve JS (Matematiksel Sembollerin Render Edilmesi İçin) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
 </head>
 <body class="formulas-page">
     <script>
@@ -49,22 +26,104 @@
             }
         })();
     </script>
-    <div class="bg-analytics-mesh"></div>
-    <div class="coming-soon-container">
-        <div class="glass coming-soon-box">
-            <h1 class="coming-soon-title">Yakında</h1>
-            <p class="coming-soon-subtitle">Matematik 1 ders notları ve interaktif simülatörler yakında burada olacak.</p>
-            <a href="../../courses/courses.html" class="nav-btn" style="border-color: #06b6d4; color: #06b6d4; display: inline-flex; justify-content: center; width: 100%; padding: 14px; text-decoration: none;">
-                &larr; Akademik Derslere Dön
-            </a>
+    
+    <!-- DİNAMİK ARKA PLAN GRAFİK AĞI (BG ANALYTICS MESH) -->
+    <div class="bg-analytics-mesh">
+        <!-- SVG 1: Trend Çizgisi -->
+        <div class="bg-chart-item bg-chart-1">
+            <svg viewBox="0 0 400 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="bg-area-grad-m1" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.3" />
+                        <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.0" />
+                    </linearGradient>
+                </defs>
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40 L 370,190 L 10,190 Z"
+                    fill="url(#bg-area-grad-m1)" />
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40" fill="none" stroke="#06b6d4"
+                    stroke-width="3" stroke-linecap="round" />
+            </svg>
         </div>
     </div>
+
+    <!-- HERO / BAŞLIK BÖLÜMÜ -->
+    <section class="formulas-hero">
+        <div class="hero-content">
+            <div class="badge-pill floating-slow" style="border-color: rgba(6, 182, 212, 0.3); color: #06b6d4;">Müfredat Kılavuzu</div>
+            <h1 class="hero-title">Matematik 1 <span class="gradient-text" style="background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Konu Anlatımı</span></h1>
+            <p class="hero-subtitle">
+                Veri analizinin temel direği olan tüm Matematik 1 konuları; sözel kavramlar, matematiksel kurallar ve her özelliğe özel çözümlü örneklerle birlikte tek bir dikey akışta.
+            </p>
+        </div>
+    </section>
+
+    <!-- ANA DİKEY YERLEŞİM -->
+    <main class="m1-dashboard-layout">
+        <!-- SOL YAN MENÜ (HIZLI İNDEKS - SADECE MASAÜSTÜNDE) -->
+        <aside class="m1-sidebar" id="m1-sidebar-index">
+            <div class="m1-sidebar-header">
+                <h3>📖 Konu İndeksi</h3>
+            </div>
+            <nav class="m1-sidebar-list" id="sidebar-chapters-list">
+                <!-- Dinamik olarak JS tarafında doldurulacaktır -->
+            </nav>
+        </aside>
+
+        <!-- SAĞ İÇERİK ALANI -->
+        <section class="m1-content-area">
+            
+            <!-- 1. ADMİN'İN NOTU GİRİŞ KARTI -->
+            <div class="m1-welcome-card glass-card">
+                <div class="m1-welcome-header">
+                    <div class="m1-welcome-avatar">✒️</div>
+                    <div>
+                        <h3>Matematiğin veri biliminde önemi ne</h3>
+                        <span class="m1-welcome-subtitle">Admin'e Göre</span>
+                    </div>
+                </div>
+                <div class="m1-welcome-body">
+                    <p>
+                        Selam, ben Orçun. Yolun başındayken matematik konuları gözünü korkutmasın. Dürüst olmak gerekirse, veri bilimine adım atmak ve temel analiz modelleri kurmak için aslında sadece 4 işlem bile yeterli. İşin teknik yükünü zaten bilgisayarlar ve hazır kütüphaneler üstleniyor.
+                    </p>
+                    <p>
+                        Peki neden bu matematiksel prensiplere odaklanıyoruz? Çünkü olay kuru kuruya formül ezberlemek değil; bir problemi farklı açılardan ele alabilme ve çok yönlü çözümler üretebilme becerisi kazanmak. Alanda gerçekten uzmanlaşmak ve fark yaratmak istiyorsak, formüllerin arka planda neyi, neden yaptığını anlamamız gerekiyor. Korkmana hiç gerek yok; burada tek ihtiyacımız olan şey grafiklerin dilini okumayı öğrenmek, kuralların mantığını kavramak ve bunları kendi projelerimize entegre etmek.
+                    </p>
+                    <p>
+                        Bu yol haritasındaki içerikler; seninle öğrendiklerimi paylaşmak ve –yalanı bırakmak gerekirse– birlikte mezun olabilmek için aylarca emek verilerek hazırlandı. Umarım yardımcı olabilirim ve günün birinde hedefini gerçekleştirmende az da olsa payım olmasını sağlayabilirim.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 2. DİNAMİK KONU KARTLARI KONTEYNERİ -->
+            <div id="m1-chapters-container">
+                <div style="text-align: center; padding: 60px; color: var(--text-muted);">
+                    <h3>Müfredat yükleniyor...</h3>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- MOBİL UYUMLU FLOATING SIDE DRAWER & EDGE TAB (Soldan kayan yan çekmece ve kulakçık) -->
+    <button id="m1-edge-pull-tab" class="m1-edge-pull-tab" title="Konu Dizini" aria-label="Konu Dizini">
+        📖
+    </button>
+    <div id="m1-drawer-overlay" class="m1-drawer-overlay"></div>
+    <div id="m1-mobile-drawer" class="m1-mobile-drawer">
+        <div class="m1-drawer-header">
+            <h3>📖 Müfredat İndeksi</h3>
+            <button class="m1-drawer-close-btn" id="m1-drawer-close-btn">&times;</button>
+        </div>
+        <div class="m1-drawer-content" id="mobile-drawer-links">
+            <!-- Mobil hızlı geçiş linkleri JS ile buraya basılacaktır -->
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
     <script src="../../js/components.js"></script>
     <script src="../../js/nav.js"></script>
     <script src="../../js/modal.js"></script>
     <script src="../../js/script.js"></script>
+    <script src="data.js"></script>
     <script src="matematik_1.js"></script>
 </body>
 </html>
-
-
