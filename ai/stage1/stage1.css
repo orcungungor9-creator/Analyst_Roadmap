@@ -202,3 +202,126 @@
     box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
     transform: translateY(-2px);
 }
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+   ========================================= */
+@media (max-width: 768px) {
+    /* Hero Section */
+    .formulas-hero {
+        padding-top: 100px !important;
+        padding-bottom: 40px !important;
+    }
+    .hero-title {
+        font-size: 2.2rem !important;
+    }
+    .hero-subtitle {
+        font-size: 1.1rem !important;
+        margin-top: 16px !important;
+    }
+
+    /* Main Container */
+    .formulas-main {
+        padding: 0 16px !important;
+    }
+
+    /* Glass Containers */
+    .glass {
+        padding: 24px !important;
+        border-radius: 20px !important;
+    }
+
+    /* Headings inside glass */
+    .glass h2 {
+        font-size: 1.6rem !important;
+    }
+    
+    /* Text styles */
+    .box-desc, .glass p {
+        font-size: 1.05rem !important;
+    }
+
+    /* Flowchart Infographic */
+    .ai-process-flowchart {
+        flex-direction: column !important;
+        padding: 24px !important;
+        gap: 8px !important;
+    }
+    .flow-step {
+        width: 100% !important;
+        padding: 20px 16px !important;
+    }
+    .flow-arrow {
+        transform: rotate(90deg) !important;
+        margin: 8px 0 !important;
+    }
+
+    /* Architecture / Matruşka Diagram */
+    .concept-architecture-container {
+        flex-direction: column !important;
+        gap: 40px !important;
+    }
+    .nested-diagram, .production-stages {
+        min-width: 100% !important;
+    }
+    
+    .nested-box {
+        padding: 16px !important;
+    }
+
+    /* Production Stages */
+    .stage-card {
+        flex-direction: column !important;
+        text-align: center !important;
+        padding: 20px !important;
+    }
+    
+    /* Prompt Box */
+    .prompt-box {
+        padding: 12px 16px;
+    }
+    .prompt-input {
+        font-size: 1rem;
+    }
+    
+    /* AI processing area */
+    .bank-ai-container {
+        padding: 32px 16px 16px 16px !important;
+    }
+    .ai-processing-area {
+        gap: 24px !important;
+    }
+    .decision-module {
+        padding: 20px !important;
+    }
+    
+    /* AI limitations text */
+    .ai-limitations-text {
+        padding: 24px !important;
+    }
+
+    /* Examples & Grids */
+    div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+    }
+    
+    /* Good/Bad Prompt example box headers */
+    div[style*="top: -12px"] {
+        font-size: 0.75rem !important;
+        padding: 4px 8px !important;
+    }
+    
+    /* Token Waste Header / Alignment */
+    .glass h3 {
+        font-size: 1.3rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.8rem !important;
+    }
+    .glass h2 {
+        font-size: 1.4rem !important;
+    }
+}
