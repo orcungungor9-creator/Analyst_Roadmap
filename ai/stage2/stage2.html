@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. Aşama: Kaputun Altı (Sistem Nasıl Çalışır?) | Analyst Roadmap</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/styles.css?v=3.4">
+    <link rel="stylesheet" href="stage2.css">
+</head>
+<body class="formulas-page">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('analyst_theme') || 'theme-light-purple';
+            if (savedTheme !== 'theme-dark') {
+                document.body.classList.add(savedTheme);
+            }
+        })();
+    </script>
+
+    <div class="bg-analytics-mesh">
+        <div class="bg-chart-item bg-chart-1">
+            <svg viewBox="0 0 400 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="200" cy="100" r="80" fill="var(--neon-green)" opacity="0.1" />
+            </svg>
+        </div>
+    </div>
+
+    <!-- Header will be injected by components.js -->
+
+    <section class="formulas-hero" style="padding-top: 140px; padding-bottom: 60px;">
+        <div class="hero-content" style="max-width: 900px;">
+            <div class="badge-pill" style="margin-bottom: 16px; background: rgba(255,255,255,0.1); color: var(--neon-green); border-color: var(--neon-green);">Yapay Zeka ve Analist Entegrasyonu</div>
+            <h1 class="hero-title" style="font-size: 2.8rem; margin: 0;">2. Aşama: Kaputun Altı (Sistem Nasıl Çalışır?)</h1>
+            <p class="hero-subtitle" style="font-size: 1.25rem; line-height: 1.6; margin-top: 24px;">
+                Algoritmalar veriyi nasıl okur? Denetimli (Supervised) ve denetimsiz (Unsupervised) öğrenme nedir?
+            </p>
+        </div>
+    </section>
+
+    <main class="formulas-main" style="max-width: 1200px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
+        <div class="glass" style="padding: 40px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
+            <h2 style="font-size: 2rem; color: var(--neon-green); margin-bottom: 24px;">Makinenin Öğrenme Mantığı</h2>
+            <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.8;">
+                Derin Öğrenme kelimelerine boğulmadan önce, bir makinenin veriden nasıl örüntü çıkardığını mantıksal olarak kavrayın.
+            </p>
+            <div style="margin-top: 40px; padding: 24px; border-radius: 16px; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05);">
+                <p style="color: var(--text-main); font-style: italic; text-align: center;">Buraya detaylı içerikler, grafikler ve interaktif öğeler eklenecektir.</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="../../js/components.js"></script>
+    <script src="../../js/nav.js"></script>
+    <script src="../../js/modal.js"></script>
+    <script src="../../js/script.js"></script>
+    <script src="stage2.js"></script>
+</body>
+</html>
