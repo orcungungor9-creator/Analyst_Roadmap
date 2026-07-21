@@ -31,7 +31,7 @@
     --font-title: 'Montserrat', sans-serif;
 
     /* Dinamik Arayüz Arka Plan & Gölge Değişkenleri */
-    --header-bg: rgba(9, 14, 23, 0.85);
+    --header-bg: rgba(9, 14, 23, 0.98);
     --modal-bg: rgba(15, 23, 42, 0.85);
     --close-bg: rgba(255, 255, 255, 0.06);
     --mobile-menu-bg: rgba(9, 14, 23, 0.96);

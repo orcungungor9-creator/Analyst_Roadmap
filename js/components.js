@@ -51,9 +51,10 @@ const HEADER_HTML = `
                         <a href="${pathPrefix}courses/istatistiksel_yontemler/istatistiksel_yontemler.html" class="dropdown-item purple-hover">🧪 İst. Yöntemler</a>
                         <a href="${pathPrefix}courses/regresyon_analizi/regresyon_analizi.html" class="dropdown-item purple-hover">📈 Regresyon Analizi</a>
                         <a href="${pathPrefix}courses/hipotez_testleri/hipotez_testleri.html" class="dropdown-item purple-hover">📉 Hipotez Testleri</a>
-                        <a href="${pathPrefix}courses/matematik_1/matematik_1.html" class="dropdown-item purple-hover">📐 Matematik 1</a>
-                        <a href="${pathPrefix}courses/matematik_2/matematik_2.html" class="dropdown-item purple-hover">✏️ Matematik 2</a>
-                        <a href="${pathPrefix}courses/lineer_cebir/lineer_cebir.html" class="dropdown-item purple-hover">📏 Lineer Cebir</a>
+                        <a href="${pathPrefix}courses/veri_yapilari/veri_yapilari.html" class="dropdown-item purple-hover">🧠 Veri Yapıları</a>
+                        <a href="${pathPrefix}courses/yoneylem/yoneylem.html" class="dropdown-item purple-hover">📈 Yöneylem Arş.</a>
+                        <a href="${pathPrefix}courses/ysa/ysa.html" class="dropdown-item purple-hover">🤖 Yapay Sinir Ağları</a>
+                        <a href="${pathPrefix}courses/lineer_cebir/lineer_cebir.html" class="dropdown-item purple-hover">📐 Lineer Cebir</a>
                     </div>
                 </div>
 
@@ -79,18 +80,22 @@ const HEADER_HTML = `
                     </button>
                     <div class="nav-dropdown-menu">
                         <a href="${pathPrefix}index.html#tools-section" class="dropdown-item green-hover" style="border-bottom: 1px dashed rgba(52, 211, 153, 0.3); border-radius: 0; justify-content: center;">🛠️ Tüm Araçları Gör</a>
-                        <a href="${pathPrefix}tools/python/python.html" class="dropdown-item green-hover">Python</a>
-                        <a href="${pathPrefix}tools/r/r.html" class="dropdown-item green-hover">R Programlama</a>
-                        <a href="${pathPrefix}tools/sql/sql.html" class="dropdown-item green-hover">SQL</a>
-                        <a href="${pathPrefix}tools/excel/excel.html" class="dropdown-item green-hover">Excel</a>
-                        <a href="${pathPrefix}tools/powerbi/powerbi.html" class="dropdown-item green-hover">Power BI</a>
-                        <a href="${pathPrefix}tools/tableau/tableau.html" class="dropdown-item green-hover">Tableau</a>
-                        <a href="${pathPrefix}tools/spss/spss.html" class="dropdown-item green-hover">SPSS</a>
-                        <a href="${pathPrefix}tools/stata/stata.html" class="dropdown-item green-hover">Stata</a>
-                        <a href="${pathPrefix}tools/eviews/eviews.html" class="dropdown-item green-hover">EViews</a>
-                        <a href="${pathPrefix}tools/gretl/gretl.html" class="dropdown-item green-hover">Gretl</a>
-                        <a href="${pathPrefix}tools/sas/sas.html" class="dropdown-item green-hover">SAS</a>
-                        <a href="${pathPrefix}tools/julia/julia.html" class="dropdown-item green-hover">Julia</a>
+                        <a href="${pathPrefix}tools/python/python.html" class="dropdown-item green-hover"><img src="${pathPrefix}assets/logos/python-logo.svg" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> Python</a>
+                        <a href="${pathPrefix}tools/r/r.html" class="dropdown-item green-hover"><img src="${pathPrefix}assets/logos/r-logo.svg" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> R Programlama</a>
+                        <a href="${pathPrefix}tools/sql/sql.html" class="dropdown-item green-hover"><img src="${pathPrefix}assets/logos/sql-logo.svg" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> SQL</a>
+                        <a href="${pathPrefix}tools/excel/excel.html" class="dropdown-item green-hover"><img src="${pathPrefix}assets/logos/excel-logo.png" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> Excel</a>
+                        <a href="${pathPrefix}tools/powerbi/powerbi.html" class="dropdown-item green-hover"><img src="${pathPrefix}assets/logos/powerbi-logo.svg" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> Power BI</a>
+                        <a href="${pathPrefix}tools/tableau/tableau.html" class="dropdown-item green-hover"><img src="${pathPrefix}assets/logos/tableau-logo.png" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> Tableau</a>
+                        <a href="${pathPrefix}tools/spss/spss.html" class="dropdown-item green-hover"><img src="${pathPrefix}assets/logos/spss-logo.png" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> SPSS</a>
+                        <a href="${pathPrefix}tools/stata/stata.html" class="dropdown-item green-hover"><img src="${pathPrefix}assets/logos/stata-logo.png" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> Stata</a>
+                        <a href="${pathPrefix}tools/eviews/eviews.html" class="dropdown-item green-hover"><img src="${pathPrefix}assets/logos/eviews-logo.png" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> EViews</a>
+                        <a href="${pathPrefix}tools/gretl/gretl.html" class="dropdown-item green-hover"><img src="${pathPrefix}assets/logos/gretl-logo.svg" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> Gretl</a>
+                        <a href="${pathPrefix}tools/sas/sas.html" class="dropdown-item green-hover"><img src="${pathPrefix}assets/logos/sas-logo.png" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> SAS</a>
+                        <a href="${pathPrefix}tools/julia/julia.html" class="dropdown-item green-hover"><img src="${pathPrefix}assets/logos/julia-logo.svg" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> Julia</a>
+                        <a href="${pathPrefix}tools/hadoop/hadoop.html" class="dropdown-item green-hover"><img src="${pathPrefix}assets/logos/hadoop-logo.svg" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> Hadoop</a>
+                        <a href="${pathPrefix}tools/pyspark/pyspark.html" class="dropdown-item green-hover"><img src="${pathPrefix}assets/logos/pyspark-logo.svg" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> PySpark</a>
+                        <a href="${pathPrefix}tools/matlab/matlab.html" class="dropdown-item green-hover"><img src="${pathPrefix}tools/matlab/matlab-logo.png" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> MATLAB</a>
+                        <a href="${pathPrefix}tools/git/git.html" class="dropdown-item green-hover"><img src="${pathPrefix}assets/logos/git-logo.svg" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> Git</a>
                     </div>
                 </div>
             </nav>
@@ -158,9 +163,10 @@ const MOBILE_NAV_HTML = `
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}courses/istatistiksel_yontemler/istatistiksel_yontemler.html'" style="font-size: 0.9rem; padding: 12px 16px;">🧪 İst. Yöntemler</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}courses/regresyon_analizi/regresyon_analizi.html'" style="font-size: 0.9rem; padding: 12px 16px;">📈 Regresyon Analizi</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}courses/hipotez_testleri/hipotez_testleri.html'" style="font-size: 0.9rem; padding: 12px 16px;">📉 Hipotez Testleri</button>
-                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}courses/matematik_1/matematik_1.html'" style="font-size: 0.9rem; padding: 12px 16px;">📐 Matematik 1</button>
-                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}courses/matematik_2/matematik_2.html'" style="font-size: 0.9rem; padding: 12px 16px;">✏️ Matematik 2</button>
-                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}courses/lineer_cebir/lineer_cebir.html'" style="font-size: 0.9rem; padding: 12px 16px;">📏 Lineer Cebir</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}courses/veri_yapilari/veri_yapilari.html'" style="font-size: 0.9rem; padding: 12px 16px;">🧠 Veri Yapıları</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}courses/yoneylem/yoneylem.html'" style="font-size: 0.9rem; padding: 12px 16px;">📈 Yöneylem Arş.</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}courses/ysa/ysa.html'" style="font-size: 0.9rem; padding: 12px 16px;">🤖 Yapay Sinir Ağları</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}courses/lineer_cebir/lineer_cebir.html'" style="font-size: 0.9rem; padding: 12px 16px;">📐 Lineer Cebir</button>
             </div>
 
             <button class="mobile-nav-item guides-hdr" onclick="toggleMobileAccordion('guides-accordion', this)" style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px; margin-bottom: 4px;">
@@ -182,18 +188,22 @@ const MOBILE_NAV_HTML = `
             </button>
             <div id="tools-accordion" style="display: none; flex-direction: column; gap: 8px; width: 100%; margin-top: -4px; margin-bottom: 8px; padding-left: 16px; border-left: 2px solid rgba(52, 211, 153, 0.3);">
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}index.html#tools-section'; closeNavMenu();" style="font-size: 0.9rem; padding: 12px 16px; border-bottom: 1px dashed rgba(52, 211, 153, 0.3); border-radius: 0;">🛠️ Tüm Araçları Gör</button>
-                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/python/python.html'" style="font-size: 0.9rem; padding: 12px 16px;">Python</button>
-                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/r/r.html'" style="font-size: 0.9rem; padding: 12px 16px;">R Programlama</button>
-                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/sql/sql.html'" style="font-size: 0.9rem; padding: 12px 16px;">SQL</button>
-                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/excel/excel.html'" style="font-size: 0.9rem; padding: 12px 16px;">Excel</button>
-                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/powerbi/powerbi.html'" style="font-size: 0.9rem; padding: 12px 16px;">Power BI</button>
-                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/tableau/tableau.html'" style="font-size: 0.9rem; padding: 12px 16px;">Tableau</button>
-                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/spss/spss.html'" style="font-size: 0.9rem; padding: 12px 16px;">SPSS</button>
-                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/stata/stata.html'" style="font-size: 0.9rem; padding: 12px 16px;">Stata</button>
-                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/eviews/eviews.html'" style="font-size: 0.9rem; padding: 12px 16px;">EViews</button>
-                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/gretl/gretl.html'" style="font-size: 0.9rem; padding: 12px 16px;">Gretl</button>
-                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/sas/sas.html'" style="font-size: 0.9rem; padding: 12px 16px;">SAS</button>
-                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/julia/julia.html'" style="font-size: 0.9rem; padding: 12px 16px;">Julia</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/python/python.html'" style="font-size: 0.9rem; padding: 12px 16px;"><img src="${pathPrefix}assets/logos/python-logo.svg" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> Python</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/r/r.html'" style="font-size: 0.9rem; padding: 12px 16px;"><img src="${pathPrefix}assets/logos/r-logo.svg" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> R Programlama</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/sql/sql.html'" style="font-size: 0.9rem; padding: 12px 16px;"><img src="${pathPrefix}assets/logos/sql-logo.svg" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> SQL</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/excel/excel.html'" style="font-size: 0.9rem; padding: 12px 16px;"><img src="${pathPrefix}assets/logos/excel-logo.png" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> Excel</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/powerbi/powerbi.html'" style="font-size: 0.9rem; padding: 12px 16px;"><img src="${pathPrefix}assets/logos/powerbi-logo.svg" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> Power BI</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/tableau/tableau.html'" style="font-size: 0.9rem; padding: 12px 16px;"><img src="${pathPrefix}assets/logos/tableau-logo.png" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> Tableau</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/spss/spss.html'" style="font-size: 0.9rem; padding: 12px 16px;"><img src="${pathPrefix}assets/logos/spss-logo.png" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> SPSS</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/stata/stata.html'" style="font-size: 0.9rem; padding: 12px 16px;"><img src="${pathPrefix}assets/logos/stata-logo.png" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> Stata</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/eviews/eviews.html'" style="font-size: 0.9rem; padding: 12px 16px;"><img src="${pathPrefix}assets/logos/eviews-logo.png" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> EViews</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/gretl/gretl.html'" style="font-size: 0.9rem; padding: 12px 16px;"><img src="${pathPrefix}assets/logos/gretl-logo.svg" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> Gretl</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/sas/sas.html'" style="font-size: 0.9rem; padding: 12px 16px;"><img src="${pathPrefix}assets/logos/sas-logo.png" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> SAS</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/julia/julia.html'" style="font-size: 0.9rem; padding: 12px 16px;"><img src="${pathPrefix}assets/logos/julia-logo.svg" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> Julia</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/hadoop/hadoop.html'" style="font-size: 0.9rem; padding: 12px 16px;"><img src="${pathPrefix}assets/logos/hadoop-logo.svg" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> Hadoop</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/pyspark/pyspark.html'" style="font-size: 0.9rem; padding: 12px 16px;"><img src="${pathPrefix}assets/logos/pyspark-logo.svg" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> PySpark</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/matlab/matlab.html'" style="font-size: 0.9rem; padding: 12px 16px;"><img src="${pathPrefix}tools/matlab/matlab-logo.png" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> MATLAB</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/git/git.html'" style="font-size: 0.9rem; padding: 12px 16px;"><img src="${pathPrefix}assets/logos/git-logo.svg" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> Git</button>
             </div>
 
             <div style="width: 100%; margin: 12px 0 4px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
@@ -385,4 +395,16 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.insertAdjacentHTML('afterbegin', HEADER_HTML + MOBILE_NAV_HTML);
     // Insert Modals at the end of the body
     document.body.insertAdjacentHTML('beforeend', ABOUT_MODAL_HTML + THEME_MODAL_HTML);
+
+    // Initialize Lazy Loading for Cards
+    const fadeObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { rootMargin: "0px 0px -50px 0px" });
+
+    document.querySelectorAll('.lazy-fade').forEach(el => fadeObserver.observe(el));
 });

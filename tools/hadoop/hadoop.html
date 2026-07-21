@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apache Hadoop - Büyük Veri & Dağıtık Sistemler | Analyst Roadmap</title>
+    <meta name="description" content="Apache Hadoop HDFS, MapReduce ve YARN mimarisi ile büyük veri analitiği.">
+    <link rel="stylesheet" href="../../css/styles.css?v=3.3">
+    <link rel="stylesheet" href="hadoop.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="formulas-page">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('analyst_theme') || 'theme-light-purple';
+            if (savedTheme !== 'theme-dark') {
+                document.body.classList.add(savedTheme);
+            }
+        })();
+    </script>
+
+    <!-- DİNAMİK ARKA PLAN GRAFİK AĞI -->
+    <div class="bg-analytics-mesh">
+        <div class="bg-chart-item bg-chart-1">
+            <svg viewBox="0 0 400 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="bg-area-grad-hd" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#E5DB23" stop-opacity="0.4"/>
+                        <stop offset="100%" stop-color="#E5DB23" stop-opacity="0.0"/>
+                    </linearGradient>
+                </defs>
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40 L 370,190 L 10,190 Z" fill="url(#bg-area-grad-hd)"/>
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40" fill="none" stroke="#E5DB23" stroke-width="4" stroke-linecap="round"/>
+                <circle cx="130" cy="150" r="6" fill="#66CCFF"/>
+                <circle cx="250" cy="90" r="6" fill="#000000"/>
+                <circle cx="370" cy="40" r="8" fill="#E5DB23">
+                    
+                </circle>
+            </svg>
+        </div>
+        <div class="bg-chart-item bg-chart-2">
+            <svg viewBox="0 0 200 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <g transform="translate(100,100)">
+                    <path d="M 0,-80 A 80,80 0 0,1 76,25 L 57,18 A 60,60 0 0,0 0,-60 Z" fill="#66CCFF"/>
+                    <path d="M 76,25 A 80,80 0 0,1 -64,48 L -48,36 A 60,60 0 0,0 57,18 Z" fill="#E5DB23"/>
+                    <path d="M -64,48 A 80,80 0 0,1 0,-80 L 0,-60 A 60,60 0 0,0 -48,36 Z" fill="#000000"/>
+                    <circle cx="0" cy="0" r="45" fill="none" stroke="var(--glass-border)" stroke-width="2" stroke-dasharray="5,5"/>
+                </g>
+            </svg>
+        </div>
+    </div>
+
+    <!-- 2. HERO & BAŞLIK BÖLÜMÜ -->
+    <section class="formulas-hero" style="padding-top: 140px; padding-bottom: 60px;">
+        <div class="hero-content" style="max-width: 900px;">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 24px;">
+                <div style="width: 80px; height: 80px; border-radius: 22px; background: rgba(229, 219, 35, 0.15); border: 2px solid #E5DB23; display: flex; align-items: center; justify-content: center; padding: 16px; box-shadow: 4px 4px 0px rgba(229, 219, 35, 0.4);">
+                    <img loading="lazy" src="../../assets/logos/hadoop-logo.svg" alt="Hadoop Logo" style="width: 100%; height: 100%;">
+                </div>
+                <div style="text-align: left;">
+                    <div class="badge-pill" style="margin-bottom: 6px; background: rgba(229, 219, 35, 0.2); color: #E5DB23; border-color: #E5DB23;">Büyük Veri &amp; Dağıtık Depolama</div>
+                    <h1 class="hero-title" style="font-size: 2.8rem; margin: 0;">Apache <span style="color: #E5DB23;">Hadoop</span></h1>
+                </div>
+            </div>
+            <p class="hero-subtitle" style="font-size: 1.25rem; line-height: 1.6;">
+                Büyük veri devriminin temel taşı olan Hadoop, devasa veri kümelerini donanım kümeleri (cluster) üzerinde dağıtık olarak depolamak ve işlemek için açık kaynaklı bir ekosistem sunar.
+            </p>
+        </div>
+    </section>
+
+    <!-- 3. ANA İÇERİK -->
+    <main class="formulas-main" style="max-width: 1200px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
+        
+        <!-- GÖRSEL EKRAN GÖRÜNTÜSÜ PANELİ -->
+        <div class="glass" style="padding: 32px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+                <div>
+                    <h2 style="font-size: 1.8rem; color: var(--text-main); margin: 0 0 8px 0;">🐘 Hadoop Cluster Arayüzü</h2>
+                    <p style="color: var(--text-muted); margin: 0; font-size: 1.05rem;">HDFS depolama düğümleri, MapReduce iş süreçleri ve YARN kaynak yönetiminin modern izleme paneli.</p>
+                </div>
+                <span class="badge-pill" style="background: rgba(229, 219, 35, 0.2); color: #E5DB23; border-color: #E5DB23;">AI Generated Dashboard</span>
+            </div>
+            <div style="border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.6);">
+                <img loading="lazy" src="hadoop_ide_preview.png" alt="Hadoop IDE Preview" style="width: 100%; height: auto; display: block;">
+            </div>
+        </div>
+
+        <!-- ÖZET BİLGİ KARTLARI (GRID) -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 48px;">
+            <div class="glass" style="padding: 32px; border-radius: 24px; border: 1px solid var(--glass-border);">
+                <h3 style="color: #E5DB23; font-size: 1.4rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
+                    <span>📂</span> HDFS (Dağıtık Dosya Sistemi)
+                </h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">
+                    Verileri 128MB veya 256MB'lık bloklar halinde böler ve kümedeki farklı sunuculara kopyalayarak veri kaybını (Fault Tolerance) engeller ve yüksek bant genişliği sağlar.
+                </p>
+            </div>
+            <div class="glass" style="padding: 32px; border-radius: 24px; border: 1px solid var(--glass-border);">
+                <h3 style="color: #E5DB23; font-size: 1.4rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
+                    <span>⚙️</span> MapReduce
+                </h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">
+                    Dağıtık veriyi paralel işleme algoritmasıdır. 'Map' ile veriyi parçalar ve filtrelere sokarken, 'Reduce' ile sonuçları birleştirerek özetler (agregasyon).
+                </p>
+            </div>
+            <div class="glass" style="padding: 32px; border-radius: 24px; border: 1px solid var(--glass-border);">
+                <h3 style="color: #E5DB23; font-size: 1.4rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
+                    <span>🧩</span> YARN (Yet Another Resource Negotiator)
+                </h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">
+                    Küme (cluster) içerisindeki CPU ve RAM gibi sistem kaynaklarını dinamik olarak yöneten, farklı veri işleme motorlarının (Spark, Hive vb.) beraber çalışmasını sağlayan işletim sistemidir.
+                </p>
+            </div>
+        </div>
+
+        <!-- DETAYLI İNCELEME BÖLÜMÜ -->
+        <div class="glass" style="padding: 48px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
+            <h2 style="font-size: 2rem; color: var(--text-main); margin-bottom: 28px; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 16px;">
+                Hadoop'un Artıları ve Eksileri
+            </h2>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
+                <!-- Artıları -->
+                <div style="background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.2); padding: 32px; border-radius: 20px;">
+                    <h3 style="color: var(--neon-green); font-size: 1.5rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                        <span>✅</span> Avantajları
+                    </h3>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 14px; color: var(--text-muted);">
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: var(--neon-green);">▪</span> <strong>Ölçeklenebilirlik:</strong> Ucuz donanımlarla (commodity hardware) petabaytlarca veriye kolayca ölçeklenebilir.
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: var(--neon-green);">▪</span> <strong>Hata Toleransı (Fault Tolerance):</strong> Veriyi üç kopyalı sakladığı için donanım arızalarında veri kaybolmaz.
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: var(--neon-green);">▪</span> <strong>Açık Kaynak:</strong> Tamamen ücretsiz ve çok geniş bir topluluk desteğine sahiptir.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Eksileri -->
+                <div style="background: rgba(244, 63, 94, 0.05); border: 1px solid rgba(244, 63, 94, 0.2); padding: 32px; border-radius: 20px;">
+                    <h3 style="color: #f43f5e; font-size: 1.5rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                        <span>⚠️</span> Dikkat Edilmesi Gerekenler
+                    </h3>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 14px; color: var(--text-muted);">
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: #f43f5e;">▪</span> <strong>Batch Odaklı:</strong> Gerçek zamanlı (real-time) veri akışı için değil, toplu (batch) veri işleme için uygundur.
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: #f43f5e;">▪</span> <strong>Disk Tabanlı:</strong> Her işlem diskte okuma/yazma gerektirdiği için Spark gibi in-memory motorlara göre yavaştır.
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: #f43f5e;">▪</span> <strong>Karmaşık Yönetim:</strong> Çok sayıda node barındıran cluster'ların bakımı ve konfigürasyonu zordur.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SYNTAX / KOD ÖRNEĞİ -->
+        <div class="glass" style="padding: 48px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+                <h2 style="font-size: 2rem; color: var(--text-main); margin: 0;">💻 Hadoop (HDFS) Syntax &amp; Kullanım Örneği</h2>
+                <span class="badge-pill" style="background: rgba(255, 212, 59, 0.1); color: #FFD43B; border-color: #FFD43B;">Dağıtık Depolama</span>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem;">
+                Hadoop sisteminde dosya yönetimi Unix benzeri terminal komutları ile yapılır.
+            </p>
+
+            <div style="background: #0d1117; border: 1px solid #30363d; border-radius: 16px; padding: 24px; overflow-x: auto; font-family: 'Fira Code', monospace; font-size: 1rem; line-height: 1.7; color: #e6edf3;">
+<pre style="margin: 0;"><code><span style="color: #8b949e;"># Yerel sistemden HDFS'e dosya kopyalama</span>
+<span style="color: #79c0ff;">hdfs</span> dfs -put /local/path/data.csv /user/hadoop/data/
+
+<span style="color: #8b949e;"># HDFS'teki dosyaları listeleme</span>
+<span style="color: #79c0ff;">hdfs</span> dfs -ls /user/hadoop/data/
+
+<span style="color: #8b949e;"># HDFS içindeki bir dosyanın boyutunu öğrenme</span>
+<span style="color: #79c0ff;">hdfs</span> dfs -du -h /user/hadoop/data/data.csv
+
+<span style="color: #8b949e;"># HDFS'ten yerel sisteme dosya alma</span>
+<span style="color: #79c0ff;">hdfs</span> dfs -get /user/hadoop/data/output.txt /local/path/</code></pre>
+            </div>
+        </div>
+
+        <!-- ALT YÖNLENDİRME BUTONLARI -->
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+            <button class="btn-hero btn-hero-courses" onclick="window.location.href='../sql/sql.html'">
+                &larr; Önceki: SQL
+            </button>
+            <button class="btn-hero btn-hero-formulas" onclick="window.location.href='../pyspark/pyspark.html'">
+                Sonraki Araç: PySpark &rarr;
+            </button>
+        </div>
+
+    </main>
+
+    <script src="../../js/components.js"></script>
+    <script src="../../js/nav.js"></script>
+    <script src="../../js/modal.js"></script>
+    <script src="../../js/script.js"></script>
+</body>
+</html>
+

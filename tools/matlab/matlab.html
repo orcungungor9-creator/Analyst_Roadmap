@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MATLAB - Sayısal Hesaplama & Mühendislik | Analyst Roadmap</title>
+    <meta name="description" content="MATLAB ile lineer cebir, matris hesaplamaları, sinyal işleme ve mühendislik simülasyonları.">
+    <link rel="stylesheet" href="../../css/styles.css?v=3.3">
+    <link rel="stylesheet" href="matlab.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="formulas-page">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('analyst_theme') || 'theme-light-purple';
+            if (savedTheme !== 'theme-dark') {
+                document.body.classList.add(savedTheme);
+            }
+        })();
+    </script>
+
+    <!-- DİNAMİK ARKA PLAN GRAFİK AĞI -->
+    <div class="bg-analytics-mesh">
+        <div class="bg-chart-item bg-chart-1">
+            <svg viewBox="0 0 400 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="bg-area-grad-ml" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#D9534F" stop-opacity="0.4"/>
+                        <stop offset="100%" stop-color="#D9534F" stop-opacity="0.0"/>
+                    </linearGradient>
+                </defs>
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40 L 370,190 L 10,190 Z" fill="url(#bg-area-grad-ml)"/>
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40" fill="none" stroke="#D9534F" stroke-width="4" stroke-linecap="round"/>
+                <circle cx="130" cy="150" r="6" fill="#F0AD4E"/>
+                <circle cx="250" cy="90" r="6" fill="var(--neon-purple)"/>
+                <circle cx="370" cy="40" r="8" fill="#D9534F">
+                    
+                </circle>
+            </svg>
+        </div>
+        <div class="bg-chart-item bg-chart-2">
+            <svg viewBox="0 0 200 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <g transform="translate(100,100)">
+                    <path d="M 0,-80 A 80,80 0 0,1 76,25 L 57,18 A 60,60 0 0,0 0,-60 Z" fill="#F0AD4E"/>
+                    <path d="M 76,25 A 80,80 0 0,1 -64,48 L -48,36 A 60,60 0 0,0 57,18 Z" fill="#D9534F"/>
+                    <path d="M -64,48 A 80,80 0 0,1 0,-80 L 0,-60 A 60,60 0 0,0 -48,36 Z" fill="#5CB85C"/>
+                    <circle cx="0" cy="0" r="45" fill="none" stroke="var(--glass-border)" stroke-width="2" stroke-dasharray="5,5"/>
+                </g>
+            </svg>
+        </div>
+    </div>
+
+    <!-- 2. HERO & BAŞLIK BÖLÜMÜ -->
+    <section class="formulas-hero" style="padding-top: 140px; padding-bottom: 60px;">
+        <div class="hero-content" style="max-width: 900px;">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 24px;">
+                <div style="width: 80px; height: 80px; border-radius: 22px; background: rgba(217, 83, 79, 0.15); border: 2px solid #D9534F; display: flex; align-items: center; justify-content: center; padding: 16px; box-shadow: 4px 4px 0px rgba(217, 83, 79, 0.4);">
+                    <img loading="lazy" src="matlab-logo.png" alt="MATLAB Logo" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
+                <div style="text-align: left;">
+                    <div class="badge-pill" style="margin-bottom: 6px; background: rgba(217, 83, 79, 0.2); color: #D9534F; border-color: #D9534F;">Mühendislik &amp; Bilimsel Hesaplama</div>
+                    <h1 class="hero-title" style="font-size: 2.8rem; margin: 0;">MATLAB <span style="color: #D9534F;">(Matrix Lab)</span></h1>
+                </div>
+            </div>
+            <p class="hero-subtitle" style="font-size: 1.25rem; line-height: 1.6;">
+                Mühendisler ve bilim insanları için tasarlanmış; matris manipülasyonları, veri analizleri ve ileri düzey algoritma testleri sunan güçlü bir teknik hesaplama ortamı.
+            </p>
+        </div>
+    </section>
+
+    <!-- 3. ANA İÇERİK -->
+    <main class="formulas-main" style="max-width: 1200px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
+        
+        <!-- GÖRSEL EKRAN GÖRÜNTÜSÜ PANELİ -->
+        <div class="glass" style="padding: 32px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+                <div>
+                    <h2 style="font-size: 1.8rem; color: var(--text-main); margin: 0 0 8px 0;">📐 MATLAB Geliştirme Arayüzü</h2>
+                    <p style="color: var(--text-muted); margin: 0; font-size: 1.05rem;">Komut penceresi, değişken çalışma alanı (workspace) ve gelişmiş 3D grafik motoru.</p>
+                </div>
+                <span class="badge-pill" style="background: rgba(217, 83, 79, 0.2); color: #D9534F; border-color: #D9534F;">AI Generated Preview</span>
+            </div>
+            <div style="border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.6);">
+                <img loading="lazy" src="matlab_ide_preview.png" alt="MATLAB IDE Preview" style="width: 100%; height: auto; display: block;">
+            </div>
+        </div>
+
+        <!-- ÖZET BİLGİ KARTLARI (GRID) -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 48px;">
+            <div class="glass" style="padding: 32px; border-radius: 24px; border: 1px solid var(--glass-border);">
+                <h3 style="color: #D9534F; font-size: 1.4rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
+                    <span>🔢</span> Matris Cebrî
+                </h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">
+                    Temel veri tipi matrisler olduğu için veri seti manipülasyonları çok az kodla, performans kaybı yaşanmadan yüksek doğrusal cebir (linear algebra) hesaplamaları ile yapılır.
+                </p>
+            </div>
+            <div class="glass" style="padding: 32px; border-radius: 24px; border: 1px solid var(--glass-border);">
+                <h3 style="color: #D9534F; font-size: 1.4rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
+                    <span>📈</span> Veri Görselleştirme
+                </h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">
+                    Yerleşik plot fonksiyonları sayesinde sadece birkaç komutla, yayın (publication) kalitesinde 2D ve 3D mühendislik grafikleri çizebilirsiniz.
+                </p>
+            </div>
+            <div class="glass" style="padding: 32px; border-radius: 24px; border: 1px solid var(--glass-border);">
+                <h3 style="color: #D9534F; font-size: 1.4rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
+                    <span>⚙️</span> Simulink &amp; Toolboxes
+                </h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">
+                    Blok diyagram tabanlı görsel modelleme ile dinamik sistemleri simüle eder. Ayrıca Ekonometri, Makine Öğrenmesi, Sinyal İşleme gibi alanlara özel güçlü kütüphanelere (Toolbox) sahiptir.
+                </p>
+            </div>
+        </div>
+
+        <!-- DETAYLI İNCELEME BÖLÜMÜ -->
+        <div class="glass" style="padding: 48px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
+            <h2 style="font-size: 2rem; color: var(--text-main); margin-bottom: 28px; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 16px;">
+                MATLAB'ın Artıları ve Eksileri
+            </h2>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
+                <!-- Artıları -->
+                <div style="background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.2); padding: 32px; border-radius: 20px;">
+                    <h3 style="color: var(--neon-green); font-size: 1.5rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                        <span>✅</span> Avantajları
+                    </h3>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 14px; color: var(--text-muted);">
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: var(--neon-green);">▪</span> <strong>Matris Odaklı Tasarım:</strong> Vektör ve matris hesaplamaları için benzersiz, çok hızlı bir yapı sunar.
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: var(--neon-green);">▪</span> <strong>Simulink:</strong> Fiziksel, matematiksel veya kontrol sistemlerini blok diyagramlarla görsel olarak simüle edebilir.
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: var(--neon-green);">▪</span> <strong>Güvenilirlik (Toolbox):</strong> Ticari olarak test edilmiş ve doğrulanmış endüstri standardı mühendislik kütüphanelerine sahiptir.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Eksileri -->
+                <div style="background: rgba(244, 63, 94, 0.05); border: 1px solid rgba(244, 63, 94, 0.2); padding: 32px; border-radius: 20px;">
+                    <h3 style="color: #f43f5e; font-size: 1.5rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                        <span>⚠️</span> Dikkat Edilmesi Gerekenler
+                    </h3>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 14px; color: var(--text-muted);">
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: #f43f5e;">▪</span> <strong>Lisans Ücreti:</strong> Python veya R'ın aksine, tamamen ticari ve oldukça pahalı bir yazılımdır.
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: #f43f5e;">▪</span> <strong>Açık Kaynak Eksikliği:</strong> Topluluk kaynaklı güncellemeler kapalı olduğu için yeniliklere daha geç adapte olur.
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: #f43f5e;">▪</span> <strong>Web/Mobil Entegrasyonu:</strong> Yapay zeka veya veri bilimi modellerini web ortamına aktarmak oldukça zordur.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SYNTAX / KOD ÖRNEĞİ -->
+        <div class="glass" style="padding: 48px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+                <h2 style="font-size: 2rem; color: var(--text-main); margin: 0;">💻 MATLAB Syntax &amp; Kullanım Örneği</h2>
+                <span class="badge-pill" style="background: rgba(255, 212, 59, 0.1); color: #FFD43B; border-color: #FFD43B;">Matris ve Simülasyon</span>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem;">
+                Aşağıdaki basit komut dosyası ile lineer denklem sistemleri çözülüp anında 3D olarak görselleştirilebilir.
+            </p>
+
+            <div style="background: #0d1117; border: 1px solid #30363d; border-radius: 16px; padding: 24px; overflow-x: auto; font-family: 'Fira Code', monospace; font-size: 1rem; line-height: 1.7; color: #e6edf3;">
+<pre style="margin: 0;"><code><span style="color: #8b949e;">% Veri noktalarını oluşturma (Grid)</span>
+[X, Y] = <span style="color: #79c0ff;">meshgrid</span>(-8:.5:8);
+
+<span style="color: #8b949e;">% Matematiksel fonksiyon hesaplama</span>
+R = <span style="color: #79c0ff;">sqrt</span>(X.^2 + Y.^2) + eps;
+Z = <span style="color: #79c0ff;">sin</span>(R)./R;
+
+<span style="color: #8b949e;">% 3D Yüzey (Surface) Grafiği Çizimi</span>
+<span style="color: #79c0ff;">surf</span>(X, Y, Z);
+<span style="color: #79c0ff;">colormap</span>(<span style="color: #a5d6ff;">'jet'</span>);
+<span style="color: #79c0ff;">shading</span> interp;
+<span style="color: #79c0ff;">title</span>(<span style="color: #a5d6ff;">'3D Dalga Dağılımı'</span>);
+<span style="color: #79c0ff;">xlabel</span>(<span style="color: #a5d6ff;">'X Ekseni'</span>);
+<span style="color: #79c0ff;">ylabel</span>(<span style="color: #a5d6ff;">'Y Ekseni'</span>);
+<span style="color: #79c0ff;">zlabel</span>(<span style="color: #a5d6ff;">'Dalga Genliği'</span>);</code></pre>
+            </div>
+        </div>
+
+        <!-- ALT YÖNLENDİRME BUTONLARI -->
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+            <button class="btn-hero btn-hero-courses" onclick="window.location.href='../pyspark/pyspark.html'">
+                &larr; Önceki: PySpark
+            </button>
+            <button class="btn-hero btn-hero-formulas" onclick="window.location.href='../git/git.html'">
+                Sonraki Araç: Git &rarr;
+            </button>
+        </div>
+
+    </main>
+
+    <script src="../../js/components.js"></script>
+    <script src="../../js/nav.js"></script>
+    <script src="../../js/modal.js"></script>
+    <script src="../../js/script.js"></script>
+</body>
+</html>
+

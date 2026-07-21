@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git - Sürüm Kontrol & Kaynak Yönetimi | Analyst Roadmap</title>
+    <meta name="description" content="Git sürüm kontrol sistemi, GitHub, projelerinizi yönetme ve veri bilimi/yazılım projelerinde iş birliği.">
+    <link rel="stylesheet" href="../../css/styles.css?v=3.3">
+    <link rel="stylesheet" href="git.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="formulas-page">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('analyst_theme') || 'theme-light-purple';
+            if (savedTheme !== 'theme-dark') {
+                document.body.classList.add(savedTheme);
+            }
+        })();
+    </script>
+
+    <!-- DİNAMİK ARKA PLAN GRAFİK AĞI -->
+    <div class="bg-analytics-mesh">
+        <div class="bg-chart-item bg-chart-1">
+            <svg viewBox="0 0 400 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="bg-area-grad-git" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#F1502F" stop-opacity="0.4"/>
+                        <stop offset="100%" stop-color="#F1502F" stop-opacity="0.0"/>
+                    </linearGradient>
+                </defs>
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40 L 370,190 L 10,190 Z" fill="url(#bg-area-grad-git)"/>
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40" fill="none" stroke="#F1502F" stroke-width="4" stroke-linecap="round"/>
+                <circle cx="130" cy="150" r="6" fill="#333333"/>
+                <circle cx="250" cy="90" r="6" fill="var(--neon-purple)"/>
+                <circle cx="370" cy="40" r="8" fill="#F1502F">
+                    
+                </circle>
+            </svg>
+        </div>
+        <div class="bg-chart-item bg-chart-2">
+            <svg viewBox="0 0 200 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <g transform="translate(100,100)">
+                    <path d="M 0,-80 A 80,80 0 0,1 76,25 L 57,18 A 60,60 0 0,0 0,-60 Z" fill="#F1502F"/>
+                    <path d="M 76,25 A 80,80 0 0,1 -64,48 L -48,36 A 60,60 0 0,0 57,18 Z" fill="#333333"/>
+                    <path d="M -64,48 A 80,80 0 0,1 0,-80 L 0,-60 A 60,60 0 0,0 -48,36 Z" fill="var(--neon-purple)"/>
+                    <circle cx="0" cy="0" r="45" fill="none" stroke="var(--glass-border)" stroke-width="2" stroke-dasharray="5,5"/>
+                </g>
+            </svg>
+        </div>
+    </div>
+
+    <!-- 2. HERO & BAŞLIK BÖLÜMÜ -->
+    <section class="formulas-hero" style="padding-top: 140px; padding-bottom: 60px;">
+        <div class="hero-content" style="max-width: 900px;">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 24px;">
+                <div style="width: 80px; height: 80px; border-radius: 22px; background: rgba(241, 80, 47, 0.15); border: 2px solid #F1502F; display: flex; align-items: center; justify-content: center; padding: 16px; box-shadow: 4px 4px 0px rgba(241, 80, 47, 0.4);">
+                    <img loading="lazy" src="../../assets/logos/git-logo.svg" alt="Git Logo" style="width: 100%; height: 100%;">
+                </div>
+                <div style="text-align: left;">
+                    <div class="badge-pill" style="margin-bottom: 6px; background: rgba(241, 80, 47, 0.2); color: #F1502F; border-color: #F1502F;">Versiyon Kontrol Sistemi</div>
+                    <h1 class="hero-title" style="font-size: 2.8rem; margin: 0;">Git <span style="color: #F1502F;">(Version Control)</span></h1>
+                </div>
+            </div>
+            <p class="hero-subtitle" style="font-size: 1.25rem; line-height: 1.6;">
+                Analitik modellerinizi ve projelerinizi güvenle geliştirin, geçmişe dönün (time travel) ve diğer veri bilimcileriyle sorunsuz işbirliği (collaboration) yapın.
+            </p>
+        </div>
+    </section>
+
+    <!-- 3. ANA İÇERİK -->
+    <main class="formulas-main" style="max-width: 1200px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
+        
+        <!-- GÖRSEL EKRAN GÖRÜNTÜSÜ PANELİ -->
+        <div class="glass" style="padding: 32px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+                <div>
+                    <h2 style="font-size: 1.8rem; color: var(--text-main); margin: 0 0 8px 0;">🌳 Git Branching &amp; Commit History</h2>
+                    <p style="color: var(--text-muted); margin: 0; font-size: 1.05rem;">Proje geçmişinizin adım adım kayıt altına alınması, branch ağacı ve merge (birleştirme) süreçleri.</p>
+                </div>
+                <span class="badge-pill" style="background: rgba(241, 80, 47, 0.2); color: #F1502F; border-color: #F1502F;">AI Generated IDE Preview</span>
+            </div>
+            <div style="border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.6);">
+                <img loading="lazy" src="git_ide_preview.png" alt="Git Interface Preview" style="width: 100%; height: auto; display: block;">
+            </div>
+        </div>
+
+        <!-- ÖZET BİLGİ KARTLARI (GRID) -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 48px;">
+            <div class="glass" style="padding: 32px; border-radius: 24px; border: 1px solid var(--glass-border);">
+                <h3 style="color: #F1502F; font-size: 1.4rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
+                    <span>📸</span> Snapshot Sistemi
+                </h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">
+                    Git, dosyalarınızı bir dizin gibi değil, verinizin o anki durumunun anlık görüntüleri (snapshot) olarak tutar. Hatalı bir analiz yaptığınızda kolayca bir önceki temiz sürüme dönebilirsiniz.
+                </p>
+            </div>
+            <div class="glass" style="padding: 32px; border-radius: 24px; border: 1px solid var(--glass-border);">
+                <h3 style="color: #F1502F; font-size: 1.4rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
+                    <span>🌿</span> Branching (Dallanma)
+                </h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">
+                    Mevcut üretim kodunuzu (main/master) etkilemeden yeni makine öğrenmesi algoritmaları denemek için bağımsız çalışma dalları oluşturmanızı sağlar.
+                </p>
+            </div>
+            <div class="glass" style="padding: 32px; border-radius: 24px; border: 1px solid var(--glass-border);">
+                <h3 style="color: #F1502F; font-size: 1.4rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
+                    <span>🌐</span> GitHub / GitLab Entegrasyonu
+                </h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">
+                    Yalnızca yerel bilgisayarınızda değil, kodunuzu bulutta güvenle saklamanızı, ekibinizle eşzamanlı çalışmanızı ve CI/CD süreçlerini yönetmenizi sağlar.
+                </p>
+            </div>
+        </div>
+
+        <!-- DETAYLI İNCELEME BÖLÜMÜ -->
+        <div class="glass" style="padding: 48px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
+            <h2 style="font-size: 2rem; color: var(--text-main); margin-bottom: 28px; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 16px;">
+                Git'in Artıları ve Eksileri
+            </h2>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
+                <!-- Artıları -->
+                <div style="background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.2); padding: 32px; border-radius: 20px;">
+                    <h3 style="color: var(--neon-green); font-size: 1.5rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                        <span>✅</span> Avantajları
+                    </h3>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 14px; color: var(--text-muted);">
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: var(--neon-green);">▪</span> <strong>Zaman Makinesi:</strong> Hatalı bir kod yazdığınızda, istediğiniz eski bir kopyaya saniyeler içinde dönebilirsiniz.
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: var(--neon-green);">▪</span> <strong>Dağıtık Çalışma:</strong> İnternet olmadan (offline) commit yapabilme ve tam bir repo kopyasını lokalde tutma imkanı sağlar.
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: var(--neon-green);">▪</span> <strong>Takım İşbirliği:</strong> Branch (dal) yapısı sayesinde projenin ana kodunu bozmadan aynı anda onlarca kişinin kod yazmasını kolaylaştırır.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Eksileri -->
+                <div style="background: rgba(244, 63, 94, 0.05); border: 1px solid rgba(244, 63, 94, 0.2); padding: 32px; border-radius: 20px;">
+                    <h3 style="color: #f43f5e; font-size: 1.5rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                        <span>⚠️</span> Dikkat Edilmesi Gerekenler
+                    </h3>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 14px; color: var(--text-muted);">
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: #f43f5e;">▪</span> <strong>Karmaşık Öğrenme Eğrisi:</strong> Merge conflict, rebase ve reset gibi kavramları anlamak acemiler için korkutucu olabilir.
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: #f43f5e;">▪</span> <strong>Büyük Veri Yönetimi:</strong> GB'larca büyüklükteki veri setleri veya görseller için tasarlanmamıştır (Git LFS gerektirir).
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: #f43f5e;">▪</span> <strong>Komut Satırı Bağlılığı:</strong> Arayüzleri olsa da tam güç için terminal komutlarına aşina olmayı gerektirir.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SYNTAX / KOD ÖRNEĞİ -->
+        <div class="glass" style="padding: 48px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+                <h2 style="font-size: 2rem; color: var(--text-main); margin: 0;">💻 Git Syntax &amp; Kullanım Örneği</h2>
+                <span class="badge-pill" style="background: rgba(255, 212, 59, 0.1); color: #FFD43B; border-color: #FFD43B;">Versiyon Kontrol</span>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem;">
+                Günlük analiz projelerinizde terminal üzerinden versiyon yönetimi yapmak için temel komutlar.
+            </p>
+
+            <div style="background: #0d1117; border: 1px solid #30363d; border-radius: 16px; padding: 24px; overflow-x: auto; font-family: 'Fira Code', monospace; font-size: 1rem; line-height: 1.7; color: #e6edf3;">
+<pre style="margin: 0;"><code><span style="color: #8b949e;"># Yeni bir Git deposu başlatmak</span>
+<span style="color: #79c0ff;">git</span> init
+
+<span style="color: #8b949e;"># Değiştirilen dosyaları izleme (Staging area)</span>
+<span style="color: #79c0ff;">git</span> add analysis.ipynb
+
+<span style="color: #8b949e;"># Değişiklikleri kayıt altına alma (Commit)</span>
+<span style="color: #79c0ff;">git</span> commit -m <span style="color: #a5d6ff;">"feat: xgboost modeli performansı artırıldı"</span>
+
+<span style="color: #8b949e;"># Yeni model denemesi için branch (dal) oluşturma</span>
+<span style="color: #79c0ff;">git</span> checkout -b experimental-model
+
+<span style="color: #8b949e;"># Değişiklikleri GitHub'a (veya uzak sunucuya) yükleme</span>
+<span style="color: #79c0ff;">git</span> push origin main</code></pre>
+            </div>
+        </div>
+
+        <!-- ALT YÖNLENDİRME BUTONLARI -->
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+            <button class="btn-hero btn-hero-courses" onclick="window.location.href='../matlab/matlab.html'">
+                &larr; Önceki: MATLAB
+            </button>
+            <button class="btn-hero btn-hero-formulas" onclick="window.location.href='../excel/excel.html'">
+                Sonraki Araç: Excel &rarr;
+            </button>
+        </div>
+
+    </main>
+
+    <script src="../../js/components.js"></script>
+    <script src="../../js/nav.js"></script>
+    <script src="../../js/modal.js"></script>
+    <script src="../../js/script.js"></script>
+</body>
+</html>
+
