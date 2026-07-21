@@ -24,17 +24,18 @@ const isFormulasPage = window.location.pathname.includes('/guides/formulas/');
 const HEADER_HTML = `
     <header class="site-header glass-header">
         <div class="header-container">
-            <div class="header-left" style="display: flex; align-items: center; gap: 16px;">
-                ${isIndexPage ? '' : `
-                <a href="${pathPrefix}index.html" class="nav-btn back-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="19" y1="12" x2="5" y2="12"></line>
-                        <polyline points="12 19 5 12 12 5"></polyline>
-                    </svg>
-                    <span class="back-text">Ana Sayfaya Dön</span>
-                </a>`}
-                <a href="${isIndexPage ? '#' : pathPrefix + 'index.html'}" class="logo" style="color: var(--neon-blue);">Analyst Roadmap</a>
+            <div class="header-left" style="display: flex; align-items: center;">
+                <a href="${isIndexPage ? '#' : pathPrefix + 'index.html'}" class="logo" style="color: var(--neon-blue); display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                    Analyst Roadmap
+                    ${isIndexPage ? '' : `
+                    <div style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: rgba(56, 189, 248, 0.15); border: 1.5px solid rgba(56, 189, 248, 0.3);" title="Ana Sayfaya Dön">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="19" y1="12" x2="5" y2="12"></line>
+                            <polyline points="12 19 5 12 12 5"></polyline>
+                        </svg>
+                    </div>
+                    `}
+                </a>
             </div>
 
             <nav class="desktop-main-nav">
@@ -102,15 +103,6 @@ const HEADER_HTML = `
 
             <div class="header-right">
                 <nav class="desktop-nav" id="desktop-nav">
-                    ${isFormulasPage ? `
-                    <button class="nav-btn search-trigger-btn" onclick="scrollToSearch()" title="Arama Yap">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        </svg>
-                        <span>Formül Ara</span>
-                    </button>` : ''}
                     <a href="https://www.kaggle.com/datasets" target="_blank" class="nav-btn external-btn">Kaggle ↗</a>
                     <button class="nav-btn icon-btn" onclick="openModal('about-modal')" title="Hakkında">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"

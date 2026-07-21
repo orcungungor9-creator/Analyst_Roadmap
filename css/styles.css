@@ -100,7 +100,6 @@ body {
     left: 5%;
     width: 350px;
     height: 200px;
-    animation: float-chart-1 16s ease-in-out infinite alternate;
 }
 
 .bg-chart-2 {
@@ -108,7 +107,6 @@ body {
     right: 5%;
     width: 300px;
     height: 300px;
-    animation: float-chart-2 20s ease-in-out infinite alternate;
 }
 
 .bg-chart-3 {
@@ -116,7 +114,6 @@ body {
     left: 8%;
     width: 250px;
     height: 250px;
-    animation: float-chart-3 18s ease-in-out infinite alternate;
 }
 
 .bg-chart-4 {
@@ -124,7 +121,6 @@ body {
     right: 8%;
     width: 280px;
     height: 220px;
-    animation: float-chart-4 22s ease-in-out infinite alternate;
 }
 
 @keyframes float-chart-1 {
