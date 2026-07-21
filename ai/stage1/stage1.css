@@ -204,7 +204,7 @@
 }
 
 /* =========================================
-   MOBILE RESPONSIVENESS
+   MOBILE RESPONSIVENESS (DESKTOP-LIKE FEEL)
    ========================================= */
 @media (max-width: 768px) {
     /* Hero Section */
@@ -213,96 +213,124 @@
         padding-bottom: 40px !important;
     }
     .hero-title {
-        font-size: 2.2rem !important;
+        font-size: 1.8rem !important;
     }
     .hero-subtitle {
-        font-size: 1.1rem !important;
+        font-size: 1rem !important;
         margin-top: 16px !important;
     }
 
     /* Main Container */
     .formulas-main {
-        padding: 0 16px !important;
+        padding: 0 12px !important;
     }
 
     /* Glass Containers */
     .glass {
-        padding: 24px !important;
-        border-radius: 20px !important;
+        padding: 20px !important;
+        border-radius: 16px !important;
+        overflow: hidden;
     }
 
     /* Headings inside glass */
     .glass h2 {
-        font-size: 1.6rem !important;
+        font-size: 1.4rem !important;
     }
     
     /* Text styles */
     .box-desc, .glass p {
-        font-size: 1.05rem !important;
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
     }
 
     /* Flowchart Infographic */
     .ai-process-flowchart {
-        flex-direction: column !important;
-        padding: 24px !important;
+        flex-direction: row !important; /* Keep horizontal */
+        padding: 16px 12px !important;
         gap: 8px !important;
+        overflow-x: auto !important; /* Scrollable horizontally */
+        align-items: stretch !important;
+        -webkit-overflow-scrolling: touch;
+        flex-wrap: nowrap !important;
     }
     .flow-step {
-        width: 100% !important;
-        padding: 20px 16px !important;
+        width: auto !important;
+        min-width: 180px !important; /* Keep a readable width */
+        padding: 16px 12px !important;
+        flex-shrink: 0;
+    }
+    .flow-step h4 {
+        font-size: 1rem !important;
+    }
+    .flow-step p {
+        font-size: 0.85rem !important;
     }
     .flow-arrow {
-        transform: rotate(90deg) !important;
-        margin: 8px 0 !important;
+        transform: rotate(0deg) !important;
+        margin: 0 4px !important;
+        font-size: 1.2rem !important;
+        flex-shrink: 0;
     }
 
     /* Architecture / Matruşka Diagram */
     .concept-architecture-container {
-        flex-direction: column !important;
-        gap: 40px !important;
+        flex-direction: row !important; /* Keep horizontal */
+        gap: 24px !important;
+        overflow-x: auto !important;
+        padding-bottom: 12px !important;
+        -webkit-overflow-scrolling: touch;
+        flex-wrap: nowrap !important;
     }
     .nested-diagram, .production-stages {
-        min-width: 100% !important;
+        min-width: 300px !important; 
+        flex-shrink: 0;
     }
-    
     .nested-box {
         padding: 16px !important;
     }
 
-    /* Production Stages */
+    /* Production Stages Cards */
     .stage-card {
-        flex-direction: column !important;
-        text-align: center !important;
-        padding: 20px !important;
-    }
-    
-    /* Prompt Box */
-    .prompt-box {
-        padding: 12px 16px;
-    }
-    .prompt-input {
-        font-size: 1rem;
+        flex-direction: row !important; /* Keep icon left, text right */
+        text-align: left !important;
+        padding: 16px !important;
+        align-items: center !important;
     }
     
     /* AI processing area */
+    .ai-processing-area {
+        flex-direction: row !important; /* Keep horizontal */
+        gap: 16px !important;
+        overflow-x: auto !important;
+        padding-bottom: 8px !important;
+        -webkit-overflow-scrolling: touch;
+    }
+    .scanning-module {
+        min-width: 240px !important;
+        padding: 16px !important;
+        flex-shrink: 0;
+    }
+    .decision-module {
+        min-width: 140px !important;
+        padding: 16px !important;
+        flex-shrink: 0;
+    }
     .bank-ai-container {
         padding: 32px 16px 16px 16px !important;
     }
-    .ai-processing-area {
-        gap: 24px !important;
-    }
-    .decision-module {
-        padding: 20px !important;
-    }
     
-    /* AI limitations text */
-    .ai-limitations-text {
-        padding: 24px !important;
-    }
-
-    /* Examples & Grids */
+    /* Examples & Grids (Turn into horizontal scroll) */
     div[style*="grid-template-columns"] {
-        grid-template-columns: 1fr !important;
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        gap: 16px !important;
+        padding-bottom: 12px !important;
+        -webkit-overflow-scrolling: touch;
+    }
+    div[style*="grid-template-columns"] > div {
+        min-width: 280px !important;
+        flex-shrink: 0 !important;
     }
     
     /* Good/Bad Prompt example box headers */
@@ -310,18 +338,41 @@
         font-size: 0.75rem !important;
         padding: 4px 8px !important;
     }
+
+    /* Token Waste Section */
+    .glass > div[style*="flex-wrap: wrap"] {
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        padding-bottom: 12px !important;
+        -webkit-overflow-scrolling: touch;
+    }
+    .glass > div[style*="flex-wrap: wrap"] > img {
+        min-width: 220px !important;
+        width: 220px !important;
+        flex-shrink: 0;
+        margin-bottom: 0 !important;
+    }
+    .glass > div[style*="flex-wrap: wrap"] > div {
+        min-width: 280px !important;
+        flex-shrink: 0;
+    }
     
-    /* Token Waste Header / Alignment */
     .glass h3 {
-        font-size: 1.3rem !important;
+        font-size: 1.2rem !important;
     }
 }
 
-@media (max-width: 480px) {
-    .hero-title {
-        font-size: 1.8rem !important;
+/* Custom Scrollbar for horizontal scrollable areas on mobile */
+@media (max-width: 768px) {
+    ::-webkit-scrollbar {
+        height: 6px;
     }
-    .glass h2 {
-        font-size: 1.4rem !important;
+    ::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 6px;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: var(--neon-blue, rgba(56, 189, 248, 0.5));
+        border-radius: 6px;
     }
 }

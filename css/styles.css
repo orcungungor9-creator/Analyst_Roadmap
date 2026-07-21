@@ -48,8 +48,8 @@
     --bg-filter-btn: rgba(255, 255, 255, 0.05);
     --bg-filter-btn-hover: rgba(255, 255, 255, 0.1);
 
-    --tool-svg-filter: invert(1) opacity(0.85);
-    --tool-svg-filter-hover: invert(1) opacity(1);
+    --tool-svg-filter: opacity(0.85);
+    --tool-svg-filter-hover: opacity(1);
     --bg-tool-logo: rgba(255, 255, 255, 0.05);
 }
 
@@ -1914,8 +1914,8 @@ body.theme-dark-sakura {
     --bg-filter-btn: rgba(255, 255, 255, 0.05);
     --bg-filter-btn-hover: rgba(255, 255, 255, 0.1);
 
-    --tool-svg-filter: invert(1) opacity(0.85);
-    --tool-svg-filter-hover: invert(1) opacity(1);
+    --tool-svg-filter: opacity(0.85);
+    --tool-svg-filter-hover: opacity(1);
     --bg-tool-logo: rgba(255, 255, 255, 0.05);
 }
 
@@ -1951,8 +1951,8 @@ body.theme-mono-dark {
     --shadow-glass: 0 10px 30px rgba(0, 0, 0, 0.8);
     --shadow-card: 0 8px 25px rgba(0, 0, 0, 0.7);
     --shadow-card-hover: 0 15px 35px rgba(255, 255, 255, 0.1);
-    --tool-svg-filter: invert(1) opacity(0.9);
-    --tool-svg-filter-hover: invert(1) opacity(1);
+    --tool-svg-filter: opacity(0.9);
+    --tool-svg-filter-hover: opacity(1);
     --bg-tool-logo: rgba(255, 255, 255, 0.06);
 }
 
@@ -1988,8 +1988,8 @@ body.theme-cyber-neon {
     --shadow-glass: 0 10px 30px rgba(255, 0, 127, 0.15);
     --shadow-card: 0 8px 25px rgba(0, 0, 0, 0.6);
     --shadow-card-hover: 0 15px 35px rgba(255, 0, 127, 0.25);
-    --tool-svg-filter: invert(1) sepia(1) saturate(5) hue-rotate(280deg);
-    --tool-svg-filter-hover: invert(1) sepia(1) saturate(5) hue-rotate(300deg);
+    --tool-svg-filter: opacity(0.85);
+    --tool-svg-filter-hover: opacity(1);
     --bg-tool-logo: rgba(255, 0, 127, 0.08);
 }
 
