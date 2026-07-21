@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1. Aşama: Isınma Turu (Neden Buradayız?) | Analyst Roadmap</title>
+    <title>1. Aşama: Yapay Zeka Okuryazarlığı | Analyst Roadmap</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../css/styles.css?v=3.4">
     <link rel="stylesheet" href="stage1.css">
@@ -30,23 +30,421 @@
 
     <section class="formulas-hero" style="padding-top: 140px; padding-bottom: 60px;">
         <div class="hero-content" style="max-width: 900px;">
-            <div class="badge-pill" style="margin-bottom: 16px; background: rgba(255,255,255,0.1); color: var(--neon-blue); border-color: var(--neon-blue);">Yapay Zeka ve Analist Entegrasyonu</div>
-            <h1 class="hero-title" style="font-size: 2.8rem; margin: 0;">1. Aşama: Isınma Turu (Neden Buradayız?)</h1>
+            <div class="badge-pill" style="margin-bottom: 16px; background: rgba(255,255,255,0.1); color: var(--neon-blue); border-color: var(--neon-blue);">1. Aşama</div>
+            <h1 class="hero-title" style="font-size: 2.8rem; margin: 0;">Yapay Zeka Okuryazarlığı</h1>
             <p class="hero-subtitle" style="font-size: 1.25rem; line-height: 1.6; margin-top: 24px;">
-                Yapay zeka nedir, makine öğrenmesi nedir? Geleneksel istatistiksel yöntemlerle arasındaki temel fark nedir?
+                Yapay zekanın nasıl çalıştığını kavrayın, temel kavramları öğrenin ve etkili istem (prompt) mühendisliği ile token israfı yapmadan modelin performansını artıracak yöntemleri keşfedin.
             </p>
         </div>
     </section>
 
     <main class="formulas-main" style="max-width: 1200px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
+        
+        <!-- YENİ BÖLÜM: YAPAY ZEKA NASIL ÇALIŞIR? -->
         <div class="glass" style="padding: 40px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
-            <h2 style="font-size: 2rem; color: var(--neon-blue); margin-bottom: 24px;">İstatistiğin Kaslı Versiyonu</h2>
-            <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.8;">
-                Teknik detay sıfır. Yapay zekanın işinizi elinizden alacak bir canavar değil, sadece çok daha gelişmiş bir istatistiksel araç olduğunu öğrenin.
-            </p>
-            <div style="margin-top: 40px; padding: 24px; border-radius: 16px; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05);">
-                <p style="color: var(--text-main); font-style: italic; text-align: center;">Buraya detaylı içerikler, grafikler ve interaktif öğeler eklenecektir.</p>
+            <div style="margin-bottom: 32px;">
+                <h2 style="font-size: 2rem; color: var(--neon-blue); margin: 0;">Yapay Zeka Nasıl Çalışır?</h2>
             </div>
+            
+            <p class="box-desc" style="font-size: 1.15rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 32px;">
+                <strong>Çalışma Mantığı:</strong> Yapay zeka, bir "kara kutu" değildir. Temelde çok basittir: Sistem ham veriyi (Data) alır, bu verideki örüntüleri (Pattern) tanır ve bu örüntülere dayanarak yeni bir girdi için bir tahmin (Prediction) veya karar (Decision) üretir. Parametreleri nasıl filtrelediğini ve sonuca nasıl ulaştığını anlamak zorundasınız. <strong style="color:var(--text-main);">İpleri elinde tutan sen olmalısın, makine değil.</strong>
+            </p>
+            
+            <div class="workflow-interactive-wide">
+                <!-- Step 1: Prompt Input (Like ChatGPT) -->
+                <div class="prompt-simulation">
+                    <div class="prompt-box">
+                        <input type="number" id="wf-income-input" class="prompt-input" placeholder="Aylık gelirinizi girin (Örn: 35000)...">
+                        <button id="wf-btn-send" class="prompt-send-btn" title="İstemi Gönder">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 2: AI Processing (Hidden until click) -->
+                <div class="bank-ai-container" style="margin-top: 32px; padding: 32px 24px 24px 24px; border: 2px dashed var(--neon-blue); border-radius: 24px; background: rgba(56, 189, 248, 0.03); position: relative;">
+                    <div style="position: absolute; top: -14px; left: 32px; background: var(--bg-dark); padding: 4px 16px; color: var(--neon-blue); font-weight: 800; font-size: 1.1rem; border: 1px solid var(--neon-blue); border-radius: 8px; box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);">Bank AI Makinesi</div>
+                    
+                    <div class="ai-processing-area" id="ai-processing-area">
+                        <div class="scanning-module">
+                            <div class="scan-header">
+                                <div class="spinner" id="wf-spinner"></div>
+                                <span id="wf-status-text">Model Beklemede...</span>
+                            </div>
+                            
+                            <div class="parameters-grid">
+                                <div class="param-item">Kredi Notu: <span class="param-val">850</span></div>
+                                <div class="param-item">Meslek: <span class="param-val">Mühendis</span></div>
+                                <div class="param-item" id="param-income-box">Aylık Gelir: <span class="param-val" id="param-income-val">Bekleniyor...</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Result -->
+                        <div class="decision-module">
+                            <div class="result-box" id="wf-result-box">
+                                <span id="wf-result-text">?</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Limitations Text -->
+            <div class="ai-limitations-text" style="margin-top: 48px; padding: 32px; background: var(--bg-card); border-radius: 16px; border-left: 4px solid var(--neon-blue); box-shadow: var(--shadow-card);">
+                <h3 style="color: var(--text-main); font-size: 1.3rem; margin-top: 0; margin-bottom: 16px;">Sınırları Çizelim: Makine Ne Yapar, Ne Yapamaz?</h3>
+                <p style="color: var(--text-main); font-size: 1.1rem; line-height: 1.8; margin-bottom: 16px; font-weight: 500;">
+                    Yapay zeka sihirli bir değnek değildir. Düşünmez, hissetmez ve sizin gibi <strong>yorum yapamaz</strong>. Bizim kelimelerle ifade ettiğimiz dünyayı, o sadece sayılar ve olasılıklar dizisi olarak görür.
+                </p>
+                <p style="color: var(--text-main); font-size: 1.1rem; line-height: 1.8; margin-bottom: 16px; font-weight: 500;">
+                    Yapay zekanın büyüklüğünü belirleyen en temel kavram <strong>Parametre</strong> sayısıdır. Parametreleri, modelin beynindeki nöronlar arasındaki milyarlarca bağ (denklem) olarak düşünebilirsiniz. İsteminiz (prompt), bu milyarlarca parametre arasından süzülerek kendisine en uygun matematiksel yolu bulur. 
+                </p>
+                <p style="color: var(--text-main); font-size: 1.1rem; line-height: 1.8; margin-bottom: 0; font-weight: 500;">
+                    Yazdığınız her kelime sisteme bir <strong>Token</strong> (hece/parçacık) olarak girer. Makine bu tokenleri alır ve devasa parametre ağının içinde <em style="color: var(--neon-blue);">"Bu token dizisinden sonra gelmesi gereken en olası veri nedir?"</em> diye sorar. Yani ortada gerçek bir yaratıcılık, his veya rastsallık yoktur; sadece muazzam büyüklükte, çok hızlı çözülen bir olasılık ve istatistik problemi vardır.
+                </p>
+            </div>
+
+            <!-- CSS Flowchart Infographic -->
+            <div class="ai-process-flowchart" style="display: flex; justify-content: space-between; align-items: stretch; gap: 16px; margin-top: 40px; padding: 32px; background: transparent; border-radius: 20px; border: 1px solid var(--glass-border); box-shadow: 0 4px 30px rgba(0,0,0,0.05);">
+                
+                <!-- Step 1 -->
+                <div class="flow-step" style="flex: 1; text-align: center; padding: 24px 16px; background: var(--bg-card); border: 2px solid rgba(56, 189, 248, 0.3); border-radius: 16px; display: flex; flex-direction: column; align-items: center; box-shadow: var(--shadow-card);">
+                    <div style="font-size: 2.5rem; margin-bottom: 16px; background: rgba(56, 189, 248, 0.1); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 50%;">💬</div>
+                    <h4 style="color: var(--neon-blue); font-size: 1.1rem; margin: 0 0 12px 0;">1. İstem (Prompt)</h4>
+                    <p style="color: var(--text-main); font-weight: 500; font-size: 0.95rem; line-height: 1.5; margin: 0;">Kullanıcının yazdığı metin alınır ve "Token" adı verilen küçük veri parçacıklarına bölünür.</p>
+                </div>
+
+                <!-- Arrow -->
+                <div class="flow-arrow" style="display: flex; align-items: center; justify-content: center; color: var(--text-main); font-size: 2rem; font-weight: bold;">
+                    ➔
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flow-step" style="flex: 1; text-align: center; padding: 24px 16px; background: var(--bg-card); border: 2px solid rgba(192, 132, 252, 0.3); border-radius: 16px; display: flex; flex-direction: column; align-items: center; box-shadow: var(--shadow-card);">
+                    <div style="font-size: 2.5rem; margin-bottom: 16px; background: rgba(192, 132, 252, 0.1); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 50%;">🧠</div>
+                    <h4 style="color: var(--neon-purple); font-size: 1.1rem; margin: 0 0 12px 0;">2. Parametre Ağı</h4>
+                    <p style="color: var(--text-main); font-weight: 500; font-size: 0.95rem; line-height: 1.5; margin: 0;">Tokenler, milyarlarca parametrenin bulunduğu devasa ve karmaşık sinir ağından süzülür.</p>
+                </div>
+
+                <!-- Arrow -->
+                <div class="flow-arrow" style="display: flex; align-items: center; justify-content: center; color: var(--text-main); font-size: 2rem; font-weight: bold;">
+                    ➔
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flow-step" style="flex: 1; text-align: center; padding: 24px 16px; background: var(--bg-card); border: 2px solid rgba(52, 211, 153, 0.3); border-radius: 16px; display: flex; flex-direction: column; align-items: center; box-shadow: var(--shadow-card);">
+                    <div style="font-size: 2.5rem; margin-bottom: 16px; background: rgba(52, 211, 153, 0.1); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 50%;">🎯</div>
+                    <h4 style="color: var(--neon-green); font-size: 1.1rem; margin: 0 0 12px 0;">3. Olasılık Çıktısı</h4>
+                    <p style="color: var(--text-main); font-weight: 500; font-size: 0.95rem; line-height: 1.5; margin: 0;">Ağdaki hesaplamalar sonucunda en yüksek istatistiksel olasılığa sahip olan sonuç ekrana yazdırılır.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- BÖLÜM 2: MATRUŞKA SİMÜLASYONU -->
+        <div class="glass" style="padding: 40px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 32px;">
+                <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(192, 132, 252, 0.15); border: 2px solid var(--neon-purple); display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">🪆</div>
+                <h2 style="font-size: 2rem; color: var(--neon-purple); margin: 0;">Kavram Karmaşasını Çözmek</h2>
+            </div>
+
+                
+                <p style="color: var(--text-main); font-size: 1.15rem; line-height: 1.8; margin-bottom: 32px; font-weight: 500;">
+                    Yapay Zeka çok geniş bir şemsiyedir. Her şeyin temelinde veri yatar. Peki bu terimler birbirinin neresinde duruyor ve böyle bir sistem sıfırdan nasıl inşa ediliyor?
+                </p>
+
+                <div class="concept-architecture-container" style="display: flex; gap: 40px; align-items: flex-start; flex-wrap: wrap;">
+                    
+                    <!-- Left: Nested Concepts Diagram (Euler) -->
+                    <div class="nested-diagram" style="flex: 1; min-width: 320px; display: flex; flex-direction: column; gap: 16px;">
+                        <h3 style="color: var(--text-main); font-size: 1.3rem; margin-bottom: 8px;">Kavramsal Hiyerarşi</h3>
+                        
+                        <!-- AI -->
+                        <div class="nested-box" style="background: rgba(56, 189, 248, 0.05); border: 2px solid var(--neon-blue); border-radius: 24px; padding: 24px; box-shadow: 0 4px 20px rgba(56, 189, 248, 0.05);">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                                <div style="color: var(--neon-blue); font-weight: 800; font-size: 1.1rem;">1. Yapay Zeka (AI)</div>
+                                <div style="color: var(--neon-blue); font-size: 1.5rem;">🤖</div>
+                            </div>
+                            <p style="color: var(--text-main); font-weight: 500; font-size: 0.9rem; margin-bottom: 24px;">İnsan zekasını taklit eden her türlü bilgisayar sistemi.</p>
+                            
+                            <!-- ML -->
+                            <div class="nested-box" style="background: rgba(192, 132, 252, 0.05); border: 2px solid var(--neon-purple); border-radius: 16px; padding: 24px;">
+                                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                                    <div style="color: var(--neon-purple); font-weight: 800; font-size: 1.1rem;">2. Makine Öğrenmesi (ML)</div>
+                                    <div style="color: var(--neon-purple); font-size: 1.5rem;">⚙️</div>
+                                </div>
+                                <p style="color: var(--text-main); font-weight: 500; font-size: 0.9rem; margin-bottom: 24px;">Veriden öğrenerek kendini geliştiren istatistiksel algoritmalar.</p>
+                                
+                                <!-- DL -->
+                                <div class="nested-box" style="background: rgba(244, 114, 182, 0.05); border: 2px solid var(--neon-pink); border-radius: 12px; padding: 24px;">
+                                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                                        <div style="color: var(--neon-pink); font-weight: 800; font-size: 1.1rem;">3. Derin Öğrenme (DL)</div>
+                                        <div style="color: var(--neon-pink); font-size: 1.5rem;">🧠</div>
+                                    </div>
+                                    <p style="color: var(--text-main); font-weight: 500; font-size: 0.9rem; margin-bottom: 24px;">İnsan beyninden ilham alan çok katmanlı yapay sinir ağları.</p>
+                                    
+                                    <!-- GenAI -->
+                                    <div class="nested-box" style="background: rgba(52, 211, 153, 0.05); border: 2px solid var(--neon-green); border-radius: 8px; padding: 16px;">
+                                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                                            <div style="color: var(--neon-green); font-weight: 800;">4. Üretken YZ (GenAI)</div>
+                                            <div style="color: var(--neon-green); font-size: 1.5rem;">✨</div>
+                                        </div>
+                                        <p style="color: var(--text-main); font-weight: 500; font-size: 0.9rem; margin-top: 8px; margin-bottom: 0;">Mevcut verilerden yepyeni metin, görsel veya kod üreten alt dal (Örn: ChatGPT).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Production Stages Schematic -->
+                    <div class="production-stages" style="flex: 1.5; min-width: 350px; display: flex; flex-direction: column; gap: 12px;">
+                        <h3 style="color: var(--text-main); font-size: 1.3rem; margin-bottom: 8px;">Yapay Zeka Üretim Aşamaları</h3>
+                        
+                        <div class="stage-card" style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 16px; padding: 20px; display: flex; gap: 16px; align-items: center; box-shadow: var(--shadow-card); transition: transform 0.3s ease;">
+                            <div class="stage-icon" style="font-size: 2rem; background: rgba(56, 189, 248, 0.1); width: 60px; height: 60px; min-width: 60px; border-radius: 12px; display: flex; justify-content: center; align-items: center; border: 1px solid rgba(56, 189, 248, 0.3);">🗄️</div>
+                            <div>
+                                <h4 style="color: var(--neon-blue); margin: 0 0 6px 0; font-size: 1.1rem;">1. Veri Toplama ve Temizleme</h4>
+                                <p style="color: var(--text-main); font-weight: 500; font-size: 0.95rem; margin: 0; line-height: 1.5;">Modelin öğrenmesi için devasa miktarda ham veri toplanır, hatalardan arındırılır ve matematiksel formatlara dönüştürülür.</p>
+                            </div>
+                        </div>
+
+                        <!-- Vertical Arrow -->
+                        <div style="color: var(--text-main); font-size: 1.8rem; text-align: center; margin: -4px 0; opacity: 0.7;">⬇</div>
+
+                        <div class="stage-card" style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 16px; padding: 20px; display: flex; gap: 16px; align-items: center; box-shadow: var(--shadow-card); transition: transform 0.3s ease;">
+                            <div class="stage-icon" style="font-size: 2rem; background: rgba(192, 132, 252, 0.1); width: 60px; height: 60px; min-width: 60px; border-radius: 12px; display: flex; justify-content: center; align-items: center; border: 1px solid rgba(192, 132, 252, 0.3);">🏋️</div>
+                            <div>
+                                <h4 style="color: var(--neon-purple); margin: 0 0 6px 0; font-size: 1.1rem;">2. Model Eğitimi (Training)</h4>
+                                <p style="color: var(--text-main); font-weight: 500; font-size: 0.95rem; margin: 0; line-height: 1.5;">Algoritmalar bu verileri kullanarak örüntüleri (pattern) keşfeder. Çok yüksek GPU işlem gücü ve aylar süren zaman gerektirir.</p>
+                            </div>
+                        </div>
+
+                        <!-- Vertical Arrow -->
+                        <div style="color: var(--text-main); font-size: 1.8rem; text-align: center; margin: -4px 0; opacity: 0.7;">⬇</div>
+
+                        <div class="stage-card" style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 16px; padding: 20px; display: flex; gap: 16px; align-items: center; box-shadow: var(--shadow-card); transition: transform 0.3s ease;">
+                            <div class="stage-icon" style="font-size: 2rem; background: rgba(244, 114, 182, 0.1); width: 60px; height: 60px; min-width: 60px; border-radius: 12px; display: flex; justify-content: center; align-items: center; border: 1px solid rgba(244, 114, 182, 0.3);">⚖️</div>
+                            <div>
+                                <h4 style="color: var(--neon-pink); margin: 0 0 6px 0; font-size: 1.1rem;">3. Test ve İnce Ayar (Fine-Tuning)</h4>
+                                <p style="color: var(--text-main); font-weight: 500; font-size: 0.95rem; margin: 0; line-height: 1.5;">Eğitilen model, hiç görmediği verilerle test edilir. Hataları düzeltilir ve insan geri bildirimleriyle ince ayarlamalar yapılır.</p>
+                            </div>
+                        </div>
+
+                        <!-- Vertical Arrow -->
+                        <div style="color: var(--text-main); font-size: 1.8rem; text-align: center; margin: -4px 0; opacity: 0.7;">⬇</div>
+
+                        <div class="stage-card" style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 16px; padding: 20px; display: flex; gap: 16px; align-items: center; box-shadow: var(--shadow-card); transition: transform 0.3s ease;">
+                            <div class="stage-icon" style="font-size: 2rem; background: rgba(52, 211, 153, 0.1); width: 60px; height: 60px; min-width: 60px; border-radius: 12px; display: flex; justify-content: center; align-items: center; border: 1px solid rgba(52, 211, 153, 0.3);">🚀</div>
+                            <div>
+                                <h4 style="color: var(--neon-green); margin: 0 0 6px 0; font-size: 1.1rem;">4. Çıkarım (Inference - Canlı Kullanım)</h4>
+                                <p style="color: var(--text-main); font-weight: 500; font-size: 0.95rem; margin: 0; line-height: 1.5;">Model canlıya alınır. Kullanıcı sisteme bir istem (prompt) yazdığında model öğrendiklerine dayanarak hızlıca çıktı üretir.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        <!-- BÖLÜM 3: YAPAY ZEKAYI DOĞRU KULLANMA REHBERİ -->
+        <div class="glass" style="padding: 40px; border-radius: 28px; border: 1px solid var(--glass-border); margin-top: 64px; margin-bottom: 48px;">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(52, 211, 153, 0.15); border: 2px solid var(--neon-green); display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">🎯</div>
+                <h2 style="font-size: 2rem; color: var(--neon-green); margin: 0;">Yapay Zeka Nasıl Doğru Kullanılır?</h2>
+            </div>
+            
+            <p style="color: var(--text-main); font-size: 1.15rem; line-height: 1.8; margin-bottom: 32px; font-weight: 500;">
+                Yapay zekayı mucizevi bir "sihirli değnek" değil, <strong>çok hızlı çalışan ama sınırları olan bir asistan</strong> olarak görmelisiniz. Kurum içi eğitimlerde de rahatlıkla referans alabileceğiniz şu <span style="color: var(--neon-green); font-weight: 800;">altı altın kuralı</span> unutmayın:
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+                
+                <!-- Kural 1 -->
+                <div class="stage-card" style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 16px; padding: 24px; box-shadow: var(--shadow-card); transition: transform 0.3s ease; display: flex; flex-direction: column;">
+                    <div style="font-size: 2rem; margin-bottom: 16px;">💬</div>
+                    <h3 style="color: var(--neon-blue); font-size: 1.2rem; margin-top: 0; margin-bottom: 12px;">1. İstem (Prompt) Mühendisliği</h3>
+                    <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.5; margin: 0; flex-grow: 1;">"Bana kod yaz" demek yerine; rol, görev ve format belirterek bağlamı (context) net verin.</p>
+                    <div style="margin-top: 16px; padding: 12px; background: rgba(56, 189, 248, 0.05); border-left: 3px solid var(--neon-blue); border-radius: 0 8px 8px 0;">
+                        <strong style="color: var(--neon-blue); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Çünkü</strong>
+                        <span style="color: var(--text-main); opacity: 0.8; font-size: 0.85rem; line-height: 1.4; display: block; margin-top: 4px;">YZ zihin okuyamaz, sadece verdiğiniz kelimelerin istatistiksel devamını getirir. Girdi ne kadar netse, çıktı o kadar kalitelidir.</span>
+                    </div>
+                </div>
+                
+                <!-- Kural 2 -->
+                <div class="stage-card" style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 16px; padding: 24px; box-shadow: var(--shadow-card); transition: transform 0.3s ease; display: flex; flex-direction: column;">
+                    <div style="font-size: 2rem; margin-bottom: 16px;">⚠️</div>
+                    <h3 style="color: var(--neon-orange); font-size: 1.2rem; margin-top: 0; margin-bottom: 12px;">2. Halüsinasyon Gerçeği</h3>
+                    <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.5; margin: 0; flex-grow: 1;">Yapay zeka, emin olmadığı konularda kulağa çok inandırıcı gelen "yalanlar" (halüsinasyon) uydurabilir.</p>
+                    <div style="margin-top: 16px; padding: 12px; background: rgba(251, 146, 60, 0.05); border-left: 3px solid var(--neon-orange); border-radius: 0 8px 8px 0;">
+                        <strong style="color: var(--neon-orange); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Çünkü</strong>
+                        <span style="color: var(--text-main); opacity: 0.8; font-size: 0.85rem; line-height: 1.4; display: block; margin-top: 4px;">Modeller mutlak gerçeği değil, "istatistiksel olarak en olası olanı" üretmek üzere eğitilmiştir. Kulağa mantıklı gelen hatalar yapmaları doğalarındadır.</span>
+                    </div>
+                </div>
+                
+                <!-- Kural 3 -->
+                <div class="stage-card" style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 16px; padding: 24px; box-shadow: var(--shadow-card); transition: transform 0.3s ease; display: flex; flex-direction: column;">
+                    <div style="font-size: 2rem; margin-bottom: 16px;">🔄</div>
+                    <h3 style="color: var(--neon-purple); font-size: 1.2rem; margin-top: 0; margin-bottom: 12px;">3. İteratif Yaklaşım</h3>
+                    <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.5; margin: 0; flex-grow: 1;">İlk cevap nadiren mükemmeldir. "Şu kısmı anlamadım, daha detaylı açıklar mısın?" diyerek konuşmayı derinleştirin.</p>
+                    <div style="margin-top: 16px; padding: 12px; background: rgba(192, 132, 252, 0.05); border-left: 3px solid var(--neon-purple); border-radius: 0 8px 8px 0;">
+                        <strong style="color: var(--neon-purple); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Çünkü</strong>
+                        <span style="color: var(--text-main); opacity: 0.8; font-size: 0.85rem; line-height: 1.4; display: block; margin-top: 4px;">Bu süreç tek adımlık bir işlem değil, bir diyalogdur. YZ, önceki mesajları bağlam olarak alıp kendini düzeltebilir.</span>
+                    </div>
+                </div>
+                
+                <!-- Kural 4 -->
+                <div class="stage-card" style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 16px; padding: 24px; box-shadow: var(--shadow-card); transition: transform 0.3s ease; display: flex; flex-direction: column;">
+                    <div style="font-size: 2rem; margin-bottom: 16px;">🔒</div>
+                    <h3 style="color: var(--neon-pink); font-size: 1.2rem; margin-top: 0; margin-bottom: 12px;">4. Veri Gizliliği</h3>
+                    <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.5; margin: 0; flex-grow: 1;">Şirketinizin hassas verilerini, API anahtarlarını, müşteri şifrelerini veya ticari sırlarını asla yapay zeka araçlarına yapıştırmayın.</p>
+                    <div style="margin-top: 16px; padding: 12px; background: rgba(244, 114, 182, 0.05); border-left: 3px solid var(--neon-pink); border-radius: 0 8px 8px 0;">
+                        <strong style="color: var(--neon-pink); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Çünkü</strong>
+                        <span style="color: var(--text-main); opacity: 0.8; font-size: 0.85rem; line-height: 1.4; display: block; margin-top: 4px;">Halka açık modeller bu verileri gelecekteki eğitimlerinde kullanabilir ve başka kullanıcıların sorgularında sızdırabilir.</span>
+                    </div>
+                </div>
+
+                <!-- Kural 5 -->
+                <div class="stage-card" style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 16px; padding: 24px; box-shadow: var(--shadow-card); transition: transform 0.3s ease; display: flex; flex-direction: column;">
+                    <div style="font-size: 2rem; margin-bottom: 16px;">🔋</div>
+                    <h3 style="color: var(--neon-green); font-size: 1.2rem; margin-top: 0; margin-bottom: 12px;">5. Token Tasarrufu</h3>
+                    <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.5; margin: 0; flex-grow: 1;">İstemlerinizi gereksiz yere uzun tutmayın. Çok büyük dosya veya kodları aynı anda vermek yerine parça parça işleyin.</p>
+                    <div style="margin-top: 16px; padding: 12px; background: rgba(52, 211, 153, 0.05); border-left: 3px solid var(--neon-green); border-radius: 0 8px 8px 0;">
+                        <strong style="color: var(--neon-green); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Çünkü</strong>
+                        <span style="color: var(--text-main); opacity: 0.8; font-size: 0.85rem; line-height: 1.4; display: block; margin-top: 4px;">Her modelin bir hafıza kapasitesi (context window) ve işlem maliyeti (token) vardır. Bilgi yığılması modelin "unutmasına" ve odağını kaybetmesine yol açar.</span>
+                    </div>
+                </div>
+
+                <!-- Kural 6 -->
+                <div class="stage-card" style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 16px; padding: 24px; box-shadow: var(--shadow-card); transition: transform 0.3s ease; display: flex; flex-direction: column;">
+                    <div style="font-size: 2rem; margin-bottom: 16px;">🔬</div>
+                    <h3 style="color: var(--text-main); font-size: 1.2rem; margin-top: 0; margin-bottom: 12px;">6. Çıktı Kontrolü (Verification)</h3>
+                    <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.5; margin: 0; flex-grow: 1;">Size yazdırdığı kodu, ürettiği raporu veya yaptığı analizi mutlaka bağımsız olarak çalıştırıp test edin.</p>
+                    <div style="margin-top: 16px; padding: 12px; background: rgba(148, 163, 184, 0.05); border-left: 3px solid var(--text-main); border-radius: 0 8px 8px 0;">
+                        <strong style="color: var(--text-main); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Çünkü</strong>
+                        <span style="color: var(--text-main); opacity: 0.8; font-size: 0.85rem; line-height: 1.4; display: block; margin-top: 4px;">Kod veya metin "görünüşte" kusursuz dursa da arka planda iş mantığına (business logic) ters düşen ölümcül hatalar barındırabilir. Nihai sorumluluk daima sizdedir.</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- BÖLÜM 4: PROMPT MÜHENDİSLİĞİ SANATI -->
+        <div class="glass" style="padding: 40px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(56, 189, 248, 0.15); border: 2px solid var(--neon-blue); display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">✍️</div>
+                <h2 style="font-size: 2rem; color: var(--neon-blue); margin: 0;">Prompt (İstem) Mühendisliği Sanatı</h2>
+            </div>
+            
+            <p style="color: var(--text-main); font-size: 1.15rem; line-height: 1.8; margin-bottom: 32px;">
+                İyi bir prompt yazmak, yapay zekaya "ne istediğinizi" değil, <strong>"nasıl düşünmesi gerektiğini"</strong> söylemektir. Başarılı bir istemin temel formülü şudur: <strong style="color: var(--neon-pink);">Rol + Bağlam + Görev + Format</strong>.
+            </p>
+
+            <!-- Kötü vs İyi İstem Karşılaştırması -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-bottom: 48px;">
+                
+                <!-- Kötü İstem -->
+                <div style="background: var(--bg-card); border: 1px solid var(--neon-red); border-radius: 16px; padding: 24px; position: relative;">
+                    <div style="position: absolute; top: -12px; left: 24px; background: var(--neon-red); color: white; padding: 4px 12px; border-radius: 8px; font-size: 0.8rem; font-weight: bold; text-transform: uppercase;">❌ Kötü Örnek (Zayıf)</div>
+                    <div style="background: rgba(239, 68, 68, 0.05); padding: 16px; border-radius: 8px; margin-top: 16px; font-family: monospace; color: var(--text-main); font-size: 1rem; border: 1px dashed rgba(239, 68, 68, 0.3);">
+                        "Bana 2024 bankacılık trendlerini yaz."
+                    </div>
+                    <div style="margin-top: 16px; color: var(--text-muted); font-size: 0.9rem; line-height: 1.5;">
+                        <strong>Sonuç:</strong> YZ size internetten derlediği yüzeysel, genel geçer ve muhtemelen işinize yaramayacak uzun bir metin duvarı verir. Sizi ve amacınızı tanımadığı için ortalama bir cevap üretir.
+                    </div>
+                </div>
+
+                <!-- İyi İstem -->
+                <div style="background: var(--bg-card); border: 1px solid var(--neon-green); border-radius: 16px; padding: 24px; position: relative;">
+                    <div style="position: absolute; top: -12px; left: 24px; background: var(--neon-green); color: #000; padding: 4px 12px; border-radius: 8px; font-size: 0.8rem; font-weight: bold; text-transform: uppercase;">✅ İyi Örnek (Güçlü)</div>
+                    <div style="background: rgba(52, 211, 153, 0.05); padding: 16px; border-radius: 8px; margin-top: 16px; font-family: monospace; color: var(--text-main); font-size: 1rem; border: 1px dashed rgba(52, 211, 153, 0.3); line-height: 1.6;">
+                        <span style="color: var(--neon-blue); font-weight:bold;">[Rol]</span> Sen kıdemli bir finansal veri analistisin.<br>
+                        <span style="color: var(--neon-purple); font-weight:bold;">[Bağlam]</span> Yönetim kurulu için Q3 strateji sunumu hazırlıyorum.<br>
+                        <span style="color: var(--neon-pink); font-weight:bold;">[Görev]</span> 2024 dijital bankacılık trendlerini analiz et.<br>
+                        <span style="color: var(--neon-orange); font-weight:bold;">[Format]</span> Çıktıyı 3 maddelik liste ve yönetici özeti olarak ver.
+                    </div>
+                    <div style="margin-top: 16px; color: var(--text-muted); font-size: 0.9rem; line-height: 1.5;">
+                        <strong>Sonuç:</strong> YZ artık kim olduğunu, kime hitap ettiğini ve tam olarak ne formatta çıktı üretmesi gerektiğini bilir. Doğrudan sunumunuza ekleyebileceğiniz profesyonel bir sonuç verir.
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Token Tasarrufu Görselleştirmesi -->
+            <div style="background: var(--bg-card); border-radius: 16px; padding: 32px; border: 1px solid var(--glass-border); box-shadow: inset 0 0 20px rgba(0,0,0,0.05);">
+                <h3 style="color: var(--neon-orange); font-size: 1.5rem; margin-top: 0; margin-bottom: 24px; display: flex; align-items: center; gap: 8px;">
+                    <span>🔋</span> Nezaket vs. Odak (Token İsrafı)
+                </h3>
+                
+                <!-- ÜSTTE YAZI VE GÖRSEL -->
+                <div style="display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start; margin-bottom: 32px;">
+                    <img src="../../assets/token-waste.png" alt="Token Waste Illustration" style="width: 100%; max-width: 400px; border-radius: 16px; border: 1px solid var(--glass-border); box-shadow: 0 0 30px rgba(239, 68, 68, 0.15);">
+                    <div style="flex: 1; min-width: 300px;">
+                        <p style="color: var(--text-main); font-size: 1.05rem; line-height: 1.6; margin-bottom: 0;">
+                            Yapay zekaya insani bir nezaketle <strong>"Teşekkür ederim", "Lütfen bana yardımcı ol", "Harikasın"</strong> gibi şeyler yazdığınızda, model bu kelimeleri işlemek için de değerli <em>token</em> (hafıza/işlem gücü) harcar. <br><br>
+                            Bağlam (Context) penceresi bu gereksiz kelimelerle dolduğunda, modelin <strong>dikkat mekanizması (attention)</strong> zayıflar. Asıl çözmesi gereken zor problemi "unutur" ve odak kayması yaşar.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ALTTA YAN YANA ÖRNEKLER -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
+                    <div style="background: rgba(239, 68, 68, 0.05); padding: 24px; border-radius: 16px; border: 1px solid rgba(239, 68, 68, 0.2); display: flex; flex-direction: column;">
+                        <strong style="color: var(--neon-red); display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">❌ Yanlış Kullanım (Odak Kaybı)</strong>
+                        <p style="flex: 1; font-family: monospace; font-size: 0.95rem; color: var(--text-main); margin: 0; opacity: 0.8; line-height: 1.5;">
+                            "Merhaba yapay zeka nasılsın, umarım iyisindir. Lütfen bana acilen yardımcı olabilir misin? Sana çok teşekkür ederim..."
+                        </p>
+                        <div style="margin-top: 16px; font-size: 0.85rem; color: var(--neon-red); font-weight: bold; background: rgba(239,68,68,0.1); display: inline-block; padding: 4px 12px; border-radius: 6px; align-self: flex-start;">Sonuç: ~25 Token Çöpe Gitti.</div>
+                    </div>
+                    
+                    <div style="background: rgba(52, 211, 153, 0.05); padding: 24px; border-radius: 16px; border: 1px solid rgba(52, 211, 153, 0.3); box-shadow: 0 0 15px rgba(52, 211, 153, 0.1); display: flex; flex-direction: column;">
+                        <strong style="color: var(--neon-green); display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">✅ Doğru Kullanım (Direkt Emir)</strong>
+                        <p style="flex: 1; font-family: monospace; font-size: 0.95rem; color: var(--text-main); margin: 0; font-weight: bold; line-height: 1.5;">
+                            "Aşağıdaki veriyi incele ve HTML tablo formatında özetle:"
+                        </p>
+                        <div style="margin-top: 16px; font-size: 0.85rem; color: var(--neon-green); font-weight: bold; background: rgba(52,211,153,0.1); display: inline-block; padding: 4px 12px; border-radius: 6px; align-self: flex-start;">Sonuç: Tüm dikkat (attention) veride.</div>
+                    </div>
+                </div>
+
+                <!-- Yığınlama vs Parçalama -->
+                <hr style="border: none; border-top: 1px solid var(--glass-border); margin: 48px 0;">
+                
+                <h3 style="color: var(--neon-purple); font-size: 1.5rem; margin-top: 0; margin-bottom: 24px; display: flex; align-items: center; gap: 8px;">
+                    <span>🧱</span> Yığınlama (Dumping) vs. Parçalama (Chunking)
+                </h3>
+
+                <!-- ÜSTTE YAZI -->
+                <p style="color: var(--text-main); font-size: 1.05rem; line-height: 1.6; margin-bottom: 32px;">
+                    Gereksiz nezaket sözcükleri kullanmasanız bile, yapay zekaya devasa bir metni veya 10 farklı görevi tek bir istemde (prompt) <strong>"yığmak" (dumping)</strong> modelin kafasını karıştırır. <br><br>
+                    Bunun yerine görevi <strong>parçalara bölmek (chunking)</strong>, modelin her bir adıma tam dikkatini (attention) vermesini sağlar ve "unutma" (forgetting) sorununu ortadan kaldırarak çok daha yüksek kaliteli çıktılar almanızı garantiler.
+                </p>
+
+                <!-- ALTTA YAN YANA ÖRNEKLER -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
+                    <div style="background: rgba(239, 68, 68, 0.05); padding: 24px; border-radius: 16px; border: 1px solid rgba(239, 68, 68, 0.2); display: flex; flex-direction: column;">
+                        <strong style="color: var(--neon-red); display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">❌ Yanlış Kullanım (Toptan Yığma)</strong>
+                        <p style="flex: 1; font-family: monospace; font-size: 0.95rem; color: var(--text-main); margin: 0; opacity: 0.8; line-height: 1.5;">
+                            "Aşağıdaki 50 sayfalık raporu oku. Önce yönetici özeti çıkar, sonra 3. sayfadaki veri hatalarını bul, ardından pazarlama stratejisi yazıp bunları tabloya çevir."
+                        </p>
+                        <div style="margin-top: 16px; font-size: 0.85rem; color: var(--neon-red); font-weight: bold; background: rgba(239,68,68,0.1); display: inline-block; padding: 4px 12px; border-radius: 6px; align-self: flex-start;">Sonuç: Görevlerin yarısı unutulur, yüzeysel çıktı verir.</div>
+                    </div>
+                    
+                    <div style="background: rgba(52, 211, 153, 0.05); padding: 24px; border-radius: 16px; border: 1px solid rgba(52, 211, 153, 0.3); box-shadow: 0 0 15px rgba(52, 211, 153, 0.1); display: flex; flex-direction: column;">
+                        <strong style="color: var(--neon-green); display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">✅ Doğru Kullanım (Adım Adım)</strong>
+                        <p style="flex: 1; font-family: monospace; font-size: 0.95rem; color: var(--text-main); margin: 0; font-weight: bold; line-height: 1.5;">
+                            "Adım 1: Bu raporu incele ve sadece yönetici özeti çıkar." <br><span style="color:var(--text-muted); font-size: 0.85rem;">(Cevap geldikten sonra)</span><br>
+                            "Adım 2: Harika, şimdi sadece 3. sayfadaki veri hatalarını bul..."
+                        </p>
+                        <div style="margin-top: 16px; font-size: 0.85rem; color: var(--neon-green); font-weight: bold; background: rgba(52,211,153,0.1); display: inline-block; padding: 4px 12px; border-radius: 6px; align-self: flex-start;">Sonuç: Her adımda maksimum odak ve kalite.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end;">
+            <a href="../stage2/stage2.html" class="next-stage-btn">
+                2. Aşama: Kaputun Altı <span style="margin-left: 8px;">→</span>
+            </a>
         </div>
     </main>
 
