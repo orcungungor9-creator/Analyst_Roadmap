@@ -95,29 +95,44 @@ document.addEventListener('click', (e) => {
 function scrollCarousel(direction, carouselId) {
     const carousel = document.getElementById(carouselId);
     if (!carousel) return;
-    const firstCard = carousel.querySelector('.carousel-card');
-    const scrollAmount = firstCard ? firstCard.offsetWidth + 24 : carousel.offsetWidth * 0.8;
-    const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+    
+    const cards = carousel.querySelectorAll('.carousel-card');
+    if (cards.length === 0) return;
+    
+    const stride = cards.length > 1 ? (cards[1].offsetLeft - cards[0].offsetLeft) : (cards[0].offsetWidth + 24);
 
     if (direction === 'left') {
-        if (carousel.scrollLeft <= 10) {
-            carousel.scrollTo({ left: maxScroll, behavior: 'smooth' });
-        } else {
-            carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-        }
+        carousel.scrollBy({ left: -stride, behavior: 'smooth' });
     } else {
-        if (carousel.scrollLeft >= maxScroll - 10) {
-            carousel.scrollTo({ left: 0, behavior: 'smooth' });
-        } else {
-            carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-        }
+        carousel.scrollBy({ left: stride, behavior: 'smooth' });
     }
 }
 
 function initCarouselObserver() {
     const carousel = document.getElementById('quick-guides-carousel');
-    const cards = document.querySelectorAll('.carousel-card');
-    if (!carousel || cards.length === 0) return;
+    if (!carousel) return;
+
+    const originalCards = Array.from(carousel.querySelectorAll('.carousel-card'));
+    if (originalCards.length === 0) return;
+
+    // Assign a unique index to sync active states across clones
+    originalCards.forEach((card, idx) => {
+        card.setAttribute('data-sync-index', idx);
+    });
+
+    // Clone cards for infinite loop
+    originalCards.forEach(card => {
+        const clone = card.cloneNode(true);
+        clone.classList.add('carousel-clone');
+        carousel.appendChild(clone);
+    });
+    originalCards.slice().reverse().forEach(card => {
+        const clone = card.cloneNode(true);
+        clone.classList.add('carousel-clone');
+        carousel.prepend(clone);
+    });
+
+    const allCards = carousel.querySelectorAll('.carousel-card');
 
     const observerOptions = {
         root: carousel,
@@ -126,27 +141,92 @@ function initCarouselObserver() {
     };
 
     const observer = new IntersectionObserver((entries) => {
+        let activeIndex = null;
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                cards.forEach(c => c.classList.remove('active-card'));
-                entry.target.classList.add('active-card');
+                activeIndex = entry.target.getAttribute('data-sync-index');
             }
         });
+        
+        if (activeIndex !== null) {
+            allCards.forEach(c => {
+                if (c.getAttribute('data-sync-index') === activeIndex) {
+                    c.classList.add('active-card');
+                } else {
+                    c.classList.remove('active-card');
+                }
+            });
+        }
     }, observerOptions);
 
-    cards.forEach(card => observer.observe(card));
+    allCards.forEach(card => observer.observe(card));
 
-    // Focus on the 3rd card (index 2) on start for desktop, 1st card (index 0) on mobile
-    const isMobile = window.innerWidth <= 768;
-    const targetIndex = isMobile ? 0 : 2;
-
-    if (cards[targetIndex]) {
-        setTimeout(() => {
-            const target = cards[targetIndex];
-            const scrollPos = target.offsetLeft - (carousel.offsetWidth / 2) + (target.offsetWidth / 2);
-            carousel.scrollTo({ left: scrollPos, behavior: 'instant' });
-        }, 50);
+    // Cache dimension calculations to prevent layout thrashing (Reflow) on scroll
+    let stride = 0;
+    let totalOriginalWidth = 0;
+    
+    function calculateDimensions() {
+        if (!carousel) return;
+        stride = allCards.length > 1 ? (allCards[1].offsetLeft - allCards[0].offsetLeft) : (originalCards[0].offsetWidth + 24);
+        totalOriginalWidth = stride * originalCards.length;
     }
+    
+    // Initial calculation
+    calculateDimensions();
+    // Recalculate on window resize
+    window.addEventListener('resize', calculateDimensions, { passive: true });
+
+    // Handle Infinite Scroll resetting
+    let scrollTimeout;
+    carousel.addEventListener('scroll', () => {
+        if (carousel.isResetting || !stride) return;
+        
+        // Debounce heavy checks (throttle to ~60fps)
+        if (scrollTimeout) return;
+        
+        scrollTimeout = setTimeout(() => {
+            scrollTimeout = null;
+            if (carousel.scrollLeft <= stride) {
+                carousel.isResetting = true;
+                carousel.style.scrollBehavior = 'auto';
+                carousel.style.scrollSnapType = 'none';
+                carousel.scrollLeft += totalOriginalWidth;
+                void carousel.offsetWidth; // Reflow
+                carousel.style.scrollBehavior = 'smooth';
+                carousel.style.scrollSnapType = 'x mandatory';
+                setTimeout(() => { carousel.isResetting = false; }, 50);
+            } else if (carousel.scrollLeft >= (totalOriginalWidth * 2) - stride) {
+                carousel.isResetting = true;
+                carousel.style.scrollBehavior = 'auto';
+                carousel.style.scrollSnapType = 'none';
+                carousel.scrollLeft -= totalOriginalWidth;
+                void carousel.offsetWidth;
+                carousel.style.scrollBehavior = 'smooth';
+                carousel.style.scrollSnapType = 'x mandatory';
+                setTimeout(() => { carousel.isResetting = false; }, 50);
+            }
+        }, 16); // ~16ms = 60fps throttle
+    }, { passive: true });
+
+    // Focus on the middle (original) cards on start
+    setTimeout(() => {
+        carousel.style.scrollBehavior = 'auto';
+        carousel.style.scrollSnapType = 'none';
+        
+        const isMobile = window.innerWidth <= 768;
+        // The originals are offset by originalCards.length (since we prepended 1 set)
+        const targetIndex = isMobile ? originalCards.length : originalCards.length + 2; 
+        const target = allCards[targetIndex];
+        
+        if (target) {
+            const scrollPos = target.offsetLeft - (carousel.offsetWidth / 2) + (target.offsetWidth / 2);
+            carousel.scrollLeft = scrollPos;
+        }
+        
+        void carousel.offsetWidth;
+        carousel.style.scrollBehavior = 'smooth';
+        carousel.style.scrollSnapType = 'x mandatory';
+    }, 150);
 }
 
 function initCarouselInteractive() {

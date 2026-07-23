@@ -1,0 +1,217 @@
+﻿
+        trainPct.textContent = `%${trainPctVal} EÄŸitim`;
+        valPct.textContent = `%${valPctVal} DoÄŸrulama (Validation)`;
+        testPct.textContent = `%${testPctVal} Test`;
+
+        // Update colors
+        allBlocks.forEach((block, index) => {
+            if (index < trainPctVal) {
+                block.className = 'data-unit unit-train';
+            } else if (index < trainPctVal + valPctVal) {
+                block.className = 'data-unit unit-val';
+            } else {
+                block.className = 'data-unit unit-test';
+            }
+        });
+
+        // Warnings
+        if (trainPctVal < 60) {
+            splitWarning.textContent = "Dikkat: EÄŸitim verisi Ã§ok az. Model yeterince Ã¶ÄŸrenemeyebilir (Underfitting).";
+            splitWarning.style.color = "var(--neon-orange)";
+            splitWarning.style.borderColor = "var(--neon-orange)";
+        } else if (testPctVal < 10) {
+            splitWarning.textContent = "Dikkat: Test verisi Ã§ok az. Modelin nihai baÅŸarÄ±sÄ±nÄ± gÃ¼venilir ÅŸekilde Ã¶lÃ§emezsiniz.";
+            splitWarning.style.color = "var(--neon-red)";
+            splitWarning.style.borderColor = "var(--neon-red)";
+        } else if (valPctVal < 10) {
+            splitWarning.textContent = "Dikkat: DoÄŸrulama verisi Ã§ok az. Modelin hiperparametrelerini dÃ¼zgÃ¼n ayarlayamazsÄ±nÄ±z.";
+            splitWarning.style.color = "var(--neon-orange)";
+            splitWarning.style.borderColor = "var(--neon-orange)";
+        } else {
+            splitWarning.textContent = "Ä°deal oran! Model yeterince Ã¶ÄŸrenecek, doÄŸrulama ve test edilecek veri var.";
+            splitWarning.style.color = "var(--neon-green)";
+            splitWarning.style.borderColor = "rgba(52, 211, 153, 0.3)";
+        }
+    }
+
+    trainSlider.addEventListener('input', (e) => {
+        let t = parseInt(e.target.value);
+        let v = parseInt(valSlider.value);
+        if (t + v > 100) {
+            valSlider.value = 100 - t;
+        }
+        updateSplit();
+    });
+
+    valSlider.addEventListener('input', (e) => {
+        let v = parseInt(e.target.value);
+        let t = parseInt(trainSlider.value);
+        if (t + v > 100) {
+            trainSlider.value = 100 - v;
+        }
+        updateSplit();
+    });
+    
+    updateSplit(); // Init
+
+
+    /* --- 3. Mock API Simulation --- */
+    const btnApi = document.getElementById('btn-send-api');
+    const terminalBody = document.getElementById('terminal-body');
+
+    function addLog(msg, type) {
+        const div = document.createElement('div');
+        div.className = `log ${type}`;
+        div.textContent = msg;
+        terminalBody.appendChild(div);
+        terminalBody.scrollTop = terminalBody.scrollHeight;
+    }
+
+    btnApi.addEventListener('click', () => {
+        const age = document.getElementById('api-age').value;
+        const income = document.getElementById('api-income').value;
+        const score = document.getElementById('api-score').value;
+
+        btnApi.disabled = true;
+        btnApi.style.opacity = '0.5';
+
+        addLog(`>> [POST] /api/v1/predict/credit`, 'req');
+        addLog(`Payload: {"age":${age}, "income":${income}, "score":${score}}`, 'req');
+
+        setTimeout(() => {
+            addLog(`>> Model yÃ¼kleniyor...`, 'process');
+        }, 600);
+
+        setTimeout(() => {
+            addLog(`>> Ã‡Ä±karÄ±m (Inference) yapÄ±lÄ±yor...`, 'process');
+        }, 1200);
+
+        setTimeout(() => {
+            // Fake logic for demo
+            let approved = false;
+            let prob = 0;
+            if (income > 3000 && score > 600) {
+                approved = true;
+                prob = Math.floor(Math.random() * 20) + 80; // 80-99
+            } else {
+                prob = Math.floor(Math.random() * 30) + 10; // 10-39
+            }
+
+            addLog(`<< [200 OK] Response:`, 'res');
+            addLog(`{"approved": ${approved}, "probability": 0.${prob}, "latency": "42ms"}`, 'res');
+            addLog(`-----------------------------------`, 'line');
+            
+            btnApi.disabled = false;
+            btnApi.style.opacity = '1';
+        }, 2000);
+    });
+
+
+    /* --- 4. Model Drift Simulation --- */
+    const driftChart = document.getElementById('drift-chart');
+    const driftPath = document.getElementById('drift-path');
+    const driftAccText = document.getElementById('drift-acc');
+    const driftStatus = document.getElementById('drift-status');
+    const btnCrisis = document.getElementById('btn-trigger-crisis');
+    const btnRetrain = document.getElementById('btn-retrain-model');
+    
+    let chartPoints = [];
+    let isCrisis = false;
+    let driftInterval;
+    let timeX = 0;
+    let currentAcc = 96;
+
+    // Init chart path
+    for(let i=0; i<15; i++) {
+        chartPoints.push({x: timeX, y: 150 - (96)}); 
+        timeX += 10;
+    }
+
+    function drawChart() {
+        if(chartPoints.length > 40) {
+            chartPoints.shift();
+            // shift all x back
+            chartPoints.forEach(p => p.x -= 10);
+            timeX -= 10;
+        }
+        
+        let d = `M ${chartPoints[0].x} ${chartPoints[0].y}`;
+        for(let i=1; i<chartPoints.length; i++) {
+            d += ` L ${chartPoints[i].x} ${chartPoints[i].y}`;
+        }
+        driftPath.setAttribute('d', d);
+        
+        // Color based on accuracy
+        if(currentAcc < 60) driftPath.setAttribute('stroke', 'var(--neon-red)');
+        else if (currentAcc < 80) driftPath.setAttribute('stroke', 'var(--neon-orange)');
+        else driftPath.setAttribute('stroke', 'var(--neon-blue)');
+    }
+
+    function updateDrift() {
+        if (!isCrisis) {
+            // Stable, small fluctuations
+            currentAcc = Math.max(92, Math.min(98, currentAcc + (Math.random() * 4 - 2)));
+        } else {
+            // Crisis! Rapid drop
+            currentAcc = Math.max(35, currentAcc - (Math.random() * 8 + 2));
+        }
+
+        chartPoints.push({x: timeX, y: 150 - currentAcc});
+        timeX += 10;
+        
+        driftAccText.textContent = `%${Math.round(currentAcc)}`;
+        if(currentAcc < 60) driftAccText.style.color = "var(--neon-red)";
+        else if (currentAcc < 80) driftAccText.style.color = "var(--neon-orange)";
+        else driftAccText.style.color = "var(--neon-blue)";
+
+        drawChart();
+    }
+
+    driftInterval = setInterval(updateDrift, 800);
+
+    btnCrisis.addEventListener('click', () => {
+        isCrisis = true;
+        btnCrisis.classList.add('hidden');
+        driftStatus.textContent = "Kritik: Veri DaÄŸÄ±lÄ±mÄ± DeÄŸiÅŸti! (Drift)";
+        driftStatus.className = "status-msg bad";
+        
+        setTimeout(() => {
+            btnRetrain.classList.remove('hidden');
+        }, 2000);
+    });
+
+    btnRetrain.addEventListener('click', () => {
+        isCrisis = false;
+        btnRetrain.classList.add('hidden');
+        
+        driftStatus.textContent = "Model Yeniden EÄŸitiliyor...";
+        driftStatus.className = "status-msg";
+        driftStatus.style.background = "var(--neon-orange)";
+        driftStatus.style.color = "#fff";
+        
+        // Simulated retrain jump
+        setTimeout(() => {
+            currentAcc = 95;
+            driftStatus.textContent = "Durum: Model Stabil (V2.0)";
+            driftStatus.className = "status-msg good";
+            driftStatus.style.background = "";
+            driftStatus.style.color = "";
+            btnCrisis.classList.remove('hidden');
+        }, 1500);
+    });
+
+
+    // Helper for animated numbers
+    function animateValue(obj, start, end, duration) {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            obj.innerHTML = Math.floor(progress * (end - start) + start);
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            }
+        };
+        window.requestAnimationFrame(step);
+    }
+});
