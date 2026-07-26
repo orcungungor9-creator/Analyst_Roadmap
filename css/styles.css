@@ -215,10 +215,9 @@ body {
     position: sticky;
     top: 0;
     z-index: 50;
-    background: var(--header-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--glass-border);
+    background: var(--bg-dark);
+    border-bottom: 2px solid var(--neon-blue);
+    box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4);
     transition: all 0.3s ease;
 }
 
