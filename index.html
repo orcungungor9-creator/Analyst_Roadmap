@@ -247,6 +247,21 @@
                     </svg>
                 </button>
             </div>
+            <script>
+                // Prevent layout flash by centering immediately before paint
+                (function() {
+                    var carousel = document.getElementById('quick-guides-carousel');
+                    if (carousel) {
+                        var cards = carousel.querySelectorAll('.carousel-card');
+                        if (cards.length > 0) {
+                            var target = cards[Math.floor(cards.length / 2)];
+                            carousel.style.scrollBehavior = 'auto';
+                            carousel.style.scrollSnapType = 'none';
+                            carousel.scrollLeft = target.offsetLeft - (carousel.offsetWidth / 2) + (target.offsetWidth / 2);
+                        }
+                    }
+                })();
+            </script>
         </section>
 
         <!-- 4. YAZILIM PROGRAMLARI VİTRİNİ (YENİLENMİŞ, İÇERİĞİ GÖRÜNEN KARTLAR) -->
@@ -470,7 +485,7 @@
 
             <div class="tools-grid">
                 <!-- Aşama 1 -->
-                <div class="tool-card-new glass-card lazy-fade" data-tool="stage1" onclick="window.location.href='ai/stage1/stage1.html'" style="cursor: pointer; border-left: 6px solid #f43f5e; padding: 32px 24px; border-radius: 24px; box-shadow: 0 10px 30px rgba(244, 63, 94, 0.1); display: flex; flex-direction: column; background: var(--bg-card); gap: 8px;">
+                <div class="tool-card-new glass-card lazy-fade" data-tool="stage1" onclick="window.location.href='ai/stage1/stage1.html'" style="cursor: pointer; padding: 32px 24px; border-radius: 24px; box-shadow: inset 6px 0 0 0 #f43f5e, 0 10px 30px rgba(244, 63, 94, 0.1); display: flex; flex-direction: column; background: var(--bg-card); gap: 8px;">
                     <div class="tool-top" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px;">
                         <div class="tool-logo-box" style="width: 54px; height: 54px; border-radius: 16px; background: rgba(244, 63, 94, 0.1); border: 2px solid rgba(244, 63, 94, 0.3); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(244, 63, 94, 0.1);">
                             <span style="font-size: 1.8rem;">💬</span>
@@ -482,7 +497,7 @@
                 </div>
 
                 <!-- Aşama 2 -->
-                <div class="tool-card-new glass-card lazy-fade" data-tool="stage2" onclick="window.location.href='ai/stage2/stage2.html'" style="cursor: pointer; border-left: 6px solid #e11d48; padding: 32px 24px; border-radius: 24px; box-shadow: 0 10px 30px rgba(225, 29, 72, 0.1); display: flex; flex-direction: column; background: var(--bg-card); gap: 8px;">
+                <div class="tool-card-new glass-card lazy-fade" data-tool="stage2" onclick="window.location.href='ai/stage2/stage2.html'" style="cursor: pointer; padding: 32px 24px; border-radius: 24px; box-shadow: inset 6px 0 0 0 #e11d48, 0 10px 30px rgba(225, 29, 72, 0.1); display: flex; flex-direction: column; background: var(--bg-card); gap: 8px;">
                     <div class="tool-top" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px;">
                         <div class="tool-logo-box" style="width: 54px; height: 54px; border-radius: 16px; background: rgba(225, 29, 72, 0.1); border: 2px solid rgba(225, 29, 72, 0.3); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(225, 29, 72, 0.1);">
                             <span style="font-size: 1.8rem;">🗂️</span>
@@ -494,7 +509,7 @@
                 </div>
 
                 <!-- Aşama 3 -->
-                <div class="tool-card-new glass-card lazy-fade" data-tool="stage3" onclick="window.location.href='ai/stage3/stage3.html'" style="cursor: pointer; border-left: 6px solid #a855f7; padding: 32px 24px; border-radius: 24px; box-shadow: 0 10px 30px rgba(168, 85, 247, 0.1); display: flex; flex-direction: column; background: var(--bg-card); gap: 8px;">
+                <div class="tool-card-new glass-card lazy-fade" data-tool="stage3" onclick="window.location.href='ai/stage3/stage3.html'" style="cursor: pointer; padding: 32px 24px; border-radius: 24px; box-shadow: inset 6px 0 0 0 #a855f7, 0 10px 30px rgba(168, 85, 247, 0.1); display: flex; flex-direction: column; background: var(--bg-card); gap: 8px;">
                     <div class="tool-top" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px;">
                         <div class="tool-logo-box" style="width: 54px; height: 54px; border-radius: 16px; background: rgba(168, 85, 247, 0.1); border: 2px solid rgba(168, 85, 247, 0.3); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(168, 85, 247, 0.1);">
                             <span style="font-size: 1.8rem;">🧠</span>
@@ -506,7 +521,7 @@
                 </div>
 
                 <!-- Aşama 4 -->
-                <div class="tool-card-new glass-card lazy-fade" data-tool="stage4" onclick="window.location.href='ai/stage4/stage4.html'" style="cursor: pointer; border-left: 6px solid #f97316; padding: 32px 24px; border-radius: 24px; box-shadow: 0 10px 30px rgba(249, 115, 22, 0.1); display: flex; flex-direction: column; background: var(--bg-card); gap: 8px;">
+                <div class="tool-card-new glass-card lazy-fade" data-tool="stage4" onclick="window.location.href='ai/stage4/stage4.html'" style="cursor: pointer; padding: 32px 24px; border-radius: 24px; box-shadow: inset 6px 0 0 0 #f97316, 0 10px 30px rgba(249, 115, 22, 0.1); display: flex; flex-direction: column; background: var(--bg-card); gap: 8px;">
                     <div class="tool-top" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px;">
                         <div class="tool-logo-box" style="width: 54px; height: 54px; border-radius: 16px; background: rgba(249, 115, 22, 0.1); border: 2px solid rgba(249, 115, 22, 0.3); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(249, 115, 22, 0.1);">
                             <span style="font-size: 1.8rem;">📊</span>

@@ -1,4 +1,530 @@
-﻿/* stage2.css */
-.formulas-hero h1 {{
-    text-shadow: 0 0 30px var(--neon-green);
-}}
+/* stage2.css - İnteraktif Veri Mühendisliği Simülasyonları (6 Adım) */
+
+.story-list.premium-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.step-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.story-text-card {
+    padding: 40px;
+    border-radius: 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+}
+
+.sim-card {
+    width: 100%;
+    min-height: 400px;
+    background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    box-shadow: inset 0 20px 40px rgba(0,0,0,0.5), 0 10px 30px rgba(0,0,0,0.2);
+    padding: 40px 20px 30px 20px;
+    overflow: hidden;
+}
+
+.sim-title {
+    width: 100%;
+    text-align: center;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding-bottom: 16px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    z-index: 10;
+}
+
+.sim-feedback {
+    margin-top: 24px;
+    padding: 16px 24px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.05);
+    color: #f8fafc;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.3s;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+}
+.feedback-success {
+    background: rgba(52, 211, 153, 0.15);
+    color: #10b981;
+    border: 1px solid #10b981;
+}
+.feedback-error {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+    border: 1px solid #ef4444;
+}
+
+.action-btn {
+    padding: 12px 24px;
+    border-radius: 12px;
+    border: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #fff;
+    background: #38bdf8;
+    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+    z-index: 10;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
+}
+.action-btn:active {
+    transform: translateY(1px);
+}
+
+/* =========================================
+   1. Matrix Terminal Sim
+========================================= */
+.sim-matrix-rain {
+    perspective: 1000px;
+}
+.matrix-bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: repeating-linear-gradient(0deg, rgba(16, 185, 129, 0.05) 0px, transparent 2px);
+    opacity: 0.2;
+    z-index: 1;
+}
+.matrix-bg.active-rain {
+    animation: matrixScroll 1s linear infinite;
+    opacity: 0.6;
+}
+@keyframes matrixScroll {
+    from { background-position: 0 0; }
+    to { background-position: 0 20px; }
+}
+.terminal-window {
+    width: 80%;
+    max-width: 600px;
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid var(--neon-blue);
+    border-radius: 12px;
+    overflow: hidden;
+    z-index: 5;
+    box-shadow: 0 10px 40px rgba(56, 189, 248, 0.2);
+}
+.terminal-header {
+    background: rgba(0,0,0,0.5);
+    padding: 10px 16px;
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+}
+.dot {
+    width: 12px; height: 12px; border-radius: 50%;
+}
+.dot.red { background: #ef4444; }
+.dot.yellow { background: #f59e0b; }
+.dot.green { background: #10b981; }
+.terminal-body {
+    padding: 24px;
+    font-family: monospace;
+    font-size: 1.35rem;
+    line-height: 1.6;
+    color: #f8fafc;
+}
+.term-prompt {
+    color: #38bdf8;
+    margin-right: 8px;
+}
+
+/* =========================================
+   2. Drag and Drop Sim
+========================================= */
+.sim-drag-drop {
+    gap: 30px;
+}
+.drop-zones {
+    display: flex;
+    gap: 40px;
+    width: 80%;
+    max-width: 700px;
+    z-index: 5;
+}
+.drop-zone {
+    flex: 1;
+    border: 2px dashed rgba(255,255,255,0.2);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    color: #94a3b8;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s;
+}
+.drop-zone h4 {
+    margin: 0 0 8px 0;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #f8fafc;
+}
+.drop-zone.drag-over {
+    background: rgba(56, 189, 248, 0.1);
+    border-color: #38bdf8;
+}
+.drop-zone.success-glow {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: #10b981;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+}
+
+.drag-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    z-index: 5;
+}
+.drag-item {
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 14px 24px;
+    border-radius: 10px;
+    color: #ffffff;
+    cursor: grab;
+    font-weight: 600;
+    font-size: 1.15rem;
+    transition: transform 0.2s, opacity 0.2s;
+    user-select: none;
+}
+.drag-item:active {
+    cursor: grabbing;
+}
+.drag-item.dragging {
+    opacity: 0.5;
+}
+.drag-item.dropped {
+    margin: 8px 0;
+    cursor: default;
+    background: rgba(16, 185, 129, 0.2);
+    border-color: #10b981;
+}
+
+.shake {
+    animation: shakeAnim 0.4s cubic-bezier(.36,.07,.19,.97) both;
+}
+@keyframes shakeAnim {
+    10%, 90% { transform: translate3d(-1px, 0, 0); }
+    20%, 80% { transform: translate3d(2px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+    40%, 60% { transform: translate3d(4px, 0, 0); }
+}
+
+/* =========================================
+   3. Data Cleaning Sim
+========================================= */
+.sim-cleaning {
+    perspective: 1000px;
+}
+.premium-table {
+    width: 80%;
+    max-width: 600px;
+    border-collapse: collapse;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: 12px;
+    overflow: hidden;
+    color: #f8fafc;
+    font-family: monospace;
+    font-size: 1.2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    z-index: 5;
+    transition: border-color 0.5s;
+}
+.premium-table.all-fixed {
+    border-color: #10b981;
+}
+.premium-table th {
+    background: rgba(0,0,0,0.5);
+    padding: 16px;
+    text-align: left;
+    color: #ef4444;
+    border-bottom: 1px solid rgba(239, 68, 68, 0.3);
+    transition: color 0.5s, border-color 0.5s;
+}
+.premium-table.all-fixed th {
+    color: #10b981;
+    border-color: #10b981;
+}
+.premium-table td {
+    padding: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: all 0.3s;
+}
+
+.glitch-row td {
+    color: #94a3b8;
+}
+.clickable-error {
+    color: #ef4444;
+    font-weight: bold;
+    cursor: pointer;
+    animation: errorPulse 1s infinite alternate;
+    position: relative;
+}
+.clickable-error::before {
+    content: 'Tıkla Düzelt';
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.7rem;
+    background: #ef4444;
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 4px;
+    opacity: 0;
+    transition: 0.3s;
+    pointer-events: none;
+    white-space: nowrap;
+}
+.clickable-error:hover::before {
+    opacity: 1;
+}
+
+.clickable-error.fixed {
+    animation: none;
+    color: #10b981;
+    cursor: default;
+}
+.clickable-error.fixed::before {
+    display: none;
+}
+.glitch-row.row-fixed {
+    background: rgba(16, 185, 129, 0.1);
+}
+
+@keyframes errorPulse {
+    from { text-shadow: 0 0 5px rgba(239, 68, 68, 0.5); }
+    to { text-shadow: 0 0 15px rgba(239, 68, 68, 1); }
+}
+
+/* =========================================
+   4. Feature Engineering Circuits Sim
+========================================= */
+.core-node {
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80px; height: 80px;
+    background: rgba(249, 115, 22, 0.2);
+    border: 2px solid #f97316;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 1.3rem;
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
+    z-index: 5;
+}
+.core-node.spin {
+    animation: spinCore 1s linear infinite;
+}
+@keyframes spinCore {
+    100% { transform: translateY(-50%) rotate(360deg); }
+}
+.circuit-path {
+    position: absolute;
+    left: calc(10% + 40px);
+    width: 50%;
+    height: 2px;
+    background: rgba(255,255,255,0.1);
+    z-index: 2;
+}
+.path-top {
+    top: 30%;
+    transform: rotate(-15deg);
+    transform-origin: left center;
+}
+.path-bottom {
+    top: 70%;
+    transform: rotate(15deg);
+    transform-origin: left center;
+}
+.energy-pulse {
+    width: 20px;
+    height: 4px;
+    background: #f97316;
+    box-shadow: 0 0 10px #f97316;
+    position: absolute;
+    top: -1px;
+}
+.energy-pulse.fire {
+    animation: pulseTravel 1s linear forwards;
+}
+@keyframes pulseTravel {
+    0% { left: 0; opacity: 1; }
+    100% { left: 100%; opacity: 0; }
+}
+
+.result-node {
+    position: absolute;
+    right: 20%;
+    padding: 12px 24px;
+    background: rgba(249, 115, 22, 0.1);
+    border: 1px solid #f97316;
+    border-radius: 8px;
+    color: #f97316;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 1.25rem;
+    opacity: 0.2;
+    transform: scale(0.9);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 5;
+}
+.result-node.active {
+    opacity: 1;
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(249, 115, 22, 0.4);
+    background: rgba(249, 115, 22, 0.2);
+}
+.node-top {
+    top: 15%;
+}
+.node-bottom {
+    top: 65%;
+}
+
+/* =========================================
+   5. Scaling Sim
+========================================= */
+.sim-scaling {
+    gap: 20px;
+}
+.scatter-point {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #a855f7;
+    border-radius: 50%;
+    transform: translate(-50%, 50%);
+    transition: left 1s cubic-bezier(0.4, 0, 0.2, 1), bottom 1s cubic-bezier(0.4, 0, 0.2, 1), background 1s, box-shadow 1s;
+    box-shadow: 0 0 8px rgba(168, 85, 247, 0.6);
+}
+.scatter-point.normalized {
+    background: #10b981;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.8);
+}
+
+/* =========================================
+   6. Bias Seesaw Sim
+========================================= */
+.sim-bias {
+    gap: 16px;
+    min-height: 300px;
+}
+.bias-glass-panel {
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    padding: 20px 32px;
+    width: 100%;
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    z-index: 5;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+.slider-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.slider-group label {
+    color: #f8fafc;
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+}
+.sim-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 12px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 6px;
+    outline: none;
+    transition: 0.2s;
+}
+.sim-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.female-slider::-webkit-slider-thumb { background: #f472b6; }
+.male-slider::-webkit-slider-thumb { background: #60a5fa; }
+.child-slider::-webkit-slider-thumb { background: #4ade80; }
+
+.model-accuracy-meter {
+    margin-top: 8px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+}
+.meter-label {
+    color: #cbd5e1;
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+.meter-bg {
+    width: 100%;
+    height: 20px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+}
+.meter-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ef4444, #f59e0b, #10b981);
+    transition: width 0.3s ease-out;
+}
+.meter-value {
+    margin-top: 8px;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #fff;
+    font-family: monospace;
+    text-shadow: 0 0 10px rgba(255,255,255,0.3);
+}

@@ -3,10 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2. Aşama: Kaputun Altı (Sistem Nasıl Çalışır?) | Analyst Roadmap</title>
+    <title>2. Aşama: Veri Mühendisliği | Analyst Roadmap</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../css/styles.css?v=3.4">
     <link rel="stylesheet" href="stage2.css">
+    <style>
+        .step-content-flex {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+        .step-text-content {
+            flex: 1;
+        }
+        .step-image-content {
+            flex: 1;
+            text-align: center;
+        }
+        .step-image-content img {
+            max-width: 100%;
+            border-radius: 16px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        @media (max-width: 900px) {
+            .step-content-flex {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body class="formulas-page">
     <script>
@@ -30,23 +55,289 @@
 
     <section class="formulas-hero" style="padding-top: 140px; padding-bottom: 60px;">
         <div class="hero-content" style="max-width: 900px;">
-            <div class="badge-pill" style="margin-bottom: 16px; background: rgba(255,255,255,0.1); color: var(--neon-green); border-color: var(--neon-green);">Yapay Zeka ve Analist Entegrasyonu</div>
-            <h1 class="hero-title" style="font-size: 2.8rem; margin: 0;">2. Aşama: Kaputun Altı (Sistem Nasıl Çalışır?)</h1>
+            <div class="badge-pill" style="margin-bottom: 16px; background: rgba(255,255,255,0.1); color: var(--neon-green); border-color: var(--neon-green);">📊 Veri Bilimi ve Model Mimarisi</div>
+            <h1 class="hero-title" style="font-size: 2.8rem; margin: 0;">2. Aşama: Veri Mühendisliği</h1>
             <p class="hero-subtitle" style="font-size: 1.25rem; line-height: 1.6; margin-top: 24px;">
-                Algoritmalar veriyi nasıl okur? Denetimli (Supervised) ve denetimsiz (Unsupervised) öğrenme nedir?
+                Ham verinin, makine öğrenmesi modelleri için işlenebilir istatistiksel bir forma dönüştürülme süreci. Vektörizasyondan veri tipolojisine, özellik çıkarımından (Feature Engineering) normalizasyon ve algoritmik adalet (Bias) kavramlarına kadar verinin tüm anatomisini inşa ediyoruz.
             </p>
         </div>
     </section>
 
     <main class="formulas-main" style="max-width: 1200px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
-        <div class="glass" style="padding: 40px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
-            <h2 style="font-size: 2rem; color: var(--neon-green); margin-bottom: 24px;">Makinenin Öğrenme Mantığı</h2>
-            <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.8;">
-                Derin Öğrenme kelimelerine boğulmadan önce, bir makinenin veriden nasıl örüntü çıkardığını mantıksal olarak kavrayın.
+        <div class="glass" style="padding: 40px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px; background: rgba(16, 185, 129, 0.03);">
+            <h2 style="font-size: 2.2rem; color: var(--neon-green); margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
+                <span>🗂️</span> Veri Mühendisliği: Makine Algısının Temelleri
+            </h2>
+            <p style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.8;">
+                Yapay zeka modellerinin başarı oranı, büyük ölçüde eğitildikleri veri setinin niteliğine bağlıdır. Model mimarisi ne kadar karmaşık olursa olsun, veri setindeki tutarsızlıklar ve hatalar analiz sonuçlarının doğruluğunu doğrudan bozar. Bu bölümde öncelikle gerçek dünya verilerinin algoritmaların işleyebileceği sayısal matrislere nasıl dönüştürüldüğünü (Encoding) inceleyeceğiz. Ardından, veri setindeki aykırı (outlier) ve eksik (null) değerlerin istatistiksel yöntemlerle nasıl temizlendiğini ve mevcut verilerden modelin tahmin performansını artıracak yeni özelliklerin (Feature Engineering) nasıl türetildiğini göreceğiz. Son olarak, veri setindeki temsil dengesizliklerinin model üzerinde yaratabileceği istatistiksel önyargıları (Bias) nasıl tespit edip giderebileceğimizi ele alacağız.
             </p>
-            <div style="margin-top: 40px; padding: 24px; border-radius: 16px; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05);">
-                <p style="color: var(--text-main); font-style: italic; text-align: center;">Buraya detaylı içerikler, grafikler ve interaktif öğeler eklenecektir.</p>
+        </div>
+
+        <div class="story-list premium-layout">
+            
+            <!-- 1. ADIM -->
+            <div class="step-wrapper">
+                <div class="guide-card glass-card story-text-card">
+                    <div class="step-content-flex">
+                        <div class="step-text-content">
+                            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+                                <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(56, 189, 248, 0.15); border: 1px solid var(--neon-blue); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: var(--neon-blue);">1</div>
+                                <h3 style="color: var(--text-main); font-size: 1.5rem;">Dijitalleştirme ve Vektörizasyon (Encoding) 🔢</h3>
+                            </div>
+                            <p style="color: var(--text-muted); margin-bottom: 16px; line-height: 1.7; font-size: 1.1rem;">
+                                Hesaplamalı modeller, doğaları gereği yalnızca sayısal verileri işleyebilir. Metin 📝, görüntü 🖼️ veya ses 🎙️ gibi soyut kavramların algoritmalar tarafından işlenebilmesi için matematiksel uzayda temsil edilmesi gerekir.
+                            </p>
+                            <p style="color: var(--text-muted); margin-bottom: 16px; line-height: 1.7; font-size: 1.1rem;">
+                                Bu dönüşüm sürecine <strong>'Vektörizasyon'</strong> veya <strong>'Encoding'</strong> adı verilir. Verilerin sayısal matrislere dönüştürülmesi, yapay zekanın girdi verisini istatistiksel olarak anlamlandırmasını ve sınıflandırmasını sağlar.
+                            </p>
+                        </div>
+                        <div class="step-image-content">
+                            <img src="robot_vectorization.jpg" alt="Vektörizasyon Robotu">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sim-card interactive-sim sim-matrix-rain" id="sim1">
+                    <div class="sim-title">Simülasyon: Vektörizasyon (Encoding) Süreci</div>
+                    <div class="matrix-bg" id="matrix-bg"></div>
+                    <div class="terminal-window glass">
+                        <div class="terminal-header">
+                            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                        </div>
+                        <div class="terminal-body" id="term-body">
+                            <div class="input-line"><span class="term-prompt">📥</span> Input_Data: "Ahmet"</div>
+                            <div class="process-line" id="term-process" style="display:none; color: #f59e0b;">⚙️ [Processing] Veri vektör uzayına haritalandırılıyor...</div>
+                            <div class="output-line" id="term-output" style="display:none; margin-top:10px;"><span class="term-prompt">📤</span> Encoded_Vector: <span class="matrix-code" style="color: #10b981; text-shadow: 0 0 10px #10b981;">01000001 01101000 01101101 01100101 01110100</span></div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 16px; z-index: 10;">
+                        <button class="action-btn" id="btn-compile">▶ Vektörel Haritalamayı Başlat</button>
+                        <button class="action-btn" id="btn-replay1" style="display: none; background: #64748b;">🔄 Tekrar Oynat</button>
+                    </div>
+                    <div class="sim-feedback" id="feedback1">Kelime dizileri henüz modele uygun değil. İşleme (Compile) sürecini başlatın.</div>
+                </div>
             </div>
+
+            <!-- 2. ADIM -->
+            <div class="step-wrapper">
+                <div class="guide-card glass-card story-text-card">
+                    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+                        <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(16, 185, 129, 0.15); border: 1px solid #10b981; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: #10b981;">2</div>
+                        <h3 style="color: var(--text-main); font-size: 1.5rem;">Veri Tipolojisi (Yapılandırılmış ve Yapılandırılmamış) 🗂️</h3>
+                    </div>
+                    <p style="color: var(--text-muted); margin-bottom: 16px; line-height: 1.7; font-size: 1.1rem;">
+                        Veri bilimi literatüründe veriler, yapısal özelliklerine göre iki ana kategoriye ayrılır. <strong>Yapılandırılmış Veriler (Structured Data)</strong> 📊, ilişkisel veritabanları ve tablolar (satır/sütun matrisleri) formundadır ve genellikle Karar Ağaçları veya Destek Vektör Makineleri (SVM) gibi Geleneksel Makine Öğrenmesi algoritmaları ile analiz edilir.
+                    </p>
+                    <p style="color: var(--text-muted); margin-bottom: 16px; line-height: 1.7; font-size: 1.1rem;">
+                        <strong>Yapılandırılmamış Veriler (Unstructured Data)</strong> 🌪️ ise serbest metin, ses ve görüntüleri kapsar. Standart bir şemaya uymayan bu verilerin analizi için çok katmanlı <em>Derin Öğrenme (Deep Learning)</em> mimarileri gereklidir.
+                    </p>
+                </div>
+                
+                <div class="sim-card interactive-sim sim-drag-drop" id="sim2">
+                    <div class="sim-title">Simülasyon: Veri Sınıflandırma ve Tipoloji</div>
+                    <div class="drop-zones">
+                        <div class="drop-zone" id="zone-structured" data-type="structured">
+                            <h4>Yapılandırılmış Veri 📊</h4>
+                            <p>(Geleneksel Makine Öğrenmesi)</p>
+                        </div>
+                        <div class="drop-zone" id="zone-unstructured" data-type="unstructured">
+                            <h4>Yapılandırılmamış Veri 🌪️</h4>
+                            <p>(Derin Öğrenme Ağları)</p>
+                        </div>
+                    </div>
+                    <div class="drag-items" id="drag-items-container">
+                        <div class="drag-item" draggable="true" data-type="structured" id="item-sql">💾 SQL İlişkisel Veritabanı</div>
+                        <div class="drag-item" draggable="true" data-type="unstructured" id="item-audio">🎙️ Biyometrik Ses Kaydı</div>
+                        <div class="drag-item" draggable="true" data-type="unstructured" id="item-cam">📹 CCTV Görüntü Akışı</div>
+                        <div class="drag-item" draggable="true" data-type="structured" id="item-excel">📗 Tablosal Müşteri Verisi</div>
+                    </div>
+                    <div class="sim-feedback" id="feedback2">Mevcut veri setlerini topolojik yapılarına uygun analitik modellere (depolara) eşleştirin.</div>
+                </div>
+            </div>
+
+            <!-- 3. ADIM -->
+            <div class="step-wrapper">
+                <div class="guide-card glass-card story-text-card">
+                    <div class="step-content-flex">
+                        <div class="step-text-content">
+                            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+                                <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(239, 68, 68, 0.15); border: 1px solid #ef4444; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: #ef4444;">3</div>
+                                <h3 style="color: var(--text-main); font-size: 1.5rem;">Veri Temizleme ve Ön İşleme (Preprocessing) 🧹</h3>
+                            </div>
+                            <p style="color: var(--text-muted); margin-bottom: 16px; line-height: 1.7; font-size: 1.1rem;">
+                                Ham veri setleri genellikle analiz kalitesini düşüren eksik değerler (NULL) ve <strong>Aykırı Değerler (Outliers)</strong> içerir. Aykırı değerler, istatistiksel dağılımın dışında kalarak modelin varyansını artırırken, eksik veriler algoritmaların matris hesaplamalarında hata vermesine yol açar. 📉
+                            </p>
+                            <p style="color: var(--text-muted); margin-bottom: 16px; line-height: 1.7; font-size: 1.1rem;">
+                                Gürbüz (robust) bir model oluşturmak için, bu istatistiksel anormalliklerin imputasyon (veri tamamlama) veya eliminasyon yöntemleriyle giderilmesi veri mühendisliğinin en kritik optimizasyon aşamalarından biridir. 🛠️
+                            </p>
+                        </div>
+                        <div class="step-image-content">
+                            <img src="robot_organizing.jpg" alt="Veri Temizleme Robotu">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sim-card interactive-sim sim-cleaning" id="sim3">
+                    <div class="sim-title">Simülasyon: Veri Temizleme ve İmputasyon</div>
+                    <table class="premium-table">
+                        <thead>
+                            <tr><th>🔑 ID</th><th>📝 Birey</th><th>📊 Yaş (Varyans)</th><th>💰 Yıllık Gelir</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr class="clean-row"><td>1</td><td>Ali</td><td>28</td><td>45000</td></tr>
+                            <tr class="glitch-row" id="row-err-age"><td>2</td><td>Ayşe</td><td class="clickable-error" id="err-age" data-fix="35">350 (Outlier) ⚠️</td><td>52000</td></tr>
+                            <tr class="clean-row"><td>3</td><td>Can</td><td>31</td><td>48000</td></tr>
+                            <tr class="glitch-row" id="row-err-null"><td>4</td><td class="clickable-error" id="err-null" data-fix="Imputed (Ortalama)">NULL (Missing) ⚠️</td><td>24</td><td>39000</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="sim-feedback" id="feedback3">Varyansı bozan aykırı değerleri (Outlier) ve eksik verileri (Missing Data) üzerine tıklayarak onarın.</div>
+                </div>
+            </div>
+
+            <!-- 4. ADIM -->
+            <div class="step-wrapper">
+                <div class="guide-card glass-card story-text-card">
+                    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+                        <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(249, 115, 22, 0.15); border: 1px solid #f97316; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: #f97316;">4</div>
+                        <h3 style="color: var(--text-main); font-size: 1.5rem;">Özellik Çıkarımı (Feature Engineering) ✨</h3>
+                    </div>
+                    <p style="color: var(--text-muted); margin-bottom: 16px; line-height: 1.7; font-size: 1.1rem;">
+                        <strong>Özellik Çıkarımı</strong>, modelin tahmin gücünü artırmak amacıyla ham verilerden anlamlı ve yüksek varyanslı yeni bağımsız değişkenler (features) türetme sürecidir. Sadece ham verileri kullanmak, modelin performansını sınırlandırır. 📈
+                    </p>
+                    <p style="color: var(--text-muted); margin-bottom: 16px; line-height: 1.7; font-size: 1.1rem;">
+                        Alan uzmanlığı (domain knowledge) kullanılarak veriler arasındaki gizli korelasyonları açığa çıkaracak yeni parametrelerin oluşturulması, sınıflandırma ve regresyon modellerinin isabet oranını (accuracy) dramatik şekilde optimize eder. 🚀
+                    </p>
+                </div>
+
+                <div class="sim-card interactive-sim sim-circuits" id="sim4">
+                    <div class="sim-title">Simülasyon: Özellik Çıkarımı (Feature Engineering)</div>
+                    <div style="position: relative; width: 100%; height: 200px; display: flex; align-items: center;">
+                        <div class="core-node" id="core-node">1990<div class="core-glow"></div></div>
+                        
+                        <div class="circuit-path path-top">
+                            <div class="energy-pulse pulse-top" id="pulse-t" style="display:none;"></div>
+                        </div>
+                        <div class="circuit-path path-bottom">
+                            <div class="energy-pulse pulse-bottom" id="pulse-b" style="display:none;"></div>
+                        </div>
+                        
+                        <div class="result-node node-top" id="node-t">Güncel Yaş: 36 📊</div>
+                        <div class="result-node node-bottom" id="node-b">Kohort: Y Kuşağı 🧬</div>
+                    </div>
+                    <div style="display: flex; gap: 16px; margin-top: auto; z-index: 10;">
+                        <button class="action-btn" id="btn-extract">▶ Varyans Optimizasyonunu Başlat</button>
+                        <button class="action-btn" id="btn-replay4" style="display: none; background: #64748b;">🔄 Tekrar Oynat</button>
+                    </div>
+                    <div class="sim-feedback" id="feedback4">Ham veri seti yeterince açıklayıcı değil. Model performansını artıracak gizli örüntüleri (features) türetin.</div>
+                </div>
+            </div>
+
+            <!-- 5. ADIM -->
+            <div class="step-wrapper">
+                <div class="guide-card glass-card story-text-card">
+                    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+                        <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(192, 132, 252, 0.15); border: 1px solid var(--neon-purple); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: var(--neon-purple);">5</div>
+                        <h3 style="color: var(--text-main); font-size: 1.5rem;">Veri Ölçeklendirme (Min-Max Normalizasyonu) ⚖️</h3>
+                    </div>
+                    <p style="color: var(--text-muted); margin-bottom: 16px; line-height: 1.7; font-size: 1.1rem;">
+                        Farklı ölçeklere (scale) sahip özelliklerin aynı modele girdi olarak verilmesi, büyük sayısal değerlere sahip değişkenlerin model ağırlıklarını (weights) domine etmesine neden olur. Bu durum istatistiksel bir yanlılık oluşturarak algoritmanın hatalı yakınsamasına sebep olur. 📉
+                    </p>
+                    <p style="color: var(--text-muted); margin-bottom: 16px; line-height: 1.7; font-size: 1.1rem;">
+                        <strong>Min-Max Normalizasyon</strong> formülü kullanılarak tüm değişkenlerin [0, 1] aralığına standardize edilmesi, optimizasyon algoritmalarının (Örn. Gradient Descent) daha hızlı ve ağırlıklı olarak dengeli yakınsamasını (convergence) sağlar. 📐
+                    </p>
+                </div>
+
+                <div class="sim-card interactive-sim sim-scaling" id="sim5">
+                    <div class="sim-title">Simülasyon: Min-Max Normalizasyon İşlemi</div>
+                    
+                    <div class="scatter-container" style="background: #ffffff; border-radius: 12px; padding: 30px; width: 100%; max-width: 750px; height: 420px; position: relative; border: 1px solid rgba(0,0,0,0.1); margin-bottom: 24px; box-shadow: inset 0 0 20px rgba(0,0,0,0.05);">
+                        
+                        <div class="axis-y-label" id="axis-y-label" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%) rotate(-90deg); color: #64748b; font-weight: bold; font-size: 1rem; white-space: nowrap; transition: color 0.5s;">Gelir (10k - 100k)</div>
+                        <div class="axis-x-label" id="axis-x-label" style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); color: #64748b; font-weight: bold; font-size: 1rem; white-space: nowrap; transition: color 0.5s;">Yaş (20 - 60)</div>
+                        
+                        <!-- Grid lines -->
+                        <div style="position: absolute; left: 60px; bottom: 45px; top: 30px; border-left: 2px solid #cbd5e1;"></div>
+                        <div style="position: absolute; left: 60px; bottom: 45px; right: 30px; border-bottom: 2px solid #cbd5e1;"></div>
+
+                        <div id="scatter-plot" style="position: absolute; left: 60px; bottom: 45px; right: 30px; top: 30px;">
+                            <!-- Points (Unnormalized -> Normalized) -->
+                            <div class="scatter-point" data-nx="10%" data-ny="15%" style="left: 48%; bottom: 15%;"></div>
+                            <div class="scatter-point" data-nx="25%" data-ny="30%" style="left: 49%; bottom: 30%;"></div>
+                            <div class="scatter-point" data-nx="45%" data-ny="45%" style="left: 50%; bottom: 45%;"></div>
+                            <div class="scatter-point" data-nx="65%" data-ny="65%" style="left: 51%; bottom: 65%;"></div>
+                            <div class="scatter-point" data-nx="90%" data-ny="85%" style="left: 52%; bottom: 85%;"></div>
+                            
+                            <div class="scatter-point" data-nx="15%" data-ny="25%" style="left: 48.5%; bottom: 25%;"></div>
+                            <div class="scatter-point" data-nx="35%" data-ny="50%" style="left: 49.5%; bottom: 50%;"></div>
+                            <div class="scatter-point" data-nx="55%" data-ny="60%" style="left: 50.5%; bottom: 60%;"></div>
+                            <div class="scatter-point" data-nx="80%" data-ny="75%" style="left: 51.5%; bottom: 75%;"></div>
+                            <div class="scatter-point" data-nx="95%" data-ny="95%" style="left: 52.5%; bottom: 95%;"></div>
+                        </div>
+                        
+                        <div class="formula-overlay" style="position: absolute; top: 15px; left: 50%; transform: translateX(-50%); background: rgba(192, 132, 252, 0.1); border: 1px solid rgba(192, 132, 252, 0.4); color: #a855f7; padding: 8px 16px; border-radius: 8px; font-family: 'Times New Roman', serif; font-size: 1.2rem; font-weight: bold; z-index: 10;">
+                            X<sub>norm</sub> = (X - X<sub>min</sub>) / (X<sub>max</sub> - X<sub>min</sub>)
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 16px; z-index: 10;">
+                        <button class="action-btn" id="btn-normalize">▶ Normalizasyon Formülünü Uygula</button>
+                        <button class="action-btn" id="btn-replay5" style="display: none; background: #64748b;">🔄 Tekrar Oynat</button>
+                    </div>
+                    <div class="sim-feedback" id="feedback5">Geniş varyanslı verileri 0 ile 1 aralığına ölçeklendirerek istatistiksel dominasyonu engelleyin.</div>
+                </div>
+            </div>
+
+            <!-- 6. ADIM -->
+            <div class="step-wrapper">
+                <div class="guide-card glass-card story-text-card">
+                    <div class="step-content-flex">
+                        <div class="step-text-content">
+                            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+                                <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(225, 29, 72, 0.15); border: 1px solid #e11d48; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: #e11d48;">6</div>
+                                <h3 style="color: var(--text-main); font-size: 1.5rem;">Algoritmik Yanlılık ve Etik (Model Bias) 🎭</h3>
+                            </div>
+                            <p style="color: var(--text-muted); margin-bottom: 16px; line-height: 1.7; font-size: 1.1rem;">
+                                Bir makine öğrenmesi modelinin güvenilirliği, eğitim veri setinin evrensel popülasyonu ne kadar doğru temsil ettiğine (Representativeness) bağlıdır. Eğitim verisindeki sınıfsal dengesizlikler, modelin azınlık gruplara karşı <strong>Algoritmik Yanlılık (Bias)</strong> geliştirmesine neden olur. ⚠️
+                            </p>
+                            <p style="color: var(--text-muted); margin-bottom: 16px; line-height: 1.7; font-size: 1.1rem;">
+                                Evrensel doğruluğu (accuracy) yüksek ve etik kurallara uygun modeller tasarlamak, ancak veri setindeki sınıf dengelerinin (Class Balance) optimize edilmesiyle mümkündür. Veri adaleti, matematiksel adaletten daha kritik bir başarı faktörüdür. ⚖️
+                            </p>
+                        </div>
+                        <div class="step-image-content">
+                            <img src="robot_balancing.jpg" alt="Yanlılık ve Denge Robotu">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sim-card sim-bias" id="sim6" style="background: url('bliss_wallpaper.jpg') no-repeat center center/cover; padding: 16px 24px;">
+                    <div class="sim-title" style="color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,0.9); border-bottom-color: rgba(255,255,255,0.3); margin-bottom: 16px; padding-bottom: 8px;">Simülasyon: Ses Tanıma Sisteminde Popülasyon Dengesi</div>
+                    
+                    <div class="bias-glass-panel">
+                        <div class="slider-group">
+                            <label>👩 Kadın Sesi Verisi: <span id="val-female">0</span> Birim</label>
+                            <input type="range" id="slider-female" class="sim-slider female-slider" min="0" max="100" value="0">
+                        </div>
+                        <div class="slider-group">
+                            <label>👨 Erkek Sesi Verisi: <span id="val-male">0</span> Birim</label>
+                            <input type="range" id="slider-male" class="sim-slider male-slider" min="0" max="100" value="0">
+                        </div>
+                        <div class="slider-group">
+                            <label>🧒 Çocuk Sesi Verisi: <span id="val-child">0</span> Birim</label>
+                            <input type="range" id="slider-child" class="sim-slider child-slider" min="0" max="100" value="0">
+                        </div>
+
+                        <div class="model-accuracy-meter">
+                            <div class="meter-label">Modelin Evrensel Doğruluk (Accuracy) Oranı:</div>
+                            <div class="meter-bg">
+                                <div class="meter-fill" id="meter-fill" style="width: 0%;"></div>
+                            </div>
+                            <div class="meter-value" id="meter-value">%0</div>
+                        </div>
+                    </div>
+                    <div class="sim-feedback" id="feedback6" style="background: rgba(0,0,0,0.75); backdrop-filter: blur(10px); color: #fff; margin-top: 16px; padding: 12px 20px; font-size: 1.1rem;">Sistemin her kesimi doğru tanıması için veri miktarını artırın ve kusursuz dengeyi kurun!</div>
+                </div>
+            </div>
+            
         </div>
     </main>
 

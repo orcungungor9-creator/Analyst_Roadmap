@@ -172,12 +172,13 @@ body {
     border-radius: 20px;
     box-shadow: var(--shadow-card);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateZ(0);
 }
 
 .glass-card:hover {
     border-color: var(--glass-border-hover);
     box-shadow: var(--shadow-card-hover), 0 0 20px var(--neon-blue-glow);
-    transform: translateY(-6px);
+    transform: translateY(-6px) translateZ(0);
 }
 
 .gradient-text {
@@ -845,10 +846,9 @@ body {
     justify-content: center;
     cursor: pointer;
     z-index: 10;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     box-shadow: 0 8px 20px rgba(192, 132, 252, 0.15);
     transition: all 0.3s ease;
+    transform: translateY(-50%) translateZ(0);
 }
 
 .carousel-arrow:hover {
@@ -856,11 +856,11 @@ body {
     color: #fff;
     border-color: var(--neon-purple);
     box-shadow: 0 0 25px rgba(192, 132, 252, 0.5);
-    transform: translateY(-50%) scale(1.1);
+    transform: translateY(-50%) scale(1.1) translateZ(0);
 }
 
 .carousel-arrow:active {
-    transform: translateY(-50%) scale(0.95);
+    transform: translateY(-50%) scale(0.95) translateZ(0);
 }
 
 .carousel-arrow.left-arrow { left: 12px; }
@@ -975,6 +975,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 24px;
+    padding: 25px;
 }
 
 .tool-card-new {
@@ -983,6 +984,7 @@ body {
     flex-direction: column;
     gap: 18px;
     position: relative;
+    border: 1px solid var(--glass-border);
 }
 
 .tool-top {

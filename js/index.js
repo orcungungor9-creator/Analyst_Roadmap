@@ -120,21 +120,8 @@ function initCarouselObserver() {
         card.setAttribute('data-sync-index', idx);
     });
 
-    // Clone cards for infinite loop (Create a massive buffer of 6 sets on each side)
-    for (let i = 0; i < 6; i++) {
-        originalCards.forEach(card => {
-            const clone = card.cloneNode(true);
-            clone.classList.add('carousel-clone');
-            carousel.appendChild(clone);
-        });
-        originalCards.slice().reverse().forEach(card => {
-            const clone = card.cloneNode(true);
-            clone.classList.add('carousel-clone');
-            carousel.prepend(clone);
-        });
-    }
-
-    const allCards = carousel.querySelectorAll('.carousel-card');
+    // No cloning - just use the original cards
+    const allCards = originalCards;
 
     const observerOptions = {
         root: carousel,
@@ -163,57 +150,11 @@ function initCarouselObserver() {
 
     allCards.forEach(card => observer.observe(card));
 
-    // Cache dimension calculations to prevent layout thrashing (Reflow) on scroll
-    let stride = 0;
-    let totalOriginalWidth = 0;
-    
-    function calculateDimensions() {
-        if (!carousel) return;
-        stride = allCards.length > 1 ? (allCards[1].offsetLeft - allCards[0].offsetLeft) : (originalCards[0].offsetWidth + 24);
-        totalOriginalWidth = stride * originalCards.length;
-    }
-    
-    // Initial calculation
-    calculateDimensions();
-    // Recalculate on window resize
-    window.addEventListener('resize', calculateDimensions, { passive: true });
-
-    let scrollDebounce;
-    carousel.addEventListener('scroll', () => {
-        if (carousel.isResetting || !stride) return;
-        
-        clearTimeout(scrollDebounce);
-        scrollDebounce = setTimeout(() => {
-            // Tampon mantığı: Kullanıcı durduğunda onu daima en merkezdeki (6. set) kopyaya fırlat
-            const centerOffset = totalOriginalWidth * 6;
-            const relativeScroll = carousel.scrollLeft % totalOriginalWidth;
-            const newScrollLeft = centerOffset + relativeScroll;
-            
-            // Eğer merkezden 1 setten daha fazla uzaklaştıysa merkeze geri ışınla
-            if (Math.abs(carousel.scrollLeft - newScrollLeft) >= (totalOriginalWidth / 2)) {
-                carousel.isResetting = true;
-                carousel.style.scrollBehavior = 'auto';
-                carousel.style.scrollSnapType = 'none';
-                carousel.scrollLeft = newScrollLeft;
-                
-                requestAnimationFrame(() => {
-                    requestAnimationFrame(() => {
-                        carousel.style.scrollBehavior = 'smooth';
-                        carousel.style.scrollSnapType = 'x mandatory';
-                        carousel.isResetting = false;
-                    });
-                });
-            }
-        }, 200); 
-    }, { passive: true });
-
-    // Focus on the middle (original) cards on start immediately
     carousel.style.scrollBehavior = 'auto';
     carousel.style.scrollSnapType = 'none';
     
-    const isMobile = window.innerWidth <= 768;
-    // The originals are offset by originalCards.length * 6 (since we prepended 6 sets)
-    const targetIndex = isMobile ? (originalCards.length * 6) : (originalCards.length * 6) + 2; 
+    // Focus on the middle card on start
+    const targetIndex = Math.floor(allCards.length / 2);
     const target = allCards[targetIndex];
     
     if (target) {
