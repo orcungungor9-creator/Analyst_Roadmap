@@ -51,13 +51,19 @@
         </div>
     </div>
 
+    <!-- Full Width Hero Banner -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 500px; z-index: -2; overflow: hidden; border-bottom: 2px solid var(--neon-green); box-shadow: 0 5px 25px rgba(52, 211, 153, 0.4);">
+        <img src="hero_bg.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.5;">
+        <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(15,23,42,0.2) 0%, #0f172a 100%);"></div>
+    </div>
+
     <!-- Header will be injected by components.js -->
 
-    <section class="formulas-hero" style="padding-top: 140px; padding-bottom: 60px;">
-        <div class="hero-content" style="max-width: 900px;">
-            <div class="badge-pill" style="margin-bottom: 16px; background: rgba(255,255,255,0.1); color: var(--neon-green); border-color: var(--neon-green);">📊 Veri Bilimi ve Model Mimarisi</div>
-            <h1 class="hero-title" style="font-size: 2.8rem; margin: 0;">2. Aşama: Veri Mühendisliği</h1>
-            <p class="hero-subtitle" style="font-size: 1.25rem; line-height: 1.6; margin-top: 24px;">
+    <section class="formulas-hero" style="padding-top: 100px; padding-bottom: 100px;">
+        <div class="hero-content" style="max-width: 900px; margin: 0 auto; position: relative; z-index: 2; text-align: center;">
+            <div class="badge-pill" style="margin-bottom: 24px; background: rgba(255, 255, 255, 0.1); color: #fff; border-color: rgba(255, 255, 255, 0.2); backdrop-filter: blur(4px);">📊 Veri Bilimi ve Model Mimarisi</div>
+            <h1 class="hero-title" style="font-size: 3.5rem; margin: 0; color: #fff; text-shadow: 0 4px 15px rgba(0,0,0,0.5);">2. Aşama: Veri Mühendisliği</h1>
+            <p class="hero-subtitle" style="font-size: 1.3rem; line-height: 1.7; margin-top: 24px; color: rgba(255,255,255,0.9); text-shadow: 0 2px 8px rgba(0,0,0,0.5);">
                 Ham verinin, makine öğrenmesi modelleri için işlenebilir istatistiksel bir forma dönüştürülme süreci. Vektörizasyondan veri tipolojisine, özellik çıkarımından (Feature Engineering) normalizasyon ve algoritmik adalet (Bias) kavramlarına kadar verinin tüm anatomisini inşa ediyoruz.
             </p>
         </div>
@@ -133,25 +139,76 @@
                     </p>
                 </div>
                 
-                <div class="sim-card interactive-sim sim-drag-drop" id="sim2">
-                    <div class="sim-title">Simülasyon: Veri Sınıflandırma ve Tipoloji</div>
-                    <div class="drop-zones">
-                        <div class="drop-zone" id="zone-structured" data-type="structured">
-                            <h4>Yapılandırılmış Veri 📊</h4>
-                            <p>(Geleneksel Makine Öğrenmesi)</p>
+                <div class="sim-card interactive-sim sim-drag-drop" id="sim2" style="background: radial-gradient(circle at 50% 0%, #1e293b, #0f172a); padding: 24px 30px;">
+                    <div class="sim-title" style="margin-bottom: 12px; padding-bottom: 8px;">Simülasyon: Veri Sınıflandırma ve Tipoloji Mimari Seçimi</div>
+                    
+                    <div class="drag-arena">
+                        <!-- Pipeline Left: Structured -->
+                        <div class="drop-zone structured-zone" id="zone-structured" data-type="structured">
+                            <div class="zone-header">
+                                <span class="zone-icon">📊</span>
+                                <div class="zone-text">
+                                    <h4>Yapılandırılmış (Structured)</h4>
+                                    <p>Geleneksel Makine Öğrenmesi (Örn: XGBoost)</p>
+                                </div>
+                            </div>
+                            <div class="zone-body" id="drop-structured">
+                                <div class="bg-pattern grid-pattern"></div>
+                                <div class="drop-placeholder">Tablosal verileri buraya sürükleyin</div>
+                            </div>
                         </div>
-                        <div class="drop-zone" id="zone-unstructured" data-type="unstructured">
-                            <h4>Yapılandırılmamış Veri 🌪️</h4>
-                            <p>(Derin Öğrenme Ağları)</p>
+
+                        <!-- Pipeline Right: Unstructured -->
+                        <div class="drop-zone unstructured-zone" id="zone-unstructured" data-type="unstructured">
+                            <div class="zone-header">
+                                <span class="zone-icon">🧠</span>
+                                <div class="zone-text">
+                                    <h4>Yapılandırılmamış (Unstructured)</h4>
+                                    <p>Derin Öğrenme Ağları (Örn: CNN, RNN)</p>
+                                </div>
+                            </div>
+                            <div class="zone-body" id="drop-unstructured">
+                                <div class="bg-pattern noise-pattern"></div>
+                                <div class="drop-placeholder">Karmaşık verileri buraya sürükleyin</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="drag-items" id="drag-items-container">
-                        <div class="drag-item" draggable="true" data-type="structured" id="item-sql">💾 SQL İlişkisel Veritabanı</div>
-                        <div class="drag-item" draggable="true" data-type="unstructured" id="item-audio">🎙️ Biyometrik Ses Kaydı</div>
-                        <div class="drag-item" draggable="true" data-type="unstructured" id="item-cam">📹 CCTV Görüntü Akışı</div>
-                        <div class="drag-item" draggable="true" data-type="structured" id="item-excel">📗 Tablosal Müşteri Verisi</div>
+                    
+                    <div class="drag-items-pool" id="drag-items-container">
+                        <div class="drag-item" data-type="structured" id="item-sql" draggable="true">
+                            <div class="item-icon">💾</div>
+                            <div class="item-info">
+                                <strong>SQL İlişkisel Veritabanı</strong>
+                                <span>Satır ve Sütun (Tablo)</span>
+                            </div>
+                        </div>
+                        <div class="drag-item" data-type="unstructured" id="item-audio" draggable="true">
+                            <div class="item-icon">🎙️</div>
+                            <div class="item-info">
+                                <strong>Biyometrik Ses Kaydı</strong>
+                                <span>Frekans ve Dalgalar</span>
+                            </div>
+                        </div>
+                        <div class="drag-item" data-type="unstructured" id="item-cam" draggable="true">
+                            <div class="item-icon">📹</div>
+                            <div class="item-info">
+                                <strong>CCTV Görüntü Akışı</strong>
+                                <span>Piksel Matrisleri (RGB)</span>
+                            </div>
+                        </div>
+                        <div class="drag-item" data-type="structured" id="item-excel" draggable="true">
+                            <div class="item-icon">📈</div>
+                            <div class="item-info">
+                                <strong>Müşteri Demografisi</strong>
+                                <span>Kategorik ve Nümerik</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="sim-feedback" id="feedback2">Mevcut veri setlerini topolojik yapılarına uygun analitik modellere (depolara) eşleştirin.</div>
+                    
+                    <div style="display: flex; gap: 16px; margin-top: 12px; z-index: 10;">
+                        <button class="action-btn" id="btn-replay2" style="display: none; background: #64748b; padding: 10px 20px;">🔄 Tekrar Oynat</button>
+                    </div>
+                    <div class="sim-feedback" id="feedback2">Algoritmaların veriyi işleyebilmesi için doğru mimariye (Geleneksel ML vs Derin Öğrenme) yönlendirin.</div>
                 </div>
             </div>
 
@@ -243,14 +300,14 @@
                         Farklı ölçeklere (scale) sahip özelliklerin aynı modele girdi olarak verilmesi, büyük sayısal değerlere sahip değişkenlerin model ağırlıklarını (weights) domine etmesine neden olur. Bu durum istatistiksel bir yanlılık oluşturarak algoritmanın hatalı yakınsamasına sebep olur. 📉
                     </p>
                     <p style="color: var(--text-muted); margin-bottom: 16px; line-height: 1.7; font-size: 1.1rem;">
-                        <strong>Min-Max Normalizasyon</strong> formülü kullanılarak tüm değişkenlerin [0, 1] aralığına standardize edilmesi, optimizasyon algoritmalarının (Örn. Gradient Descent) daha hızlı ve ağırlıklı olarak dengeli yakınsamasını (convergence) sağlar. 📐
+                        <strong>Min-Max Normalizasyon</strong> formülü <code style="background: rgba(192, 132, 252, 0.15); color: #c084fc; padding: 4px 8px; border-radius: 6px; border: 1px solid rgba(192,132,252,0.3); font-weight: bold; margin-left: 4px;">X<sub>norm</sub> = (X - X<sub>min</sub>) / (X<sub>max</sub> - X<sub>min</sub>)</code> kullanılarak tüm değişkenlerin [0, 1] aralığına standardize edilmesi, optimizasyon algoritmalarının (Örn. Gradient Descent) daha hızlı ve ağırlıklı olarak dengeli yakınsamasını (convergence) sağlar. 📐
                     </p>
                 </div>
 
                 <div class="sim-card interactive-sim sim-scaling" id="sim5">
                     <div class="sim-title">Simülasyon: Min-Max Normalizasyon İşlemi</div>
                     
-                    <div class="scatter-container" style="background: #ffffff; border-radius: 12px; padding: 30px; width: 100%; max-width: 750px; height: 420px; position: relative; border: 1px solid rgba(0,0,0,0.1); margin-bottom: 24px; box-shadow: inset 0 0 20px rgba(0,0,0,0.05);">
+                    <div class="scatter-container" style="background: #ffffff; border-radius: 12px; padding: 20px; width: 100%; max-width: 600px; height: 300px; position: relative; border: 1px solid rgba(0,0,0,0.1); margin-bottom: 24px; box-shadow: inset 0 0 20px rgba(0,0,0,0.05);">
                         
                         <div class="axis-y-label" id="axis-y-label" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%) rotate(-90deg); color: #64748b; font-weight: bold; font-size: 1rem; white-space: nowrap; transition: color 0.5s;">Gelir (10k - 100k)</div>
                         <div class="axis-x-label" id="axis-x-label" style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); color: #64748b; font-weight: bold; font-size: 1rem; white-space: nowrap; transition: color 0.5s;">Yaş (20 - 60)</div>
@@ -272,10 +329,6 @@
                             <div class="scatter-point" data-nx="55%" data-ny="60%" style="left: 50.5%; bottom: 60%;"></div>
                             <div class="scatter-point" data-nx="80%" data-ny="75%" style="left: 51.5%; bottom: 75%;"></div>
                             <div class="scatter-point" data-nx="95%" data-ny="95%" style="left: 52.5%; bottom: 95%;"></div>
-                        </div>
-                        
-                        <div class="formula-overlay" style="position: absolute; top: 15px; left: 50%; transform: translateX(-50%); background: rgba(192, 132, 252, 0.1); border: 1px solid rgba(192, 132, 252, 0.4); color: #a855f7; padding: 8px 16px; border-radius: 8px; font-family: 'Times New Roman', serif; font-size: 1.2rem; font-weight: bold; z-index: 10;">
-                            X<sub>norm</sub> = (X - X<sub>min</sub>) / (X<sub>max</sub> - X<sub>min</sub>)
                         </div>
                     </div>
                     
@@ -338,6 +391,15 @@
                 </div>
             </div>
             
+        </div>
+
+        <div style="display: flex; justify-content: space-between; margin-top: 60px;">
+            <a href="../stage1/stage1.html" class="next-stage-btn" style="--btn-color: var(--text-muted); --btn-border: rgba(255,255,255,0.1); --btn-bg: rgba(255,255,255,0.05); --btn-shadow: rgba(255,255,255,0.1);">
+                <span style="margin-right: 8px; font-weight: 900; font-size: 1.2rem;">&lt;</span> 1. Aşama: Yapay Zeka Okuryazarlığı
+            </a>
+            <a href="../stage3/stage3.html" class="next-stage-btn" style="--btn-color: var(--neon-green); --btn-border: var(--neon-green); --btn-bg: rgba(52, 211, 153, 0.1); --btn-shadow: rgba(52, 211, 153, 0.4);">
+                3. Aşama: Model Eğitimi <span style="margin-left: 8px; font-weight: 900; font-size: 1.2rem;">&gt;</span>
+            </a>
         </div>
     </main>
 

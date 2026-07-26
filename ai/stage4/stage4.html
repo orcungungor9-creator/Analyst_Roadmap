@@ -26,27 +26,42 @@
         </div>
     </div>
 
+    <!-- Full Width Hero Banner -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 500px; z-index: -2; overflow: hidden; border-bottom: 2px solid var(--neon-orange); box-shadow: 0 5px 25px rgba(249, 115, 22, 0.4);">
+        <img src="hero_bg.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.5;">
+        <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(15,23,42,0.2) 0%, #0f172a 100%);"></div>
+    </div>
+
     <!-- Header will be injected by components.js -->
 
-    <section class="formulas-hero" style="padding-top: 140px; padding-bottom: 60px;">
-        <div class="hero-content" style="max-width: 900px;">
-            <div class="badge-pill" style="margin-bottom: 16px; background: rgba(255,255,255,0.1); color: var(--neon-orange); border-color: var(--neon-orange);">Yapay Zeka ve Analist Entegrasyonu</div>
-            <h1 class="hero-title" style="font-size: 2.8rem; margin: 0;">4. Aşama: Analistin Çalışma Masası (Pratik)</h1>
-            <p class="hero-subtitle" style="font-size: 1.25rem; line-height: 1.6; margin-top: 24px;">
-                Öğrenilen yapı analitik süreçlerde nasıl kullanılır? Doğru prompt yazımı ve halüsinasyon yönetimi.
+    <section class="formulas-hero" style="padding-top: 100px; padding-bottom: 100px;">
+        <div class="hero-content" style="max-width: 900px; margin: 0 auto; position: relative; z-index: 2; text-align: center;">
+            <div class="badge-pill" style="margin-bottom: 24px; background: rgba(255, 255, 255, 0.1); color: #fff; border-color: rgba(255, 255, 255, 0.2); backdrop-filter: blur(4px);">Yapay Zeka ve Analist Entegrasyonu</div>
+            <h1 class="hero-title" style="font-size: 3.5rem; margin: 0; color: #fff; text-shadow: 0 4px 15px rgba(0,0,0,0.5);">4. Aşama: Kalite Kontrol</h1>
+            <p class="hero-subtitle" style="font-size: 1.3rem; line-height: 1.7; margin-top: 24px; color: rgba(255,255,255,0.9); text-shadow: 0 2px 8px rgba(0,0,0,0.5);">
+                Eğitilen modelin gerçek dünya performansını ölçün. Doğruluk oranlarına aldanmadan karmaşıklık matrisini okumayı, model kaymasını yönetmeyi ve onaylanan sistemi canlıya almayı öğrenin.
             </p>
         </div>
     </section>
 
     <main class="formulas-main" style="max-width: 1200px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
         <div class="glass" style="padding: 40px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
-            <h2 style="font-size: 2rem; color: var(--neon-orange); margin-bottom: 24px;">Direksiyon Sizde</h2>
+            <h2 style="font-size: 2rem; color: var(--neon-orange); margin-bottom: 24px;">Kalite Kontrol</h2>
             <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.8;">
-                Yapay zeka modellerini yönlendirmek için prompt kütüphanesi ve pratik kullanım senaryoları.
+                Eğitilen modelin gerçek dünya performansını ölçün. Doğruluk oranlarına aldanmadan karmaşıklık matrisini okumayı, model kaymasını yönetmeyi ve onaylanan sistemi canlıya almayı öğrenin.
             </p>
             <div style="margin-top: 40px; padding: 24px; border-radius: 16px; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05);">
                 <p style="color: var(--text-main); font-style: italic; text-align: center;">Buraya detaylı içerikler, grafikler ve interaktif öğeler eklenecektir.</p>
             </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; margin-top: 60px;">
+            <a href="../stage3/stage3.html" class="next-stage-btn" style="--btn-color: var(--text-muted); --btn-border: rgba(255,255,255,0.1); --btn-bg: rgba(255,255,255,0.05); --btn-shadow: rgba(255,255,255,0.1);">
+                <span style="margin-right: 8px; font-weight: 900; font-size: 1.2rem;">&lt;</span> 3. Aşama: Model Eğitimi
+            </a>
+            <a href="../stage1/stage1.html" class="next-stage-btn" style="--btn-color: var(--neon-orange); --btn-border: var(--neon-orange); --btn-bg: rgba(249, 115, 22, 0.1); --btn-shadow: rgba(249, 115, 22, 0.4);">
+                1. Aşama: Yapay Zeka Okuryazarlığı <span style="margin-left: 8px; font-weight: 900; font-size: 1.2rem;">&gt;</span>
+            </a>
         </div>
     </main>
 

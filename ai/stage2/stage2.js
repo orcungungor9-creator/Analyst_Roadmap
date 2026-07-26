@@ -55,7 +55,9 @@ document.addEventListener('DOMContentLoaded', () => {
     ========================================= */
     const dragItems = document.querySelectorAll('.drag-item');
     const dropZones = document.querySelectorAll('.drop-zone');
+    const dragItemsPool = document.getElementById('drag-items-container');
     const feedback2 = document.getElementById('feedback2');
+    const btnReplay2 = document.getElementById('btn-replay2');
     let draggedItem = null;
     let droppedCount = 0;
     const totalItems = dragItems.length;
@@ -91,7 +93,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 const actualType = draggedItem.dataset.type;
 
                 if (expectedType === actualType) {
-                    this.appendChild(draggedItem);
+                    const zoneBody = this.querySelector('.zone-body');
+                    const placeholder = zoneBody.querySelector('.drop-placeholder');
+                    if (placeholder) placeholder.style.display = 'none';
+                    
+                    zoneBody.appendChild(draggedItem);
                     draggedItem.classList.add('dropped');
                     draggedItem.draggable = false;
                     
@@ -102,17 +108,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (droppedCount === totalItems) {
                         feedback2.innerHTML = "✅ <strong>Sınıflandırma Başarılı:</strong> Veri setleri, işlenecekleri algoritmik mimarilere (Geleneksel ML ve Derin Öğrenme) doğru şekilde atandı.";
                         feedback2.className = 'sim-feedback feedback-success';
+                        if (btnReplay2) btnReplay2.style.display = 'inline-flex';
                     }
                 } else {
                     draggedItem.classList.add('shake');
                     setTimeout(() => draggedItem.classList.remove('shake'), 400);
                     
-                    feedback2.innerHTML = "⚠️ <strong>Tipoloji Hatası:</strong> Veri yapısı ile hedef algoritma uyumsuz. Karmaşık veriler Derin Öğrenme ağlarında işlenmelidir.";
+                    feedback2.innerHTML = "⚠️ <strong>Mimari Uyumsuzluğu:</strong> Veri yapısı ile hedef algoritma uyumsuz. Sınıflandırmayı tekrar kontrol edin.";
                     feedback2.className = 'sim-feedback feedback-error';
                     
                     setTimeout(() => {
                         if (droppedCount < totalItems) {
-                            feedback2.innerHTML = "Mevcut veri setlerini topolojik yapılarına uygun analitik modellere eşleştirin.";
+                            feedback2.innerHTML = "Algoritmaların veriyi işleyebilmesi için doğru mimariye (Geleneksel ML vs Derin Öğrenme) yönlendirin.";
                             feedback2.className = 'sim-feedback';
                         }
                     }, 2500);
@@ -120,6 +127,24 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    if (btnReplay2) {
+        btnReplay2.addEventListener('click', () => {
+            droppedCount = 0;
+            btnReplay2.style.display = 'none';
+            
+            dragItems.forEach(item => {
+                item.classList.remove('dropped');
+                item.draggable = true;
+                dragItemsPool.appendChild(item);
+            });
+            
+            document.querySelectorAll('.drop-placeholder').forEach(p => p.style.display = 'block');
+            
+            feedback2.innerHTML = "Algoritmaların veriyi işleyebilmesi için doğru mimariye (Geleneksel ML vs Derin Öğrenme) yönlendirin.";
+            feedback2.className = 'sim-feedback';
+        });
+    }
 
     /* =========================================
        3. Adım: Veri Temizleme (Click to Fix)

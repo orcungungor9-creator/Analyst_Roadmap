@@ -181,27 +181,7 @@
 
 
 
-/* Next Stage Button */
-.next-stage-btn {
-    display: inline-flex;
-    align-items: center;
-    padding: 16px 32px;
-    background: rgba(56, 189, 248, 0.1);
-    border: 1px solid var(--neon-blue);
-    color: var(--neon-blue);
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 1.1rem;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
 
-.next-stage-btn:hover {
-    background: var(--neon-blue);
-    color: #fff;
-    box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
-    transform: translateY(-2px);
-}
 
 /* =========================================
    MOBILE RESPONSIVENESS (DESKTOP-LIKE FEEL)

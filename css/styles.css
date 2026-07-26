@@ -559,6 +559,27 @@ body {
     transform: none !important;
 }
 
+/* Next Stage Button */
+.next-stage-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 16px 32px;
+    background: var(--btn-bg, rgba(255, 255, 255, 0.05));
+    border: 1px solid var(--btn-border, rgba(255, 255, 255, 0.2));
+    color: var(--btn-color, var(--text-main));
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.next-stage-btn:hover {
+    background: var(--btn-hover-bg, var(--btn-color));
+    color: var(--btn-hover-color, #fff);
+    box-shadow: 0 0 20px var(--btn-shadow, rgba(255, 255, 255, 0.2));
+    transform: translateY(-2px);
+}
+
 @media (max-width: 900px) {
     .desktop-nav { display: none; }
     .hamburger-btn { display: flex; }

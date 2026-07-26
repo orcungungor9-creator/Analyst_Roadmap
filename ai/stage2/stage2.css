@@ -21,7 +21,7 @@
 
 .sim-card {
     width: 100%;
-    min-height: 400px;
+    min-height: 300px;
     background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
     position: relative;
     display: flex;
@@ -29,9 +29,9 @@
     align-items: center;
     justify-content: center;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 24px;
+    border-radius: 20px;
     box-shadow: inset 0 20px 40px rgba(0,0,0,0.5), 0 10px 30px rgba(0,0,0,0.2);
-    padding: 40px 20px 30px 20px;
+    padding: 32px 24px;
     overflow: hidden;
 }
 
@@ -43,26 +43,25 @@
     color: #94a3b8;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    padding-bottom: 16px;
-    margin-bottom: 32px;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
     border-bottom: 1px solid rgba(255,255,255,0.05);
     z-index: 10;
 }
 
 .sim-feedback {
     margin-top: 24px;
-    padding: 16px 24px;
+    padding: 14px 24px;
     border-radius: 12px;
     background: rgba(255,255,255,0.05);
     color: #f8fafc;
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     font-weight: 500;
     text-align: center;
-    transition: all 0.3s;
-    min-height: 48px;
-    display: flex;
-    align-items: center;
+    width: 90%;
+    max-width: 800px;
     z-index: 10;
+    transition: all 0.3s;
 }
 .feedback-success {
     background: rgba(52, 211, 153, 0.15);
@@ -129,6 +128,7 @@
     overflow: hidden;
     z-index: 5;
     box-shadow: 0 10px 40px rgba(56, 189, 248, 0.2);
+    margin-bottom: 24px;
 }
 .terminal-header {
     background: rgba(0,0,0,0.5);
@@ -159,75 +159,152 @@
    2. Drag and Drop Sim
 ========================================= */
 .sim-drag-drop {
-    gap: 30px;
+    gap: 16px;
 }
-.drop-zones {
+.drag-arena {
     display: flex;
-    gap: 40px;
-    width: 80%;
-    max-width: 700px;
+    gap: 16px;
+    width: 100%;
+    max-width: 900px;
     z-index: 5;
+    margin-bottom: 12px;
+}
+@media (max-width: 768px) {
+    .drag-arena {
+        flex-direction: column;
+    }
 }
 .drop-zone {
     flex: 1;
-    border: 2px dashed rgba(255,255,255,0.2);
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
-    padding: 20px;
-    text-align: center;
-    color: #94a3b8;
-    min-height: 150px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    overflow: hidden;
     transition: all 0.3s;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
-.drop-zone h4 {
-    margin: 0 0 8px 0;
-    font-size: 1.3rem;
-    font-weight: bold;
+.structured-zone { border-color: rgba(56, 189, 248, 0.3); }
+.unstructured-zone { border-color: rgba(192, 132, 252, 0.3); }
+
+.zone-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: rgba(0,0,0,0.3);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.zone-icon {
+    font-size: 1.6rem;
+}
+.zone-text h4 {
+    margin: 0 0 2px 0;
     color: #f8fafc;
+    font-size: 1rem;
 }
-.drop-zone.drag-over {
-    background: rgba(56, 189, 248, 0.1);
-    border-color: #38bdf8;
-}
-.drop-zone.success-glow {
-    background: rgba(16, 185, 129, 0.1);
-    border-color: #10b981;
-    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+.zone-text p {
+    margin: 0;
+    color: #94a3b8;
+    font-size: 0.8rem;
 }
 
-.drag-items {
+.zone-body {
+    flex: 1;
+    min-height: 150px;
+    position: relative;
+    padding: 12px;
     display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.bg-pattern {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 0;
+}
+.grid-pattern {
+    background-image: linear-gradient(#38bdf8 1px, transparent 1px), linear-gradient(90deg, #38bdf8 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+.noise-pattern {
+    background-image: radial-gradient(#c084fc 1px, transparent 1px);
+    background-size: 15px 15px;
+}
+.drop-placeholder {
+    position: absolute;
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    color: rgba(255,255,255,0.2);
+    font-weight: bold;
+    text-align: center;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.drop-zone.drag-over {
+    transform: scale(1.02);
+    box-shadow: 0 0 30px rgba(255,255,255,0.1);
+}
+.structured-zone.drag-over { background: rgba(56, 189, 248, 0.1); border-color: #38bdf8; }
+.unstructured-zone.drag-over { background: rgba(192, 132, 252, 0.1); border-color: #c084fc; }
+
+.drop-zone.success-glow {
+    background: rgba(16, 185, 129, 0.2) !important;
+    border-color: #10b981 !important;
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.3) !important;
+}
+
+.drag-items-pool {
+    display: flex;
+    gap: 12px;
     flex-wrap: wrap;
-    gap: 16px;
     justify-content: center;
+    background: rgba(0,0,0,0.4);
+    padding: 16px;
+    border-radius: 12px;
     z-index: 5;
+    border: 1px solid rgba(255,255,255,0.05);
 }
+
 .drag-item {
-    background: rgba(15, 23, 42, 0.9);
-    border: 1px solid rgba(255,255,255,0.2);
-    padding: 14px 24px;
-    border-radius: 10px;
-    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(145deg, #334155, #1e293b);
+    border: 1px solid #475569;
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: #fff;
     cursor: grab;
-    font-weight: 600;
-    font-size: 1.15rem;
-    transition: transform 0.2s, opacity 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
     user-select: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 2;
 }
-.drag-item:active {
-    cursor: grabbing;
+.drag-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
 }
-.drag-item.dragging {
-    opacity: 0.5;
-}
+.drag-item:active { cursor: grabbing; }
+.drag-item.dragging { opacity: 0.4; }
+
+.item-icon { font-size: 1.4rem; }
+.item-info { display: flex; flex-direction: column; }
+.item-info strong { font-size: 0.95rem; margin-bottom: 2px; }
+.item-info span { font-size: 0.75rem; color: #94a3b8; }
+
 .drag-item.dropped {
-    margin: 8px 0;
+    margin: 0;
     cursor: default;
-    background: rgba(16, 185, 129, 0.2);
+    background: rgba(16, 185, 129, 0.15);
     border-color: #10b981;
+    box-shadow: none;
 }
+.drag-item.dropped:hover { transform: none; }
 
 .shake {
     animation: shakeAnim 0.4s cubic-bezier(.36,.07,.19,.97) both;
