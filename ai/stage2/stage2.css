@@ -177,7 +177,6 @@
 .drop-zone {
     flex: 1;
     background: rgba(15, 23, 42, 0.6);
-    backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
     display: flex;
@@ -526,7 +525,6 @@
 }
 .bias-glass-panel {
     background: rgba(15, 23, 42, 0.7);
-    backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 16px;
     padding: 20px 32px;

@@ -10,8 +10,8 @@
 
 :root {
     --bg-dark: #090e17;
-    --bg-card: rgba(18, 27, 44, 0.55);
-    --glass-bg: rgba(18, 27, 44, 0.7);
+    --bg-card: rgba(18, 27, 44, 0.92);
+    --glass-bg: rgba(18, 27, 44, 0.95);
     --glass-border: rgba(255, 255, 255, 0.08);
     --glass-border-hover: rgba(56, 189, 248, 0.3);
     
@@ -31,10 +31,10 @@
     --font-title: 'Montserrat', sans-serif;
 
     /* Dinamik Arayüz Arka Plan & Gölge Değişkenleri */
-    --header-bg: rgba(9, 14, 23, 0.98);
-    --modal-bg: rgba(15, 23, 42, 0.85);
+    --header-bg: rgba(9, 14, 23, 1);
+    --modal-bg: rgba(15, 23, 42, 0.97);
     --close-bg: rgba(255, 255, 255, 0.06);
-    --mobile-menu-bg: rgba(9, 14, 23, 0.96);
+    --mobile-menu-bg: rgba(9, 14, 23, 1);
     --mobile-item-bg: rgba(255, 255, 255, 0.05);
     --nav-btn-hover-bg: rgba(255, 255, 255, 0.06);
     --shadow-glass: 0 10px 30px rgba(0, 0, 0, 0.5);
@@ -157,8 +157,6 @@ body {
 
 .glass {
     background: var(--glass-bg);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--glass-border);
     border-radius: 16px;
     box-shadow: var(--shadow-glass);
@@ -166,13 +164,10 @@ body {
 
 .glass-card {
     background: var(--bg-card);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--glass-border);
     border-radius: 20px;
     box-shadow: var(--shadow-card);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    transform: translateZ(0);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card:hover {
@@ -188,12 +183,7 @@ body {
 }
 
 .floating-slow {
-    animation: floatSlow 6s ease-in-out infinite;
-}
-
-@keyframes floatSlow {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-8px); }
+    /* floatSlow animasyonu kaldırıldı - performans */
 }
 
 @keyframes fadeInDown {
@@ -218,7 +208,7 @@ body {
     background: var(--bg-dark);
     border-bottom: 2px solid var(--neon-blue);
     box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4);
-    transition: all 0.3s ease;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .header-container {
@@ -277,8 +267,7 @@ body {
     left: 50%;
     transform: translateX(-50%) translateY(10px);
     background: var(--modal-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: var(--modal-bg);
     border: 1px solid var(--glass-border);
     border-radius: 16px;
     box-shadow: var(--shadow-glass);
@@ -290,7 +279,7 @@ body {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 100;
 }
 
@@ -413,12 +402,11 @@ body {
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    background: rgba(0, 0, 0, 0.65);
     z-index: 55;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .mobile-nav-menu.open {
@@ -435,8 +423,7 @@ body {
     max-width: 400px;
     height: 100vh;
     background: var(--mobile-menu-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: var(--mobile-menu-bg);
     border-left: 1px solid var(--glass-border);
     box-shadow: -10px 0 40px rgba(0,0,0,0.6);
     padding: 24px;
@@ -644,9 +631,7 @@ body {
     font-size: 1rem;
     font-weight: 700;
     cursor: pointer;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     white-space: nowrap;
 }
 
@@ -1097,15 +1082,14 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(4, 7, 13, 0.8);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(4, 7, 13, 0.88);
     z-index: 100;
     display: flex;
     justify-content: center;
     align-items: center;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     padding: 20px;
 }
 
@@ -1121,7 +1105,7 @@ body {
     overflow-y: auto;
     position: relative;
     transform: translateY(-40px) scale(0.96);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     border-radius: 24px;
     background: var(--modal-bg);
     border: 1px solid var(--glass-border);
@@ -1181,8 +1165,7 @@ body {
     top: 0;
     z-index: 20;
     background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(15, 23, 42, 1);
     border-bottom: 1px solid var(--glass-border);
     padding: 24px 36px 20px 36px;
     border-radius: 24px 24px 0 0;
@@ -2244,8 +2227,6 @@ body.theme-mono-light {
     height: 56px;
     border-radius: 50%;
     background: var(--glass-bg);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--glass-border);
     color: var(--text-main);
     display: flex;
@@ -2254,7 +2235,7 @@ body.theme-mono-light {
     box-shadow: 0 10px 25px rgba(0,0,0,0.5), 0 0 15px var(--neon-blue-glow);
     cursor: pointer;
     z-index: 100;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .theme-toggle-btn:hover {
@@ -2716,10 +2697,8 @@ body.theme-mono-light {
     display: flex;
     align-items: center;
     gap: 8px;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
     box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .fullscreen-toggle-btn:hover {
@@ -2748,16 +2727,14 @@ body.theme-mono-light {
     width: 100vw;
     height: 100vh;
     z-index: 999999;
-    background: rgba(4, 7, 13, 0.92);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    background: rgba(4, 7, 13, 0.97);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .fullscreen-viewer-modal.active {
@@ -3067,12 +3044,7 @@ body.theme-mono-light {
     height: 40px;
     color: var(--neon-blue);
     opacity: 0.6;
-    animation: pulse 2s infinite alternate;
-}
-
-@keyframes pulse {
-    from { opacity: 0.4; transform: scale(0.95); }
-    to { opacity: 0.8; transform: scale(1.05); }
+    /* pulse animasyonu kaldırıldı - performans */
 }
 
 /* Kritik Soru: Örneklem Neden Alınır? Özel Afiş (Banner) */
@@ -3116,13 +3088,8 @@ body.theme-mono-light {
     justify-content: center;
     font-size: 2.6rem;
     flex-shrink: 0;
-    box-shadow: 0 0 30px rgba(236, 72, 153, 0.3);
-    animation: targetPulse 3s infinite;
-}
-
-@keyframes targetPulse {
-    0%, 100% { box-shadow: 0 0 25px rgba(236, 72, 153, 0.3); transform: scale(1); }
-    50% { box-shadow: 0 0 45px rgba(236, 72, 153, 0.6); transform: scale(1.05); }
+    box-shadow: 0 0 25px rgba(236, 72, 153, 0.35);
+    /* targetPulse box-shadow animasyonu kaldırıldı - performans */
 }
 
 .cq-title {
@@ -3404,9 +3371,7 @@ body.theme-mono-light {
     border: 1px solid var(--glass-border);
     border-radius: 60px; /* Highly rounded / capsule shape */
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15), 0 0 25px rgba(124, 58, 237, 0.05);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: visible;
 }
@@ -3550,9 +3515,7 @@ body.theme-mono-light {
     border: 1px solid color-mix(in srgb, var(--neon-blue) 40%, transparent);
     color: var(--text-main);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     text-decoration: none;
 }
 
@@ -3685,14 +3648,12 @@ body.theme-mono-light {
 /* Roadmap step detail card */
 .roadmap-step-card {
     background: var(--bg-card);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--glass-border);
     border-left: 5px solid var(--step-color, var(--neon-blue));
     border-radius: 16px;
     padding: 30px 28px;
     box-shadow: var(--shadow-card);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .roadmap-step-item:hover .roadmap-step-card {
