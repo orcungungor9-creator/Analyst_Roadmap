@@ -323,9 +323,9 @@ body {
     transform: translateX(4px);
 }
 
-.dropdown-item.purple-hover:hover { color: var(--neon-purple); border-color: rgba(192, 132, 252, 0.4); background: rgba(192, 132, 252, 0.12); box-shadow: 0 0 12px rgba(192, 132, 252, 0.15), inset 3px 0 0 var(--neon-purple); }
-.dropdown-item.blue-hover:hover { color: var(--neon-blue); border-color: rgba(56, 189, 248, 0.4); background: rgba(56, 189, 248, 0.12); box-shadow: 0 0 12px rgba(56, 189, 248, 0.15), inset 3px 0 0 var(--neon-blue); }
-.dropdown-item.green-hover:hover { color: var(--neon-green); border-color: rgba(52, 211, 153, 0.4); background: rgba(52, 211, 153, 0.12); box-shadow: 0 0 12px rgba(52, 211, 153, 0.15), inset 3px 0 0 var(--neon-green); }
+.dropdown-item.purple-hover:hover { color: #f59e0b; border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.12); box-shadow: 0 0 12px rgba(245, 158, 11, 0.15), inset 3px 0 0 #f59e0b; }
+.dropdown-item.blue-hover:hover { color: #f59e0b; border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.12); box-shadow: 0 0 12px rgba(245, 158, 11, 0.15), inset 3px 0 0 #f59e0b; }
+.dropdown-item.green-hover:hover { color: #f59e0b; border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.12); box-shadow: 0 0 12px rgba(245, 158, 11, 0.15), inset 3px 0 0 #f59e0b; }
 .dropdown-item.ai-hover:hover { color: #f59e0b; border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.12); box-shadow: 0 0 12px rgba(245, 158, 11, 0.15), inset 3px 0 0 #f59e0b; }
 
 .nav-btn {
@@ -538,10 +538,22 @@ body {
     box-shadow: 0 0 15px rgba(52, 211, 153, 0.35);
 }
 
+.mobile-nav-item.ai-hdr {
+    border-color: rgba(245, 158, 11, 0.4);
+    background: rgba(245, 158, 11, 0.05);
+}
+.mobile-nav-item.ai-hdr:hover {
+    border-color: #f59e0b !important;
+    background: rgba(245, 158, 11, 0.15) !important;
+    color: #f59e0b !important;
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.35);
+}
+
 /* Akordeon içerik kutularının giriş animasyonlarını iptal et (Tıklanınca gecikmesiz açılması için) */
 #courses-accordion,
 #guides-accordion,
-#tools-accordion {
+#tools-accordion,
+#ai-accordion {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
