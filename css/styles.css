@@ -344,7 +344,8 @@ body {
     gap: 6px;
 }
 
-.nav-btn:hover {
+.nav-btn:hover,
+.nav-dropdown-container:hover > .nav-btn {
     background: var(--nav-btn-hover-bg);
     border-color: var(--neon-blue);
     color: var(--neon-blue);
