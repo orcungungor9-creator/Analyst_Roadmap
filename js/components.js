@@ -99,6 +99,19 @@ const HEADER_HTML = `
                         <a href="${pathPrefix}tools/git/git.html" class="dropdown-item green-hover"><img src="${pathPrefix}assets/logos/git-logo.svg" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> Git</a>
                     </div>
                 </div>
+
+                <!-- YAPAY ZEKA DROPDOWN -->
+                <div class="nav-dropdown-container">
+                    <button class="nav-btn" style="color: var(--text-main); font-weight: 700;">
+                        🤖 Yapay Zeka <span style="font-size: 0.8rem; margin-left: 4px; color: #f59e0b;">▼</span>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a href="${pathPrefix}ai/stage1/stage1.html" class="dropdown-item ai-hover">💬 1. Aşama: Yapay Zeka Okuryazarlığı</a>
+                        <a href="${pathPrefix}ai/stage2/stage2.html" class="dropdown-item ai-hover">💼 2. Aşama: Veri Mühendisliği</a>
+                        <a href="${pathPrefix}ai/stage3/stage3.html" class="dropdown-item ai-hover">🧠 3. Aşama: Model Eğitimi (Algoritma Seçimi)</a>
+                        <a href="${pathPrefix}ai/stage4/stage4.html" class="dropdown-item ai-hover">📊 4. Aşama: Kalite Kontrol</a>
+                    </div>
+                </div>
             </nav>
 
             <div class="header-right">
@@ -196,6 +209,17 @@ const MOBILE_NAV_HTML = `
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/pyspark/pyspark.html'" style="font-size: 0.9rem; padding: 12px 16px;"><img src="${pathPrefix}assets/logos/pyspark-logo.svg" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> PySpark</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/matlab/matlab.html'" style="font-size: 0.9rem; padding: 12px 16px;"><img src="${pathPrefix}tools/matlab/matlab-logo.png" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> MATLAB</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/git/git.html'" style="font-size: 0.9rem; padding: 12px 16px;"><img src="${pathPrefix}assets/logos/git-logo.svg" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> Git</button>
+            </div>
+
+            <button class="mobile-nav-item ai-hdr" onclick="toggleMobileAccordion('ai-accordion', this)" style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px; margin-bottom: 4px;">
+                <span style="font-weight: 800; color: #f59e0b; letter-spacing: 0.5px; text-transform: uppercase; font-size: 0.85rem;">🤖 Yapay Zeka Yol Haritası</span>
+                <span class="accordion-arrow" style="transition: transform 0.3s; font-size: 0.9rem; color: #f59e0b;">▼</span>
+            </button>
+            <div id="ai-accordion" style="display: none; flex-direction: column; gap: 8px; width: 100%; margin-top: -4px; margin-bottom: 8px; padding-left: 16px; border-left: 2px solid rgba(245, 158, 11, 0.3);">
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}ai/stage1/stage1.html'" style="font-size: 0.9rem; padding: 12px 16px;">💬 1. Aşama: Yapay Zeka Okuryazarlığı</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}ai/stage2/stage2.html'" style="font-size: 0.9rem; padding: 12px 16px;">💼 2. Aşama: Veri Mühendisliği</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}ai/stage3/stage3.html'" style="font-size: 0.9rem; padding: 12px 16px;">🧠 3. Aşama: Model Eğitimi (Algoritma Seçimi)</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}ai/stage4/stage4.html'" style="font-size: 0.9rem; padding: 12px 16px;">📊 4. Aşama: Kalite Kontrol</button>
             </div>
 
             <div style="width: 100%; margin: 12px 0 4px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
