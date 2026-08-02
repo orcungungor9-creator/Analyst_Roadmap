@@ -589,12 +589,74 @@ body {
    2. HERO BÖLÜMÜ
    ========================================= */
 
+/* ====== HERO BANNER WRAPPER ====== */
+.hero-banner-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-banner-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('../assets/hero_banner_dark.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+.hero-banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(9, 14, 23, 0.6) 0%,
+        rgba(9, 14, 23, 0.4) 40%,
+        rgba(9, 14, 23, 0.5) 70%,
+        rgba(9, 14, 23, 0.85) 100%
+    );
+    z-index: 1;
+}
+
 .hero-section {
+    position: relative;
+    z-index: 2;
     width: 100%;
     max-width: 1000px;
     padding: 80px 24px 60px 24px;
     text-align: center;
     animation: fadeInDown 0.8s ease-out;
+}
+
+/* Light tema görselleri */
+body.theme-light-pure .hero-banner-bg,
+body.theme-light-warm .hero-banner-bg,
+body.theme-light-emerald .hero-banner-bg,
+body.theme-light-purple .hero-banner-bg,
+body.theme-mono-light .hero-banner-bg,
+body.theme-pink .hero-banner-bg {
+    background-image: url('../assets/hero_banner_light.jpg');
+}
+
+/* Light tema overlay */
+body.theme-light-pure .hero-banner-overlay,
+body.theme-light-warm .hero-banner-overlay,
+body.theme-light-emerald .hero-banner-overlay,
+body.theme-light-purple .hero-banner-overlay,
+body.theme-mono-light .hero-banner-overlay,
+body.theme-pink .hero-banner-overlay {
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.5) 0%,
+        rgba(255, 255, 255, 0.3) 40%,
+        rgba(255, 255, 255, 0.4) 70%,
+        rgba(255, 255, 255, 0.8) 100%
+    );
 }
 
 .badge-pill {
