@@ -598,6 +598,9 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    border-bottom: 2px solid var(--neon-blue);
+    box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4);
+    margin-bottom: 120px;
 }
 
 .hero-banner-bg {
@@ -682,12 +685,33 @@ body.theme-pink .hero-banner-overlay {
     margin-bottom: 24px;
 }
 
+/* Analyst Roadmap Özel Başlık Stili (Daha Zarif ve Premium) */
+.hero-title.custom-brand-title {
+    font-size: 4.2rem;
+    letter-spacing: 3px;
+    font-weight: 700;
+    
+    /* Soluk mordan pembeye, hafif saydam gradient */
+    background: linear-gradient(135deg, rgba(192, 132, 252, 0.9) 0%, rgba(236, 72, 153, 0.85) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    
+    /* Ethereal (bulutsu) ve zarif bir parlama */
+    filter: drop-shadow(0 0 15px rgba(192, 132, 252, 0.25)) drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+    
+    margin-bottom: 24px;
+    padding-bottom: 10px; /* Gölgenin kesilmemesi için */
+}
+
 .hero-subtitle {
-    font-size: 1.25rem;
-    line-height: 1.6;
-    color: var(--text-muted);
-    max-width: 750px;
+    font-size: 1.35rem;
+    font-weight: 500;
+    line-height: 1.7;
+    color: var(--text-main);
+    max-width: 800px;
     margin: 0 auto 36px auto;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
 .hero-actions {
