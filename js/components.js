@@ -106,6 +106,7 @@ const HEADER_HTML = `
                         🤖 Yapay Zeka <span style="font-size: 0.8rem; margin-left: 4px; color: #f59e0b;">▼</span>
                     </button>
                     <div class="nav-dropdown-menu">
+                        <a href="${pathPrefix}index.html#ai-integration-section" class="dropdown-item ai-hover" style="border-bottom: 1px dashed rgba(245, 158, 11, 0.3); border-radius: 0; justify-content: center;">🤖 Tüm AI Rehberleri</a>
                         <a href="${pathPrefix}ai/stage1/stage1.html" class="dropdown-item ai-hover">💬 1. Aşama: Yapay Zeka Okuryazarlığı</a>
                         <a href="${pathPrefix}ai/stage2/stage2.html" class="dropdown-item ai-hover">💼 2. Aşama: Veri Mühendisliği</a>
                         <a href="${pathPrefix}ai/stage3/stage3.html" class="dropdown-item ai-hover">🧠 3. Aşama: Model Eğitimi (Algoritma Seçimi)</a>
@@ -216,6 +217,7 @@ const MOBILE_NAV_HTML = `
                 <span class="accordion-arrow" style="transition: transform 0.3s; font-size: 0.9rem; color: #f59e0b;">▼</span>
             </button>
             <div id="ai-accordion" style="display: none; flex-direction: column; gap: 8px; width: 100%; margin-top: -4px; margin-bottom: 8px; padding-left: 16px; border-left: 2px solid rgba(245, 158, 11, 0.3);">
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}index.html#ai-integration-section'; closeNavMenu();" style="font-size: 0.9rem; padding: 12px 16px; border-bottom: 1px dashed rgba(245, 158, 11, 0.3); border-radius: 0;">🤖 Tüm AI Rehberleri</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}ai/stage1/stage1.html'" style="font-size: 0.9rem; padding: 12px 16px;">💬 1. Aşama: Yapay Zeka Okuryazarlığı</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}ai/stage2/stage2.html'" style="font-size: 0.9rem; padding: 12px 16px;">💼 2. Aşama: Veri Mühendisliği</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}ai/stage3/stage3.html'" style="font-size: 0.9rem; padding: 12px 16px;">🧠 3. Aşama: Model Eğitimi (Algoritma Seçimi)</button>
