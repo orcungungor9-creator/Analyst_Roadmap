@@ -42,10 +42,10 @@ const HEADER_HTML = `
                 <!-- DERSLER DROPDOWN -->
                 <div class="nav-dropdown-container">
                     <button class="nav-btn" style="color: var(--text-main); font-weight: 700; display: flex; align-items: center; gap: 6px;">
-                        <i data-lucide="layers" style="width: 18px; height: 18px; color: var(--neon-purple);"></i> Dersler <span style="font-size: 0.8rem; margin-left: 2px; color: var(--neon-purple);">▼</span>
+                        <i data-lucide="book" style="width: 18px; height: 18px; color: var(--neon-purple);"></i> Dersler <span style="font-size: 0.8rem; margin-left: 2px; color: var(--neon-purple);">▼</span>
                     </button>
                     <div class="nav-dropdown-menu">
-                        <a href="${pathPrefix}courses/courses.html" class="dropdown-item purple-hover" style="border-bottom: 1px dashed rgba(192, 132, 252, 0.3); border-radius: 0; justify-content: center;"><i data-lucide="layers" style="width: 16px; height: 16px; margin-right: 6px; color: var(--neon-purple);"></i> Tüm Akademik Dersler</a>
+                        <a href="${pathPrefix}courses/courses.html" class="dropdown-item purple-hover" style="border-bottom: 1px dashed rgba(192, 132, 252, 0.3); border-radius: 0; justify-content: center;"><i data-lucide="book" style="width: 16px; height: 16px; margin-right: 6px; color: var(--neon-purple);"></i> Tüm Akademik Dersler</a>
                         <a href="${pathPrefix}courses/istatistik/istatistik.html" class="dropdown-item purple-hover">📊 İstatistik</a>
                         <a href="${pathPrefix}courses/olasilik/olasilik.html" class="dropdown-item purple-hover">🎲 Olasılık</a>
                         <a href="${pathPrefix}courses/matematiksel_istatistik/matematiksel_istatistik.html" class="dropdown-item purple-hover">🧮 Mat. İstatistik</a>
@@ -77,10 +77,10 @@ const HEADER_HTML = `
                 <!-- ARAÇLAR DROPDOWN -->
                 <div class="nav-dropdown-container">
                     <button class="nav-btn" style="color: var(--text-main); font-weight: 700; display: flex; align-items: center; gap: 6px;">
-                        <i data-lucide="sliders-horizontal" style="width: 18px; height: 18px; color: var(--neon-green);"></i> Araçlar <span style="font-size: 0.8rem; margin-left: 2px; color: var(--neon-green);">▼</span>
+                        <i data-lucide="briefcase" style="width: 18px; height: 18px; color: var(--neon-green);"></i> Araçlar <span style="font-size: 0.8rem; margin-left: 2px; color: var(--neon-green);">▼</span>
                     </button>
                     <div class="nav-dropdown-menu">
-                        <a href="${pathPrefix}index.html#tools-section" class="dropdown-item green-hover" style="border-bottom: 1px dashed rgba(52, 211, 153, 0.3); border-radius: 0; justify-content: center;"><i data-lucide="sliders-horizontal" style="width: 16px; height: 16px; margin-right: 6px; color: var(--neon-green);"></i> Tüm Araçları Gör</a>
+                        <a href="${pathPrefix}index.html#tools-section" class="dropdown-item green-hover" style="border-bottom: 1px dashed rgba(52, 211, 153, 0.3); border-radius: 0; justify-content: center;"><i data-lucide="briefcase" style="width: 16px; height: 16px; margin-right: 6px; color: var(--neon-green);"></i> Tüm Araçları Gör</a>
                         <a href="${pathPrefix}tools/python/python.html" class="dropdown-item green-hover"><img src="${pathPrefix}assets/logos/python-logo.svg" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> Python</a>
                         <a href="${pathPrefix}tools/r/r.html" class="dropdown-item green-hover"><img src="${pathPrefix}assets/logos/r-logo.svg" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> R Programlama</a>
                         <a href="${pathPrefix}tools/sql/sql.html" class="dropdown-item green-hover"><img src="${pathPrefix}assets/logos/sql-logo.svg" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> SQL</a>
@@ -158,11 +158,11 @@ const MOBILE_NAV_HTML = `
             ${isIndexPage ? '' : `<button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}index.html'">🏠 Ana Sayfaya Dön</button>`}
 
             <button class="mobile-nav-item courses-hdr" onclick="toggleMobileAccordion('courses-accordion', this)" style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px; margin-bottom: 4px;">
-                <span style="font-weight: 800; color: var(--neon-purple); letter-spacing: 0.5px; font-size: 0.9rem; display: flex; align-items: center;"><i data-lucide="layers" style="width: 18px; height: 18px; margin-right: 8px;"></i> Dersler</span>
+                <span style="font-weight: 800; color: var(--neon-purple); letter-spacing: 0.5px; font-size: 0.9rem; display: flex; align-items: center;"><i data-lucide="book" style="width: 18px; height: 18px; margin-right: 8px;"></i> Dersler</span>
                 <span class="accordion-arrow" style="transition: transform 0.3s; font-size: 0.9rem; color: var(--neon-purple);">▼</span>
             </button>
             <div id="courses-accordion" style="display: none; flex-direction: column; gap: 8px; width: 100%; margin-top: -4px; margin-bottom: 8px; padding-left: 16px; border-left: 2px solid rgba(192, 132, 252, 0.3);">
-                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}courses/courses.html'" style="font-size: 0.9rem; padding: 12px 16px; border-bottom: 1px dashed rgba(192, 132, 252, 0.3); border-radius: 0; display: flex; align-items: center;"><i data-lucide="layers" style="width: 16px; height: 16px; margin-right: 8px; color: var(--neon-purple);"></i> Tüm Akademik Dersler</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}courses/courses.html'" style="font-size: 0.9rem; padding: 12px 16px; border-bottom: 1px dashed rgba(192, 132, 252, 0.3); border-radius: 0; display: flex; align-items: center;"><i data-lucide="book" style="width: 16px; height: 16px; margin-right: 8px; color: var(--neon-purple);"></i> Tüm Akademik Dersler</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}courses/istatistik/istatistik.html'" style="font-size: 0.9rem; padding: 12px 16px;">📊 İstatistik</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}courses/olasilik/olasilik.html'" style="font-size: 0.9rem; padding: 12px 16px;">🎲 Olasılık</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}courses/matematiksel_istatistik/matematiksel_istatistik.html'" style="font-size: 0.9rem; padding: 12px 16px;">🧮 Mat. İstatistik</button>
@@ -189,11 +189,11 @@ const MOBILE_NAV_HTML = `
             </div>
 
             <button class="mobile-nav-item tools-hdr" onclick="toggleMobileAccordion('tools-accordion', this)" style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px; margin-bottom: 4px;">
-                <span style="font-weight: 800; color: var(--neon-green); letter-spacing: 0.5px; font-size: 0.9rem; display: flex; align-items: center;"><i data-lucide="sliders-horizontal" style="width: 18px; height: 18px; margin-right: 8px;"></i> Araçlar</span>
+                <span style="font-weight: 800; color: var(--neon-green); letter-spacing: 0.5px; font-size: 0.9rem; display: flex; align-items: center;"><i data-lucide="briefcase" style="width: 18px; height: 18px; margin-right: 8px;"></i> Araçlar</span>
                 <span class="accordion-arrow" style="transition: transform 0.3s; font-size: 0.9rem; color: var(--neon-green);">▼</span>
             </button>
             <div id="tools-accordion" style="display: none; flex-direction: column; gap: 8px; width: 100%; margin-top: -4px; margin-bottom: 8px; padding-left: 16px; border-left: 2px solid rgba(52, 211, 153, 0.3);">
-                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}index.html#tools-section'; closeNavMenu();" style="font-size: 0.9rem; padding: 12px 16px; border-bottom: 1px dashed rgba(52, 211, 153, 0.3); border-radius: 0; display: flex; align-items: center;"><i data-lucide="sliders-horizontal" style="width: 16px; height: 16px; margin-right: 8px; color: var(--neon-green);"></i> Tüm Araçları Gör</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}index.html#tools-section'; closeNavMenu();" style="font-size: 0.9rem; padding: 12px 16px; border-bottom: 1px dashed rgba(52, 211, 153, 0.3); border-radius: 0; display: flex; align-items: center;"><i data-lucide="briefcase" style="width: 16px; height: 16px; margin-right: 8px; color: var(--neon-green);"></i> Tüm Araçları Gör</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/python/python.html'" style="font-size: 0.9rem; padding: 12px 16px;"><img src="${pathPrefix}assets/logos/python-logo.svg" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> Python</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/r/r.html'" style="font-size: 0.9rem; padding: 12px 16px;"><img src="${pathPrefix}assets/logos/r-logo.svg" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> R Programlama</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}tools/sql/sql.html'" style="font-size: 0.9rem; padding: 12px 16px;"><img src="${pathPrefix}assets/logos/sql-logo.svg" style="width:16px; height:16px; margin-right:8px; object-fit:contain; border-radius:3px; vertical-align:middle;"> SQL</button>
