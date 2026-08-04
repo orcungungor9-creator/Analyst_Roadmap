@@ -41,8 +41,8 @@ const HEADER_HTML = `
             <nav class="desktop-main-nav">
                 <!-- DERSLER DROPDOWN -->
                 <div class="nav-dropdown-container">
-                    <button class="nav-btn" style="color: var(--text-main); font-weight: 700;">
-                        📚 Dersler <span style="font-size: 0.8rem; margin-left: 4px; color: var(--neon-purple);">▼</span>
+                    <button class="nav-btn" style="color: var(--text-main); font-weight: 700; display: flex; align-items: center; gap: 6px;">
+                        <i data-lucide="layers" style="width: 18px; height: 18px; color: var(--neon-purple);"></i> Dersler <span style="font-size: 0.8rem; margin-left: 2px; color: var(--neon-purple);">▼</span>
                     </button>
                     <div class="nav-dropdown-menu">
                         <a href="${pathPrefix}courses/courses.html" class="dropdown-item purple-hover" style="border-bottom: 1px dashed rgba(192, 132, 252, 0.3); border-radius: 0; justify-content: center;">📚 Tüm Akademik Dersler</a>
@@ -61,8 +61,8 @@ const HEADER_HTML = `
 
                 <!-- REHBERLER DROPDOWN -->
                 <div class="nav-dropdown-container">
-                    <button class="nav-btn" style="color: var(--text-main); font-weight: 700;">
-                        🚀 Rehberler <span style="font-size: 0.8rem; margin-left: 4px; color: var(--neon-blue);">▼</span>
+                    <button class="nav-btn" style="color: var(--text-main); font-weight: 700; display: flex; align-items: center; gap: 6px;">
+                        <i data-lucide="compass" style="width: 18px; height: 18px; color: var(--neon-blue);"></i> Rehberler <span style="font-size: 0.8rem; margin-left: 2px; color: var(--neon-blue);">▼</span>
                     </button>
                     <div class="nav-dropdown-menu">
                         <a href="${pathPrefix}index.html#guides-section" class="dropdown-item blue-hover" style="border-bottom: 1px dashed rgba(56, 189, 248, 0.3); border-radius: 0; justify-content: center;">🚀 Tüm Rehberleri Gör</a>
@@ -76,8 +76,8 @@ const HEADER_HTML = `
 
                 <!-- ARAÇLAR DROPDOWN -->
                 <div class="nav-dropdown-container">
-                    <button class="nav-btn" style="color: var(--text-main); font-weight: 700;">
-                        🛠️ Araçlar <span style="font-size: 0.8rem; margin-left: 4px; color: var(--neon-green);">▼</span>
+                    <button class="nav-btn" style="color: var(--text-main); font-weight: 700; display: flex; align-items: center; gap: 6px;">
+                        <i data-lucide="sliders-horizontal" style="width: 18px; height: 18px; color: var(--neon-green);"></i> Araçlar <span style="font-size: 0.8rem; margin-left: 2px; color: var(--neon-green);">▼</span>
                     </button>
                     <div class="nav-dropdown-menu">
                         <a href="${pathPrefix}index.html#tools-section" class="dropdown-item green-hover" style="border-bottom: 1px dashed rgba(52, 211, 153, 0.3); border-radius: 0; justify-content: center;">🛠️ Tüm Araçları Gör</a>
@@ -102,8 +102,8 @@ const HEADER_HTML = `
 
                 <!-- YAPAY ZEKA DROPDOWN -->
                 <div class="nav-dropdown-container">
-                    <button class="nav-btn" style="color: var(--text-main); font-weight: 700;">
-                        🤖 Yapay Zeka <span style="font-size: 0.8rem; margin-left: 4px; color: #f59e0b;">▼</span>
+                    <button class="nav-btn" style="color: var(--text-main); font-weight: 700; display: flex; align-items: center; gap: 6px;">
+                        <i data-lucide="cpu" style="width: 18px; height: 18px; color: #f59e0b;"></i> Yapay Zeka <span style="font-size: 0.8rem; margin-left: 2px; color: #f59e0b;">▼</span>
                     </button>
                     <div class="nav-dropdown-menu">
                         <a href="${pathPrefix}index.html#ai-integration-section" class="dropdown-item ai-hover" style="border-bottom: 1px dashed rgba(245, 158, 11, 0.3); border-radius: 0; justify-content: center;">🤖 Tüm AI Rehberleri</a>
@@ -425,4 +425,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { rootMargin: "0px 0px -50px 0px" });
 
     document.querySelectorAll('.lazy-fade').forEach(el => fadeObserver.observe(el));
+
+    // Load Lucide Icons
+    const lucideScript = document.createElement('script');
+    lucideScript.src = "https://unpkg.com/lucide@latest";
+    lucideScript.onload = () => {
+        if (window.lucide) {
+            lucide.createIcons();
+        }
+    };
+    document.head.appendChild(lucideScript);
 });
