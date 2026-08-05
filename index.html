@@ -535,6 +535,91 @@
                     <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; font-weight: 500; margin: 0;">Eğitilen modelin gerçek dünya performansını ölçün. Doğruluk oranlarına aldanmadan karmaşıklık matrisini okumayı, model kaymasını yönetmeyi ve onaylanan sistemi canlıya almayı öğrenin.</p>
                 </div>
             </div>
+            </div>
+        </section>
+
+        <!-- 6. AI KULLANIM REHBERİ -->
+        <section class="section-container" id="ai-guides-section">
+            <div class="section-header">
+                <h2 class="section-title"><span class="icon-title" style="display: inline-flex; align-items: center;"><i data-lucide="book-open" style="width: 32px; height: 32px; color: var(--neon-purple);"></i></span> AI Kullanım Rehberi</h2>
+                <p class="section-desc">Yapay zeka araçlarını en verimli şekilde kullanmanızı sağlayacak temel ve ileri düzey rehberler.</p>
+            </div>
+
+            <!-- YATAY CAROUSEL / SLIDER KAPSAYICISI -->
+            <div class="carousel-container">
+                <!-- Sol Ok Butonu -->
+                <button class="carousel-arrow left-arrow" onclick="scrollCarousel('left', 'ai-guides-carousel')" aria-label="Sola Kaydır">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+
+                <!-- Kaydırma Alanı -->
+                <div class="quick-guides-carousel" id="ai-guides-carousel">
+                    <!-- Kart 1 -->
+                    <div class="guide-card glass-card carousel-card lazy-fade" onclick="window.location.href='yapay-zeka/temel-bilesenler/index.html'">
+                        <div class="guide-card-icon blue-glow lazy-fade">🧩</div>
+                        <h3>Temel Bileşenler</h3>
+                        <p>Başarılı ve tutarlı bir prompt yazmak için kurgulanması gereken temel yapıtaşları.</p>
+                        <span class="guide-link">Bileşenleri İncele &rarr;</span>
+                    </div>
+
+                    <!-- Kart 2 -->
+                    <div class="guide-card glass-card carousel-card lazy-fade" onclick="window.location.href='yapay-zeka/ileri-teknikler/index.html'">
+                        <div class="guide-card-icon purple-glow lazy-fade">🚀</div>
+                        <h3>İleri YZ Prompt Teknikleri</h3>
+                        <p>Yapay zekadan daha karmaşık, derin ve mantıksal sonuçlar almak için kullanılan gelişmiş yönlendirme yöntemleri.</p>
+                        <span class="guide-link">Teknikleri İncele &rarr;</span>
+                    </div>
+
+                    <!-- Kart 3 -->
+                    <div class="guide-card glass-card carousel-card lazy-fade" onclick="window.location.href='yapay-zeka/hangi-yz/index.html'">
+                        <div class="guide-card-icon yellow-glow lazy-fade">⚖️</div>
+                        <h3>Hangi YZ Ne İçin Kullanılmalı?</h3>
+                        <p>Metin, kod, görsel veya veri analizi gibi farklı ihtiyaçlara yönelik en uygun yapay zeka aracını (LLM) seçme rehberi.</p>
+                        <span class="guide-link">Rehberi İncele &rarr;</span>
+                    </div>
+
+                    <!-- Kart 4 -->
+                    <div class="guide-card glass-card carousel-card lazy-fade" onclick="window.location.href='yapay-zeka/kullanim-alanlari/index.html'">
+                        <div class="guide-card-icon green-glow lazy-fade">🌐</div>
+                        <h3>Yapay Zeka Kullanım Alanları</h3>
+                        <p>Yapay zekanın yalnızca üretken modellerden (GenAI) ibaret olmadığını gösteren, uçtan uca geniş uygulama yelpazesi.</p>
+                        <span class="guide-link">Alanları İncele &rarr;</span>
+                    </div>
+
+                    <!-- Kart 5 -->
+                    <div class="guide-card glass-card carousel-card lazy-fade" onclick="window.location.href='yapay-zeka/tarihce/index.html'">
+                        <div class="guide-card-icon blue-glow lazy-fade">⏳</div>
+                        <h3>Yapay Zeka Tarihçesi ve Dönüm Noktaları</h3>
+                        <p>Teorik temellerin atılmasından günümüzdeki devrimsel modellere uzanan gelişim süreci.</p>
+                        <span class="guide-link">Tarihçeyi İncele &rarr;</span>
+                    </div>
+
+                    <!-- Kart 6 -->
+                    <div class="guide-card glass-card carousel-card lazy-fade" onclick="window.location.href='yapay-zeka/prompt-debugging/index.html'">
+                        <div class="guide-card-icon purple-glow lazy-fade">🐛</div>
+                        <h3>Prompt Debugging</h3>
+                        <p>İstenilen sonucu vermeyen veya halüsinasyon gören promptları analiz etme, test etme ve hatalarını ayıklama yöntemleri.</p>
+                        <span class="guide-link">Yöntemleri İncele &rarr;</span>
+                    </div>
+
+                    <!-- Kart 7 -->
+                    <div class="guide-card glass-card carousel-card lazy-fade" onclick="window.location.href='yapay-zeka/rag-ve-ajanlar/index.html'">
+                        <div class="guide-card-icon yellow-glow lazy-fade">🤖</div>
+                        <h3>RAG ve YZ Ajanları (Agents)</h3>
+                        <p>Dil modellerini dış veri kaynaklarıyla besleme ve belirli bir amaca yönelik otonom görev yürüten yapay zeka mimarileri kurma yöntemleri.</p>
+                        <span class="guide-link">Mimarileri İncele &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Sağ Ok Butonu -->
+                <button class="carousel-arrow right-arrow" onclick="scrollCarousel('right', 'ai-guides-carousel')" aria-label="Sağa Kaydır">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
         </section>
 
     </main>
