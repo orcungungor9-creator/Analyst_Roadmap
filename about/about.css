@@ -1,0 +1,11 @@
+/* Hakkımda sayfası özel stilleri */
+
+/* Genel kapsayıcı için ek boşluk vb. gereksinimler buraya eklenebilir */
+.about-box {
+    transition: all 0.3s ease;
+}
+
+.about-box:hover {
+    box-shadow: 0 4px 20px rgba(52, 211, 153, 0.1);
+    border-color: var(--neon-green);
+}

@@ -125,7 +125,7 @@ const HEADER_HTML = `
                     <a href="https://www.kaggle.com/datasets" target="_blank" class="nav-btn external-btn">Kaggle ↗</a>
                 </nav>
                 <div class="action-buttons" style="display: flex; align-items: center; gap: 4px;">
-                    <button class="nav-btn icon-btn" onclick="openModal('about-modal')" title="Hakkında">
+                    <button class="nav-btn icon-btn" onclick="window.location.href = pathPrefix + 'about/about.html'" title="Hakkında">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="12" cy="12" r="10"></circle>
@@ -243,42 +243,13 @@ const MOBILE_NAV_HTML = `
                 <span style="font-size: 0.85rem; font-weight: 800; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase;">Bağlantılar &amp; Ayarlar</span>
             </div>
             <a href="https://www.kaggle.com/datasets" target="_blank" class="mobile-nav-item">🌐 Veri Setleri (Kaggle) ↗</a>
-            <button class="mobile-nav-item" onclick="openModal('about-modal'); closeNavMenu();">ℹ️ Hakkında</button>
+            <button class="mobile-nav-item" onclick="window.location.href = pathPrefix + 'about/about.html'; closeNavMenu();">ℹ️ Hakkında</button>
             <button class="mobile-nav-item" onclick="openModal('theme-modal'); closeNavMenu();">🎨 Görünüm Ayarları</button>
         </div>
     </div>
 `;
 
-const ABOUT_MODAL_HTML = `
-    <div id="about-modal" class="modal-overlay">
-        <div class="modal-content glass modal-custom-pad">
-            <button class="close-btn" onclick="closeModal('about-modal')">&times;</button>
-            <div style="display: flex; align-items: center; gap: 18px; margin-bottom: 32px;">
-                <div style="width: 60px; height: 60px; border-radius: 50%; background: rgba(56, 189, 248, 0.15); border: 2px solid var(--neon-blue); display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);">
-                    😇
-                </div>
-                <div>
-                    <h2 class="modal-title gradient-text" style="margin-bottom: 4px; font-size: 2.2rem;">Hakkımda</h2>
-                    <span style="color: var(--neon-blue); font-size: 0.95rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">Analyst Roadmap'e Hoş Geldiniz😘</span>
-                </div>
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 20px; font-size: 1.08rem; line-height: 1.7; color: var(--text-main);">
-                <p style="color: var(--text-muted); font-size: 1.15rem; font-weight: 500; border-left: 3px solid var(--neon-green); padding-left: 16px; margin-bottom: 4px;">
-                    Öncelikle sayfama geldiğiniz için teşekkür ederim.
-                </p>
-                <p>
-                    Ben <strong style="color: var(--neon-blue); font-weight: 700;">Orçun</strong>. <strong style="color: var(--text-main);">Analyst Roadmap</strong>, istatistik ve ekonometri dünyasına dair kavramları bir araya getirdiğim, veri analistlerinin kullandığı programlama dillerini ve araçları tanıttığım kapsamlı bir dijital arşivdir.
-                </p>
-                <p class="about-box">
-                    Karmaşık teorilerden analitik araçlara kadar birçok konuyu, sıkıcı akademik dilden uzaklaşarak <em style="color: var(--neon-green); font-style: normal; font-weight: 700;">"kendi penceremden"</em> not düşüyorum. Amacım hem kendi gelişim sürecimi bu seyir defterinde arşivlemek hem de veri dünyasına adım atan veya bu alanda çalışan diğer insanlarla bilgi dolu, ortak bir zemin yaratmak.
-                </p>
-                <p style="color: var(--text-muted); font-size: 1.05rem; margin-top: 12px; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 24px;">
-                    Umarım bu sayfalarda kendi analiz serüveniniz için faydalı bir şeyler bulursunuz.
-                </p>
-            </div>
-        </div>
-    </div>
-`;
+
 
 const THEME_MODAL_HTML = `
     <div id="theme-modal" class="modal-overlay">
@@ -427,7 +398,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Insert Header and Mobile Nav at the beginning of the body
     document.body.insertAdjacentHTML('afterbegin', HEADER_HTML + MOBILE_NAV_HTML);
     // Insert Modals at the end of the body
-    document.body.insertAdjacentHTML('beforeend', ABOUT_MODAL_HTML + THEME_MODAL_HTML);
+    document.body.insertAdjacentHTML('beforeend', THEME_MODAL_HTML);
 
     // Initialize Lazy Loading for Cards
     const fadeObserver = new IntersectionObserver((entries, observer) => {

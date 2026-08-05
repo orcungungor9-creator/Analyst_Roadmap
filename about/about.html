@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakkımda | Analyst Roadmap</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="about.css">
+</head>
+<body>
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('analyst_theme') || 'theme-light-purple';
+            if (savedTheme !== 'theme-dark') {
+                document.body.classList.add(savedTheme);
+            }
+        })();
+    </script>
+
+    <main class="main-container" style="margin-top: 100px; padding: 24px; min-height: calc(100vh - 100px);">
+        <section class="section-container" style="max-width: 800px; margin: 0 auto;">
+            <div class="glass" style="padding: 40px; border-radius: 24px; border: 1px solid var(--glass-border);">
+                <div style="display: flex; align-items: center; gap: 18px; margin-bottom: 32px;">
+                    <div style="width: 80px; height: 80px; border-radius: 50%; background: rgba(56, 189, 248, 0.15); border: 2px solid var(--neon-blue); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);">
+                        😇
+                    </div>
+                    <div>
+                        <h1 class="gradient-text" style="margin-bottom: 4px; font-size: 2.5rem; font-family: var(--font-title); font-weight: 800;">Hakkımda</h1>
+                        <span style="color: var(--neon-blue); font-size: 1.1rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">Analyst Roadmap'e Hoş Geldiniz😘</span>
+                    </div>
+                </div>
+                
+                <div style="display: flex; flex-direction: column; gap: 24px; font-size: 1.1rem; line-height: 1.8; color: var(--text-main);">
+                    <p style="color: var(--text-muted); font-size: 1.2rem; font-weight: 500; border-left: 3px solid var(--neon-green); padding-left: 16px; margin-bottom: 4px;">
+                        Öncelikle sayfama geldiğiniz için teşekkür ederim.
+                    </p>
+                    <p>
+                        Ben <strong style="color: var(--neon-blue); font-weight: 700;">Orçun</strong>. <strong style="color: var(--text-main);">Analyst Roadmap</strong>, istatistik ve ekonometri dünyasına dair kavramları bir araya getirdiğim, veri analistlerinin kullandığı programlama dillerini ve araçları tanıttığım kapsamlı bir dijital arşivdir.
+                    </p>
+                    <p class="about-box" style="padding: 20px; background: var(--bg-inner-box); border-radius: 12px; border: 1px solid var(--glass-border);">
+                        Karmaşık teorilerden analitik araçlara kadar birçok konuyu, sıkıcı akademik dilden uzaklaşarak <em style="color: var(--neon-green); font-style: normal; font-weight: 700;">"kendi penceremden"</em> not düşüyorum. Amacım hem kendi gelişim sürecimi bu seyir defterinde arşivlemek hem de veri dünyasına adım atan veya bu alanda çalışan diğer insanlarla bilgi dolu, ortak bir zemin yaratmak.
+                    </p>
+                    <p style="color: var(--text-muted); font-size: 1.1rem; margin-top: 12px; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 24px;">
+                        Umarım bu sayfalarda kendi analiz serüveniniz için faydalı bir şeyler bulursunuz.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/components.js"></script>
+    <script src="../js/nav.js"></script>
+    <script src="../js/modal.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="about.js"></script>
+</body>
+</html>
