@@ -101,10 +101,39 @@ function scrollCarousel(direction, carouselId) {
     
     const stride = cards.length > 1 ? (cards[1].offsetLeft - cards[0].offsetLeft) : (cards[0].offsetWidth + 24);
 
+    function teleportWithFade(targetScrollLeft) {
+        if (carousel.classList.contains('is-teleporting')) return;
+        carousel.classList.add('is-teleporting');
+        carousel.style.transition = 'opacity 0.15s ease-in-out';
+        carousel.style.opacity = '0';
+        setTimeout(() => {
+            carousel.style.scrollBehavior = 'auto';
+            carousel.scrollLeft = targetScrollLeft;
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    carousel.style.scrollBehavior = 'smooth';
+                    carousel.style.opacity = '1';
+                    setTimeout(() => {
+                        carousel.style.transition = '';
+                        carousel.classList.remove('is-teleporting');
+                    }, 150);
+                });
+            });
+        }, 150);
+    }
+
     if (direction === 'left') {
-        carousel.scrollBy({ left: -stride, behavior: 'smooth' });
+        if (carousel.scrollLeft <= 5) {
+            teleportWithFade(carousel.scrollWidth);
+        } else {
+            carousel.scrollBy({ left: -stride, behavior: 'smooth' });
+        }
     } else {
-        carousel.scrollBy({ left: stride, behavior: 'smooth' });
+        if (Math.ceil(carousel.scrollLeft + carousel.clientWidth) >= carousel.scrollWidth - 5) {
+            teleportWithFade(0);
+        } else {
+            carousel.scrollBy({ left: stride, behavior: 'smooth' });
+        }
     }
 }
 
