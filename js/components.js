@@ -25,14 +25,11 @@ const HEADER_HTML = `
     <header class="site-header glass-header">
         <div class="header-container">
             <div class="header-left" style="display: flex; align-items: center;">
-                <a href="${isIndexPage ? '#' : pathPrefix + 'index.html'}" class="logo" style="color: var(--neon-blue); display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                <a href="${isIndexPage ? '#' : pathPrefix + 'index.html'}" class="logo" style="color: var(--neon-blue); display: flex; align-items: center; gap: 12px; text-decoration: none; flex-wrap: nowrap;">
                     Analyst Roadmap
                     ${isIndexPage ? '' : `
-                    <div style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: rgba(56, 189, 248, 0.15); border: 1.5px solid rgba(56, 189, 248, 0.3);" title="Ana Sayfaya Dön">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="19" y1="12" x2="5" y2="12"></line>
-                            <polyline points="12 19 5 12 12 5"></polyline>
-                        </svg>
+                    <div style="display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 10px; background: transparent; border: 1px solid var(--neon-blue); color: var(--neon-blue); transition: all 0.2s ease; cursor: pointer; opacity: 0.8;" onmouseover="this.style.background='var(--neon-blue-glow)'; this.style.transform='scale(1.05)'; this.style.opacity='1';" onmouseout="this.style.background='transparent'; this.style.transform='scale(1)'; this.style.opacity='0.8';" title="Ana Sayfaya Dön">
+                        <i data-lucide="home" style="width: 18px; height: 18px;"></i>
                     </div>
                     `}
                 </a>
@@ -112,11 +109,11 @@ const HEADER_HTML = `
                         <a href="${pathPrefix}ai/stage3/stage3.html" class="dropdown-item ai-hover">🧠 3. Aşama: Model Eğitimi (Algoritma Seçimi)</a>
                         <a href="${pathPrefix}ai/stage4/stage4.html" class="dropdown-item ai-hover">📊 4. Aşama: Kalite Kontrol</a>
                         <a href="${pathPrefix}index.html#ai-guides-section" class="dropdown-item ai-hover" style="border-top: 1px dashed rgba(245, 158, 11, 0.3); border-bottom: 1px dashed rgba(245, 158, 11, 0.3); border-radius: 0; justify-content: center; margin-top: 4px;"><i data-lucide="book-open" style="width: 16px; height: 16px; margin-right: 6px; color: #f59e0b;"></i> Tüm AI Rehberleri</a>
+                        <a href="${pathPrefix}yapay-zeka/tarihce/index.html" class="dropdown-item ai-hover">⏳ Tarihçe ve Dönüm Noktaları</a>
+                        <a href="${pathPrefix}yapay-zeka/kullanim-alanlari/index.html" class="dropdown-item ai-hover">🌐 Yapay Zeka Kullanım Alanları</a>
+                        <a href="${pathPrefix}yapay-zeka/hangi-yz/index.html" class="dropdown-item ai-hover">⚖️ Hangi YZ Ne İçin Kullanılmalı?</a>
                         <a href="${pathPrefix}yapay-zeka/temel-bilesenler/index.html" class="dropdown-item ai-hover">🧩 Temel Bileşenler</a>
                         <a href="${pathPrefix}yapay-zeka/ileri-teknikler/index.html" class="dropdown-item ai-hover">🚀 İleri YZ Prompt Teknikleri</a>
-                        <a href="${pathPrefix}yapay-zeka/hangi-yz/index.html" class="dropdown-item ai-hover">⚖️ Hangi YZ Ne İçin Kullanılmalı?</a>
-                        <a href="${pathPrefix}yapay-zeka/kullanim-alanlari/index.html" class="dropdown-item ai-hover">🌐 Yapay Zeka Kullanım Alanları</a>
-                        <a href="${pathPrefix}yapay-zeka/tarihce/index.html" class="dropdown-item ai-hover">⏳ Tarihçe ve Dönüm Noktaları</a>
                         <a href="${pathPrefix}yapay-zeka/prompt-debugging/index.html" class="dropdown-item ai-hover">🐛 Prompt Debugging</a>
                         <a href="${pathPrefix}yapay-zeka/rag-ve-ajanlar/index.html" class="dropdown-item ai-hover">🤖 RAG ve YZ Ajanları</a>
                     </div>
@@ -231,11 +228,11 @@ const MOBILE_NAV_HTML = `
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}ai/stage3/stage3.html'" style="font-size: 0.9rem; padding: 12px 16px;">🧠 3. Aşama: Model Eğitimi (Algoritma Seçimi)</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}ai/stage4/stage4.html'" style="font-size: 0.9rem; padding: 12px 16px;">📊 4. Aşama: Kalite Kontrol</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}index.html#ai-guides-section'; closeNavMenu();" style="font-size: 0.9rem; padding: 12px 16px; border-top: 1px dashed rgba(245, 158, 11, 0.3); border-bottom: 1px dashed rgba(245, 158, 11, 0.3); border-radius: 0; display: flex; align-items: center; margin-top: 4px;"><i data-lucide="book-open" style="width: 16px; height: 16px; margin-right: 8px; color: #f59e0b;"></i> Tüm AI Rehberleri</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}yapay-zeka/tarihce/index.html'" style="font-size: 0.9rem; padding: 12px 16px;">⏳ Tarihçe ve Dönüm Noktaları</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}yapay-zeka/kullanim-alanlari/index.html'" style="font-size: 0.9rem; padding: 12px 16px;">🌐 Yapay Zeka Kullanım Alanları</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}yapay-zeka/hangi-yz/index.html'" style="font-size: 0.9rem; padding: 12px 16px;">⚖️ Hangi YZ Ne İçin Kullanılmalı?</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}yapay-zeka/temel-bilesenler/index.html'" style="font-size: 0.9rem; padding: 12px 16px;">🧩 Temel Bileşenler</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}yapay-zeka/ileri-teknikler/index.html'" style="font-size: 0.9rem; padding: 12px 16px;">🚀 İleri YZ Prompt Teknikleri</button>
-                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}yapay-zeka/hangi-yz/index.html'" style="font-size: 0.9rem; padding: 12px 16px;">⚖️ Hangi YZ Ne İçin Kullanılmalı?</button>
-                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}yapay-zeka/kullanim-alanlari/index.html'" style="font-size: 0.9rem; padding: 12px 16px;">🌐 Yapay Zeka Kullanım Alanları</button>
-                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}yapay-zeka/tarihce/index.html'" style="font-size: 0.9rem; padding: 12px 16px;">⏳ Tarihçe ve Dönüm Noktaları</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}yapay-zeka/prompt-debugging/index.html'" style="font-size: 0.9rem; padding: 12px 16px;">🐛 Prompt Debugging</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}yapay-zeka/rag-ve-ajanlar/index.html'" style="font-size: 0.9rem; padding: 12px 16px;">🤖 RAG ve YZ Ajanları</button>
             </div>
