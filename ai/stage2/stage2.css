@@ -603,3 +603,66 @@
     font-family: monospace;
     text-shadow: 0 0 10px rgba(255,255,255,0.3);
 }
+
+/* =========================================
+   6. Data Labeling Station
+========================================= */
+.labeling-station {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.label-item-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 16px;
+    transition: all 0.3s ease;
+}
+.label-item-card.completed {
+    border-color: #10b981;
+    background: rgba(16, 185, 129, 0.05);
+}
+.label-raw-text {
+    font-size: 1.1rem;
+    color: #e2e8f0;
+    margin-bottom: 12px;
+    font-style: italic;
+}
+.label-btn-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.label-chip-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+.label-chip-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+.label-chip-btn.correct-selected {
+    background: rgba(16, 185, 129, 0.2);
+    border-color: #10b981;
+    color: #10b981;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+}
+.label-chip-btn.wrong-selected {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: #ef4444;
+    color: #ef4444;
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+    animation: shake 0.4s ease-in-out;
+}
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+}

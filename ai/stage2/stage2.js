@@ -359,4 +359,47 @@ document.addEventListener('DOMContentLoaded', () => {
     if (sliderMale) sliderMale.addEventListener('input', updateBiasSimulation);
     if (sliderChild) sliderChild.addEventListener('input', updateBiasSimulation);
 
+    /* =========================================
+       7. Adım: Veri Etiketleme (Data Labeling)
+    ========================================= */
+    const labelBtns = document.querySelectorAll('.label-chip-btn');
+    const labelFeedback = document.getElementById('feedback-labeling');
+    let correctlyLabeledCount = 0;
+    const totalLabelItems = 3;
+
+    if (labelBtns && labelBtns.length > 0) {
+        labelBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const parentCard = this.closest('.label-item-card');
+                const targetLabel = this.getAttribute('data-target');
+                const selectedLabel = this.getAttribute('data-label');
+
+                const allBtnsInCard = parentCard.querySelectorAll('.label-chip-btn');
+                allBtnsInCard.forEach(b => b.classList.remove('correct-selected', 'wrong-selected'));
+
+                if (selectedLabel === targetLabel) {
+                    this.classList.add('correct-selected');
+                    if (!parentCard.classList.contains('completed')) {
+                        parentCard.classList.add('completed');
+                        correctlyLabeledCount++;
+                    }
+                } else {
+                    this.classList.add('wrong-selected');
+                    if (parentCard.classList.contains('completed')) {
+                        parentCard.classList.remove('completed');
+                        correctlyLabeledCount--;
+                    }
+                }
+
+                if (correctlyLabeledCount === totalLabelItems && labelFeedback) {
+                    labelFeedback.innerHTML = "✅ <strong>Ground Truth Veri Seti Tamamlandı!</strong> Etiketli veriler (X ➔ y) makine öğrenmesi modeli için %100 hazır hale getirildi.";
+                    labelFeedback.className = 'sim-feedback feedback-success';
+                } else if (labelFeedback) {
+                    labelFeedback.innerHTML = `Ham verileri inceleyin ve doğru hedef etiketi (y) atayın (${correctlyLabeledCount}/${totalLabelItems} Doğru Etiketlendi).`;
+                    labelFeedback.className = 'sim-feedback';
+                }
+            });
+        });
+    }
+
 });

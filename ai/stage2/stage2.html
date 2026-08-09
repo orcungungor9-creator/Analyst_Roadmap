@@ -391,6 +391,70 @@
                 </div>
             </div>
             
+            <!-- 7. ADIM: VERİ ETİKETLEME -->
+            <div class="step-wrapper">
+                <div class="guide-card glass-card story-text-card">
+                    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+                        <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(168, 85, 247, 0.15); border: 1px solid #c084fc; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: #c084fc;">7</div>
+                        <h3 style="color: var(--text-main); font-size: 1.5rem;">Veri Etiketleme ve Anotasyon (Data Labeling) 🏷️</h3>
+                    </div>
+                    <p style="color: var(--text-muted); margin-bottom: 16px; line-height: 1.7; font-size: 1.1rem;">
+                        Ham verileri hazırlamak ve yanlılığı gidermek yeterli değildir. Gözetimli Makine Öğrenmesi (Supervised Learning) modellerinin öğrenebilmesi için her bir veri örneğine "doğru cevabın" bildirilmesi gerekir. Buna <strong>'Ground Truth' (Gerçek Cevap / Etiket $y$)</strong> adı verilir.
+                    </p>
+                    <p style="color: var(--text-muted); margin-bottom: 16px; line-height: 1.7; font-size: 1.1rem;">
+                        Aşağıdaki simülasyonda modelin farklı durumlardaki müşteri davranışlarını öğrenebilmesi için ham verileri doğru kategorilerle etiketleyin. Etiketleme işlemi makinenin öğrenme sınırlarını çizen en kritik aşamalardan biridir.
+                    </p>
+                </div>
+
+                <div class="sim-card interactive-sim sim-labeling" id="sim7" style="background: radial-gradient(circle at 50% 0%, #1e293b, #0f172a); padding: 28px 32px;">
+                    <div class="sim-title" style="margin-bottom: 16px; padding-bottom: 8px;">Simülasyon: Veri Etiketleme İstasyonu</div>
+                    
+                    <div class="labeling-station">
+                        <div class="label-item-card" data-id="1">
+                            <div class="label-raw-text">📄 <span>"Sipariş ettiğim ürün 5 gündür kargoya verilmedi, teslimat süreniz berbat!"</span></div>
+                            <div class="label-btn-group">
+                                <button class="label-chip-btn" data-target="negatif" data-label="pozitif">😊 Pozitif</button>
+                                <button class="label-chip-btn" data-target="negatif" data-label="negatif">😡 Şikayet / Negatif</button>
+                                <button class="label-chip-btn" data-target="negatif" data-label="notr">😐 Bilgi Talebi / Nötr</button>
+                            </div>
+                        </div>
+
+                        <div class="label-item-card" data-id="2">
+                            <div class="label-raw-text">📊 <span>"Kullanıcı son 3 aydır hesabına giriş yapmadı ve aboneliğini sonlandırdı."</span></div>
+                            <div class="label-btn-group">
+                                <button class="label-chip-btn" data-target="churn" data-label="churn">🚨 Müşteri Terk (Churn)</button>
+                                <button class="label-chip-btn" data-target="churn" data-label="aktif">✅ Aktif Müşteri</button>
+                                <button class="label-chip-btn" data-target="churn" data-label="vip">⭐ VIP Müşteri</button>
+                            </div>
+                        </div>
+
+                        <div class="label-item-card" data-id="3">
+                            <div class="label-raw-text">❓ <span>"Ürünün garantisi kaç yıl devam ediyor ve kargo ücreti ne kadar?"</span></div>
+                            <div class="label-btn-group">
+                                <button class="label-chip-btn" data-target="notr" data-label="pozitif">😊 Pozitif</button>
+                                <button class="label-chip-btn" data-target="notr" data-label="negatif">😡 Şikayet</button>
+                                <button class="label-chip-btn" data-target="notr" data-label="notr">ℹ️ Bilgi Talebi / Nötr</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sim-feedback" id="feedback-labeling">Ham verileri inceleyin ve doğru hedef etiketi (y) atayın (0/3 Doğru Etiketlendi).</div>
+                </div>
+            </div>
+
+            <!-- BİTİŞ METNİ -->
+            <div class="step-wrapper" style="margin-top: 40px;">
+                <div class="guide-card glass-card story-text-card">
+                    <h3 style="color: var(--text-main); font-size: 1.8rem; margin-bottom: 20px; text-align: center;">Bu aşamayı neden yaptım ?</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 16px; line-height: 1.8; font-size: 1.15rem;">
+                        Veri mühendisliği, burada gördüklerimizle sınırlı olmayan, uçsuz bucaksız ve derin bir alandır. Dağıtık sistemler (Hadoop, Spark), gerçek zamanlı veri akışları (Kafka), veri ambarları (Data Warehouse) ve karmaşık ETL (Extract, Transform, Load) süreçleri bu dünyanın sadece birer parçasıdır. Ancak her projenin özünde, verinin kabaca buradaki gibi mantıksal aşamalardan geçerek modele sunulması yatar.
+                    </p>
+                    <p style="color: var(--text-muted); margin-bottom: 16px; line-height: 1.8; font-size: 1.15rem;">
+                        Bu aşamanın asıl amacı; <strong>yapay zekaların sanıldığı gibi sihirli "düşünen makineler" olmadığını</strong> göstermektir. İşin temelinde, matematiğin, istatistiğin ve özenle hazırlanmış, etiketlenmiş verilerin gücü bulunur. Makine sadece sizin ona sunduğunuz temiz ve düzenli verinin içindeki desenleri keşfeden muazzam bir hesaplayıcıdır. Veriniz ne kadar iyiyse, "yapay zekanız" da o kadar zekidir. Bir sonraki aşamada yapay zekanın bu bahsini ettiğimiz makine öğrenmesi ve matematiksel kısmından bahsedeceğiz. Umarım hoşunuza gitmiştir, okuduğunuz için teşekkür ederim.
+                    </p>
+                </div>
+            </div>
+
         </div>
 
         <div style="display: flex; justify-content: space-between; margin-top: 60px;">
