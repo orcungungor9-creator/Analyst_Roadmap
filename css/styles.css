@@ -860,10 +860,10 @@ body.theme-light-purple .hero-title.custom-brand-title {
 }
 
 .btn-hero-formulas {
-    background: rgba(56, 189, 248, 0.12);
-    border: 1px solid rgba(56, 189, 248, 0.4);
-    color: var(--text-main);
-    box-shadow: 0 8px 25px rgba(56, 189, 248, 0.2);
+    background: rgba(56, 189, 248, 0.50);
+    border: 1px solid rgba(56, 189, 248, 0.9);
+    color: #000000;
+    box-shadow: 0 8px 25px rgba(56, 189, 248, 0.4);
 }
 
 .btn-hero-formulas .btn-hero-icon {
@@ -883,10 +883,10 @@ body.theme-light-purple .hero-title.custom-brand-title {
 }
 
 .btn-hero-charts {
-    background: rgba(52, 211, 153, 0.12);
-    border: 1px solid rgba(52, 211, 153, 0.4);
-    color: var(--text-main);
-    box-shadow: 0 8px 25px rgba(52, 211, 153, 0.2);
+    background: rgba(52, 211, 153, 0.50);
+    border: 1px solid rgba(52, 211, 153, 0.9);
+    color: #000000;
+    box-shadow: 0 8px 25px rgba(52, 211, 153, 0.4);
 }
 
 .btn-hero-charts .btn-hero-icon {
@@ -906,10 +906,10 @@ body.theme-light-purple .hero-title.custom-brand-title {
 }
 
 .btn-hero-start {
-    background: rgba(251, 146, 60, 0.12);
-    border: 1px solid rgba(251, 146, 60, 0.4);
-    color: var(--text-main);
-    box-shadow: 0 8px 25px rgba(251, 146, 60, 0.2);
+    background: rgba(251, 146, 60, 0.50);
+    border: 1px solid rgba(251, 146, 60, 0.9);
+    color: #000000;
+    box-shadow: 0 8px 25px rgba(251, 146, 60, 0.4);
 }
 
 .btn-hero-start .btn-hero-icon {
@@ -929,10 +929,10 @@ body.theme-light-purple .hero-title.custom-brand-title {
 }
 
 .btn-hero-courses {
-    background: rgba(192, 132, 252, 0.12);
-    border: 1px solid rgba(192, 132, 252, 0.4);
-    color: var(--text-main);
-    box-shadow: 0 8px 25px rgba(192, 132, 252, 0.2);
+    background: rgba(192, 132, 252, 0.50);
+    border: 1px solid rgba(192, 132, 252, 0.9);
+    color: #000000;
+    box-shadow: 0 8px 25px rgba(192, 132, 252, 0.4);
 }
 
 .btn-hero-courses .btn-hero-icon {
@@ -953,9 +953,23 @@ body.theme-light-purple .hero-title.custom-brand-title {
 
 
 
+/* Koyu temalarda buton yazıları beyaz */
+body.theme-dark .btn-hero,
+body.theme-ocean .btn-hero,
+body.theme-purple .btn-hero,
+body.theme-emerald .btn-hero,
+body.theme-cyberpunk .btn-hero,
+body.theme-cyber-neon .btn-hero,
+body.theme-amber .btn-hero,
+body.theme-dark-sakura .btn-hero,
+body.theme-mono-dark .btn-hero {
+    color: #ffffff;
+}
+
 /* =========================================
    ANA İÇERİK & BÖLÜMLER
    ========================================= */
+
 
 .main-container {
     width: 100%;
