@@ -4,9 +4,7 @@
 function initTheme() {
     const savedTheme = localStorage.getItem('analyst_theme') || 'theme-light-purple';
     document.body.className = document.body.className.replace(/\btheme-\S+/g, '').trim();
-    if (savedTheme !== 'theme-dark') {
-        document.body.classList.add(savedTheme);
-    }
+    document.body.classList.add(savedTheme);
     
     // Update active state in theme cards if modal is present
     document.querySelectorAll('.theme-card').forEach(card => {
