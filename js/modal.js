@@ -4,9 +4,19 @@ function openModal(modalId) {
     if (!modal) return;
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
-    
+
     // Close mobile nav when modal opens
     if (window.closeNavMenu) window.closeNavMenu();
+
+    // Aktif temayı grid'in başına taşı
+    if (modalId === 'theme-modal') {
+        const grid = modal.querySelector('.theme-grid');
+        if (!grid) return;
+        const activeCard = grid.querySelector('.theme-card.active');
+        if (activeCard && grid.firstChild !== activeCard) {
+            grid.insertBefore(activeCard, grid.firstChild);
+        }
+    }
 }
 
 function closeModal(modalId) {

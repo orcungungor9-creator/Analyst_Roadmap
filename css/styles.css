@@ -2386,6 +2386,7 @@ body.theme-mono-light {
     flex-direction: column;
     align-items: center;
     gap: 12px;
+    position: relative;
 }
 
 .theme-card:hover, .theme-card.active {
@@ -2393,6 +2394,40 @@ body.theme-mono-light {
     background: rgba(255,255,255,0.05);
     box-shadow: 0 8px 20px rgba(0,0,0,0.4), 0 0 15px var(--neon-blue-glow);
     transform: translateY(-4px);
+}
+
+/* Seçili olmayan temalar — içi boş yuvarlak */
+.theme-card:not(.active)::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--glass-border);
+    border-radius: 50%;
+    background: transparent;
+}
+
+/* Aktif tema tik işareti */
+.theme-card.active::after {
+    content: '✓';
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    width: 22px;
+    height: 22px;
+    background: #22c55e;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 22px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(34, 197, 94, 0.5);
 }
 
 .theme-palette-preview {
