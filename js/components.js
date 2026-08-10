@@ -408,10 +408,29 @@ const THEME_MODAL_HTML = `
     </div>
 `;
 
+const FOOTER_HTML = `
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <span class="footer-copy">&copy; 2026 Analyst Roadmap. Tüm hakları saklıdır. İzinsiz kopyalanamaz veya çoğaltılamaz.</span>
+            </div>
+            <div class="footer-center">
+                <a href="${pathPrefix}yasal/index.html" class="footer-link">Yasal</a>
+            </div>
+            <div class="footer-right">
+                <a href="#" class="footer-link" style="cursor: default;" onclick="event.preventDefault();">İletişim</a>
+            </div>
+        </div>
+    </footer>
+`;
+
 // Insert the components into the DOM
 document.addEventListener('DOMContentLoaded', () => {
     // Insert Header and Mobile Nav at the beginning of the body
     document.body.insertAdjacentHTML('afterbegin', HEADER_HTML + MOBILE_NAV_HTML);
+    // Insert Footer at the end of the body
+    document.body.insertAdjacentHTML('beforeend', FOOTER_HTML);
     // Insert Modals at the end of the body
     document.body.insertAdjacentHTML('beforeend', THEME_MODAL_HTML);
 
