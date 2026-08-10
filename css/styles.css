@@ -981,24 +981,26 @@ body.theme-light-purple .hero-subtitle {
 }
 
 .btn-hero-prep {
-    background: rgba(244, 63, 94, 0.1);
-    color: #f43f5e;
-    border: 1px solid rgba(244, 63, 94, 0.2);
+    background: rgba(244, 63, 94, 0.50);
+    border: 1px solid rgba(244, 63, 94, 0.9);
+    color: #000000;
+    box-shadow: 0 8px 25px rgba(244, 63, 94, 0.4);
 }
 
 .btn-hero-prep .btn-hero-icon {
-    color: #f43f5e;
+    color: inherit;
+    transition: transform 0.3s ease;
 }
 
 .btn-hero-prep:hover {
-    background: rgba(244, 63, 94, 0.15);
-    border-color: rgba(244, 63, 94, 0.4);
-    box-shadow: 0 8px 24px rgba(244, 63, 94, 0.2);
-    transform: translateY(-2px);
+    background: rgba(244, 63, 94, 0.25);
+    border-color: #f43f5e;
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(244, 63, 94, 0.4), 0 0 20px rgba(244, 63, 94, 0.3);
 }
 
 .btn-hero-prep:hover .btn-hero-icon {
-    transform: scale(1.1) rotate(-5deg);
+    transform: scale(1.2);
 }
 
 
