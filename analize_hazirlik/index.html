@@ -35,7 +35,7 @@
                 <!-- Alt Butonlar — subtitle'ın hemen altında -->
                 <div class="hero-actions" style="margin-top: 32px;">
                     <!-- Veriye İlk Bakış — Mavi -->
-                    <button class="btn-hero btn-hero-formulas">
+                    <button class="btn-hero btn-hero-formulas" onclick="document.getElementById('veriye-ilk-bakis').scrollIntoView({ behavior: 'smooth' });">
                         <svg class="btn-hero-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                             stroke-linecap="round" stroke-linejoin="round">
@@ -76,8 +76,62 @@
         </section>
     </div>
 
-    <main style="max-width: 1200px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
-        <!-- İleride içerik buraya eklenecek -->
+    <main style="max-width: 1400px; width: 100%; margin: 40px auto 100px auto; padding: 0 40px;">
+        <!-- Veriye İlk Bakış Bölümü -->
+        <section id="veriye-ilk-bakis" class="section-container" style="scroll-margin-top: 100px;">
+            <div class="section-header" style="text-align: left; margin-bottom: 24px;">
+                <h2 class="section-title"><span class="icon-title" style="display: inline-flex; align-items: center; margin-right: 6px;"><i data-lucide="zoom-in" style="width: 38px; height: 38px; color: #0ea5e9 !important;"></i></span> Veriye İlk Bakış</h2>
+            </div>
+
+            <div class="info-card-box">
+                <h3 class="card-inner-title">Veriye ilk bakış neden önemlidir?</h3>
+                <p class="lead-text">
+                    Bir veri setiyle karşılaştığınızda ilk refleksiniz onu doğrudan R, Python veya kullandığınız başka bir analiz programına yüklemek olabilir. Ancak veriyi herhangi bir yazılıma aktarmadan önce, onu ham haliyle manuel olarak açıp incelemek; analizin hızlandıran ve kalitesini belirleyen önemli bir adımdır.
+                </p>
+
+                <p class="sub-lead-text">
+                    Veriyi sisteme sokmadan önce "çıplak gözle" incelemenin bu kadar önemli olmasının temel sebepleri şunlardır:
+                </p>
+
+                <div class="features-list">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i data-lucide="shield-alert"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Gizli ve Yapısal Hataları Erken Yakalamak</h3>
+                            <p>Yazılımlar veriyi işlerken sadece teknik kodlar üretir; ancak verinin içindeki mantıksal bozuklukları, kaymış sütunları veya hatalı birleştirilmiş alanları yalnızca insan gözü fark edebilir. Programda saatlerce hata ayıklamak yerine, başlangıçta yapılacak kısa bir inceleme tüm süreci netleştirir.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i data-lucide="file-check"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Veri Formatına ve Standartlara Hakim Olmak</h3>
+                            <p>Dosyanın türü, karakter kodlaması, tarih formatları veya ondalık ayraçları gibi detaylar yazılımda otomatik olarak yanlış okunabilir. Veriyi önceden incelemek, bu uyumsuzlukları daha kod yazmaya başlamadan fark etmenizi sağlar.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i data-lucide="help-circle"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Veriyi Tanımak ve Doğru Soru Sormak</h3>
+                            <p>Bir veri setinin içinde ne olduğunu, hangi satırın neyi temsil ettiğini ve potansiyel eksiklikleri baştan görmek, analiz aşamasında doğru değişkenleri seçmenize ve anlamlı sonuçlar çıkarmanıza doğrudan zemin hazırlar.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="conclusion-box">
+                    <p>
+                        <strong>Kısacası,</strong> incelemeden programa aldığınız bir veri, sürpriz hatalarla dolu bir kara kutudur. Veriye analitik bir gözle ilk bakışı atmak; zaman kaybetmenizi önler, iş yükünüzü hafifletir ve analizinizin güvenilirliğini garanti altına alır.
+                    </p>
+                </div>
+            </div>
+        </section>
     </main>
 
     <script src="../js/components.js"></script>
