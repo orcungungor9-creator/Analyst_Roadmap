@@ -122,7 +122,6 @@ const HEADER_HTML = `
 
             <div class="header-right">
                 <nav class="desktop-nav" id="desktop-nav">
-                    <a href="https://www.kaggle.com/datasets" target="_blank" class="nav-btn external-btn">Kaggle ↗</a>
                 </nav>
                 <div class="action-buttons" style="display: flex; align-items: center; gap: 4px;">
                     <button class="nav-btn icon-btn" onclick="window.location.href = pathPrefix + 'about/about.html'" title="Hakkında">
