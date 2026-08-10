@@ -27,7 +27,33 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.initNavOutsideClick) window.initNavOutsideClick();
     if (window.initModal) window.initModal();
     initFullScreenViewer();
+    initToolNedirButtons();
 }); // end DOMContentLoaded
+
+// ==========================================
+// ARAÇ KARTLARINDAKİ "nedir?" BUTONU
+// ==========================================
+function initToolNedirButtons() {
+    const playIcon = `<svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg"><polygon points="1,0 9,5 1,10"/></svg>`;
+    const grids = document.querySelectorAll('.tools-grid');
+
+    grids.forEach((grid, index) => {
+        grid.querySelectorAll('.tool-card-new').forEach(card => {
+            const h3 = card.querySelector('h3');
+            if (!h3) return;
+            const btn = document.createElement('span');
+            btn.className = 'tool-nedir-btn';
+            // İlk grid: araç kartları → "[İsim] nedir?"
+            // Diğer grid(ler): aşama kartları → "Başla"
+            if (index === 0) {
+                btn.innerHTML = `${playIcon} ${h3.textContent.trim()} nedir?`;
+            } else {
+                btn.innerHTML = `${playIcon} Başla`;
+            }
+            card.appendChild(btn);
+        });
+    });
+}
 
 // ==========================================
 // FULLSCREEN LIGHTBOX & PREVIEW MANAGEMENT

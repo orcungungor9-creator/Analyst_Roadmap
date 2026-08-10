@@ -1246,6 +1246,42 @@ body.theme-mono-dark .btn-hero {
     border: 1px solid var(--glass-border);
 }
 
+/* "[Tool] nedir?" pill butonu */
+.tool-nedir-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    align-self: flex-start;
+    margin-top: auto;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    border: 1px solid var(--neon-blue);
+    color: var(--neon-blue);
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.tool-nedir-btn svg {
+    width: 11px;
+    height: 11px;
+    fill: currentColor;
+    flex-shrink: 0;
+}
+
+.tool-card-new:hover .tool-nedir-btn {
+    background: var(--neon-blue);
+    color: #fff;
+    box-shadow: 0 0 12px var(--neon-blue-glow);
+    transform: translateY(-1px);
+}
+
+
 .tool-top {
     display: flex;
     align-items: center;
