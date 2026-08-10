@@ -24,19 +24,60 @@
     <div class="hero-banner-wrapper prep-banner-wrapper">
         <div class="hero-banner-bg prep-banner-bg"></div>
         <div class="hero-banner-overlay prep-banner-overlay"></div>
-        <section class="hero-section" style="align-items: flex-start; padding-top: 100px; padding-bottom: 40px;">
+        <section class="hero-section" style="align-items: flex-start; padding-top: 100px; padding-bottom: 60px;">
             <div class="hero-content">
                 <div class="badge-pill prep-badge-pill">Veri Hazırlama</div>
                 <h1 class="hero-title custom-brand-title" style="font-size: 3.5rem;">Veriyi Analize Nasıl Hazırlarım?</h1>
                 <p class="hero-subtitle">
-                    Başarılı bir analizin %80'i veriyi doğru hazırlamaktan geçer. Ham veriyi analiz edilebilir, temiz ve yapılandırılmış bir formata dönüştürmenin kritik adımlarını öğren.
+                    Ham veriler, çoğu zaman üzerinde çalışmaya hazır değildir. Veri setlerinizi analizden önce nasıl incelemeniz, hangi hataları temizlemeniz ve analiz sürecini nasıl hatasız hale getirmeniz gerektiğini adım adım bu rehberde göreceksiniz. Başarılı bir analizin %80'i veriyi doğru hazırlamaktan geçer.
                 </p>
+
+                <!-- Alt Butonlar — subtitle'ın hemen altında -->
+                <div class="hero-actions" style="margin-top: 32px;">
+                    <!-- Veriye İlk Bakış — Mavi -->
+                    <button class="btn-hero btn-hero-formulas" onclick="window.location.href='veriye_ilk_bakis/index.html'">
+                        <svg class="btn-hero-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            <line x1="11" y1="8" x2="11" y2="14"></line>
+                            <line x1="8" y1="11" x2="14" y2="11"></line>
+                        </svg>
+                        Veriye İlk Bakış
+                    </button>
+
+                    <!-- Veri Temizleme — Mor -->
+                    <button class="btn-hero btn-hero-courses" onclick="window.location.href='veri_temizleme/index.html'">
+                        <svg class="btn-hero-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="3 6 5 6 21 6"></polyline>
+                            <path d="M19 6l-1 14H6L5 6"></path>
+                            <path d="M10 11v6"></path>
+                            <path d="M14 11v6"></path>
+                            <path d="M9 6V4h6v2"></path>
+                        </svg>
+                        Veri Temizleme
+                    </button>
+
+                    <!-- Veri Temizleme II — Pembe -->
+                    <button class="btn-hero btn-hero-prep" onclick="window.location.href='veri_temizleme_2/index.html'">
+                        <svg class="btn-hero-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 20h9"></path>
+                            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                        </svg>
+                        Veri Temizleme II
+                    </button>
+                </div>
             </div>
         </section>
     </div>
 
     <main style="max-width: 1200px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
-        <!-- İçerik buraya eklenecek -->
+        <!-- İleride içerik buraya eklenecek -->
     </main>
 
     <script src="../js/components.js"></script>

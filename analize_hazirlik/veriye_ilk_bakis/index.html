@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veriye İlk Bakış | Analyst Roadmap</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('analyst_theme') || 'theme-light-purple';
+            if (savedTheme !== 'theme-dark') {
+                document.body.classList.add(savedTheme);
+            }
+        })();
+    </script>
+
+    <!-- Header inject edilecek (components.js) -->
+
+    <!-- Ana sayfa ile birebir aynı yapı -->
+    <div class="hero-banner-wrapper prep-banner-wrapper">
+        <div class="hero-banner-bg prep-banner-bg"></div>
+        <div class="hero-banner-overlay prep-banner-overlay"></div>
+        <section class="hero-section" style="align-items: flex-start; padding-top: 100px; padding-bottom: 40px;">
+            <div class="hero-content">
+                <div class="badge-pill prep-badge-pill">Veri Hazırlama</div>
+                <h1 class="hero-title custom-brand-title" style="font-size: 3.5rem;">Veriye İlk Bakış</h1>
+                <p class="hero-subtitle">
+                    Ham veriyi tanımak, analiz yolculuğunun ilk ve en kritik adımıdır. Verinin yapısını, boyutlarını ve içeriğini hızlıca kavramanın yollarını öğren.
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <main style="max-width: 1200px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
+        <!-- İçerik alanı -->
+    </main>
+
+    <script src="../../js/components.js"></script>
+    <script src="../../js/nav.js"></script>
+    <script src="../../js/modal.js"></script>
+    <script src="../../js/script.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
