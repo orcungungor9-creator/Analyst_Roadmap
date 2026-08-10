@@ -1,0 +1,391 @@
+/* ============================================================
+   ANALIZE HAZIRLIK — Veri Temizleme Metotları Sayfası Stilleri
+   ============================================================ */
+
+/* Geri Dön Butonu */
+.back-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #a855f7;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 8px 16px;
+    background: rgba(168, 85, 247, 0.1);
+    border: 1px solid rgba(168, 85, 247, 0.25);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.back-link-btn:hover {
+    background: rgba(168, 85, 247, 0.2);
+    transform: translateX(-4px);
+}
+
+.back-link-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Badge Mor */
+.purple-badge-pill {
+    background: rgba(168, 85, 247, 0.15) !important;
+    border-color: rgba(168, 85, 247, 0.35) !important;
+    color: #a855f7 !important;
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.2);
+}
+
+/* Sayfa İçerik Alanı */
+.methods-main {
+    max-width: 1400px;
+    width: 100%;
+    margin: 40px auto 100px auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 1;
+}
+
+/* 21 Adım Grid */
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 20px;
+    margin-bottom: 56px;
+}
+
+/* Kartlar - Yüksek Kontrast & Berrak Okunabilirlik */
+.step-card {
+    background: var(--card-bg, rgba(30, 41, 59, 0.75));
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.12));
+    border-radius: 18px;
+    padding: 24px 28px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.step-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(168, 85, 247, 0.4);
+    box-shadow: 0 18px 35px rgba(168, 85, 247, 0.15);
+}
+
+.step-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+.step-number {
+    font-family: var(--font-title, 'Montserrat', sans-serif);
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: rgba(168, 85, 247, 0.7);
+    letter-spacing: -0.5px;
+}
+
+.step-icon-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: rgba(168, 85, 247, 0.12);
+    color: #a855f7;
+}
+
+.step-icon-box svg {
+    width: 22px;
+    height: 22px;
+}
+
+.step-card h3 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--text-main, #f8fafc);
+    margin-bottom: 6px;
+    line-height: 1.35;
+}
+
+.method-tag {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #a855f7;
+    background: rgba(168, 85, 247, 0.1);
+    padding: 3px 10px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    width: fit-content;
+}
+
+.step-card p {
+    font-size: 0.96rem;
+    line-height: 1.65;
+    color: var(--text-muted, #cbd5e1);
+    margin: 0;
+    flex-grow: 1;
+}
+
+/* Teorik Bölüm Stilleri */
+.theory-section {
+    margin-top: 40px;
+}
+
+.theory-card {
+    background: var(--card-bg, rgba(30, 41, 59, 0.75));
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.12));
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.main-theory {
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.12) 0%, rgba(14, 165, 233, 0.08) 100%);
+    border-left: 6px solid #a855f7;
+    margin-bottom: 28px;
+}
+
+.main-theory p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-main, #f8fafc);
+    margin: 0;
+    font-weight: 500;
+}
+
+.theory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+.card-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #a855f7;
+    background: rgba(168, 85, 247, 0.12);
+    padding: 4px 12px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+.theory-card h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--text-main, #f8fafc);
+    margin-bottom: 12px;
+}
+
+.theory-card p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-muted, #cbd5e1);
+    margin: 0;
+}
+
+/* Karar Ağları Kartı */
+.decision-networks-card {
+    background: var(--card-bg, rgba(30, 41, 59, 0.75));
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    border-radius: 20px;
+    padding: 36px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.decision-networks-card h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--text-main, #f8fafc);
+    margin-bottom: 12px;
+}
+
+.sub-intro {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-muted, #cbd5e1);
+    margin-bottom: 24px;
+}
+
+.network-items {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.network-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 20px;
+}
+
+.net-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(168, 85, 247, 0.15);
+    color: #a855f7;
+    flex-shrink: 0;
+}
+
+.net-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.net-text strong {
+    display: block;
+    font-size: 1.05rem;
+    color: var(--text-main, #f8fafc);
+    margin-bottom: 4px;
+}
+
+.net-text span {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: var(--text-muted, #cbd5e1);
+}
+
+/* Açık Temalar İçin %100 Yüksek Kontrast ve Berrak Okunabilirlik Ayarları */
+body.theme-light-purple .step-card,
+body.theme-light-pure .step-card,
+body.theme-light-warm .step-card,
+body.theme-light-emerald .step-card,
+body.theme-mono-light .step-card,
+body.theme-pink .step-card,
+body.theme-light-purple .theory-card,
+body.theme-light-pure .theory-card,
+body.theme-light-warm .theory-card,
+body.theme-light-emerald .theory-card,
+body.theme-mono-light .theory-card,
+body.theme-pink .theory-card,
+body.theme-light-purple .decision-networks-card,
+body.theme-light-pure .decision-networks-card,
+body.theme-light-warm .decision-networks-card,
+body.theme-light-emerald .decision-networks-card,
+body.theme-mono-light .decision-networks-card,
+body.theme-pink .decision-networks-card {
+    background: rgba(255, 255, 255, 0.92);
+    border-color: rgba(226, 232, 240, 0.9);
+    box-shadow: 0 10px 30px rgba(100, 116, 139, 0.1);
+}
+
+body.theme-light-purple .step-card h3,
+body.theme-light-pure .step-card h3,
+body.theme-light-warm .step-card h3,
+body.theme-light-emerald .step-card h3,
+body.theme-mono-light .step-card h3,
+body.theme-pink .step-card h3,
+body.theme-light-purple .theory-card h3,
+body.theme-light-pure .theory-card h3,
+body.theme-light-warm .theory-card h3,
+body.theme-light-emerald .theory-card h3,
+body.theme-mono-light .theory-card h3,
+body.theme-pink .theory-card h3,
+body.theme-light-purple .decision-networks-card h3,
+body.theme-light-pure .decision-networks-card h3,
+body.theme-light-warm .decision-networks-card h3,
+body.theme-light-emerald .decision-networks-card h3,
+body.theme-mono-light .decision-networks-card h3,
+body.theme-pink .decision-networks-card h3,
+body.theme-light-purple .net-text strong,
+body.theme-light-pure .net-text strong,
+body.theme-light-warm .net-text strong,
+body.theme-light-emerald .net-text strong,
+body.theme-mono-light .net-text strong,
+body.theme-pink .net-text strong {
+    color: #0f172a !important;
+}
+
+body.theme-light-purple .step-card p,
+body.theme-light-pure .step-card p,
+body.theme-light-warm .step-card p,
+body.theme-light-emerald .step-card p,
+body.theme-mono-light .step-card p,
+body.theme-pink .step-card p,
+body.theme-light-purple .theory-card p,
+body.theme-light-pure .theory-card p,
+body.theme-light-warm .theory-card p,
+body.theme-light-emerald .theory-card p,
+body.theme-mono-light .theory-card p,
+body.theme-pink .theory-card p,
+body.theme-light-purple .sub-intro,
+body.theme-light-pure .sub-intro,
+body.theme-light-warm .sub-intro,
+body.theme-light-emerald .sub-intro,
+body.theme-mono-light .sub-intro,
+body.theme-pink .sub-intro,
+body.theme-light-purple .net-text span,
+body.theme-light-pure .net-text span,
+body.theme-light-warm .net-text span,
+body.theme-light-emerald .net-text span,
+body.theme-mono-light .net-text span,
+body.theme-pink .net-text span {
+    color: #334155 !important;
+}
+
+body.theme-light-purple .main-theory,
+body.theme-light-pure .main-theory,
+body.theme-light-warm .main-theory,
+body.theme-light-emerald .main-theory,
+body.theme-mono-light .main-theory,
+body.theme-pink .main-theory {
+    background: rgba(245, 243, 255, 0.95);
+    border-color: rgba(168, 85, 247, 0.4);
+}
+
+body.theme-light-purple .main-theory p,
+body.theme-light-pure .main-theory p,
+body.theme-light-warm .main-theory p,
+body.theme-light-emerald .main-theory p,
+body.theme-mono-light .main-theory p,
+body.theme-pink .main-theory p {
+    color: #4c1d95 !important;
+}
+
+body.theme-light-purple .network-item,
+body.theme-light-pure .network-item,
+body.theme-light-warm .network-item,
+body.theme-light-emerald .network-item,
+body.theme-mono-light .network-item,
+body.theme-pink .network-item {
+    background: rgba(248, 250, 252, 0.9);
+    border-color: rgba(226, 232, 240, 0.9);
+}
+
+/* Mobil Uyum */
+@media (max-width: 768px) {
+    .methods-main {
+        padding: 0 20px;
+    }
+
+    .steps-grid,
+    .theory-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .decision-networks-card {
+        padding: 24px;
+    }
+}

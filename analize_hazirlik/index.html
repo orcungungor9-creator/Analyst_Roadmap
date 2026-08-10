@@ -48,7 +48,7 @@
                     </button>
 
                     <!-- Veri Temizleme — Mor -->
-                    <button class="btn-hero btn-hero-courses">
+                    <button class="btn-hero btn-hero-courses" onclick="document.getElementById('veri-temizleme').scrollIntoView({ behavior: 'smooth' });">
                         <svg class="btn-hero-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                             stroke-linecap="round" stroke-linejoin="round">
@@ -132,6 +132,66 @@
                 <div class="conclusion-box">
                     <p>
                         <strong>Kısacası,</strong> incelemeden programa aldığınız bir veri, sürpriz hatalarla dolu bir kara kutudur. Veriye analitik bir gözle ilk bakışı atmak; zaman kaybetmenizi önler, iş yükünüzü hafifletir ve analizinizin güvenilirliğini garanti altına alır.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Veri Temizleme Bölümü -->
+        <section id="veri-temizleme" class="section-container" style="scroll-margin-top: 100px; margin-top: 80px;">
+            <div class="section-header" style="text-align: left; margin-bottom: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+                <h2 class="section-title" style="margin: 0;"><span class="icon-title" style="display: inline-flex; align-items: center; margin-right: 6px;"><i data-lucide="trash-2" style="width: 38px; height: 38px; color: #a855f7 !important;"></i></span> Veri Temizleme</h2>
+                <button class="btn-green-go" onclick="window.location.href='veri_temizleme_metotlari/index.html'">
+                    <i data-lucide="play" style="width: 16px; height: 16px; fill: currentColor;"></i>
+                    Veri Temizleme Methotlarına Git &rarr;
+                </button>
+            </div>
+
+            <div class="info-card-box">
+                <h3 class="card-inner-title" style="color: #a855f7;">Veri Temizleme (Data Cleaning)</h3>
+                <p class="lead-text">
+                    İlk aşamada gözle fark edemeyeceğimiz sorunları programa doğru formatta yükledikten sonra kontrol etmeli ve ilk bakışta not aldığımız, gözle görülür hataları da kontrol edip düzeltmeli - silmeliyiz.
+                </p>
+
+                <p class="sub-lead-text">
+                    Veri temizleme sürecinde analistin rolü ve dikkat etmesi gereken temel boyutlar şunlardır:
+                </p>
+
+                <div class="features-list">
+                    <div class="feature-item">
+                        <div class="feature-icon" style="background: rgba(168, 85, 247, 0.15); color: #a855f7;">
+                            <i data-lucide="git-branch"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Karar Ağları ve Esneklik</h3>
+                            <p>Veri temizleme mekanik bir uygulama süreci değildir. Hangi metodun ne ölçüde ve hangi sırayla devreye sokulacağı tamamen analistin problem tanımına yaklaşımına ve verinin karakteristiğine bağlıdır.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon" style="background: rgba(168, 85, 247, 0.15); color: #a855f7;">
+                            <i data-lucide="compass"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Bağlamsal Sorgulama ve Stratejik Seçim</h3>
+                            <p>Bir finansal veri setindeki eksik değerler kritik bir hatayken, anket tabanlı bir çalışmada katılımcının yanıt vermeme tercihi olabilir. Analist veriyi temizlerken modelin karakterini hazırlar.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon" style="background: rgba(168, 85, 247, 0.15); color: #a855f7;">
+                            <i data-lucide="layers"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>21 Temel Temizlik Metodu</h3>
+                            <p>Boyut doğrulamasından aykırı değer tespitine, metin içi boşluk temizlemeden duyarlı veri gizlemeye kadar 21 aşamalı kontrol listesi uygulanır.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="conclusion-box" style="border-left-color: #a855f7; background: rgba(168, 85, 247, 0.08);">
+                    <p>
+                        <strong>Özetle:</strong> Veri temizleme, ham veriyi anlamlı içgörülere dönüştürme yolculuğunun en belirleyici aşamasıdır. Elimizdeki 21 temel metot standart bir kontrol listesi görevi görse de hiçbir temizlik stratejisi evrensel tek bir doğruya sahip değildir.
                     </p>
                 </div>
             </div>

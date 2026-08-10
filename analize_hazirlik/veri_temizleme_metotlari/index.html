@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veri Temizleme: 21 Temel Metot ve Karar Mekanizmaları - Analyst Roadmap</title>
+    <!-- Ana sitenin fontları ve ikonları -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Ana sitenin CSS'i -->
+    <link rel="stylesheet" href="../../css/styles.css">
+    
+    <!-- Sayfaya özel CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="formulas-page">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('analyst_theme') || 'theme-light-purple';
+            if (savedTheme !== 'theme-dark') {
+                document.body.classList.add(savedTheme);
+            }
+        })();
+    </script>
+
+    <!-- Full-Viewport Hero Banner -->
+    <div class="prep-banner-wrapper" style="border-bottom-color: #a855f7 !important;">
+        <div class="prep-banner-bg"></div>
+        <div class="prep-banner-overlay"></div>
+        <section class="hero-section" style="align-items: flex-start; padding-top: 100px; padding-bottom: 50px;">
+            <div class="hero-content">
+                <div class="badge-pill purple-badge-pill">Veri Temizleme &amp; Metotlar</div>
+                <h1 class="hero-title custom-brand-title" style="font-size: 3rem;">Veri Temizleme (Data Cleaning)</h1>
+                <p class="hero-subtitle">
+                    İlk aşamada gözle fark edemeyeceğimiz sorunları programa doğru formatta yükledikten sonra kontrol etmeli ve ilk bakışta not aldığımız, gözle görülür hataları da kontrol edip düzeltmeli - silmeliyiz.
+                </p>
+                <div style="margin-top: 28px;">
+                    <a href="../index.html" class="back-link-btn">
+                        <i data-lucide="arrow-left"></i> Analize Hazırlık Sayfasına Dön
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Ana İçerik Bölümü -->
+    <main class="methods-main">
+        
+        <!-- Bölüm 1: 21 Temel Temizlik Metodu -->
+        <div class="section-header" style="text-align: left; margin-bottom: 28px;">
+            <h2 class="section-title">
+                <span class="icon-title" style="display: inline-flex; align-items: center; margin-right: 6px;">
+                    <i data-lucide="check-square" style="width: 34px; height: 34px; color: #a855f7;"></i>
+                </span>
+                21 Temel Temizlik Metodu (Kontrol Listesi)
+            </h2>
+            <p class="section-desc">Veri seti programa yüklendikten sonra sırasıyla uygulanması gereken teknik kontrol adımları.</p>
+        </div>
+
+        <div class="steps-grid">
+            <!-- 1 -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-number">01</span>
+                    <div class="step-icon-box"><i data-lucide="eye"></i></div>
+                </div>
+                <h3>1. Veri Doğru Oturmuş mu?</h3>
+                <span class="method-tag">Head / Tail Check</span>
+                <p>Verinin ilk ve son satırlarının doğru sütun hizalamasıyla yüklendiğini teyit etmek için baş-son kontrollerini yapın.</p>
+            </div>
+
+            <!-- 2 -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-number">02</span>
+                    <div class="step-icon-box"><i data-lucide="grid"></i></div>
+                </div>
+                <h3>2. Boyut Doğrulaması</h3>
+                <span class="method-tag">Shape / Dimensions</span>
+                <p>Toplam satır ve sütun sayısını kontrol ederek beklentinizle uyuşup uyuşmadığını doğrulayın.</p>
+            </div>
+
+            <!-- 3 -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-number">03</span>
+                    <div class="step-icon-box"><i data-lucide="binary"></i></div>
+                </div>
+                <h3>3. Veri Tipleri ve Yapı Kontrolü</h3>
+                <span class="method-tag">Data Structure / Type Check</span>
+                <p>Sayısal, metinsel ve tarihsel alanların doğru veri tiplerinde algılanıp algılanmadığını kontrol edin.</p>
+            </div>
+
+            <!-- 4 -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-number">04</span>
+                    <div class="step-icon-box"><i data-lucide="baseline"></i></div>
+                </div>
+                <h3>4. Sütun İsimlerinin Standardizasyonu</h3>
+                <span class="method-tag">Standardizing Colnames</span>
+                <p>Türkçe karakterleri, özel simgeleri ve boşlukları temizleyerek sütun isimlerini standart formatlara (snake_case vb.) getirin.</p>
+            </div>
+
+            <!-- 5 -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-number">05</span>
+                    <div class="step-icon-box"><i data-lucide="copy-x"></i></div>
+                </div>
+                <h3>5. Tekrarlanan Verilerin Silinmesi</h3>
+                <span class="method-tag">Removing Duplicates</span>
+                <p>Veri setinde aynı kaydın birden fazla kez yer alıp almadığını kontrol ederek mükerrer satırları ayıklayın.</p>
+            </div>
+
+            <!-- 6 -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-number">06</span>
+                    <div class="step-icon-box"><i data-lucide="file-minus"></i></div>
+                </div>
+                <h3>6. Eksik / Kayıp Veri Analizi ve Müdahale</h3>
+                <span class="method-tag">Handling Missing Values</span>
+                <p>Kayıp değerlerin oranını ve dağılımını analiz ederek silme veya atama (imputation) stratejisini belirleyin.</p>
+            </div>
+
+            <!-- 7 -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-number">07</span>
+                    <div class="step-icon-box"><i data-lucide="alert-triangle"></i></div>
+                </div>
+                <h3>7. Aykırı Değer Tespiti ve İşleme</h3>
+                <span class="method-tag">Outlier Detection</span>
+                <p>İstatistiksel dağılımdan aşırı sapan ve analizi saptırabilecek uç değerleri IQR veya Z-Skor ile tespit edin.</p>
+            </div>
+
+            <!-- 8 -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-number">08</span>
+                    <div class="step-icon-box"><i data-lucide="wrench"></i></div>
+                </div>
+                <h3>8. Hatalı / Tutarsız Veri Düzeltme</h3>
+                <span class="method-tag">Correcting Inconsistent Data</span>
+                <p>Yazım hataları, mantıksal uyumsuzluklar veya kural dışı değerleri düzeltin.</p>
+            </div>
+
+            <!-- 9 -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-number">09</span>
+                    <div class="step-icon-box"><i data-lucide="refresh-cw"></i></div>
+                </div>
+                <h3>9. Veri Tipi Dönüşümleri</h3>
+                <span class="method-tag">Data Type Conversions / Format</span>
+                <p>Metin olarak kalmış sayısal ifadeleri veya tarih formatlarını uygun veri türlerine dönüştürün.</p>
+            </div>
+
+            <!-- 10 -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-number">10</span>
+                    <div class="step-icon-box"><i data-lucide="sliders"></i></div>
+                </div>
+                <h3>10. Veri Standardizasyonu</h3>
+                <span class="method-tag">Data Scaling / Standardization</span>
+                <p>Farklı ölçekteki sayısal değişkenleri Min-Max Scaling veya Z-Score Normalization ile eşit aralıklara getirin.</p>
+            </div>
+
+            <!-- 11 -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-number">11</span>
+                    <div class="step-icon-box"><i data-lucide="scissors"></i></div>
+                </div>
+                <h3>11. Metin İçi Boşluk Temizleme</h3>
+                <span class="method-tag">String Trimming</span>
+                <p>Metinsel ifadelerin başındaki, sonundaki veya içindeki fazladan karakter ve boşlukları (trim) temizleyin.</p>
+            </div>
+
+            <!-- 12 -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-number">12</span>
+                    <div class="step-icon-box"><i data-lucide="arrow-up-down"></i></div>
+                </div>
+                <h3>12. Sıralama</h3>
+                <span class="method-tag">Ordering</span>
+                <p>Veriyi kronolojik veya mantıksal bir sıra numarasına göre düzenleyerek tutarlı bir yapı elde edin.</p>
+            </div>
+
+            <!-- 13 -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-number">13</span>
+                    <div class="step-icon-box"><i data-lucide="trash"></i></div>
+                </div>
+                <h3>13. Boş - Çoğu Boş Satırların Silinmesi</h3>
+                <span class="method-tag">Dropping Empty Rows / Columns</span>
+                <p>Belirli bir kayıp oranı eşiğini aşan tamamen veya çoğunlukla boş satır/sütunları veri setinden kaldırın.</p>
+            </div>
+
+            <!-- 14 -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-number">14</span>
+                    <div class="step-icon-box"><i data-lucide="minus-circle"></i></div>
+                </div>
+                <h3>14. Varyanssız / Sabit Değerli Sütunlar</h3>
+                <span class="method-tag">Removing Zero Variance Features</span>
+                <p>Tüm satırlarda aynı tek bir değere sahip olan ve analiz açısından bilgi üretmeyen sütunları eleyin.</p>
+            </div>
+
+            <!-- 15 -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-number">15</span>
+                    <div class="step-icon-box"><i data-lucide="layout-list"></i></div>
+                </div>
+                <h3>15. Sütun Sıralamalarının Düzenlenmesi</h3>
+                <span class="method-tag">Reordering Columns</span>
+                <p>Sütunları kilit değişkenler başa gelecek şekilde mantıksal bir sıra ile yeniden dizin.</p>
+            </div>
+
+            <!-- 16 -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-number">16</span>
+                    <div class="step-icon-box"><i data-lucide="sparkle"></i></div>
+                </div>
+                <h3>16. Sütun Ayırma &amp; Yeni Değişken Türetme</h3>
+                <span class="method-tag">Column Splitting / Feature Extraction</span>
+                <p>Birleşik sütunları (örn: Ad Soyad) ayrıştırın veya mevcut veriden yeni analitik değişkenler üretin.</p>
+            </div>
+
+            <!-- 17 -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-number">17</span>
+                    <div class="step-icon-box"><i data-lucide="tags"></i></div>
+                </div>
+                <h3>17. Kategorik Verilerin Standardizasyonu</h3>
+                <span class="method-tag">Categorical Standardization</span>
+                <p>Kategorik ifadelerdeki küçük/büyük harf veya eş anlamlı kelime uyumsuzluklarını tek bir standart ada eşitleyin.</p>
+            </div>
+
+            <!-- 18 -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-number">18</span>
+                    <div class="step-icon-box"><i data-lucide="lock"></i></div>
+                </div>
+                <h3>18. Hassas Verilerin Gizlenmesi</h3>
+                <span class="method-tag">Data Masking</span>
+                <p>KVKK ve veri güvenliği kapsamında TC No, e-posta, isim gibi kişisel verileri maskeleyin veya anonimleştirin.</p>
+            </div>
+
+            <!-- 19 -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-number">19</span>
+                    <div class="step-icon-box"><i data-lucide="filter"></i></div>
+                </div>
+                <h3>19. Alakasız / Kapsam Dışı Verilerin Temizlenmesi</h3>
+                <span class="method-tag">Data Filtering / Scoping</span>
+                <p>Analiz amacının veya hedef tarih/bölge aralığının dışında kalan satırları filtreleyin.</p>
+            </div>
+
+            <!-- 20 -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-number">20</span>
+                    <div class="step-icon-box"><i data-lucide="check-circle-2"></i></div>
+                </div>
+                <h3>20. Sütunlar Arası Mantıksal Tutarlılık</h3>
+                <span class="method-tag">Cross Column Validation / Sanity Checks</span>
+                <p>Değişkenler arası ilişkileri kontrol edin (örneğin: Doğum Tarihi > İşe Giriş Tarihi gibi mantık hatalarını yakalayın).</p>
+            </div>
+
+            <!-- 21 -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-number">21</span>
+                    <div class="step-icon-box"><i data-lucide="hash"></i></div>
+                </div>
+                <h3>21. İndeksleme (Sıra No) Düzenleme</h3>
+                <span class="method-tag">Index Setting</span>
+                <p>Temizlik aşamalarından sonra veri setinin indeks (sıra numarası) dizilimini yeniden sıfırlayıp düzenleyin.</p>
+            </div>
+        </div>
+
+        <!-- Bölüm 2: Analistin Karar Mekanizmaları & Teorik Çerçeve -->
+        <div class="theory-section">
+            <div class="section-header" style="text-align: left; margin-bottom: 24px;">
+                <h2 class="section-title">
+                    <span class="icon-title" style="display: inline-flex; align-items: center; margin-right: 6px;">
+                        <i data-lucide="brain-circuit" style="width: 34px; height: 34px; color: #a855f7;"></i>
+                    </span>
+                    Veri Temizleme Sürecinde Analistin Rolü ve Karar Mekanizmaları
+                </h2>
+            </div>
+
+            <!-- Temel Açıklama Kartı -->
+            <div class="theory-card main-theory">
+                <p>
+                    Veri temizleme, ham veriyi anlamlı içgörülere dönüştürme yolculuğunun en belirleyici aşamasıdır. Elimizdeki 21 temel metot, veri seti üzerinde uyguladığımız standart bir "kontrol listesi" (checklist) görevi görse de, bu işlemlerin hiçbiri şablonik birer rutin değildir. Veri bilimi dünyasında hiçbir veri seti birbirine benzemez; dolayısıyla hiçbir temizlik stratejisi evrensel bir doğruya sahip değildir.
+                </p>
+            </div>
+
+            <!-- Neden Tek Yöntem Yok & Karar Ağları Grid -->
+            <div class="theory-grid">
+                <div class="theory-card">
+                    <div class="card-tag">Yaklaşım</div>
+                    <h3>Neden "Tek Bir Yöntem" Yok?</h3>
+                    <p>
+                        Veri temizleme süreçlerinde aynı metotları her zaman aynı şekilde uygulamayız. Bir finansal veri setinde "eksik veri" (missing value) bir hata veya ihmalkarlık olarak değerlendirilirken; bir anket çalışmasında aynı boşluklar, katılımcının o soruyu yanıtlamak istemediğine dair stratejik bir tercih olabilir. Burada devreye analistin "karar ağları" girer.
+                    </p>
+                </div>
+
+                <div class="theory-card">
+                    <div class="card-tag">Sorumluluk</div>
+                    <h3>Şablon Yaklaşımın Sınırları</h3>
+                    <p>
+                        Veri setleri benzersizdir. Dolayısıyla her projede aynı adımları birebir aynı sırayla uygulamak hatalı sonuçlar doğurabilir. Örneğin, bir finansal veri setindeki eksik değerler (missing value) kritik birer anomaliliyken, anket tabanlı bir çalışmada katılımcının yanıt vermeme tercihi olabilir. Bu noktada mekanik bir checklist yerine analistin kuracağı karar ağları devreye girer.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Karar Ağları & Analistin Sorumluluğu Detay Kartı -->
+            <div class="decision-networks-card">
+                <h3>Karar Ağları ve Analistin Sorumluluğu</h3>
+                <p class="sub-intro">Analist, veriyle ilk karşılaştığı andan itibaren bir dedektif gibi hareket etmelidir. Karar ağları, karmaşık verilerle karşılaşıldığında analistin izleyeceği yolu belirleyen mantıksal çerçevelerdir:</p>
+
+                <div class="network-items">
+                    <div class="network-item">
+                        <div class="net-icon"><i data-lucide="search"></i></div>
+                        <div class="net-text">
+                            <strong>Bağlamsal Sorgulama:</strong>
+                            <span>"Bu verideki aykırı değer (outlier) gerçekten bir hata mı, yoksa incelenmesi gereken çok önemli bir uç örnek mi?" sorusu, metotların uygulanış biçimini kökten değiştirir.</span>
+                        </div>
+                    </div>
+
+                    <div class="network-item">
+                        <div class="net-icon"><i data-lucide="target"></i></div>
+                        <div class="net-text">
+                            <strong>Stratejik Seçim:</strong>
+                            <span>Bazı senaryolarda hatalı bir satırı silmek (dropping) veri bütünlüğünü bozabilir; bu durumda silmek yerine "impute" (atama/tahmin) yöntemlerini seçmek, analistin projenin hedef kitlesine ve analiz tipine göre verdiği bir karardır.</span>
+                        </div>
+                    </div>
+
+                    <div class="network-item">
+                        <div class="net-icon"><i data-lucide="sliders-horizontal"></i></div>
+                        <div class="net-text">
+                            <strong>Esneklik:</strong>
+                            <span>Standartlaştırma (scaling) veya kategorik dönüştürme gibi teknikler, kullanılan modelin (örneğin; lineer regresyon veya ağaç tabanlı modeller) ihtiyacına göre şekillenmelidir. Analist, veriyi temizlerken aslında o verinin kullanılacağı modelin karakterini de hazırlar.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- En Alt Dön Butonu -->
+        <div style="text-align: center; margin-top: 48px;">
+            <a href="../index.html" class="back-link-btn" style="font-size: 1rem; padding: 12px 28px;">
+                <i data-lucide="arrow-left"></i> Analize Hazırlık Sayfasına Dön
+            </a>
+        </div>
+    </main>
+
+    <!-- Scriptler -->
+    <script src="../../js/components.js"></script>
+    <script src="../../js/nav.js"></script>
+    <script src="../../js/modal.js"></script>
+    <script src="../../js/script.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
