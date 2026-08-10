@@ -343,6 +343,7 @@ body {
 .dropdown-item.blue-hover:hover { color: #f59e0b; border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.12); box-shadow: 0 0 12px rgba(245, 158, 11, 0.15), inset 3px 0 0 #f59e0b; }
 .dropdown-item.green-hover:hover { color: #f59e0b; border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.12); box-shadow: 0 0 12px rgba(245, 158, 11, 0.15), inset 3px 0 0 #f59e0b; }
 .dropdown-item.ai-hover:hover { color: #f59e0b; border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.12); box-shadow: 0 0 12px rgba(245, 158, 11, 0.15), inset 3px 0 0 #f59e0b; }
+.dropdown-item.ai-rehber-hover:hover { color: var(--neon-purple); border-color: var(--neon-purple-glow); background: rgba(192, 132, 252, 0.12); box-shadow: 0 0 12px var(--neon-purple-glow), inset 3px 0 0 var(--neon-purple); }
 
 .nav-btn {
     background: transparent;
@@ -565,11 +566,23 @@ body {
     box-shadow: 0 0 15px rgba(245, 158, 11, 0.35);
 }
 
+.mobile-nav-item.ai-rehber-hdr {
+    border-color: rgba(192, 132, 252, 0.4);
+    background: rgba(192, 132, 252, 0.05);
+}
+.mobile-nav-item.ai-rehber-hdr:hover {
+    border-color: var(--neon-purple) !important;
+    background: rgba(192, 132, 252, 0.15) !important;
+    color: var(--neon-purple) !important;
+    box-shadow: 0 0 15px rgba(192, 132, 252, 0.35);
+}
+
 /* Akordeon içerik kutularının giriş animasyonlarını iptal et (Tıklanınca gecikmesiz açılması için) */
 #courses-accordion,
 #guides-accordion,
 #tools-accordion,
-#ai-accordion {
+#ai-accordion,
+#ai-rehberi-accordion {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;

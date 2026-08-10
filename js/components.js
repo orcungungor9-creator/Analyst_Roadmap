@@ -108,14 +108,23 @@ const HEADER_HTML = `
                         <a href="${pathPrefix}ai/stage2/stage2.html" class="dropdown-item ai-hover">💼 2. Aşama: Veri Mühendisliği</a>
                         <a href="${pathPrefix}ai/stage3/stage3.html" class="dropdown-item ai-hover">🧠 3. Aşama: Model Eğitimi (Algoritma Seçimi)</a>
                         <a href="${pathPrefix}ai/stage4/stage4.html" class="dropdown-item ai-hover">📊 4. Aşama: Kalite Kontrol</a>
-                        <a href="${pathPrefix}index.html#ai-guides-section" class="dropdown-item ai-hover" style="border-top: 1px dashed rgba(245, 158, 11, 0.3); border-bottom: 1px dashed rgba(245, 158, 11, 0.3); border-radius: 0; justify-content: center; margin-top: 4px;"><i data-lucide="book-open" style="width: 16px; height: 16px; margin-right: 6px; color: #f59e0b;"></i> Tüm AI Rehberleri</a>
-                        <a href="${pathPrefix}yapay-zeka/tarihce/index.html" class="dropdown-item ai-hover">⏳ Tarihçe ve Dönüm Noktaları</a>
-                        <a href="${pathPrefix}yapay-zeka/kullanim-alanlari/index.html" class="dropdown-item ai-hover">🌐 Yapay Zeka Kullanım Alanları</a>
-                        <a href="${pathPrefix}yapay-zeka/hangi-yz/index.html" class="dropdown-item ai-hover">⚖️ Hangi YZ Ne İçin Kullanılmalı?</a>
-                        <a href="${pathPrefix}yapay-zeka/temel-bilesenler/index.html" class="dropdown-item ai-hover">🧩 Temel Bileşenler</a>
-                        <a href="${pathPrefix}yapay-zeka/ileri-teknikler/index.html" class="dropdown-item ai-hover">🚀 İleri YZ Prompt Teknikleri</a>
-                        <a href="${pathPrefix}yapay-zeka/prompt-debugging/index.html" class="dropdown-item ai-hover">🐛 Prompt Debugging</a>
-                        <a href="${pathPrefix}yapay-zeka/rag-ve-ajanlar/index.html" class="dropdown-item ai-hover">🤖 RAG ve YZ Ajanları</a>
+                    </div>
+                </div>
+
+                <!-- AI REHBERİ DROPDOWN -->
+                <div class="nav-dropdown-container">
+                    <button class="nav-btn" style="color: var(--text-main); font-weight: 700; display: flex; align-items: center; gap: 6px;">
+                        <i data-lucide="book-open" style="width: 18px; height: 18px; color: var(--neon-purple);"></i> AI Rehberi <span style="font-size: 0.8rem; margin-left: 2px; color: var(--neon-purple);">▼</span>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a href="${pathPrefix}index.html#ai-guides-section" class="dropdown-item ai-rehber-hover" style="border-bottom: 1px dashed rgba(192, 132, 252, 0.3); border-radius: 0; justify-content: center;"><i data-lucide="book-open" style="width: 16px; height: 16px; margin-right: 6px; color: var(--neon-purple);"></i> Tüm AI Rehberleri</a>
+                        <a href="${pathPrefix}yapay-zeka/tarihce/index.html" class="dropdown-item ai-rehber-hover">⏳ Tarihçe ve Dönüm Noktaları</a>
+                        <a href="${pathPrefix}yapay-zeka/kullanim-alanlari/index.html" class="dropdown-item ai-rehber-hover">🌐 Yapay Zeka Kullanım Alanları</a>
+                        <a href="${pathPrefix}yapay-zeka/hangi-yz/index.html" class="dropdown-item ai-rehber-hover">⚖️ Hangi YZ Ne İçin Kullanılmalı?</a>
+                        <a href="${pathPrefix}yapay-zeka/temel-bilesenler/index.html" class="dropdown-item ai-rehber-hover">🧩 Temel Bileşenler</a>
+                        <a href="${pathPrefix}yapay-zeka/ileri-teknikler/index.html" class="dropdown-item ai-rehber-hover">🚀 İleri YZ Prompt Teknikleri</a>
+                        <a href="${pathPrefix}yapay-zeka/prompt-debugging/index.html" class="dropdown-item ai-rehber-hover">🐛 Prompt Debugging</a>
+                        <a href="${pathPrefix}yapay-zeka/rag-ve-ajanlar/index.html" class="dropdown-item ai-rehber-hover">🤖 RAG ve YZ Ajanları</a>
                     </div>
                 </div>
             </nav>
@@ -228,7 +237,14 @@ const MOBILE_NAV_HTML = `
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}ai/stage2/stage2.html'" style="font-size: 0.9rem; padding: 12px 16px;">💼 2. Aşama: Veri Mühendisliği</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}ai/stage3/stage3.html'" style="font-size: 0.9rem; padding: 12px 16px;">🧠 3. Aşama: Model Eğitimi (Algoritma Seçimi)</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}ai/stage4/stage4.html'" style="font-size: 0.9rem; padding: 12px 16px;">📊 4. Aşama: Kalite Kontrol</button>
-                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}index.html#ai-guides-section'; closeNavMenu();" style="font-size: 0.9rem; padding: 12px 16px; border-top: 1px dashed rgba(245, 158, 11, 0.3); border-bottom: 1px dashed rgba(245, 158, 11, 0.3); border-radius: 0; display: flex; align-items: center; margin-top: 4px;"><i data-lucide="book-open" style="width: 16px; height: 16px; margin-right: 8px; color: #f59e0b;"></i> Tüm AI Rehberleri</button>
+            </div>
+
+            <button class="mobile-nav-item ai-rehber-hdr" onclick="toggleMobileAccordion('ai-rehberi-accordion', this)" style="display: flex; justify-content: space-between; align-items: center; margin-top: 4px; margin-bottom: 4px;">
+                <span style="font-weight: 800; color: var(--neon-purple); letter-spacing: 0.5px; font-size: 0.9rem; display: flex; align-items: center;"><i data-lucide="book-open" style="width: 18px; height: 18px; margin-right: 8px;"></i> AI Rehberi</span>
+                <span class="accordion-arrow" style="transition: transform 0.3s; font-size: 0.9rem; color: var(--neon-purple);">▼</span>
+            </button>
+            <div id="ai-rehberi-accordion" style="display: none; flex-direction: column; gap: 8px; width: 100%; margin-top: -4px; margin-bottom: 8px; padding-left: 16px; border-left: 2px solid rgba(192, 132, 252, 0.3);">
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}index.html#ai-guides-section'; closeNavMenu();" style="font-size: 0.9rem; padding: 12px 16px; border-bottom: 1px dashed rgba(245, 158, 11, 0.3); border-radius: 0; display: flex; align-items: center;"><i data-lucide="book-open" style="width: 16px; height: 16px; margin-right: 8px; color: #f59e0b;"></i> Tüm AI Rehberleri</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}yapay-zeka/tarihce/index.html'" style="font-size: 0.9rem; padding: 12px 16px;">⏳ Tarihçe ve Dönüm Noktaları</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}yapay-zeka/kullanim-alanlari/index.html'" style="font-size: 0.9rem; padding: 12px 16px;">🌐 Yapay Zeka Kullanım Alanları</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}yapay-zeka/hangi-yz/index.html'" style="font-size: 0.9rem; padding: 12px 16px;">⚖️ Hangi YZ Ne İçin Kullanılmalı?</button>
