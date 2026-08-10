@@ -832,10 +832,26 @@ body.theme-light-purple .hero-title.custom-brand-title {
     font-size: 1.35rem;
     font-weight: 500;
     line-height: 1.7;
-    color: var(--text-main);
+    color: #ffffff;
     max-width: 800px;
     margin: 0 auto 36px auto;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    text-shadow:
+        0 1px 3px rgba(0,0,0,0.9),
+        0 2px 12px rgba(0,0,0,0.7),
+        0 4px 24px rgba(0,0,0,0.5);
+}
+
+/* Açık temalarda koyu yazı + açık gölge */
+body.theme-light-pure .hero-subtitle,
+body.theme-mono-light .hero-subtitle,
+body.theme-light-warm .hero-subtitle,
+body.theme-pink .hero-subtitle,
+body.theme-light-emerald .hero-subtitle,
+body.theme-light-purple .hero-subtitle {
+    color: #1a1a2e;
+    text-shadow:
+        0 1px 3px rgba(255,255,255,0.8),
+        0 2px 12px rgba(255,255,255,0.5);
 }
 
 .hero-actions {
