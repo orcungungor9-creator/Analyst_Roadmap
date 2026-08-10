@@ -867,7 +867,7 @@ body.theme-light-purple .hero-title.custom-brand-title {
 }
 
 .btn-hero-formulas .btn-hero-icon {
-    color: var(--neon-blue);
+    color: inherit;
     transition: transform 0.3s ease;
 }
 
@@ -890,7 +890,7 @@ body.theme-light-purple .hero-title.custom-brand-title {
 }
 
 .btn-hero-charts .btn-hero-icon {
-    color: var(--neon-green);
+    color: inherit;
     transition: transform 0.3s ease;
 }
 
@@ -913,7 +913,7 @@ body.theme-light-purple .hero-title.custom-brand-title {
 }
 
 .btn-hero-start .btn-hero-icon {
-    color: var(--neon-orange);
+    color: inherit;
     transition: transform 0.3s ease;
 }
 
@@ -936,7 +936,7 @@ body.theme-light-purple .hero-title.custom-brand-title {
 }
 
 .btn-hero-courses .btn-hero-icon {
-    color: var(--neon-purple);
+    color: inherit;
     transition: transform 0.3s ease;
 }
 
