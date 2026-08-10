@@ -209,6 +209,28 @@ body.theme-mono-light .prep-banner-wrapper .badge-pill {
    Bölüm & Kart Stilleri (Veriye İlk Bakış)
    ============================================================ */
 
+.btn-green-go {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: #ffffff !important;
+    border: none;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35);
+    transition: all 0.3s ease;
+}
+
+.btn-green-go:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.5);
+    background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+}
+
 .card-inner-title {
     font-size: 1.35rem;
     font-weight: 800;

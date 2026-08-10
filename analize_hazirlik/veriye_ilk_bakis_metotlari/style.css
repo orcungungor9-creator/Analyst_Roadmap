@@ -1,0 +1,243 @@
+/* ============================================================
+   ANALIZE HAZIRLIK — 12 Kritik Adım Metotları Sayfası Stilleri
+   ============================================================ */
+
+/* Geri Dön Butonu */
+.back-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--neon-blue, #38bdf8);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 8px 16px;
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.back-link-btn:hover {
+    background: rgba(56, 189, 248, 0.2);
+    transform: translateX(-4px);
+}
+
+.back-link-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Badge Yeşil */
+.green-badge-pill {
+    background: rgba(16, 185, 129, 0.15) !important;
+    border-color: rgba(16, 185, 129, 0.35) !important;
+    color: #10b981 !important;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+}
+
+/* Sayfa İçerik Alanı */
+.methods-main {
+    max-width: 1400px;
+    width: 100%;
+    margin: 40px auto 100px auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 1;
+}
+
+/* 12 Adım Grid */
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 24px;
+    margin-bottom: 48px;
+}
+
+/* Kartlar - Yüksek Kontrast & Kristal Netliği */
+.step-card {
+    background: var(--card-bg, rgba(30, 41, 59, 0.75));
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.12));
+    border-radius: 20px;
+    padding: 28px 32px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.step-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(16, 185, 129, 0.4);
+    box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15);
+}
+
+.step-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.step-number {
+    font-family: var(--font-title, 'Montserrat', sans-serif);
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: rgba(16, 185, 129, 0.6);
+    letter-spacing: -0.5px;
+}
+
+.step-icon-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    background: rgba(16, 185, 129, 0.12);
+    color: #10b981;
+}
+
+.step-icon-box svg {
+    width: 24px;
+    height: 24px;
+}
+
+.step-card h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-main, #f8fafc);
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.step-card p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-muted, #cbd5e1);
+    margin: 0;
+    flex-grow: 1;
+}
+
+/* Önemli İpucu Kutusu */
+.tip-highlight-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(56, 189, 248, 0.1) 100%);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-left: 6px solid #10b981;
+    border-radius: 20px;
+    padding: 32px 40px;
+    box-shadow: 0 15px 35px rgba(16, 185, 129, 0.12);
+}
+
+.tip-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: #10b981;
+    color: #ffffff;
+    flex-shrink: 0;
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.35);
+}
+
+.tip-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.tip-content h4 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--text-main, #f8fafc);
+    margin-bottom: 8px;
+}
+
+.tip-content p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-main, #e2e8f0);
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Açık Temalar İçin %100 Yüksek Kontrast ve Okunabilirlik Ayarları */
+body.theme-light-purple .step-card,
+body.theme-light-pure .step-card,
+body.theme-light-warm .step-card,
+body.theme-light-emerald .step-card,
+body.theme-mono-light .step-card,
+body.theme-pink .step-card {
+    background: rgba(255, 255, 255, 0.92);
+    border-color: rgba(226, 232, 240, 0.9);
+    box-shadow: 0 10px 30px rgba(100, 116, 139, 0.1);
+}
+
+body.theme-light-purple .step-card h3,
+body.theme-light-pure .step-card h3,
+body.theme-light-warm .step-card h3,
+body.theme-light-emerald .step-card h3,
+body.theme-mono-light .step-card h3,
+body.theme-pink .step-card h3 {
+    color: #0f172a !important;
+}
+
+body.theme-light-purple .step-card p,
+body.theme-light-pure .step-card p,
+body.theme-light-warm .step-card p,
+body.theme-light-emerald .step-card p,
+body.theme-mono-light .step-card p,
+body.theme-pink .step-card p {
+    color: #334155 !important;
+}
+
+body.theme-light-purple .tip-highlight-card,
+body.theme-light-pure .tip-highlight-card,
+body.theme-light-warm .tip-highlight-card,
+body.theme-light-emerald .tip-highlight-card,
+body.theme-mono-light .tip-highlight-card,
+body.theme-pink .tip-highlight-card {
+    background: rgba(236, 253, 245, 0.95);
+    border-color: rgba(16, 185, 129, 0.4);
+}
+
+body.theme-light-purple .tip-content h4,
+body.theme-light-pure .tip-content h4,
+body.theme-light-warm .tip-content h4,
+body.theme-light-emerald .tip-content h4,
+body.theme-mono-light .tip-content h4,
+body.theme-pink .tip-content h4 {
+    color: #065f46 !important;
+}
+
+body.theme-light-purple .tip-content p,
+body.theme-light-pure .tip-content p,
+body.theme-light-warm .tip-content p,
+body.theme-light-emerald .tip-content p,
+body.theme-mono-light .tip-content p,
+body.theme-pink .tip-content p {
+    color: #047857 !important;
+}
+
+/* Mobil Uyumluluk */
+@media (max-width: 768px) {
+    .methods-main {
+        padding: 0 20px;
+    }
+
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tip-highlight-card {
+        flex-direction: column;
+        padding: 24px;
+        gap: 16px;
+    }
+}

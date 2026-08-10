@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veriye İlk Bakış: 12 Kritik Adım - Analyst Roadmap</title>
+    <!-- Ana sitenin fontları ve ikonları -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Ana sitenin CSS'i -->
+    <link rel="stylesheet" href="../../css/styles.css">
+    
+    <!-- Sayfaya özel CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="formulas-page">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('analyst_theme') || 'theme-light-purple';
+            if (savedTheme !== 'theme-dark') {
+                document.body.classList.add(savedTheme);
+            }
+        })();
+    </script>
+
+    <!-- Full-Viewport Hero Banner -->
+    <div class="prep-banner-wrapper">
+        <div class="prep-banner-bg"></div>
+        <div class="prep-banner-overlay"></div>
+        <section class="hero-section" style="align-items: flex-start; padding-top: 100px; padding-bottom: 50px;">
+            <div class="hero-content">
+                <div class="badge-pill green-badge-pill">Kontrol Listesi &amp; Metotlar</div>
+                <h1 class="hero-title custom-brand-title" style="font-size: 3rem;">Veriye İlk Bakış: İncelenmesi Gereken 12 Kritik Adım</h1>
+                <p class="hero-subtitle">
+                    Veriyi bir programa (R, Python vb.) aktarmadan önce çıplak gözle incelediğiniz aşamada, aşağıdaki 12 adımı sırasıyla kontrol etmelisiniz. Bu kontroller, analiz sürecini hatasız başlatmanızı sağlar.
+                </p>
+                <div style="margin-top: 28px;">
+                    <a href="../index.html" class="back-link-btn">
+                        <i data-lucide="arrow-left"></i> Analize Hazırlık Sayfasına Dön
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Ana İçerik Bölümü -->
+    <main class="methods-main">
+        <!-- 12 Adım Grid Kartları -->
+        <div class="steps-grid">
+            <!-- 1. Dosya Türü -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-number">01</span>
+                    <div class="step-icon-box">
+                        <i data-lucide="file-code"></i>
+                    </div>
+                </div>
+                <h3>1. Dosya Türü (File Type)</h3>
+                <p>Verinin hangi formatta kaydedildiğini (CSV, Excel, JSON, TXT vb.) kontrol edin. Bu, veriyi okurken hangi fonksiyonu veya kütüphaneyi kullanacağınızı belirler.</p>
+            </div>
+
+            <!-- 2. Karakter Kodlaması -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-number">02</span>
+                    <div class="step-icon-box">
+                        <i data-lucide="type"></i>
+                    </div>
+                </div>
+                <h3>2. Karakter Kodlaması (Character Encoding)</h3>
+                <p>Metinlerin, özellikle Türkçe karakterlerin düzgün görünmesi için dosyanın hangi karakter kodlamasıyla (UTF-8, ANSI vb.) oluşturulduğunu inceleyin. Yanlış kodlama, veride anlamsız semboller görmenize neden olur.</p>
+            </div>
+
+            <!-- 3. Veri Ayraçları -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-number">03</span>
+                    <div class="step-icon-box">
+                        <i data-lucide="split"></i>
+                    </div>
+                </div>
+                <h3>3. Veri Ayraçları (Delimiters / Separators)</h3>
+                <p>Özellikle CSV veya düz metin dosyalarında sütunların birbirinden nasıl ayrıldığını (virgül, noktalı virgül, sekme/tab vb.) tespit edin.</p>
+            </div>
+
+            <!-- 4. Metin Sınırlandırıcıları -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-number">04</span>
+                    <div class="step-icon-box">
+                        <i data-lucide="quote"></i>
+                    </div>
+                </div>
+                <h3>4. Metin Sınırlandırıcıları (Text Qualifiers)</h3>
+                <p>Metin içindeki virgül gibi karakterlerin yanlışlıkla sütun ayracı olarak algılanmasını önlemek için kullanılan işaretleri (örneğin çift tırnak) belirleyin.</p>
+            </div>
+
+            <!-- 5. Ekstra Başlık ve Alt Bilgi -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-number">05</span>
+                    <div class="step-icon-box">
+                        <i data-lucide="rows"></i>
+                    </div>
+                </div>
+                <h3>5. Ekstra Başlık ve Alt Bilgi (Metadata / Extraneous Rows)</h3>
+                <p>Veri setinin en üstünde veya en altında, analize dahil olmaması gereken ve dosyaya dair açıklamalar içeren fazladan satırlar olup olmadığını kontrol edin.</p>
+            </div>
+
+            <!-- 6. İlk Satır Değişken mi? -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-number">06</span>
+                    <div class="step-icon-box">
+                        <i data-lucide="table"></i>
+                    </div>
+                </div>
+                <h3>6. İlk Satır Değişken mi? (Header Row / Variable Names)</h3>
+                <p>Verideki ilk satırın doğrudan verinin kendisi mi yoksa sütun isimleri (değişken adları) mi olduğunu doğrulayın. Sütun isimleri yoksa, programa alırken manuel olarak isimlendirme yapmanız gerekecektir.</p>
+            </div>
+
+            <!-- 7. Satır ve Sütun Sayısı -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-number">07</span>
+                    <div class="step-icon-box">
+                        <i data-lucide="binary"></i>
+                    </div>
+                </div>
+                <h3>7. Satır ve Sütun Sayısı (Shape of Data)</h3>
+                <p>Verinin genel boyutunu (satır ve sütun sayısı) gözden geçirin. Bu, beklentilerinizle eşleşip eşleşmediğini ve analizde kullanılacak sistemin kapasitesine uygunluğunu gösterir.</p>
+            </div>
+
+            <!-- 8. Ondalık Ayraçları -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-number">08</span>
+                    <div class="step-icon-box">
+                        <i data-lucide="calculator"></i>
+                    </div>
+                </div>
+                <h3>8. Ondalık Ayraçları (Decimal Separators)</h3>
+                <p>Sayısal verilerde ondalık kısımların nokta (.) ile mi yoksa virgül (,) ile mi ayrıldığını tespit edin. Yanlış ayraç, sistemin sayıları metin olarak algılamasına yol açar.</p>
+            </div>
+
+            <!-- 9. Tarih Formatı -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-number">09</span>
+                    <div class="step-icon-box">
+                        <i data-lucide="calendar"></i>
+                    </div>
+                </div>
+                <h3>9. Tarih Formatı (Date Formats)</h3>
+                <p>Tarih sütunlarının hangi düzende (GG.AA.YYYY, YYYY-AA-GG, AA/GG/YYYY vb.) yazıldığını inceleyin. Tarihlerin doğru analiz edilebilmesi için formatın önceden bilinmesi şarttır.</p>
+            </div>
+
+            <!-- 10. Kayıp ve Eksik Veri Gösterimi -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-number">10</span>
+                    <div class="step-icon-box">
+                        <i data-lucide="alert-circle"></i>
+                    </div>
+                </div>
+                <h3>10. Kayıp ve Eksik Veri Gösterimi (Missing Value Representation)</h3>
+                <p>Veri setinde eksik değerlerin nasıl ifade edildiğini (boşluk, "NA", "NULL", "999", "?" vb.) belirleyin. Bu, temizleme aşamasında boşlukları nasıl dolduracağınızı veya sileceğinizi belirler.</p>
+            </div>
+
+            <!-- 11. Veri Bozulması ve Bütünlük -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-number">11</span>
+                    <div class="step-icon-box">
+                        <i data-lucide="shield-check"></i>
+                    </div>
+                </div>
+                <h3>11. Veri Bozulması ve Bütünlük (Data Corruption / Integrity)</h3>
+                <p>Satırlarda kayma olup olmadığını, bir sütundaki verinin yanlışlıkla başka bir sütuna taşıp taşmadığını (örneğin, isim sütununda sayısal değerler olması) kontrol edin.</p>
+            </div>
+
+            <!-- 12. Verinin Teknik Özellikleri -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-number">12</span>
+                    <div class="step-icon-box">
+                        <i data-lucide="cpu"></i>
+                    </div>
+                </div>
+                <h3>12. Verinin Teknik Özellikleri (Technical Specifications)</h3>
+                <p>Verinin dosya boyutu, oluşturulma tarihi veya güncellenme sıklığı gibi analizi teknik olarak etkileyebilecek diğer detayları gözden geçirin.</p>
+            </div>
+        </div>
+
+        <!-- Önemli İpucu Kutusu -->
+        <div class="tip-highlight-card">
+            <div class="tip-icon">
+                <i data-lucide="lightbulb"></i>
+            </div>
+            <div class="tip-content">
+                <h4>Önemli İpucu</h4>
+                <p>Tüm bu kontrollerin ardından, tespit ettiğiniz yapısal hataları düzeltmek veya programda teyit etmek adına mutlaka notlarınızı alın. Bu kısa notlar, kodlama aşamasındaki en büyük rehberiniz olacaktır.</p>
+            </div>
+        </div>
+
+        <!-- En Alt Dön Butonu -->
+        <div style="text-align: center; margin-top: 48px;">
+            <a href="../index.html" class="back-link-btn" style="font-size: 1rem; padding: 12px 28px;">
+                <i data-lucide="arrow-left"></i> Analize Hazırlık Sayfasına Dön
+            </a>
+        </div>
+    </main>
+
+    <!-- Scriptler -->
+    <script src="../../js/components.js"></script>
+    <script src="../../js/nav.js"></script>
+    <script src="../../js/modal.js"></script>
+    <script src="../../js/script.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
