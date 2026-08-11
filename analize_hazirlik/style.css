@@ -31,12 +31,12 @@
 
 /* --- KRALİYET MORU (theme-purple): klasördeki özel görsel --- */
 body.theme-purple .prep-banner-bg {
-    background-image: url('hero_bg.jpg');
+    background-image: url('hero_bg.webp');
 }
 
 /* --- AÇIK LAVANTA (theme-light-purple): klasördeki özel görsel --- */
 body.theme-light-purple .prep-banner-bg {
-    background-image: url('hero_bg_light.jpg');
+    background-image: url('hero_bg_light.webp');
 }
 
 /* --- Diğer temalar: Ana sayfanın aynı görsellerini kullan --- */

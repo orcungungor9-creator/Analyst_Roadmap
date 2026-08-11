@@ -361,7 +361,18 @@
                     if (carousel) {
                         var cards = carousel.querySelectorAll('.carousel-card');
                         if (cards.length > 0) {
-                            var target = cards[Math.floor(cards.length / 2)];
+                            var urlParams = new URLSearchParams(window.location.search);
+                            var returnCardIndex = urlParams.get('returnCard');
+                            var targetIndex = Math.floor(cards.length / 2); // Default to middle card
+                            
+                            if (returnCardIndex !== null) {
+                                var parsedIndex = parseInt(returnCardIndex, 10);
+                                if (!isNaN(parsedIndex) && parsedIndex >= 0 && parsedIndex < cards.length) {
+                                    targetIndex = parsedIndex;
+                                }
+                            }
+                            
+                            var target = cards[targetIndex];
                             carousel.style.scrollBehavior = 'auto';
                             carousel.style.scrollSnapType = 'none';
                             carousel.scrollLeft = target.offsetLeft - (carousel.offsetWidth / 2) + (target.offsetWidth / 2);

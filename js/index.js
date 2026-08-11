@@ -182,7 +182,17 @@ function initCarouselObserver() {
         carousel.style.scrollSnapType = 'none';
         
         // Focus on the middle card on start
-        const targetIndex = Math.floor(allCards.length / 2);
+        const urlParams = new URLSearchParams(window.location.search);
+        const returnCardIndex = urlParams.get('returnCard');
+        let targetIndex = Math.floor(allCards.length / 2);
+        
+        if (returnCardIndex !== null) {
+            const parsedIndex = parseInt(returnCardIndex, 10);
+            if (!isNaN(parsedIndex) && parsedIndex >= 0 && parsedIndex < allCards.length) {
+                targetIndex = parsedIndex;
+            }
+        }
+        
         const target = allCards[targetIndex];
         
         if (target) {
