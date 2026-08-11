@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -96,12 +96,12 @@
     <div class="prep-banner-wrapper" style="border-bottom-color: #f43f5e !important;">
         <div class="prep-banner-bg"></div>
         <div class="prep-banner-overlay"></div>
-        <section class="hero-section" style="align-items: flex-start; padding-top: 100px; padding-bottom: 50px;">
-            <div class="hero-content">
+        <section class="hero-section" style="align-items: center; padding-top: 100px; padding-bottom: 50px;">
+            <div class="hero-content" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
                 <div class="badge-pill" style="background: rgba(244, 63, 94, 0.15); color: #f43f5e; border-color: rgba(244, 63, 94, 0.3);">Veri Temizleme II</div>
                 <h1 class="hero-title custom-brand-title" style="font-size: 3rem;">Aykırı Değer Yönetimi</h1>
-                <p class="hero-subtitle">
-                    Yakında eklenecek içerik bu alanda yer alacaktır.
+                <p class="hero-subtitle" style="max-width: 600px; line-height: 1.6;">
+                    Modeli yanıltabilecek aşırı uç değerlerin (outliers) tespiti ve uygun şekilde işlenmesi.
                 </p>
                 <button class="btn-hero btn-hero-prep" onclick="window.location.href='../../index.html#veri-temizleme-ii'" style="margin-top: 16px;">
                     <i data-lucide="arrow-left" style="width: 18px; height: 18px; margin-right: 8px;"></i>
@@ -112,10 +112,129 @@
     </div>
 
     <main style="max-width: 1200px; width: 100%; margin: 40px auto 100px auto; padding: 0 40px;">
-        <div class="info-card-box glass-card lazy-fade" style="margin-top: 40px; padding: 40px;">
-            <div style="text-align: center; color: var(--text-muted); font-size: 1.2rem;">
-                <i data-lucide="construction" style="width: 64px; height: 64px; margin-bottom: 16px; opacity: 0.5;"></i>
-                <p>Bu bölüm yapım aşamasındadır. Detaylı teknik içerik eklenecektir.</p>
+        
+        <!-- Giriş Paragrafı -->
+        <div class="info-card-box glass-card lazy-fade" style="margin-bottom: 40px; padding: 40px;">
+            <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-main); margin: 0;">
+                <strong style="color: #f43f5e;">Aykırı değerler (outliers)</strong>, genel veri akışının ve dağılımının belirgin şekilde dışına çıkan, aşırı uç gözlemlerdir. Bir aykırı değer; sistemsel bir ölçüm hatası olabileceği gibi, işletme için hayati önem taşıyan ender bir olay (örneğin sahtekarlık/fraud veya sistem çökmesi) da olabilir. Analist için asıl sınav, bu uç değerleri körü körüne silmek yerine, verinin doğasına göre tespit edip doğru aksiyonu seçmektir.
+            </p>
+        </div>
+
+        <!-- 1. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid var(--neon-blue);">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(56, 189, 248, 0.15); color: var(--neon-blue); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">1</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">İstatistiksel Tespit Yaklaşımları <span style="font-size: 1.2rem; font-weight: 500; color: var(--text-muted);">(Statistical Detection)</span></h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem;">Veri setindeki uç noktaların matematiksel olarak sınırlandırılması adımıdır.</p>
+            
+            <div style="display: grid; gap: 20px;">
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: var(--neon-blue); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="calculator" style="width: 20px;"></i> Çeyrekler Arası Aralık (IQR / Kutulama Metodu)
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Veri seti normale uymadığında en sık başvurulan yöntemdir. Verinin 25. (Q1) ve 75. (Q3) yüzdelik dilimleri arasındaki fark (IQR) bulunur. Q1 - 1.5 × IQR alt sınır, Q3 + 1.5 × IQR üst sınır kabul edilerek bu sınırların dışındaki veriler aykırı olarak etiketlenir.</p>
+                </div>
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: var(--neon-purple); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="bar-chart-2" style="width: 20px;"></i> Z-Skoru ve Standart Sapma
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Verinin normal dağılıma uyduğu senaryolarda tercih edilir. Ortalamadan 3 standart sapma ötede (± 3σ) kalan değerler istatistiksel sapma olarak kabul edilir.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid var(--neon-purple);">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(168, 85, 247, 0.15); color: var(--neon-purple); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">2</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">Çok Değişkenli Tespit Yöntemleri <span style="font-size: 1.2rem; font-weight: 500; color: var(--text-muted);">(Multivariate Outliers)</span></h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem;">Tek bir sütunda normal görünen bir değer, başka bir sütunla birleştiğinde aykırı hale gelebilir (Örn: "Yaş: 18" ve "Aylık Gelir: 500.000 TL").</p>
+            
+            <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                <h3 style="color: var(--neon-purple); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                    <i data-lucide="box" style="width: 20px;"></i> Mahalanobis Mesafesi & Isolation Forest
+                </h3>
+                <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Birden fazla değişkenin oluşturduğu uzayda, gözlemlerin merkeze olan uzaklığını veya verilerin ne kadar kolay "izole" edilebildiğini ölçen algoritmik yaklaşımlardır.</p>
+            </div>
+        </div>
+
+        <!-- 3. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid #f43f5e;">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(244, 63, 94, 0.15); color: #f43f5e; width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">3</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">Aykırı Değerlere Müdahale Stratejileri <span style="font-size: 1.2rem; font-weight: 500; color: var(--text-muted);">(Handling Options)</span></h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem;">Aykırı değer tespit edildikten sonra analist verinin bağlamına bakarak şu aksiyonlardan birini alır:</p>
+            
+            <div style="display: grid; gap: 20px;">
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: #f43f5e; margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="trash-2" style="width: 20px;"></i> Silme (Trimming / Dropping)
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Eğer aykırı değer sistemsel bir veri girişi hatasından kaynaklanıyorsa veya veri seti devasa büyüklükteyse o satır silinir. Ancak küçük veri setlerinde veri kaybı yaratacağı için risklidir.</p>
+                </div>
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: var(--neon-blue); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="scissors" style="width: 20px;"></i> Baskılama / Tıraşlama (Winsorization)
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Veriyi tamamen kaybetmek yerine, belirlenen üst sınırın üzerindeki aşırı değerleri o üst sınıra (Örn: 99. yüzdelik dilim değerine), alt sınırın altındakileri ise alt sınıra eşitlemektir. Böylece hem aşırı uçların etkisi kırılır hem de gözlem sayısı korunur.</p>
+                </div>
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: var(--neon-green); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="shield" style="width: 20px;"></i> Dirençli Modeller veya Dönüşümler
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Veriye hiç dokunmayıp, aykırı değerlerden etkilenmeyen Robust Scaler, Logaritmik Dönüşüm veya Ağaç Tabanlı Modeller (Random Forest, XGBoost) tercih edilerek aşırı uçlar model seviyesinde tolere edilir.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid var(--neon-green);">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(74, 222, 128, 0.15); color: var(--neon-green); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">4</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">Aykırı Değeri Eksik Veri (NA) Olarak Kabul Etme <span style="font-size: 1.2rem; font-weight: 500; color: var(--text-muted);">(Imputation)</span></h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem;">Eğer aykırı değer kesinlikle hatalıysa (Örn: Yaş = 250) ancak o satırdaki diğer veriler çok değerli olduğu için satırı tamamen silmek istemiyorsak kullanılan yöntemdir.</p>
+            
+            <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                <h3 style="color: var(--neon-green); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                    <i data-lucide="replace" style="width: 20px;"></i> Yeniden Tahminleme
+                </h3>
+                <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Analist, bu aşırı uç değeri sanki hiç girilmemiş (NA) gibi boşaltır. Ardından, eksik veri yönetimi (Missing Value) metotlarını devreye sokarak bu boşluğu Medyan, KNN veya regresyon tabanlı yöntemlerle mantıklı bir değere atar.</p>
+            </div>
+        </div>
+
+        <!-- 5. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid var(--neon-blue);">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(56, 189, 248, 0.15); color: var(--neon-blue); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">5</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">Gruplama ile Etkisizleştirme <span style="font-size: 1.2rem; font-weight: 500; color: var(--text-muted);">(Binning / Discretization)</span></h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem;">Aykırı değerleri matematiksel olarak tıraşlamak yerine formunu değiştirerek etkisiz kılmaktır.</p>
+            
+            <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                <h3 style="color: var(--neon-blue); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                    <i data-lucide="layers" style="width: 20px;"></i> Kategorik Sınırlama
+                </h3>
+                <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Örneğin bir gelir sütununda 50.000 TL kazananlar çoğunluktayken, 5.000.000 TL kazanan birkaç kişi varsa; analist bu sürekli veriyi "0-20 Bin", "20-50 Bin" ve "50 Bin Üstü" şeklinde kategorik gruplara böler. Böylece 5 milyonluk o devasa rakam, sadece "50 Bin Üstü" etiketine (bucket/bin) dönüşür ve algoritmayı saptırma gücünü tamamen kaybeder.</p>
+            </div>
+        </div>
+
+        <!-- 6. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid var(--neon-purple);">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(168, 85, 247, 0.15); color: var(--neon-purple); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">6</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">Segmentasyon ve Ayrı Modelleme <span style="font-size: 1.2rem; font-weight: 500; color: var(--text-muted);">(Separate Modeling)</span></h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem;">Belki de en stratejik analist kararıdır. Aykırı değerler bazen hata veya gürültü değil, tamamen farklı bir müşteri veya işlem profilinin ta kendisidir.</p>
+            
+            <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                <h3 style="color: var(--neon-purple); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                    <i data-lucide="git-merge" style="width: 20px;"></i> Veriyi Bölmek
+                </h3>
+                <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Bir e-ticaret verisinde, binlerce liralık alışveriş yapan kişiler "outlier" olarak görünebilir. Analist bu verileri baskılamak (winsorize) yerine, veri setini ikiye böler. Standart müşteriler için ayrı bir model, "VIP/Kurumsal" müşteriler (yani eski outlier'lar) için kuralları tamamen farklı olan ikinci bir model kurgular.</p>
             </div>
         </div>
     </main>
