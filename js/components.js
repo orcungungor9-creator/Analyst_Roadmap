@@ -100,10 +100,10 @@ const HEADER_HTML = `
                 <!-- YAPAY ZEKA DROPDOWN -->
                 <div class="nav-dropdown-container">
                     <button class="nav-btn" style="color: var(--text-main); font-weight: 700; display: flex; align-items: center; gap: 6px;">
-                        <i data-lucide="cpu" style="width: 18px; height: 18px; color: #f59e0b;"></i> Yapay Zeka <span style="font-size: 0.8rem; margin-left: 2px; color: #f59e0b;">▼</span>
+                        <i data-lucide="cpu" style="width: 18px; height: 18px; color: var(--neon-orange);"></i> Yapay Zeka <span style="font-size: 0.8rem; margin-left: 2px; color: var(--neon-orange);">▼</span>
                     </button>
                     <div class="nav-dropdown-menu">
-                        <a href="${pathPrefix}index.html#ai-integration-section" class="dropdown-item ai-hover" style="border-bottom: 1px dashed rgba(245, 158, 11, 0.3); border-radius: 0; justify-content: center;"><i data-lucide="cpu" style="width: 16px; height: 16px; margin-right: 6px; color: #f59e0b;"></i> AI Yol Haritasını Gör</a>
+                        <a href="${pathPrefix}index.html#ai-integration-section" class="dropdown-item ai-hover" style="border-bottom: 1px dashed color-mix(in srgb, var(--neon-orange) 30%, transparent); border-radius: 0; justify-content: center;"><i data-lucide="cpu" style="width: 16px; height: 16px; margin-right: 6px; color: var(--neon-orange);"></i> AI Yol Haritasını Gör</a>
                         <a href="${pathPrefix}ai/stage1/stage1.html" class="dropdown-item ai-hover">💬 1. Aşama: Yapay Zeka Okuryazarlığı</a>
                         <a href="${pathPrefix}ai/stage2/stage2.html" class="dropdown-item ai-hover">💼 2. Aşama: Veri Mühendisliği</a>
                         <a href="${pathPrefix}ai/stage3/stage3.html" class="dropdown-item ai-hover">🧠 3. Aşama: Model Eğitimi (Algoritma Seçimi)</a>
@@ -228,11 +228,11 @@ const MOBILE_NAV_HTML = `
             </div>
 
             <button class="mobile-nav-item ai-hdr" onclick="toggleMobileAccordion('ai-accordion', this)" style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px; margin-bottom: 4px;">
-                <span style="font-weight: 800; color: #f59e0b; letter-spacing: 0.5px; font-size: 0.9rem; display: flex; align-items: center;"><i data-lucide="cpu" style="width: 18px; height: 18px; margin-right: 8px;"></i> Yapay Zeka</span>
-                <span class="accordion-arrow" style="transition: transform 0.3s; font-size: 0.9rem; color: #f59e0b;">▼</span>
+                <span style="font-weight: 800; color: var(--neon-orange); letter-spacing: 0.5px; font-size: 0.9rem; display: flex; align-items: center;"><i data-lucide="cpu" style="width: 18px; height: 18px; margin-right: 8px;"></i> Yapay Zeka</span>
+                <span class="accordion-arrow" style="transition: transform 0.3s; font-size: 0.9rem; color: var(--neon-orange);">▼</span>
             </button>
-            <div id="ai-accordion" style="display: none; flex-direction: column; gap: 8px; width: 100%; margin-top: -4px; margin-bottom: 8px; padding-left: 16px; border-left: 2px solid rgba(245, 158, 11, 0.3);">
-                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}index.html#ai-integration-section'; closeNavMenu();" style="font-size: 0.9rem; padding: 12px 16px; border-bottom: 1px dashed rgba(245, 158, 11, 0.3); border-radius: 0; display: flex; align-items: center;"><i data-lucide="cpu" style="width: 16px; height: 16px; margin-right: 8px; color: #f59e0b;"></i> AI Yol Haritasını Gör</button>
+            <div id="ai-accordion" style="display: none; flex-direction: column; gap: 8px; width: 100%; margin-top: -4px; margin-bottom: 8px; padding-left: 16px; border-left: 2px solid color-mix(in srgb, var(--neon-orange) 30%, transparent);">
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}index.html#ai-integration-section'; closeNavMenu();" style="font-size: 0.9rem; padding: 12px 16px; border-bottom: 1px dashed color-mix(in srgb, var(--neon-orange) 30%, transparent); border-radius: 0; display: flex; align-items: center;"><i data-lucide="cpu" style="width: 16px; height: 16px; margin-right: 8px; color: var(--neon-orange);"></i> AI Yol Haritasını Gör</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}ai/stage1/stage1.html'" style="font-size: 0.9rem; padding: 12px 16px;">💬 1. Aşama: Yapay Zeka Okuryazarlığı</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}ai/stage2/stage2.html'" style="font-size: 0.9rem; padding: 12px 16px;">💼 2. Aşama: Veri Mühendisliği</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}ai/stage3/stage3.html'" style="font-size: 0.9rem; padding: 12px 16px;">🧠 3. Aşama: Model Eğitimi (Algoritma Seçimi)</button>
@@ -244,7 +244,7 @@ const MOBILE_NAV_HTML = `
                 <span class="accordion-arrow" style="transition: transform 0.3s; font-size: 0.9rem; color: var(--neon-purple);">▼</span>
             </button>
             <div id="ai-rehberi-accordion" style="display: none; flex-direction: column; gap: 8px; width: 100%; margin-top: -4px; margin-bottom: 8px; padding-left: 16px; border-left: 2px solid rgba(192, 132, 252, 0.3);">
-                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}index.html#ai-guides-section'; closeNavMenu();" style="font-size: 0.9rem; padding: 12px 16px; border-bottom: 1px dashed rgba(245, 158, 11, 0.3); border-radius: 0; display: flex; align-items: center;"><i data-lucide="book-open" style="width: 16px; height: 16px; margin-right: 8px; color: #f59e0b;"></i> Tüm AI Rehberlerini Gör</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}index.html#ai-guides-section'; closeNavMenu();" style="font-size: 0.9rem; padding: 12px 16px; border-bottom: 1px dashed rgba(192, 132, 252, 0.3); border-radius: 0; display: flex; align-items: center;"><i data-lucide="book-open" style="width: 16px; height: 16px; margin-right: 8px; color: var(--neon-purple);"></i> Tüm AI Rehberlerini Gör</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}yapay-zeka/tarihce/index.html'" style="font-size: 0.9rem; padding: 12px 16px;">⏳ Tarihçe ve Dönüm Noktaları</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}yapay-zeka/kullanim-alanlari/index.html'" style="font-size: 0.9rem; padding: 12px 16px;">🌐 Yapay Zeka Kullanım Alanları</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}yapay-zeka/hangi-yz/index.html'" style="font-size: 0.9rem; padding: 12px 16px;">⚖️ Hangi YZ Ne İçin Kullanılmalı?</button>
