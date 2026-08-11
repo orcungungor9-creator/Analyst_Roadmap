@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -96,12 +96,12 @@
     <div class="prep-banner-wrapper" style="border-bottom-color: #f43f5e !important;">
         <div class="prep-banner-bg"></div>
         <div class="prep-banner-overlay"></div>
-        <section class="hero-section" style="align-items: flex-start; padding-top: 100px; padding-bottom: 50px;">
-            <div class="hero-content">
+        <section class="hero-section" style="align-items: center; padding-top: 100px; padding-bottom: 50px;">
+            <div class="hero-content" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
                 <div class="badge-pill" style="background: rgba(244, 63, 94, 0.15); color: #f43f5e; border-color: rgba(244, 63, 94, 0.3);">Veri Temizleme II</div>
-                <h1 class="hero-title custom-brand-title" style="font-size: 3rem;">Kategorik Veri İşleme</h1>
-                <p class="hero-subtitle">
-                    Yakında eklenecek içerik bu alanda yer alacaktır.
+                <h1 class="hero-title custom-brand-title" style="font-size: 3rem;">Kategorik Veri Dönüşümü</h1>
+                <p class="hero-subtitle" style="max-width: 600px; line-height: 1.6;">
+                    Kategorik verileri temizlemek, okunabilir kılmak, belleği optimize etmek ve makine öğrenmesi algoritmaları için doğru formata (Feature Encoding) çevirmek.
                 </p>
                 <button class="btn-hero btn-hero-prep" onclick="window.location.href='../../index.html#veri-temizleme-ii'" style="margin-top: 16px;">
                     <i data-lucide="arrow-left" style="width: 18px; height: 18px; margin-right: 8px;"></i>
@@ -112,10 +112,138 @@
     </div>
 
     <main style="max-width: 1200px; width: 100%; margin: 40px auto 100px auto; padding: 0 40px;">
-        <div class="info-card-box glass-card lazy-fade" style="margin-top: 40px; padding: 40px;">
-            <div style="text-align: center; color: var(--text-muted); font-size: 1.2rem;">
-                <i data-lucide="construction" style="width: 64px; height: 64px; margin-bottom: 16px; opacity: 0.5;"></i>
-                <p>Bu bölüm yapım aşamasındadır. Detaylı teknik içerik eklenecektir.</p>
+        
+        <!-- Giriş Paragrafı -->
+        <div class="info-card-box glass-card lazy-fade" style="margin-bottom: 40px; padding: 40px;">
+            <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-main); margin: 0;">
+                <strong style="color: var(--neon-purple);">Kategorik veriler</strong>, doğaları gereği metin tabanlıdır. Gerek temel iş zekası (BI) raporlamalarında gerekse makine öğrenmesi algoritmalarında bu verilerin olduğu gibi kullanılması hatalara, tutarsızlıklara veya performans kayıplarına yol açar. Kategorik veri işleme süreci; veriyi temizlemek, okunabilir kılmak, belleği optimize etmek ve ileri seviye analizler için doğru formata çevirmek üzerine kurulan stratejik bir karar dizisidir.
+                <br><br>Makine öğrenimine hazırlık aşamalarından önce gelen temel veri analizi adımlarını da içerecek şekilde genişletilmiş yapı şu şekildedir:
+            </p>
+        </div>
+
+        <!-- 1. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid var(--neon-blue);">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(56, 189, 248, 0.15); color: var(--neon-blue); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">1</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">Yapısal Tutarsızlıkların Giderilmesi <span style="font-size: 1.2rem; font-weight: 500; color: var(--text-muted);">(Normalization)</span></h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem;">Kategorik değişkenler serbest metin girişi barındırıyorsa, ilk adım "gürültüyü" ortadan kaldırmaktır.</p>
+            
+            <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                <h3 style="color: var(--neon-blue); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                    <i data-lucide="type" style="width: 20px;"></i> Metin Standardizasyonu
+                </h3>
+                <p style="margin: 0; line-height: 1.6; color: var(--text-main);">"İstanbul", "istanbul", " İSTANBUL", "İst." gibi varyasyonların tamamı veri tabanında farklı kategorilerdir. Büyük/küçük harf eşitlemesi (lower/upper casing), başındaki/sonundaki boşlukların silinmesi (trimming) ve özel karakter düzeltmeleri yapılarak veriler tekilleştirilmelidir.</p>
+            </div>
+        </div>
+
+        <!-- 2. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid var(--neon-green);">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(74, 222, 128, 0.15); color: var(--neon-green); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">2</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">Yeniden Adlandırma ve Haritalama <span style="font-size: 1.2rem; font-weight: 500; color: var(--text-muted);">(Mapping / Recoding)</span></h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem; line-height: 1.6;">Analiz sonuçlarının veya oluşturulacak gösterge panellerinin (dashboard) son kullanıcı tarafından doğrudan anlaşılabilir olması için kategorilerin iş mantığına göre düzenlenmesidir.</p>
+            
+            <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                <h3 style="color: var(--neon-green); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                    <i data-lucide="arrow-right-left" style="width: 20px;"></i> Anlamsal Dönüştürme
+                </h3>
+                <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Veri tabanından gelen kriptik kodların (Örn: "STS_01", "1", "0") veya kısaltmaların (Örn: "M", "F") iş zekası standartlarına uygun, okunabilir etiketlere (Örn: "Beklemede", "Aktif", "Pasif", "Erkek", "Kadın") dönüştürülmesi analistin inisiyatifindeki temel bir adımdır.</p>
+            </div>
+        </div>
+
+        <!-- 3. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid var(--neon-purple);">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(168, 85, 247, 0.15); color: var(--neon-purple); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">3</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">Veri Tipi Dönüşümü ve Optimizasyon <span style="font-size: 1.2rem; font-weight: 500; color: var(--text-muted);">(Type Casting)</span></h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem;">Veriyi sadece metin (string/object) formatında bırakmayıp analitik araçların mimarisine uygun hale getirmektir.</p>
+            
+            <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                <h3 style="color: var(--neon-purple); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                    <i data-lucide="database" style="width: 20px;"></i> Bellek ve Sıralama Optimizasyonu
+                </h3>
+                <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Bir sütunu doğrudan "kategorik" (categorical/factor) veri tipine atamak, büyük veri setlerinde ciddi bellek (RAM) tasarrufu sağlar. Ayrıca "Kötü, Orta, İyi" veya "Ocak, Şubat, Mart" gibi metinlerin grafiklerde alfabetik değil, analistin belirlediği mantıksal sıraya göre dizilmesini (sorting) güvence altına alır.</p>
+            </div>
+        </div>
+
+        <!-- 4. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid #f43f5e;">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(244, 63, 94, 0.15); color: #f43f5e; width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">4</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">Frekans Analizi ve Çapraz Tablolama</h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem; line-height: 1.6;">Müdahalelere yön verecek temel istatistiksel ve mantıksal çerçeveyi çizmektir.</p>
+            
+            <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                <h3 style="color: #f43f5e; margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                    <i data-lucide="bar-chart" style="width: 20px;"></i> Dağılım Kontrolü (Value Counts & Cross-Tabulation)
+                </h3>
+                <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Kategorilerin görülme sıklığını (frekans) ve diğer kategorik sütunlarla kesişimlerini (crosstab/pivot) incelemek. Beklenmedik bir veri girişinin (Örn: "Medeni Hal" sütununda "Bilinmiyor" oranının %40 olması) veya dengesiz sınıfların (imbalanced data) tespiti bu temel adımla yapılır ve sonraki stratejileri belirler.</p>
+            </div>
+        </div>
+
+        <!-- 5. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid var(--neon-blue);">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(56, 189, 248, 0.15); color: var(--neon-blue); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">5</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">Kardinalite (Cardinality) Kontrolü</h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem; line-height: 1.6;">Bir kategorik sütundaki benzersiz (unique) değer sayısının, toplam gözlem sayısına olan oranının incelenmesidir.</p>
+            
+            <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                <h3 style="color: var(--neon-blue); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                    <i data-lucide="hash" style="width: 20px;"></i> Yüksek Kardinalite Yönetimi
+                </h3>
+                <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Eğer benzersiz değer sayısı gözlem sayısına çok yakınsa (örneğin; Fatura No, Kullanıcı ID'si), bu değişken genellenebilir analitik bir örüntü taşımaz. Analistin kararıyla bu sütunlar ya tamamen düşürülür (drop) ya da özellik çıkarımı ile daha anlamlı bir yapıya (Örn: Mail adresinden şirket domain uzantısını çekmek) dönüştürülür.</p>
+            </div>
+        </div>
+
+        <!-- 6. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid var(--neon-green);">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(74, 222, 128, 0.15); color: var(--neon-green); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">6</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">Seyrek Kategorilerin Yönetimi <span style="font-size: 1.2rem; font-weight: 500; color: var(--text-muted);">(Rare Grouping)</span></h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem; line-height: 1.6;">Bir sütunda çok fazla alt kategori bulunabilir, ancak bazılarının veri setindeki frekansı analiz veya modelleme için çok düşüktür.</p>
+            
+            <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                <h3 style="color: var(--neon-green); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                    <i data-lucide="folder-kanban" style="width: 20px;"></i> "Diğer" Çatısı Altında Toplama
+                </h3>
+                <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Örneğin, 100 farklı ilçenin bulunduğu bir veri setinde, gözlemlerin %90'ı sadece 5 ilçede toplanmışsa, geriye kalan 95 ilçe "Diğer" (Other) isimli tek bir kategori altında birleştirilir. Bu müdahale görselleştirme kalabalığını azaltır ve modelin ezberlemesinin (overfitting) önüne geçer.</p>
+            </div>
+        </div>
+
+        <!-- 7. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid var(--neon-purple);">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(168, 85, 247, 0.15); color: var(--neon-purple); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">7</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">Makine Öğrenmesi İçin Şifreleme Stratejileri <span style="font-size: 1.2rem; font-weight: 500; color: var(--text-muted);">(Feature Encoding)</span></h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem; line-height: 1.6;">Temizlenen kategorik verinin, kurulacak algoritmanın yapısına ve verinin hiyerarşisine göre sayısallaştırılmasıdır. Analist şu kodlama yöntemlerinden birini seçer:</p>
+            
+            <div style="display: grid; gap: 20px;">
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: var(--neon-blue); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="list-ordered" style="width: 20px;"></i> Sıralı (Ordinal) Encoding
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Kategoriler arasında mantıksal bir büyüklük/küçüklük ilişkisi varsa kullanılır. (Örn: Eğitim Durumu değişkeni için; İlkokul = 1, Lise = 2, Üniversite = 3).</p>
+                </div>
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: var(--neon-purple); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="copy" style="width: 20px;"></i> One-Hot Encoding (OHE) / Kukla Değişkenler
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Kategoriler arasında bir hiyerarşi yoksa (Örn: "Kırmızı", "Mavi", "Yeşil") kullanılır. Her bir kategori için 0 ve 1'lerden oluşan yeni bir sütun yaratılır. Ancak analist, "Kukla Değişken Tuzağına" düşmemek için gerekiyorsa baz kategorilerden birini silmelidir.</p>
+                </div>
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: #f43f5e; margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="target" style="width: 20px;"></i> Target (Hedef) Encoding
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Yüksek kardinaliteye sahip ancak hiyerarşisi olmayan değişkenlerde, OHE veri setini çok şişireceği için tercih edilir. Her kategorinin, tahmin edilmeye çalışılan "hedef değişken" üzerindeki ortalaması o kategoriye atanır. Veri sızıntısına (data leakage) yol açmamak için dikkatli uygulanmalıdır.</p>
+                </div>
             </div>
         </div>
     </main>
