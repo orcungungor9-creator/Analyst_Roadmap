@@ -831,9 +831,9 @@ body.theme-pink .hero-title.custom-brand-title {
 
 /* ---- Mint ---- */
 body.theme-light-emerald .hero-title.custom-brand-title {
-    background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+    background: linear-gradient(135deg, #065f46 0%, #047857 100%);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    filter: drop-shadow(0 0 14px rgba(5, 150, 105, 0.35)) drop-shadow(0 1px 3px rgba(0,0,0,0.1));
+    filter: drop-shadow(0 2px 6px rgba(255,255,255,0.6)) drop-shadow(0 1px 3px rgba(255,255,255,0.4));
 }
 
 /* ---- Açık Lavanta ---- */
@@ -861,8 +861,26 @@ body.theme-light-pure .hero-subtitle,
 body.theme-mono-light .hero-subtitle,
 body.theme-light-warm .hero-subtitle,
 body.theme-pink .hero-subtitle,
-body.theme-light-emerald .hero-subtitle,
 body.theme-light-purple .hero-subtitle {
+    color: #1a1a2e;
+    text-shadow:
+        0 1px 3px rgba(255,255,255,0.8),
+        0 2px 12px rgba(255,255,255,0.5);
+}
+
+/* Mint: Cam efektli saydam arka plan + koyu yeşil yazı */
+body.theme-light-emerald .badge-pill {
+    background: rgba(255, 255, 255, 0.45);
+    border: 1px solid rgba(6, 95, 70, 0.35);
+    color: #044e39;
+    box-shadow: 0 4px 15px rgba(6, 95, 70, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
+    font-weight: 700;
+}
+
+body.theme-light-emerald .hero-subtitle {
     color: #1a1a2e;
     text-shadow:
         0 1px 3px rgba(255,255,255,0.8),
