@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -96,12 +96,12 @@
     <div class="prep-banner-wrapper" style="border-bottom-color: #f43f5e !important;">
         <div class="prep-banner-bg"></div>
         <div class="prep-banner-overlay"></div>
-        <section class="hero-section" style="align-items: flex-start; padding-top: 100px; padding-bottom: 50px;">
-            <div class="hero-content">
+        <section class="hero-section" style="align-items: center; padding-top: 100px; padding-bottom: 50px;">
+            <div class="hero-content" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
                 <div class="badge-pill" style="background: rgba(244, 63, 94, 0.15); color: #f43f5e; border-color: rgba(244, 63, 94, 0.3);">Veri Temizleme II</div>
-                <h1 class="hero-title custom-brand-title" style="font-size: 3rem;">Eksik Veri Yönetimi</h1>
-                <p class="hero-subtitle">
-                    Yakında eklenecek içerik bu alanda yer alacaktır.
+                <h1 class="hero-title custom-brand-title" style="font-size: 3rem;">Kayıp Veri Yönetimi</h1>
+                <p class="hero-subtitle" style="max-width: 600px; line-height: 1.6;">
+                    Veri setindeki kayıp değerleri (NA/Null) teşhis etme, analiz etme ve bağlama uygun istatistiksel veya algoritmik stratejilerle doldurma ve silme yöntemleri.
                 </p>
                 <button class="btn-hero btn-hero-prep" onclick="window.location.href='../../index.html#veri-temizleme-ii'" style="margin-top: 16px;">
                     <i data-lucide="arrow-left" style="width: 18px; height: 18px; margin-right: 8px;"></i>
@@ -112,10 +112,128 @@
     </div>
 
     <main style="max-width: 1200px; width: 100%; margin: 40px auto 100px auto; padding: 0 40px;">
-        <div class="info-card-box glass-card lazy-fade" style="margin-top: 40px; padding: 40px;">
-            <div style="text-align: center; color: var(--text-muted); font-size: 1.2rem;">
-                <i data-lucide="construction" style="width: 64px; height: 64px; margin-bottom: 16px; opacity: 0.5;"></i>
-                <p>Bu bölüm yapım aşamasındadır. Detaylı teknik içerik eklenecektir.</p>
+        
+        <!-- Giriş Paragrafı -->
+        <div class="info-card-box glass-card lazy-fade" style="margin-bottom: 40px; padding: 40px;">
+            <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-main); margin: 0;">
+                <strong style="color: var(--neon-blue);">Kayıp veri (NA/Null) yönetimi</strong>, "boşlukları sil veya ortalamayla doldur" gibi mekanik reflekslerle geçiştirilemeyecek, veri setinin kaderini belirleyen kritik bir kavşaktır. Yanlış bir müdahale veri setinin varyansını bozabilir ve analizde ciddi sapmalara (bias) yol açabilir. Başarılı bir kayıp veri yönetimi, analistin inisiyatifinde şekillenen şu karar ağacı üzerinden ilerler:
+            </p>
+        </div>
+
+        <!-- 1. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid var(--neon-purple);">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(168, 85, 247, 0.15); color: var(--neon-purple); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">1</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">Kayıp Veri Dağılımının ve Karakteristiğinin İncelenmesi</h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem;">Müdahale etmeden önce kayıp verinin veri seti içindeki davranışını ve istatistiksel dağılımını anlamak şarttır.</p>
+            
+            <div style="display: grid; gap: 20px;">
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: var(--neon-blue); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="eye" style="width: 20px;"></i> Görsel ve İstatistiksel Kontroller
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Kayıp değerler veri setine rastgele mi dağılmış, yoksa belirli bir alanda mı kümelenmiş? Isı haritaları ve kayıp korelasyon matrisleri çıkarılarak bu kümelenmeler tespit edilmelidir.</p>
+                </div>
+                
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: var(--neon-blue); margin-top: 0; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="microscope" style="width: 20px;"></i> Kayıp Mekanizmasının Teşhisi
+                    </h3>
+                    <ul style="margin: 0; padding-left: 20px; line-height: 1.8; color: var(--text-main); display: flex; flex-direction: column; gap: 12px;">
+                        <li><strong style="color: var(--neon-green);">MCAR (Tamamen Rastgele Kayıp):</strong> Kayıp verinin diğer değişkenlerle ilgisi yoktur (Örn: Sistemsel hata). Güvenle silinebilir veya basit atama yapılabilir.</li>
+                        <li><strong style="color: var(--neon-purple);">MAR (Rastgele Kayıp):</strong> Kayıp veri, diğer değişkenlerle açıklanabilir (Örn: Kadınların yaşlarını daha az belirtme eğilimi). Diğer sütunlardan yararlanılarak tahminleme yapılmalıdır.</li>
+                        <li><strong style="color: #f43f5e;">MNAR (Rastgele Olmayan Kayıp):</strong> Kayıp veri, o değişkenin kendi değeriyle ilgilidir (Örn: Geliri çok yüksek/düşük olanların gelir anketini boş bırakması). En tehlikeli türdür; standart atamalar yerine özel modelleme stratejileri gerektirir.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid var(--neon-blue);">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(56, 189, 248, 0.15); color: var(--neon-blue); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">2</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">Çıkarımsal ve Mantıksal Atama <span style="font-size: 1.2rem; font-weight: 500; color: var(--text-muted);">(Deductive Imputation)</span></h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem; line-height: 1.6;">İstatistiksel bir tahminlemeden önce başvurulması gereken ilk adımdır. Analist, verinin bağlamını ve iş mantığını (domain knowledge) kullanarak kayıp değeri kesin (deterministik) olarak doldurur.</p>
+            
+            <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                <h3 style="color: var(--neon-green); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                    <i data-lucide="git-merge" style="width: 20px;"></i> Çapraz Sütun Doğrulaması
+                </h3>
+                <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Diğer değişkenlerdeki ipuçları kullanılarak mantıksal çıkarım yapılır. Örneğin; "Ehliyet Durumu" boş (NA) olan bir gözlemin "Yaş" sütununda 15 yazıyorsa, bu boşluk mantıksal olarak "Hayır" (0) ile doldurulur. Veya "Vergi Kesintisi" boş olan birinin "Aylık Gelir"i 0 ise, vergi doğrudan 0 olarak atanabilir.</p>
+            </div>
+        </div>
+
+        <!-- 3. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid #f43f5e;">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(244, 63, 94, 0.15); color: #f43f5e; width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">3</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">Silme Stratejileri <span style="font-size: 1.2rem; font-weight: 500; color: var(--text-muted);">(Deletions)</span></h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem;">Eğer veri seti yeterince büyükse ve kayıp oranı düşükse en temiz yöntemdir, ancak veri kaybı maliyeti yaratır.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: #f43f5e; margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="trash-2" style="width: 20px;"></i> Satır Silme (Listwise Deletion)
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Hedef değişkenin (target) kayıp olduğu veya bir satırda çok fazla kayıp değişken bulunduğu durumlarda o gözlem model eğitimine katılmaz.</p>
+                </div>
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: #f43f5e; margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="columns" style="width: 20px;"></i> Sütun Silme (Dropping Features)
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Bir sütunun %40-%50'den fazlası kayıpsa ve bağlamsal/çıkarımsal bir değer taşımıyorsa, veri setini gürültüden arındırmak adına sütun tamamen düşürülür.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid var(--neon-green);">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(74, 222, 128, 0.15); color: var(--neon-green); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">4</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">Temel İstatistiksel Atama Yöntemleri</h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem; line-height: 1.6;">Çıkarımsal atama yapılamayan veya silinemeyen durumlarda başvurulur; ancak dağılımı ve varyansı bozma riski barındırdığı için dikkatli kullanılmalıdır.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: var(--neon-green); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="bar-chart-2" style="width: 20px;"></i> Merkezi Eğilim Ölçüleri
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Sayısal verilerde, dağılım normalse <strong>Ortalama (Mean)</strong>; aykırı değerler mevcutsa ortalama sapacağı için <strong>Medyan (Median)</strong> kullanılır. Kategorik verilerde ise en çok tekrar eden <strong>Mod (Mode)</strong> tercih edilir.</p>
+                </div>
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: var(--neon-green); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="hash" style="width: 20px;"></i> Sabit Değer Ataması
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Bağlamsal olarak boşluğun aslında "Yok", "Sıfır" veya "Bilinmiyor" statüsüne karşılık geldiği durumlarda, o kayıp değeri yeni bir kategori (Örn: "Unknown") olarak standardize etmektir.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid var(--neon-blue);">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(56, 189, 248, 0.15); color: var(--neon-blue); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">5</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">İleri Düzey Model Tabanlı Atamalar</h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem; line-height: 1.6;">Değişkenler arası ilişkileri korumak ve varyans daralmasını engellemek için başvurulan makine öğrenmesi destekli yöntemlerdir.</p>
+            
+            <div style="display: grid; gap: 20px;">
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: var(--neon-blue); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="network" style="width: 20px;"></i> KNN Imputation
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Kayıp değeri, o gözleme diğer özellikleri bakımından en çok benzeyen <em>k</em> sayıdaki komşusunun (Nearest Neighbors) değerlerine bakarak doldurur.</p>
+                </div>
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: var(--neon-purple); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="cpu" style="width: 20px;"></i> MICE (Multivariate Imputation)
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Kayıp değeri olan sütunu bir "hedef değişken" gibi kabul edip, veri setindeki diğer tüm sütunları kullanarak iteratif bir regresyon modeliyle tahmin eden, istatistiksel geçerliliği en yüksek metotlardan biridir.</p>
+                </div>
             </div>
         </div>
     </main>
