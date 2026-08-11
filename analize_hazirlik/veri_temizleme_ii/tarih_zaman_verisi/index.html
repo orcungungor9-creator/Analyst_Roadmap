@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -96,12 +96,12 @@
     <div class="prep-banner-wrapper" style="border-bottom-color: #f43f5e !important;">
         <div class="prep-banner-bg"></div>
         <div class="prep-banner-overlay"></div>
-        <section class="hero-section" style="align-items: flex-start; padding-top: 100px; padding-bottom: 50px;">
-            <div class="hero-content">
+        <section class="hero-section" style="align-items: center; padding-top: 100px; padding-bottom: 50px;">
+            <div class="hero-content" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
                 <div class="badge-pill" style="background: rgba(244, 63, 94, 0.15); color: #f43f5e; border-color: rgba(244, 63, 94, 0.3);">Veri Temizleme II</div>
-                <h1 class="hero-title custom-brand-title" style="font-size: 3rem;">Tarih ve Zaman Verisi</h1>
-                <p class="hero-subtitle">
-                    Yakında eklenecek içerik bu alanda yer alacaktır.
+                <h1 class="hero-title custom-brand-title" style="font-size: 3rem;">Tarih ve Zaman İşleme</h1>
+                <p class="hero-subtitle" style="max-width: 600px; line-height: 1.6;">
+                    Tarihleri standardize edip gün, ay, yıl gibi anlamlı alt kırılımlara ayırmak ve modelin zamanın doğasını anlamasını sağlamak.
                 </p>
                 <button class="btn-hero btn-hero-prep" onclick="window.location.href='../../index.html#veri-temizleme-ii'" style="margin-top: 16px;">
                     <i data-lucide="arrow-left" style="width: 18px; height: 18px; margin-right: 8px;"></i>
@@ -112,10 +112,107 @@
     </div>
 
     <main style="max-width: 1200px; width: 100%; margin: 40px auto 100px auto; padding: 0 40px;">
-        <div class="info-card-box glass-card lazy-fade" style="margin-top: 40px; padding: 40px;">
-            <div style="text-align: center; color: var(--text-muted); font-size: 1.2rem;">
-                <i data-lucide="construction" style="width: 64px; height: 64px; margin-bottom: 16px; opacity: 0.5;"></i>
-                <p>Bu bölüm yapım aşamasındadır. Detaylı teknik içerik eklenecektir.</p>
+        
+        <!-- Giriş Paragrafı -->
+        <div class="info-card-box glass-card lazy-fade" style="margin-bottom: 40px; padding: 40px;">
+            <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-main); margin: 0;">
+                <strong style="color: var(--neon-blue);">Tarih ve zaman verileri</strong>, içinde mevsimsellik, trendler ve müşteri alışkanlıkları gibi devasa içgörüler barındıran gizli birer hazinedir. Ancak hiçbir algoritma "12/05/2023 14:30" şeklindeki bir metin dizgesinden (string) doğrudan anlam çıkaramaz. Veriyi salt bir metin olmaktan çıkarıp makinenin anlayabileceği döngüsel ve matematiksel bir yapıya kavuşturmak, analistin zamanın doğasını nasıl modellediğine bağlıdır.
+            </p>
+        </div>
+
+        <!-- 1. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid var(--neon-purple);">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(168, 85, 247, 0.15); color: var(--neon-purple); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">1</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">Format Standardizasyonu <span style="font-size: 1.2rem; font-weight: 500; color: var(--text-muted);">(Parsing & Type Casting)</span></h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem;">Farklı coğrafyalardan veya sistemlerden gelen zaman verileri tam bir kaos yaratır. "10/11/2023" verisi Amerika standardında 11 Ekim iken, Avrupa standardında 10 Kasım'dır.</p>
+            
+            <div style="display: grid; gap: 20px;">
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: var(--neon-blue); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="file-digit" style="width: 20px;"></i> Datetime Dönüşümü
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Analistin verinin kaynağını (domain knowledge) bilerek, bu karmaşık metinleri algoritmaların tanıyabildiği evrensel Datetime (zaman nesnesi) formatına veya ISO 8601 standardına dönüştürmesidir.</p>
+                </div>
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: var(--neon-purple); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="globe-2" style="width: 20px;"></i> Zaman Dilimi (Timezone) Eşitlemesi
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Küresel veri setlerinde, farklı ülkelerdeki işlemlerin tek bir referans zaman dilimine (örneğin UTC) çekilerek verideki kaymaların (lag) önlenmesidir.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid var(--neon-green);">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(74, 222, 128, 0.15); color: var(--neon-green); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">2</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">Alt Kırılımların Çıkarılması <span style="font-size: 1.2rem; font-weight: 500; color: var(--text-muted);">(Datetime Decomposition)</span></h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem;">Bir tarih verisi tek bir sütunda tutulduğunda algoritma için kör noktadır. Analist, bu veriyi parçalayarak modelin örüntü yakalamasına olanak tanır.</p>
+            
+            <div style="display: grid; gap: 20px;">
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: var(--neon-green); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="calendar-days" style="width: 20px;"></i> Zaman Bileşenleri
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Ham tarihten Yıl, Ay, Gün, Saat, Dakika gibi temel kırılımların ayrı birer sayısal sütun olarak veri setine eklenmesidir. Böylece algoritma "Aralık aylarında satışların arttığı" gerçeğini öğrenebilir.</p>
+                </div>
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: #f43f5e; margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="briefcase" style="width: 20px;"></i> İş Mantığı Filtreleri (Business Context)
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Sadece takvimsel değil, işin doğasına uygun kırılımlar yaratmaktır. Günlerin "Hafta içi / Hafta sonu", saatlerin "Mesai İçi / Mesai Dışı" veya günün "Resmi Tatil" olup olmadığının yeni boolean (1/0) sütunları olarak türetilmesidir.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid #f43f5e;">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(244, 63, 94, 0.15); color: #f43f5e; width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">3</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">Süre ve Mesafe Hesaplamaları <span style="font-size: 1.2rem; font-weight: 500; color: var(--text-muted);">(Time Deltas & Duration)</span></h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem;">Bazen iki tarih noktasının kendisi değil, aralarındaki mesafe asıl değerli veridir.</p>
+            
+            <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                <h3 style="color: #f43f5e; margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                    <i data-lucide="arrow-right-left" style="width: 20px;"></i> Fark (Delta) Çıkarımı
+                </h3>
+                <p style="margin: 0; line-height: 1.6; color: var(--text-main);">"Müşteri Kayıt Tarihi" ile "Son Sipariş Tarihi" birbirinden çıkarılarak "Müşteri Yaşı" veya "Terk Etme (Churn) Süresi" gibi sürekli sayısal (continuous) değişkenler elde edilir. Bu, tarih verisini doğrudan modelin ağırlıklandırabileceği bir sayıyala dönüştürmenin en güçlü yoludur.</p>
+            </div>
+        </div>
+
+        <!-- 4. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid var(--neon-blue);">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(56, 189, 248, 0.15); color: var(--neon-blue); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">4</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">Döngüsel Özelliklerin Şifrelenmesi <span style="font-size: 1.2rem; font-weight: 500; color: var(--text-muted);">(Cyclical Encoding)</span></h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem;">Zaman doğrusal değil, döngüseldir (Pazar gününden sonra tekrar Pazartesi gelir; Aralık ayından sonra tekrar Ocak başlar).</p>
+            
+            <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                <h3 style="color: var(--neon-blue); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                    <i data-lucide="refresh-cw" style="width: 20px;"></i> Trigonometrik Dönüşümler (İleri Seviye)
+                </h3>
+                <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Analist, eğer ay numaralarını 1'den 12'ye kadar sıralı bırakırsa, makine öğrenmesi modeli (örneğin KNN veya Sinir Ağları) 12. ay (Aralık) ile 1. ay (Ocak) arasında devasa bir matematiksel mesafe olduğunu sanır. Zamanın bu döngüsel doğasını algoritmaya öğretmek için aylar ve saatler Sinüs (Sine) ve Kosinüs (Cosine) dalgalarına dönüştürülerek şifrelenir.</p>
+            </div>
+        </div>
+
+        <!-- 5. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid var(--neon-purple);">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(168, 85, 247, 0.15); color: var(--neon-purple); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">5</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">Zaman Serisi Düzeltmeleri <span style="font-size: 1.2rem; font-weight: 500; color: var(--text-muted);">(Resampling & Alignment)</span></h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem;">Veri seti zaman ekseninde düzensiz aralıklarla oluşmuşsa (örneğin bir gün 5 işlem, diğer gün hiç işlem yoksa), analistin zaman frekansını sabitlemesi gerekir.</p>
+            
+            <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                <h3 style="color: var(--neon-purple); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                    <i data-lucide="bar-chart" style="width: 20px;"></i> Frekans Eşitleme (Downsampling / Upsampling)
+                </h3>
+                <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Saniyede bir akan aşırı detaylı sensör verilerinin "Günlük Ortalamalar" halinde sadeleştirilmesi (Downsampling) veya eksik günlerin Mantıksal Atama (Interpolation) yöntemleriyle doldurularak zaman çizgisindeki boşlukların onarılmasıdır.</p>
             </div>
         </div>
     </main>
