@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -96,12 +96,12 @@
     <div class="prep-banner-wrapper" style="border-bottom-color: #f43f5e !important;">
         <div class="prep-banner-bg"></div>
         <div class="prep-banner-overlay"></div>
-        <section class="hero-section" style="align-items: flex-start; padding-top: 100px; padding-bottom: 50px;">
-            <div class="hero-content">
+        <section class="hero-section" style="align-items: center; padding-top: 100px; padding-bottom: 50px;">
+            <div class="hero-content" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
                 <div class="badge-pill" style="background: rgba(244, 63, 94, 0.15); color: #f43f5e; border-color: rgba(244, 63, 94, 0.3);">Veri Temizleme II</div>
-                <h1 class="hero-title custom-brand-title" style="font-size: 3rem;">Mantıksal Veri Kontrolleri</h1>
-                <p class="hero-subtitle">
-                    Yakında eklenecek içerik bu alanda yer alacaktır.
+                <h1 class="hero-title custom-brand-title" style="font-size: 3rem;">Mantıksal Tutarlılık</h1>
+                <p class="hero-subtitle" style="max-width: 600px; line-height: 1.6;">
+                    Verinin sadece istatistiksel veya matematiksel olarak değil; hayatın doğal akışına, fizik kurallarına ve sektörün işleyiş mantığına uyup uymadığını test etmek.
                 </p>
                 <button class="btn-hero btn-hero-prep" onclick="window.location.href='../../index.html#veri-temizleme-ii'" style="margin-top: 16px;">
                     <i data-lucide="arrow-left" style="width: 18px; height: 18px; margin-right: 8px;"></i>
@@ -112,10 +112,90 @@
     </div>
 
     <main style="max-width: 1200px; width: 100%; margin: 40px auto 100px auto; padding: 0 40px;">
-        <div class="info-card-box glass-card lazy-fade" style="margin-top: 40px; padding: 40px;">
-            <div style="text-align: center; color: var(--text-muted); font-size: 1.2rem;">
-                <i data-lucide="construction" style="width: 64px; height: 64px; margin-bottom: 16px; opacity: 0.5;"></i>
-                <p>Bu bölüm yapım aşamasındadır. Detaylı teknik içerik eklenecektir.</p>
+        
+        <!-- Giriş Paragrafı -->
+        <div class="info-card-box glass-card lazy-fade" style="margin-bottom: 40px; padding: 40px;">
+            <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-main); margin: 0;">
+                <strong style="color: var(--neon-purple);">Mantıksal veri ve tutarlılık kontrolleri</strong>, bir veri setinin sistemsel olarak hatasız (örneğin tamamen sayılardan oluşuyor) görünmesinin, o verinin gerçeği yansıttığı anlamına gelmediğini vurgular. Verinin hayatın doğal akışına ve sektörün işleyiş mantığına (domain knowledge) uyup uymadığını test ettiğimiz bu aşama, kod yazmaktan ziyade analistin dedektiflik yeteneklerini ve verinin anlattığı hikayeye olan hakimiyetini gerektirir.
+                <br><br>Öne çıkan mantıksal temizleme ve tutarlılık stratejileri şunlardır:
+            </p>
+        </div>
+
+        <!-- 1. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid var(--neon-blue);">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(56, 189, 248, 0.15); color: var(--neon-blue); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">1</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">İkili (Boolean) Verilerin Standardizasyonu</h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem;">Farklı sistemlerden, anketlerden veya manuel girişlerden toplanan verilerde "Doğru/Yanlış" kavramı çok farklı şekillerde ifade edilebilir.</p>
+            
+            <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                <h3 style="color: var(--neon-blue); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                    <i data-lucide="check-square" style="width: 20px;"></i> Tekilleştirme
+                </h3>
+                <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Sistemde karışık halde bulunan "Evet/Hayır", "True/False", "1/0", "E/H", "T/F" ve hatta "Var/Yok" gibi tüm ikili (binary) verilerin tespit edilip tek bir makine formatına (genellikle 1 ve 0 veya saf Boolean tipi) dönüştürülmesidir. Bu yapılmazsa, algoritma "Evet" ile "True" değerlerini tamamen farklı iki ayrı kategori sanarak dallanır.</p>
+            </div>
+        </div>
+
+        <!-- 2. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid #f43f5e;">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(244, 63, 94, 0.15); color: #f43f5e; width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">2</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">Çapraz Sütun Tutarlılık Kontrolleri <span style="font-size: 1.2rem; font-weight: 500; color: var(--text-muted);">(Cross-Column Validation)</span></h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem;">En sık karşılaşılan ve sadece analistin kurgulayabileceği hata tespit yöntemidir. Bir sütundaki verinin doğruluğu, veri setindeki başka bir sütunla mantıksal teste sokulur.</p>
+            
+            <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                <h3 style="color: #f43f5e; margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                    <i data-lucide="git-branch" style="width: 20px;"></i> İmkansız Senaryoların Tespiti
+                </h3>
+                <p style="margin: 0; line-height: 1.6; color: var(--text-main);">"İşe Başlama Tarihi"nin "Doğum Tarihi"nden eski olması, "Medeni Hal: Evli" iken "Yaş: 12" olması veya "Müşteri Durumu: Vefat Etti" iken "Son İşlem Tarihi: Bugün" olması gibi mantık çökmelerinin bulunmasıdır.</p>
+            </div>
+        </div>
+
+        <!-- 3. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid var(--neon-green);">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(74, 222, 128, 0.15); color: var(--neon-green); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">3</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">İş Kurallarına Dayalı Denetimler <span style="font-size: 1.2rem; font-weight: 500; color: var(--text-muted);">(Business Logic)</span></h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem;">Verinin toplandığı sektörün kendi kurallarına göre kurulan daha gelişmiş filtrelerdir.</p>
+            
+            <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                <h3 style="color: var(--neon-green); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                    <i data-lucide="building" style="width: 20px;"></i> Sektörel Çelişkiler
+                </h3>
+                <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Bir e-ticaret verisinde "Teslimat Tarihi"nin "Sipariş Tarihi"nden önce olamayacağı gerçeği veya bir finansal veri setinde "Ödenen Kredi Taksiti" tutarının "Toplam Kredi Borcu"ndan büyük olamayacağı gibi kuralların koda dökülüp verinin filtreden geçirilmesidir.</p>
+            </div>
+        </div>
+
+        <!-- 4. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid var(--neon-purple);">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(168, 85, 247, 0.15); color: var(--neon-purple); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">4</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">Çelişki Çözümleme ve Müdahale Kararları <span style="font-size: 1.2rem; font-weight: 500; color: var(--text-muted);">(Conflict Resolution)</span></h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem; line-height: 1.6;">Çapraz kontroller sonucunda bir mantık hatası (çelişki) bulunduğunda analistin hangi yolu seçeceği kritik bir karardır:</p>
+            
+            <div style="display: grid; gap: 20px;">
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: var(--neon-blue); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="shield-check" style="width: 20px;"></i> Kaynağa Güven Seçimi
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Birbiriyle çelişen iki sütun varsa hangisi doğru kabul edilecek? Genel analitik kuralı olarak; sistemin otomatik ürettiği zaman damgaları (timestamp), kullanıcının manuel girdiği verilerden her zaman daha güvenilirdir. Doğru sütun referans alınarak yanlış sütun silinir veya düzeltilir.</p>
+                </div>
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: #f43f5e; margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="trash-2" style="width: 20px;"></i> Satırı Tamamen Düşürmek (Dropping)
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Çelişki çözülemeyecek kadar karmaşıksa ve veri bütünlüğünü tehdit ediyorsa, o satırın (gözlemin) analizden tamamen çıkarılmasıdır.</p>
+                </div>
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: var(--neon-purple); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="flag" style="width: 20px;"></i> Bayrak Kaldırmak (Flagging / Suspicious Data)
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">İleri seviye makine öğrenmesi uygulamalarında (özellikle sahtekarlık/fraud tespit modellerinde) çok kritik bir hamledir. Analist, mantıksız veriyi silmek yerine <strong>is_suspicious (şüpheli_mi)</strong> veya <strong>logical_error</strong> adında yeni bir boolean (1/0) sütunu türeterek bu satırları işaretler. Bazen bu mantık hataları sistemsel bir kusur değil, modeli eğitecek olan bir dolandırıcılık teşebbüsünün ta kendisidir.</p>
+                </div>
             </div>
         </div>
     </main>

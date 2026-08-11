@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -96,12 +96,12 @@
     <div class="prep-banner-wrapper" style="border-bottom-color: #f43f5e !important;">
         <div class="prep-banner-bg"></div>
         <div class="prep-banner-overlay"></div>
-        <section class="hero-section" style="align-items: flex-start; padding-top: 100px; padding-bottom: 50px;">
-            <div class="hero-content">
+        <section class="hero-section" style="align-items: center; padding-top: 100px; padding-bottom: 50px;">
+            <div class="hero-content" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
                 <div class="badge-pill" style="background: rgba(244, 63, 94, 0.15); color: #f43f5e; border-color: rgba(244, 63, 94, 0.3);">Veri Temizleme II</div>
-                <h1 class="hero-title custom-brand-title" style="font-size: 3rem;">Sayısal Veri İşleme</h1>
-                <p class="hero-subtitle">
-                    Yakında eklenecek içerik bu alanda yer alacaktır.
+                <h1 class="hero-title custom-brand-title" style="font-size: 3rem;">Sayısal Veri Ölçeklendirme</h1>
+                <p class="hero-subtitle" style="max-width: 600px; line-height: 1.6;">
+                    Sayısal değişkenleri yapısal formata sokmak, aykırılıkları törpülemek, dağılımları normalize etmek ve algoritmaların beklentilerine (Scaling & Transformation) uygun hale getirmek.
                 </p>
                 <button class="btn-hero btn-hero-prep" onclick="window.location.href='../../index.html#veri-temizleme-ii'" style="margin-top: 16px;">
                     <i data-lucide="arrow-left" style="width: 18px; height: 18px; margin-right: 8px;"></i>
@@ -112,10 +112,153 @@
     </div>
 
     <main style="max-width: 1200px; width: 100%; margin: 40px auto 100px auto; padding: 0 40px;">
-        <div class="info-card-box glass-card lazy-fade" style="margin-top: 40px; padding: 40px;">
-            <div style="text-align: center; color: var(--text-muted); font-size: 1.2rem;">
-                <i data-lucide="construction" style="width: 64px; height: 64px; margin-bottom: 16px; opacity: 0.5;"></i>
-                <p>Bu bölüm yapım aşamasındadır. Detaylı teknik içerik eklenecektir.</p>
+        
+        <!-- Giriş Paragrafı -->
+        <div class="info-card-box glass-card lazy-fade" style="margin-bottom: 40px; padding: 40px;">
+            <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-main); margin: 0;">
+                <strong style="color: var(--neon-blue);">Sayısal veriler</strong>, istatistiksel analizlerin ve makine öğrenmesi algoritmalarının temel yapı taşıdır. Ancak ham bir sayısal sütun; tutarsız ölçü birimleri, formata sızmış metinler veya çarpık bir dağılım barındırabilir. Analistin görevi, veriyi mekanik olarak temizlemekten ziyade, kurulacak modelin matematiğine en uygun hale getirecek dönüşüm stratejisini seçmektir:
+            </p>
+        </div>
+
+        <!-- 1. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid var(--neon-purple);">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(168, 85, 247, 0.15); color: var(--neon-purple); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">1</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">Veri Tipi ve Format Temizliği <span style="font-size: 1.2rem; font-weight: 500; color: var(--text-muted);">(Parsing & Type Casting)</span></h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem;">Sayısal görünen ama sistem tarafından metin (string) olarak algılanan verilerin analitik formata sokulmasıdır.</p>
+            
+            <div style="display: grid; gap: 20px;">
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: var(--neon-blue); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="scissors" style="width: 20px;"></i> Karakter Temizliği (String Parsing)
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">İçerisinde para birimi (₺, $), ondalık virgül/nokta karmaşası veya boşluk barındıran değerlerin (Örn: "1.500,50 ₺") salt rakamlara dönüştürülmesidir.</p>
+                </div>
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: var(--neon-purple); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="arrow-right-circle" style="width: 20px;"></i> Veri Tipi Ataması (Type Casting)
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Temizlenen verinin işin doğasına göre Tam Sayı (Integer) veya Ondalıklı Sayı (Float) olarak sisteme tanıtılmasıdır.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid var(--neon-green);">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(74, 222, 128, 0.15); color: var(--neon-green); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">2</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">Birim Standardizasyonu <span style="font-size: 1.2rem; font-weight: 500; color: var(--text-muted);">(Unit Standardization)</span></h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem; line-height: 1.6;">Aynı metrik farklı kaynaklardan geliyorsa (farklı şubeler, farklı ülkeler) verinin tek bir gerçeği yansıtması için eşitlemeler yapılır.</p>
+            
+            <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                <h3 style="color: var(--neon-green); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                    <i data-lucide="scale" style="width: 20px;"></i> Fiziksel ve Finansal Eşitleme
+                </h3>
+                <p style="margin: 0; line-height: 1.6; color: var(--text-main);">"Mesafe" sütununda karışık halde bulunan kilometre ve mil verilerinin tek bir standarda çevrilmesi veya farklı döviz kurlarındaki işlemlerin tek bir para birimine (Base Currency) dönüştürülmesidir.</p>
+            </div>
+        </div>
+
+        <!-- 3. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid #f43f5e;">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(244, 63, 94, 0.15); color: #f43f5e; width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">3</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">Mantıksal Sınır Kontrolleri <span style="font-size: 1.2rem; font-weight: 500; color: var(--text-muted);">(Logical Boundary Checks)</span></h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem;">Matematiksel olarak bir sayı ifade etse de, iş mantığına (domain knowledge) uymayan değerlerin yönetimidir.</p>
+            
+            <div style="display: grid; gap: 20px;">
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: #f43f5e; margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="alert-triangle" style="width: 20px;"></i> İmkansız Değerlerin Teşhisi
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">"Yaş" değişkeninin -5 olması veya "Ürün Fiyatı"nın negatif olmasıdır. Analist bunları eksik veri (NA) gibi değerlendirip siler veya düzeltir.</p>
+                </div>
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: #f43f5e; margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="minimize-2" style="width: 20px;"></i> Baskılama (Winsorization / Capping)
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Aylık gelirin "5.000.000 TL" girilmesi imkansız değildir ancak modelin dengesini bozacak bir uç değerdir. Analist bir üst sınır belirleyip aşırı yüksek verileri o sınıra baskılar (Örn: 99. yüzdelik dilimin üzerindeki her değeri 99. yüzdelik değere eşitlemek).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid var(--neon-blue);">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(56, 189, 248, 0.15); color: var(--neon-blue); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">4</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">Sürekli Veriyi Ayrıklaştırma <span style="font-size: 1.2rem; font-weight: 500; color: var(--text-muted);">(Binning / Discretization)</span></h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem; line-height: 1.6;">Sürekli bir sayıyı olduğu gibi kullanmak bazen modelin (özellikle ağaç tabanlı algoritmaların) kural bulmasını zorlaştırır.</p>
+            
+            <div style="display: grid; gap: 20px;">
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: var(--neon-blue); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="layers" style="width: 20px;"></i> İstatistiksel Bölme
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Veriyi eşit sayısal aralıklara (0-20, 20-40) veya her grupta eşit sayıda insan olacak şekilde yüzdelik dilimlere (Quantile Binning) bölmektir.</p>
+                </div>
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: var(--neon-purple); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="briefcase" style="width: 20px;"></i> İş Mantığı Tabanlı Bölme
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Aralıkların tamamen sektörün kurallarına göre belirlenmesidir (Örn: Kredi skoruna göre; 0-900 Riskli, 900-1400 Orta, 1400+ Güvenli).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid var(--neon-green);">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(74, 222, 128, 0.15); color: var(--neon-green); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">5</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">Dağılım Dönüşümleri <span style="font-size: 1.2rem; font-weight: 500; color: var(--text-muted);">(Distribution Transformations)</span></h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem; line-height: 1.6;">Lineer modeller (Regresyon vb.) verinin normal dağılıma (çan eğrisi) uymasını bekler.</p>
+            
+            <div style="display: grid; gap: 20px;">
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: var(--neon-green); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="activity" style="width: 20px;"></i> Logaritmik Dönüşüm (Log Transform)
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Gelir veya ev fiyatları gibi aşırı sağa çarpık (büyük sayıların çok olduğu) verilerde devasa rakamların etkisini kırmak ve dağılımı merkeze toplamak için kullanılan en yaygın yöntemdir.</p>
+                </div>
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: var(--neon-purple); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="cpu" style="width: 20px;"></i> Gelişmiş Güç Dönüşümleri (Box-Cox / Yeo-Johnson)
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Veriyi normal dağılıma en çok yaklaştıracak olan ideal matematiksel formülü istatistiksel olarak otomatik bulan ileri seviye tekniklerdir.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid var(--neon-purple);">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(168, 85, 247, 0.15); color: var(--neon-purple); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">6</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">Ölçeklendirme <span style="font-size: 1.2rem; font-weight: 500; color: var(--text-muted);">(Scaling & Standardization)</span></h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem; line-height: 1.6;">Uzaklık veya optimizasyon temelli algoritmaların (KNN, K-Means, Sinir Ağları), sırf rakamı büyük olduğu için bir değişkeni diğerinden daha "önemli" sanmasının (bias) önüne geçilir:</p>
+            
+            <div style="display: grid; gap: 20px;">
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: var(--neon-blue); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="arrows-up-down" style="width: 20px;"></i> Min-Max Scaling (Normalizasyon)
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Tüm veriyi 0 ile 1 arasına sıkıştırır. Verinin dağılımı normal değilse seçilir, ancak veride tek bir "aykırı değer" bile varsa tüm ölçeği bozar.</p>
+                </div>
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: var(--neon-purple); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="bar-chart-2" style="width: 20px;"></i> Standard Scaling (Z-Score)
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Verinin ortalamasını 0'a, standart sapmasını 1'e eşitler. Dağılım normale yakınsa endüstrideki en standart tercihtir.</p>
+                </div>
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: #f43f5e; margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="shield" style="width: 20px;"></i> Robust Scaler
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Ortalama yerine Medyan kullanır. Veri setinde silinmemesi gereken çok sert aykırı değerler varsa, sistemin bu devasa rakamlardan etkilenmemesi (dirençli kalması) için analistin en güçlü silahıdır.</p>
+                </div>
             </div>
         </div>
     </main>
