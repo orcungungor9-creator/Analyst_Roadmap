@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -96,12 +96,12 @@
     <div class="prep-banner-wrapper" style="border-bottom-color: #f43f5e !important;">
         <div class="prep-banner-bg"></div>
         <div class="prep-banner-overlay"></div>
-        <section class="hero-section" style="align-items: flex-start; padding-top: 100px; padding-bottom: 50px;">
-            <div class="hero-content">
+        <section class="hero-section" style="align-items: center; padding-top: 100px; padding-bottom: 50px;">
+            <div class="hero-content" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
                 <div class="badge-pill" style="background: rgba(244, 63, 94, 0.15); color: #f43f5e; border-color: rgba(244, 63, 94, 0.3);">Veri Temizleme II</div>
                 <h1 class="hero-title custom-brand-title" style="font-size: 3rem;">Özellik Çıkarımı</h1>
-                <p class="hero-subtitle">
-                    Yakında eklenecek içerik bu alanda yer alacaktır.
+                <p class="hero-subtitle" style="max-width: 600px; line-height: 1.6;">
+                    Mevcut verilerden yola çıkarak modele doğrudan katkı sağlayacak yeni değişkenler (feature engineering) üretilmesi.
                 </p>
                 <button class="btn-hero btn-hero-prep" onclick="window.location.href='../../index.html#veri-temizleme-ii'" style="margin-top: 16px;">
                     <i data-lucide="arrow-left" style="width: 18px; height: 18px; margin-right: 8px;"></i>
@@ -112,10 +112,115 @@
     </div>
 
     <main style="max-width: 1200px; width: 100%; margin: 40px auto 100px auto; padding: 0 40px;">
-        <div class="info-card-box glass-card lazy-fade" style="margin-top: 40px; padding: 40px;">
-            <div style="text-align: center; color: var(--text-muted); font-size: 1.2rem;">
-                <i data-lucide="construction" style="width: 64px; height: 64px; margin-bottom: 16px; opacity: 0.5;"></i>
-                <p>Bu bölüm yapım aşamasındadır. Detaylı teknik içerik eklenecektir.</p>
+        
+        <!-- Giriş Paragrafı -->
+        <div class="info-card-box glass-card lazy-fade" style="margin-bottom: 40px; padding: 40px;">
+            <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-main); margin: 0;">
+                <strong style="color: var(--neon-purple);">Özellik çıkarımı (Feature Engineering / Extraction)</strong>, ham verilerin içindeki gizli örüntüleri kazarak (veri madenciliği) modelin doğrudan kavrayabileceği, güçlü ve yeni matematiksel göstergelere dönüştürme sanatıdır. Mevcut veri seti, algoritmalara her zaman ihtiyaç duydukları hazır sinyalleri sunmaz. Bu süreç, standart temizliğin ötesine geçerek tamamen analistin vizyonuyla şekillenen stratejik türetmeleri kapsar:
+            </p>
+        </div>
+
+        <!-- 1. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid var(--neon-blue);">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(56, 189, 248, 0.15); color: var(--neon-blue); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">1</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">Mantıksal ve Matematiksel Türetmeler <span style="font-size: 1.2rem; font-weight: 500; color: var(--text-muted);">(Derived Ratios & Metrics)</span></h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem;">Modelin kendi başına keşfetmesi çok uzun sürecek veya imkansız olan sektörel gerçekleri, temel matematik işlemleriyle hazır birer değişkene dönüştürmektir.</p>
+            
+            <div style="display: grid; gap: 20px;">
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: var(--neon-blue); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="percent-circle" style="width: 20px;"></i> Oranlama (Ratios)
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Müşterinin "Aylık Gelir" ve "Toplam Borç" gibi iki ayrı sütununu kullanarak, bankacılık madenciliğinde hayat kurtaran "Borç/Gelir Oranı" (DTI - Debt to Income) sütununu yaratmak.</p>
+                </div>
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: var(--neon-purple); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="box" style="width: 20px;"></i> Geometrik/Fiziksel Dönüşümler
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">"En", "Boy" ve "Yükseklik" sütunlarından "Hacim" değişkeni türeterek lojistik modellerini beslemek.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid var(--neon-green);">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(74, 222, 128, 0.15); color: var(--neon-green); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">2</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">Metin Madenciliği ve Ayrıştırma <span style="font-size: 1.2rem; font-weight: 500; color: var(--text-muted);">(Text Mining & Parsing)</span></h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem;">Makine öğrenmesi modelleri için "kara kutu" olan uzun ve yapısal olmayan metinlerden, analitik değer taşıyan cevherleri çekip çıkarmaktır.</p>
+            
+            <div style="display: grid; gap: 20px;">
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: var(--neon-green); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="scissors" style="width: 20px;"></i> Kritik Parçayı Koparma
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Karmaşık bir "Açık Adres" sütunundan sadece "İlçe" veya "Posta Kodu" bilgisini Regex (Düzenli İfadeler) ile çekerek yeni bir kategorik sütun yaratmak.</p>
+                </div>
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: #f43f5e; margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="message-square" style="width: 20px;"></i> NLP Tabanlı Çıkarımlar
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Müşteri yorumlarının veya şikayet kayıtlarının içinden "Duygu Skoru" (Sentiment Score) türetmek veya TF-IDF / Word2Vec gibi vektörel dönüşümlerle metni tamamen matematiğe dökmek.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid #f43f5e;">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(244, 63, 94, 0.15); color: #f43f5e; width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">3</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">Zamansal ve Davranışsal Madencilik <span style="font-size: 1.2rem; font-weight: 500; color: var(--text-muted);">(Behavioral & Lag Features)</span></h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem;">Veri madenciliğinin kalbidir. Müşterinin veya sistemin sadece "şu anki" durumunu değil, geçmişteki davranış ritmini modele öğretmeyi hedefler.</p>
+            
+            <div style="display: grid; gap: 20px;">
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: #f43f5e; margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="activity" style="width: 20px;"></i> RFM Metrikleri
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Müşterinin işlem geçmişinden yola çıkarak; Yenilik (Recency - Son işlemden bu yana geçen gün), Sıklık (Frequency - Toplam işlem sayısı) ve Parasal Değer (Monetary - Ortalama harcama) skorlarını hesaplayarak segmentasyon modellerine temel oluşturmak.</p>
+                </div>
+                <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: var(--neon-purple); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="history" style="width: 20px;"></i> Gecikme ve Yuvarlama Özellikleri (Lag & Rolling Windows)
+                    </h3>
+                    <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Özellikle zaman serilerinde "Bir önceki aya göre harcama değişimi %" (Lag) veya "Son 30 günlük hareketli ortalama" (Rolling Mean) gibi geçmiş trendleri taşıyan yepyeni sütunlar inşa etmek.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid var(--neon-purple);">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(168, 85, 247, 0.15); color: var(--neon-purple); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">4</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">Boyut İndirgeme ve Sıkıştırma <span style="font-size: 1.2rem; font-weight: 500; color: var(--text-muted);">(Dimensionality Reduction)</span></h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem;">Elde yüzlerce veya binlerce sütun (özellik) olduğunda ortaya çıkan "Boyutluluk Laneti"ni (Curse of Dimensionality) çözmek için uygulanan ileri seviye bir özellik çıkarımıdır.</p>
+            
+            <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                <h3 style="color: var(--neon-purple); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                    <i data-lucide="minimize-2" style="width: 20px;"></i> PCA (Temel Bileşen Analizi)
+                </h3>
+                <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Birbiriyle yüksek korelasyonlu onlarca değişkenin içindeki "ana bilgiyi/varyansı" kaybetmeden, matematiksel olarak sıkıştırıp çok daha az sayıda (fakat yorumlanması zor) yeni bileşenler (components) üretmektir. Hem modelin hızını artırır hem de gürültüyü siler.</p>
+            </div>
+        </div>
+
+        <!-- 5. Adım -->
+        <div class="content-section glass-card lazy-fade" style="margin-bottom: 30px; padding: 40px; border-left: 4px solid var(--neon-blue);">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="background: rgba(56, 189, 248, 0.15); color: var(--neon-blue); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">5</div>
+                <h2 style="margin: 0; font-size: 1.8rem; color: var(--text-heading);">Sektörel Bayraklar ve Tetikleyiciler <span style="font-size: 1.2rem; font-weight: 500; color: var(--text-muted);">(Domain-Specific Flags)</span></h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem;">Analistin, bulunduğu sektörün iş kurallarını (business rules) modele manuel olarak birer "işaret fişeği" şeklinde entegre etmesidir.</p>
+            
+            <div class="sub-card" style="background: var(--bg-card-hover); padding: 24px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                <h3 style="color: var(--neon-blue); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                    <i data-lucide="flag" style="width: 20px;"></i> Boolean Türetme
+                </h3>
+                <p style="margin: 0; line-height: 1.6; color: var(--text-main);">Sistemde "VIP" etiketi olmamasına rağmen, harcaması 50.000 TL'yi geçen müşteriler için <strong>is_potential_vip (Potansiyel_VIP_mi)</strong> adında 1/0 değerlerinden oluşan yeni bir hedef kolon yaratarak makine öğrenmesi modelinin ufkunu açmaktır.</p>
             </div>
         </div>
     </main>
