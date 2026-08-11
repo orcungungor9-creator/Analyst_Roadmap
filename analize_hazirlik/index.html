@@ -62,7 +62,7 @@
                     </button>
 
                     <!-- Veri Temizleme II — Pembe -->
-                    <button class="btn-hero btn-hero-prep">
+                    <button class="btn-hero btn-hero-prep" onclick="document.getElementById('veri-temizleme-ii').scrollIntoView({ behavior: 'smooth' });">
                         <svg class="btn-hero-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                             stroke-linecap="round" stroke-linejoin="round">
@@ -196,12 +196,119 @@
                 </div>
             </div>
         </section>
+
+        <!-- Veri Temizleme II Bölümü -->
+        <section id="veri-temizleme-ii" class="section-container" style="scroll-margin-top: 100px; margin-top: 80px;">
+            <div class="section-header" style="text-align: left; margin-bottom: 24px;">
+                <h2 class="section-title" style="margin: 0;"><span class="icon-title" style="display: inline-flex; align-items: center; margin-right: 6px;"><i data-lucide="sparkles" style="width: 38px; height: 38px; color: #f43f5e !important;"></i></span> Veri Temizleme II</h2>
+            </div>
+
+            <p style="color: var(--text-main, #111827); font-size: 1.1rem; line-height: 1.7; margin-bottom: 40px; font-weight: 500;">
+                Veri temizlemede inisiyatif almak, standart metotları mekanik bir ezberle uygulamak yerine, verinin bağlamına ve kurulacak modelin ihtiyacına göre stratejik kararlar verebilmektir. Bu yaklaşım; bir veriyi silmek, dönüştürmek veya olduğu gibi bırakmak gibi kritik yol ayrımlarında kontrolü katı şablonlara değil, analistin uzmanlığına ve teknik sezgisine bırakır.
+            </p>
+
+            <!-- YATAY CAROUSEL / SLIDER KAPSAYICISI -->
+            <div class="carousel-container">
+                <!-- Sol Ok Butonu -->
+                <button class="carousel-arrow left-arrow" onclick="scrollCarousel('left', 'veri-temizleme-ii-carousel')"
+                    aria-label="Sola Kaydır">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+
+                <!-- Kaydırma Alanı -->
+                <div class="quick-guides-carousel" id="veri-temizleme-ii-carousel">
+                    <!-- Kart 1 -->
+                    <div class="guide-card glass-card carousel-card lazy-fade" onclick="window.location.href='veri_temizleme_ii/eksik_veri_yonetimi/index.html'">
+                        <div class="guide-card-icon blue-glow lazy-fade">❓</div>
+                        <h3>Eksik Veri Yönetimi</h3>
+                        <p>Missing Value Handling / Data Imputation</p>
+                        <span class="guide-link">İncele &rarr;</span>
+                    </div>
+
+                    <!-- Kart 2 -->
+                    <div class="guide-card glass-card carousel-card lazy-fade" onclick="window.location.href='veri_temizleme_ii/kategorik_veri_isleme/index.html'">
+                        <div class="guide-card-icon purple-glow lazy-fade">🔠</div>
+                        <h3>Kategorik Veri İşleme ve Dönüşümü</h3>
+                        <p>Categorical Data Processing / Feature Encoding</p>
+                        <span class="guide-link">İncele &rarr;</span>
+                    </div>
+
+                    <!-- Kart 3 -->
+                    <div class="guide-card glass-card carousel-card lazy-fade" onclick="window.location.href='veri_temizleme_ii/sayisal_veri_isleme/index.html'">
+                        <div class="guide-card-icon yellow-glow lazy-fade">🔢</div>
+                        <h3>Sayısal Veri İşleme ve Ölçeklendirme</h3>
+                        <p>Numerical Data Processing and Scaling</p>
+                        <span class="guide-link">İncele &rarr;</span>
+                    </div>
+
+                    <!-- Kart 4 -->
+                    <div class="guide-card glass-card carousel-card lazy-fade" onclick="window.location.href='veri_temizleme_ii/mantiksal_veri_kontrolleri/index.html'">
+                        <div class="guide-card-icon green-glow lazy-fade">✅</div>
+                        <h3>Mantıksal Veri ve Tutarlılık Kontrolleri</h3>
+                        <p>Logical Data and Consistency Checks</p>
+                        <span class="guide-link">İncele &rarr;</span>
+                    </div>
+
+                    <!-- Kart 5 -->
+                    <div class="guide-card glass-card carousel-card lazy-fade" onclick="window.location.href='veri_temizleme_ii/tarih_zaman_verisi/index.html'">
+                        <div class="guide-card-icon blue-glow lazy-fade">📅</div>
+                        <h3>Tarih ve Zaman Verisi İşleme</h3>
+                        <p>Date and Time Data Processing</p>
+                        <span class="guide-link">İncele &rarr;</span>
+                    </div>
+
+                    <!-- Kart 6 -->
+                    <div class="guide-card glass-card carousel-card lazy-fade" onclick="window.location.href='veri_temizleme_ii/aykiri_deger_yonetimi/index.html'">
+                        <div class="guide-card-icon purple-glow lazy-fade">⚠️</div>
+                        <h3>Aykırı Değer Yönetimi</h3>
+                        <p>Outlier Management</p>
+                        <span class="guide-link">İncele &rarr;</span>
+                    </div>
+
+                    <!-- Kart 7 -->
+                    <div class="guide-card glass-card carousel-card lazy-fade" onclick="window.location.href='veri_temizleme_ii/ozellik_cikarimi/index.html'">
+                        <div class="guide-card-icon yellow-glow lazy-fade">✨</div>
+                        <h3>Özellik Çıkarımı ve Veri Türetme</h3>
+                        <p>Feature Extraction and Data Derivation</p>
+                        <span class="guide-link">İncele &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Sağ Ok Butonu -->
+                <button class="carousel-arrow right-arrow" onclick="scrollCarousel('right', 'veri-temizleme-ii-carousel')"
+                    aria-label="Sağa Kaydır">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+            <script>
+                // Prevent layout flash by centering immediately before paint
+                (function() {
+                    var carousel = document.getElementById('veri-temizleme-ii-carousel');
+                    if (carousel) {
+                        var cards = carousel.querySelectorAll('.carousel-card');
+                        if (cards.length > 0) {
+                            var target = cards[Math.floor(cards.length / 2)];
+                            carousel.style.scrollBehavior = 'auto';
+                            carousel.style.scrollSnapType = 'none';
+                            carousel.scrollLeft = target.offsetLeft - (carousel.offsetWidth / 2) + (target.offsetWidth / 2);
+                        }
+                    }
+                })();
+            </script>
+        </section>
     </main>
 
     <script src="../js/components.js"></script>
     <script src="../js/nav.js"></script>
     <script src="../js/modal.js"></script>
     <script src="../js/script.js"></script>
+    <script src="../js/index.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
