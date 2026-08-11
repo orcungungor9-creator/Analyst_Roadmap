@@ -1111,7 +1111,7 @@ body.theme-mono-dark .btn-hero {
 
 .carousel-card {
     flex: 0 0 min(320px, 85vw);
-    min-height: 280px;
+    min-height: 230px;
     scroll-snap-align: center;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     transform: scale(0.85);
