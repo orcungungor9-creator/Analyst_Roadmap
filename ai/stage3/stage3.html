@@ -7,6 +7,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../css/styles.css?v=3.4">
     <link rel="stylesheet" href="stage3.css">
+    <style>
+        .step-content-flex { display: flex; gap: 32px; align-items: center; }
+        .step-text-content { flex: 1; }
+        .step-image-content { flex: 1; text-align: center; }
+        .step-image-content img { max-width: 100%; border-radius: 16px; border: 1px solid var(--glass-border); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        @media (max-width: 900px) { .step-content-flex { flex-direction: column; } }
+    </style>
 </head>
 <body class="formulas-page">
     <script>
@@ -45,13 +52,208 @@
     </section>
 
     <main class="formulas-main" style="max-width: 1200px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
-        <div class="glass" style="padding: 40px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
-            <h2 style="font-size: 2rem; color: var(--neon-purple); margin-bottom: 24px;">Model Eğitimi (Algoritma Seçimi)</h2>
-            <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.8;">
-                Makine öğrenmesi ve sinir ağlarının veriyi nasıl işlediğini inceleyin. Doğru algoritmayı seçmeyi ve veriyi ezberlemeyi (overfitting) önleyecek stratejileri kavrayın.
+        <div class="glass" style="padding: 40px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px; background: rgba(168, 85, 247, 0.03);">
+            <h2 style="font-size: 2.2rem; color: var(--neon-purple); margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
+                <span>🧠</span> Model Eğitimi: Algoritma Seçimi
+            </h2>
+            <p style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.8;">
+                Makine öğrenmesi ve sinir ağlarının veriyi nasıl işlediğini inceleyin. Doğru algoritmayı seçmeyi ve veriyi ezberlemeyi (overfitting) önleyecek stratejileri kavrayın. Temel istatistiksel hesaplamalardan, yapay zekanın yaratıcı zirvesi olan Üretken Yapay Zeka (Generative AI) sistemlerine uzanan serüveni burada ele alacağız.
             </p>
-            <div style="margin-top: 40px; padding: 24px; border-radius: 16px; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05);">
-                <p style="color: var(--text-main); font-style: italic; text-align: center;">Buraya detaylı içerikler, grafikler ve interaktif öğeler eklenecektir.</p>
+        </div>
+
+        <div class="story-list premium-layout">
+            
+            <!-- 1. ADIM -->
+            <div class="step-wrapper">
+                <div class="guide-card glass-card story-text-card">
+                    <div class="step-content-flex">
+                        <div class="step-text-content">
+                            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+                                <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(56, 189, 248, 0.15); border: 1px solid var(--neon-blue); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: var(--neon-blue);">1</div>
+                                <h3 style="color: var(--text-main); font-size: 1.5rem;">Makine Öğrenimi (Machine Learning) Özünde Nedir? 🤖</h3>
+                            </div>
+                            <p style="color: var(--text-muted); margin-bottom: 16px; line-height: 1.7; font-size: 1.1rem;">
+                                <strong>Kavram:</strong> Geleneksel programlamada kuralları (if/else) biz yazarız, veriyi veririz ve sonuç alırız. Makine öğreniminde ise süreç tersine işler: Sisteme <strong>veriyi ve sonuçları</strong> veririz, sistem kendi kendine bu sonuçları doğuran <strong>kuralları (matematiksel fonksiyonları)</strong> bulur. Yani yapay zeka sadece veri okuyarak o verinin içindeki "örüntüleri" (pattern) keşfeder.
+                            </p>
+                            <p style="color: var(--text-muted); margin-bottom: 16px; line-height: 1.7; font-size: 1.1rem;">
+                                <strong>Süreç Nasıl İşler?</strong> Algoritma başlangıçta rastgele tahminler yapar. Yaptığı hatayı (Kayıp/Loss Fonksiyonu) ölçer. Daha sonra bu hatayı en aza indirmek için arka plandaki çarpanlarını yani <strong>ağırlıklarını (weights)</strong> milim milim günceller (Optimizasyon). Bu deneme-yanılma ve kendini düzeltme sürecine "Eğitim (Training)" adı verilir.
+                            </p>
+                        </div>
+                        <div class="step-image-content">
+                            <img src="robot_training.jpg" alt="Robot Training Model">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. ADIM -->
+            <div class="step-wrapper">
+                <div class="guide-card glass-card story-text-card">
+                    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+                        <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(168, 85, 247, 0.15); border: 1px solid var(--neon-purple); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: var(--neon-purple);">2</div>
+                        <h3 style="color: var(--text-main); font-size: 1.5rem;">Yapay Sinir Ağları (Neural Networks) ve İşleyişi 🕸️</h3>
+                    </div>
+                    <p style="color: var(--text-muted); margin-bottom: 16px; line-height: 1.7; font-size: 1.1rem;">
+                        Beynimizdeki nöronların ateşlenme mantığının matematiğe dökülmüş halidir. Veriler bir ağ üzerinden akar, her durakta belirli işlemlerden geçerek dönüşüme uğrar. Bir sinir ağı temelde üç katmandan oluşur.
+                    </p>
+                    
+                    <div id="nn-diagram-container" style="text-align: center; margin: 40px 0; padding: 40px 20px; background: rgba(0,0,0,0.2); border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); overflow-x: auto;">
+                        <svg id="nn-svg" viewBox="0 0 650 300" style="width: 100%; min-width: 500px; max-width: 650px; height: auto; display: block; margin: 0 auto; overflow: visible;"></svg>
+                        <script>
+                            document.addEventListener('DOMContentLoaded', () => {
+                                const svg = document.getElementById('nn-svg');
+                                if(!svg) return;
+                                const layers = [
+                                    { count: 3, x: 70, color: '#ec4899', title: 'Girdi Katmanı', subtitle: '(Dışarıdan alınan veriler)' },
+                                    { count: 4, x: 190, color: '#3b82f6' },
+                                    { count: 4, x: 310, color: '#3b82f6', title: 'Gizli Katmanlar', subtitle: '(Ağırlıkların çarpıldığı kara kutu)' },
+                                    { count: 4, x: 430, color: '#3b82f6' },
+                                    { count: 1, x: 550, color: '#84cc16', title: 'Çıktı Katmanı', subtitle: '(Nihai tahmin / sonuç)' }
+                                ];
+                                
+                                const height = 240;
+                                const spacing = 50;
+                                
+                                layers.forEach((layer) => {
+                                    const startY = (height - (layer.count - 1) * spacing) / 2;
+                                    layer.nodes = [];
+                                    for (let i = 0; i < layer.count; i++) {
+                                        layer.nodes.push({ x: layer.x, y: startY + i * spacing });
+                                    }
+                                });
+
+                                let svgContent = `<defs>
+                                    <marker id="arrow" viewBox="0 0 10 10" refX="22" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                        <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(148, 163, 184, 0.4)" />
+                                    </marker>
+                                </defs>`;
+
+                                for (let i = 0; i < layers.length - 1; i++) {
+                                    const currentLayer = layers[i];
+                                    const nextLayer = layers[i+1];
+                                    currentLayer.nodes.forEach(n1 => {
+                                        nextLayer.nodes.forEach(n2 => {
+                                            svgContent += `<line x1="${n1.x}" y1="${n1.y}" x2="${n2.x}" y2="${n2.y}" stroke="rgba(148, 163, 184, 0.3)" stroke-width="1.5" marker-end="url(#arrow)" />`;
+                                        });
+                                    });
+                                }
+
+                                layers.forEach((layer, idx) => {
+                                    layer.nodes.forEach(n => {
+                                        svgContent += `<circle cx="${n.x}" cy="${n.y}" r="16" fill="${layer.color}" stroke="rgba(255,255,255,0.8)" stroke-width="2" />`;
+                                    });
+                                    if (layer.title) {
+                                        let labelY = height + 25;
+                                        let cx = layer.x;
+                                        if(idx === 2) cx = 310;
+                                        svgContent += `<text x="${cx}" y="${labelY}" fill="var(--text-main)" font-size="15" font-weight="bold" text-anchor="middle">${layer.title}</text>`;
+                                        svgContent += `<text x="${cx}" y="${labelY + 20}" fill="var(--text-muted)" font-size="12" text-anchor="middle">${layer.subtitle}</text>`;
+                                    }
+                                });
+                                
+                                svg.innerHTML = svgContent;
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. ADIM -->
+            <div class="step-wrapper">
+                <div class="guide-card glass-card story-text-card">
+                    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+                        <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(16, 185, 129, 0.15); border: 1px solid var(--neon-green); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: var(--neon-green);">3</div>
+                        <h3 style="color: var(--text-main); font-size: 1.5rem;">Modellerin Motorları: Yaygın Algoritmalar ⚙️</h3>
+                    </div>
+                    <p style="color: var(--text-muted); margin-bottom: 24px; line-height: 1.7; font-size: 1.1rem;">
+                        Verinizin yapısına ve çözmek istediğiniz probleme göre farklı matematiksel formüller (algoritmalar) seçilir. Model eğitimi bu temel motorlar üzerinde gerçekleşir:
+                    </p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                        <div style="background: rgba(15, 23, 42, 0.05); border: 1px solid rgba(128,128,128,0.2); border-radius: 16px; padding: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                            <h4 style="color: var(--text-main); margin: 0 0 12px 0; font-size: 1.3rem;">Lineer Regresyon 📈</h4>
+                            <p style="color: var(--text-muted); font-size: 1rem; margin: 0; line-height: 1.6;">Değişkenler arasındaki doğrusal ilişkiyi bulur. Veri noktalarının tam ortasından geçen "en iyi doğruyu" çizerek geleceği (sürekli bir sayıyı) tahmin eder. (Örn: Evin m2'sine göre fiyatını bulmak).</p>
+                        </div>
+                        <div style="background: rgba(15, 23, 42, 0.05); border: 1px solid rgba(128,128,128,0.2); border-radius: 16px; padding: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                            <h4 style="color: var(--text-main); margin: 0 0 12px 0; font-size: 1.3rem;">Lojistik Regresyon 📉</h4>
+                            <p style="color: var(--text-muted); font-size: 1rem; margin: 0; line-height: 1.6;">Veriler arasına matematiksel bir sınır çizgisi çeker. Bir olayın olasılığını 0 ile 1 arasına sıkıştırarak sınıflandırma yapar. (Örn: Gelen e-posta Spam mi, değil mi?).</p>
+                        </div>
+                        <div style="background: rgba(15, 23, 42, 0.05); border: 1px solid rgba(128,128,128,0.2); border-radius: 16px; padding: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                            <h4 style="color: var(--text-main); margin: 0 0 12px 0; font-size: 1.3rem;">Rastgele Orman (RF) 🌳</h4>
+                            <p style="color: var(--text-muted); font-size: 1rem; margin: 0; line-height: 1.6;">Karar ağaçları, veriyi "Yaş > 30 mu?" gibi sorularla dallara ayırır. Yüzlerce karar ağacının birleşmesiyle de çok daha güçlü olan <em>Random Forest (Rastgele Orman)</em> oluşur.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. ADIM -->
+            <div class="step-wrapper">
+                <div class="guide-card glass-card story-text-card">
+                    <div class="step-content-flex">
+                        <div class="step-text-content">
+                            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+                                <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(244, 63, 94, 0.15); border: 1px solid var(--neon-pink); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: var(--neon-pink);">4</div>
+                                <h3 style="color: var(--text-main); font-size: 1.5rem;">Aşırı Öğrenme (Overfitting) Belası ve Çözümleri ⚠️</h3>
+                            </div>
+                            <p style="color: var(--text-muted); margin-bottom: 16px; line-height: 1.7; font-size: 1.1rem;">
+                                <strong>Kavram:</strong> Modeliniz eğitim verilerinde mükemmel (%99) başarı gösteriyor, ancak gerçek hayattaki yeni bir veride çuvallıyorsa modeliniz verinin mantığını anlamamış, onu <strong>ezberlemiştir</strong>. Verideki gürültüyü (gereksiz detayları) kural sanması durumuna "Yüksek Varyans (High Variance)" veya <strong>Overfitting</strong> denir.
+                            </p>
+                            <p style="color: var(--text-muted); margin-bottom: 12px; line-height: 1.7; font-size: 1.1rem;">
+                                <strong>Mücadele Yöntemleri:</strong>
+                            </p>
+                            <ul style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.7; margin: 0 0 0 24px; padding: 0;">
+                                <li style="margin-bottom: 8px;"><strong>Veriyi Bölmek (Train-Validation-Test):</strong> Veri seti modeli eğitmek (Train), gidişatı denetlemek (Validation) ve en son performansı ölçmek (Test) için üçe bölünür.</li>
+                                <li style="margin-bottom: 8px;"><strong>Düzenlileştirme (Regularization):</strong> Modelin formülünü çok karmaşıklaştırmasını engelleyen matematiksel ceza sistemleridir (L1/L2).</li>
+                                <li><strong>Dropout:</strong> Eğitim sırasında ağdaki bazı nöronların rastgele kapatılmasıdır. Nöronlar birbirine aşırı bağımlı olmaktan kurtulur, ezber bozulur.</li>
+                            </ul>
+                        </div>
+                        <div class="step-image-content">
+                            <img src="robot_overfitting.jpg" alt="Robot Overfitting Concept">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. ADIM -->
+            <div class="step-wrapper">
+                <div class="guide-card glass-card story-text-card">
+                    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+                        <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(59, 130, 246, 0.15); border: 1px solid #3b82f6; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: #3b82f6;">5</div>
+                        <h3 style="color: var(--text-main); font-size: 1.5rem;">Derin Öğrenme (Deep Learning) 🧠</h3>
+                    </div>
+                    <p style="color: var(--text-muted); margin-bottom: 16px; line-height: 1.7; font-size: 1.1rem;">
+                        <strong>Kavram:</strong> Eğer yapay sinir ağlarındaki "Gizli Katmanlar" tek veya iki değil de, <strong>çok fazla (derin) katmandan</strong> oluşuyorsa buna Derin Öğrenme denir. Klasik makine öğreniminde verinin önemli özellikleri insanlar tarafından seçilip modele verilirken; Derin Öğrenmede algoritma <strong>ham veriden hangi özelliklerin önemli olduğunu kendi kendine çıkarır (Feature Extraction).</strong>
+                    </p>
+                    <p style="color: var(--text-muted); margin-bottom: 0; line-height: 1.7; font-size: 1.1rem;">
+                        <strong>Süreç:</strong> Görüntü işleme için pikselleri tarayan Evrişimli Sinir Ağları (CNN) veya metin/ses gibi ardışık verileri anlayan Tekrarlayan Sinir Ağları (RNN) gibi devasa mimariler kullanılır. Derin öğrenme mimarileri, bir fotoğraftaki kedinin kulak kıvrımını pikseller arasındaki ilişkilerden kendi başına keşfedecek güce sahiptir.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 6. ADIM -->
+            <div class="step-wrapper">
+                <div class="guide-card glass-card story-text-card">
+                    <div class="step-content-flex">
+                        <div class="step-text-content">
+                            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+                                <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(245, 158, 11, 0.15); border: 1px solid #f59e0b; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: #f59e0b;">6</div>
+                                <h3 style="color: var(--text-main); font-size: 1.5rem;">Zirve Noktası: Üretken Yapay Zeka (Generative AI) ✨</h3>
+                            </div>
+                            <p style="color: var(--text-muted); margin-bottom: 16px; line-height: 1.7; font-size: 1.1rem;">
+                                <strong>Kavram:</strong> Bugüne kadarki geleneksel modeller hep "Tahmin ve Sınıflandırma" yapıyordu. Üretken yapay zeka (Generative AI) ise tahmin etmekle kalmaz, öğrendiği örüntüleri kullanarak <strong>hiç var olmamış, tamamen yeni veriler üretir</strong> (Yazı, görsel, ses, kod).
+                            </p>
+                            <p style="color: var(--text-muted); margin-bottom: 12px; line-height: 1.7; font-size: 1.1rem;">
+                                <strong>Mimari Güçler:</strong>
+                            </p>
+                            <ul style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.7; margin: 0 0 0 24px; padding: 0;">
+                                <li style="margin-bottom: 8px;"><strong>Büyük Dil Modelleri (LLM & Transformers):</strong> Kelimeler arasındaki bağlamsal ilişkileri "Dikkat (Attention)" mekanizmasıyla öğrenip, yeni bir metin üretirler (Örn: ChatGPT, Claude).</li>
+                                <li><strong>Difüzyon Modelleri (Diffusion):</strong> Bir görsele yavaş yavaş "kumlanma (noise)" ekleyerek onu bozmayı öğrenir. Daha sonra bu süreci tersine çevirerek eşsiz ve yepyeni görseller yaratır (Örn: Midjourney, DALL-E).</li>
+                            </ul>
+                        </div>
+                        <div class="step-image-content">
+                            <img src="robot_generative.jpg" alt="Generative AI Concept">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
