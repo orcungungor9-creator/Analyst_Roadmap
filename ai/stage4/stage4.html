@@ -7,6 +7,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../css/styles.css?v=3.4">
     <link rel="stylesheet" href="stage4.css">
+    <style>
+        .step-content-flex { display: flex; gap: 40px; align-items: flex-start; }
+        .step-text-content { flex: 1 1 55%; max-width: 55%; min-width: 0; }
+        .step-image-content { flex: 1 1 45%; max-width: 45%; min-width: 0; text-align: center; }
+        .step-image-content img { width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--glass-border); box-shadow: 0 10px 30px rgba(0,0,0,0.5); object-fit: cover; }
+        @media (max-width: 900px) {
+            .step-content-flex { flex-direction: column; gap: 24px; }
+            .step-text-content, .step-image-content { flex: 1 1 100%; max-width: 100%; }
+        }
+    </style>
 </head>
 <body class="formulas-page">
     <script>
@@ -45,13 +55,143 @@
     </section>
 
     <main class="formulas-main" style="max-width: 1200px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
-        <div class="glass" style="padding: 40px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
-            <h2 style="font-size: 2rem; color: var(--neon-orange); margin-bottom: 24px;">Kalite Kontrol</h2>
-            <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.8;">
-                Eğitilen modelin gerçek dünya performansını ölçün. Doğruluk oranlarına aldanmadan karmaşıklık matrisini okumayı, model kaymasını yönetmeyi ve onaylanan sistemi canlıya almayı öğrenin.
-            </p>
-            <div style="margin-top: 40px; padding: 24px; border-radius: 16px; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05);">
-                <p style="color: var(--text-main); font-style: italic; text-align: center;">Buraya detaylı içerikler, grafikler ve interaktif öğeler eklenecektir.</p>
+        <div class="story-list premium-layout">
+            
+            <div class="glass" style="padding: 40px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px; background: rgba(249, 115, 22, 0.03);">
+                <h2 style="font-size: 2.2rem; color: var(--neon-orange); margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
+                    <span>🔎</span> Bu Aşamada Ne Öğreneceğiz?
+                </h2>
+                <p style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.8;">
+                    Modeli eğittik ve sonuçlar aldık. Ancak laboratuvar ortamındaki bir başarı, o sistemin gerçek dünyada güvenilir olduğu anlamına gelmez. Bu bölümde, modeli dışarıya açmadan önce onu nasıl denetlediğimizi ve sınırlarını nasıl belirlediğimizi adım adım inceliyoruz.
+                </p>
+            </div>
+
+            <!-- 1. ADIM -->
+            <div class="step-wrapper" style="margin-bottom: 80px;">
+                <div class="guide-card glass-card story-text-card">
+                    
+                            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+                                <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(56, 189, 248, 0.15); border: 1px solid var(--neon-blue); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: var(--neon-blue);">1</div>
+                                <h3 style="color: var(--text-main); font-size: 1.5rem;">Doğruluk İllüzyonu (İstatistiksel Kontrol) 📊</h3>
+                            </div>
+                            <p style="color: var(--text-muted); margin-bottom: 16px; line-height: 1.8; font-size: 1.15rem;">
+                                Modelin %99 başarılı olması her zaman harika bir haber değildir; asıl mesele o %1'lik hatanın nerede yapıldığıdır. Sıradan bir maili yanlışlıkla "Spam" klasörüne atmak ufak bir sorunken, kanserli bir hücreyi veya kritik bir siber tehdidi "temiz" diyerek gözden kaçırmak felaket olabilir.
+                            </p>
+                            <div style="background: rgba(56, 189, 248, 0.05); border-radius: 12px; padding: 24px; border: 1px solid rgba(56, 189, 248, 0.2); margin-top: 16px;">
+                                <h4 style="color: var(--neon-blue); margin: 0 0 12px 0; font-size: 1.25rem;">Karmaşıklık Matrisi (Confusion Matrix) 🧮</h4>
+                                <p style="color: var(--text-muted); margin: 0; line-height: 1.7; font-size: 1.1rem;">
+                                    İşte bu yüzden salt başarı yüzdesine değil, <strong>Karmaşıklık Matrisine</strong> bakarız. Bu matris hataları ikiye ayırır: <br><br>
+                                    <strong style="color: var(--text-main);">1. Yanlış Alarm (False Positive / Tip 1 Hata):</span> Temiz olan bir duruma "Tehlikeli" demektir. (Sağlıklı hastaya kanser teşhisi koymak - can sıkar ama ek testle geri dönüşü vardır).<br>
+                                    <strong style="color: var(--text-main);">2. Gözden Kaçırma (False Negative / Tip 2 Hata):</span> Tehlikeli olan bir duruma "Temiz" demektir. (Kanserli hücreye sağlıklı demek - telafisi imkansızdır).<br><br>
+                                    İlk işimiz, modelin nerede çuvalladığını bu matris üzerinden okuyarak, en maliyetli ve kabul edilemez hataları (Tip 2) minimize etmektir.
+                                </p>
+                            </div>
+                        
+                </div>
+            </div>
+
+            <!-- Bağlantı Metni 1 -->
+            <div style="text-align: center; margin-bottom: 80px; position: relative;">
+                <div style="width: 2px; height: 40px; background: linear-gradient(to bottom, var(--neon-blue), var(--neon-red)); margin: 0 auto 20px auto;"></div>
+                <p style="color: var(--text-muted); font-size: 1.1rem; font-style: italic; max-width: 600px; margin: 0 auto;">
+                    "İstatistiksel olarak tatmin edici bir noktaya ulaştık diyelim. Peki sistem, dışarıdan gelen ve kuralları esnetmeye çalışan kötü niyetli bir istekle karşılaşırsa ne yapacak?"
+                </p>
+                <div style="width: 2px; height: 40px; background: linear-gradient(to bottom, var(--neon-red), transparent); margin: 20px auto 0 auto;"></div>
+            </div>
+
+            <!-- 2. ADIM -->
+            <div class="step-wrapper" style="margin-bottom: 80px;">
+                <div class="guide-card glass-card story-text-card">
+                    <div class="step-content-flex">
+                        <div class="step-text-content">
+                            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+                                <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(244, 63, 94, 0.15); border: 1px solid var(--neon-red); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: var(--neon-red);">2</div>
+                                <h3 style="color: var(--text-main); font-size: 1.5rem;">Sınır İhlalleri ve Güvenlik Testleri (Red Teaming) 🛡️</h3>
+                            </div>
+                            <p style="color: var(--text-muted); line-height: 1.8; font-size: 1.15rem;">
+                                Modeli kırmak için özel olarak tasarlanmış komutlarla test etme aşamasıdır. Sistem, yetkisi olmayan verilere ulaşmaya çalışan manipülatif bir soruya kanacak mı? Bu adımda modelin direncini ölçer ve yasal ihlalleri engelleyecek, sistemi sınırlar içinde tutacak güvenlik duvarlarını (Guardrails) inşa ederiz.
+                            </p>
+                        </div>
+                        <div class="step-image-content">
+                            <img src="robot_red_teaming.jpg" alt="Red Teaming">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bağlantı Metni 2 -->
+            <div style="text-align: center; margin-bottom: 80px; position: relative;">
+                <div style="width: 2px; height: 40px; background: linear-gradient(to bottom, var(--neon-red), var(--neon-purple)); margin: 0 auto 20px auto;"></div>
+                <p style="color: var(--text-muted); font-size: 1.1rem; font-style: italic; max-width: 600px; margin: 0 auto;">
+                    "Dış tehditlere karşı kalkanlarımızı kurduk ve modeli güvenceye aldık. Fakat yapay zekanın en büyük düşmanı bazen kendi hayal gücüdür."
+                </p>
+                <div style="width: 2px; height: 40px; background: linear-gradient(to bottom, var(--neon-purple), transparent); margin: 20px auto 0 auto;"></div>
+            </div>
+
+            <!-- 3. ADIM -->
+            <div class="step-wrapper" style="margin-bottom: 80px;">
+                <div class="guide-card glass-card story-text-card">
+                    <div class="step-content-flex">
+                        <div class="step-text-content">
+                            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+                                <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(168, 85, 247, 0.15); border: 1px solid var(--neon-purple); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: var(--neon-purple);">3</div>
+                                <h3 style="color: var(--text-main); font-size: 1.5rem;">Gerçeklik Testi ve Halüsinasyon Kontrolü 🦄</h3>
+                            </div>
+                            <p style="color: var(--text-muted); line-height: 1.8; font-size: 1.15rem;">
+                                Bir modelin en tehlikeli huyu, bilmediği bir konuda son derece emin bir dille uydurmasıdır. Sistemin, elindeki verinin bittiği noktayı kabullenip "Bu bilgiye sahip değilim" diyebilmesi gerekir. Bunun için modeli baskı testlerine sokar ve ürettiği sonuçları kesinlik filtrelerinden geçiririz.
+                            </p>
+                        </div>
+                        <div class="step-image-content">
+                            <img src="robot_hallucination.jpg" alt="Hallucination Control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bağlantı Metni 3 -->
+            <div style="text-align: center; margin-bottom: 80px; position: relative;">
+                <div style="width: 2px; height: 40px; background: linear-gradient(to bottom, var(--neon-purple), var(--neon-green)); margin: 0 auto 20px auto;"></div>
+                <p style="color: var(--text-muted); font-size: 1.1rem; font-style: italic; max-width: 600px; margin: 0 auto;">
+                    "Hatalarını gördük, dış saldırılara karşı koruduk ve uydurmasını engelledik. Tüm bu zorlu sınavlardan geçen modelimiz artık laboratuvardan çıkmaya hazır."
+                </p>
+                <div style="width: 2px; height: 40px; background: linear-gradient(to bottom, var(--neon-green), transparent); margin: 20px auto 0 auto;"></div>
+            </div>
+
+            <!-- 4. ADIM -->
+            <div class="step-wrapper" style="margin-bottom: 80px;">
+                <div class="guide-card glass-card story-text-card">
+                    
+                            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+                                <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(16, 185, 129, 0.15); border: 1px solid var(--neon-green); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: var(--neon-green);">4</div>
+                                <h3 style="color: var(--text-main); font-size: 1.5rem;">Sahaya İniş ve Sürekli Takip (Deployment & Monitoring) 🚀</h3>
+                            </div>
+                            <p style="color: var(--text-muted); margin-bottom: 16px; line-height: 1.8; font-size: 1.15rem;">
+                                Tüm güvenlik ve kalite vizelerini alan sistemin gerçek dünya ile buluştuğu an. Model canlıya (Production) alınır ve diğer uygulamalarla konuşmaya başlar. Ancak laboratuvar ortamındaki iş burada bitmez, asıl zorluk olan <strong>izleme (monitoring)</strong> süreci başlar.
+                            </p>
+                            <div style="background: rgba(16, 185, 129, 0.05); border-radius: 12px; padding: 24px; border: 1px solid rgba(16, 185, 129, 0.2); margin-top: 16px;">
+                                <h4 style="color: var(--neon-green); margin: 0 0 12px 0; font-size: 1.25rem;">Model Kayması (Model Drift) 📉</h4>
+                                <p style="color: var(--text-muted); margin: 0; line-height: 1.7; font-size: 1.1rem;">
+                                    Dünya statik değildir; insanların alışkanlıkları, ekonomik koşullar ve hatta konuşma dilleri zamanla değişir. Örneğin, 2019 yılındaki uçuş verileriyle kusursuz eğitilmiş bir bilet fiyatlandırma modeli, 2020'de pandemi başlayıp alışkanlıklar sıfırlandığı an tamamen çuvallamıştır. <br><br>
+                                    Gerçek dünya verisinin bu şekilde huy değiştirmesine <strong style="color: var(--text-main);">Data Drift</strong>, modelin bu yeni dünyaya ayak uyduramayıp yavaş yavaş aptallaşmasına ise <strong style="color: var(--text-main);">Model Drift (Model Kayması)</strong> denir. Sürekli takip ile bu performans düşüşü tespit edilir ve model yepyeni verilerle düzenli aralıklarla yeniden eğitilir.
+                                </p>
+                            </div>
+                        
+                </div>
+            </div>
+
+            <!-- BİTİŞ METNİ -->
+            <div class="step-wrapper" style="margin-top: 40px;">
+                <div class="guide-card glass-card story-text-card">
+                    <h3 style="color: var(--neon-orange); font-size: 1.8rem; margin-bottom: 20px; text-align: center;">Bu Aşamada Asıl Amacımız Neydi?</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 16px; line-height: 1.8; font-size: 1.15rem;">
+                        Amacımız sadece kod yazmak veya algoritma seçmek değil; ham ve anlamsız bir verinin nasıl işlendiğinden başlayıp, eğitilmesine ve en nihayetinde katı yasal/güvenlik testlerinden geçerek çalışan bir ürüne nasıl dönüştüğüne dair o büyük resmi görmektir. Yapay zekanın laboratuvardaki ilk adımından, insanların güvenle kullanabileceği, sınırları çizilmiş bir sisteme evrilme serüvenini gerçek hayat senaryolarıyla kavramaktır.
+                    </p>
+                    <div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--glass-border);">
+                        <p style="color: var(--text-main); margin-bottom: 0; line-height: 1.8; font-size: 1.15rem; text-align: center; font-weight: 500;">
+                            Bu uzun ve teknik yolculuğa sonuna kadar eşlik ettiğiniz için çok teşekkür ederim. Umarım bu rehber, karmaşık görünen yapay zeka dünyasını sizin için biraz daha anlaşılır ve şeffaf hale getirmiştir 🤍
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
 
