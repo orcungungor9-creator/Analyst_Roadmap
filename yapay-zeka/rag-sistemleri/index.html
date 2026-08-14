@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RAG (Retrieval-Augmented Generation) | AI Kullanım Rehberi</title>
-    <link rel="stylesheet" href="../../css/styles.css?v=3.4">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../css/styles.css?v=3.5">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
 </head>
 <body class="theme-light-purple formulas-page">
@@ -18,145 +17,146 @@
         })();
     </script>
     
-    <!-- DİNAMİK ARKA PLAN GRAFİK AĞI (BG ANALYTICS MESH) -->
-    <div class="bg-analytics-mesh">
-        <div class="bg-chart-item bg-chart-1">
-            <svg viewBox="0 0 400 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="bg-area-grad-1" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="var(--neon-blue)" stop-opacity="0.4" />
-                        <stop offset="100%" stop-color="var(--neon-blue)" stop-opacity="0.0" />
-                    </linearGradient>
-                </defs>
-                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40 L 370,190 L 10,190 Z" fill="url(#bg-area-grad-1)" />
-                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40" fill="none" stroke="var(--neon-blue)" stroke-width="4" stroke-linecap="round" />
-                <circle cx="130" cy="150" r="6" fill="var(--neon-green)" />
-                <circle cx="250" cy="90" r="6" fill="var(--neon-purple)" />
-                <circle cx="370" cy="40" r="8" fill="var(--neon-blue)"></circle>
-            </svg>
-        </div>
-        <div class="bg-chart-item bg-chart-2">
-            <svg viewBox="0 0 200 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                <g transform="translate(100,100)">
-                    <path d="M 0,-80 A 80,80 0 0,1 76,25 L 57,18 A 60,60 0 0,0 0,-60 Z" fill="var(--neon-blue)" />
-                    <path d="M 76,25 A 80,80 0 0,1 -64,48 L -48,36 A 60,60 0 0,0 57,18 Z" fill="var(--neon-green)" />
-                    <path d="M -64,48 A 80,80 0 0,1 0,-80 L 0,-60 A 60,60 0 0,0 -48,36 Z" fill="var(--neon-purple)" />
-                    <circle cx="0" cy="0" r="45" fill="none" stroke="var(--glass-border)" stroke-width="2" stroke-dasharray="5,5" />
-                </g>
-            </svg>
-        </div>
-        <div class="bg-chart-item bg-chart-3">
-            <svg viewBox="0 0 250 250" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                <line x1="20" y1="50" x2="230" y2="50" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4" />
-                <line x1="20" y1="100" x2="230" y2="100" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4" />
-                <line x1="20" y1="150" x2="230" y2="150" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4" />
-                <line x1="20" y1="200" x2="230" y2="200" stroke="var(--glass-border)" stroke-width="2" />
-                <rect x="35" y="120" width="30" height="80" rx="6" fill="var(--neon-blue)"></rect>
-                <rect x="85" y="70" width="30" height="130" rx="6" fill="var(--neon-green)"></rect>
-                <rect x="135" y="150" width="30" height="50" rx="6" fill="var(--neon-purple)"></rect>
-                <rect x="185" y="90" width="30" height="110" rx="6" fill="var(--neon-blue)"></rect>
-            </svg>
-        </div>
-    </div>
-    
     <!-- YENİ HERO BÖLÜMÜ -->
     <section class="formulas-hero" style="position: relative; overflow: hidden; background: none; max-width: none; padding-top: 100px; padding-bottom: 80px;">
         <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; opacity: 1; background: linear-gradient(135deg, rgba(245, 158, 11, 0.4), rgba(168, 85, 247, 0.4)); mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);"></div>
-        <div class="hero-content" style="position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; padding: 40px;">
+        <div class="hero-content" style="position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; padding: 40px; text-align: center; align-items: center;">
             <div class="badge-pill floating-slow" style="background: rgba(15, 5, 30, 0.8); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(245, 158, 11, 0.5); color: #fff; margin-bottom: 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.6);">AI Kullanım Rehberi</div>
-            <h1 class="hero-title" style="margin-bottom: 20px; color: #ffffff; text-shadow: 0 8px 40px rgba(0,0,0,0.9), 0 4px 15px rgba(0,0,0,0.8), 0 0 60px rgba(245, 158, 11, 0.7); font-weight: 800; letter-spacing: -0.5px;">RAG (Retrieval-Augmented Generation)</h1>
-            <p class="hero-subtitle" style="color: rgba(255,255,255,0.95); font-size: 1.3rem; line-height: 1.6; font-weight: 600; text-shadow: 0 4px 20px rgba(0,0,0,0.9), 0 2px 10px rgba(0,0,0,0.8); margin: 0;">Şirketinizin özel PDF'lerini, veritabanlarını ve politikalarını dış kaynak olarak LLM'e (Yapay Zeka) bağlayarak sıfır halüsinasyonla güvenilir cevaplar üretme teknolojisi.</p>
+            <h1 class="hero-title" style="margin-bottom: 20px; color: #ffffff; text-shadow: 0 8px 40px rgba(0,0,0,0.9), 0 4px 15px rgba(0,0,0,0.8), 0 0 60px rgba(245, 158, 11, 0.7); font-weight: 800; letter-spacing: -0.5px;">RAG Mimarisi (Retrieval-Augmented Generation)</h1>
+            <p class="hero-subtitle" style="color: rgba(255,255,255,0.95); font-size: 1.3rem; line-height: 1.6; font-weight: 600; text-shadow: 0 4px 20px rgba(0,0,0,0.9), 0 2px 10px rgba(0,0,0,0.8); margin: 0 auto; text-align: center;">Şirketinizin özel PDF'lerini ve veritabanlarını LLM'e dış kaynak olarak bağlayarak sıfır halüsinasyonla güvenilir cevaplar üretme teknolojisi.</p>
         </div>
     </section>
 
-    <!-- ANA İÇERİK (Premium Kartlar) -->
+    <!-- ANA İÇERİK -->
     <main class="formulas-main" style="max-width: 1100px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px; position: relative; z-index: 2;">
         <div class="story-list premium-layout">
             
             <div class="glass" style="padding: 40px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 60px; background: rgba(245, 158, 11, 0.03); backdrop-filter: blur(20px);">
-                <h2 style="font-size: 2.2rem; color: var(--neon-orange); margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
+                <h2 style="font-size: 2.2rem; color: var(--neon-orange); margin-bottom: 24px; display: flex; align-items: center; justify-content: center; text-align: center; gap: 12px;">
                     Kurumsal Hafızanın YZ ile Buluşması
                 </h2>
-                <p style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.8;">
-                    Yapay zeka modelleri (ChatGPT, Claude) dünyadaki genel bilgilere sahiptir ancak sizin şirketinizin iç yönetmeliklerini, çalışan sözleşmelerini veya müşteri işlem geçmişinizi bilmezler. Üstelik bilmedikleri konularda "bilmiyorum" demek yerine yalan uydurma (Hallucination) eğilimindedirler. <strong>RAG (Retrieval-Augmented Generation)</strong>, bu sorunu çözmek için geliştirilmiş en güçlü mimaridir. Modelin cevap üretmeden önce (Generation), şirketinizin özel veritabanından doğru bilgiyi çekmesini (Retrieval) sağlar.
+                <p style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.8; text-align: center;">
+                    ChatGPT veya Claude inanılmaz zekidir ancak şirketinizin dünkü satış raporunu bilmezler. Bu bilgiyi onlara öğretmek için 10.000 sayfalık arşivi tek seferde yükleyemezsiniz; hem hafıza (Context) taşar hem de inanılmaz pahalı olur. <strong>RAG (Retrieval-Augmented Generation)</strong>, bu sorunu çözen ve günümüz kurumsal yapay zekasının kalbini oluşturan mühendislik mimarisidir.
                 </p>
             </div>
 
-            <!-- Kart 1: RAG Nedir? -->
+            <!-- Evre 1 -->
             <div class="step-wrapper" style="margin-bottom: 60px;">
                 <div class="guide-card glass-card story-text-card" style="padding: 0; overflow: hidden; border-radius: 24px;">
-                    <div style="width: 100%; height: 250px; position: relative; overflow: hidden; background: linear-gradient(45deg, #0f172a, #f59e0b); opacity: 0.85;">
-                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 150px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);"></div>
-                        <h2 style="position: absolute; bottom: 20px; left: 30px; color: #fff; font-size: 2.2rem; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.8); display: flex; align-items: center; gap: 12px;">Neden RAG Kullanmalıyız?</h2>
+                    <div style="width: 100%; height: 200px; position: relative; overflow: hidden; background: linear-gradient(135deg, #0f172a, #ef4444);">
+                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 120px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);"></div>
+                        <h2 style="position: absolute; bottom: 20px; left: 30px; color: #fff; font-size: 2rem; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.8);">Evre 1: Problem (LLM'in Sınırları)</h2>
                     </div>
-                    <div style="padding: 30px;">
-                        <p style="color: var(--text-main); font-size: 1.1rem; line-height: 1.8;">
-                            RAG sistemleri, yapay zekayı bir ansiklopediden (içinde ne varsa onu okuyan) bir kütüphaneciye (önce gidip doğru kitabı bulan, sonra oradan okuyan) dönüştürür.
-                            <br><br>
-                            <span style="color: var(--neon-orange); font-weight: 700; font-size: 1.2rem;">RAG'ın Çözdüğü 3 Büyük Sorun:</span>
-                            <br><br>
-                            • <strong>Bilgi Kesimi (Knowledge Cut-off):</strong> LLM'ler eğitildikleri tarihteki dünyayı bilirler. Dün yayınlanan şirket politikanızı bilmeleri imkansızdır. RAG ile sisteme "en güncel belgeyi" verebilirsiniz.<br><br>
-                            • <strong>Gizlilik (Privacy):</strong> Şirket verilerinizi modelin eğitim (training) setine katmak (fine-tuning) veri sızıntısına yol açabilir. RAG mimarisinde verileriniz modelin beynine değil, sadece o anki "kısa süreli hafızaya" (prompt context) gider ve iş bittikten sonra silinir.<br><br>
-                            • <strong>Halüsinasyonları Önleme:</strong> RAG sistemi modele şu talimatı verir: <em>"Sana dışarıdan verdiğim bu PDF belgesine bakarak cevap ver. Belgede yazmıyorsa uydurma, doğrudan 'Bilmiyorum' de."</em>
+                    <div style="padding: 40px;">
+                        <p style="color: var(--text-main); font-size: 1.15rem; line-height: 1.8; margin-bottom: 25px;">
+                            Bir işletmenin neden "sadece ChatGPT" kullanamayacağının 3 temel sebebi vardır: <br><br>
+                            <strong>1. Bilgi Kesintisi (Knowledge Cut-off):</strong> Model en son ne zaman eğitildiyse dünyası o tarihte donmuştur. Dün değişen şirket politikanızı bilmez.<br>
+                            <strong>2. Veri Gizliliği (Privacy):</strong> Özel müşteri verilerinizi modelin "kalıcı beynine" (Fine-Tuning) işlemek veri sızıntısı riskidir.<br>
+                            <strong>3. Halüsinasyon:</strong> LLM'ler bilmedikleri bir soruyla karşılaştıklarında "Bilmiyorum" demek yerine uydurmaya (istatistiksel sallama) meyillidirler.
                         </p>
+                        
+                        <h4 style="color: #ef4444; margin-bottom: 15px; font-size: 1.2rem;">Risk Senaryosu: Kurumsal Hata</h4>
+                        <div style="background: rgba(255,255,255,0.03); border-left: 3px solid #ef4444; padding: 20px; border-radius: 0 12px 12px 0;">
+                            <p style="color: var(--text-main); margin: 0; font-family: monospace; font-size: 0.95rem; line-height: 1.6; white-space: pre-wrap;">Kullanıcı (Çalışan): "Şirketimizin uzaktan çalışma ödeneği ne kadar?"
+Sıradan LLM (RAG yok): "Türkiye'deki genel şirket uygulamalarına göre ortalama 500-1000 TL arasıdır." (Halüsinasyon)
+Sonuç: Çalışan yanlış bilgiye güvenerek yanlış harcama yapar. Şirket zor durumda kalır.</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Kart 2: Chunking (Veri Parçalama) -->
+            <!-- Evre 2 -->
             <div class="step-wrapper" style="margin-bottom: 60px;">
                 <div class="guide-card glass-card story-text-card" style="padding: 0; overflow: hidden; border-radius: 24px;">
-                    <div style="width: 100%; height: 250px; position: relative; overflow: hidden; background: linear-gradient(45deg, #0f172a, #ec4899); opacity: 0.85;">
-                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 150px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);"></div>
-                        <h2 style="position: absolute; bottom: 20px; left: 30px; color: #fff; font-size: 2.2rem; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.8); display: flex; align-items: center; gap: 12px;">Aşama 1: Veri Parçalama (Chunking)</h2>
+                    <div style="width: 100%; height: 200px; position: relative; overflow: hidden; background: linear-gradient(135deg, #0f172a, #38bdf8);">
+                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 120px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);"></div>
+                        <h2 style="position: absolute; bottom: 20px; left: 30px; color: #fff; font-size: 2rem; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.8);">Evre 2: Çözüm (RAG'ın Doğuşu)</h2>
                     </div>
-                    <div style="padding: 30px;">
-                        <p style="color: var(--text-main); font-size: 1.1rem; line-height: 1.8;">
-                            Kullanıcının sorusuna cevap bulmak için 10.000 sayfalık tüm şirket arşivini LLM'e tek seferde atamayız (hem token limitine takılır hem de maliyeti çok yüksek olur). RAG sisteminin ilk adımı veriyi sindirilebilir parçalara bölmektir.
-                            <br><br>
-                            Büyük PDF dosyaları, Word belgeleri veya web siteleri önce <strong>Chunk (Parça)</strong> adı verilen anlamsal bloklara ayrılır. Örneğin 500 sayfalık bir IK yönetmeliği, "İzin Hakları", "Mesai Saatleri", "Maaş Politikası" gibi başlıklar altında 3-4 paragraflık küçük mantıksal metin bloklarına bölünür. Bu işlem sayesinde, sadece sorulan soruyla ilgili olan "parça" bulunup LLM'e gönderilecektir.
+                    <div style="padding: 40px;">
+                        <p style="color: var(--text-main); font-size: 1.15rem; line-height: 1.8; margin-bottom: 25px;">
+                            RAG, YZ'yi her şeyi ezbere bilen ama bazen uyduran bir dâhiden çıkarıp, <strong>"Önce gidip kitaptan okuyan kütüphaneciye"</strong> dönüştürür. Mimari iki aşamalı çalışır:<br><br>
+                            <strong>1. Retrieval (Bulup Getirme):</strong> Soru sorulduğunda LLM cevap vermez. Sistem önce arka planda sizin şirket PDF'lerinizi tarar ve doğru paragrafı bulup getirir.<br>
+                            <strong>2. Generation (Cevap Üretme):</strong> LLM, önüne konulan bu şirket paragrafına bakarak sadece o sınırın içinde kalarak cevap üretir.
                         </p>
+
+                        <h4 style="color: var(--neon-blue); margin-bottom: 15px; font-size: 1.2rem;">Kütüphaneci Analojisi</h4>
+                        <div style="background: rgba(255,255,255,0.03); border-left: 3px solid var(--neon-blue); padding: 20px; border-radius: 0 12px 12px 0;">
+                            <p style="color: var(--text-main); margin: 0; font-family: monospace; font-size: 0.95rem; line-height: 1.6; white-space: pre-wrap;">RAG Sisteminin Görünmez Promptu:
+"Kullanıcı uzaktan çalışma ödeneğini soruyor.
+GİDİP ŞİRKET VERİTABANINDAN ŞU METNİ BULDUM: [IK_Yonetmeligi_2026.pdf - Sayfa 12: 'Ödenek 2000 TL'dir.']
+Görev: Şimdi bana sadece bu parantez içindeki bilgiye dayanarak profesyonel bir cevap ver. Bilgi dışında yorum yapma!"</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Kart 3: Embedding ve Vektör Veritabanları -->
+            <!-- Evre 3 -->
             <div class="step-wrapper" style="margin-bottom: 60px;">
                 <div class="guide-card glass-card story-text-card" style="padding: 0; overflow: hidden; border-radius: 24px;">
-                    <div style="width: 100%; height: 250px; position: relative; overflow: hidden; background: linear-gradient(45deg, #0f172a, #8b5cf6); opacity: 0.85;">
-                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 150px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);"></div>
-                        <h2 style="position: absolute; bottom: 20px; left: 30px; color: #fff; font-size: 2.2rem; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.8); display: flex; align-items: center; gap: 12px;">Aşama 2: Vektör DB ve Embedding</h2>
+                    <div style="width: 100%; height: 200px; position: relative; overflow: hidden; background: linear-gradient(135deg, #0f172a, #f59e0b);">
+                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 120px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);"></div>
+                        <h2 style="position: absolute; bottom: 20px; left: 30px; color: #fff; font-size: 2rem; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.8);">Evre 3: Veri Hazırlığı (Chunking & Embedding)</h2>
                     </div>
-                    <div style="padding: 30px;">
-                        <p style="color: var(--text-main); font-size: 1.1rem; line-height: 1.8;">
-                            Geleneksel veritabanları (SQL) kelimelerin birebir eşleşmesine bakar. Oysa dil karmaşıktır; "Kedi" kelimesi "Köpek" kelimesine anlamsal olarak çok yakındır, "Araba" kelimesine ise uzaktır. RAG sistemlerinde <strong>Anlamsal Arama (Semantic Search)</strong> kullanılır.
-                            <br><br>
-                            <span style="color: var(--neon-purple); font-weight: 700; font-size: 1.2rem;">Süreç Nasıl İşler?</span>
-                            <br><br>
-                            1. Bölünen metin parçaları (Chunks), yapay zeka tarafından devasa bir <strong>sayısal diziye (Vector Embedding)</strong> dönüştürülür.<br>
-                            2. Bu sayılar <strong>Vektör Veritabanlarına (Pinecone, ChromaDB, Milvus)</strong> kaydedilir.<br>
-                            3. Kullanıcı "Şirketin evden çalışma kuralları neler?" diye sorduğunda, bu soru da bir vektöre dönüştürülür.<br>
-                            4. Veritabanı, bu soru vektörüne "uzayda en yakın olan" (yani anlamsal olarak eşleşen) metin parçalarını milisaniyeler içinde bulup getirir (Retrieval).
+                    <div style="padding: 40px;">
+                        <p style="color: var(--text-main); font-size: 1.15rem; line-height: 1.8; margin-bottom: 25px;">
+                            Peki yüzlerce PDF dosyasını model arandığında şıp diye nasıl bulur? Önce veriler hazırlanmalıdır.<br><br>
+                            <strong>Chunking (Parçalama):</strong> 500 sayfalık rapor, önce 3-4 paragraflık küçük, mantıksal metin bloklarına (Chunk) bölünür.<br>
+                            <strong>Vector Embedding (Sayısal Koordinata Çevirme):</strong> Yapay zeka metinleri okumaz, matematiği okur. Oluşturulan her paragraf, karmaşık bir yapay zeka modelinden geçirilerek uzaysal sayılara (Örn: [0.34, -1.2, 5.5...]) dönüştürülür. Artık her paragrafın anlamsal bir koordinatı vardır.
                         </p>
+
+                        <h4 style="color: var(--neon-orange); margin-bottom: 15px; font-size: 1.2rem;">Teknik Detay: Chunking Stratejisi</h4>
+                        <div style="background: rgba(255,255,255,0.03); border-left: 3px solid var(--neon-orange); padding: 20px; border-radius: 0 12px 12px 0;">
+                            <p style="color: var(--text-main); margin: 0; font-family: monospace; font-size: 0.95rem; line-height: 1.6; white-space: pre-wrap;">Bir metni düz 500 kelimede bir keserseniz, cümlenin yarısı veya fikrin ortası kopabilir.
+İyi bir RAG sisteminde "Semantic Chunking" (Anlamsal parçalama) veya "Overlap" (Örtüşme) kullanılır. Örn: Her blok 500 kelime olsun ama önceki bloğun son 50 kelimesi sonraki bloğun içine de eklensin ki bağlam (context) kopmasın.</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Kart 4: Üretim ve Nihai Cevap -->
+            <!-- Evre 4 -->
             <div class="step-wrapper" style="margin-bottom: 60px;">
                 <div class="guide-card glass-card story-text-card" style="padding: 0; overflow: hidden; border-radius: 24px;">
-                    <div style="width: 100%; height: 250px; position: relative; overflow: hidden; background: linear-gradient(45deg, #0f172a, #10b981); opacity: 0.85;">
-                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 150px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);"></div>
-                        <h2 style="position: absolute; bottom: 20px; left: 30px; color: #fff; font-size: 2.2rem; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.8); display: flex; align-items: center; gap: 12px;">Aşama 3: Zenginleştirilmiş Üretim</h2>
+                    <div style="width: 100%; height: 200px; position: relative; overflow: hidden; background: linear-gradient(135deg, #0f172a, #10b981);">
+                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 120px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);"></div>
+                        <h2 style="position: absolute; bottom: 20px; left: 30px; color: #fff; font-size: 2rem; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.8);">Evre 4: Anlamsal Arama (Vektör Veritabanı)</h2>
                     </div>
-                    <div style="padding: 30px;">
-                        <p style="color: var(--text-main); font-size: 1.1rem; line-height: 1.8;">
-                            RAG mimarisinin son aşaması, veritabanından getirilen (Retrieve) doğru bilginin LLM tarafından şık bir cevaba dönüştürülmesi (Augmented Generation) işlemidir.
-                            <br><br>
-                            Sistemin arkasında LLM'e şu görünmez komut (System Prompt) gönderilir: <em>"Kullanıcı evden çalışma şartlarını soruyor. Veritabanından şu 3 paragrafı buldum: [İlgili PDF metinleri]. Sadece bu metinlere dayanarak ve bu metinlerin dışına kesinlikle çıkmadan kullanıcının sorusunu profesyonel bir dille yanıtla."</em>
-                            <br><br>
-                            Sonuç olarak kullanıcı, arka planda karmaşık vektör aramaları yapıldığından habersiz bir şekilde; tamamen şirketin kendi belgelerine dayanan, sıfır halüsinasyonlu ve güvenilir bir asistan deneyimi yaşar.
+                    <div style="padding: 40px;">
+                        <p style="color: var(--text-main); font-size: 1.15rem; line-height: 1.8; margin-bottom: 25px;">
+                            Hazırlanan sayısal metin parçaları <strong>Pinecone, ChromaDB veya Milvus</strong> gibi Vektör Veritabanlarına kaydedilir. Geleneksel SQL veritabanları (Örn: MySQL) kelimenin birebir eşleşmesini arar. Oysa Vektör DB <strong>anlamı</strong> arar.<br><br>
+                            Kullanıcı "Firmamızın kedilerle ilgili politikası nedir?" diye sorduğunda, bu soru da bir vektöre çevrilir. Veritabanı içinde "kedi" kelimesi hiç geçmese bile "evcil hayvan" geçen paragrafı uzaysal yakınlığı sayesinde (Cosine Similarity) saniyeler içinde bulur.
                         </p>
+
+                        <h4 style="color: var(--neon-green); margin-bottom: 15px; font-size: 1.2rem;">Konsept: Uzaysal Yakınlık (Semantic Search)</h4>
+                        <div style="background: rgba(255,255,255,0.03); border-left: 3px solid var(--neon-green); padding: 20px; border-radius: 0 12px 12px 0;">
+                            <p style="color: var(--text-main); margin: 0; font-family: monospace; font-size: 0.95rem; line-height: 1.6; white-space: pre-wrap;">Kullanıcı Sorusu: "Hastalandığımda prosedür nedir?" (Vektör X)
+Veritabanındaki Parça 1: "Maaş zamları Nisan ayında yapılır." (Vektör Y - Çok uzak)
+Veritabanındaki Parça 2: "Sağlık raporları 3 gün içinde İK'ya iletilmelidir." (Vektör Z - Çok yakın!)
+-> Sistem doğrudan Parça 2'yi çekip LLM'in önüne koyar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Evre 5 -->
+            <div class="step-wrapper" style="margin-bottom: 60px;">
+                <div class="guide-card glass-card story-text-card" style="padding: 0; overflow: hidden; border-radius: 24px;">
+                    <div style="width: 100%; height: 200px; position: relative; overflow: hidden; background: linear-gradient(135deg, #0f172a, #8b5cf6);">
+                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 120px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);"></div>
+                        <h2 style="position: absolute; bottom: 20px; left: 30px; color: #fff; font-size: 2rem; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.8);">Evre 5: İleri RAG Mimarisinin Zirvesi</h2>
+                    </div>
+                    <div style="padding: 40px;">
+                        <p style="color: var(--text-main); font-size: 1.15rem; line-height: 1.8; margin-bottom: 25px;">
+                            Basit bir Vektör RAG her zaman kusursuz çalışmaz; bağlam karmaşıklaştıkça yeni teknolojiler devreye girer:<br><br>
+                            <strong>Hybrid Search (Melez Arama):</strong> Bazen "anlam" yetmez, tam kelime gerekir (Örn: Faturadaki TC No). Hybrid arama hem SQL mantığıyla Keyword aramasını, hem de anlamsal vektör aramasını harmanlar.<br>
+                            <strong>Re-Ranking (Yeniden Sıralama):</strong> Vektör veritabanından gelen 10 paragraf, ikinci bir yapay zeka modeli (Cross-Encoder) tarafından okunup "Bu paragraflardan hangisi asıl soruya gerçekten en iyi cevabı veriyor?" diye yeniden puanlanıp filtrelenir.<br>
+                            <strong>GraphRAG (Bilgi Grafikleri):</strong> Geleceğin standardı! Metinleri düz parçalara bölmek yerine, verilerin içindeki varlıkları tespit eder ("Apple", "Tim Cook", "CEO"). Bunları örümcek ağı gibi birbirine bağlar (Knowledge Graph). "Tim Cook'un şirketinin son çeyrek karı?" gibi kompleks ilişkisel sorularda kusursuz performans verir.
+                        </p>
+
+                        <h4 style="color: var(--neon-purple); margin-bottom: 15px; font-size: 1.2rem;">Mühendislik Mimari Özeti</h4>
+                        <div style="background: rgba(255,255,255,0.03); border-left: 3px solid var(--neon-purple); padding: 20px; border-radius: 0 12px 12px 0;">
+                            <p style="color: var(--text-main); margin: 0; font-family: monospace; font-size: 0.95rem; line-height: 1.6; white-space: pre-wrap;">[Şirket PDF'i] -> (Chunking) -> (Embedding) -> [Vektör Veritabanı]
+[Kullanıcı Sorusu] -> (Embedding) -> [Vektör Veritabanında Arama] -> (Re-Ranking Filtresi) -> [Gelen Paragraflar] -> (System Prompt'a ekle) -> [LLM] -> "Kusursuz, Sıfır Halüsinasyonlu Cevap"</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -165,22 +165,15 @@
 
         <!-- LOOP NAVIGASYON -->
         <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 60px; margin-bottom: 40px; padding-top: 30px; border-top: 1px solid var(--glass-border);">
-            
-            <!-- Sol Buton (Önceki: Prompt Debugging) -->
             <a href="../prompt-debugging/index.html" style="display: flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 50px; background: rgba(56, 189, 248, 0.15); border: 1px solid var(--neon-blue); color: var(--neon-blue); text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(56, 189, 248, 0.2);" onmouseover="this.style.background='var(--neon-blue)'; this.style.color='#fff'; this.style.boxShadow='0 6px 20px rgba(56, 189, 248, 0.4)';" onmouseout="this.style.background='rgba(56, 189, 248, 0.15)'; this.style.color='var(--neon-blue)'; this.style.boxShadow='0 4px 12px rgba(56, 189, 248, 0.2)';">
                 <i data-lucide="arrow-left" style="width: 18px; height: 18px;"></i> Önceki: Prompt Debugging
             </a>
-
-            <!-- Orta Buton -->
             <a href="javascript:void(0)" onclick="localStorage.setItem('returnGuide', 'rag-sistemleri'); window.location.href='../../index.html#ai-guides-section';" style="display: flex; align-items: center; gap: 10px; padding: 14px 32px; border-radius: 50px; background: rgba(168, 85, 247, 0.15); border: 1px solid var(--neon-purple); color: var(--neon-purple); text-decoration: none; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(168, 85, 247, 0.2); transition: all 0.3s ease;" onmouseover="this.style.background='var(--neon-purple)'; this.style.color='#fff'; this.style.boxShadow='0 8px 25px rgba(168, 85, 247, 0.4)';" onmouseout="this.style.background='rgba(168, 85, 247, 0.15)'; this.style.color='var(--neon-purple)'; this.style.boxShadow='0 4px 15px rgba(168, 85, 247, 0.2)';">
                 <i data-lucide="play-circle" style="width: 22px; height: 22px;"></i> Yapay Zeka Rehberine Dön
             </a>
-
-            <!-- Sağ Buton (Sonraki: Tarihçe - Başa Sarar) -->
             <a href="../tarihce/index.html" style="display: flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 50px; background: rgba(16, 185, 129, 0.15); border: 1px solid var(--neon-green); color: var(--neon-green); text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);" onmouseover="this.style.background='var(--neon-green)'; this.style.color='#fff'; this.style.boxShadow='0 6px 20px rgba(16, 185, 129, 0.4)';" onmouseout="this.style.background='rgba(16, 185, 129, 0.15)'; this.style.color='var(--neon-green)'; this.style.boxShadow='0 4px 12px rgba(16, 185, 129, 0.2)';">
                 Başa Dön: YZ Tarihçesi <i data-lucide="arrow-right" style="width: 18px; height: 18px;"></i>
             </a>
-
         </div>
     </main>
 
