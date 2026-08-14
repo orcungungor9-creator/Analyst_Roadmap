@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -9,6 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
 </head>
 <body class="theme-light-purple formulas-page">
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('analyst_theme') || 'theme-light-purple';
+            if (savedTheme !== 'theme-dark') {
+                document.body.classList.add(savedTheme);
+            }
+        })();
+    </script>
     <!-- DİNAMİK ARKA PLAN GRAFİK AĞI (BG ANALYTICS MESH) -->
     <div class="bg-analytics-mesh">
         <div class="bg-chart-item bg-chart-1">
@@ -61,29 +69,151 @@
             </svg>
         </div>
     </div>
-
-    <script>
-        (function () {
-            const savedTheme = localStorage.getItem('analyst_theme') || 'theme-light-purple';
-            if (savedTheme !== 'theme-dark') {
-                document.body.classList.add(savedTheme);
-            }
-        })();
-    </script>
-    <section class="formulas-hero">
-        <div class="hero-content">
-            <div class="badge-pill floating-slow">AI Kullanım Rehberi</div>
-            <h1 class="hero-title" style="margin-bottom: 16px;">Yapay Zeka Kullanım Alanları</h1>
-            <p class="hero-subtitle">Yapay zekanın yalnızca üretken modellerden (GenAI) ibaret olmadığını gösteren, uçtan uca geniş uygulama yelpazesi.</p>
+    
+    <!-- YENİ HERO BÖLÜMÜ (Tarihçe Tarzı) -->
+    <section class="formulas-hero" style="position: relative; overflow: hidden; background: none; max-width: none; padding-top: 100px; padding-bottom: 80px;">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; opacity: 1; background: linear-gradient(135deg, rgba(168, 85, 247, 0.4), rgba(56, 189, 248, 0.4)); background-size: cover; background-position: center; mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);"></div>
+        <div class="hero-content" style="position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; padding: 40px;">
+            <div class="badge-pill floating-slow" style="background: rgba(15, 5, 30, 0.8); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(168, 85, 247, 0.5); color: #fff; margin-bottom: 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.6);">AI Kullanım Rehberi</div>
+            <h1 class="hero-title" style="margin-bottom: 20px; color: #ffffff; text-shadow: 0 8px 40px rgba(0,0,0,0.9), 0 4px 15px rgba(0,0,0,0.8), 0 0 60px rgba(168, 85, 247, 0.7); font-weight: 800; letter-spacing: -0.5px;">Yapay Zeka Kullanım Alanları</h1>
+            <p class="hero-subtitle" style="color: rgba(255,255,255,0.95); font-size: 1.3rem; line-height: 1.6; font-weight: 600; text-shadow: 0 4px 20px rgba(0,0,0,0.9), 0 2px 10px rgba(0,0,0,0.8); margin: 0;">Yapay zekanın yalnızca üretken modellerden (GenAI) ibaret olmadığını gösteren, uçtan uca geniş uygulama yelpazesi.</p>
         </div>
     </section>
-    <main class="formulas-main" style="max-width: 1200px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
-        <div class="glass" style="padding: 48px; border-radius: 28px; margin-bottom: 48px;">
-            <h2 class="section-title">Uygulama Yelpazesi</h2><ul style="color: var(--text-main); font-size: 1.15rem; line-height: 1.8; margin-top: 24px;"><li style="margin-bottom: 12px;"><strong>Bilgisayarlı Görü:</strong> Yüz tanıma, nesne tespiti, tıbbi görüntü analizi.</li><li style="margin-bottom: 12px;"><strong>Endüstriyel Otomasyon ve Robotik:</strong> Akıllı fabrikalar ve otonom üretim hatları.</li><li style="margin-bottom: 12px;"><strong>Tahmine Dayalı Analitik:</strong> Satış tahminleri, bakım zamanlamaları.</li><li style="margin-bottom: 12px;"><strong>Doğal Dil İşleme:</strong> Çeviri, duygu analizi, metin özetleme.</li><li style="margin-bottom: 12px;"><strong>Otonom Sistemler:</strong> Sürücüsüz araçlar, insansız hava araçları.</li></ul>
+
+    <!-- ANA İÇERİK (Premium Kartlar) -->
+    <main class="formulas-main" style="max-width: 1100px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px; position: relative; z-index: 2;">
+        <div class="story-list premium-layout">
+            
+            <div class="glass" style="padding: 40px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 60px; background: rgba(16, 185, 129, 0.03); backdrop-filter: blur(20px);">
+                <h2 style="font-size: 2.2rem; color: var(--neon-green); margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
+                    Uygulama Yelpazesi
+                </h2>
+                <p style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.8;">
+                    Yapay Zeka sadece bir sohbet robotundan ibaret değildir. Bugün akıllı telefonlardan modern fabrikalara, tıbbi teşhis merkezlerinden finansal piyasalara kadar hayatın her alanında farklı <strong>YZ (AI)</strong> disiplinleri gizlice çalışmaktadır. Aşağıda, temel YZ yeteneklerinin sektörleri nasıl dönüştürdüğünü inceleyebilirsiniz.
+                </p>
+            </div>
+
+            <!-- Kart 1: Bilgisayarlı Görü -->
+            <div class="step-wrapper" style="margin-bottom: 60px;">
+                <div class="guide-card glass-card story-text-card" style="padding: 0; overflow: hidden; border-radius: 24px;">
+                    <div style="width: 100%; height: 350px; position: relative; overflow: hidden; background: #000;">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(45deg, #0f172a, #38bdf8); opacity: 0.5;"></div>
+                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 150px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);"></div>
+                        <h2 style="position: absolute; bottom: 20px; left: 30px; color: #fff; font-size: 2.2rem; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.8); display: flex; align-items: center; gap: 12px;">Bilgisayarlı Görü</h2>
+                    </div>
+                    <div style="padding: 30px;">
+                        <p style="color: var(--text-main); font-size: 1.1rem; line-height: 1.8;">
+                            <strong>Bilgisayarlı Görü (Computer Vision)</strong>, makinelerin dijital görüntüleri, fotoğrafları ve canlı video akışlarını analiz ederek tıpkı bir insan gözü ve beyni gibi görsel veriyi anlamlandırmasını sağlayan bilim dalıdır. Piksellerdeki renk ve kontrast farklılıklarını matematiksel matrislere dönüştürerek nesne tespiti (object detection), yüz tanıma, semantik segmentasyon ve hareket analizi (pose estimation) gibi karmaşık görevleri milisaniyeler içinde gerçekleştirir.
+                            <br><br>
+                            <span style="color: var(--neon-blue); font-weight: 700; font-size: 1.2rem;">Farklı Sektörlerden Örnekler:</span>
+                            <br><br>
+                            • <strong >Sağlık ve Tıp:</strong> Radyoloji alanında MR, Tomografi ve X-Ray cihazlarından gelen görüntüleri piksel piksel inceleyerek, insan gözünün kaçırabileceği başlangıç aşamasındaki tümörleri veya mikroskobik doku bozukluklarını tespit eden erken teşhis sistemleri.<br><br>
+                            • <strong >Üretim ve Kalite Kontrol:</strong> Seri üretim bantlarında saniyede yüzlerce ürünü tarayarak, milimetrik çizikleri, eksik parçaları veya paketleme hatalarını tespit eden otonom hata yakalama kameraları.<br><br>
+                            • <strong >Perakende ve Güvenlik:</strong> Kameralar aracılığıyla mağaza içi müşteri davranışlarını analiz eden sistemler, kasa sırası beklemeden otomatik ödeme sağlayan otonom marketler ve biyometrik güvenlik taramaları.<br><br>
+                            • <strong >Tarım:</strong> İnsansız hava araçları (İHA) ile tarlaların havadan fotoğraflarını çekip, yaprak renginden bitkilerdeki hastalıkları tespit eden ve tam olarak nereye ilaçlama yapılması gerektiğini hesaplayan akıllı tarım sistemleri.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kart 2: Endüstriyel Otomasyon -->
+            <div class="step-wrapper" style="margin-bottom: 60px;">
+                <div class="guide-card glass-card story-text-card" style="padding: 0; overflow: hidden; border-radius: 24px;">
+                    <div style="width: 100%; height: 350px; position: relative; overflow: hidden; background: #000;">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(45deg, #0f172a, #f97316); opacity: 0.5;"></div>
+                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 150px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);"></div>
+                        <h2 style="position: absolute; bottom: 20px; left: 30px; color: #fff; font-size: 2.2rem; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.8); display: flex; align-items: center; gap: 12px;">Endüstriyel Otomasyon ve Robotik</h2>
+                    </div>
+                    <div style="padding: 30px;">
+                        <p style="color: var(--text-main); font-size: 1.1rem; line-height: 1.8;">
+                            Geleneksel robotik, katı kurallarla önceden programlanmış ve sadece aynı hareketi milyonlarca kez tekrar eden makinelerden oluşuyordu. <strong>Yapay Zeka Destekli Endüstriyel Otomasyon</strong> ise, çevreyle etkileşime girebilen, beklenmedik durumlara adaptasyon sağlayan ve kendi kendine öğrenen (reinforcement learning) akıllı sistemler anlamına gelir. Sensörler ve kameralar aracılığıyla çevrelerini algılayan bu robotlar, esnek ve dinamik kararlar alabilen otonom işçilere dönüşmüştür.
+                            <br><br>
+                            <span style="color: var(--neon-orange); font-weight: 700; font-size: 1.2rem;">Farklı Sektörlerden Örnekler:</span>
+                            <br><br>
+                            • <strong >Karanlık Fabrikalar (Dark Factories):</strong> Işığa veya insana ihtiyaç duymadan, 7/24 kesintisiz üretim yapabilen tam otonom tesisler. Hammadde girişinden ürünün paketlenmesine kadar tüm süreç yapay zeka tarafından koordine edilir.<br><br>
+                            • <strong >Akıllı Lojistik ve Depo Yönetimi:</strong> Devasa depolarda, milyonlarca raf arasında gezinerek siparişleri saniyeler içinde bulan, birbirleriyle çarpışmadan rota planlayan otonom mobil taşıyıcılar (AGV) ve drone'lar.<br><br>
+                            • <strong >Tehlikeli Ortam Operasyonları:</strong> İnsan sağlığı için riskli olan nükleer santral bakımları, derin deniz kaynak çalışmaları, patlayıcı madde imhası veya maden taramaları gibi alanlarda insan hata riskini sıfıra indiren akıllı otonom kollar.<br><br>
+                            • <strong >Hassas Cerrahi (Robotic Surgery):</strong> Doktorların el hareketlerini mikroskobik düzeyde hassasiyetle taklit eden, cerrahi aletleri milimetrenin onda biri keskinlikle yöneterek operasyon anında doku analizi yapabilen medikal tıp robotları.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kart 3: Tahmine Dayalı Analitik -->
+            <div class="step-wrapper" style="margin-bottom: 60px;">
+                <div class="guide-card glass-card story-text-card" style="padding: 0; overflow: hidden; border-radius: 24px;">
+                    <div style="width: 100%; height: 350px; position: relative; overflow: hidden; background: #000;">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(45deg, #0f172a, #c084fc); opacity: 0.5;"></div>
+                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 150px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);"></div>
+                        <h2 style="position: absolute; bottom: 20px; left: 30px; color: #fff; font-size: 2.2rem; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.8); display: flex; align-items: center; gap: 12px;">Tahmine Dayalı Analitik</h2>
+                    </div>
+                    <div style="padding: 30px;">
+                        <p style="color: var(--text-main); font-size: 1.1rem; line-height: 1.8;">
+                            Geleneksel veri analizi "Geçmişte ne oldu?" sorusuna yanıt verirken, <strong>Tahmine Dayalı Analitik (Predictive Analytics)</strong> makine öğrenimi ve derin öğrenme modellerini kullanarak "Gelecekte ne olması muhtemel?" sorusunu cevaplar. Devasa boyuttaki tarihsel veriler, istatistiksel algoritmalarla harmanlanarak gelecekteki eğilimler, riskler ve fırsatlar matematiksel olasılıklar dahilinde öngörülür.
+                            <br><br>
+                            <span style="color: var(--neon-purple); font-weight: 700; font-size: 1.2rem;">Farklı Sektörlerden Örnekler:</span>
+                            <br><br>
+                            • <strong >Kestirimci Bakım (Predictive Maintenance):</strong> Havacılık ve ağır sanayide, motorlardaki titreşim, ısı ve ses sensörlerinden akan verileri anlık işleyerek; makinenin ne zaman arızalanacağını haftalar öncesinden tahmin eden ve üretimi durdurmadan parça değişimini planlayan sistemler.<br><br>
+                            • <strong >Finans ve Risk Yönetimi:</strong> Kredi kartı işlemlerindeki anomali tespiti (fraud detection) ile dolandırıcılıkları saniyeler içinde bloke eden, borsa hareketlerini ve döviz kurlarını analiz ederek algoritmik (yüksek frekanslı) ticaret yapan sistemler.<br><br>
+                            • <strong >E-Ticaret ve Tedarik Zinciri:</strong> Müşterilerin geçmiş alışveriş alışkanlıklarını, hava durumunu, trendleri ve tatil dönemlerini aynı anda analiz edip; hangi bölgedeki depoya hangi üründen kaç adet gönderilmesi gerektiğini öngörerek stok maliyetini minimize eden algoritmalar.<br><br>
+                            • <strong >Sağlıkta Prognostik Çözümler:</strong> Bir hastanın genetik haritasını, yaşam tarzını ve kan değerlerini analiz ederek gelecekteki olası kronik hastalık risklerini tahmin edip önleyici kişiselleştirilmiş tedavi protokolleri sunan modeller.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kart 4: Doğal Dil İşleme -->
+            <div class="step-wrapper" style="margin-bottom: 60px;">
+                <div class="guide-card glass-card story-text-card" style="padding: 0; overflow: hidden; border-radius: 24px;">
+                    <div style="width: 100%; height: 350px; position: relative; overflow: hidden; background: #000;">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(45deg, #0f172a, #ec4899); opacity: 0.5;"></div>
+                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 150px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);"></div>
+                        <h2 style="position: absolute; bottom: 20px; left: 30px; color: #fff; font-size: 2.2rem; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.8); display: flex; align-items: center; gap: 12px;">Doğal Dil İşleme (NLP)</h2>
+                    </div>
+                    <div style="padding: 30px;">
+                        <p style="color: var(--text-main); font-size: 1.1rem; line-height: 1.8;">
+                            <strong>Doğal Dil İşleme (NLP - Natural Language Processing)</strong>, makinelerin insanların kullandığı dilleri kelime kelime değil, bağlamsal, anlamsal ve kültürel boyutlarıyla okumasını, anlamasını ve yeni metinler üretebilmesini sağlayan YZ dalıdır. Geleneksel kural tabanlı sistemlerin aksine, modern Büyük Dil Modelleri (LLM'ler) milyarlarca parametre ile kelimelerin matematiksel vektör uzayındaki ilişkilerini kurarak insan benzeri akıl yürütme illüzyonu yaratır.
+                            <br><br>
+                            <span style="color: var(--neon-pink); font-weight: 700; font-size: 1.2rem;">Farklı Sektörlerden Örnekler:</span>
+                            <br><br>
+                            • <strong >İçerik Üretimi ve Müşteri Destek:</strong> Müşterilerin karmaşık sorularına ezberlenmiş metinlerle değil, duruma özel sentezlenmiş orijinal cevaplar veren yeni nesil akıllı asistanlar (ChatGPT, Claude vb.) ve dinamik çağrı merkezi sistemleri.<br><br>
+                            • <strong >Duygu Analizi (Sentiment Analysis):</strong> Markaların sosyal medya, forumlar ve şikayet sitelerindeki yüz binlerce müşteri yorumunu saniyeler içinde tarayıp; kitlenin ürün hakkındaki memnuniyet, öfke, alaycılık (sarkazm) veya beğeni durumunu nicel metriklerle raporlayan algoritmalar.<br><br>
+                            • <strong >Hukuk ve Finans Sözleşmeleri:</strong> Hukuk firmalarında binlerce sayfalık içtihat dosyalarını, geçmiş mahkeme kararlarını ve karmaşık finansal sözleşmeleri saniyeler içinde okuyup analiz eden, çelişen maddeleri ve kritik argümanları özetleyerek uzmanlara rapor sunan yapay zeka yazılımları.<br><br>
+                            • <strong >Bağlamsal Dil Çevirisi:</strong> Google Çeviri gibi sistemlerin ötesine geçerek, akademik metinlerin, edebi eserlerin veya bölgesel argoların çevirisinde cümlenin sadece kelimelerini değil, altında yatan edebi veya kültürel manayı anlayarak çeviri yapan eş zamanlı sesli/yazılı sistemler.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kart 5: Otonom Sistemler -->
+            <div class="step-wrapper" style="margin-bottom: 60px;">
+                <div class="guide-card glass-card story-text-card" style="padding: 0; overflow: hidden; border-radius: 24px;">
+                    <div style="width: 100%; height: 350px; position: relative; overflow: hidden; background: #000;">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(45deg, #0f172a, #06b6d4); opacity: 0.5;"></div>
+                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 150px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);"></div>
+                        <h2 style="position: absolute; bottom: 20px; left: 30px; color: #fff; font-size: 2.2rem; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.8); display: flex; align-items: center; gap: 12px;">Otonom Sistemler</h2>
+                    </div>
+                    <div style="padding: 30px;">
+                        <p style="color: var(--text-main); font-size: 1.1rem; line-height: 1.8;">
+                            <strong>Otonom Sistemler</strong>, Yapay Zekanın yalnızca dijital dünyada (ekranda) kalmayıp fiziksel dünya ile etkileşime geçtiği; bilgisayarlı görü, makine öğrenimi, sensör füzyonu ve tahmine dayalı analitiğin birleştiği en üst düzey disiplindir. Çevreden gelen LIDAR, radar, kamera ve sonar verilerini mikrosaniyeler içinde işleyerek insan müdahalesi olmadan rota planlama, çarpışmadan kaçınma ve anlık inisiyatif alma kabiliyetine sahiptirler.
+                            <br><br>
+                            <span style="color: var(--neon-cyan); font-weight: 700; font-size: 1.2rem;">Farklı Sektörlerden Örnekler:</span>
+                            <br><br>
+                            • <strong >Otonom Kara Araçları (Sürücüsüz Araçlar):</strong> Trafik işaretlerini okuyan, yayaların ve diğer araçların bir sonraki saniyedeki muhtemel hareketlerini tahmin ederek fren veya direksiyon kararları veren, milyonlarca kilometrelik sürüş verisiyle sürekli kendini eğiten otonom sürüş algoritmaları (Waymo, Tesla FSD vb.).<br><br>
+                            • <strong >Akıllı Ulaşım ve Trafik Yönetimi:</strong> Yalnızca araçları değil, şehrin tüm trafik ışıklarını, yoğunluk haritalarını ve kazaları bulut üzerinden izleyip, ambulans ve itfaiyeler için en hızlı "yeşil dalga" koridorlarını saniyeler içinde optimize eden otonom akıllı şehir şebekeleri.<br><br>
+                            • <strong >Uzay ve Gezegen Keşfi:</strong> Dünya ile olan iletişim gecikmesi (ışık hızı sınırı) nedeniyle uzaktan kumanda edilemeyen Mars Rover'ları (Perseverance gibi). Bu araçlar, devasa kayaların arasından nasıl geçeceklerine, hangi kraterde araştırma yapacaklarına ve tehlikelerden nasıl kaçınacaklarına tamamen kendi başlarına karar veren yapay beyinlere sahiptir.<br><br>
+                            • <strong >Savunma ve Güvenlik:</strong> Sürü mantığıyla (swarm robotics) hareket eden, çevresel unsurları otonom olarak sınıflandıran ve birbiriyle eşzamanlı iletişim kurarak taktiksel uçuş formasyonları düzenleyen yeni nesil akıllı insansız hava/deniz araçları.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
         </div>
+
+        <!-- LOOP NAVIGASYON -->
         <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 60px; margin-bottom: 40px; padding-top: 30px; border-top: 1px solid var(--glass-border);">
             
-            <!-- Sol Buton (Önceki) -->
+            <!-- Sol Buton (Önceki: Tarihçe) -->
             <a href="../tarihce/index.html" style="display: flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 50px; background: rgba(56, 189, 248, 0.15); border: 1px solid var(--neon-blue); color: var(--neon-blue); text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(56, 189, 248, 0.2);" onmouseover="this.style.background='var(--neon-blue)'; this.style.color='#fff'; this.style.boxShadow='0 6px 20px rgba(56, 189, 248, 0.4)';" onmouseout="this.style.background='rgba(56, 189, 248, 0.15)'; this.style.color='var(--neon-blue)'; this.style.boxShadow='0 4px 12px rgba(56, 189, 248, 0.2)';">
                 <i data-lucide="arrow-left" style="width: 18px; height: 18px;"></i> Önceki: Tarihçe
             </a>
@@ -93,17 +223,17 @@
                 <i data-lucide="play-circle" style="width: 22px; height: 22px;"></i> Yapay Zeka Rehberine Dön
             </a>
 
-            <!-- Sağ Buton (Sonraki) -->
+            <!-- Sağ Buton (Sonraki: Hangi YZ) -->
             <a href="../hangi-yz/index.html" style="display: flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 50px; background: rgba(16, 185, 129, 0.15); border: 1px solid var(--neon-green); color: var(--neon-green); text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);" onmouseover="this.style.background='var(--neon-green)'; this.style.color='#fff'; this.style.boxShadow='0 6px 20px rgba(16, 185, 129, 0.4)';" onmouseout="this.style.background='rgba(16, 185, 129, 0.15)'; this.style.color='var(--neon-green)'; this.style.boxShadow='0 4px 12px rgba(16, 185, 129, 0.2)';">
                 Sonraki: Hangi YZ <i data-lucide="arrow-right" style="width: 18px; height: 18px;"></i>
             </a>
 
         </div>
     </main>
-        <script src="../../js/components.js"></script>
+
+    <script src="../../js/components.js"></script>
     <script src="../../js/nav.js"></script>
     <script src="../../js/modal.js"></script>
     <script src="../../js/script.js"></script>
-    <script src="script.js"></script>
 </body>
 </html>
