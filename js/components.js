@@ -120,11 +120,11 @@ const HEADER_HTML = `
                         <a href="${pathPrefix}index.html#ai-guides-section" class="dropdown-item ai-rehber-hover" style="border-bottom: 1px dashed rgba(192, 132, 252, 0.3); border-radius: 0; justify-content: center;"><i data-lucide="book-open" style="width: 16px; height: 16px; margin-right: 6px; color: var(--neon-purple);"></i> Tüm AI Rehberlerini Gör</a>
                         <a href="${pathPrefix}yapay-zeka/tarihce/index.html" class="dropdown-item ai-rehber-hover">⏳ Tarihçe ve Dönüm Noktaları</a>
                         <a href="${pathPrefix}yapay-zeka/kullanim-alanlari/index.html" class="dropdown-item ai-rehber-hover">🌐 Yapay Zeka Kullanım Alanları</a>
-                        <a href="${pathPrefix}yapay-zeka/hangi-yz/index.html" class="dropdown-item ai-rehber-hover">⚖️ Hangi YZ Ne İçin Kullanılmalı?</a>
+                        <a href="${pathPrefix}yapay-zeka/ajan-sistemler/index.html" class="dropdown-item ai-rehber-hover">🤖 Ajan Sistemler (Agentic AI)</a>
                         <a href="${pathPrefix}yapay-zeka/temel-bilesenler/index.html" class="dropdown-item ai-rehber-hover">🧩 Temel Bileşenler</a>
                         <a href="${pathPrefix}yapay-zeka/ileri-teknikler/index.html" class="dropdown-item ai-rehber-hover">🚀 İleri YZ Prompt Teknikleri</a>
                         <a href="${pathPrefix}yapay-zeka/prompt-debugging/index.html" class="dropdown-item ai-rehber-hover">🐛 Prompt Debugging</a>
-                        <a href="${pathPrefix}yapay-zeka/rag-ve-ajanlar/index.html" class="dropdown-item ai-rehber-hover">🤖 RAG ve YZ Ajanları</a>
+                        <a href="${pathPrefix}yapay-zeka/rag-sistemleri/index.html" class="dropdown-item ai-rehber-hover">🧠 RAG (Retrieval-Augmented Generation)</a>
                     </div>
                 </div>
             </nav>
@@ -247,11 +247,11 @@ const MOBILE_NAV_HTML = `
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}index.html#ai-guides-section'; closeNavMenu();" style="font-size: 0.9rem; padding: 12px 16px; border-bottom: 1px dashed rgba(192, 132, 252, 0.3); border-radius: 0; display: flex; align-items: center;"><i data-lucide="book-open" style="width: 16px; height: 16px; margin-right: 8px; color: var(--neon-purple);"></i> Tüm AI Rehberlerini Gör</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}yapay-zeka/tarihce/index.html'" style="font-size: 0.9rem; padding: 12px 16px;">⏳ Tarihçe ve Dönüm Noktaları</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}yapay-zeka/kullanim-alanlari/index.html'" style="font-size: 0.9rem; padding: 12px 16px;">🌐 Yapay Zeka Kullanım Alanları</button>
-                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}yapay-zeka/hangi-yz/index.html'" style="font-size: 0.9rem; padding: 12px 16px;">⚖️ Hangi YZ Ne İçin Kullanılmalı?</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}yapay-zeka/ajan-sistemler/index.html'" style="font-size: 0.9rem; padding: 12px 16px;">🤖 Ajan Sistemler (Agentic AI)</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}yapay-zeka/temel-bilesenler/index.html'" style="font-size: 0.9rem; padding: 12px 16px;">🧩 Temel Bileşenler</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}yapay-zeka/ileri-teknikler/index.html'" style="font-size: 0.9rem; padding: 12px 16px;">🚀 İleri YZ Prompt Teknikleri</button>
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}yapay-zeka/prompt-debugging/index.html'" style="font-size: 0.9rem; padding: 12px 16px;">🐛 Prompt Debugging</button>
-                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}yapay-zeka/rag-ve-ajanlar/index.html'" style="font-size: 0.9rem; padding: 12px 16px;">🤖 RAG ve YZ Ajanları</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}yapay-zeka/rag-sistemleri/index.html'" style="font-size: 0.9rem; padding: 12px 16px;">🧠 RAG (Retrieval-Augmented Generation)</button>
             </div>
 
             <div style="width: 100%; margin: 12px 0 4px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">

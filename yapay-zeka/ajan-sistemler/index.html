@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajan Sistemler ve Otonom Mimari | AI Kullanım Rehberi</title>
+    <link rel="stylesheet" href="../../css/styles.css?v=3.4">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="theme-light-purple formulas-page">
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('analyst_theme') || 'theme-light-purple';
+            if (savedTheme !== 'theme-dark') {
+                document.body.classList.add(savedTheme);
+            }
+        })();
+    </script>
+    
+    <!-- DİNAMİK ARKA PLAN GRAFİK AĞI (BG ANALYTICS MESH) -->
+    <div class="bg-analytics-mesh">
+        <div class="bg-chart-item bg-chart-1">
+            <svg viewBox="0 0 400 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="bg-area-grad-1" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="var(--neon-blue)" stop-opacity="0.4" />
+                        <stop offset="100%" stop-color="var(--neon-blue)" stop-opacity="0.0" />
+                    </linearGradient>
+                </defs>
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40 L 370,190 L 10,190 Z" fill="url(#bg-area-grad-1)" />
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40" fill="none" stroke="var(--neon-blue)" stroke-width="4" stroke-linecap="round" />
+                <circle cx="130" cy="150" r="6" fill="var(--neon-green)" />
+                <circle cx="250" cy="90" r="6" fill="var(--neon-purple)" />
+                <circle cx="370" cy="40" r="8" fill="var(--neon-blue)"></circle>
+            </svg>
+        </div>
+        <div class="bg-chart-item bg-chart-2">
+            <svg viewBox="0 0 200 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <g transform="translate(100,100)">
+                    <path d="M 0,-80 A 80,80 0 0,1 76,25 L 57,18 A 60,60 0 0,0 0,-60 Z" fill="var(--neon-blue)" />
+                    <path d="M 76,25 A 80,80 0 0,1 -64,48 L -48,36 A 60,60 0 0,0 57,18 Z" fill="var(--neon-green)" />
+                    <path d="M -64,48 A 80,80 0 0,1 0,-80 L 0,-60 A 60,60 0 0,0 -48,36 Z" fill="var(--neon-purple)" />
+                    <circle cx="0" cy="0" r="45" fill="none" stroke="var(--glass-border)" stroke-width="2" stroke-dasharray="5,5" />
+                </g>
+            </svg>
+        </div>
+        <div class="bg-chart-item bg-chart-3">
+            <svg viewBox="0 0 250 250" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <line x1="20" y1="50" x2="230" y2="50" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4" />
+                <line x1="20" y1="100" x2="230" y2="100" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4" />
+                <line x1="20" y1="150" x2="230" y2="150" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4" />
+                <line x1="20" y1="200" x2="230" y2="200" stroke="var(--glass-border)" stroke-width="2" />
+                <rect x="35" y="120" width="30" height="80" rx="6" fill="var(--neon-blue)"></rect>
+                <rect x="85" y="70" width="30" height="130" rx="6" fill="var(--neon-green)"></rect>
+                <rect x="135" y="150" width="30" height="50" rx="6" fill="var(--neon-purple)"></rect>
+                <rect x="185" y="90" width="30" height="110" rx="6" fill="var(--neon-blue)"></rect>
+            </svg>
+        </div>
+    </div>
+    
+    <!-- YENİ HERO BÖLÜMÜ -->
+    <section class="formulas-hero" style="position: relative; overflow: hidden; background: none; max-width: none; padding-top: 100px; padding-bottom: 80px;">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; opacity: 1; background: linear-gradient(135deg, rgba(16, 185, 129, 0.4), rgba(56, 189, 248, 0.4)); mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);"></div>
+        <div class="hero-content" style="position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; padding: 40px;">
+            <div class="badge-pill floating-slow" style="background: rgba(15, 5, 30, 0.8); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(168, 85, 247, 0.5); color: #fff; margin-bottom: 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.6);">AI Kullanım Rehberi</div>
+            <h1 class="hero-title" style="margin-bottom: 20px; color: #ffffff; text-shadow: 0 8px 40px rgba(0,0,0,0.9), 0 4px 15px rgba(0,0,0,0.8), 0 0 60px rgba(168, 85, 247, 0.7); font-weight: 800; letter-spacing: -0.5px;">Ajan Sistemler (Agentic AI) ve Otonom Mimari</h1>
+            <p class="hero-subtitle" style="color: rgba(255,255,255,0.95); font-size: 1.3rem; line-height: 1.6; font-weight: 600; text-shadow: 0 4px 20px rgba(0,0,0,0.9), 0 2px 10px rgba(0,0,0,0.8); margin: 0;">Sadece sorulara cevap veren pasif sohbet botlarından; plan yapan, karar alan, hata düzelten ve görevleri otonom olarak uçtan uca çözen aktif dijital işçilere (AI Agents) geçiş.</p>
+        </div>
+    </section>
+
+    <!-- ANA İÇERİK (Premium Kartlar) -->
+    <main class="formulas-main" style="max-width: 1100px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px; position: relative; z-index: 2;">
+        <div class="story-list premium-layout">
+            
+            <div class="glass" style="padding: 40px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 60px; background: rgba(56, 189, 248, 0.03); backdrop-filter: blur(20px);">
+                <h2 style="font-size: 2.2rem; color: var(--neon-blue); margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
+                    Yapay Zekanın Yeni Evresi
+                </h2>
+                <p style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.8;">
+                    ChatGPT gibi ilk nesil LLM'ler (Büyük Dil Modelleri) olağanüstü zeki olmalarına rağmen <strong>pasiftir</strong>. Siz bir metin (prompt) girene kadar beklerler, tek seferlik bir metin üretip dururlar. Gerçek dünyada bir "işi bitirmek" (örneğin internetten veri çekip excel'e kaydetmek ve bir rapor oluşturup mail atmak) için modellerin sadece kelime üretmesi değil, <strong>harekete geçmesi</strong> gerekir. İşte bu noktada <strong>Ajan (Agent)</strong> kavramı devreye girer. Ajanlar, YZ'ye eller (araçlar), gözler (tarayıcılar) ve planlama yeteneği (beyin) verilmiş halidir.
+                </p>
+            </div>
+
+            <!-- Kart 1: Ajan Sistem Nedir? -->
+            <div class="step-wrapper" style="margin-bottom: 60px;">
+                <div class="guide-card glass-card story-text-card" style="padding: 0; overflow: hidden; border-radius: 24px;">
+                    <div style="width: 100%; height: 250px; position: relative; overflow: hidden; background: linear-gradient(45deg, #0f172a, #38bdf8); opacity: 0.85;">
+                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 150px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);"></div>
+                        <h2 style="position: absolute; bottom: 20px; left: 30px; color: #fff; font-size: 2.2rem; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.8); display: flex; align-items: center; gap: 12px;">Ajan Sistem (Agentic AI) Nedir?</h2>
+                    </div>
+                    <div style="padding: 30px;">
+                        <p style="color: var(--text-main); font-size: 1.1rem; line-height: 1.8;">
+                            Bir Ajan (Agent), kendisine yüksek seviyeli bir hedef (örn: "Piyasadaki en iyi 3 elektrikli arabayı karşılaştıran bir tablo hazırla") verildiğinde, <strong>kendi başına karar alabilen ve eyleme geçebilen</strong> YZ mimarisidir.
+                            <br><br>
+                            Bir ajan doğrudan metin üretip durmaz. Önce <strong>düşünür</strong>: "Bunun için internete girmeliyim". Sonra <strong>harekete geçer</strong>: Web'i arar. Bulduğu veriyi okur, hafızasında tutar, eksik bilgi varsa yeni bir arama daha yapar, verileri sentezler ve son olarak tabloyu oluşturur. Bu süreçte karşılaştığı hataları (örneğin girdiği sitenin açılmaması) kendi kendine fark edip (self-reflection) farklı bir çözüm yolu (alternatif site arama) bulur. Bu, yapay zekanın "asistanlıktan" "işçiliğe" (worker) geçişidir.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kart 2: Otonom Mimari ve İş Akışı -->
+            <div class="step-wrapper" style="margin-bottom: 60px;">
+                <div class="guide-card glass-card story-text-card" style="padding: 0; overflow: hidden; border-radius: 24px;">
+                    <div style="width: 100%; height: 250px; position: relative; overflow: hidden; background: linear-gradient(45deg, #0f172a, #10b981); opacity: 0.85;">
+                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 150px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);"></div>
+                        <h2 style="position: absolute; bottom: 20px; left: 30px; color: #fff; font-size: 2.2rem; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.8); display: flex; align-items: center; gap: 12px;">Otonom Mimari (Agent Architecture)</h2>
+                    </div>
+                    <div style="padding: 30px;">
+                        <p style="color: var(--text-main); font-size: 1.1rem; line-height: 1.8;">
+                            Bir YZ modelini otonom bir ajana dönüştüren mimarinin merkezinde LLM (dil modeli) bulunur. Ancak bu beyin, üç kritik dış bileşenle desteklenir:
+                            <br><br>
+                            <span style="color: var(--neon-green); font-weight: 700; font-size: 1.2rem;">Kritik Bileşenler:</span>
+                            <br><br>
+                            • <strong>Planlama (Planning):</strong> Ana hedefi küçük alt görevlere (sub-tasks) bölme yeteneği. Ajan, Chain of Thought (Düşünce Zinciri) veya ReAct (Reason + Act) gibi teknikler kullanarak adım adım düşünür: <em>"Önce A'yı yapmalıyım, A bittikten sonra çıkan sonuca göre B'yi yapmalıyım."</em><br><br>
+                            • <strong>Hafıza (Memory):</strong> Hem geçmişte yaptığı benzer işleri hatırladığı Uzun Süreli Hafıza (Vektör veritabanları), hem de o anki işlem adımlarını tuttuğu Kısa Süreli Hafıza (Context) sayesinde kaybolmadan çalışır.<br><br>
+                            • <strong>Araç Kullanımı (Tool Use / Function Calling):</strong> Ajanların fiziksel/dijital dünyayla etkileşime geçtiği "elleridir". YZ modeli; Google'da arama yapabilir (Search API), Python kodu yazıp çalıştırabilir (Code Interpreter), veri tabanına sorgu atabilir veya birine e-posta gönderebilir (SMTP API).
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kart 3: Çoklu Ajan Sistemleri -->
+            <div class="step-wrapper" style="margin-bottom: 60px;">
+                <div class="guide-card glass-card story-text-card" style="padding: 0; overflow: hidden; border-radius: 24px;">
+                    <div style="width: 100%; height: 250px; position: relative; overflow: hidden; background: linear-gradient(45deg, #0f172a, #f59e0b); opacity: 0.85;">
+                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 150px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);"></div>
+                        <h2 style="position: absolute; bottom: 20px; left: 30px; color: #fff; font-size: 2.2rem; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.8); display: flex; align-items: center; gap: 12px;">Çoklu Ajan Sistemleri (Multi-Agent Systems)</h2>
+                    </div>
+                    <div style="padding: 30px;">
+                        <p style="color: var(--text-main); font-size: 1.1rem; line-height: 1.8;">
+                            Nasıl ki büyük bir projeyi tek bir insan yerine bir ekip çok daha iyi yapıyorsa, YZ'de de aynı mantık geçerlidir. <strong>Çoklu Ajan (Multi-Agent)</strong> mimarisinde, farklı görevler için özelleşmiş (farklı promptlarla sınırlandırılmış) ajanlar birbiriyle konuşur ve işbirliği yapar.
+                            <br><br>
+                            Örneğin bir yazılım projesi için üç farklı ajan kurabilirsiniz:<br>
+                            1. <strong>Yazılımcı Ajan:</strong> Sadece kod yazmaya odaklanır.<br>
+                            2. <strong>Testçi Ajan (QA):</strong> Yazılımcı ajanın yazdığı kodu alıp test eder, hata bulursa yazılımcıya geri gönderip <em>"Şu satırda bellek sızıntısı var, düzelt"</em> der.<br>
+                            3. <strong>Yönetici Ajan (Manager):</strong> Kullanıcıdan (sizden) gelen talebi alıp, işi yazılımcı ve testçi arasında koordine eder.<br><br>
+                            Microsoft'un <strong>AutoGen</strong> veya açık kaynaklı <strong>CrewAI</strong> gibi kütüphaneler, bu dijital ekipleri kurup arka planda kendi aralarında çalışmalarını izlemenizi sağlayan mimarilerdir.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kart 4: Gerçek Dünya Kullanım Senaryoları -->
+            <div class="step-wrapper" style="margin-bottom: 60px;">
+                <div class="guide-card glass-card story-text-card" style="padding: 0; overflow: hidden; border-radius: 24px;">
+                    <div style="width: 100%; height: 250px; position: relative; overflow: hidden; background: linear-gradient(45deg, #0f172a, #ec4899); opacity: 0.85;">
+                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 150px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);"></div>
+                        <h2 style="position: absolute; bottom: 20px; left: 30px; color: #fff; font-size: 2.2rem; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.8); display: flex; align-items: center; gap: 12px;">Gerçek Dünya Kullanım Senaryoları</h2>
+                    </div>
+                    <div style="padding: 30px;">
+                        <p style="color: var(--text-main); font-size: 1.1rem; line-height: 1.8;">
+                            Ajan mimarisi teorik bir konsept olmaktan çıkmış, bugün kurumsal süreçleri ve kişisel üretkenliği dönüştürmeye başlamıştır.
+                            <br><br>
+                            <span style="color: var(--neon-pink); font-weight: 700; font-size: 1.2rem;">Günümüzden Örnekler:</span>
+                            <br><br>
+                            • <strong>Otonom Yazılım Geliştiriciler (Devin AI):</strong> Kendisine bir GitHub repo adresi ve bir hata (bug) raporu verdiğinizde, repoyu klonlayan, kodu okuyan, kendi ortamında terminal açıp kodu derleyen, hatayı bulup düzelten ve size hazır bir "Pull Request" (PR) atan tam otonom yapay zeka mühendisleri.<br><br>
+                            • <strong>Otonom Finansal Araştırmacılar:</strong> Yatırım şirketlerinde, "Bana son 5 yılda yenilenebilir enerji sektöründe faaliyet gösteren şirketlerin çeyreklik kâr marjlarını bul, karşılaştır ve bana Excel'de grafiklerle raporla" dediğinizde, günlerce sürecek araştırmayı interneti tarayarak ve verileri sentezleyerek saatler içinde bitiren pazar araştırma ajanları.<br><br>
+                            • <strong>Kişisel Asistanlar:</strong> "Bilgisayar Yönetimi" (Computer Use) yeteneğine sahip ajanlar (Örn: Claude 3.5 Sonnet'in yeni bilgisayar kontrol özelliği), ekrana gerçekten bakar, farenizi hareket ettirir ve sizin adınıza web sitelerinde bilet alma veya form doldurma işlemlerini tıklayarak yapar.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- LOOP NAVIGASYON -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 60px; margin-bottom: 40px; padding-top: 30px; border-top: 1px solid var(--glass-border);">
+            
+            <!-- Sol Buton (Önceki: Kullanım Alanları) -->
+            <a href="../kullanim-alanlari/index.html" style="display: flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 50px; background: rgba(56, 189, 248, 0.15); border: 1px solid var(--neon-blue); color: var(--neon-blue); text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(56, 189, 248, 0.2);" onmouseover="this.style.background='var(--neon-blue)'; this.style.color='#fff'; this.style.boxShadow='0 6px 20px rgba(56, 189, 248, 0.4)';" onmouseout="this.style.background='rgba(56, 189, 248, 0.15)'; this.style.color='var(--neon-blue)'; this.style.boxShadow='0 4px 12px rgba(56, 189, 248, 0.2)';">
+                <i data-lucide="arrow-left" style="width: 18px; height: 18px;"></i> Önceki: Kullanım Alanları
+            </a>
+
+            <!-- Orta Buton -->
+            <a href="../../index.html#ai-guides-section" style="display: flex; align-items: center; gap: 10px; padding: 14px 32px; border-radius: 50px; background: rgba(168, 85, 247, 0.15); border: 1px solid var(--neon-purple); color: var(--neon-purple); text-decoration: none; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(168, 85, 247, 0.2); transition: all 0.3s ease;" onmouseover="this.style.background='var(--neon-purple)'; this.style.color='#fff'; this.style.boxShadow='0 8px 25px rgba(168, 85, 247, 0.4)';" onmouseout="this.style.background='rgba(168, 85, 247, 0.15)'; this.style.color='var(--neon-purple)'; this.style.boxShadow='0 4px 15px rgba(168, 85, 247, 0.2)';">
+                <i data-lucide="play-circle" style="width: 22px; height: 22px;"></i> Yapay Zeka Rehberine Dön
+            </a>
+
+            <!-- Sağ Buton (Sonraki: Temel Bileşenler) -->
+            <a href="../temel-bilesenler/index.html" style="display: flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 50px; background: rgba(16, 185, 129, 0.15); border: 1px solid var(--neon-green); color: var(--neon-green); text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);" onmouseover="this.style.background='var(--neon-green)'; this.style.color='#fff'; this.style.boxShadow='0 6px 20px rgba(16, 185, 129, 0.4)';" onmouseout="this.style.background='rgba(16, 185, 129, 0.15)'; this.style.color='var(--neon-green)'; this.style.boxShadow='0 4px 12px rgba(16, 185, 129, 0.2)';">
+                Sonraki: Temel Bileşenler <i data-lucide="arrow-right" style="width: 18px; height: 18px;"></i>
+            </a>
+
+        </div>
+    </main>
+
+    <script src="../../js/components.js"></script>
+    <script src="../../js/nav.js"></script>
+    <script src="../../js/modal.js"></script>
+    <script src="../../js/script.js"></script>
+</body>
+</html>
