@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +9,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
 </head>
 <body class="theme-light-purple formulas-page">
-    <!-- DİNAMİK ARKA PLAN GRAFİK AĞI (BG ANALYTICS MESH) -->
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('analyst_theme') || 'theme-light-purple';
+            if (savedTheme !== 'theme-dark') {
+                document.body.classList.add(savedTheme);
+            }
+        })();
+    </script>
+    
     <div class="bg-analytics-mesh">
         <div class="bg-chart-item bg-chart-1">
             <svg viewBox="0 0 400 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
@@ -48,62 +56,123 @@
                 <rect x="185" y="90" width="30" height="110" rx="6" fill="var(--neon-blue)"></rect>
             </svg>
         </div>
-        <div class="bg-chart-item bg-chart-4">
-            <svg viewBox="0 0 280 220" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                <line x1="50" y1="30" x2="50" y2="170" stroke="var(--neon-green)" stroke-width="3" />
-                <rect x="38" y="70" width="24" height="60" rx="4" fill="var(--neon-green)" />
-                <line x1="110" y1="50" x2="110" y2="190" stroke="var(--neon-blue)" stroke-width="3" />
-                <rect x="98" y="90" width="24" height="70" rx="4" fill="var(--neon-blue)" />
-                <line x1="170" y1="20" x2="170" y2="150" stroke="var(--neon-purple)" stroke-width="3" />
-                <rect x="158" y="50" width="24" height="50" rx="4" fill="var(--neon-purple)" />
-                <line x1="230" y1="60" x2="230" y2="200" stroke="var(--neon-green)" stroke-width="3" />
-                <rect x="218" y="100" width="24" height="55" rx="4" fill="var(--neon-green)" />
-            </svg>
-        </div>
     </div>
-
-    <script>
-        (function () {
-            const savedTheme = localStorage.getItem('analyst_theme') || 'theme-light-purple';
-            if (savedTheme !== 'theme-dark') {
-                document.body.classList.add(savedTheme);
-            }
-        })();
-    </script>
-    <section class="formulas-hero">
-        <div class="hero-content">
-            <div class="badge-pill floating-slow">AI Kullanım Rehberi</div>
-            <h1 class="hero-title" style="margin-bottom: 16px;">Temel Bileşenler</h1>
-            <p class="hero-subtitle">Başarılı ve tutarlı bir prompt yazmak için kurgulanması gereken temel yapıtaşları.</p>
+    
+    <section class="formulas-hero" style="position: relative; overflow: hidden; background: none; max-width: none; padding-top: 100px; padding-bottom: 80px;">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; opacity: 1; background: linear-gradient(135deg, rgba(168, 85, 247, 0.4), rgba(56, 189, 248, 0.4)); mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);"></div>
+        <div class="hero-content" style="position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; padding: 40px;">
+            <div class="badge-pill floating-slow" style="background: rgba(15, 5, 30, 0.8); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(168, 85, 247, 0.5); color: #fff; margin-bottom: 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.6);">AI Kullanım Rehberi</div>
+            <h1 class="hero-title" style="margin-bottom: 20px; color: #ffffff; text-shadow: 0 8px 40px rgba(0,0,0,0.9), 0 4px 15px rgba(0,0,0,0.8), 0 0 60px rgba(168, 85, 247, 0.7); font-weight: 800; letter-spacing: -0.5px;">Temel Bileşenler (Prompt, Token, LLM)</h1>
+            <p class="hero-subtitle" style="color: rgba(255,255,255,0.95); text-shadow: 0 4px 20px rgba(0,0,0,0.9), 0 2px 10px rgba(0,0,0,0.8); margin: 0;">Başarılı ve tutarlı bir yapay zeka deneyimi yaşamak için kurgulanması gereken mimari yapıtaşları ve modelin arka plan işleyişi.</p>
         </div>
     </section>
-    <main class="formulas-main" style="max-width: 1200px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
-        <div class="glass" style="padding: 48px; border-radius: 28px; margin-bottom: 48px;">
-            <h2 class="section-title">Temel Yapıtaşları</h2><ul style="color: var(--text-main); font-size: 1.15rem; line-height: 1.8; margin-top: 24px;"><li style="margin-bottom: 12px;"><strong>Rol tanımlama:</strong> Yapay zekaya nasıl davranması gerektiğini belirtmek.</li><li style="margin-bottom: 12px;"><strong>Bağlam:</strong> Görevin arka planı ve gereksinimleri hakkında bilgi vermek.</li><li style="margin-bottom: 12px;"><strong>Görev:</strong> Ne yapılması gerektiğini net bir şekilde ifade etmek.</li><li style="margin-bottom: 12px;"><strong>Kısıtlamalar:</strong> Yapılmaması gerekenleri veya sınırları belirlemek.</li><li style="margin-bottom: 12px;"><strong>Çıktı Formatı:</strong> İstenilen sonucun formatını (tablo, kod, metin vb.) tarif etmek.</li></ul>
-        </div>
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 60px; margin-bottom: 40px; padding-top: 30px; border-top: 1px solid var(--glass-border);">
+
+    <main class="formulas-main" style="max-width: 1100px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px; position: relative; z-index: 2;">
+        <div class="story-list premium-layout">
             
-            <!-- Sol Buton (Önceki) -->
+            <div class="glass" style="padding: 40px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 60px; background: rgba(168, 85, 247, 0.03); backdrop-filter: blur(20px);">
+                <h2 style="font-size: 2.2rem; color: var(--neon-purple); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; text-align: center; justify-content: center;">
+                    Makine ile Konuşma Sanatı
+                </h2>
+                <p style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.8; text-align: center;">
+                    Büyük dil modellerini (LLM) kullanmak arama motorlarında kelime aratmaya benzemez. Yapay zeka ile etkileşime girmek; net, kısıtlayıcı ve yönlendirici komutlar (Prompt) yazmayı gerektirir. Eğer makinenin sizin dilinizi nasıl "token"lara böldüğünü ve hafıza sınırının (Context Window) ne olduğunu bilmezseniz, ne kadar zeki bir model kullanırsanız kullanın ortalama sonuçlar elde edersiniz.
+                </p>
+            </div>
+
+            <!-- Kart 1 -->
+            <div class="step-wrapper" style="margin-bottom: 60px;">
+                <div class="guide-card glass-card story-text-card" style="padding: 0; overflow: hidden; border-radius: 24px;">
+                    <div style="width: 100%; height: 250px; position: relative; overflow: hidden; background: linear-gradient(45deg, #0f172a, #38bdf8); opacity: 0.85;">
+                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 150px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);"></div>
+                        <h2 style="position: absolute; bottom: 20px; left: 30px; color: #fff; font-size: 2.2rem; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.8); display: flex; align-items: center; gap: 12px;">LLM Nasıl Düşünür? (Next-Token Prediction)</h2>
+                    </div>
+                    <div style="padding: 30px;">
+                        <p style="color: var(--text-main); font-size: 1.1rem; line-height: 1.8;">
+                            Büyük Dil Modelleri aslında birer devasa istatistik motorudur. Kendilerine verilen bir metne bakarak, o metinden sonra gelmesi matematiksel olarak en muhtemel olan kelimeyi (aslında token'ı) tahmin ederler.
+                            <br><br>
+                            Eğer modele "Güneş doğudan..." yazarsanız, model yüz milyarlarca parametresindeki ağırlıklara bakarak "doğar" kelimesinin gelme ihtimalinin %99 olduğunu hesaplar ve o kelimeyi ekrana basar. Modelin zekası gibi görünen şey; kelimelerin ve konseptlerin kendi aralarındaki anlamsal bağları (attention mechanism) devasa bir ölçekte mükemmel haritalandırmış olmasıdır.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kart 2 -->
+            <div class="step-wrapper" style="margin-bottom: 60px;">
+                <div class="guide-card glass-card story-text-card" style="padding: 0; overflow: hidden; border-radius: 24px;">
+                    <div style="width: 100%; height: 250px; position: relative; overflow: hidden; background: linear-gradient(45deg, #0f172a, #10b981); opacity: 0.85;">
+                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 150px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);"></div>
+                        <h2 style="position: absolute; bottom: 20px; left: 30px; color: #fff; font-size: 2.2rem; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.8); display: flex; align-items: center; gap: 12px;">Token Mimarisi ve Maliyetler</h2>
+                    </div>
+                    <div style="padding: 30px;">
+                        <p style="color: var(--text-main); font-size: 1.1rem; line-height: 1.8;">
+                            Yapay zeka kelimeleri bizim gibi okumaz. Girdiğimiz metinleri kendi matematiksel diline çevirmek için parçalara, yani <strong>Token</strong>'lara böler.
+                            <br><br>
+                            <span style="color: var(--neon-green); font-weight: 700; font-size: 1.2rem;">Token Dinamikleri:</span>
+                            <br><br>
+                            • <strong>Kural:</strong> 1 Token yaklaşık olarak İngilizce bir kelimenin 3/4'üne eşittir. Türkçe gibi eklemeli dillerde kelimeler çok daha fazla token'a bölünür (Örneğin "Afyonkarahisarlılaştıramadıklarımızdan" kelimesi onlarca token edebilir).<br><br>
+                            • <strong>API Maliyeti:</strong> OpenAI veya Anthropic gibi şirketler sizden kelime başına değil, sistemin işlediği (Girdi ve Çıktı) toplam token başına ücret alırlar. Gereksiz uzunluktaki ve iyi kurgulanmamış promptlar, kurumsal API kullanımlarında devasa faturalara yol açabilir.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kart 3 -->
+            <div class="step-wrapper" style="margin-bottom: 60px;">
+                <div class="guide-card glass-card story-text-card" style="padding: 0; overflow: hidden; border-radius: 24px;">
+                    <div style="width: 100%; height: 250px; position: relative; overflow: hidden; background: linear-gradient(45deg, #0f172a, #f59e0b); opacity: 0.85;">
+                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 150px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);"></div>
+                        <h2 style="position: absolute; bottom: 20px; left: 30px; color: #fff; font-size: 2.2rem; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.8); display: flex; align-items: center; gap: 12px;">Context Window (Hafıza Penceresi)</h2>
+                    </div>
+                    <div style="padding: 30px;">
+                        <p style="color: var(--text-main); font-size: 1.1rem; line-height: 1.8;">
+                            Context Window, modelin tek bir sohbette geçmişe dönük ne kadar metni aynı anda hatırlayabileceğini (aktif kısa süreli hafızasını) belirten donanımsal bir sınırdır.
+                            <br><br>
+                            Örneğin 8.000 (8K) token'lık bir hafıza pencereniz varsa, sohbetin başındaki yönergeler (örneğin "Bana kurumsal bir dille hitap et") sohbet uzadıkça 8K sınırının dışına taşar ve model bunu "unutur". Model yavaş yavaş yönergelere uymamaya başlar. Bu yüzden şirket verilerini işlemede Gemini 1.5 Pro gibi 2 Milyon Token (2M Context Window) devasa hafızalı sistemler devrim niteliğindedir.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kart 4 -->
+            <div class="step-wrapper" style="margin-bottom: 60px;">
+                <div class="guide-card glass-card story-text-card" style="padding: 0; overflow: hidden; border-radius: 24px;">
+                    <div style="width: 100%; height: 250px; position: relative; overflow: hidden; background: linear-gradient(45deg, #0f172a, #ec4899); opacity: 0.85;">
+                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 150px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);"></div>
+                        <h2 style="position: absolute; bottom: 20px; left: 30px; color: #fff; font-size: 2.2rem; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.8); display: flex; align-items: center; gap: 12px;">Başarılı Prompt Anatomisi (4 Yapıtaşı)</h2>
+                    </div>
+                    <div style="padding: 30px;">
+                        <p style="color: var(--text-main); font-size: 1.1rem; line-height: 1.8;">
+                            Sıradan bir isteği, bir "Prompt Mühendisliği" (Prompt Engineering) ürününe çevirmek için komutunuzun 4 yapıtaşını içermesi gerekir.
+                            <br><br>
+                            <span style="color: var(--neon-pink); font-weight: 700; font-size: 1.2rem;">Prompt'un 4 Temel Ayağı:</span>
+                            <br><br>
+                            • <strong>Rol (Role):</strong> Modele bir kimlik atamak. <em>"Sen kıdemli bir yazılım mimarısın..."</em><br><br>
+                            • <strong>Bağlam (Context):</strong> Görevin arka plan bilgisini vermek. <em>"Müşterilerimize yeni çıkacak güneş gözlüğümüzü tanıtacağız, hedef kitlemiz Z kuşağı..."</em><br><br>
+                            • <strong>Görev (Task):</strong> Modelden beklenen kesin işlem. <em>"...bu gözlüğü pazarlamak için 3 farklı Instagram gönderi metni yaz."</em><br><br>
+                            • <strong>Format (Format):</strong> Çıktının yapısını dikte etmek. <em>"Sonucu bir Markdown tablosu olarak ver, emojisiz olsun."</em>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 60px; margin-bottom: 40px; padding-top: 30px; border-top: 1px solid var(--glass-border);">
             <a href="../ajan-sistemler/index.html" style="display: flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 50px; background: rgba(56, 189, 248, 0.15); border: 1px solid var(--neon-blue); color: var(--neon-blue); text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(56, 189, 248, 0.2);" onmouseover="this.style.background='var(--neon-blue)'; this.style.color='#fff'; this.style.boxShadow='0 6px 20px rgba(56, 189, 248, 0.4)';" onmouseout="this.style.background='rgba(56, 189, 248, 0.15)'; this.style.color='var(--neon-blue)'; this.style.boxShadow='0 4px 12px rgba(56, 189, 248, 0.2)';">
                 <i data-lucide="arrow-left" style="width: 18px; height: 18px;"></i> Önceki: Ajan Sistemler
             </a>
-
-            <!-- Orta Buton -->
             <a href="../../index.html#ai-guides-section" style="display: flex; align-items: center; gap: 10px; padding: 14px 32px; border-radius: 50px; background: rgba(168, 85, 247, 0.15); border: 1px solid var(--neon-purple); color: var(--neon-purple); text-decoration: none; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(168, 85, 247, 0.2); transition: all 0.3s ease;" onmouseover="this.style.background='var(--neon-purple)'; this.style.color='#fff'; this.style.boxShadow='0 8px 25px rgba(168, 85, 247, 0.4)';" onmouseout="this.style.background='rgba(168, 85, 247, 0.15)'; this.style.color='var(--neon-purple)'; this.style.boxShadow='0 4px 15px rgba(168, 85, 247, 0.2)';">
                 <i data-lucide="play-circle" style="width: 22px; height: 22px;"></i> Yapay Zeka Rehberine Dön
             </a>
-
-            <!-- Sağ Buton (Sonraki) -->
             <a href="../ileri-teknikler/index.html" style="display: flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 50px; background: rgba(16, 185, 129, 0.15); border: 1px solid var(--neon-green); color: var(--neon-green); text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);" onmouseover="this.style.background='var(--neon-green)'; this.style.color='#fff'; this.style.boxShadow='0 6px 20px rgba(16, 185, 129, 0.4)';" onmouseout="this.style.background='rgba(16, 185, 129, 0.15)'; this.style.color='var(--neon-green)'; this.style.boxShadow='0 4px 12px rgba(16, 185, 129, 0.2)';">
                 Sonraki: İleri Teknikler <i data-lucide="arrow-right" style="width: 18px; height: 18px;"></i>
             </a>
-
         </div>
     </main>
-        <script src="../../js/components.js"></script>
+
+    <script src="../../js/components.js"></script>
     <script src="../../js/nav.js"></script>
     <script src="../../js/modal.js"></script>
     <script src="../../js/script.js"></script>
-    <script src="script.js"></script>
 </body>
 </html>

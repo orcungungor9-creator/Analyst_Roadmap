@@ -849,6 +849,8 @@ body.theme-light-purple .hero-title.custom-brand-title {
     line-height: 1.7;
     color: #ffffff;
     max-width: 800px;
+    text-align: center;
+    margin: 0 auto;
     margin: 0 auto 36px auto;
     text-shadow:
         0 1px 3px rgba(0,0,0,0.9),
@@ -4230,3 +4232,16 @@ body.theme-mono-light {
 }
 
 
+
+
+/* Global Center Alignment for Hero Texts */
+.hero-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-title {
+    text-align: center;
+}
