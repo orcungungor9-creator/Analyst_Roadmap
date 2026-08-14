@@ -251,6 +251,22 @@
                     </div>
                 </div>
 
+                
+<script>
+                    (function() {
+                        const returnGuide = localStorage.getItem('returnGuide');
+                        if (returnGuide) {
+                            const carousel = document.getElementById('ai-guides-carousel');
+                            const targetCard = document.getElementById('guide-' + returnGuide);
+                            if (carousel && targetCard) {
+                                // Gözle görülmeyen anlık hizalama (veri temizleme 2 teknolojisi)
+                                const scrollPos = targetCard.offsetLeft - (carousel.clientWidth / 2) + (targetCard.clientWidth / 2);
+                                carousel.scrollLeft = scrollPos;
+                                localStorage.removeItem('returnGuide');
+                            }
+                        }
+                    })();
+                </script>
                 <!-- Sağ Ok Butonu -->
                 <button class="carousel-arrow right-arrow" onclick="scrollCarousel('right', 'quick-guides-carousel')"
                     aria-label="Sağa Kaydır">
@@ -567,15 +583,16 @@
                 <!-- Kaydırma Alanı -->
                 <div class="quick-guides-carousel" id="ai-guides-carousel">
                     <!-- Kart 1 -->
-                    <div class="guide-card glass-card carousel-card lazy-fade" onclick="window.location.href='yapay-zeka/tarihce/index.html'">
+                    <div class="guide-card glass-card carousel-card lazy-fade" id="guide-tarihce" onclick="window.location.href='yapay-zeka/tarihce/index.html'">
                         <div class="guide-card-icon blue-glow lazy-fade">⏳</div>
+                
                         <h3>Yapay Zeka Tarih&#231;esi ve D&#246;n&#252;m Noktalar&#305;</h3>
                         <p>Teorik temellerin at&#305;lmas&#305;ndan g&#252;n&#252;m&#252;zdeki devrimsel modellere uzanan geli&#351;im s&#252;reci.</p>
                         <span class="guide-link">Tarih&#231;eyi &#304;ncele &rarr;</span>
                     </div>
 
                     <!-- Kart 2 -->
-                    <div class="guide-card glass-card carousel-card lazy-fade" onclick="window.location.href='yapay-zeka/kullanim-alanlari/index.html'">
+                    <div class="guide-card glass-card carousel-card lazy-fade" id="guide-kullanim-alanlari" onclick="window.location.href='yapay-zeka/kullanim-alanlari/index.html'">
                         <div class="guide-card-icon green-glow lazy-fade">🌐</div>
                         <h3>Yapay Zeka Kullan&#305;m Alanlar&#305;</h3>
                         <p>Yapay zekan&#305;n yaln&#305;zca &#252;retken modellerden (GenAI) ibaret olmad&#305;&#287;&#305;n&#305; g&#246;steren, u&#231;tan uca geni&#351; uygulama yelpazesi.</p>
@@ -583,7 +600,7 @@
                     </div>
 
                     <!-- Kart 3 -->
-                    <div class="guide-card glass-card carousel-card lazy-fade" onclick="window.location.href='yapay-zeka/ajan-sistemler/index.html'">
+                    <div class="guide-card glass-card carousel-card lazy-fade" id="guide-ajan-sistemler" onclick="window.location.href='yapay-zeka/ajan-sistemler/index.html'">
                         <div class="guide-card-icon yellow-glow lazy-fade">🤖</div>
                         <h3>Ajan Sistemler (Agentic AI)</h3>
                         <p>Otonom yapay zeka sistemleri (Agentic AI), planlama, hafıza ve karar alma mimarileri.</p>
@@ -591,7 +608,7 @@
                     </div>
 
                     <!-- Kart 4 -->
-                    <div class="guide-card glass-card carousel-card lazy-fade" onclick="window.location.href='yapay-zeka/temel-bilesenler/index.html'">
+                    <div class="guide-card glass-card carousel-card lazy-fade" id="guide-temel-bilesenler" onclick="window.location.href='yapay-zeka/temel-bilesenler/index.html'">
                         <div class="guide-card-icon blue-glow lazy-fade">🧩</div>
                         <h3>Temel Bile&#351;enler</h3>
                         <p>Ba&#351;ar&#305;l&#305; ve tutarl&#305; bir prompt yazmak i&#231;in kurgulanmas&#305; gereken temel yap&#305;ta&#351;lar&#305;.</p>
@@ -599,7 +616,7 @@
                     </div>
 
                     <!-- Kart 5 -->
-                    <div class="guide-card glass-card carousel-card lazy-fade" onclick="window.location.href='yapay-zeka/ileri-teknikler/index.html'">
+                    <div class="guide-card glass-card carousel-card lazy-fade" id="guide-ileri-teknikler" onclick="window.location.href='yapay-zeka/ileri-teknikler/index.html'">
                         <div class="guide-card-icon purple-glow lazy-fade">🚀</div>
                         <h3>&#304;leri YZ Prompt Teknikleri</h3>
                         <p>Yapay zekadan daha karma&#351;&#305;k, derin ve mant&#305;ksal sonu&#231;lar almak i&#231;in kullan&#305;lan geli&#351;mi&#351; y&#246;nlendirme y&#246;ntemleri.</p>
@@ -607,7 +624,7 @@
                     </div>
 
                     <!-- Kart 6 -->
-                    <div class="guide-card glass-card carousel-card lazy-fade" onclick="window.location.href='yapay-zeka/prompt-debugging/index.html'">
+                    <div class="guide-card glass-card carousel-card lazy-fade" id="guide-prompt-debugging" onclick="window.location.href='yapay-zeka/prompt-debugging/index.html'">
                         <div class="guide-card-icon purple-glow lazy-fade">🐛</div>
                         <h3>Prompt Debugging</h3>
                         <p>&#304;stenilen sonucu vermeyen veya hal&#252;sinasyon g&#246;ren promptlar&#305; analiz etme, test etme ve hatalar&#305;n&#305; ay&#305;klama y&#246;ntemleri.</p>
@@ -615,7 +632,7 @@
                     </div>
 
                     <!-- Kart 7 -->
-                    <div class="guide-card glass-card carousel-card lazy-fade" onclick="window.location.href='yapay-zeka/rag-sistemleri/index.html'">
+                    <div class="guide-card glass-card carousel-card lazy-fade" id="guide-rag-sistemleri" onclick="window.location.href='yapay-zeka/rag-sistemleri/index.html'">
                         <div class="guide-card-icon yellow-glow lazy-fade">🧠</div>
                           <h3>RAG (Retrieval-Augmented Generation)</h3>
                         <p>Dil modellerini şirketinizin özel dış veri kaynaklarıyla (PDF, Veritabanı) besleme, vektör veritabanları ve anlamsal arama (Semantic Search) mimarileri.</p>

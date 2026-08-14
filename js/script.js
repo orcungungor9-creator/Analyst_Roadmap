@@ -28,6 +28,25 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.initModal) window.initModal();
     initFullScreenViewer();
     initToolNedirButtons();
+    
+    // Auto-scroll to returned guide card (instant scroll)
+    const returnGuide = localStorage.getItem('returnGuide');
+    if (returnGuide) {
+        // We wait a tiny bit to ensure layout is fully calculated (especially on mobile/responsive)
+        // Using requestAnimationFrame or a 50ms timeout is usually invisible but guarantees geometry is ready
+        setTimeout(() => {
+            const targetCard = document.getElementById('guide-' + returnGuide);
+            const carousel = document.getElementById('ai-guides-carousel');
+            if (targetCard && carousel) {
+                const scrollPos = targetCard.offsetLeft - (carousel.clientWidth / 2) + (targetCard.clientWidth / 2);
+                carousel.scrollTo({
+                    left: scrollPos,
+                    behavior: 'instant' // or 'auto'
+                });
+                localStorage.removeItem('returnGuide');
+            }
+        }, 10);
+    }
 }); // end DOMContentLoaded
 
 // ==========================================
