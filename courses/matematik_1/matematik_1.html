@@ -1,21 +1,156 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matematik 1 | Akademik Dersler | My Analyst LogBook</title>
-    
-    <!-- Global CSS -->
+    <title>Matematik 1</title>
     <link rel="stylesheet" href="../../css/styles.css?v=3.4">
-    <!-- Local CSS -->
     <link rel="stylesheet" href="matematik_1.css">
-    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- KaTeX CSS ve JS (Matematiksel Sembollerin Render Edilmesi İçin) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+    <style>
+        .syllabus-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 24px;
+            width: 100%;
+            min-height: 80vh;
+        }
+        .syllabus-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .syllabus-title {
+            font-family: var(--font-title);
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-shadow: 0 8px 40px rgba(0,0,0,0.9), 0 4px 15px rgba(0,0,0,0.8), 0 0 60px rgba(56, 189, 248, 0.6);
+            letter-spacing: -0.5px;
+        }
+        
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .module-card {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            padding: 30px;
+            background: var(--bg-card);
+            border-radius: 24px;
+            border: 2px solid var(--neon-blue);
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            background: rgba(56, 189, 248, 0.05);
+            box-shadow: 0 4px 20px rgba(56, 189, 248, 0.2);
+        }
+
+        .module-number {
+            font-family: var(--font-title);
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: transparent;
+            -webkit-text-stroke: 2px var(--neon-blue);
+            transition: all 0.3s ease;
+            line-height: 1;
+            min-width: 80px;
+        }
+
+        .module-card:hover .module-number {
+            color: rgba(56, 189, 248, 0.2);
+        }
+
+        .module-content {
+            flex: 1;
+        }
+
+        .module-content h3 {
+            color: var(--text-main);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.4;
+            transition: color 0.3s ease;
+        }
+
+        .module-card:hover .module-content h3 {
+            color: var(--neon-blue);
+        }
+
+        .module-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .module-arrow {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--neon-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            opacity: 0.5;
+        }
+
+        .module-card:hover .module-arrow {
+            background: var(--neon-blue);
+            color: #fff;
+            opacity: 1;
+            transform: translateX(5px);
+        }
+
+        .back-nav {
+            text-align: center;
+        }
+
+        .back-nav a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 30px;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.4);
+            color: var(--neon-blue);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-nav a:hover {
+            background: var(--neon-blue);
+            color: #fff;
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 768px) {
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+            .syllabus-title {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
 </head>
 <body class="formulas-page">
     <script>
@@ -26,104 +161,31 @@
             }
         })();
     </script>
+    <!-- Banner arkaplanÄ± ve gÃ¶lgelendirmesi -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 600px; z-index: 0; background: url('../../assets/images/academic_banner.jpg') center 25%/cover no-repeat; mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%); opacity: 0.9;"></div>
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 600px; z-index: 0; opacity: 0.85; background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(88, 28, 135, 0.6) 50%, rgba(15, 23, 42, 0.95) 100%); mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%); pointer-events: none;"></div>
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 600px; z-index: 0; background: radial-gradient(circle at top, rgba(56, 189, 248, 0.25) 0%, transparent 60%); pointer-events: none;"></div>
     
-    <!-- DİNAMİK ARKA PLAN GRAFİK AĞI (BG ANALYTICS MESH) -->
-    <div class="bg-analytics-mesh">
-        <!-- SVG 1: Trend Çizgisi -->
-        <div class="bg-chart-item bg-chart-1">
-            <svg viewBox="0 0 400 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="bg-area-grad-m1" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.3" />
-                        <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.0" />
-                    </linearGradient>
-                </defs>
-                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40 L 370,190 L 10,190 Z"
-                    fill="url(#bg-area-grad-m1)" />
-                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40" fill="none" stroke="#06b6d4"
-                    stroke-width="3" stroke-linecap="round" />
-            </svg>
+    <div class="syllabus-container" style="position: relative; z-index: 1;">
+        <div class="syllabus-header">
+            <h1 class="syllabus-title">Matematik 1 | Akademik Dersler | My Analyst LogBook</h1>
+        </div>
+
+        <div class="modules-grid">
+            <!-- Ä°Ã§erikler eklenecektir -->
+        </div>
+
+        <div class="back-nav">
+            <a href="../../courses/courses.html">
+                &larr; Akademik Derslere Dön
+            </a>
         </div>
     </div>
 
-    <!-- HERO / BAŞLIK BÖLÜMÜ -->
-    <section class="formulas-hero">
-        <div class="hero-content">
-            <div class="badge-pill floating-slow" style="border-color: rgba(6, 182, 212, 0.3); color: #06b6d4;">Müfredat Kılavuzu</div>
-            <h1 class="hero-title">Matematik 1 <span class="gradient-text" style="background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Konu Anlatımı</span></h1>
-            <p class="hero-subtitle">
-                Veri analizinin temel direği olan tüm Matematik 1 konuları; sözel kavramlar, matematiksel kurallar ve her özelliğe özel çözümlü örneklerle birlikte tek bir dikey akışta.
-            </p>
-        </div>
-    </section>
-
-    <!-- ANA DİKEY YERLEŞİM -->
-    <main class="m1-dashboard-layout">
-        <!-- SOL YAN MENÜ (HIZLI İNDEKS - SADECE MASAÜSTÜNDE) -->
-        <aside class="m1-sidebar" id="m1-sidebar-index">
-            <div class="m1-sidebar-header">
-                <h3>📖 Konu İndeksi</h3>
-            </div>
-            <nav class="m1-sidebar-list" id="sidebar-chapters-list">
-                <!-- Dinamik olarak JS tarafında doldurulacaktır -->
-            </nav>
-        </aside>
-
-        <!-- SAĞ İÇERİK ALANI -->
-        <section class="m1-content-area">
-            
-            <!-- 1. ADMİN'İN NOTU GİRİŞ KARTI -->
-            <div class="m1-welcome-card glass-card">
-                <div class="m1-welcome-header">
-                    <div class="m1-welcome-avatar">✒️</div>
-                    <div>
-                        <h3>Matematiğin veri biliminde önemi ne</h3>
-                        <span class="m1-welcome-subtitle">Admin'e Göre</span>
-                    </div>
-                </div>
-                <div class="m1-welcome-body">
-                    <p>
-                        Selam, ben Orçun. Yolun başındayken matematik konuları gözünü korkutmasın. Dürüst olmak gerekirse, veri bilimine adım atmak ve temel analiz modelleri kurmak için aslında sadece 4 işlem bile yeterli. İşin teknik yükünü zaten bilgisayarlar ve hazır kütüphaneler üstleniyor.
-                    </p>
-                    <p>
-                        Peki neden bu matematiksel prensiplere odaklanıyoruz? Çünkü olay kuru kuruya formül ezberlemek değil; bir problemi farklı açılardan ele alabilme ve çok yönlü çözümler üretebilme becerisi kazanmak. Alanda gerçekten uzmanlaşmak ve fark yaratmak istiyorsak, formüllerin arka planda neyi, neden yaptığını anlamamız gerekiyor. Korkmana hiç gerek yok; burada tek ihtiyacımız olan şey grafiklerin dilini okumayı öğrenmek, kuralların mantığını kavramak ve bunları kendi projelerimize entegre etmek.
-                    </p>
-                    <p>
-                        Bu yol haritasındaki içerikler; seninle öğrendiklerimi paylaşmak ve –yalanı bırakmak gerekirse– birlikte mezun olabilmek için aylarca emek verilerek hazırlandı. Umarım yardımcı olabilirim ve günün birinde hedefini gerçekleştirmende az da olsa payım olmasını sağlayabilirim.
-                    </p>
-                </div>
-            </div>
-
-            <!-- 2. DİNAMİK KONU KARTLARI KONTEYNERİ -->
-            <div id="m1-chapters-container">
-                <div style="text-align: center; padding: 60px; color: var(--text-muted);">
-                    <h3>Müfredat yükleniyor...</h3>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- MOBİL UYUMLU FLOATING SIDE DRAWER & EDGE TAB (Soldan kayan yan çekmece ve kulakçık) -->
-    <button id="m1-edge-pull-tab" class="m1-edge-pull-tab" title="Konu Dizini" aria-label="Konu Dizini">
-        📖
-    </button>
-    <div id="m1-drawer-overlay" class="m1-drawer-overlay"></div>
-    <div id="m1-mobile-drawer" class="m1-mobile-drawer">
-        <div class="m1-drawer-header">
-            <h3>📖 Müfredat İndeksi</h3>
-            <button class="m1-drawer-close-btn" id="m1-drawer-close-btn">&times;</button>
-        </div>
-        <div class="m1-drawer-content" id="mobile-drawer-links">
-            <!-- Mobil hızlı geçiş linkleri JS ile buraya basılacaktır -->
-        </div>
-    </div>
-
-    <!-- SCRIPTS -->
     <script src="../../js/components.js"></script>
     <script src="../../js/nav.js"></script>
     <script src="../../js/modal.js"></script>
     <script src="../../js/script.js"></script>
-    <script src="data.js"></script>
     <script src="matematik_1.js"></script>
 </body>
 </html>

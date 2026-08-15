@@ -8,35 +8,147 @@
     <link rel="stylesheet" href="olasilik.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
-        .coming-soon-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 80vh;
-            padding: 24px;
-            text-align: center;
-        }
-        .coming-soon-box {
-            padding: 60px 40px;
-            border-radius: 28px;
-            border: 1px solid var(--glass-border);
-            max-width: 500px;
+        .syllabus-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 24px;
             width: 100%;
+            min-height: 80vh;
         }
-        .coming-soon-title {
+        .syllabus-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .syllabus-title {
             font-family: var(--font-title);
             font-size: 3.5rem;
             font-weight: 900;
-            margin-bottom: 16px;
-            text-shadow: 0 0 20px rgba(52, 211, 153, 0.4);
-            color: var(--neon-green);
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-shadow: 0 8px 40px rgba(0,0,0,0.9), 0 4px 15px rgba(0,0,0,0.8), 0 0 60px rgba(56, 189, 248, 0.6);
+            letter-spacing: -0.5px;
         }
-        .coming-soon-subtitle {
+        
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .module-card {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            padding: 30px;
+            background: var(--bg-card);
+            border-radius: 24px;
+            border: 2px solid var(--neon-blue);
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            background: rgba(56, 189, 248, 0.05);
+            box-shadow: 0 4px 20px rgba(56, 189, 248, 0.2);
+        }
+
+        .module-number {
+            font-family: var(--font-title);
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: transparent;
+            -webkit-text-stroke: 2px var(--neon-blue);
+            transition: all 0.3s ease;
+            line-height: 1;
+            min-width: 80px;
+        }
+
+        .module-card:hover .module-number {
+            color: rgba(56, 189, 248, 0.2);
+        }
+
+        .module-content {
+            flex: 1;
+        }
+
+        .module-content h3 {
+            color: var(--text-main);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.4;
+            transition: color 0.3s ease;
+        }
+
+        .module-card:hover .module-content h3 {
+            color: var(--neon-blue);
+        }
+
+        .module-content p {
             color: var(--text-muted);
-            font-size: 1.1rem;
-            margin-bottom: 32px;
-            line-height: 1.6;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .module-arrow {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--neon-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            opacity: 0.5;
+        }
+
+        .module-card:hover .module-arrow {
+            background: var(--neon-blue);
+            color: #fff;
+            opacity: 1;
+            transform: translateX(5px);
+        }
+
+        .back-nav {
+            text-align: center;
+        }
+
+        .back-nav a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 30px;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.4);
+            color: var(--neon-blue);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-nav a:hover {
+            background: var(--neon-blue);
+            color: #fff;
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 768px) {
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+            .syllabus-title {
+                font-size: 2.2rem;
+            }
         }
     </style>
 </head>
@@ -49,16 +161,27 @@
             }
         })();
     </script>
-    <div class="bg-analytics-mesh"></div>
-    <div class="coming-soon-container">
-        <div class="glass coming-soon-box">
-            <h1 class="coming-soon-title">Yakında</h1>
-            <p class="coming-soon-subtitle">Olasılık ders notları ve interaktif simülatörler yakında burada olacak.</p>
-            <a href="../../courses/courses.html" class="nav-btn" style="border-color: rgba(52, 211, 153, 0.4); color: var(--neon-green); display: inline-flex; justify-content: center; width: 100%; padding: 14px; text-decoration: none;">
+    <!-- Banner arkaplanÄ± ve gÃ¶lgelendirmesi -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 600px; z-index: 0; background: url('../../assets/images/academic_banner.jpg') center 25%/cover no-repeat; mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%); opacity: 0.9;"></div>
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 600px; z-index: 0; opacity: 0.85; background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(88, 28, 135, 0.6) 50%, rgba(15, 23, 42, 0.95) 100%); mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%); pointer-events: none;"></div>
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 600px; z-index: 0; background: radial-gradient(circle at top, rgba(56, 189, 248, 0.25) 0%, transparent 60%); pointer-events: none;"></div>
+    
+    <div class="syllabus-container" style="position: relative; z-index: 1;">
+        <div class="syllabus-header">
+            <h1 class="syllabus-title">Olasılık</h1>
+        </div>
+
+        <div class="modules-grid">
+            <!-- Ä°Ã§erikler eklenecektir -->
+        </div>
+
+        <div class="back-nav">
+            <a href="../../courses/courses.html">
                 &larr; Akademik Derslere Dön
             </a>
         </div>
     </div>
+
     <script src="../../js/components.js"></script>
     <script src="../../js/nav.js"></script>
     <script src="../../js/modal.js"></script>
@@ -66,5 +189,3 @@
     <script src="olasilik.js"></script>
 </body>
 </html>
-
-

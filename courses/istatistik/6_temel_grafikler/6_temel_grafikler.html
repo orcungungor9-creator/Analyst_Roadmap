@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temel Grafikler | İstatistik 101</title>
+    <link rel="stylesheet" href="../../../css/styles.css">
+    <link rel="stylesheet" href="6_temel_grafikler.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .module-container {
+            max-width: 800px;
+            margin: 100px auto;
+            padding: 40px;
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            color: var(--text-main);
+            text-align: center;
+        }
+        .module-container h1 {
+            color: var(--neon-blue);
+            margin-bottom: 20px;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background: rgba(56, 189, 248, 0.15);
+            border: 1px solid var(--neon-blue);
+            color: var(--neon-blue);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="formulas-page">
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('analyst_theme') || 'theme-light-purple';
+            if (savedTheme !== 'theme-dark') {
+                document.body.classList.add(savedTheme);
+            }
+        })();
+    </script>
+    <div class="bg-analytics-mesh"></div>
+    <div class="module-container">
+        <h1>Temel Grafikler</h1>
+        <p style="color: var(--text-muted);">Bu modülün içeriği hazırlanmaktadır.</p>
+        <a href="../istatistik.html" class="back-btn">&larr; Müfredata Dön</a>
+    </div>
+    <script src="../../../js/components.js"></script>
+    <script src="../../../js/nav.js"></script>
+    <script src="../../../js/modal.js"></script>
+    <script src="../../../js/script.js"></script>
+    <script src="6_temel_grafikler.js"></script>
+</body>
+</html>
