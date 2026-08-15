@@ -1,13 +1,14 @@
 ﻿<!DOCTYPE html>
+
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Olasılık | Akademik Dersler</title>
-    <link rel="stylesheet" href="../../css/styles.css?v=3.4">
-    <link rel="stylesheet" href="olasilik.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Olasılık | Akademik Dersler</title>
+<link href="../../css/styles.css?v=3.4" rel="stylesheet"/>
+<link href="olasilik.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Montserrat:wght@700;800;900&amp;family=Outfit:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
         .syllabus-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -154,7 +155,7 @@
     </style>
 </head>
 <body class="formulas-page">
-    <script>
+<script>
         (function () {
             const savedTheme = localStorage.getItem('analyst_theme') || 'theme-light-purple';
             if (savedTheme !== 'theme-dark') {
@@ -162,130 +163,131 @@
             }
         })();
     </script>
-    <!-- Banner arkaplanÄ± ve gÃ¶lgelendirmesi -->
-    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 600px; z-index: -1; background: url('../../assets/images/academic_banner.jpg') center 25%/cover no-repeat; mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%); opacity: 0.9;"></div>
-    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 600px; z-index: -1; opacity: 0.85; background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(88, 28, 135, 0.6) 50%, rgba(15, 23, 42, 0.95) 100%); mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%); pointer-events: none;"></div>
-    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 600px; z-index: -1; background: radial-gradient(circle at top, rgba(56, 189, 248, 0.25) 0%, transparent 60%); pointer-events: none;"></div>
-    
-    <div class="syllabus-container" style="position: relative; z-index: 1;">
-        <div class="syllabus-header">
-            <h1 class="syllabus-title">Olasılık</h1>
-        </div>
-
-        <div class="modules-grid">
-        <a href="1_kume_kurami/1_kume_kurami.html" class="module-card">
-            <div class="module-number">01</div>
-            <div class="module-content">
-                <h3>Küme Kuramı</h3>
-                <p>Temel olasılık hesabı için gerekli küme operasyonları.</p>
-            </div>
-            <div class="module-arrow">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 2px;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-            </div>
-        </a>
-        <a href="2_sayma_kurallari/2_sayma_kurallari.html" class="module-card">
-            <div class="module-number">02</div>
-            <div class="module-content">
-                <h3>Sayma Kuralları</h3>
-                <p>Permütasyon, kombinasyon ve temel sayma prensipleri.</p>
-            </div>
-            <div class="module-arrow">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 2px;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-            </div>
-        </a>
-        <a href="3_olasilik_aksiyomlari/3_olasilik_aksiyomlari.html" class="module-card">
-            <div class="module-number">03</div>
-            <div class="module-content">
-                <h3>Olasılık Aksiyomları</h3>
-                <p>Olasılık uzayı, Kolmogorov aksiyomları ve temel özellikler.</p>
-            </div>
-            <div class="module-arrow">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 2px;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-            </div>
-        </a>
-        <a href="4_kosullu_olasilik_bayes/4_kosullu_olasilik_bayes.html" class="module-card">
-            <div class="module-number">04</div>
-            <div class="module-content">
-                <h3>Koşullu Olasılık, Bağımsızlık, Bayes Teoremi</h3>
-                <p>Olayların birbirine bağımlılığı ve Bayes formülü.</p>
-            </div>
-            <div class="module-arrow">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 2px;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-            </div>
-        </a>
-        <a href="5_kesikli_rassal_degiskenler/5_kesikli_rassal_degiskenler.html" class="module-card">
-            <div class="module-number">05</div>
-            <div class="module-content">
-                <h3>Kesikli Rassal Değişkenler ve Olasılık Dağılımları</h3>
-                <p>Beklenen değer, varyans ve kesikli değişkenlerin doğası.</p>
-            </div>
-            <div class="module-arrow">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 2px;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-            </div>
-        </a>
-        <a href="6_tekduze_bernoulli_binom/6_tekduze_bernoulli_binom.html" class="module-card">
-            <div class="module-number">06</div>
-            <div class="module-content">
-                <h3>Tekdüze, Bernoulli ve Binom Dağılımı</h3>
-                <p>Temel kesikli olasılık dağılım modelleri.</p>
-            </div>
-            <div class="module-arrow">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 2px;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-            </div>
-        </a>
-        <a href="7_hipergeometrik_poisson/7_hipergeometrik_poisson.html" class="module-card">
-            <div class="module-number">07</div>
-            <div class="module-content">
-                <h3>Hipergeometrik, Poisson ve Diğerleri</h3>
-                <p>İleri düzey kesikli dağılımlar ve özellikleri.</p>
-            </div>
-            <div class="module-arrow">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 2px;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-            </div>
-        </a>
-        <a href="8_surekli_rassal_degiskenler/8_surekli_rassal_degiskenler.html" class="module-card">
-            <div class="module-number">08</div>
-            <div class="module-content">
-                <h3>Sürekli Rassal Değişkenler ve Olasılık Dağılımları</h3>
-                <p>Olasılık yoğunluk fonksiyonları ve sürekli dağılım mantığı.</p>
-            </div>
-            <div class="module-arrow">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 2px;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-            </div>
-        </a>
-        <a href="9_normal_dagilim_ve_digerleri/9_normal_dagilim_ve_digerleri.html" class="module-card">
-            <div class="module-number">09</div>
-            <div class="module-content">
-                <h3>Tekdüze, Üstel ve Normal Dağılım</h3>
-                <p>En yaygın kullanılan sürekli olasılık dağılımları.</p>
-            </div>
-            <div class="module-arrow">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 2px;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-            </div>
-        </a>
-        <a href="10_standart_normal_tablosu/10_standart_normal_tablosu.html" class="module-card">
-            <div class="module-number">10</div>
-            <div class="module-content">
-                <h3>Standart Normal Dağılım Tablosu ve Uygulamaları</h3>
-                <p>Z-tablosu kullanımı ve pratik normal dağılım problemleri.</p>
-            </div>
-            <div class="module-arrow">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 2px;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-            </div>
-        </a>
-        </div>
-
-        <div class="back-nav">
-            <a href="../../courses/courses.html">
-                &larr; Akademik Derslere Dön
+<!-- Banner arkaplanÄ± ve gÃ¶lgelendirmesi -->
+<div style="position: fixed; top: 0; left: 0; width: 100%; height: 600px; z-index: -1; background: url('../../assets/images/academic_banner.jpg') center 25%/cover no-repeat; mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%); opacity: 0.9;"></div>
+<div style="position: fixed; top: 0; left: 0; width: 100%; height: 600px; z-index: -1; opacity: 0.85; background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(88, 28, 135, 0.6) 50%, rgba(15, 23, 42, 0.95) 100%); mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%); pointer-events: none;"></div>
+<div style="position: fixed; top: 0; left: 0; width: 100%; height: 600px; z-index: -1; background: radial-gradient(circle at top, rgba(56, 189, 248, 0.25) 0%, transparent 60%); pointer-events: none;"></div>
+<div class="syllabus-container" style="position: relative; z-index: 1;">
+<div class="syllabus-header"><h1 class="syllabus-title">Olasılık</h1>
+<p class="syllabus-subtitle">Temel kavramlardan başlayarak bu kapsamlı müfredat ile Olasılık alanındaki yetkinliğinizi adım adım inşa edin.</p>
+<div style="display: flex; justify-content: center; margin-top: 30px;">
+<a href="../../courses/courses.html" onmouseout="this.style.background='rgba(15, 23, 42, 0.5)'; this.style.borderColor='rgba(255,255,255,0.2)'; this.style.transform='translateY(0)';" onmouseover="this.style.background='rgba(255,255,255,0.15)'; this.style.borderColor='rgba(255,255,255,0.6)'; this.style.transform='translateY(-2px)';" style="display: flex; align-items: center; gap: 10px; padding: 12px 28px; border-radius: 50px; background: rgba(15, 23, 42, 0.5); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.2); color: #fff; text-decoration: none; font-weight: 600; font-size: 1.05rem; box-shadow: 0 4px 16px rgba(0,0,0,0.3); transition: all 0.3s ease;">
+<i data-lucide="play-circle" style="width: 20px; height: 20px; transform: scaleX(-1);"></i> Akademik Derslere Dön
+    </a>
+</div>
+</div>
+<div class="modules-grid">
+<a class="module-card" href="1_kume_kurami/1_kume_kurami.html">
+<div class="module-number">01</div>
+<div class="module-content">
+<h3>Küme Kuramı</h3>
+<p>Temel olasılık hesabı için gerekli küme operasyonları.</p>
+</div>
+<div class="module-arrow">
+<svg fill="currentColor" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="margin-left: 2px;" viewbox="0 0 24 24" width="18"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+</div>
+</a>
+<a class="module-card" href="2_sayma_kurallari/2_sayma_kurallari.html">
+<div class="module-number">02</div>
+<div class="module-content">
+<h3>Sayma Kuralları</h3>
+<p>Permütasyon, kombinasyon ve temel sayma prensipleri.</p>
+</div>
+<div class="module-arrow">
+<svg fill="currentColor" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="margin-left: 2px;" viewbox="0 0 24 24" width="18"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+</div>
+</a>
+<a class="module-card" href="3_olasilik_aksiyomlari/3_olasilik_aksiyomlari.html">
+<div class="module-number">03</div>
+<div class="module-content">
+<h3>Olasılık Aksiyomları</h3>
+<p>Olasılık uzayı, Kolmogorov aksiyomları ve temel özellikler.</p>
+</div>
+<div class="module-arrow">
+<svg fill="currentColor" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="margin-left: 2px;" viewbox="0 0 24 24" width="18"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+</div>
+</a>
+<a class="module-card" href="4_kosullu_olasilik_bayes/4_kosullu_olasilik_bayes.html">
+<div class="module-number">04</div>
+<div class="module-content">
+<h3>Koşullu Olasılık, Bağımsızlık, Bayes Teoremi</h3>
+<p>Olayların birbirine bağımlılığı ve Bayes formülü.</p>
+</div>
+<div class="module-arrow">
+<svg fill="currentColor" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="margin-left: 2px;" viewbox="0 0 24 24" width="18"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+</div>
+</a>
+<a class="module-card" href="5_kesikli_rassal_degiskenler/5_kesikli_rassal_degiskenler.html">
+<div class="module-number">05</div>
+<div class="module-content">
+<h3>Kesikli Rassal Değişkenler ve Olasılık Dağılımları</h3>
+<p>Beklenen değer, varyans ve kesikli değişkenlerin doğası.</p>
+</div>
+<div class="module-arrow">
+<svg fill="currentColor" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="margin-left: 2px;" viewbox="0 0 24 24" width="18"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+</div>
+</a>
+<a class="module-card" href="6_tekduze_bernoulli_binom/6_tekduze_bernoulli_binom.html">
+<div class="module-number">06</div>
+<div class="module-content">
+<h3>Tekdüze, Bernoulli ve Binom Dağılımı</h3>
+<p>Temel kesikli olasılık dağılım modelleri.</p>
+</div>
+<div class="module-arrow">
+<svg fill="currentColor" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="margin-left: 2px;" viewbox="0 0 24 24" width="18"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+</div>
+</a>
+<a class="module-card" href="7_hipergeometrik_poisson/7_hipergeometrik_poisson.html">
+<div class="module-number">07</div>
+<div class="module-content">
+<h3>Hipergeometrik, Poisson ve Diğerleri</h3>
+<p>İleri düzey kesikli dağılımlar ve özellikleri.</p>
+</div>
+<div class="module-arrow">
+<svg fill="currentColor" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="margin-left: 2px;" viewbox="0 0 24 24" width="18"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+</div>
+</a>
+<a class="module-card" href="8_surekli_rassal_degiskenler/8_surekli_rassal_degiskenler.html">
+<div class="module-number">08</div>
+<div class="module-content">
+<h3>Sürekli Rassal Değişkenler ve Olasılık Dağılımları</h3>
+<p>Olasılık yoğunluk fonksiyonları ve sürekli dağılım mantığı.</p>
+</div>
+<div class="module-arrow">
+<svg fill="currentColor" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="margin-left: 2px;" viewbox="0 0 24 24" width="18"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+</div>
+</a>
+<a class="module-card" href="9_normal_dagilim_ve_digerleri/9_normal_dagilim_ve_digerleri.html">
+<div class="module-number">09</div>
+<div class="module-content">
+<h3>Tekdüze, Üstel ve Normal Dağılım</h3>
+<p>En yaygın kullanılan sürekli olasılık dağılımları.</p>
+</div>
+<div class="module-arrow">
+<svg fill="currentColor" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="margin-left: 2px;" viewbox="0 0 24 24" width="18"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+</div>
+</a>
+<a class="module-card" href="10_standart_normal_tablosu/10_standart_normal_tablosu.html">
+<div class="module-number">10</div>
+<div class="module-content">
+<h3>Standart Normal Dağılım Tablosu ve Uygulamaları</h3>
+<p>Z-tablosu kullanımı ve pratik normal dağılım problemleri.</p>
+</div>
+<div class="module-arrow">
+<svg fill="currentColor" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="margin-left: 2px;" viewbox="0 0 24 24" width="18"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+</div>
+</a>
+</div>
+<div class="back-nav" style="display: flex; justify-content: center; padding: 40px 0;">
+<a href="../../courses/courses.html" onmouseout="this.style.background='rgba(15, 23, 42, 0.5)'; this.style.borderColor='rgba(255,255,255,0.2)'; this.style.transform='translateY(0)';" onmouseover="this.style.background='rgba(255,255,255,0.15)'; this.style.borderColor='rgba(255,255,255,0.6)'; this.style.transform='translateY(-2px)';" style="display: flex; align-items: center; gap: 10px; padding: 12px 28px; border-radius: 50px; background: rgba(15, 23, 42, 0.5); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.2); color: #fff; text-decoration: none; font-weight: 600; font-size: 1.05rem; box-shadow: 0 4px 16px rgba(0,0,0,0.3); transition: all 0.3s ease;">
+<i data-lucide="play-circle" style="width: 20px; height: 20px; transform: scaleX(-1);"></i> Akademik Derslere Dön
             </a>
-        </div>
-    </div>
-
-    <script src="../../js/components.js"></script>
-    <script src="../../js/nav.js"></script>
-    <script src="../../js/modal.js"></script>
-    <script src="../../js/script.js"></script>
-    <script src="olasilik.js"></script>
+</div>
+</div>
+<script src="../../js/components.js"></script>
+<script src="../../js/nav.js"></script>
+<script src="../../js/modal.js"></script>
+<script src="../../js/script.js"></script>
+<script src="olasilik.js"></script>
 </body>
 </html>
