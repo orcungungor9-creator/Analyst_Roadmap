@@ -2364,7 +2364,7 @@ body.theme-cyber-neon {
 /* AÇIK TEMALAR */
 body.theme-light-pure {
     --bg-dark: #f8fafc;
-    --bg-card: rgba(255, 255, 255, 0.7);
+    --bg-card: rgba(255, 255, 255, 1);
     --glass-bg: rgba(255, 255, 255, 0.85);
     --glass-border: rgba(0, 0, 0, 0.1);
     --glass-border-hover: rgba(2, 132, 199, 0.3);
@@ -2400,7 +2400,7 @@ body.theme-light-pure {
 
 body.theme-light-warm {
     --bg-dark: #fefce8;
-    --bg-card: rgba(255, 255, 255, 0.7);
+    --bg-card: rgba(255, 255, 255, 1);
     --glass-bg: rgba(255, 255, 255, 0.85);
     --glass-border: rgba(217, 119, 6, 0.2);
     --glass-border-hover: rgba(217, 119, 6, 0.4);
@@ -2436,7 +2436,7 @@ body.theme-light-warm {
 
 body.theme-pink {
     --bg-dark: #fdf2f8;
-    --bg-card: rgba(255, 255, 255, 0.7);
+    --bg-card: rgba(255, 255, 255, 1);
     --glass-bg: rgba(255, 255, 255, 0.85);
     --glass-border: rgba(219, 39, 119, 0.2);
     --glass-border-hover: rgba(219, 39, 119, 0.4);
@@ -2472,7 +2472,7 @@ body.theme-pink {
 
 body.theme-light-emerald {
     --bg-dark: #ecfdf5;
-    --bg-card: rgba(255, 255, 255, 0.7);
+    --bg-card: rgba(255, 255, 255, 1);
     --glass-bg: rgba(255, 255, 255, 0.85);
     --glass-border: rgba(16, 185, 129, 0.2);
     --glass-border-hover: rgba(16, 185, 129, 0.4);
@@ -2508,7 +2508,7 @@ body.theme-light-emerald {
 
 body.theme-light-purple {
     --bg-dark: #faf5ff;
-    --bg-card: rgba(255, 255, 255, 0.75);
+    --bg-card: rgba(255, 255, 255, 1);
     --glass-bg: rgba(255, 255, 255, 0.85);
     --glass-border: rgba(147, 51, 234, 0.15);
     --glass-border-hover: rgba(147, 51, 234, 0.4);
