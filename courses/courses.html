@@ -16,12 +16,15 @@
             max-width: 1000px;
             padding: 80px 24px 40px 24px;
             text-align: center;
+        }
+
+        .hero-content {
             animation: fadeInDown 0.8s ease-out;
         }
 
         .courses-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
             gap: 24px;
             width: 100%;
             max-width: 1600px;
@@ -36,7 +39,7 @@
             gap: 20px;
             cursor: pointer;
             position: relative;
-            overflow: hidden;
+            
             border: 2px solid var(--glow-border);
             border-radius: 24px;
             background: var(--bg-card);
@@ -160,22 +163,16 @@
             100% { transform: scale(1); opacity: 1; }
         }
 
-        @media (max-width: 1400px) {
-            .courses-grid { grid-template-columns: repeat(4, 1fr); }
-        }
 
-        @media (max-width: 1100px) {
-            .courses-grid { grid-template-columns: repeat(3, 1fr); }
-        }
 
         @media (max-width: 768px) {
             .courses-hero { padding: 50px 20px 20px 20px; }
-            .courses-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 60px; }
+            .courses-grid { gap: 20px; margin-bottom: 60px; }
             .course-card { padding: 24px; }
         }
 
         @media (max-width: 500px) {
-            .courses-grid { grid-template-columns: 1fr; }
+            /* mobile auto-fill handles this */
         }
     </style>
 </head>
@@ -278,11 +275,11 @@
     </div>
 
     <!-- 2. HERO & BAŞLIK BÖLÜMÜ -->
-    <section class="courses-hero" style="position: relative; overflow: hidden; max-width: none; padding-top: 80px; padding-bottom: 40px;">
+    <section class="courses-hero" style="position: relative;  max-width: none; padding-top: 80px; padding-bottom: 40px;">
         <!-- Banner arkaplanı ve gölgelendirmesi -->
-        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background: url('../assets/images/academic_banner.jpg') center 25%/cover no-repeat; mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%); opacity: 0.9;"></div>
-        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; opacity: 0.85; background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(88, 28, 135, 0.6) 50%, rgba(15, 23, 42, 0.95) 100%); mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%); pointer-events: none;"></div>
-        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background: radial-gradient(circle at top, rgba(56, 189, 248, 0.25) 0%, transparent 60%); pointer-events: none;"></div>
+        <div style="position: fixed; top: 0; left: 0; width: 100%; height: 600px; z-index: -1; background: url('../assets/images/academic_banner.jpg') center 25%/cover no-repeat; mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%); opacity: 0.9;"></div>
+        <div style="position: fixed; top: 0; left: 0; width: 100%; height: 600px; z-index: -1; opacity: 0.85; background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(88, 28, 135, 0.6) 50%, rgba(15, 23, 42, 0.95) 100%); mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%); pointer-events: none;"></div>
+        <div style="position: fixed; top: 0; left: 0; width: 100%; height: 600px; z-index: -1; background: radial-gradient(circle at top, rgba(56, 189, 248, 0.25) 0%, transparent 60%); pointer-events: none;"></div>
 
         <div class="hero-content" style="position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; padding: 0 24px;">
             <div class="badge-pill floating-slow" style="background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(56, 189, 248, 0.5); color: #fff; margin-bottom: 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.6);">Müfredat &amp; Akademik Modüller</div>
