@@ -47,6 +47,23 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, 10);
     }
+
+    // Auto-scroll to returned quick guide card
+    const returnQuickGuide = localStorage.getItem('returnQuickGuide');
+    if (returnQuickGuide) {
+        setTimeout(() => {
+            const targetCard = document.getElementById('qguide-' + returnQuickGuide);
+            const carousel = document.getElementById('quick-guides-carousel');
+            if (targetCard && carousel) {
+                const scrollPos = targetCard.offsetLeft - (carousel.clientWidth / 2) + (targetCard.clientWidth / 2);
+                carousel.scrollTo({
+                    left: scrollPos,
+                    behavior: 'instant'
+                });
+                localStorage.removeItem('returnQuickGuide');
+            }
+        }, 10);
+    }
 }); // end DOMContentLoaded
 
 // ==========================================
