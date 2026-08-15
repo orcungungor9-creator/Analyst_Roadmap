@@ -122,18 +122,29 @@
         }
 
         .course-card-link {
-            font-size: 0.95rem;
+            position: absolute;
+            top: 32px;
+            right: 28px;
+            background: rgba(52, 211, 153, 0.15);
+            border: 1px solid var(--neon-green);
+            color: var(--neon-green);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
             font-weight: 700;
-            color: var(--glow-text);
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            margin-top: auto;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(52, 211, 153, 0.2);
+            z-index: 2;
         }
 
         .course-card:hover .course-card-link {
-            transform: translateX(6px);
+            background: var(--neon-green);
+            color: #ffffff;
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(52, 211, 153, 0.4);
         }
 
         /* Sparkle animation for interactive modules */
@@ -309,7 +320,7 @@
             <span class="course-card-tag lazy-fade">İstatistik 101</span>
             <h3>İstatistik</h3>
             <p>Anakütle ve örneklem tanımları, birim, vasıf çeşitleri ile ortalama, medyan, mod, varyans ve standart sapma gibi tanımlayıcı verileri öğrenin.</p>
-            <span class="course-card-link lazy-fade">Derse Başla &rarr;</span>
+            <span class="course-card-link lazy-fade"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Derse Başla</span>
         </div>
 
         <!-- 2. Olasılık -->
@@ -319,7 +330,7 @@
             <span class="course-card-tag lazy-fade">Olasılık Teorisi</span>
             <h3>Olasılık</h3>
             <p>Rastlantısal süreçler, örnek uzay, temel olasılık kuralları, permütasyon, kombinasyon ve koşullu olasılığın kalbi olan Bayes Teoremi.</p>
-            <span class="course-card-link lazy-fade">Derse Başla &rarr;</span>
+            <span class="course-card-link lazy-fade"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Derse Başla</span>
         </div>
 
         <!-- 3. Matematiksel İstatistik -->
@@ -329,7 +340,7 @@
             <span class="course-card-tag lazy-fade">Kuramsal Dağılımlar</span>
             <h3>Matematiksel İstatistik</h3>
             <p>Kesikli ve sürekli rastsal değişkenler, Olasılık Yoğunluk Fonksiyonu (PDF), beklenen değer, varyans ve efsanevi Merkezi Limit Teoremi.</p>
-            <span class="course-card-link lazy-fade">Derse Başla &rarr;</span>
+            <span class="course-card-link lazy-fade"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Derse Başla</span>
         </div>
 
         <!-- 4. İstatistiksel Yöntemler -->
@@ -339,7 +350,7 @@
             <span class="course-card-tag lazy-fade">Çıkarımsal Analiz</span>
             <h3>İstatistiksel Yöntemler</h3>
             <p>İki bağımsız grup arasındaki farklılıklerin t-testi ile incelenmesi, ANOVA varyans analizi, korelasyon katsayıları ve anlamlılık analizleri.</p>
-            <span class="course-card-link lazy-fade">Derse Başla &rarr;</span>
+            <span class="course-card-link lazy-fade"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Derse Başla</span>
         </div>
 
         <!-- 5. Regresyon Analizi -->
@@ -349,7 +360,7 @@
             <span class="course-card-tag lazy-fade">Modelleme</span>
             <h3>Regresyon Analizi</h3>
             <p>Basit doğrusal regresyon, En Küçük Kareler (OLS) yöntemi, regresyon katsayılarının anlamlılığı, R-Kare ve temel model varsayımları.</p>
-            <span class="course-card-link lazy-fade">Derse Başla &rarr;</span>
+            <span class="course-card-link lazy-fade"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Derse Başla</span>
         </div>
 
         <!-- 6. Hipotez Testleri -->
@@ -359,7 +370,7 @@
             <span class="course-card-tag lazy-fade">Karar Teorisi</span>
             <h3>Hipotez Testleri</h3>
             <p>Sıfır ve alternatif hipotezler, anlamlılık seviyesi, I. ve II. Tip hatalar ile p-değeri üzerinden karar kuralları.</p>
-            <span class="course-card-link lazy-fade">Derse Başla &rarr;</span>
+            <span class="course-card-link lazy-fade"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Derse Başla</span>
         </div>
 
         <!-- Yeni 1. Veri Yapilari -->
@@ -369,7 +380,7 @@
             <span class="course-card-tag lazy-fade">Bilgisayar Bilimleri</span>
             <h3>Veri Yapıları ve Algoritmalar</h3>
             <p>Özyineleme, ağaçlar, listeler, sıralama, graf algoritmaları ve zaman karmaşıklığı.</p>
-            <span class="course-card-link lazy-fade">Derse Başla &rarr;</span>
+            <span class="course-card-link lazy-fade"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Derse Başla</span>
         </div>
 
         <!-- Yeni 2. Yöneylem -->
@@ -379,7 +390,7 @@
             <span class="course-card-tag lazy-fade">Optimizasyon</span>
             <h3>Yöneylem Araştırması</h3>
             <p>Doğrusal programlama, simpleks yöntemi, grafiksel yöntem ve duyarlılık analizi.</p>
-            <span class="course-card-link lazy-fade">Derse Başla &rarr;</span>
+            <span class="course-card-link lazy-fade"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Derse Başla</span>
         </div>
 
         <!-- Yeni 3. YSA -->
@@ -389,7 +400,7 @@
             <span class="course-card-tag lazy-fade">Makine Öğrenmesi</span>
             <h3>Yapay Sinir Ağlarına Giriş</h3>
             <p>YSA temelleri, mimariler, yapay sinir ağı karakteristik özellikleri ve uygulama alanları.</p>
-            <span class="course-card-link lazy-fade">Derse Başla &rarr;</span>
+            <span class="course-card-link lazy-fade"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Derse Başla</span>
         </div>
         
         <!-- Yeni 4. Lineer Cebir -->
@@ -399,7 +410,7 @@
             <span class="course-card-tag lazy-fade">Lineer Sistemler</span>
             <h3>Lineer Cebir</h3>
             <p>Vektör uzayları, matris işlemleri, determinant, özdeğer ve özvektörler.</p>
-            <span class="course-card-link lazy-fade">Derse Başla &rarr;</span>
+            <span class="course-card-link lazy-fade"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Derse Başla</span>
         </div>
     </main>
 
