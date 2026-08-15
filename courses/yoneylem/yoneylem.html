@@ -1,64 +1,112 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yöneylem Araştırması | Akademik Dersler</title>
     <link rel="stylesheet" href="../../css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
-        .simple-course-container {
-            max-width: 800px;
-            margin: 100px auto;
-            padding: 40px;
-            background: var(--bg-card);
+        .syllabus-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            padding: 40px 24px;
+        }
+        .syllabus-box {
+            padding: 50px;
+            border-radius: 28px;
             border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            color: var(--text-main);
+            max-width: 700px;
+            width: 100%;
         }
-        .simple-course-container h1 {
-            color: var(--neon-blue);
-            margin-bottom: 20px;
+        .syllabus-title {
+            font-family: var(--font-title);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 16px;
+            text-align: center;
+            text-shadow: 0 0 20px rgba(52, 211, 153, 0.4);
+            color: var(--neon-green);
         }
-        .simple-course-container ul {
-            list-style-type: disc;
-            margin-left: 20px;
-            line-height: 1.8;
-            color: var(--text-muted);
-        }
-        .simple-course-container ul li {
-            margin-bottom: 10px;
-        }
-        .back-btn {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 10px 20px;
-            background: var(--neon-purple);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
+        .syllabus-warning {
+            color: var(--neon-red);
+            font-size: 0.95rem;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            text-align: center;
             font-weight: 600;
+            background: rgba(248, 113, 113, 0.1);
+            padding: 12px 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(248, 113, 113, 0.2);
+        }
+        .syllabus-box h2 {
+            color: var(--text-main);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .syllabus-box ul {
+            list-style-type: none;
+            padding-left: 0;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+        .syllabus-box ul li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 24px;
+        }
+        .syllabus-box ul li::before {
+            content: "•";
+            color: var(--neon-green);
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+            line-height: 1.8;
         }
     </style>
 </head>
-<body>
-    <script src="../../js/components.js"></script>
-    <div class="simple-course-container">
-        <h1>Yöneylem Araştırması</h1>
-        <p style="margin-bottom: 20px; color: var(--neon-red); font-weight: bold;">(Not: Laboratuvar arayüzü yeni sisteme geçiş aşamasındadır. Şimdilik sadece müfredat listelenmektedir.)</p>
-        <h2>Müfredat Konuları</h2>
-        <br>
-        <ul>
-            <li>Temel Tanımlar; Doğrusal Programlamaya Giriş</li>
-<li>Doğrusal Programlama Problemlerinin Modellenmesi</li>
-<li>Grafiksel Yöntem</li>
-<li>Simpleks Yöntemi</li>
-<li>İki Aşamalı Simpleks Yöntemi</li>
-<li>Dualite ve Duyarlılık Çözümlemesi</li>
-<li>Parametrik Programlama</li>
-
-        </ul>
-        <a href="../courses.html" class="back-btn">&larr; Derslere Dön</a>
+<body class="formulas-page">
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('analyst_theme') || 'theme-light-purple';
+            if (savedTheme !== 'theme-dark') {
+                document.body.classList.add(savedTheme);
+            }
+        })();
+    </script>
+    <div class="bg-analytics-mesh"></div>
+    <div class="syllabus-container">
+        <div class="glass syllabus-box">
+            <h1 class="syllabus-title">Yöneylem Araştırması</h1>
+            <div class="syllabus-warning">
+                Laboratuvar arayüzü yeni sisteme geçiş aşamasındadır. Şimdilik sadece müfredat listelenmektedir.
+            </div>
+            <h2>Müfredat Konuları</h2>
+            <ul>
+                <li>Temel Tanımlar; Doğrusal Programlamaya Giriş</li>
+                <li>Doğrusal Programlama Problemlerinin Modellenmesi</li>
+                <li>Grafiksel Yöntem</li>
+                <li>Simpleks Yöntemi</li>
+                <li>İki Aşamalı Simpleks Yöntemi</li>
+                <li>Dualite ve Duyarlılık Çözümlemesi</li>
+                <li>Parametrik Programlama</li>
+            </ul>
+            <a href="../../courses/courses.html" class="nav-btn" style="border-color: rgba(52, 211, 153, 0.4); color: var(--neon-green); display: inline-flex; justify-content: center; width: 100%; padding: 14px; text-decoration: none; font-weight: 600;">
+                &larr; Akademik Derslere Dön
+            </a>
+        </div>
     </div>
+    <script src="../../js/components.js"></script>
+    <script src="../../js/nav.js"></script>
+    <script src="../../js/modal.js"></script>
+    <script src="../../js/script.js"></script>
 </body>
 </html>
