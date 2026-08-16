@@ -146,7 +146,7 @@
                 </div>
                 
                 <!-- Kart 2 -->
-                <div class="quiz-card">
+                <div class="quiz-card" onclick="document.getElementById('akademik-testler').scrollIntoView({behavior: 'smooth', block: 'start'});">
                     <div class="quiz-card-img-placeholder">
                         <img src="quiz_assets/dersler.png.png" alt="Akademik Testler">
                     </div>
@@ -157,7 +157,7 @@
                 </div>
 
                 <!-- Kart 3 -->
-                <div class="quiz-card">
+                <div class="quiz-card" onclick="document.getElementById('ai-testleri').scrollIntoView({behavior: 'smooth', block: 'start'});">
                     <div class="quiz-card-img-placeholder">
                         <img src="quiz_assets/ai.png.png" alt="AI Testleri">
                     </div>
@@ -168,7 +168,7 @@
                 </div>
 
                 <!-- Kart 4 -->
-                <div class="quiz-card">
+                <div class="quiz-card" onclick="document.getElementById('analist-testleri').scrollIntoView({behavior: 'smooth', block: 'start'});">
                     <div class="quiz-card-img-placeholder">
                         <img src="quiz_assets/analiz.png.png" alt="Analist Testleri">
                     </div>
@@ -239,7 +239,302 @@
                 <button class="test-module-btn">Teste Başla</button>
             </div>
         </div>
+
+        <!-- ==============================================
+             AKADEMİK TESTLER KISMI 
+             ============================================== -->
+        <div id="akademik-testler" class="category-header-section" style="margin-top: 80px; margin-bottom: 40px; scroll-margin-top: 100px;">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <!-- Mor renk (#8b5cf6) kullanıyoruz -->
+                <i class="fa-solid fa-graduation-cap" style="font-size: 2.2rem; color: #8b5cf6; text-shadow: 0 0 15px rgba(139, 92, 246, 0.6);"></i>
+                <h2 class="moduler-title" style="font-size: 2.2rem; color: var(--text-main); font-weight: 700; margin: 0; text-shadow: 0 0 15px rgba(139, 92, 246, 0.5);">
+                    Akademik Testler
+                </h2>
+            </div>
+            <p style="color: var(--text-muted); font-size: 1.05rem; margin-top: 15px; max-width: 800px; line-height: 1.6;">
+                Üniversite derslerinizde ve akademik araştırmalarınızda ihtiyaç duyacağınız teorik altyapınızı güçlendirmek için İstatistik, Olasılık ve Ekonometri gibi sayısal bilim dallarındaki bilgi seviyenizi ölçün.
+            </p>
+            <div style="height: 3px; width: 60px; background: #8b5cf6; border-radius: 2px; margin-top: 20px; box-shadow: 0 0 10px rgba(139, 92, 246, 0.6);"></div>
+        </div>
+
+        <div class="carousel-container" id="akademik-carousel">
+            <div class="test-modules-grid" id="akademik-grid">
+                <!-- İstatistik Testi -->
+                <div class="test-module-card istatistik-card">
+                    <div class="test-module-header">
+                        <div class="test-module-icon"><i class="fa-solid fa-chart-simple"></i></div>
+                        <h3>İstatistik Testi</h3>
+                    </div>
+                    <p>Dağılımlar, hipotez testleri ve varyans analizi gibi temel istatistiksel kavramlar.</p>
+                    <button class="test-module-btn">Teste Başla</button>
+                </div>
+                
+                <!-- Olasılık Testi -->
+                <div class="test-module-card olasilik-card">
+                    <div class="test-module-header">
+                        <div class="test-module-icon"><i class="fa-solid fa-dice"></i></div>
+                        <h3>Olasılık Testi</h3>
+                    </div>
+                    <p>Kombinatorik, olasılık dağılımları ve Bayes teoremi üzerine teorik senaryolar.</p>
+                    <button class="test-module-btn">Teste Başla</button>
+                </div>
+                
+                <!-- Matematiksel İstatistik Testi -->
+                <div class="test-module-card matist-card">
+                    <div class="test-module-header">
+                        <div class="test-module-icon"><i class="fa-solid fa-square-root-variable"></i></div>
+                        <h3>Matematiksel İstatistik Testi</h3>
+                    </div>
+                    <p>Moment çıkaran fonksiyonlar, tahmin edicilerin özellikleri ve asimptotik teoriler.</p>
+                    <button class="test-module-btn">Teste Başla</button>
+                </div>
+                
+                <!-- İstatistiksel Yöntemler Testi -->
+                <div class="test-module-card istyontem-card">
+                    <div class="test-module-header">
+                        <div class="test-module-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                        <h3>İstatistiksel Yöntemler Testi</h3>
+                    </div>
+                    <p>Faktör analizi, temel bileşenler analizi ve çok değişkenli yöntemler.</p>
+                    <button class="test-module-btn">Teste Başla</button>
+                </div>
+
+                <!-- Regresyon Analizi Testi -->
+                <div class="test-module-card regresyon-card">
+                    <div class="test-module-header">
+                        <div class="test-module-icon"><i class="fa-solid fa-chart-line"></i></div>
+                        <h3>Regresyon Analizi Testi</h3>
+                    </div>
+                    <p>Basit ve çoklu regresyon modelleri, varsayım ihlalleri ve düzeltmeleri.</p>
+                    <button class="test-module-btn">Teste Başla</button>
+                </div>
+                
+                <!-- Hipotez Testleri Testi -->
+                <div class="test-module-card hipotez-card">
+                    <div class="test-module-header">
+                        <div class="test-module-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                        <h3>Hipotez Testleri Testi</h3>
+                    </div>
+                    <p>Parametrik ve non-parametrik test seçimleri, p-değeri analizi.</p>
+                    <button class="test-module-btn">Teste Başla</button>
+                </div>
+                
+                <!-- Veri Yapıları ve Algoritmalar Testi -->
+                <div class="test-module-card algoritma-card">
+                    <div class="test-module-header">
+                        <div class="test-module-icon"><i class="fa-solid fa-sitemap"></i></div>
+                        <h3>Veri Yapıları Testi</h3>
+                    </div>
+                    <p>Ağaçlar, graflar, sıralama algoritmaları ve karmaşıklık analizi (Big O).</p>
+                    <button class="test-module-btn">Teste Başla</button>
+                </div>
+                
+                <!-- Yöneylem Araştırması -->
+                <div class="test-module-card yoneylem-card">
+                    <div class="test-module-header">
+                        <div class="test-module-icon"><i class="fa-solid fa-network-wired"></i></div>
+                        <h3>Yöneylem Araştırması Testi</h3>
+                    </div>
+                    <p>Doğrusal programlama, simpleks algoritması ve optimizasyon teknikleri.</p>
+                    <button class="test-module-btn">Teste Başla</button>
+                </div>
+                
+                <!-- Yapay Sinir Ağlarına Giriş Testi -->
+                <div class="test-module-card ekonometri-card">
+                    <div class="test-module-header">
+                        <div class="test-module-icon"><i class="fa-solid fa-brain"></i></div>
+                        <h3>Yapay Sinir Ağları Testi</h3>
+                    </div>
+                    <p>Aktivasyon fonksiyonları, ileri besleme ve geri yayılım (backprop) temelleri.</p>
+                    <button class="test-module-btn">Teste Başla</button>
+                </div>
+
+                <!-- Lineer Cebir Testi -->
+                <div class="test-module-card lineer-card">
+                    <div class="test-module-header">
+                        <div class="test-module-icon"><i class="fa-solid fa-table-cells"></i></div>
+                        <h3>Lineer Cebir Testi</h3>
+                    </div>
+                    <p>Matris operasyonları, özdeğer/özvektör kavramları ve vektör uzayları.</p>
+                    <button class="test-module-btn">Teste Başla</button>
+                </div>
+            </div>
+            
+            <div class="carousel-controls">
+                <button class="carousel-btn prev-btn" aria-label="Önceki Testler"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="carousel-btn next-btn" aria-label="Sonraki Testler"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+        </div>
+
+        <!-- ==============================================
+             AI TESTLERİ KISMI 
+             ============================================== -->
+        <div id="ai-testleri" class="category-header-section" style="margin-top: 80px; margin-bottom: 40px; scroll-margin-top: 100px;">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <i class="fa-solid fa-robot" style="font-size: 2.2rem; color: #10b981; text-shadow: 0 0 15px rgba(16, 185, 129, 0.6);"></i>
+                <h2 class="moduler-title" style="font-size: 2.2rem; color: var(--text-main); font-weight: 700; margin: 0; text-shadow: 0 0 15px rgba(16, 185, 129, 0.5);">
+                    AI Testleri
+                </h2>
+            </div>
+            <p style="color: var(--text-muted); font-size: 1.05rem; margin-top: 15px; max-width: 800px; line-height: 1.6;">
+                Yapay zeka ekosistemindeki bilgi seviyenizi ölçün. AI evrelerinden, RAG ve Agent gibi gelişmiş teknolojilere ve temel AI okuryazarlığına kadar geniş bir yelpazede kendinizi test edin.
+            </p>
+            <div style="height: 3px; width: 60px; background: #10b981; border-radius: 2px; margin-top: 20px; box-shadow: 0 0 10px rgba(16, 185, 129, 0.6);"></div>
+        </div>
+
+        <div class="test-modules-grid">
+            <!-- Genel AI Testleri -->
+            <div class="test-module-card genelai-card">
+                <div class="test-module-header">
+                    <div class="test-module-icon"><i class="fa-solid fa-brain"></i></div>
+                    <h3>Genel AI Testleri</h3>
+                </div>
+                <p>AI evreleri (stages) ve temel yapay zeka kavramları üzerine kapsamlı bilgi testi.</p>
+                <button class="test-module-btn">Teste Başla</button>
+            </div>
+            
+            <!-- Gelişmiş AI Teknolojileri -->
+            <div class="test-module-card gelismisai-card">
+                <div class="test-module-header">
+                    <div class="test-module-icon"><i class="fa-solid fa-diagram-project"></i></div>
+                    <h3>Gelişmiş AI Teknolojileri</h3>
+                </div>
+                <p>RAG sistemleri, Agent mimarileri, kullanım alanları ve entegrasyon teknolojileri.</p>
+                <button class="test-module-btn">Teste Başla</button>
+            </div>
+            
+            <!-- AI Okuryazarlığı -->
+            <div class="test-module-card okuryazar-card">
+                <div class="test-module-header">
+                    <div class="test-module-icon"><i class="fa-solid fa-book-open-reader"></i></div>
+                    <h3>AI Okuryazarlığı Testi</h3>
+                </div>
+                <p>Prompt mühendisliği, AI etik kuralları ve günlük iş akışlarında AI kullanımı rehberleri.</p>
+                <button class="test-module-btn">Teste Başla</button>
+            </div>
+        </div>
+
+        <!-- ==============================================
+             ANALİST TESTLERİ KISMI 
+             ============================================== -->
+        <div id="analist-testleri" class="category-header-section" style="margin-top: 80px; margin-bottom: 40px; scroll-margin-top: 100px;">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <i class="fa-solid fa-magnifying-glass-chart" style="font-size: 2.2rem; color: #f97316; text-shadow: 0 0 15px rgba(249, 115, 22, 0.6);"></i>
+                <h2 class="moduler-title" style="font-size: 2.2rem; color: var(--text-main); font-weight: 700; margin: 0; text-shadow: 0 0 15px rgba(249, 115, 22, 0.5);">
+                    Analist Testleri
+                </h2>
+            </div>
+            <p style="color: var(--text-muted); font-size: 1.05rem; margin-top: 15px; max-width: 800px; line-height: 1.6;">
+                Veri bilimi ve analitik düşünme becerilerinizi test edin. Temizlemeden görselleştirmeye, doğru aracı seçmekten karmaşık bir veri durumunu doğru okumaya kadar tüm analist senaryolarında kendinizi sınayın.
+            </p>
+            <div style="height: 3px; width: 60px; background: #f97316; border-radius: 2px; margin-top: 20px; box-shadow: 0 0 10px rgba(249, 115, 22, 0.6);"></div>
+        </div>
+
+        <div class="test-modules-grid">
+            <!-- Veri Temizleme Testi -->
+            <div class="test-module-card temizleme-card">
+                <div class="test-module-header">
+                    <div class="test-module-icon"><i class="fa-solid fa-broom"></i></div>
+                    <h3>Veri Temizleme</h3>
+                </div>
+                <p>Kayıp veriler, aykırı değerler ve format dönüşümleri gibi temel veri temizleme senaryoları.</p>
+                <button class="test-module-btn">Teste Başla</button>
+            </div>
+            
+            <!-- Veri Görselleştirme Testi -->
+            <div class="test-module-card gorsellestirme-card">
+                <div class="test-module-header">
+                    <div class="test-module-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                    <h3>Veri Görselleştirme</h3>
+                </div>
+                <p>Veri türüne en uygun grafik seçimi, renk teorisi ve görsel aldatmacalardan kaçınma.</p>
+                <button class="test-module-btn">Teste Başla</button>
+            </div>
+            
+            <!-- Doğru Araç Seçimi Testi -->
+            <div class="test-module-card aracsecimi-card">
+                <div class="test-module-header">
+                    <div class="test-module-icon"><i class="fa-solid fa-toolbox"></i></div>
+                    <h3>Doğru Araç Seçimi</h3>
+                </div>
+                <p>Python, R, SQL, Excel veya BI toolları arasından vaka analizi bazlı optimal araç seçimi.</p>
+                <button class="test-module-btn">Teste Başla</button>
+            </div>
+
+            <!-- Durumu Okuma Testi -->
+            <div class="test-module-card durumokuma-card">
+                <div class="test-module-header">
+                    <div class="test-module-icon"><i class="fa-solid fa-eye"></i></div>
+                    <h3>Durumu Okuma</h3>
+                </div>
+                <p>Verilen bir iş problemi için doğru formülü, doğru yorumu veya doğru analitik seçimi yapma.</p>
+                <button class="test-module-btn">Teste Başla</button>
+            </div>
+        </div>
+
     </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('akademik-grid');
+            const prevBtn = document.querySelector('#akademik-carousel .prev-btn');
+            const nextBtn = document.querySelector('#akademik-carousel .next-btn');
+
+            if (grid && prevBtn && nextBtn) {
+                const cards = Array.from(grid.querySelectorAll('.test-module-card'));
+                const cardsPerPage = 4;
+                let currentPage = 0;
+                const totalPages = Math.ceil(cards.length / cardsPerPage);
+
+                const updateView = () => {
+                    cards.forEach((card, index) => {
+                        const start = currentPage * cardsPerPage;
+                        const end = start + cardsPerPage;
+                        
+                        // Sadece o sayfaya ait kartları göster
+                        if (index >= start && index < end) {
+                            card.style.display = 'flex'; // test-module-card flex kullanıyor
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+
+                    // Butonların görsel durumunu güncelle
+                    if (currentPage === 0) {
+                        prevBtn.style.opacity = '0.5';
+                        prevBtn.style.cursor = 'not-allowed';
+                    } else {
+                        prevBtn.style.opacity = '1';
+                        prevBtn.style.cursor = 'pointer';
+                    }
+
+                    if (currentPage === totalPages - 1) {
+                        nextBtn.style.opacity = '0.5';
+                        nextBtn.style.cursor = 'not-allowed';
+                    } else {
+                        nextBtn.style.opacity = '1';
+                        nextBtn.style.cursor = 'pointer';
+                    }
+                };
+
+                nextBtn.addEventListener('click', () => {
+                    if (currentPage < totalPages - 1) {
+                        currentPage++;
+                        updateView();
+                    }
+                });
+
+                prevBtn.addEventListener('click', () => {
+                    if (currentPage > 0) {
+                        currentPage--;
+                        updateView();
+                    }
+                });
+
+                updateView(); // Başlangıçta ilk 4'lüyü yükle
+            }
+        });
+    </script>
 
 
 
