@@ -84,76 +84,61 @@ body.theme-light-purple .formulas-hero .hero-subtitle {
 }
 
 .quiz-card {
-    /* Glassmorphism ve premium hissiyat */
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    /* Çizime uygun olarak üstü tam yuvarlak, altı keskin köşeli (veya çok hafif köşeli) */
+    /* Saydamlığı kaldırdık, tam okunaklı ve temaya uygun katı zemin */
+    background: var(--bg-dark); 
+    border: 2.5px solid; /* Çizgiler belirgin ve kalın */
     border-radius: 140px 140px 16px 16px; 
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
     flex-direction: column;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
     cursor: pointer;
     position: relative;
+    /* Cam efekti iptal edildi */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
 }
 
-/* Açık tema (Açık Lavanta vs) için cam efekti adaptasyonu */
-body[class*="theme-light"] .quiz-card {
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.4) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.8);
-}
+/* 4 Kart için ayrı pastel / neon-olmayan renkli çizgiler */
+/* 1. Kart: Yumuşak Mavi */
+.quiz-categories-grid .quiz-card:nth-child(1) { border-color: #3b82f6; }
+.quiz-categories-grid .quiz-card:nth-child(1) .quiz-card-img-placeholder { border-bottom: 2px solid rgba(59, 130, 246, 0.3); background: rgba(59, 130, 246, 0.05); }
+.quiz-categories-grid .quiz-card:nth-child(1):hover { box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2); transform: translateY(-10px); }
 
-.quiz-card::before {
-    /* İçeriden yansıyan gizli neon ışık efekti */
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.1), transparent 60%);
-    z-index: 0;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-}
+/* 2. Kart: Yumuşak Mor */
+.quiz-categories-grid .quiz-card:nth-child(2) { border-color: #8b5cf6; }
+.quiz-categories-grid .quiz-card:nth-child(2) .quiz-card-img-placeholder { border-bottom: 2px solid rgba(139, 92, 246, 0.3); background: rgba(139, 92, 246, 0.05); }
+.quiz-categories-grid .quiz-card:nth-child(2):hover { box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2); transform: translateY(-10px); }
 
-.quiz-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    border-color: rgba(255, 255, 255, 0.3);
-}
+/* 3. Kart: Yumuşak Yeşil */
+.quiz-categories-grid .quiz-card:nth-child(3) { border-color: #10b981; }
+.quiz-categories-grid .quiz-card:nth-child(3) .quiz-card-img-placeholder { border-bottom: 2px solid rgba(16, 185, 129, 0.3); background: rgba(16, 185, 129, 0.05); }
+.quiz-categories-grid .quiz-card:nth-child(3):hover { box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2); transform: translateY(-10px); }
 
-body[class*="theme-light"] .quiz-card:hover {
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 1);
-    border-color: rgba(255, 255, 255, 1);
-}
-
-.quiz-card:hover::before {
-    opacity: 1;
-}
+/* 4. Kart: Yumuşak Turuncu */
+.quiz-categories-grid .quiz-card:nth-child(4) { border-color: #f97316; }
+.quiz-categories-grid .quiz-card:nth-child(4) .quiz-card-img-placeholder { border-bottom: 2px solid rgba(249, 115, 22, 0.3); background: rgba(249, 115, 22, 0.05); }
+.quiz-categories-grid .quiz-card:nth-child(4):hover { box-shadow: 0 20px 40px rgba(249, 115, 22, 0.2); transform: translateY(-10px); }
 
 .quiz-card-img-placeholder {
-    height: 130px; /* Boyu 1 cm kadar uzatıldı */
+    height: 130px; 
     width: 100%;
-    /* Düz renk yerine hafif bir gradyan geçişi */
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.08), transparent);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    letter-spacing: 2px;
-    font-weight: 600;
-    text-transform: uppercase;
     position: relative;
     z-index: 1;
+    overflow: hidden;
 }
 
-body[class*="theme-light"] .quiz-card-img-placeholder {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.03), transparent);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+.quiz-card-img-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 21:9 oranındaki resimlerin kutuya tam ve estetik oturmasını sağlar */
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.quiz-card:hover .quiz-card-img-placeholder img {
+    transform: scale(1.05); /* Fare üzerine gelince resimde hafif bir zoom efekti */
 }
 
 .quiz-card-content {
