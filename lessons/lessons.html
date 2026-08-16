@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 
 <head>
@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/styles.css?v=3.4">
     <link rel="stylesheet" href="lessons.css">
     <link
-        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&family=Montserrat:wght@700;800;900&display=swap"
         rel="stylesheet">
 </head>
 
@@ -120,38 +120,71 @@
 
 
 
+    <!-- İnce Banner Arka Planı -->
+    <div class="banner-bg-container">
+        <img src="yazilim.png.png" alt="Yazılım Banner" class="banner-bg-img">
+        <div class="banner-overlay"></div>
+    </div>
+
     <!-- 2. HERO & BAŞLIK BÖLÜMÜ -->
-    <section class="formulas-hero">
-        <div class="hero-content">
-            <div class="badge-pill floating-slow">Yazılım &amp; Analitik Araçlar</div>
-            <h1 class="hero-title">Programlama <span class="gradient-text">Dersleri</span></h1>
-            <p class="hero-subtitle">
-                R, Python, SQL ve veri analitiği araçları üzerine uygulamalı dersler, ipuçları ve kod kütüphanesi.
-                Vizyonunuza göre şekillenecek modül altyapısı.
+    <section class="formulas-hero" style="padding-top: 80px; padding-bottom: 100px;">
+        <div class="hero-content" style="max-width: 900px; margin: 0 auto; position: relative; z-index: 2; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px;">
+            <div class="badge-pill floating-slow lessons-badge">Yazılım &amp; Analitik Araçlar</div>
+            <h1 class="page-main-title">Programlama Dersleri</h1>
+            <p style="color: rgba(255, 255, 255, 0.9); font-size: 1.2rem; max-width: 600px; line-height: 1.6; margin-top: 10px; text-shadow: 0 2px 10px rgba(0,0,0,0.8); font-weight: 500;">
+                Sektörde yaygın araçların komutlarını, formüllerini ve syntaxını sıfırdan başlayarak öğrenin.
             </p>
         </div>
     </section>
 
-    <!-- 3. ANA İÇERİK -->
-    <main class="formulas-main" style="max-width: 1200px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
-        <div class="glass"
-            style="padding: 64px 48px; border-radius: 28px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 1px solid var(--glass-border); text-align: center;">
-            <div style="font-size: 3rem; margin-bottom: 24px; color: var(--neon-blue);">💻</div>
-            <h2
-                style="font-family: var(--font-heading); font-size: 2.2rem; margin-bottom: 16px; color: var(--text-main);">
-                Ders İçerikleri Hazırlanıyor</h2>
-            <p
-                style="color: var(--text-muted); font-size: 1.15rem; max-width: 650px; margin: 0 auto 32px auto; line-height: 1.6;">
-                Bu alan, veri analitiği programlama dilleri ve araçlarına dair vizyonunuz doğrultusunda özel olarak
-                tasarlanacaktır. Müfredat, kod blokları ve interaktif araçlar eklenecektir.
-            </p>
-            <div
-                style="display: inline-flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 14px 28px; border-radius: 100px;">
-                <span
-                    style="width: 10px; height: 10px; border-radius: 50%; background: var(--neon-green); box-shadow: 0 0 10px var(--neon-green); animation: pulse 2s infinite;"></span>
-                <span style="color: var(--text-main); font-size: 1.05rem; font-weight: 500;">Altyapı Hazır — Tasarım
-                    Bekleniyor</span>
-            </div>
+    <!-- KARTLAR BÖLÜMÜ -->
+    <main class="formulas-main" style="max-width: 1400px; margin: 0 auto 50px auto; padding: 0 24px; display: flex; justify-content: center; z-index: 2; position: relative;">
+        <div class="lessons-grid">
+            
+            <!-- Python Kartı -->
+            <a href="#" class="lesson-card split-card">
+                <div class="card-top">
+                    <img src="../assets/logos/python-logo.svg" alt="Python Logo">
+                </div>
+                <div class="card-bottom">
+                    <h3>Python ile Analiz</h3>
+                    <p>Veri bilimi ve makine öğrenmesi için evrensel dil.</p>
+                </div>
+            </a>
+            
+            <!-- R Kartı -->
+            <a href="#" class="lesson-card split-card">
+                <div class="card-top">
+                    <img src="../assets/logos/r-logo.svg" alt="R Logo">
+                </div>
+                <div class="card-bottom">
+                    <h3>R Studio</h3>
+                    <p>İstatistiksel hesaplama ve görselleştirmenin merkezi.</p>
+                </div>
+            </a>
+            
+            <!-- Git Kartı -->
+            <a href="#" class="lesson-card split-card">
+                <div class="card-top">
+                    <img src="../assets/logos/git-logo.svg" alt="Git Logo">
+                </div>
+                <div class="card-bottom">
+                    <h3>Git &amp; GitHub</h3>
+                    <p>Versiyon kontrolü ve takım içi işbirliği yönetimi.</p>
+                </div>
+            </a>
+
+            <!-- Excel Kartı -->
+            <a href="#" class="lesson-card split-card">
+                <div class="card-top">
+                    <img src="../assets/logos/excel-logo.png" alt="Excel Logo" style="filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));">
+                </div>
+                <div class="card-bottom">
+                    <h3>Gelişmiş Excel</h3>
+                    <p>Temel veri manipülasyonu ve fonksiyonel tablolar.</p>
+                </div>
+            </a>
+            
         </div>
     </main>
 
