@@ -49,7 +49,7 @@ function toggleMobileAccordion(id, btnElement) {
     const isClosed = content.style.display === 'none' || content.style.display === '';
     
     // Tüm akordeonları kapat
-    const allAccordions = ['courses-accordion', 'guides-accordion', 'tools-accordion', 'ai-accordion', 'ai-rehberi-accordion'];
+    const allAccordions = ['courses-accordion', 'guides-accordion', 'tools-accordion', 'ai-accordion', 'ai-rehberi-accordion', 'quiz-accordion', 'prep-accordion'];
     allAccordions.forEach(accId => {
         const accContent = document.getElementById(accId);
         if (accContent) {

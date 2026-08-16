@@ -170,7 +170,9 @@ const MOBILE_NAV_HTML = `
                 <button onclick="closeNavMenu()" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: 50%; color: var(--text-main); width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer; transition: all 0.3s ease;">&times;</button>
             </div>
             
-            ${isIndexPage ? '' : `<button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}index.html'">🏠 Ana Sayfaya Dön</button>`}
+            ${isIndexPage ? '' : `<button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}index.html'" style="display: flex; justify-content: flex-start; align-items: center; margin-bottom: 12px;">
+                <span style="font-weight: 800; color: var(--text-main); letter-spacing: 0.5px; font-size: 0.9rem; display: flex; align-items: center;"><i data-lucide="home" style="width: 18px; height: 18px; margin-right: 8px;"></i> Ana Sayfaya Dön</span>
+            </button>`}
 
             <button class="mobile-nav-item courses-hdr" onclick="toggleMobileAccordion('courses-accordion', this)" style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px; margin-bottom: 4px;">
                 <span style="font-weight: 800; color: var(--neon-purple); letter-spacing: 0.5px; font-size: 0.9rem; display: flex; align-items: center;"><i data-lucide="book" style="width: 18px; height: 18px; margin-right: 8px;"></i> Dersler</span>
@@ -254,12 +256,57 @@ const MOBILE_NAV_HTML = `
                 <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}yapay-zeka/rag-sistemleri/index.html'" style="font-size: 0.9rem; padding: 12px 16px;">🧠 RAG (Retrieval-Augmented Generation)</button>
             </div>
 
+            <!-- MOBILE: ANALİZE HAZIRLIK -->
+            <button class="mobile-nav-item courses-hdr" onclick="toggleMobileAccordion('prep-accordion', this)" style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px; margin-bottom: 4px;">
+                <span style="font-weight: 800; color: var(--neon-purple); letter-spacing: 0.5px; font-size: 0.9rem; display: flex; align-items: center;"><i data-lucide="database" style="width: 18px; height: 18px; margin-right: 8px;"></i> Analize Hazırlık</span>
+                <span class="accordion-arrow" style="transition: transform 0.3s; font-size: 0.9rem; color: var(--neon-purple);">▼</span>
+            </button>
+            <div id="prep-accordion" style="display: none; flex-direction: column; gap: 8px; width: 100%; margin-top: -4px; margin-bottom: 8px; padding-left: 16px; border-left: 2px solid rgba(192, 132, 252, 0.3);">
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}analize_hazirlik/index.html'; closeNavMenu();" style="font-size: 0.9rem; padding: 12px 16px; border-bottom: 1px dashed rgba(192, 132, 252, 0.3); border-radius: 0; display: flex; align-items: center;"><i data-lucide="database" style="width: 16px; height: 16px; margin-right: 8px; color: var(--neon-purple);"></i> Analize Hazırlığa Git</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}analize_hazirlik/index.html#veriye-ilk-bakis'; closeNavMenu();" style="font-size: 0.9rem; padding: 12px 16px; display: flex; align-items: center;"><i data-lucide="zoom-in" style="width: 16px; height: 16px; margin-right: 8px; color: var(--neon-purple);"></i> Veriye İlk Bakışa Git</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}analize_hazirlik/index.html#veri-temizleme-1'; closeNavMenu();" style="font-size: 0.9rem; padding: 12px 16px; display: flex; align-items: center;"><i data-lucide="trash-2" style="width: 16px; height: 16px; margin-right: 8px; color: var(--neon-purple);"></i> Veri Temizleme I Git</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}analize_hazirlik/index.html#veri-temizleme-2'; closeNavMenu();" style="font-size: 0.9rem; padding: 12px 16px; display: flex; align-items: center;"><i data-lucide="trash-2" style="width: 16px; height: 16px; margin-right: 8px; color: var(--neon-purple);"></i> Veri Temizleme II Git</button>
+            </div>
+
+            <!-- MOBILE: TEST ÇÖZ -->
+            <button class="mobile-nav-item tools-hdr" onclick="toggleMobileAccordion('quiz-accordion', this)" style="display: flex; justify-content: space-between; align-items: center; margin-top: 4px; margin-bottom: 4px;">
+                <span style="font-weight: 800; color: var(--neon-green); letter-spacing: 0.5px; font-size: 0.9rem; display: flex; align-items: center;"><i data-lucide="help-circle" style="width: 18px; height: 18px; margin-right: 8px;"></i> Test Çöz</span>
+                <span class="accordion-arrow" style="transition: transform 0.3s; font-size: 0.9rem; color: var(--neon-green);">▼</span>
+            </button>
+            <div id="quiz-accordion" style="display: none; flex-direction: column; gap: 8px; width: 100%; margin-top: -4px; margin-bottom: 8px; padding-left: 16px; border-left: 2px solid rgba(52, 211, 153, 0.3);">
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}quiz/quiz.html'; closeNavMenu();" style="font-size: 0.9rem; padding: 12px 16px; border-bottom: 1px dashed rgba(52, 211, 153, 0.3); border-radius: 0; display: flex; align-items: center;"><i data-lucide="help-circle" style="width: 16px; height: 16px; margin-right: 8px; color: var(--neon-green);"></i> Test Modüllerine Git</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}quiz/quiz.html#programlama-testleri'; closeNavMenu();" style="font-size: 0.9rem; padding: 12px 16px; display: flex; align-items: center;"><i data-lucide="code" style="width: 16px; height: 16px; margin-right: 8px; color: var(--neon-green);"></i> Programlama Testlerine Git</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}quiz/quiz.html#akademik-testler'; closeNavMenu();" style="font-size: 0.9rem; padding: 12px 16px; display: flex; align-items: center;"><i data-lucide="graduation-cap" style="width: 16px; height: 16px; margin-right: 8px; color: var(--neon-green);"></i> Akademik Testlere Git</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}quiz/quiz.html#ai-testleri'; closeNavMenu();" style="font-size: 0.9rem; padding: 12px 16px; display: flex; align-items: center;"><i data-lucide="bot" style="width: 16px; height: 16px; margin-right: 8px; color: var(--neon-green);"></i> AI Testlerine Git</button>
+                <button class="mobile-nav-item" onclick="window.location.href='${pathPrefix}quiz/quiz.html#analist-testleri'; closeNavMenu();" style="font-size: 0.9rem; padding: 12px 16px; display: flex; align-items: center;"><i data-lucide="bar-chart-2" style="width: 16px; height: 16px; margin-right: 8px; color: var(--neon-green);"></i> Analist Testlerine Git</button>
+            </div>
+
+            <!-- MOBILE: NASIL BAŞLAYABİLİRİM? -->
+            <button class="mobile-nav-item ai-hdr" onclick="window.location.href='${pathPrefix}how_to_start/how_to_start.html'" style="display: flex; justify-content: space-between; align-items: center; margin-top: 4px; margin-bottom: 4px;">
+                <span style="font-weight: 800; color: var(--neon-orange); letter-spacing: 0.5px; font-size: 0.9rem; display: flex; align-items: center;"><i data-lucide="navigation" style="width: 18px; height: 18px; margin-right: 8px;"></i> Nasıl Başlayabilirim?</span>
+            </button>
+
+            <!-- MOBILE: PROGRAMLAMA DERSLERİ -->
+            <button class="mobile-nav-item guides-hdr" onclick="window.location.href='${pathPrefix}lessons/lessons.html'" style="display: flex; justify-content: space-between; align-items: center; margin-top: 4px; margin-bottom: 4px;">
+                <span style="font-weight: 800; color: var(--neon-blue); letter-spacing: 0.5px; font-size: 0.9rem; display: flex; align-items: center;"><i data-lucide="code" style="width: 18px; height: 18px; margin-right: 8px;"></i> Programlama Dersleri</span>
+            </button>
+
             <div style="width: 100%; margin: 12px 0 4px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
                 <span style="font-size: 0.85rem; font-weight: 800; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase;">Bağlantılar &amp; Ayarlar</span>
             </div>
-            <a href="https://www.kaggle.com/datasets" target="_blank" class="mobile-nav-item">🌐 Veri Setleri (Kaggle) ↗</a>
-            <button class="mobile-nav-item" onclick="window.location.href = pathPrefix + 'about/about.html'; closeNavMenu();">ℹ️ Hakkında</button>
-            <button class="mobile-nav-item" onclick="openModal('theme-modal'); closeNavMenu();">🎨 Görünüm Ayarları</button>
+            
+            <a href="https://www.kaggle.com/datasets" target="_blank" class="mobile-nav-item guides-hdr" style="display: flex; justify-content: space-between; align-items: center; margin-top: 4px; margin-bottom: 4px; text-decoration: none;">
+                <span style="font-weight: 800; color: var(--neon-blue); letter-spacing: 0.5px; font-size: 0.9rem; display: flex; align-items: center;"><i data-lucide="globe" style="width: 18px; height: 18px; margin-right: 8px;"></i> Veri Setleri (Kaggle)</span>
+                <i data-lucide="external-link" style="width: 16px; height: 16px; color: var(--neon-blue);"></i>
+            </a>
+            
+            <button class="mobile-nav-item tools-hdr" onclick="window.location.href = pathPrefix + 'about/about.html'; closeNavMenu();" style="display: flex; justify-content: flex-start; align-items: center; margin-top: 4px; margin-bottom: 4px;">
+                <span style="font-weight: 800; color: var(--neon-green); letter-spacing: 0.5px; font-size: 0.9rem; display: flex; align-items: center;"><i data-lucide="info" style="width: 18px; height: 18px; margin-right: 8px;"></i> Hakkında</span>
+            </button>
+            
+            <button class="mobile-nav-item ai-hdr" onclick="openModal('theme-modal'); closeNavMenu();" style="display: flex; justify-content: flex-start; align-items: center; margin-top: 4px; margin-bottom: 12px;">
+                <span style="font-weight: 800; color: var(--neon-orange); letter-spacing: 0.5px; font-size: 0.9rem; display: flex; align-items: center;"><i data-lucide="palette" style="width: 18px; height: 18px; margin-right: 8px;"></i> Görünüm Ayarları</span>
+            </button>
         </div>
     </div>
 `;
