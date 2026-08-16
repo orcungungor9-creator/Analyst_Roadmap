@@ -307,6 +307,17 @@ const MOBILE_NAV_HTML = `
             <button class="mobile-nav-item ai-hdr" onclick="openModal('theme-modal'); closeNavMenu();" style="display: flex; justify-content: flex-start; align-items: center; margin-top: 4px; margin-bottom: 12px;">
                 <span style="font-weight: 800; color: var(--neon-orange); letter-spacing: 0.5px; font-size: 0.9rem; display: flex; align-items: center;"><i data-lucide="palette" style="width: 18px; height: 18px; margin-right: 8px;"></i> Görünüm Ayarları</span>
             </button>
+
+            <!-- MOBILE SIDEBAR FOOTER -->
+            <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; align-items: center; gap: 8px; margin-bottom: 20px;">
+                <div style="display: flex; gap: 16px;">
+                    <a href="${pathPrefix}yasal/index.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.8rem; font-weight: 600;">Yasal</a>
+                    <a href="#" onclick="event.preventDefault();" style="color: var(--text-muted); text-decoration: none; font-size: 0.8rem; font-weight: 600; cursor: default;">İletişim</a>
+                </div>
+                <div style="text-align: center; color: var(--text-muted); font-size: 0.75rem; line-height: 1.4;">
+                    &copy; 2026 Analyst Roadmap.<br>Tüm hakları saklıdır.
+                </div>
+            </div>
         </div>
     </div>
 `;
