@@ -11,24 +11,27 @@ body.formulas-page main.formulas-main {
     flex: 1;
 }
 
-/* Tam ekran banner ayarlarÄ± */
+/* Tam ekran banner ayarlarÃ„Â± */
 .formulas-hero {
     min-height: 100vh;
     width: 100%;
-    max-width: 100% !important; /* styles.css'teki kÄ±sÄ±tlamayÄ± ezer */
+    max-width: 100% !important; /* styles.css'teki kÃ„Â±sÃ„Â±tlamayÃ„Â± ezer */
     margin: 0;
-    padding: 80px 24px 40px 24px !important; /* BaÅŸlÄ±ÄŸÄ± ortadan biraz daha yukarÄ± almak iÃ§in 140'tan 100'e Ã§ektik */
+    padding: 80px 24px 40px 24px !important; /* BaÃ…Å¸lÃ„Â±Ã„Å¸Ã„Â± ortadan biraz daha yukarÃ„Â± almak iÃƒÂ§in 140'tan 100'e ÃƒÂ§ektik */
     display: block;
     text-align: center;
-    background-image: url('koyu.png'); /* VarsayÄ±lan geÃ§ici gÃ¶rsel (diÄŸer temalar iÃ§in) */
+    background-image: url('koyu.png'); /* VarsayÃ„Â±lan geÃƒÂ§ici gÃƒÂ¶rsel (diÃ„Å¸er temalar iÃƒÂ§in) */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
     z-index: 1;
+    /* Banner bitiÅŸine ince neon Ã§izgi eklendi */
+    border-bottom: 1px solid var(--neon-blue);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5), 0 1px 10px var(--neon-blue-glow);
 }
 
-/* Yeniden eklenen kapsÃ¼l (badge) iÃ§in belirginleÅŸtirici tasarÄ±m */
+/* Yeniden eklenen kapsÃƒÂ¼l (badge) iÃƒÂ§in belirginleÃ…Å¸tirici tasarÃ„Â±m */
 .quiz-badge {
     background: var(--bg-card) !important;
     backdrop-filter: blur(8px);
@@ -40,18 +43,18 @@ body.formulas-page main.formulas-main {
     padding: 8px 24px !important;
 }
 
-/* Kraliyet Moru (theme-purple) iÃ§in koyu banner */
+/* Kraliyet Moru (theme-purple) iÃƒÂ§in koyu banner */
 body.theme-purple .formulas-hero {
     background-image: url('koyu.png');
 }
 
-/* AÃ§Ä±k Lavanta (theme-light-purple) iÃ§in aydÄ±nlÄ±k banner */
+/* AÃƒÂ§Ã„Â±k Lavanta (theme-light-purple) iÃƒÂ§in aydÃ„Â±nlÃ„Â±k banner */
 body.theme-light-purple .formulas-hero {
     background-image: url('aydinlik.png');
 }
 
-/* YAZI OKUNABÄ°LÄ°RLÄ°ÄÄ° (YumuÅŸak GÃ¶lge - Harf Ã‡izgisi Yok) */
-/* Koyu temalar (varsayÄ±lan) iÃ§in yumuÅŸak siyah gÃ¶lge */
+/* YAZI OKUNABÃ„Â°LÃ„Â°RLÃ„Â°Ã„ÂÃ„Â° (YumuÃ…Å¸ak GÃƒÂ¶lge - Harf Ãƒâ€¡izgisi Yok) */
+/* Koyu temalar (varsayÃ„Â±lan) iÃƒÂ§in yumuÃ…Å¸ak siyah gÃƒÂ¶lge */
 .formulas-hero .hero-title {
     -webkit-text-stroke: 0;
     text-shadow: 0 8px 30px rgba(0, 0, 0, 0.7), 0 2px 10px rgba(0, 0, 0, 0.8);
@@ -62,7 +65,7 @@ body.theme-light-purple .formulas-hero {
     font-weight: 500;
 }
 
-/* AÃ§Ä±k Lavanta (AÃ§Ä±k tema) iÃ§in yumuÅŸak beyaz gÃ¶lge */
+/* AÃƒÂ§Ã„Â±k Lavanta (AÃƒÂ§Ã„Â±k tema) iÃƒÂ§in yumuÃ…Å¸ak beyaz gÃƒÂ¶lge */
 body.theme-light-purple .formulas-hero .hero-title {
     text-shadow: 0 8px 30px rgba(255, 255, 255, 0.9), 0 2px 10px rgba(255, 255, 255, 1);
 }
@@ -72,21 +75,21 @@ body.theme-light-purple .formulas-hero .hero-subtitle {
 }
 
 /* -------------------------------------------
-   KATEGORİ KARTLARI (TEST MODÜLLERİ)
+   KATEGORÄ° KARTLARI (TEST MODÃœLLERÄ°)
 ------------------------------------------- */
 .quiz-categories-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 24px;
     width: 100%;
-    max-width: 1250px; /* Daha yatay yayılmaları için genişletildi */
-    margin: 10px auto 20px auto; /* Yukarıya daha yakın olması için margin küçültüldü */
+    max-width: 1250px; /* Daha yatay yayÄ±lmalarÄ± iÃ§in geniÅŸletildi */
+    margin: 10px auto 20px auto; /* YukarÄ±ya daha yakÄ±n olmasÄ± iÃ§in margin kÃ¼Ã§Ã¼ltÃ¼ldÃ¼ */
 }
 
 .quiz-card {
-    /* Saydamlığı kaldırdık, tam okunaklı ve temaya uygun katı zemin */
+    /* SaydamlÄ±ÄŸÄ± kaldÄ±rdÄ±k, tam okunaklÄ± ve temaya uygun katÄ± zemin */
     background: var(--bg-dark); 
-    border: 2.5px solid; /* Çizgiler belirgin ve kalın */
+    border: 2.5px solid; /* Ã‡izgiler belirgin ve kalÄ±n */
     border-radius: 140px 140px 16px 16px; 
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -100,23 +103,23 @@ body.theme-light-purple .formulas-hero .hero-subtitle {
     -webkit-backdrop-filter: none;
 }
 
-/* 4 Kart için ayrı pastel / neon-olmayan renkli çizgiler */
-/* 1. Kart: Yumuşak Mavi */
+/* 4 Kart iÃ§in ayrÄ± pastel / neon-olmayan renkli Ã§izgiler */
+/* 1. Kart: YumuÅŸak Mavi */
 .quiz-categories-grid .quiz-card:nth-child(1) { border-color: #3b82f6; }
 .quiz-categories-grid .quiz-card:nth-child(1) .quiz-card-img-placeholder { border-bottom: 2px solid rgba(59, 130, 246, 0.3); background: rgba(59, 130, 246, 0.05); }
 .quiz-categories-grid .quiz-card:nth-child(1):hover { box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2); transform: translateY(-10px); }
 
-/* 2. Kart: Yumuşak Mor */
+/* 2. Kart: YumuÅŸak Mor */
 .quiz-categories-grid .quiz-card:nth-child(2) { border-color: #8b5cf6; }
 .quiz-categories-grid .quiz-card:nth-child(2) .quiz-card-img-placeholder { border-bottom: 2px solid rgba(139, 92, 246, 0.3); background: rgba(139, 92, 246, 0.05); }
 .quiz-categories-grid .quiz-card:nth-child(2):hover { box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2); transform: translateY(-10px); }
 
-/* 3. Kart: Yumuşak Yeşil */
+/* 3. Kart: YumuÅŸak YeÅŸil */
 .quiz-categories-grid .quiz-card:nth-child(3) { border-color: #10b981; }
 .quiz-categories-grid .quiz-card:nth-child(3) .quiz-card-img-placeholder { border-bottom: 2px solid rgba(16, 185, 129, 0.3); background: rgba(16, 185, 129, 0.05); }
 .quiz-categories-grid .quiz-card:nth-child(3):hover { box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2); transform: translateY(-10px); }
 
-/* 4. Kart: Yumuşak Turuncu */
+/* 4. Kart: YumuÅŸak Turuncu */
 .quiz-categories-grid .quiz-card:nth-child(4) { border-color: #f97316; }
 .quiz-categories-grid .quiz-card:nth-child(4) .quiz-card-img-placeholder { border-bottom: 2px solid rgba(249, 115, 22, 0.3); background: rgba(249, 115, 22, 0.05); }
 .quiz-categories-grid .quiz-card:nth-child(4):hover { box-shadow: 0 20px 40px rgba(249, 115, 22, 0.2); transform: translateY(-10px); }
@@ -132,17 +135,17 @@ body.theme-light-purple .formulas-hero .hero-subtitle {
 .quiz-card-img-placeholder img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* 21:9 oranındaki resimlerin kutuya tam ve estetik oturmasını sağlar */
+    object-fit: cover; /* 21:9 oranÄ±ndaki resimlerin kutuya tam ve estetik oturmasÄ±nÄ± saÄŸlar */
     display: block;
     transition: transform 0.4s ease;
 }
 
 .quiz-card:hover .quiz-card-img-placeholder img {
-    transform: scale(1.05); /* Fare üzerine gelince resimde hafif bir zoom efekti */
+    transform: scale(1.05); /* Fare Ã¼zerine gelince resimde hafif bir zoom efekti */
 }
 
 .quiz-card-content {
-    padding: 20px 20px 28px 20px; /* Boşluklar hafif artırılarak nefes aldırıldı */
+    padding: 20px 20px 28px 20px; /* BoÅŸluklar hafif artÄ±rÄ±larak nefes aldÄ±rÄ±ldÄ± */
     text-align: center;
     position: relative;
     z-index: 1;
@@ -159,9 +162,106 @@ body.theme-light-purple .formulas-hero .hero-subtitle {
 
 .quiz-card-desc {
     font-size: 0.9rem;
-    color: var(--text-muted);
+    color: var(--text-main); /* Daha okunaklÄ± olmasÄ± iÃ§in ana metin rengine Ã§ekildi */
+    font-weight: 500; /* Biraz daha belirginleÅŸtirildi */
     line-height: 1.5;
     margin: 0;
 }
 
+
+
+/* -------------------------------------------
+   ALT TEST MODÜLLERİ (Örn: Python, Excel)
+------------------------------------------- */
+.test-modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    width: 100%;
+}
+
+.test-module-card {
+    background: var(--bg-card);
+    border: 2px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.test-module-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.test-module-icon {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.test-module-card h3 {
+    font-size: 1.25rem;
+    color: var(--text-main);
+    margin: 0;
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+
+.test-module-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.5;
+    flex-grow: 1; /* Butonu her zaman en alta itmek için */
+}
+
+.test-module-btn {
+    background: transparent;
+    border: 1px solid;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    margin-top: auto;
+}
+
+/* --- Python Rengi (Mavi/Sarı) --- */
+.test-module-card.python-card { border-color: #3b78a8; }
+.test-module-card.python-card .test-module-icon { color: #3b78a8; }
+.test-module-card.python-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(59, 120, 168, 0.3); border-color: #3b78a8; }
+.test-module-card.python-card .test-module-btn { border-color: #3b78a8; background: #3b78a8; color: #fff; }
+.test-module-card.python-card:hover .test-module-btn { background: transparent; color: #3b78a8; box-shadow: 0 0 15px rgba(59, 120, 168, 0.5); }
+
+/* --- Excel Rengi (Yeşil) --- */
+.test-module-card.excel-card { border-color: #217346; }
+.test-module-card.excel-card .test-module-icon { color: #217346; }
+.test-module-card.excel-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(33, 115, 70, 0.3); border-color: #217346; }
+.test-module-card.excel-card .test-module-btn { border-color: #217346; background: #217346; color: #fff; }
+.test-module-card.excel-card:hover .test-module-btn { background: transparent; color: #217346; box-shadow: 0 0 15px rgba(33, 115, 70, 0.5); }
+
+/* --- Git & GitHub Rengi (Turuncu-Kırmızı) --- */
+.test-module-card.git-card { border-color: #f05032; }
+.test-module-card.git-card .test-module-icon { color: #f05032; }
+.test-module-card.git-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(240, 80, 50, 0.3); border-color: #f05032; }
+.test-module-card.git-card .test-module-btn { border-color: #f05032; background: #f05032; color: #fff; }
+.test-module-card.git-card:hover .test-module-btn { background: transparent; color: #f05032; box-shadow: 0 0 15px rgba(240, 80, 50, 0.5); }
+
+/* --- R Rengi (Mavi) --- */
+.test-module-card.r-card { border-color: #276DC3; }
+.test-module-card.r-card .test-module-icon { color: #276DC3; }
+.test-module-card.r-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(39, 109, 195, 0.3); border-color: #276DC3; }
+.test-module-card.r-card .test-module-btn { border-color: #276DC3; background: #276DC3; color: #fff; }
+.test-module-card.r-card:hover .test-module-btn { background: transparent; color: #276DC3; box-shadow: 0 0 15px rgba(39, 109, 195, 0.5); }
 
