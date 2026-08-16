@@ -1,2 +1,72 @@
 /* quiz Page Styles */
 
+body.formulas-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+body.formulas-page main.formulas-main {
+    flex: 1;
+}
+
+/* Tam ekran banner ayarları */
+.formulas-hero {
+    min-height: 100vh;
+    width: 100%;
+    max-width: 100% !important; /* styles.css'teki kısıtlamayı ezer */
+    margin: 0;
+    padding: 100px 24px 40px 24px !important; /* Başlığı ortadan biraz daha yukarı almak için 140'tan 100'e çektik */
+    display: block;
+    text-align: center;
+    background-image: url('koyu.png'); /* Varsayılan geçici görsel (diğer temalar için) */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 1;
+}
+
+/* Yeniden eklenen kapsül (badge) için belirginleştirici tasarım */
+.quiz-badge {
+    background: var(--bg-card) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--neon-blue) !important;
+    color: var(--text-main) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), inset 0 0 10px var(--neon-blue-glow) !important;
+    font-size: 0.9rem !important;
+    padding: 8px 24px !important;
+}
+
+/* Kraliyet Moru (theme-purple) için koyu banner */
+body.theme-purple .formulas-hero {
+    background-image: url('koyu.png');
+}
+
+/* Açık Lavanta (theme-light-purple) için aydınlık banner */
+body.theme-light-purple .formulas-hero {
+    background-image: url('aydinlik.png');
+}
+
+/* YAZI OKUNABİLİRLİĞİ (Yumuşak Gölge - Harf Çizgisi Yok) */
+/* Koyu temalar (varsayılan) için yumuşak siyah gölge */
+.formulas-hero .hero-title {
+    -webkit-text-stroke: 0;
+    text-shadow: 0 8px 30px rgba(0, 0, 0, 0.7), 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.formulas-hero .hero-subtitle {
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 1px 5px rgba(0, 0, 0, 0.9);
+    font-weight: 500;
+}
+
+/* Açık Lavanta (Açık tema) için yumuşak beyaz gölge */
+body.theme-light-purple .formulas-hero .hero-title {
+    text-shadow: 0 8px 30px rgba(255, 255, 255, 0.9), 0 2px 10px rgba(255, 255, 255, 1);
+}
+
+body.theme-light-purple .formulas-hero .hero-subtitle {
+    text-shadow: 0 4px 20px rgba(255, 255, 255, 0.9), 0 1px 5px rgba(255, 255, 255, 1);
+}
