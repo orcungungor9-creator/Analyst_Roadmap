@@ -11,16 +11,16 @@ body.formulas-page main.formulas-main {
     flex: 1;
 }
 
-/* Tam ekran banner ayarları */
+/* Tam ekran banner ayarlarÄ± */
 .formulas-hero {
     min-height: 100vh;
     width: 100%;
-    max-width: 100% !important; /* styles.css'teki kısıtlamayı ezer */
+    max-width: 100% !important; /* styles.css'teki kÄ±sÄ±tlamayÄ± ezer */
     margin: 0;
-    padding: 100px 24px 40px 24px !important; /* Başlığı ortadan biraz daha yukarı almak için 140'tan 100'e çektik */
+    padding: 80px 24px 40px 24px !important; /* BaÅŸlÄ±ÄŸÄ± ortadan biraz daha yukarÄ± almak iÃ§in 140'tan 100'e Ã§ektik */
     display: block;
     text-align: center;
-    background-image: url('koyu.png'); /* Varsayılan geçici görsel (diğer temalar için) */
+    background-image: url('koyu.png'); /* VarsayÄ±lan geÃ§ici gÃ¶rsel (diÄŸer temalar iÃ§in) */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -28,7 +28,7 @@ body.formulas-page main.formulas-main {
     z-index: 1;
 }
 
-/* Yeniden eklenen kapsül (badge) için belirginleştirici tasarım */
+/* Yeniden eklenen kapsÃ¼l (badge) iÃ§in belirginleÅŸtirici tasarÄ±m */
 .quiz-badge {
     background: var(--bg-card) !important;
     backdrop-filter: blur(8px);
@@ -40,18 +40,18 @@ body.formulas-page main.formulas-main {
     padding: 8px 24px !important;
 }
 
-/* Kraliyet Moru (theme-purple) için koyu banner */
+/* Kraliyet Moru (theme-purple) iÃ§in koyu banner */
 body.theme-purple .formulas-hero {
     background-image: url('koyu.png');
 }
 
-/* Açık Lavanta (theme-light-purple) için aydınlık banner */
+/* AÃ§Ä±k Lavanta (theme-light-purple) iÃ§in aydÄ±nlÄ±k banner */
 body.theme-light-purple .formulas-hero {
     background-image: url('aydinlik.png');
 }
 
-/* YAZI OKUNABİLİRLİĞİ (Yumuşak Gölge - Harf Çizgisi Yok) */
-/* Koyu temalar (varsayılan) için yumuşak siyah gölge */
+/* YAZI OKUNABÄ°LÄ°RLÄ°ÄÄ° (YumuÅŸak GÃ¶lge - Harf Ã‡izgisi Yok) */
+/* Koyu temalar (varsayÄ±lan) iÃ§in yumuÅŸak siyah gÃ¶lge */
 .formulas-hero .hero-title {
     -webkit-text-stroke: 0;
     text-shadow: 0 8px 30px rgba(0, 0, 0, 0.7), 0 2px 10px rgba(0, 0, 0, 0.8);
@@ -62,7 +62,7 @@ body.theme-light-purple .formulas-hero {
     font-weight: 500;
 }
 
-/* Açık Lavanta (Açık tema) için yumuşak beyaz gölge */
+/* AÃ§Ä±k Lavanta (AÃ§Ä±k tema) iÃ§in yumuÅŸak beyaz gÃ¶lge */
 body.theme-light-purple .formulas-hero .hero-title {
     text-shadow: 0 8px 30px rgba(255, 255, 255, 0.9), 0 2px 10px rgba(255, 255, 255, 1);
 }
@@ -70,3 +70,113 @@ body.theme-light-purple .formulas-hero .hero-title {
 body.theme-light-purple .formulas-hero .hero-subtitle {
     text-shadow: 0 4px 20px rgba(255, 255, 255, 0.9), 0 1px 5px rgba(255, 255, 255, 1);
 }
+
+/* -------------------------------------------
+   KATEGORİ KARTLARI (TEST MODÜLLERİ)
+------------------------------------------- */
+.quiz-categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    width: 100%;
+    max-width: 1250px; /* Daha yatay yayılmaları için genişletildi */
+    margin: 10px auto 20px auto; /* Yukarıya daha yakın olması için margin küçültüldü */
+}
+
+.quiz-card {
+    /* Glassmorphism ve premium hissiyat */
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Çizime uygun olarak üstü tam yuvarlak, altı keskin köşeli (veya çok hafif köşeli) */
+    border-radius: 140px 140px 16px 16px; 
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    cursor: pointer;
+    position: relative;
+}
+
+/* Açık tema (Açık Lavanta vs) için cam efekti adaptasyonu */
+body[class*="theme-light"] .quiz-card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.4) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.quiz-card::before {
+    /* İçeriden yansıyan gizli neon ışık efekti */
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.1), transparent 60%);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.quiz-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+body[class*="theme-light"] .quiz-card:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 1);
+    border-color: rgba(255, 255, 255, 1);
+}
+
+.quiz-card:hover::before {
+    opacity: 1;
+}
+
+.quiz-card-img-placeholder {
+    height: 130px; /* Boyu 1 cm kadar uzatıldı */
+    width: 100%;
+    /* Düz renk yerine hafif bir gradyan geçişi */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.08), transparent);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+}
+
+body[class*="theme-light"] .quiz-card-img-placeholder {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.03), transparent);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.quiz-card-content {
+    padding: 20px 20px 28px 20px; /* Boşluklar hafif artırılarak nefes aldırıldı */
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.quiz-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--text-main);
+    margin-bottom: 10px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.quiz-card-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin: 0;
+}
+
+
