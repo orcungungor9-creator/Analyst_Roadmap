@@ -135,7 +135,7 @@
 
             <div class="quiz-categories-grid">
                 <!-- Kart 1 -->
-                <div class="quiz-card">
+                <div class="quiz-card" onclick="document.getElementById('programlama-testleri').scrollIntoView({behavior: 'smooth', block: 'start'});">
                     <div class="quiz-card-img-placeholder">
                         <img src="quiz_assets/yazilim.png.png" alt="Programlama Testleri">
                     </div>
@@ -184,11 +184,17 @@
     <!-- 3. ANA İÇERİK -->
     <main class="formulas-main" style="max-width: 1200px; width: 100%; margin: 0 auto; padding: 0 24px; padding-bottom: 100px;">
         <!-- Programlama Testleri Başlığı -->
-        <div class="category-header-section" style="margin-top: 60px; margin-bottom: 40px;">
-            <h2 class="moduler-title" style="font-size: 2.2rem; color: var(--text-main); font-weight: 700; margin: 0; text-shadow: 0 0 15px var(--neon-blue-glow);">
-                Programlama Testleri
-            </h2>
-            <div style="height: 3px; width: 60px; background: var(--neon-blue); border-radius: 2px; margin-top: 15px; box-shadow: 0 0 10px var(--neon-blue-glow);"></div>
+        <div id="programlama-testleri" class="category-header-section" style="margin-top: 60px; margin-bottom: 40px; scroll-margin-top: 100px;">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <i class="fa-solid fa-code" style="font-size: 2rem; color: #3b82f6; text-shadow: 0 0 15px rgba(59, 130, 246, 0.6);"></i>
+                <h2 class="moduler-title" style="font-size: 2.2rem; color: var(--text-main); font-weight: 700; margin: 0; text-shadow: 0 0 15px var(--neon-blue-glow);">
+                    Programlama Testleri
+                </h2>
+            </div>
+            <p style="color: var(--text-muted); font-size: 1.05rem; margin-top: 15px; max-width: 800px; line-height: 1.6;">
+                Veri bilimi, analiz süreçleri ve otomasyon için ihtiyaç duyacağınız temel kodlama yetkinliklerinizi bu modüldeki testlerle ölçebilir, pratik yaparak eksiklerinizi belirleyebilirsiniz.
+            </p>
+            <div style="height: 3px; width: 60px; background: #3b82f6; border-radius: 2px; margin-top: 20px; box-shadow: 0 0 10px rgba(59, 130, 246, 0.6);"></div>
         </div>
 
         <!-- Alt Modül Kartları (Testler) -->
