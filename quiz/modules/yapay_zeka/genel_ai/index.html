@@ -1,13 +1,145 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>genel_ai Testi</title>
+    <title>Genel AI Testleri | My Analyst LogBook</title>
+    <!-- Relative paths back to root -->
+    <link rel="stylesheet" href="../../../../css/styles.css?v=3.4">
+    <link rel="stylesheet" href="../../../quiz.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
 </head>
-<body>
-    <h1>genel_ai Testi</h1>
+<body class="formulas-page">
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('analyst_theme') || 'theme-light-purple';
+            if (savedTheme !== 'theme-dark') {
+                document.body.classList.add(savedTheme);
+            }
+        })();
+    </script>
+
+    <!-- 2. YARIM HERO BANNER -->
+    <section class="formulas-hero half-hero ai-banner-bg">
+        <div class="hero-content">
+            <div class="badge-pill floating-slow quiz-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">
+                <i class="fa-solid fa-robot"></i> AI Testleri
+            </div>
+            <h1 class="hero-title moduler-title" style="text-shadow: 0 0 15px rgba(16, 185, 129, 0.5);">Genel AI Testleri</h1>
+            <p class="hero-subtitle" style="max-width: 800px; margin: 15px auto;">
+                Yapay zekanın tarihsel evreleri, makine öğrenmesi algoritmaları ve derin öğrenme mekanizmaları üzerine kapsamlı bilgi testi. Eksiklerinizi görün ve teorik altyapınızı güçlendirin.
+            </p>
+            <div class="module-stats" style="margin-top: 25px;">
+                <span class="stat-badge"><i class="fa-solid fa-layer-group"></i> 3 Konu</span>
+                <span class="stat-badge"><i class="fa-solid fa-chart-simple"></i> 3 Seviye</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. İÇERİK: AÇIKLAMA VE AKORDİYON -->
+    <main class="formulas-main inner-module-main" style="margin-top: -50px;">
+        
+        <div class="accordion-container">
+            <!-- Konu 1 -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <div class="acc-title">
+                        <div class="acc-icon-box"><i class="fa-solid fa-timeline"></i></div>
+                        <h3>AI Evreleri (Stages of AI)</h3>
+                    </div>
+                    <i class="fa-solid fa-chevron-down acc-arrow"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="difficulty-grid">
+                        <a href="testler/ai_evreleri/kolay/index.html" class="diff-card easy">
+                            <div class="diff-level"><span class="dot"></span> Kolay</div>
+                            <h4>Temel Kavramlar</h4>
+                            <p>ANI, AGI, ASI tanımları ve aralarındaki temel farklar.</p>
+                        </a>
+                        <a href="testler/ai_evreleri/orta/index.html" class="diff-card medium">
+                            <div class="diff-level"><span class="dot"></span> Orta</div>
+                            <h4>Tarihsel Gelişim</h4>
+                            <p>AI kışları, dönüm noktaları ve makine öğrenmesi devrimi.</p>
+                        </a>
+                        <a href="testler/ai_evreleri/zor/index.html" class="diff-card hard">
+                            <div class="diff-level"><span class="dot"></span> Zor</div>
+                            <h4>Gelecek Senaryoları</h4>
+                            <p>AGI'a giden yolda teknik engeller ve teorik yaklaşımlar.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Konu 2 -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <div class="acc-title">
+                        <div class="acc-icon-box"><i class="fa-solid fa-cogs"></i></div>
+                        <h3>Makine Öğrenmesi Temelleri</h3>
+                    </div>
+                    <i class="fa-solid fa-chevron-down acc-arrow"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="difficulty-grid">
+                        <a href="testler/ml_temelleri/kolay/index.html" class="diff-card easy">
+                            <div class="diff-level"><span class="dot"></span> Kolay</div>
+                            <h4>Öğrenme Türleri</h4>
+                            <p>Gözetimli, gözetimsiz ve pekiştirmeli öğrenme (RL) farkları.</p>
+                        </a>
+                        <a href="testler/ml_temelleri/orta/index.html" class="diff-card medium">
+                            <div class="diff-level"><span class="dot"></span> Orta</div>
+                            <h4>Algoritmalar</h4>
+                            <p>Regresyon, sınıflandırma ve kümeleme algoritmalarının seçimi.</p>
+                        </a>
+                        <a href="testler/ml_temelleri/zor/index.html" class="diff-card hard">
+                            <div class="diff-level"><span class="dot"></span> Zor</div>
+                            <h4>Model Metrikleri</h4>
+                            <p>Precision, Recall, F1-Score hesaplamaları ve Bias-Variance ikilemi.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Konu 3 -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <div class="acc-title">
+                        <div class="acc-icon-box"><i class="fa-solid fa-network-wired"></i></div>
+                        <h3>Derin Öğrenme (Deep Learning)</h3>
+                    </div>
+                    <i class="fa-solid fa-chevron-down acc-arrow"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="difficulty-grid">
+                        <a href="testler/derin_ogrenme/kolay/index.html" class="diff-card easy">
+                            <div class="diff-level"><span class="dot"></span> Kolay</div>
+                            <h4>Perceptron & Nöronlar</h4>
+                            <p>Yapay sinir ağlarının temel yapı taşları ve biyolojik esinlenmeler.</p>
+                        </a>
+                        <a href="testler/derin_ogrenme/orta/index.html" class="diff-card medium">
+                            <div class="diff-level"><span class="dot"></span> Orta</div>
+                            <h4>İleri ve Geri Yayılım</h4>
+                            <p>Aktivasyon fonksiyonları (ReLU, Sigmoid) ve Backpropagation algoritmaları.</p>
+                        </a>
+                        <a href="testler/derin_ogrenme/zor/index.html" class="diff-card hard">
+                            <div class="diff-level"><span class="dot"></span> Zor</div>
+                            <h4>Mimari Çeşitleri</h4>
+                            <p>CNN, RNN, Transformer mimarileri ve kullanım senaryoları.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Temel JS bileşenlerini içe aktar -->
+    <script src="../../../../js/components.js"></script>
+    <script src="../../../../js/nav.js"></script>
+    <script src="../../../../js/modal.js"></script>
+    <script src="../../../../js/script.js"></script>
+    <!-- Bu modüle özel script -->
     <script src="script.js"></script>
 </body>
 </html>

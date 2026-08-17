@@ -1,13 +1,59 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>okuryazarlik Testi</title>
+    <title>AI Okuryazarlığı Testi | My Analyst LogBook</title>
+    <!-- Relative paths back to root -->
+    <link rel="stylesheet" href="../../../../css/styles.css?v=3.4">
+    <link rel="stylesheet" href="../../../quiz.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
 </head>
-<body>
-    <h1>okuryazarlik Testi</h1>
+<body class="formulas-page">
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('analyst_theme') || 'theme-light-purple';
+            if (savedTheme !== 'theme-dark') {
+                document.body.classList.add(savedTheme);
+            }
+        })();
+    </script>
+
+    <!-- 2. YARIM HERO BANNER -->
+    <section class="formulas-hero half-hero ai-banner-bg">
+        <div class="hero-content">
+            <div class="badge-pill floating-slow quiz-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">
+                <i class="fa-solid fa-book-open-reader"></i> Modül
+            </div>
+            <h1 class="hero-title moduler-title" style="text-shadow: 0 0 15px rgba(16, 185, 129, 0.5);">AI Okuryazarlığı Testi</h1>
+            <p class="hero-subtitle" style="max-width: 800px; margin: 15px auto;">
+                Bu modül için testler ve alt konular henüz eklenmemiştir. Müfredat güncellemeleri bekleniyor.
+            </p>
+            <div class="module-stats" style="margin-top: 25px;">
+                <span class="stat-badge"><i class="fa-solid fa-layer-group"></i> Müfredat Bekleniyor</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. İÇERİK: AKORDİYON -->
+    <main class="formulas-main inner-module-main" style="margin-top: -50px;">
+        <div class="accordion-container">
+            <!-- Akordiyon içerikleri buraya eklenecek -->
+            <div style="text-align: center; padding: 40px; background: var(--bg-dark); border: 1px dashed var(--glass-border); border-radius: 12px;">
+                <h3 style="color: var(--text-muted);">Henüz Alt Konu Yok</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Müfredat eklendiğinde test klasörleri ve akordiyonlar burada listelenecektir.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Temel JS bileşenlerini içe aktar -->
+    <script src="../../../../js/components.js"></script>
+    <script src="../../../../js/nav.js"></script>
+    <script src="../../../../js/modal.js"></script>
+    <script src="../../../../js/script.js"></script>
+    <!-- Bu modüle özel script -->
     <script src="script.js"></script>
 </body>
 </html>

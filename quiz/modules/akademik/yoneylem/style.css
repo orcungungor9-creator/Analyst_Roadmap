@@ -1,4 +1,229 @@
-﻿/* yoneylem test stilleri */
-body {
-    font-family: sans-serif;
+/* YARIM HERO BANNER (Half Banner) */
+.half-hero {
+    padding: 120px 16px 80px 16px !important;
+    min-height: auto;
+    border-radius: 0 0 60px 60px;
+    margin-bottom: 20px;
+    z-index: 2;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-size: cover !important;
+    background-position: center !important;
+    background-blend-mode: overlay;
+    background-color: rgba(10, 10, 15, 0.7) !important;
+}
+
+/* Custom AI Background generated via image tool */
+.ai-banner-bg {
+    background-image: url('../../../../quiz_assets/genel_ai_banner.jpg') !important;
+}
+
+.inner-module-main {
+    max-width: 900px;
+    width: 100%;
+    margin: -40px auto 100px auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 10;
+}
+
+.module-stats {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.stat-badge {
+    background: rgba(16, 185, 129, 0.15);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+/* AKORDİYON YAPISI */
+.accordion-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.accordion-item {
+    background: var(--bg-dark);
+    border: 2px solid var(--glass-border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.accordion-item:hover {
+    border-color: rgba(16, 185, 129, 0.4);
+    box-shadow: 0 5px 20px rgba(16, 185, 129, 0.1);
+}
+
+.accordion-item.active {
+    border-color: #10b981;
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.15);
+}
+
+.accordion-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--text-main);
+    transition: all 0.3s ease;
+}
+
+.acc-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.acc-icon-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.accordion-header h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
+    font-family: 'Outfit', sans-serif;
+}
+
+.acc-arrow {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    transition: transform 0.3s ease;
+}
+
+.accordion-item.active .acc-arrow {
+    transform: rotate(180deg);
+    color: #10b981;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 800px;
+}
+
+/* ZORLUK SEVİYELERİ GRID */
+.difficulty-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding: 24px;
+    border-top: 1px solid var(--glass-border);
+}
+
+.diff-card {
+    background: var(--bg-dark);
+    border: 2px solid;
+    border-radius: 12px;
+    padding: 20px;
+    text-decoration: none;
+    color: var(--text-main);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.diff-card:hover {
+    transform: translateY(-5px);
+}
+
+.diff-level {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.diff-level .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.diff-card h4 {
+    font-size: 1.1rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+.diff-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.diff-card.easy { border-color: rgba(16, 185, 129, 0.3); }
+.diff-card.easy .diff-level { color: #10b981; }
+.diff-card.easy .dot { background: #10b981; box-shadow: 0 0 10px #10b981; }
+.diff-card.easy:hover { border-color: #10b981; box-shadow: 0 10px 20px rgba(16, 185, 129, 0.15); }
+
+.diff-card.medium { border-color: rgba(245, 158, 11, 0.3); }
+.diff-card.medium .diff-level { color: #f59e0b; }
+.diff-card.medium .dot { background: #f59e0b; box-shadow: 0 0 10px #f59e0b; }
+.diff-card.medium:hover { border-color: #f59e0b; box-shadow: 0 10px 20px rgba(245, 158, 11, 0.15); }
+
+.diff-card.hard { border-color: rgba(239, 68, 68, 0.3); }
+.diff-card.hard .diff-level { color: #ef4444; }
+.diff-card.hard .dot { background: #ef4444; box-shadow: 0 0 10px #ef4444; }
+.diff-card.hard:hover { border-color: #ef4444; box-shadow: 0 10px 20px rgba(239, 68, 68, 0.15); }
+
+@media (max-width: 768px) {
+    .difficulty-grid {
+        grid-template-columns: 1fr;
+    }
+    .accordion-header {
+        padding: 16px;
+    }
+    .acc-icon-box {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+    }
+    .accordion-header h3 {
+        font-size: 1.05rem;
+    }
+    .inner-module-main {
+        padding: 0 16px;
+    }
 }
