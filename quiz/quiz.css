@@ -421,21 +421,6 @@ body.theme-light-purple .formulas-hero .hero-subtitle {
         padding: 60px 16px 30px 16px !important;
     }
     .formulas-hero .hero-title {
-        font-size: 2.8rem;
-    }
-    .moduler-title {
-        font-size: 1.8rem !important;
-    }
-    .test-modules-grid {
-        gap: 16px;
-    }
-    body.formulas-page main.formulas-main {
-        padding: 0 16px !important;
-    }
-}
-
-@media (max-width: 480px) {
-    .formulas-hero .hero-title {
         font-size: 2.2rem;
     }
     .moduler-title {
@@ -491,5 +476,9 @@ body.theme-light-purple .formulas-hero .hero-subtitle {
     }
     .category-header-section i {
         font-size: 1.8rem !important;
+    }
+    
+    body.formulas-page main.formulas-main {
+        padding: 0 16px !important;
     }
 }

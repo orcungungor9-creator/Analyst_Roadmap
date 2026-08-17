@@ -22,6 +22,11 @@ const isIndexPage = (pathPrefix === '');
 const isFormulasPage = window.location.pathname.includes('/guides/formulas/');
 
 const HEADER_HTML = `
+    <style>
+        @media (max-width: 900px) {
+            .hide-on-mobile { display: none !important; }
+        }
+    </style>
     <header class="site-header glass-header">
         <div class="header-container">
             <div class="header-left" style="display: flex; align-items: center;">
@@ -132,7 +137,7 @@ const HEADER_HTML = `
             <div class="header-right">
                 <nav class="desktop-nav" id="desktop-nav">
                 </nav>
-                <div class="action-buttons" style="display: flex; align-items: center; gap: 4px;">
+                <div class="action-buttons hide-on-mobile" style="display: flex; align-items: center; gap: 4px;">
                     <button class="nav-btn icon-btn" onclick="window.location.href = pathPrefix + 'about/about.html'" title="Hakkında">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -469,15 +474,13 @@ const THEME_MODAL_HTML = `
 const FOOTER_HTML = `
     <!-- FOOTER -->
     <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-left">
-                <span class="footer-copy">&copy; 2026 Analyst Roadmap. Tüm hakları saklıdır. İzinsiz kopyalanamaz veya çoğaltılamaz.</span>
+        <div class="footer-content" style="flex-direction: column; gap: 12px; justify-content: center; text-align: center;">
+            <div style="display: flex; gap: 24px; justify-content: center; width: 100%;">
+                <a href="${pathPrefix}yasal/index.html" class="footer-link" style="padding: 0;">Yasal</a>
+                <a href="#" class="footer-link" style="cursor: default; padding: 0;" onclick="event.preventDefault();">İletişim</a>
             </div>
-            <div class="footer-center">
-                <a href="${pathPrefix}yasal/index.html" class="footer-link">Yasal</a>
-            </div>
-            <div class="footer-right">
-                <a href="#" class="footer-link" style="cursor: default;" onclick="event.preventDefault();">İletişim</a>
+            <div style="text-align: center; width: 100%;">
+                <span class="footer-copy" style="font-size: 0.8rem; color: var(--text-muted);">&copy; 2026 Analyst Roadmap. Tüm hakları saklıdır. İzinsiz kopyalanamaz veya çoğaltılamaz.</span>
             </div>
         </div>
     </footer>
