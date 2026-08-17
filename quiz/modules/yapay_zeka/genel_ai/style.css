@@ -21,11 +21,11 @@
 
 /* Custom AI Background generated via image tool */
 .ai-banner-bg {
-    background-image: url('../../../../quiz_assets/genel_ai_banner.jpg') !important;
+    background-image: url('../../../quiz_assets/genel_ai_banner.jpg') !important;
 }
 
 .inner-module-main {
-    max-width: 900px;
+    max-width: 1400px;
     width: 100%;
     margin: -40px auto 100px auto;
     padding: 0 24px;
@@ -57,9 +57,10 @@
 
 /* AKORDİYON YAPISI */
 .accordion-container {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    align-items: start;
 }
 
 .accordion-item {
@@ -69,6 +70,36 @@
     overflow: hidden;
     transition: all 0.3s ease;
 }
+
+/* Coloring the cards based on nth-child */
+.accordion-item:nth-child(4n+1) {
+    background: var(--modal-bg);
+    border-left: 4px solid #10b981;
+}
+.accordion-item:nth-child(4n+1) .acc-icon-box { color: #10b981; background: rgba(16, 185, 129, 0.1); }
+.accordion-item:nth-child(4n+1).active { border-color: #10b981; box-shadow: 0 10px 30px rgba(16, 185, 129, 0.15); }
+
+.accordion-item:nth-child(4n+2) {
+    background: var(--modal-bg);
+    border-left: 4px solid #3b82f6;
+}
+.accordion-item:nth-child(4n+2) .acc-icon-box { color: #3b82f6; background: rgba(59, 130, 246, 0.1); }
+.accordion-item:nth-child(4n+2).active { border-color: #3b82f6; box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15); }
+
+.accordion-item:nth-child(4n+3) {
+    background: var(--modal-bg);
+    border-left: 4px solid #8b5cf6;
+}
+.accordion-item:nth-child(4n+3) .acc-icon-box { color: #8b5cf6; background: rgba(139, 92, 246, 0.1); }
+.accordion-item:nth-child(4n+3).active { border-color: #8b5cf6; box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15); }
+
+.accordion-item:nth-child(4n+4) {
+    background: var(--modal-bg);
+    border-left: 4px solid #f59e0b;
+}
+.accordion-item:nth-child(4n+4) .acc-icon-box { color: #f59e0b; background: rgba(245, 158, 11, 0.1); }
+.accordion-item:nth-child(4n+4).active { border-color: #f59e0b; box-shadow: 0 10px 30px rgba(245, 158, 11, 0.15); }
+
 
 .accordion-item:hover {
     border-color: rgba(16, 185, 129, 0.4);
@@ -133,7 +164,7 @@
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    background: rgba(0, 0, 0, 0.1);
+    /* dynamic background applied */
 }
 
 .accordion-item.active .accordion-content {
@@ -221,7 +252,11 @@
 
 /* MOBİL OPTİMİZASYON */
 @media (max-width: 768px) {
+    .accordion-container {
+        grid-template-columns: 1fr;
+    }
     .difficulty-grid {
+
         grid-template-columns: 1fr;
     }
     
@@ -242,4 +277,54 @@
     .inner-module-main {
         padding: 0 16px;
     }
+}
+
+/* Force readable text on dark banner regardless of theme */
+.ai-banner-bg .hero-title {
+    background: linear-gradient(135deg, #ffffff 0%, var(--neon-blue) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 4px 15px rgba(0,0,0,0.8));
+}
+
+.ai-banner-bg .hero-subtitle {
+    color: #f8fafc !important;
+    -webkit-text-fill-color: #f8fafc !important;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.9), 0 4px 20px rgba(0,0,0,0.9) !important;
+    font-weight: 500;
+}
+
+
+/* Colored Accordion Content Backgrounds */
+.accordion-item:nth-child(4n+1) .accordion-content { background: rgba(16, 185, 129, 0.05); }
+.accordion-item:nth-child(4n+2) .accordion-content { background: rgba(59, 130, 246, 0.05); }
+.accordion-item:nth-child(4n+3) .accordion-content { background: rgba(139, 92, 246, 0.05); }
+.accordion-item:nth-child(4n+4) .accordion-content { background: rgba(245, 158, 11, 0.05); }
+
+
+/* Geri Dön Butonu */
+.btn-return-tests {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #0ea5e9, #6366f1);
+    color: #ffffff !important;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4), 0 0 20px rgba(99, 102, 241, 0.4);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-return-tests:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(14, 165, 233, 0.6), 0 0 30px rgba(99, 102, 241, 0.6);
+    color: #ffffff;
+}
+
+.btn-return-tests i {
+    font-size: 1rem;
 }

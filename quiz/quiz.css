@@ -20,7 +20,7 @@ body.formulas-page main.formulas-main {
     padding: 80px 24px 40px 24px !important; /* BaÃ…Å¸lÃ„Â±Ã„Å¸Ã„Â± ortadan biraz daha yukarÃ„Â± almak iÃƒÂ§in 140'tan 100'e ÃƒÂ§ektik */
     display: block;
     text-align: center;
-    background-image: url('koyu.png'); /* VarsayÃ„Â±lan geÃƒÂ§ici gÃƒÂ¶rsel (diÃ„Å¸er temalar iÃƒÂ§in) */
+    background-image: url('quiz_assets/banner/quiz_banner_purple.webp'); /* Varsayılan */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -32,6 +32,7 @@ body.formulas-page main.formulas-main {
 }
 
 /* Yeniden eklenen kapsÃƒÂ¼l (badge) iÃƒÂ§in belirginleÃ…Å¸tirici tasarÃ„Â±m */
+/* Yeniden eklenen kapsül (badge) için belirginleştirici tasarım */
 .quiz-badge {
     background: var(--bg-card) !important;
     backdrop-filter: blur(8px);
@@ -43,18 +44,88 @@ body.formulas-page main.formulas-main {
     padding: 8px 24px !important;
 }
 
-/* Kraliyet Moru (theme-purple) iÃƒÂ§in koyu banner */
+/* ================================================
+   TÜM TEMALAR İÇİN BANNER EŞLEŞTİRMELERİ
+   quiz_assets/banner/ klasöründen çekiliyor
+   ================================================ */
+
+/* 1. Karanlık (Varsayılan) - Uzay & Neon Devreler */
+body.theme-dark .formulas-hero {
+    background-image: url('quiz_assets/banner/quiz_banner_ocean.jpg');
+}
+
+/* 2. Kraliyet Moru - Mor galaksi fırtınası */
 body.theme-purple .formulas-hero {
-    background-image: url('koyu.png');
+    background-image: url('quiz_assets/banner/quiz_banner_purple.webp');
 }
 
-/* AÃƒÂ§Ã„Â±k Lavanta (theme-light-purple) iÃƒÂ§in aydÃ„Â±nlÃ„Â±k banner */
+/* 3. Okyanus - Derin mavi data dalgaları */
+body.theme-ocean .formulas-hero {
+    background-image: url('quiz_assets/banner/quiz_banner_ocean.jpg');
+}
+
+/* 4. Zümrüt - Yeşil veri ağları */
+body.theme-emerald .formulas-hero {
+    background-image: url('quiz_assets/banner/quiz_banner_emerald.jpg');
+}
+
+/* 5. Cyberpunk - Altın neon şehir */
+body.theme-cyberpunk .formulas-hero {
+    background-image: url('quiz_assets/banner/quiz_banner_cyberpunk.jpg');
+}
+
+/* 6. Cyber Neon - Pembe/Cyan elektrik */
+body.theme-cyber-neon .formulas-hero {
+    background-image: url('quiz_assets/banner/quiz_banner_cyber_neon.jpg');
+}
+
+/* 7. Amber - Altın kehribar enerji */
+body.theme-amber .formulas-hero {
+    background-image: url('quiz_assets/banner/quiz_banner_amber.jpg');
+}
+
+/* 8. Karanlık Sakura - Kiraz çiçeği gece */
+body.theme-dark-sakura .formulas-hero {
+    background-image: url('quiz_assets/banner/quiz_banner_dark_sakura.jpg');
+}
+
+/* 9. Mono Karanlık - Siyah/Beyaz minimal */
+body.theme-mono-dark .formulas-hero {
+    background-image: url('quiz_assets/banner/quiz_banner_mono_dark.jpg');
+}
+
+/* 10. Saf Beyaz - Parlak beyaz ışık */
+body.theme-light-pure .formulas-hero {
+    background-image: url('quiz_assets/banner/quiz_banner_light_pure.jpg');
+}
+
+/* 11. Mono Açık - Gri tonlarda ferah */
+body.theme-mono-light .formulas-hero {
+    background-image: url('quiz_assets/banner/quiz_banner_mono_light.jpg');
+}
+
+/* 12. Sıcak Açık - Krem/Altın ton */
+body.theme-light-warm .formulas-hero {
+    background-image: url('quiz_assets/banner/quiz_banner_light_warm.jpg');
+}
+
+/* 13. Pembe - Pembe pastel bulutlar */
+body.theme-pink .formulas-hero {
+    background-image: url('quiz_assets/banner/quiz_banner_pink.jpg');
+}
+
+/* 14. Açık Zümrüt - Nane yeşili (Geçici - üretilecek) */
+body.theme-light-emerald .formulas-hero {
+    background-image: url('quiz_assets/banner/quiz_banner_emerald.jpg');
+}
+
+/* 15. Açık Lavanta - Dağ manzarası ve mor ağlar */
 body.theme-light-purple .formulas-hero {
-    background-image: url('aydinlik.png');
+    background-image: url('quiz_assets/banner/quiz_banner_light_purple.webp');
 }
 
-/* YAZI OKUNABÃ„Â°LÃ„Â°RLÃ„Â°Ã„ÂÃ„Â° (YumuÃ…Å¸ak GÃƒÂ¶lge - Harf Ãƒâ€¡izgisi Yok) */
-/* Koyu temalar (varsayÃ„Â±lan) iÃƒÂ§in yumuÃ…Å¸ak siyah gÃƒÂ¶lge */
+/* YAZI OKUNABİLİRLİĞİ */
+/* Koyu temalar (varsayılan) için yumuşak siyah gölge */
 .formulas-hero .hero-title {
     -webkit-text-stroke: 0;
     text-shadow: 0 8px 30px rgba(0, 0, 0, 0.7), 0 2px 10px rgba(0, 0, 0, 0.8);
@@ -65,17 +136,28 @@ body.theme-light-purple .formulas-hero {
     font-weight: 500;
 }
 
-/* AÃƒÂ§Ã„Â±k Lavanta (AÃƒÂ§Ã„Â±k tema) iÃƒÂ§in yumuÃ…Å¸ak beyaz gÃƒÂ¶lge */
-body.theme-light-purple .formulas-hero .hero-title {
-    text-shadow: 0 8px 30px rgba(255, 255, 255, 0.9), 0 2px 10px rgba(255, 255, 255, 1);
+
+/* Açık temalar için hafif koyu gölge (okunabilirlik) */
+body.theme-light-pure .formulas-hero .hero-title,
+body.theme-mono-light .formulas-hero .hero-title,
+body.theme-light-warm .formulas-hero .hero-title,
+body.theme-pink .formulas-hero .hero-title,
+body.theme-light-purple .formulas-hero .hero-title,
+body.theme-light-emerald .formulas-hero .hero-title {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45), 0 4px 15px rgba(0, 0, 0, 0.35);
 }
 
-body.theme-light-purple .formulas-hero .hero-subtitle {
-    text-shadow: 0 4px 20px rgba(255, 255, 255, 0.9), 0 1px 5px rgba(255, 255, 255, 1);
+body.theme-light-pure .formulas-hero .hero-subtitle,
+body.theme-mono-light .formulas-hero .hero-subtitle,
+body.theme-light-warm .formulas-hero .hero-subtitle,
+body.theme-pink .formulas-hero .hero-subtitle,
+body.theme-light-purple .formulas-hero .hero-subtitle,
+body.theme-light-emerald .formulas-hero .hero-subtitle {
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 /* -------------------------------------------
-   KATEGORÄ° KARTLARI (TEST MODÃœLLERÄ°)
+   KATEGORİ KARTLARI (TEST MODÜLLERİ)
 ------------------------------------------- */
 .quiz-categories-grid {
     display: grid;
@@ -421,10 +503,10 @@ body.theme-light-purple .formulas-hero .hero-subtitle {
         padding: 60px 16px 30px 16px !important;
     }
     .formulas-hero .hero-title {
-        font-size: 2.2rem;
+        font-size: 2.2rem !important;
     }
     .moduler-title {
-        font-size: 1.5rem !important;
+        font-size: 1.5rem;
     }
     
     /* Ana Kartları ikişerli (2 sütun) gösterme kuralı */
