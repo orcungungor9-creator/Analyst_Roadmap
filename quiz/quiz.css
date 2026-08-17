@@ -441,7 +441,31 @@ body.theme-light-purple .formulas-hero .hero-subtitle {
     .moduler-title {
         font-size: 1.5rem !important;
     }
-    /* Kartları ikişerli (2 sütun) gösterme kuralı */
+    
+    /* Ana Kartları ikişerli (2 sütun) gösterme kuralı */
+    .quiz-categories-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px;
+    }
+    .quiz-card {
+        border-radius: 60px 60px 12px 12px;
+        border-width: 2px;
+    }
+    .quiz-card-img-placeholder {
+        height: 80px;
+    }
+    .quiz-card-content {
+        padding: 12px 10px 16px 10px;
+    }
+    .quiz-card-title {
+        font-size: 0.95rem;
+        margin-bottom: 6px;
+    }
+    .quiz-card-desc {
+        font-size: 0.75rem;
+    }
+
+    /* Alt Kartları ikişerli (2 sütun) gösterme kuralı */
     .test-modules-grid {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 12px;

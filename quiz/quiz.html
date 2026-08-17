@@ -483,27 +483,8 @@
             if (grid && prevBtn && nextBtn) {
                 const cards = Array.from(grid.querySelectorAll('.test-module-card'));
                 let currentPage = 0;
-                let cardsPerPage = 4;
-                let totalPages = 1;
-
-                const calculateCardsPerPage = () => {
-                    if (window.innerWidth <= 480) {
-                        return 2; // Mobilde ikişer ikişer (2x1 grid)
-                    } else if (window.innerWidth <= 768) {
-                        return 2; // Tablette ikişer ikişer (2x1 grid)
-                    } else {
-                        return 4; // Masaüstünde dörder dörder
-                    }
-                };
-
-                const updatePaginationVars = () => {
-                    const newCardsPerPage = calculateCardsPerPage();
-                    if (cardsPerPage !== newCardsPerPage) {
-                        cardsPerPage = newCardsPerPage;
-                        currentPage = 0; // Reset to page 0 on resize to avoid out of bounds
-                    }
-                    totalPages = Math.ceil(cards.length / cardsPerPage);
-                };
+                const cardsPerPage = 4; // Her zaman 4'erli (mobilde 2x2 grid olarak görünür)
+                const totalPages = Math.ceil(cards.length / cardsPerPage);
 
                 const updateView = () => {
                     cards.forEach((card, index) => {
@@ -550,12 +531,6 @@
                     }
                 });
 
-                window.addEventListener('resize', () => {
-                    updatePaginationVars();
-                    updateView();
-                });
-
-                updatePaginationVars();
                 updateView(); // Başlangıçta ilk grubu yükle
             }
         });
