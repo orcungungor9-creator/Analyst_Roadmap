@@ -472,15 +472,32 @@ const THEME_MODAL_HTML = `
 `;
 
 const FOOTER_HTML = `
+    <style>
+        @media (max-width: 900px) {
+            .site-footer .footer-content {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+            .site-footer .footer-left {
+                order: 2;
+                text-align: center !important;
+            }
+            .site-footer .footer-links-group {
+                order: 1;
+                justify-content: center !important;
+            }
+        }
+    </style>
     <!-- FOOTER -->
     <footer class="site-footer">
-        <div class="footer-content" style="flex-direction: column; gap: 12px; justify-content: center; text-align: center;">
-            <div style="display: flex; gap: 24px; justify-content: center; width: 100%;">
-                <a href="${pathPrefix}yasal/index.html" class="footer-link" style="padding: 0;">Yasal</a>
-                <a href="#" class="footer-link" style="cursor: default; padding: 0;" onclick="event.preventDefault();">İletişim</a>
+        <div class="footer-content">
+            <div class="footer-left">
+                <span class="footer-copy">&copy; 2026 Analyst Roadmap. Tüm hakları saklıdır. İzinsiz kopyalanamaz veya çoğaltılamaz.</span>
             </div>
-            <div style="text-align: center; width: 100%;">
-                <span class="footer-copy" style="font-size: 0.8rem; color: var(--text-muted);">&copy; 2026 Analyst Roadmap. Tüm hakları saklıdır. İzinsiz kopyalanamaz veya çoğaltılamaz.</span>
+            <div class="footer-links-group" style="display: flex; gap: 20px; align-items: center; justify-content: flex-end;">
+                <a href="${pathPrefix}yasal/index.html" class="footer-link">Yasal</a>
+                <a href="#" class="footer-link" style="cursor: default;" onclick="event.preventDefault();">İletişim</a>
             </div>
         </div>
     </footer>
