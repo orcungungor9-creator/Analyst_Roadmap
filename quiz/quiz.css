@@ -415,14 +415,57 @@ body.theme-light-purple .formulas-hero .hero-subtitle {
 .test-module-card.durumokuma-card .test-module-btn { border-color: #8b5cf6; background: #8b5cf6; color: #fff; }
 .test-module-card.durumokuma-card:hover .test-module-btn { background: transparent; color: #8b5cf6; box-shadow: 0 0 15px rgba(139, 92, 246, 0.5); }
 
-@media (max-width: 1024px) {
-    div.carousel-track .test-module-card { flex: 0 0 calc(33.333% - 16px); }
-}
+/* --- MOBİL OPTİMİZASYON --- */
 @media (max-width: 768px) {
-    div.carousel-track .test-module-card { flex: 0 0 calc(50% - 12px); }
-    .carousel-btn { display: none; }
-}
-@media (max-width: 480px) {
-    div.carousel-track .test-module-card { flex: 0 0 100%; }
+    .formulas-hero {
+        padding: 60px 16px 30px 16px !important;
+    }
+    .formulas-hero .hero-title {
+        font-size: 2.8rem;
+    }
+    .moduler-title {
+        font-size: 1.8rem !important;
+    }
+    .test-modules-grid {
+        gap: 16px;
+    }
+    body.formulas-page main.formulas-main {
+        padding: 0 16px !important;
+    }
 }
 
+@media (max-width: 480px) {
+    .formulas-hero .hero-title {
+        font-size: 2.2rem;
+    }
+    .moduler-title {
+        font-size: 1.5rem !important;
+    }
+    /* Kartları ikişerli (2 sütun) gösterme kuralı */
+    .test-modules-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px;
+    }
+    .test-module-card {
+        padding: 12px;
+        gap: 10px;
+        border-radius: 12px;
+    }
+    .test-module-icon {
+        font-size: 1.5rem;
+    }
+    .test-module-card h3 {
+        font-size: 0.9rem;
+    }
+    .test-module-card p {
+        font-size: 0.75rem;
+        line-height: 1.3;
+    }
+    .test-module-btn {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+    .category-header-section i {
+        font-size: 1.8rem !important;
+    }
+}
