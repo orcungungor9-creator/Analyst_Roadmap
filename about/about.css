@@ -120,55 +120,72 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: transparent;
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
     transition: all 0.3s ease;
     text-decoration: none;
     border: none;
     box-shadow: none;
-    padding: 4px; /* Kolay tıklanabilmesi için şeffaf boşluk */
 }
 
 .social-btn svg {
     transition: all 0.3s ease;
+    fill: #ffffff;
+    width: 24px;
+    height: 24px;
+}
+
+.social-btn:hover {
+    transform: translateY(-3px);
 }
 
 /* GitHub (Turuncu) */
-.github-btn svg {
-    fill: #f34f29;
+.github-btn {
+    background-color: #f34f29;
 }
-.github-btn:hover svg {
-    transform: scale(1.15) translateY(-3px);
-    filter: drop-shadow(0 4px 8px rgba(243, 79, 41, 0.4));
-    fill: #f34f29;
+.github-btn svg {
+    width: 28px;
+    height: 28px;
+}
+.github-btn:hover {
+    box-shadow: 0 6px 12px rgba(243, 79, 41, 0.4);
 }
 
 /* LinkedIn (Mavi) */
-.linkedin-btn svg {
-    fill: #0a66c2;
+.linkedin-btn {
+    background-color: #0a66c2;
 }
-.linkedin-btn:hover svg {
-    transform: scale(1.15) translateY(-3px);
-    filter: drop-shadow(0 4px 8px rgba(10, 102, 194, 0.4));
+.linkedin-btn svg {
+    width: 34px;
+    height: 34px;
+}
+.linkedin-btn:hover {
+    box-shadow: 0 6px 12px rgba(10, 102, 194, 0.4);
 }
 
-/* E-Posta (Siyah/Koyu Gri) */
-.mail-btn svg {
-    fill: #181717; 
+/* E-Posta (Kırmızı) */
+.mail-btn {
+    background-color: #ea4335;
 }
-.mail-btn:hover svg {
-    transform: scale(1.15) translateY(-3px);
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-    fill: #000;
+.mail-btn svg {
+    width: 28px;
+    height: 28px;
+}
+.mail-btn:hover {
+    box-shadow: 0 6px 12px rgba(234, 67, 53, 0.4);
 }
 
 /* Kaggle (Mavi/Cyan) */
-.kaggle-btn svg {
-    fill: #20BEFF; 
+.kaggle-btn {
+    background-color: #20BEFF;
 }
-.kaggle-btn:hover svg {
-    transform: scale(1.15) translateY(-3px);
-    filter: drop-shadow(0 4px 8px rgba(32, 190, 255, 0.4));
-    fill: #20BEFF;
+.kaggle-btn svg {
+    width: 24px;
+    height: 24px;
+}
+.kaggle-btn:hover {
+    box-shadow: 0 6px 12px rgba(32, 190, 255, 0.4);
 }
 
 /* İçerik Bölümü (Ortalanmış ve Kısıtlı Genişlik) */
