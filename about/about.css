@@ -69,7 +69,12 @@
     margin-top: 5px;
 }
 .profile-name { order: 1; }
-.mail-btn { order: 2; }
+.profile-left-socials { 
+    order: 2; 
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
 .profile-socials { order: 3; }
 
 .profile-image-container {
@@ -108,7 +113,7 @@
 .profile-socials {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 15px;
 }
 
 .social-btn {
@@ -134,7 +139,7 @@
 .github-btn:hover svg {
     transform: scale(1.15) translateY(-3px);
     filter: drop-shadow(0 4px 8px rgba(243, 79, 41, 0.4));
-    fill: #f34f29; /* Veya isterseniz hoverda koyulaşabilir */
+    fill: #f34f29;
 }
 
 /* LinkedIn (Mavi) */
@@ -148,12 +153,22 @@
 
 /* E-Posta (Siyah/Koyu Gri) */
 .mail-btn svg {
-    fill: #181717; /* Kırmızı uyumsuz durduğu için şık bir siyah/koyu gri yapıldı */
+    fill: #181717; 
 }
 .mail-btn:hover svg {
     transform: scale(1.15) translateY(-3px);
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
     fill: #000;
+}
+
+/* Kaggle (Mavi/Cyan) */
+.kaggle-btn svg {
+    fill: #20BEFF; 
+}
+.kaggle-btn:hover svg {
+    transform: scale(1.15) translateY(-3px);
+    filter: drop-shadow(0 4px 8px rgba(32, 190, 255, 0.4));
+    fill: #20BEFF;
 }
 
 /* İçerik Bölümü (Ortalanmış ve Kısıtlı Genişlik) */
@@ -288,7 +303,7 @@
         width: 100%;
         gap: 15px;
     }
-    .mail-btn {
+    .profile-left-socials {
         order: 1;
         justify-self: end;
     }

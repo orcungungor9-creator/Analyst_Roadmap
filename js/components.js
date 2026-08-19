@@ -550,6 +550,19 @@ const CONTACT_MODAL_HTML = `
                         <span style="color: var(--text-muted); font-size: 0.9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.2; margin-top: 4px;">orcungungor9-creator</span>
                     </div>
                 </a>
+
+                <!-- Kaggle -->
+                <a href="https://www.kaggle.com/orungngr" target="_blank" style="display: flex; align-items: center; gap: 15px; text-decoration: none; padding: 15px; background: rgba(32,190,255,0.05); border-radius: 12px; border: 1px solid rgba(32,190,255,0.3); transition: all 0.3s ease;" onmouseover="this.style.background='rgba(32,190,255,0.15)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.background='rgba(32,190,255,0.05)'; this.style.transform='none';">
+                    <div style="width: 45px; height: 45px; display: flex; justify-content: center; align-items: center; background: #20BEFF; border-radius: 10px; flex-shrink: 0;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18.825 23.859c-.022.092-.117.141-.21.141h-3.155c-.173 0-.327-.083-.432-.218l-5.698-7.391-2.906 2.76v4.613c0 .13-.105.235-.235.235H3.61c-.13 0-.236-.105-.236-.235V.235C3.374.105 3.48 0 3.61 0h2.578c.13 0 .235.105.235.235v15.228l8.286-8.243c.105-.105.253-.162.404-.162h3.195c.162 0 .264.167.194.306l-6.85 6.787 7.422 9.53c.092.12.115.283.05.424l-.299.754z"/>
+                        </svg>
+                    </div>
+                    <div style="display: flex; flex-direction: column; overflow: hidden;">
+                        <span style="color: var(--text-main); font-weight: 700; font-size: 1.1rem; line-height: 1.2;">Kaggle</span>
+                        <span style="color: var(--text-muted); font-size: 0.9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.2; margin-top: 4px;">orungngr</span>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
