@@ -53,19 +53,26 @@
 .about-profile-section {
     display: flex;
     flex-direction: row;
-    align-items: flex-start; /* Üst kısımları hizala */
+    align-items: flex-start; 
     gap: 24px;
     z-index: 10;
     position: relative;
-    padding-left: 2%; /* Sola hizalama */
-    /* .about-container'daki 50px gap'i iptal edip butonları bannerın hemen altına çekmek için: */
-    margin-top: -35px; 
+    padding-left: 2%;
+    margin-top: -35px; /* .about-container'daki gap'i ezmek için */
+}
+
+.profile-text-group {
+    display: flex;
+    flex-direction: row; /* PC'de yan yana */
+    align-items: center;
+    gap: 15px;
+    margin-top: 5px;
 }
 
 .profile-image-container {
     width: clamp(150px, 20vw, 240px);
     height: clamp(150px, 20vw, 240px);
-    /* Fotoğrafın %75'ini (yarısından fazlasını) yukarı, banner içine çekiyoruz */
+    /* Fotoğrafın %75'ini (yarısından fazlasını) yukarı çekiyoruz */
     margin-top: calc(-1 * clamp(110px, 15vw, 180px)); 
     border-radius: 50%; /* Yuvarlak çerçeve */
     border: 4px solid var(--neon-blue);
@@ -78,13 +85,12 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top;
+    object-position: center; /* top'dan center'a aldım kalite hissi/merkezleme için */
+    image-rendering: -webkit-optimize-contrast; /* Küçültülen yüksek kaliteli fotoğraflarda netliği korur */
 }
 
 .profile-name {
-    /* İsim siyah renkte */
     color: #000;
-    /* Okunabilmesi için parlak / neon bir zemin eklendi */
     background-color: #fff;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 8px var(--neon-blue);
     padding: 8px 24px;
@@ -94,14 +100,6 @@
     font-weight: 800;
     text-align: center;
     white-space: nowrap;
-}
-
-.profile-info-row {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    /* Margin top 0 çünkü ana container zaten bannerın 15px altında başlıyor */
-    margin-top: 0; 
 }
 
 .profile-socials {
@@ -114,23 +112,45 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background-color: #fff;
-    border: 2px solid var(--neon-blue);
-    color: #000;
-    font-size: 1.5rem;
+    background-color: transparent;
     transition: all 0.3s ease;
     text-decoration: none;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 5px var(--neon-blue);
+    border: none;
+    box-shadow: none;
+    padding: 4px; /* Kolay tıklanabilmesi için şeffaf boşluk */
 }
 
-.social-btn:hover {
-    background-color: var(--neon-blue);
-    color: #000;
-    box-shadow: 0 0 20px var(--neon-blue-glow);
-    transform: translateY(-3px);
+.social-btn svg {
+    transition: all 0.3s ease;
+}
+
+/* GitHub (Turuncu) */
+.github-btn svg {
+    fill: #f34f29;
+}
+.github-btn:hover svg {
+    transform: scale(1.15) translateY(-3px);
+    filter: drop-shadow(0 4px 8px rgba(243, 79, 41, 0.4));
+    fill: #f34f29; /* Veya isterseniz hoverda koyulaşabilir */
+}
+
+/* LinkedIn (Mavi) */
+.linkedin-btn svg {
+    fill: #0a66c2;
+}
+.linkedin-btn:hover svg {
+    transform: scale(1.15) translateY(-3px);
+    filter: drop-shadow(0 4px 8px rgba(10, 102, 194, 0.4));
+}
+
+/* E-Posta (Siyah/Koyu Gri) */
+.mail-btn svg {
+    fill: #181717; /* Kırmızı uyumsuz durduğu için şık bir siyah/koyu gri yapıldı */
+}
+.mail-btn:hover svg {
+    transform: scale(1.15) translateY(-3px);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    fill: #000;
 }
 
 /* İçerik Bölümü (Ortalanmış ve Kısıtlı Genişlik) */
@@ -147,10 +167,10 @@
 /* Neden Kuruldu Kutusu */
 .about-why-box {
     background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
+    border: 4px solid var(--neon-blue); /* Temadaki mor renk (--neon-blue değişkeninde tanımlı) */
     border-radius: 20px;
     padding: 40px;
-    box-shadow: var(--shadow-card);
+    /* Gölgeleri ve neon parlamayı kaldırdık */
 }
 
 .about-why-box h2 {
@@ -159,6 +179,19 @@
     margin-bottom: 25px;
     font-size: 2rem;
     text-align: center;
+}
+
+.about-why-box p {
+    color: var(--text-main);
+    font-size: 1.25rem; /* Font boyutu bir tık artırıldı */
+    font-weight: 500; /* Daha görünür olması için hafif kalınlaştırıldı */
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.about-why-box p:last-child {
+    margin-bottom: 0;
 }
 
 /* Vizyon ve Misyon Kartları */
@@ -230,40 +263,63 @@
 
 @media (max-width: 768px) {
     .about-banner {
-        aspect-ratio: auto;
-        min-height: 300px;
+        aspect-ratio: 3 / 1; /* Uzun ince yapı (PC'ye benzer ama mobilde biraz daha kurtarır) */
+        min-height: 130px; /* Çok kalın olmasını engelledik */
     }
     
     .about-profile-section {
-        flex-direction: row;
-        align-items: flex-start;
+        flex-direction: column; 
+        align-items: center; 
         top: auto;
         left: auto;
         transform: none;
-        padding-left: 2%;
-        margin-top: -35px;
+        padding-left: 0;
+        margin-top: -30px;
+        gap: 15px;
+        width: 100%;
+    }
+    .profile-text-group {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        width: 100%;
         gap: 15px;
     }
-    .profile-info-row {
-        flex-wrap: wrap;
-        justify-content: flex-start;
+    .profile-socials {
+        justify-self: end;
     }
     .profile-image-container {
-        width: 120px;
-        height: 120px;
+        width: 150px;
+        height: 150px;
         border-width: 3px;
+        margin-top: -100px !important; 
     }
     .profile-name {
         padding: 6px 16px;
         font-size: 1.1rem;
     }
+    
+    .about-why-box {
+        padding: 24px; /* Mobilde iç boşluğu daralttık */
+        border-width: 3px; /* Mobilde çizgiyi çok az incelttik */
+    }
+
+    .about-why-box h2 {
+        font-size: 1.5rem; /* Başlığı küçülttük */
+        margin-bottom: 20px;
+    }
+
+    .about-why-box p {
+        font-size: 1rem; /* Mobil standart okuma boyutu */
+        line-height: 1.6; /* Satır aralığını mobilde daralttık */
+        margin-bottom: 15px;
+    }
 
     .banner-brand-text {
-        right: 50%;
-        top: 50%;
-        transform: translate(50%, -50%);
-        text-align: center;
-        width: 100%;
+        left: 50%;
+        top: 40%;
+        transform: translate(-50%, -50%);
         letter-spacing: 5px;
+        font-size: 1.5rem; /* Ekrana sığması için küçülttüm */
     }
 }
