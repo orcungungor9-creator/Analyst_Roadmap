@@ -68,6 +68,9 @@
     gap: 15px;
     margin-top: 5px;
 }
+.profile-name { order: 1; }
+.mail-btn { order: 2; }
+.profile-socials { order: 3; }
 
 .profile-image-container {
     width: clamp(150px, 20vw, 240px);
@@ -285,8 +288,16 @@
         width: 100%;
         gap: 15px;
     }
-    .profile-socials {
+    .mail-btn {
+        order: 1;
         justify-self: end;
+    }
+    .profile-name {
+        order: 2;
+    }
+    .profile-socials {
+        order: 3;
+        justify-self: start;
     }
     .profile-image-container {
         width: 150px;
