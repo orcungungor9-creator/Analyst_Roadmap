@@ -1,11 +1,249 @@
 /* Hakkımda sayfası özel stilleri */
 
-/* Genel kapsayıcı için ek boşluk vb. gereksinimler buraya eklenebilir */
-.about-box {
+.about-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding-bottom: 50px;
+}
+
+/* Banner Section */
+.about-banner-wrapper {
+    position: relative;
+    width: 100%;
+    /* Banner altı neon çerçeve */
+    border-bottom: 3px solid var(--neon-blue);
+    box-shadow: 0 10px 30px var(--neon-blue-glow);
+    border-radius: 0;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(18, 27, 44, 0.9) 0%, rgba(9, 14, 23, 0.95) 100%);
+}
+
+.about-banner {
+    width: 100%;
+    /* 4:1 oran */
+    aspect-ratio: 4 / 1;
+    background: url('../assets/analyst_roadmap_banner.jpg') no-repeat center center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+}
+
+.banner-brand-text {
+    font-family: var(--font-title);
+    font-size: clamp(2rem, 6vw, 5rem);
+    font-weight: 900;
+    color: #ffffff;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5), 0 0 20px var(--neon-purple);
+    text-transform: uppercase;
+    letter-spacing: 15px;
+    position: absolute;
+    right: 5%;
+    pointer-events: none;
+}
+
+/* Profil Bölümü (Sol Üst) */
+.about-profile-section {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    z-index: 2;
+}
+
+.profile-image-container {
+    width: clamp(150px, 20vw, 240px);
+    height: clamp(150px, 20vw, 240px);
+    border-radius: 50%; /* Yuvarlak çerçeve */
+    border: 4px solid var(--neon-blue);
+    box-shadow: 0 0 25px var(--neon-blue-glow);
+    overflow: hidden;
+    background-color: var(--bg-dark);
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.profile-name {
+    /* İsim siyah renkte */
+    color: #000;
+    /* Okunabilmesi için parlak / neon bir zemin eklendi */
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 8px var(--neon-blue);
+    padding: 8px 24px;
+    border-radius: 30px;
+    font-family: var(--font-title);
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: 800;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.profile-info-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.profile-socials {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    backdrop-filter: blur(5px);
+}
+
+.social-btn:hover {
+    background-color: var(--neon-blue);
+    border-color: var(--neon-blue);
+    color: #000;
+    box-shadow: 0 0 15px var(--neon-blue-glow);
+    transform: translateY(-3px);
+}
+
+/* İçerik Bölümü (Ortalanmış ve Kısıtlı Genişlik) */
+.about-inner-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+/* Neden Kuruldu Kutusu */
+.about-why-box {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: var(--shadow-card);
+}
+
+.about-why-box h2 {
+    font-family: var(--font-title);
+    color: var(--neon-blue);
+    margin-bottom: 25px;
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* Vizyon ve Misyon Kartları */
+.about-cards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.about-card {
+    background: var(--glass-bg);
+    border-radius: 20px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     transition: all 0.3s ease;
 }
 
-.about-box:hover {
-    box-shadow: 0 4px 20px rgba(52, 211, 153, 0.1);
-    border-color: var(--neon-green);
+/* Neon Çerçeveler */
+.neon-frame-blue {
+    border: 2px solid var(--neon-blue);
+    box-shadow: 0 0 15px var(--neon-blue-glow), inset 0 0 10px var(--neon-blue-glow);
+}
+
+.neon-frame-blue:hover {
+    box-shadow: 0 0 25px var(--neon-blue-glow), inset 0 0 15px var(--neon-blue-glow);
+    transform: translateY(-5px);
+}
+
+.neon-frame-blue h3 {
+    color: var(--neon-blue);
+}
+
+.neon-frame-green {
+    border: 2px solid var(--neon-green);
+    box-shadow: 0 0 15px var(--neon-green-glow), inset 0 0 10px var(--neon-green-glow);
+}
+
+.neon-frame-green:hover {
+    box-shadow: 0 0 25px var(--neon-green-glow), inset 0 0 15px var(--neon-green-glow);
+    transform: translateY(-5px);
+}
+
+.neon-frame-green h3 {
+    color: var(--neon-green);
+}
+
+.about-card h3 {
+    font-family: var(--font-title);
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.about-placeholder-text {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    font-style: italic;
+}
+
+/* Responsive Düzenlemeler */
+@media (max-width: 992px) {
+    .about-cards-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-banner {
+        aspect-ratio: auto;
+        min-height: 300px;
+    }
+    
+    .about-profile-section {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        padding: 40px 0;
+        z-index: 2;
+    }
+
+    .banner-brand-text {
+        right: 50%;
+        top: 50%;
+        transform: translate(50%, -50%);
+        text-align: center;
+        width: 100%;
+        letter-spacing: 5px;
+    }
 }

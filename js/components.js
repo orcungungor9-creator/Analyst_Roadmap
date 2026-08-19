@@ -497,7 +497,7 @@ const FOOTER_HTML = `
             </div>
             <div class="footer-links-group" style="display: flex; gap: 20px; align-items: center; justify-content: flex-end;">
                 <a href="${pathPrefix}yasal/index.html" class="footer-link">Yasal</a>
-                <a href="#" class="footer-link" style="cursor: default;" onclick="event.preventDefault();">İletişim</a>
+                <a href="mailto:analystroadmap0@gmail.com" class="footer-link">İletişim</a>
             </div>
         </div>
     </footer>
