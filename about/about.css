@@ -229,6 +229,16 @@
     margin-bottom: 0;
 }
 
+.thank-you-text {
+    text-align: center;
+    color: var(--text-main);
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin-top: 10px;
+    letter-spacing: 0.5px;
+}
+
 /* Vizyon ve Misyon Kartları */
 .about-cards-container {
     display: grid;
@@ -297,6 +307,11 @@
 }
 
 @media (max-width: 768px) {
+    .thank-you-text {
+        font-size: 1rem;
+        margin-top: 5px;
+    }
+
     .about-inner-content {
         padding: 0 16px;
     }
