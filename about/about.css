@@ -297,6 +297,10 @@
 }
 
 @media (max-width: 768px) {
+    .about-inner-content {
+        padding: 0 16px;
+    }
+
     .about-banner {
         aspect-ratio: 3 / 1; /* Uzun ince yapı (PC'ye benzer ama mobilde biraz daha kurtarır) */
         min-height: 130px; /* Çok kalın olmasını engelledik */
@@ -318,11 +322,12 @@
         grid-template-columns: 1fr auto 1fr;
         align-items: center;
         width: 100%;
-        gap: 15px;
+        gap: 8px; /* Dar ekranda taşmayı önlemek için gap küçültüldü */
     }
     .profile-left-socials {
         order: 1;
         justify-self: end;
+        gap: 8px;
     }
     .profile-name {
         order: 2;
@@ -330,7 +335,28 @@
     .profile-socials {
         order: 3;
         justify-self: start;
+        gap: 8px;
     }
+    
+    /* İkonları mobilde sığması için küçültüyoruz */
+    .social-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+    }
+    .github-btn svg, .mail-btn svg {
+        width: 22px;
+        height: 22px;
+    }
+    .linkedin-btn svg {
+        width: 26px;
+        height: 26px;
+    }
+    .kaggle-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+
     .profile-image-container {
         width: 150px;
         height: 150px;
@@ -338,24 +364,27 @@
         margin-top: -100px !important; 
     }
     .profile-name {
-        padding: 6px 16px;
-        font-size: 1.1rem;
+        padding: 4px 10px;
+        font-size: 1rem;
+        white-space: normal; /* İsmin çok uzun olması durumunda alt satıra geçmesine izin ver */
+        text-align: center;
     }
     
     .about-why-box {
-        padding: 24px; /* Mobilde iç boşluğu daralttık */
-        border-width: 3px; /* Mobilde çizgiyi çok az incelttik */
+        padding: 20px; /* Mobilde iç boşluğu daralttık */
+        border-width: 3px; 
     }
 
     .about-why-box h2 {
-        font-size: 1.5rem; /* Başlığı küçülttük */
+        font-size: 1.5rem; 
         margin-bottom: 20px;
     }
 
     .about-why-box p {
-        font-size: 1rem; /* Mobil standart okuma boyutu */
-        line-height: 1.6; /* Satır aralığını mobilde daralttık */
+        font-size: 1rem; 
+        line-height: 1.5; 
         margin-bottom: 15px;
+        text-align: left; /* Mobilde kelime arası boşluk patlamasını engeller */
     }
 
     .banner-brand-text {

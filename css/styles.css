@@ -54,12 +54,15 @@
     --bg-tool-logo: rgba(255, 255, 255, 0.05);
 }
 
+html, body {
+    overflow-x: hidden;
+}
+
 body {
     font-family: var(--font-main);
     background-color: var(--bg-dark);
     color: var(--text-main);
     min-height: 100vh;
-    overflow-x: hidden;
     background-image:
         radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.08) 0%, transparent 45%),
         radial-gradient(circle at 85% 85%, rgba(52, 211, 153, 0.08) 0%, transparent 45%),
