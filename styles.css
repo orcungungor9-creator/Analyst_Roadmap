@@ -59,7 +59,6 @@ html, body {
 }
 
 body {
-    padding-top: 74px;
     font-family: var(--font-main);
     background-color: var(--bg-dark);
     color: var(--text-main);

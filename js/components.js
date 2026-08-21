@@ -572,6 +572,12 @@ const CONTACT_MODAL_HTML = `
 document.addEventListener('DOMContentLoaded', () => {
     // Insert Header and Mobile Nav at the beginning of the body
     document.body.insertAdjacentHTML('afterbegin', HEADER_HTML + MOBILE_NAV_HTML);
+    const headerEl = document.querySelector('.site-header');
+    if (headerEl) {
+        const updatePadding = () => { document.body.style.paddingTop = headerEl.offsetHeight + 'px'; };
+        setTimeout(updatePadding, 10);
+        window.addEventListener('resize', updatePadding);
+    }
     // Insert Footer at the end of the body
     document.body.insertAdjacentHTML('beforeend', FOOTER_HTML);
     // Insert Modals at the end of the body
