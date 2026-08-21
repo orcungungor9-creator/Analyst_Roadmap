@@ -20,3 +20,18 @@
         });
     });
 });
+
+    // Notepad Copy Functionality
+    const copyBtns = document.querySelectorAll('.notepad-copy-btn');
+    copyBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const textarea = btn.previousElementSibling;
+            textarea.select();
+            document.execCommand('copy');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = 'Kopyalandı! <i class="ph ph-check"></i>';
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+            }, 2000);
+        });
+    });

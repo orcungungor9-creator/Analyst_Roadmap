@@ -9,7 +9,7 @@
     <!-- Component styles -->
     <link rel="stylesheet" href="../../../css/components.css">
     <!-- Local styles -->
-    <link rel="stylesheet" href="../program-layout.css">
+    <link rel="stylesheet" href="../Notes/program-layout.css">
     <link rel="stylesheet" href="python.css">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
@@ -43,7 +43,9 @@
         })();
     </script>
     
-        <main style="flex: 1; max-width: 900px; margin: 0 auto; width: 100%; padding: 120px 24px 60px;">
+        <main style="flex: 1; max-width: 1400px; margin: 0 auto; width: 100%; padding: 40px 24px 60px;">
+    <div class="program-layout-wrapper">
+        <div class="left-column">
         <div class="program-hero">
             <div class="program-header">
                 <div class="program-logo">
@@ -51,45 +53,82 @@
                 </div>
                 <h1 class="program-title">Python</h1>
             </div>
-            <p class="program-description">Açıklama metni buraya gelecek...</p>
+            <p class="program-description">Sıfırdan Python öğrenmek için giriş seviyesi bir kurstur. Veri bilimi ve otomasyonda endüstri standardı olan Python'u bu kadar temel seviyede öğrendikten sonra bile rahatlıkla Pandas, NumPy gibi kütüphanelere geçiş yapabilirsiniz. Detaylar için <a href="../../../tools/python/python.html" style="color: var(--neon-blue, #007BFF); font-weight: bold; text-decoration: underline;">Araçlar</a> sekmesini inceleyin.</p>
         </div>
 
-        <div class="program-accordion-container">
+                <div class="program-accordion-container">
             <div class="accordion-item">
                 <div class="accordion-header">
-                    <h3 class="accordion-title">Ders 1 İsim</h3>
+                    <h3 class="accordion-title">1. Ders: Int & Float</h3>
                     <div class="accordion-icon"><i class="ph ph-caret-down"></i></div>
                 </div>
                 <div class="accordion-content">
                     <div class="accordion-inner">
-                        Ders 1 içeriği buraya gelecek...
+                        <p>1. Ders içeriği buraya gelecek...</p>
                     </div>
                 </div>
             </div>
             
             <div class="accordion-item">
                 <div class="accordion-header">
-                    <h3 class="accordion-title">Ders 2 İsim</h3>
+                    <h3 class="accordion-title">2. Ders: Matematiksel Operatörler</h3>
                     <div class="accordion-icon"><i class="ph ph-caret-down"></i></div>
                 </div>
                 <div class="accordion-content">
                     <div class="accordion-inner">
-                        Ders 2 içeriği buraya gelecek...
+                        <p>2. Ders içeriği buraya gelecek...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3 class="accordion-title">3. Ders: Değişkenler</h3>
+                    <div class="accordion-icon"><i class="ph ph-caret-down"></i></div>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <p>3. Ders içeriği buraya gelecek...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3 class="accordion-title">4. Ders: Veri Tipleri</h3>
+                    <div class="accordion-icon"><i class="ph ph-caret-down"></i></div>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <p>4. Ders içeriği buraya gelecek...</p>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+            </div> <!-- End of left-column -->
+        
+        <div class="right-column">
+            <h2 class="notepad-title">Kodlarım</h2>
+            <p class="notepad-instructions">Bu kısma istediğiniz gibi not tutabilir ve ardından notunuzu kopyalayabilirsiniz.</p>
+            <textarea class="notepad-textarea" placeholder="Buraya yazın..."></textarea>
+            <button class="notepad-copy-btn">Kopyala <i class="ph ph-copy"></i></button>
+        </div>
+    </div> <!-- End of program-layout-wrapper -->
+</main>
 
     <!-- Components injects header, footer, modals -->
     <script src="../../../js/components.js"></script>
     <script src="../../../js/nav.js"></script>
     <script src="../../../js/modal.js"></script>
     <script src="../../../js/script.js"></script>
-    <script src="../program-layout.js"></script>
+    <script src="../Notes/program-layout.js"></script>
     <script src="python.js"></script>
 </body>
 </html>
+
+
+
+
 
 
 
