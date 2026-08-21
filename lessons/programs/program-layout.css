@@ -1,0 +1,101 @@
+﻿.program-hero {
+    margin-bottom: 40px;
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--theme-color, var(--glass-border));
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.program-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 20px;
+}
+.program-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 16px;
+    background: var(--theme-color-light, rgba(255,255,255,0.1));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--theme-color, #ccc);
+    box-shadow: 0 0 20px var(--theme-color-glow, rgba(0,0,0,0.1));
+}
+.program-logo img {
+    max-width: 50px;
+    max-height: 50px;
+    object-fit: contain;
+}
+.program-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--text-main);
+    margin: 0;
+}
+.program-description {
+    font-size: 1.1rem;
+    color: var(--text-main);
+    opacity: 0.85;
+    line-height: 1.6;
+    margin: 0;
+}
+.program-accordion-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.accordion-item {
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+.accordion-item:hover {
+    border-color: var(--theme-color, #aaa);
+}
+.accordion-header {
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    background: transparent;
+    transition: background 0.3s ease;
+}
+.accordion-header:hover {
+    background: var(--theme-color-light, rgba(255,255,255,0.05));
+}
+.accordion-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin: 0;
+}
+.accordion-icon {
+    font-size: 1.2rem;
+    color: var(--theme-color, #fff);
+    transition: transform 0.3s ease;
+}
+.accordion-item.active .accordion-icon {
+    transform: rotate(180deg);
+}
+.accordion-item.active {
+    border-color: var(--theme-color, #fff);
+    box-shadow: 0 4px 15px var(--theme-color-glow, transparent);
+}
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.accordion-inner {
+    padding: 0 24px 24px 24px;
+    color: var(--text-main);
+    opacity: 0.8;
+    line-height: 1.6;
+}

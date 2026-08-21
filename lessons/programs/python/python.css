@@ -1,0 +1,5 @@
+﻿:root {
+    --theme-color: #FFC107;
+    --theme-color-light: #FFC10720; /* 20% opacity */
+    --theme-color-glow: #FFC10730;  /* 30% opacity */
+}

@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R Studio | My Analyst LogBook</title>
+    <!-- Core styles -->
+    <link rel="stylesheet" href="../../../styles.css">
+    <!-- Component styles -->
+    <link rel="stylesheet" href="../../../css/components.css">
+    <!-- Local styles -->
+    <link rel="stylesheet" href="../program-layout.css">
+    <link rel="stylesheet" href="r.css">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js" integrity="sha384-cPFV+/abYd3INVFHPmSKpBmcnH+Q+bTZW7dv/EiuShUNPkHyFmRF8PsL7Ibfvunk" crossorigin="anonymous"></script>
+    <style>
+        .page-header {
+            padding: 80px 24px 40px;
+            text-align: center;
+        }
+        .page-title {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            color: var(--text-main);
+        }
+        .page-content {
+            min-height: 50vh;
+            padding: 24px;
+            text-align: center;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body class="r-page" style="display: flex; flex-direction: column; min-height: 100vh;">
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('analyst_theme') || 'theme-light-purple';
+            if (savedTheme !== 'theme-dark') {
+                document.body.classList.add(savedTheme);
+            }
+        })();
+    </script>
+    
+        <main style="flex: 1; max-width: 900px; margin: 0 auto; width: 100%; padding: 120px 24px 60px;">
+        <div class="program-hero">
+            <div class="program-header">
+                <div class="program-logo">
+                    <img src="../../../assets/logos/r-logo.svg" alt="R Studio Logo">
+                </div>
+                <h1 class="program-title">R Studio</h1>
+            </div>
+            <p class="program-description">Açıklama metni buraya gelecek...</p>
+        </div>
+
+        <div class="program-accordion-container">
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3 class="accordion-title">Ders 1 İsim</h3>
+                    <div class="accordion-icon"><i class="ph ph-caret-down"></i></div>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        Ders 1 içeriği buraya gelecek...
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3 class="accordion-title">Ders 2 İsim</h3>
+                    <div class="accordion-icon"><i class="ph ph-caret-down"></i></div>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        Ders 2 içeriği buraya gelecek...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Components injects header, footer, modals -->
+    <script src="../../../js/components.js"></script>
+    <script src="../../../js/nav.js"></script>
+    <script src="../../../js/modal.js"></script>
+    <script src="../../../js/script.js"></script>
+    <script src="../program-layout.js"></script>
+    <script src="r.js"></script>
+</body>
+</html>
+
+
+
