@@ -1,4 +1,5 @@
 ﻿document.addEventListener('DOMContentLoaded', () => {
+    // Accordion Logic
     const accordions = document.querySelectorAll('.accordion-header');
     accordions.forEach(acc => {
         acc.addEventListener('click', () => {
@@ -19,7 +20,6 @@
             }
         });
     });
-});
 
     // Notepad Copy Functionality
     const copyBtns = document.querySelectorAll('.notepad-copy-btn');
@@ -35,3 +35,34 @@
             }, 2000);
         });
     });
+
+    // --- Mobile Sliding Drawer Logic ---
+    const body = document.body;
+    
+    const overlay = document.createElement('div');
+    overlay.className = 'notepad-overlay';
+    body.appendChild(overlay);
+
+    const fab = document.createElement('div');
+    fab.className = 'notepad-fab';
+    fab.innerHTML = '<i class="ph ph-book-bookmark"></i>';
+    body.appendChild(fab);
+
+    const rightColumn = document.querySelector('.right-column');
+
+    fab.addEventListener('click', () => {
+        if(rightColumn) {
+            rightColumn.classList.add('open');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    });
+
+    overlay.addEventListener('click', () => {
+        if(rightColumn) {
+            rightColumn.classList.remove('open');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+});
