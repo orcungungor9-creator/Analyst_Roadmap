@@ -59,6 +59,7 @@ html, body {
 }
 
 body {
+    padding-top: 74px;
     font-family: var(--font-main);
     background-color: var(--bg-dark);
     color: var(--text-main);
@@ -207,7 +208,8 @@ body {
 
 .site-header {
     width: 100%;
-    position: sticky;
+    position: fixed;
+    left: 0;
     top: 0;
     z-index: 50;
     background: var(--bg-dark);

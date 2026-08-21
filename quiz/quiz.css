@@ -51,7 +51,7 @@ body.formulas-page main.formulas-main {
 
 /* 1. Karanlık (Varsayılan) - Uzay & Neon Devreler */
 body.theme-dark .formulas-hero {
-    background-image: url('quiz_assets/banner/quiz_banner_ocean.jpg');
+    background-image: url('quiz_assets/banner/quiz_banner_futuristic.webp');
 }
 
 /* 2. Kraliyet Moru - Mor galaksi fırtınası */
@@ -61,57 +61,57 @@ body.theme-purple .formulas-hero {
 
 /* 3. Okyanus - Derin mavi data dalgaları */
 body.theme-ocean .formulas-hero {
-    background-image: url('quiz_assets/banner/quiz_banner_ocean.jpg');
+    background-image: url('quiz_assets/banner/quiz_banner_ocean.webp');
 }
 
 /* 4. Zümrüt - Yeşil veri ağları */
 body.theme-emerald .formulas-hero {
-    background-image: url('quiz_assets/banner/quiz_banner_emerald.jpg');
+    background-image: url('quiz_assets/banner/quiz_banner_emerald.webp');
 }
 
 /* 5. Cyberpunk - Altın neon şehir */
 body.theme-cyberpunk .formulas-hero {
-    background-image: url('quiz_assets/banner/quiz_banner_futuristic.webp');
+    background-image: url('quiz_assets/banner/quiz_banner_cyberpunk.webp');
 }
 
 /* 6. Cyber Neon - Pembe/Cyan elektrik */
 body.theme-cyber-neon .formulas-hero {
-    background-image: url('quiz_assets/banner/quiz_banner_futuristic.webp');
+    background-image: url('quiz_assets/banner/quiz_banner_cyber_neon.webp');
 }
 
 /* 7. Amber - Altın kehribar enerji */
 body.theme-amber .formulas-hero {
-    background-image: url('quiz_assets/banner/quiz_banner_amber.jpg');
+    background-image: url('quiz_assets/banner/quiz_banner_amber.webp');
 }
 
 /* 8. Karanlık Sakura - Kiraz çiçeği gece */
 body.theme-dark-sakura .formulas-hero {
-    background-image: url('quiz_assets/banner/quiz_banner_dark_sakura.jpg');
+    background-image: url('quiz_assets/banner/quiz_banner_dark_sakura.webp');
 }
 
 /* 9. Mono Karanlık - Siyah/Beyaz minimal */
 body.theme-mono-dark .formulas-hero {
-    background-image: url('quiz_assets/banner/quiz_banner_mono_dark.jpg');
+    background-image: url('quiz_assets/banner/quiz_banner_mono_dark.webp');
 }
 
 /* 10. Saf Beyaz - Parlak beyaz ışık */
 body.theme-light-pure .formulas-hero {
-    background-image: url('quiz_assets/banner/quiz_banner_light_pure.jpg');
+    background-image: url('quiz_assets/banner/quiz_banner_light_pure.webp');
 }
 
 /* 11. Mono Açık - Gri tonlarda ferah */
 body.theme-mono-light .formulas-hero {
-    background-image: url('quiz_assets/banner/quiz_banner_mono_light.jpg');
+    background-image: url('quiz_assets/banner/quiz_banner_mono_light.webp');
 }
 
 /* 12. Sıcak Açık - Krem/Altın ton */
 body.theme-light-warm .formulas-hero {
-    background-image: url('quiz_assets/banner/quiz_banner_light_warm.jpg');
+    background-image: url('quiz_assets/banner/quiz_banner_light_warm.webp');
 }
 
 /* 13. Pembe - Pembe pastel bulutlar */
 body.theme-pink .formulas-hero {
-    background-image: url('quiz_assets/banner/quiz_banner_pink.jpg');
+    background-image: url('quiz_assets/banner/quiz_banner_pink.webp');
 }
 
 /* 14. Açık Zümrüt - Nane yeşili (Geçici - üretilecek) */
