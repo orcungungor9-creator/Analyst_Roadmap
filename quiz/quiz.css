@@ -71,12 +71,12 @@ body.theme-emerald .formulas-hero {
 
 /* 5. Cyberpunk - Altın neon şehir */
 body.theme-cyberpunk .formulas-hero {
-    background-image: url('quiz_assets/banner/quiz_banner_cyberpunk.jpg');
+    background-image: url('quiz_assets/banner/quiz_banner_futuristic.webp');
 }
 
 /* 6. Cyber Neon - Pembe/Cyan elektrik */
 body.theme-cyber-neon .formulas-hero {
-    background-image: url('quiz_assets/banner/quiz_banner_cyber_neon.jpg');
+    background-image: url('quiz_assets/banner/quiz_banner_futuristic.webp');
 }
 
 /* 7. Amber - Altın kehribar enerji */
@@ -116,7 +116,7 @@ body.theme-pink .formulas-hero {
 
 /* 14. Açık Zümrüt - Nane yeşili (Geçici - üretilecek) */
 body.theme-light-emerald .formulas-hero {
-    background-image: url('quiz_assets/banner/quiz_banner_emerald.jpg');
+    background-image: url('quiz_assets/banner/quiz_banner_mint.webp');
 }
 
 /* 15. Açık Lavanta - Dağ manzarası ve mor ağlar */
