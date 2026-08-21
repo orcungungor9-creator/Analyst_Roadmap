@@ -1,2 +1,0 @@
-// powerbi Page Scripts
-

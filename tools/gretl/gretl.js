@@ -1,2 +1,0 @@
-// gretl Page Scripts
-

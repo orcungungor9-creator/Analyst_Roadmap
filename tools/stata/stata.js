@@ -1,2 +1,0 @@
-// stata Page Scripts
-

@@ -1,2 +1,0 @@
-// spss Page Scripts
-
