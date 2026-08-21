@@ -55,7 +55,7 @@
 }
 
 html, body {
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 body {
@@ -640,7 +640,7 @@ body {
 .hero-banner-bg {
     position: absolute;
     inset: 0;
-    background-image: url('../assets/banner/hero_banner_dark.webp'); /* fallback */
+    background-image: url('assets/banner/hero_banner_dark.webp'); /* fallback */
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -671,21 +671,21 @@ body {
 }
 
 /* Tema Özel Hero Banner Görselleri */
-body.theme-dark .hero-banner-bg          { background-image: url('../assets/banner/hero_banner_dark.webp'); }
-body.theme-ocean .hero-banner-bg         { background-image: url('../assets/banner/hero_banner_ocean.webp'); }
-body.theme-purple .hero-banner-bg        { background-image: url('../assets/banner/hero_banner_purple.webp'); }
-body.theme-emerald .hero-banner-bg       { background-image: url('../assets/banner/hero_banner_emerald.webp'); }
-body.theme-cyberpunk .hero-banner-bg     { background-image: url('../assets/banner/hero_banner_cyberpunk.webp'); }
-body.theme-cyber-neon .hero-banner-bg    { background-image: url('../assets/banner/hero_banner_cyber_neon.webp'); }
-body.theme-amber .hero-banner-bg         { background-image: url('../assets/banner/hero_banner_amber.webp'); }
-body.theme-dark-sakura .hero-banner-bg   { background-image: url('../assets/banner/hero_banner_dark_sakura.webp'); }
-body.theme-mono-dark .hero-banner-bg     { background-image: url('../assets/banner/hero_banner_mono_dark.webp'); }
-body.theme-light-pure .hero-banner-bg    { background-image: url('../assets/banner/hero_banner_light_pure.webp'); }
-body.theme-mono-light .hero-banner-bg    { background-image: url('../assets/banner/hero_banner_mono_light.webp'); }
-body.theme-light-warm .hero-banner-bg    { background-image: url('../assets/banner/hero_banner_light_warm.webp'); }
-body.theme-pink .hero-banner-bg          { background-image: url('../assets/banner/hero_banner_pink.webp'); }
-body.theme-light-emerald .hero-banner-bg { background-image: url('../assets/banner/hero_banner_light_emerald.webp'); }
-body.theme-light-purple .hero-banner-bg  { background-image: url('../assets/banner/hero_banner_light_purple.webp'); }
+body.theme-dark .hero-banner-bg          { background-image: url('assets/banner/hero_banner_dark.webp'); }
+body.theme-ocean .hero-banner-bg         { background-image: url('assets/banner/hero_banner_ocean.webp'); }
+body.theme-purple .hero-banner-bg        { background-image: url('assets/banner/hero_banner_purple.webp'); }
+body.theme-emerald .hero-banner-bg       { background-image: url('assets/banner/hero_banner_emerald.webp'); }
+body.theme-cyberpunk .hero-banner-bg     { background-image: url('assets/banner/hero_banner_cyberpunk.webp'); }
+body.theme-cyber-neon .hero-banner-bg    { background-image: url('assets/banner/hero_banner_cyber_neon.webp'); }
+body.theme-amber .hero-banner-bg         { background-image: url('assets/banner/hero_banner_amber.webp'); }
+body.theme-dark-sakura .hero-banner-bg   { background-image: url('assets/banner/hero_banner_dark_sakura.webp'); }
+body.theme-mono-dark .hero-banner-bg     { background-image: url('assets/banner/hero_banner_mono_dark.webp'); }
+body.theme-light-pure .hero-banner-bg    { background-image: url('assets/banner/hero_banner_light_pure.webp'); }
+body.theme-mono-light .hero-banner-bg    { background-image: url('assets/banner/hero_banner_mono_light.webp'); }
+body.theme-light-warm .hero-banner-bg    { background-image: url('assets/banner/hero_banner_light_warm.webp'); }
+body.theme-pink .hero-banner-bg          { background-image: url('assets/banner/hero_banner_pink.webp'); }
+body.theme-light-emerald .hero-banner-bg { background-image: url('assets/banner/hero_banner_light_emerald.webp'); }
+body.theme-light-purple .hero-banner-bg  { background-image: url('assets/banner/hero_banner_light_purple.webp'); }
 
 /* Light tema overlay */
 body.theme-light-pure .hero-banner-overlay,
