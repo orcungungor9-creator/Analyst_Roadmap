@@ -1,2 +1,0 @@
-// Basics Page Scripts
-
