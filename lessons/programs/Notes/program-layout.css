@@ -203,7 +203,7 @@
         width: 85%;
         max-width: 380px;
         height: 100vh;
-        background: var(--bg-card);
+        background: var(--bg-dark);
         z-index: 1000;
         border-left: none;
         border-right: 4px solid var(--theme-color);
@@ -678,6 +678,7 @@
     filter: brightness(1.1);
     transform: translateY(-2px);
 }
+
 
 
 
