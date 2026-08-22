@@ -102,7 +102,7 @@
 /* Layout Wrapper for Notepad */
 .program-layout-wrapper {
     display: grid;
-    grid-template-columns: 2.5fr 1fr;
+    grid-template-columns: 2.5fr minmax(0, 1fr);
     gap: 40px;
     align-items: start;
     width: 100%;
@@ -122,6 +122,8 @@
     height: calc(100vh - 140px);
     display: flex;
     flex-direction: column;
+    min-width: 0;
+    max-width: 100%;
 }
 
 .notepad-title {
@@ -210,7 +212,9 @@
         margin-top: 0;
         transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         box-shadow: 10px 0 30px rgba(0,0,0,0.5);
-    }
+        min-width: 0;
+    max-width: 100%;
+}
     .right-column.open {
         left: 0;
     }
@@ -263,4 +267,417 @@
         display: none !important;
     }
 }
+
+.notepad-tools {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+.pen-label {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: var(--text-main);
+}
+.pen-colors {
+    display: flex;
+    gap: 10px;
+}
+.pen-color-btn {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+    padding: 0;
+}
+.pen-color-btn.active {
+    border-color: #fff;
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+.notepad-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+}
+.notepad-copy-btn, .notepad-clear-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 800;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s ease, filter 0.2s ease, background 0.2s ease;
+}
+.notepad-copy-btn {
+    background: var(--theme-color);
+    color: #111;
+}
+.notepad-clear-btn {
+    background: transparent;
+    border: 2px solid var(--glass-border);
+    color: var(--text-main);
+}
+.notepad-clear-btn:hover {
+    background: rgba(255, 60, 60, 0.15);
+    border-color: #FF5252;
+    color: #FF5252;
+}
+.notepad-copy-btn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+.notepad-tools {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+.font-sizes {
+    display: flex;
+    gap: 5px;
+}
+.font-btn {
+    background: var(--bg-card);
+    border: 2px solid var(--glass-border);
+    color: var(--text-main);
+    border-radius: 6px;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+.font-btn:hover {
+    border-color: var(--theme-color);
+    color: var(--theme-color);
+}
+.font-btn.active {
+    background: var(--theme-color);
+    color: #111;
+    border-color: var(--theme-color);
+}
+.notepad-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+    width: 100%;
+}
+.notepad-copy-btn, .notepad-clear-btn {
+    width: 50%;
+    box-sizing: border-box;
+    padding: 12px 0;
+    border: none;
+    border-radius: 8px;
+    font-weight: 800;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+.notepad-copy-btn {
+    background: var(--theme-color);
+    color: #111;
+}
+.notepad-clear-btn {
+    background: #FF5252;
+    color: #fff;
+}
+.notepad-clear-btn:hover {
+    background: #FF1744;
+}
+.notepad-copy-btn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+.notepad-tools {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+.pen-label {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: var(--text-main);
+}
+.pen-colors {
+    display: flex;
+    gap: 10px;
+}
+.pen-color-btn {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+    padding: 0;
+}
+.pen-color-btn:hover {
+    transform: scale(1.1);
+}
+.pen-color-btn.active {
+    border-color: var(--text-main);
+    transform: scale(1.15);
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+}
+.font-sizes {
+    display: flex;
+    gap: 5px;
+}
+.font-btn {
+    background: var(--bg-card);
+    border: 2px solid var(--glass-border);
+    color: var(--text-main);
+    border-radius: 6px;
+    padding: 4px 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.font-btn:hover {
+    border-color: var(--theme-color);
+}
+.font-btn.active {
+    background: var(--theme-color);
+    color: #111;
+    border-color: var(--theme-color);
+}
+.notepad-textarea {
+    flex: 1;
+    width: 100%;
+    background: var(--bg-card);
+    border: 3px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 16px;
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    overflow-y: auto;
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: pre-wrap;
+    max-width: 100%;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+.notepad-textarea:focus {
+    border-color: var(--theme-color);
+}
+.notepad-textarea:empty:before {
+    content: attr(placeholder);
+    color: var(--text-muted);
+    pointer-events: none;
+    display: block;
+}
+.notepad-textarea h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 5px 0;
+}
+.notepad-textarea h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 5px 0;
+}
+.notepad-textarea p {
+    font-size: 0.95rem;
+    font-weight: normal;
+    margin: 2px 0;
+}
+.notepad-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+    width: 100%;
+}
+.notepad-copy-btn, .notepad-clear-btn {
+    flex: 1;
+    height: 48px;
+    box-sizing: border-box;
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+    font-weight: 800;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+.notepad-copy-btn {
+    background: var(--theme-color);
+    color: #111;
+}
+.notepad-clear-btn {
+    background: #FF5252;
+    color: #fff;
+}
+.notepad-clear-btn:hover {
+    background: #FF1744;
+}
+.notepad-copy-btn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+.notepad-tools {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+.notepad-tool-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.pen-label {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: var(--text-main);
+    min-width: 80px;
+}
+.pen-colors {
+    display: flex;
+    gap: 10px;
+}
+.pen-color-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+    padding: 0;
+}
+.pen-color-btn:hover {
+    transform: scale(1.1);
+}
+.pen-color-btn.active {
+    border-color: var(--text-main);
+    transform: scale(1.15);
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+}
+.font-sizes {
+    display: flex;
+    gap: 8px;
+}
+.font-btn {
+    background: var(--bg-card);
+    border: 2px solid var(--glass-border);
+    color: var(--text-main);
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.font-btn:hover {
+    border-color: var(--theme-color);
+}
+.font-btn.active {
+    background: var(--theme-color);
+    color: #111;
+    border-color: var(--theme-color);
+}
+.notepad-textarea {
+    flex: 1;
+    width: 100%;
+    background: var(--bg-card);
+    border: 3px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 16px;
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    overflow-y: auto;
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: pre-wrap;
+    max-width: 100%;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+.notepad-textarea:focus {
+    border-color: var(--theme-color);
+}
+.notepad-textarea:empty:before {
+    content: attr(placeholder);
+    color: var(--text-muted);
+    pointer-events: none;
+    display: block;
+}
+.notepad-textarea h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 5px 0;
+}
+.notepad-textarea h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 5px 0;
+}
+.notepad-textarea p {
+    font-size: 0.95rem;
+    font-weight: normal;
+    margin: 2px 0;
+}
+.notepad-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 16px;
+    width: 100%;
+}
+.notepad-copy-btn, .notepad-clear-btn {
+    width: 100%;
+    height: 48px;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 8px;
+    font-weight: 800;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+.notepad-copy-btn {
+    background: var(--theme-color);
+    color: #111;
+}
+.notepad-clear-btn {
+    background: #FF5252;
+    color: #fff;
+}
+.notepad-clear-btn:hover {
+    background: #FF1744;
+}
+.notepad-copy-btn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+
 

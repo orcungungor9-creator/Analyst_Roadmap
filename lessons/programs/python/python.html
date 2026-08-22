@@ -110,8 +110,33 @@
         <div class="right-column">
             <h2 class="notepad-title">Kodlarım</h2>
             <p class="notepad-instructions">Bu kısma istediğiniz gibi not tutabilir ve ardından notunuzu kopyalayabilirsiniz.</p>
-            <textarea class="notepad-textarea" placeholder="Buraya yazın..."></textarea>
-            <button class="notepad-copy-btn">Kopyala <i class="ph ph-copy"></i></button>
+                                                <div class="notepad-tools">
+                <div class="notepad-tool-group">
+                    <span class="pen-label"><i class="ph ph-palette"></i> Renk:</span>
+                    <div class="pen-colors">
+                        <button class="pen-color-btn" data-color="var(--text-main)" style="background: #ffffff; border: 1px solid #ccc;"></button>
+                        <button class="pen-color-btn" data-color="#FF5252" style="background: #FF5252;"></button>
+                        <button class="pen-color-btn" data-color="#4CAF50" style="background: #4CAF50;"></button>
+                                                <button class="pen-color-btn" data-color="#111111" style="background: #111111;"></button>
+                        <button class="pen-color-btn" data-color="#9C27B0" style="background: #9C27B0;"></button>
+                        <button class="pen-color-btn" data-color="#E91E63" style="background: #E91E63;"></button>
+                        <button class="pen-color-btn" data-color="var(--theme-color)" style="background: var(--theme-color);"></button>
+                    </div>
+                </div>
+                <div class="notepad-tool-group">
+                    <span class="pen-label"><i class="ph ph-text-aa"></i> Boyut:</span>
+                    <div class="font-sizes">
+                        <button class="font-btn" data-action="6" style="font-weight:bold; font-size:1.1rem;">Büyük</button>
+                        <button class="font-btn" data-action="5" style="font-weight:600; font-size:0.95rem;">Orta</button>
+                        <button class="font-btn" data-action="3" style="font-weight:normal; font-size:0.85rem;">Küçük</button>
+                    </div>
+                </div>
+            </div>
+            <div class="notepad-textarea" contenteditable="true" placeholder="Buraya yazın..."></div>
+            <div class="notepad-actions">
+                <button class="notepad-copy-btn">Kopyala <i class="ph ph-copy"></i></button>
+                <button class="notepad-clear-btn">Temizle <i class="ph ph-trash"></i></button>
+            </div>
         </div>
     </div> <!-- End of program-layout-wrapper -->
 </main>
@@ -125,6 +150,13 @@
     <script src="python.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
 
 
 
