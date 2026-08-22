@@ -57,8 +57,8 @@
 /* Kartlar - Yüksek Kontrast & Berrak Okunabilirlik */
 .step-card {
     background: var(--card-bg, rgba(30, 41, 59, 0.75));
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    
+    
     border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.12));
     border-radius: 18px;
     padding: 24px 28px;
@@ -140,8 +140,8 @@
 
 .theory-card {
     background: var(--card-bg, rgba(30, 41, 59, 0.75));
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    
+    
     border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.12));
     border-radius: 20px;
     padding: 32px;
@@ -199,8 +199,8 @@
 /* Karar Ağları Kartı */
 .decision-networks-card {
     background: var(--card-bg, rgba(30, 41, 59, 0.75));
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    
+    
     border: 1px solid rgba(168, 85, 247, 0.3);
     border-radius: 20px;
     padding: 36px;

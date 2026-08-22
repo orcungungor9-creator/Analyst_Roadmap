@@ -11,8 +11,8 @@
     justify-content: center;
     background-size: cover !important;
     background-position: center !important;
-    background-blend-mode: overlay;
-    background-color: rgba(10, 10, 15, 0.7) !important;
+    /* background-blend-mode: overlay; removed */
+    box-shadow: inset 0 0 0 2000px rgba(10, 10, 15, 0.7); /* replaced blend mode */
 }
 
 /* Custom AI Background generated via image tool */
@@ -47,8 +47,8 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    /*  removed */
+    -webkit-/*  removed */
 }
 
 /* AKORDİYON YAPISI */

@@ -241,8 +241,8 @@ body.theme-mono-light .prep-banner-wrapper .badge-pill {
 
 .info-card-box {
     background: var(--glass-bg, rgba(30, 41, 59, 0.7));
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    
+    
     border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.15));
     border-radius: 20px;
     padding: 32px 40px;

@@ -57,8 +57,8 @@
 /* Kartlar - Yüksek Kontrast & Kristal Netliği */
 .step-card {
     background: var(--card-bg, rgba(30, 41, 59, 0.75));
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    
+    
     border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.12));
     border-radius: 20px;
     padding: 28px 32px;

@@ -35,8 +35,8 @@ body.formulas-page main.formulas-main {
 /* Yeniden eklenen kapsül (badge) için belirginleştirici tasarım */
 .quiz-badge {
     background: var(--bg-card) !important;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    
+    
     border: 1px solid var(--neon-blue) !important;
     color: var(--text-main) !important;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), inset 0 0 10px var(--neon-blue-glow) !important;
