@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Ekranı</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="quiz_player.css">
+</head>
+<body class="theme-light-purple">
+    <div class="quiz-layout">
+        <main class="quiz-main">
+            <h1 class="quiz-main-title" id="main-title">[testin tam ismi]</h1>
+            <div class="quiz-card">
+                <div class="question-area" id="question-text">Soru alanı</div>
+                <div class="divider"></div>
+                <div class="options-area" id="options-container">
+                    <button class="option-btn">cevap 1 (5 şıklı)</button>
+                    <button class="option-btn">cevap 2</button>
+                    <button class="option-btn">cevap 3</button>
+                    <button class="option-btn">cevap 4</button>
+                    <button class="option-btn">cevap 5</button>
+                </div>
+            </div>
+        </main>
+        <aside class="quiz-sidebar">
+            <h2 class="sidebar-title" id="side-title">[Testin tam ismi]</h2>
+            <div class="sidebar-stats">
+                <div class="stat-item"><span id="questions-left">[kaç soru kaldığı]</span></div>
+                <div class="stat-item"><span id="success-rate">[Başarı yüzdesi]</span></div>
+            </div>
+        </aside>
+    </div>
+    <script src="quiz_player.js"></script>
+</body>
+</html>
