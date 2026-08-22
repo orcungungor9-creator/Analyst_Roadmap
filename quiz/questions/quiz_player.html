@@ -4,28 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Ekranı</title>
-    <!-- Ana css dosyası -->
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="quiz_player.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
 </head>
-<body class="theme-light-purple"> 
-    
-    <!-- components.js otomatik olarak header (üst bar) ekleyecek -->
+<body class="formulas-page">
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('analyst_theme');
+            if (savedTheme && savedTheme !== 'theme-dark') {
+                document.body.classList.add(savedTheme);
+            }
+        })();
+    </script>
 
     <div class="quiz-layout">
-        
-        <!-- Sol Taraf (Ana Alan) -->
         <main class="quiz-main">
             <h1 class="quiz-main-title" id="main-title">[testin tam ismi]</h1>
-            
             <div class="quiz-card">
-                <div class="question-area" id="question-text">
-                    Soru alanı
-                </div>
-                
+                <div class="question-area" id="question-text">Soru alanı</div>
                 <div class="divider"></div>
-                
                 <div class="options-area" id="options-container">
                     <button class="option-btn">cevap 1 (5 şıklı)</button>
                     <button class="option-btn">cevap 2</button>
@@ -35,28 +33,29 @@
                 </div>
             </div>
         </main>
-
-        <!-- Sağ Taraf (Yan Panel) -->
         <aside class="quiz-sidebar">
-            <h2 class="sidebar-title" id="side-title">[Testin tam ismi]</h2>
-            
-            <div class="sidebar-stats">
-                <div class="stat-item">
-                    <span class="stat-value" id="questions-left">[kaç soru kaldığı]</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value" id="success-rate">[Başarı yüzdesi]</span>
+            <div class="quiz-header-bar">
+                <button class="back-btn" onclick="window.history.back()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                    Geri Dön
+                </button>
+                <div class="difficulty-indicator" id="difficulty-badge">
+                    <span class="diff-dot"></span>
+                    <span class="diff-text" id="difficulty-text">Orta Seviye</span>
                 </div>
             </div>
+            <div class="sidebar-stats">
+                <div class="stat-item"><span id="questions-left">[kaç soru kaldığı]</span></div>
+                <div class="stat-item"><span id="success-rate">[Başarı yüzdesi]</span></div>
+            </div>
         </aside>
-
     </div>
-
-    <!-- components.js otomatik olarak footer ekleyecek -->
 
     <!-- Dinamik bileşenler için scriptler -->
     <script src="../../js/components.js"></script>
     <script src="../../js/nav.js"></script>
+    <script src="../../js/modal.js"></script>
+    <script src="../../js/script.js"></script>
     <script src="quiz_player.js"></script>
 </body>
 </html>
