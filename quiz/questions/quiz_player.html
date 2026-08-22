@@ -4,16 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Ekranı</title>
+    <!-- Ana css dosyası -->
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="quiz_player.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
 </head>
-<body class="theme-light-purple">
+<body class="theme-light-purple"> 
+    
+    <!-- components.js otomatik olarak header (üst bar) ekleyecek -->
+
     <div class="quiz-layout">
+        
+        <!-- Sol Taraf (Ana Alan) -->
         <main class="quiz-main">
             <h1 class="quiz-main-title" id="main-title">[testin tam ismi]</h1>
+            
             <div class="quiz-card">
-                <div class="question-area" id="question-text">Soru alanı</div>
+                <div class="question-area" id="question-text">
+                    Soru alanı
+                </div>
+                
                 <div class="divider"></div>
+                
                 <div class="options-area" id="options-container">
                     <button class="option-btn">cevap 1 (5 şıklı)</button>
                     <button class="option-btn">cevap 2</button>
@@ -23,14 +35,28 @@
                 </div>
             </div>
         </main>
+
+        <!-- Sağ Taraf (Yan Panel) -->
         <aside class="quiz-sidebar">
             <h2 class="sidebar-title" id="side-title">[Testin tam ismi]</h2>
+            
             <div class="sidebar-stats">
-                <div class="stat-item"><span id="questions-left">[kaç soru kaldığı]</span></div>
-                <div class="stat-item"><span id="success-rate">[Başarı yüzdesi]</span></div>
+                <div class="stat-item">
+                    <span class="stat-value" id="questions-left">[kaç soru kaldığı]</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="success-rate">[Başarı yüzdesi]</span>
+                </div>
             </div>
         </aside>
+
     </div>
+
+    <!-- components.js otomatik olarak footer ekleyecek -->
+
+    <!-- Dinamik bileşenler için scriptler -->
+    <script src="../../js/components.js"></script>
+    <script src="../../js/nav.js"></script>
     <script src="quiz_player.js"></script>
 </body>
 </html>

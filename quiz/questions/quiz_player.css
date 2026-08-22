@@ -1,107 +1,139 @@
 
-/* Projenin ana temasından renkleri çekmek için değişkenleri kullanıyoruz */
+/* SIFIRLAMA VE TAM EKRAN AYARLARI */
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    /* overflow: hidden; kaldırıldı çünkü footer için aşağı inilebilmeli */
+}
+
 body {
-    background-color: var(--bg-main, #f0f0f5);
+    background-color: var(--bg-main, #f0f0f5) !important;
 }
 
 .quiz-layout {
     display: flex;
-    max-width: 1400px;
-    margin: 40px auto;
-    gap: 32px;
-    padding: 0 24px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100vw;
+    /* Üst menü (header) için boşluk bırak, minimum yükseklik ver */
+    min-height: calc(100vh - 80px);
+    margin-top: 80px; /* Header yüksekliği kadar boşluk */
+    font-family: 'Inter', 'Segoe UI', sans-serif;
 }
 
-/* Sol Taraf (Ana Alan) */
+/* SOL TARAF (ANA ALAN) */
 .quiz-main {
     flex: 3;
-    /* Temaya göre beyaz/açık renk */
-    background: var(--bg-card, #ffffff); 
-    padding: 32px;
-    border-radius: 24px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    /* Beyaz yerine temanın hafif arka plan rengi */
+    background: var(--bg-dark, #fafafa); 
+    padding: 50px 80px;
+    display: flex;
+    flex-direction: column;
 }
 
 .quiz-main-title {
-    margin-bottom: 24px;
-    color: var(--text-main, #1a1a2e);
-    font-size: 2.2rem;
-    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 30px;
+    /* Başlık rengi temanın ana vurgu rengi */
+    color: var(--neon-blue);
+    font-size: 2.8rem;
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
 }
 
-/* Çizimdeki Soru/Cevap Kartı (Siyah Kalın Çizgili) */
+/* ÇİZİMDEKİ RENKLİ VE KALIN ÇERÇEVELİ SORU KARTI */
 .quiz-card {
-    background: var(--bg-main, #ffffff);
-    border-radius: 20px;
-    border: 3px solid var(--text-main, #1a1a2e);
+    flex: 1; 
+    background: var(--bg-card, #ffffff);
+    /* Çerçeve artık düz siyah değil, temanın canlı neon rengi */
+    border: 4px solid var(--neon-blue); 
+    border-radius: 40px; 
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
+    box-shadow: 0 10px 40px var(--neon-blue-glow); /* Etrafına hafif bir tema ışıltısı */
 }
 
 .question-area {
-    padding: 40px;
-    font-size: 1.3rem;
-    color: var(--text-main, #333);
-    min-height: 180px;
+    padding: 50px 60px;
+    font-size: 1.6rem;
+    color: var(--text-main, #1a1a2e);
+    min-height: 25%;
+    font-weight: 600;
+    /* Sorunun arkasına çok hafif bir tema tonu ekleyelim */
+    background: linear-gradient(to bottom, var(--neon-blue-glow), transparent);
 }
 
 .divider {
-    height: 3px;
-    background-color: var(--text-main, #1a1a2e);
+    height: 4px;
+    background-color: var(--neon-blue); /* Ayırıcı çizgi de temaya göre */
     width: 100%;
 }
 
 .options-area {
-    padding: 40px;
+    padding: 50px 60px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 20px;
+    flex: 1;
+    background: var(--bg-card, #ffffff);
 }
 
 .option-btn {
-    padding: 18px 24px;
-    border: 2px solid rgba(0,0,0,0.1);
-    border-radius: 12px;
+    padding: 22px 30px;
+    border: 2px solid var(--neon-blue-glow); /* Şıkların çerçevesi yumuşak tema rengi */
+    border-radius: 16px;
     background: transparent;
     cursor: pointer;
-    font-size: 1.1rem;
-    color: var(--text-main, #333);
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--text-main, #1a1a2e);
     text-align: left;
-    transition: all 0.2s;
+    transition: all 0.3s ease;
 }
 
 .option-btn:hover {
-    background: rgba(0,0,0,0.05);
-    border-color: var(--text-main, #333);
+    background: var(--neon-blue-glow);
+    border-color: var(--neon-blue);
+    transform: translateX(5px); /* Üzerine gelince çok hafif sağa kaysın */
 }
 
-/* Sağ Taraf (Yan Panel) */
+/* SAĞ TARAF (YAN PANEL) */
 .quiz-sidebar {
-    flex: 1;
-    /* Temaya göre koyu ton */
-    background: var(--glow-color, rgba(15, 23, 42, 0.1));
-    padding: 32px;
-    border-radius: 24px;
+    flex: 1; 
+    /* Düz gri yerine temanın neon-glow (şeffaf canlı renk) değişkeni */
+    background: var(--neon-blue-glow); 
+    padding: 50px;
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 40px;
     color: var(--text-main, #1a1a2e);
-    border: 1px solid rgba(0,0,0,0.1);
+    border-left: 4px solid var(--neon-blue); /* Sol taraf ile arasına temanın ana renginden kalın çizgi */
 }
 
 .sidebar-title {
-    font-size: 1.6rem;
-    border-bottom: 2px solid var(--text-main, #1a1a2e);
-    padding-bottom: 12px;
+    margin-top: 0;
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.3;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--neon-blue); /* Yazı rengi de temanın vurgu rengi */
 }
 
 .sidebar-stats {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 30px;
+    margin-top: 20px;
 }
 
 .stat-item {
-    font-size: 1.3rem;
-    font-weight: 600;
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 25px;
+    /* Saydam beyaz fon ile okunabilirliği artır */
+    background: rgba(255, 255, 255, 0.6); 
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    color: var(--text-main);
 }
