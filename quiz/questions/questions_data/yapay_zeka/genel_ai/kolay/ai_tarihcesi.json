@@ -1,1 +1,262 @@
-[]
+[
+  {
+    "id": 1,
+    "question": "Yapay zeka terimi ilk kez hangi yıl ortaya atılmıştır?",
+    "options": [
+      "1945",
+      "1956",
+      "1965",
+      "1980",
+      "1995"
+    ],
+    "correct_option": 1,
+    "explanation": "Yapay zeka terimi ilk kez 1956'da Dartmouth Konferansı'nda kullanılmıştır."
+  },
+  {
+    "id": 2,
+    "question": "Alan Turing'in makinelere 'düşünebilir mi' sorusunu sorduğu ünlü testin adı nedir?",
+    "options": [
+      "Turing Testi",
+      "Enigma Testi",
+      "Makine Testi",
+      "Bilişsel Test",
+      "Bletchley Testi"
+    ],
+    "correct_option": 0,
+    "explanation": "Alan Turing, 1950 yılında yayımladığı makalesinde makinelerin insan gibi davranıp davranamayacağını ölçen Turing Testi'ni önermiştir."
+  },
+  {
+    "id": 3,
+    "question": "1997'de dünya satranç şampiyonu Garry Kasparov'u yenen IBM bilgisayarının adı nedir?",
+    "options": [
+      "Watson",
+      "Deep Blue",
+      "AlphaGo",
+      "HAL 9000",
+      "Stockfish"
+    ],
+    "correct_option": 1,
+    "explanation": "IBM'in geliştirdiği Deep Blue, 1997 yılında Kasparov'u yenerek büyük bir yankı uyandırmıştır."
+  },
+  {
+    "id": 4,
+    "question": "Yapay Zeka tarihindeki fon kesintileri ve durgunluk dönemlerine ne ad verilir?",
+    "options": [
+      "YZ Kışı",
+      "YZ Çöküşü",
+      "Sessiz Yıllar",
+      "Buz Devri",
+      "Duraklama Çağı"
+    ],
+    "correct_option": 0,
+    "explanation": "Beklentilerin karşılanamaması sonucu fonların kesildiği dönemlere 'Yapay Zeka Kışı' (AI Winter) denir."
+  },
+  {
+    "id": 5,
+    "question": "2010'lu yıllarda yapay zekada yaşanan büyük sıçramanın ana sebebi hangi teknolojinin gelişmesidir?",
+    "options": [
+      "Uzman Sistemler",
+      "Derin Öğrenme",
+      "Kural Tabanlı Sistemler",
+      "Bulanık Mantık",
+      "Genetik Algoritmalar"
+    ],
+    "correct_option": 1,
+    "explanation": "Artan veri ve GPU gücü sayesinde Derin Öğrenme (Deep Learning) 2010'larda devrim yaratmıştır."
+  },
+  {
+    "id": 6,
+    "question": "İlk yapay sinir ağı modelini kimler geliştirmiştir?",
+    "options": [
+      "McCulloch & Pitts",
+      "Turing & Von Neumann",
+      "Minsky & Papert",
+      "Geoffrey Hinton",
+      "John McCarthy"
+    ],
+    "correct_option": 0,
+    "explanation": "1943'te Warren McCulloch ve Walter Pitts ilk yapay sinir ağı modelini tasarlamışlardır."
+  },
+  {
+    "id": 7,
+    "question": "Go oyununda dünya şampiyonunu yenen Google DeepMind yapay zekasının adı nedir?",
+    "options": [
+      "DeepGo",
+      "AlphaGo",
+      "GoMaster",
+      "WatsonGo",
+      "MuZero"
+    ],
+    "correct_option": 1,
+    "explanation": "2016 yılında AlphaGo, dünya şampiyonu Lee Sedol'u yenmiştir."
+  },
+  {
+    "id": 8,
+    "question": "Uzman Sistemler (Expert Systems) en çok hangi on yılda popüler olmuştur?",
+    "options": [
+      "1960'lar",
+      "1970'lar",
+      "1980'ler",
+      "2000'ler",
+      "2010'lar"
+    ],
+    "correct_option": 2,
+    "explanation": "1980'lerde, belirli bir uzmanlık alanındaki kuralları kullanan Uzman Sistemler çok popülerdi."
+  },
+  {
+    "id": 9,
+    "question": "1956'daki efsanevi konferansın yapıldığı üniversite hangisidir?",
+    "options": [
+      "Harvard",
+      "MIT",
+      "Stanford",
+      "Dartmouth",
+      "Oxford"
+    ],
+    "correct_option": 3,
+    "explanation": "Dartmouth Koleji, YZ alanının resmi olarak doğduğu yerdir."
+  },
+  {
+    "id": 10,
+    "question": "Makine Öğreniminde 'Büyük Veri' (Big Data) dönemi genellikle hangi yıllarda ivme kazanmıştır?",
+    "options": [
+      "1980'ler",
+      "1990'lar",
+      "2010'lar",
+      "1970'ler",
+      "2000'lerin başı"
+    ],
+    "correct_option": 2,
+    "explanation": "2010'lu yıllar, internetin büyümesiyle Büyük Veri döneminin ve derin öğrenmenin yükselişine sahne olmuştur."
+  },
+  {
+    "id": 11,
+    "question": "İlk sohbet robotu (chatbot) olarak bilinen ve 1966'da MIT'de geliştirilen programın adı nedir?",
+    "options": [
+      "ELIZA",
+      "ALICE",
+      "Siri",
+      "Cortana",
+      "PARRY"
+    ],
+    "correct_option": 0,
+    "explanation": "Joseph Weizenbaum tarafından geliştirilen ELIZA, bir psikoterapisti taklit eden ilk chatbottur."
+  },
+  {
+    "id": 12,
+    "question": "Transformer mimarisi ilk olarak hangi şirket tarafından duyurulmuştur?",
+    "options": [
+      "OpenAI",
+      "Google",
+      "Microsoft",
+      "Facebook",
+      "DeepMind"
+    ],
+    "correct_option": 1,
+    "explanation": "2017'de Google araştırmacıları tarafından 'Attention is All You Need' makalesiyle duyurulmuştur."
+  },
+  {
+    "id": 13,
+    "question": "LISP programlama dilini geliştiren ve YZ terimini isim babası olan bilim insanı kimdir?",
+    "options": [
+      "Alan Turing",
+      "John McCarthy",
+      "Marvin Minsky",
+      "Arthur Samuel",
+      "Herbert Simon"
+    ],
+    "correct_option": 1,
+    "explanation": "John McCarthy hem YZ terimini bulmuş hem de LISP dilini geliştirmiştir."
+  },
+  {
+    "id": 14,
+    "question": "Üretken YZ (Generative AI) döneminin popüler aracı ChatGPT hangi yıl piyasaya sürülmüştür?",
+    "options": [
+      "2020",
+      "2021",
+      "2022",
+      "2023",
+      "2019"
+    ],
+    "correct_option": 2,
+    "explanation": "OpenAI, ChatGPT'yi 2022'nin sonlarında kullanıma sunmuştur."
+  },
+  {
+    "id": 15,
+    "question": "Hangisi 1. YZ Kışının (AI Winter) temel sebeplerinden biridir?",
+    "options": [
+      "Çok fazla verinin olması",
+      "Bilgisayarların işlem gücünün yetersizliği",
+      "İnternetin yaygınlaşması",
+      "Derin öğrenmenin icadı",
+      "Kuantum bilgisayarların eksikliği"
+    ],
+    "correct_option": 1,
+    "explanation": "1970'lerde donanım yetersizlikleri ve abartılı vaatlerin gerçekleşmemesi YZ kışını tetikledi."
+  },
+  {
+    "id": 16,
+    "question": "Makine Öğrenimi (Machine Learning) terimini ilk kez 1959'da kullanan kişi kimdir?",
+    "options": [
+      "Arthur Samuel",
+      "Alan Turing",
+      "Frank Rosenblatt",
+      "Geoffrey Hinton",
+      "Yann LeCun"
+    ],
+    "correct_option": 0,
+    "explanation": "Arthur Samuel, dama oynayan bir program yazarken bu terimi ilk kez kullanmıştır."
+  },
+  {
+    "id": 17,
+    "question": "Yapay zekanın ilk somut ürünlerinden olan 'Perceptron' hangi yılda icat edilmiştir?",
+    "options": [
+      "1943",
+      "1957",
+      "1970",
+      "1986",
+      "1992"
+    ],
+    "correct_option": 1,
+    "explanation": "Frank Rosenblatt 1957'de tek katmanlı sinir ağı olan Perceptron'u geliştirmiştir."
+  },
+  {
+    "id": 18,
+    "question": "Günümüzde popüler olan Midjourney, DALL-E gibi araçlar YZ'nin hangi alt dalına girer?",
+    "options": [
+      "Uzman Sistemler",
+      "Sembolik YZ",
+      "Üretken YZ (Generative AI)",
+      "Kural Tabanlı YZ",
+      "Pekiştirmeli Öğrenme"
+    ],
+    "correct_option": 2,
+    "explanation": "Bu araçlar yeni içerik (görsel) ürettikleri için Üretken YZ kategorisindedir."
+  },
+  {
+    "id": 19,
+    "question": "Görüntü tanıma alanında büyük devrim yaratan ve 2012'de ImageNet yarışmasını kazanan modelin adı nedir?",
+    "options": [
+      "ResNet",
+      "VGG16",
+      "AlexNet",
+      "Inception",
+      "MobileNet"
+    ],
+    "correct_option": 2,
+    "explanation": "AlexNet, 2012'de derin öğrenmenin gücünü kanıtlayarak ImageNet yarışmasını büyük farkla kazanmıştır."
+  },
+  {
+    "id": 20,
+    "question": "Hangisi yapay zekanın tarihsel sürecinde 'Sembolik YZ' (GOFAI) yaklaşımının özelliklerindendir?",
+    "options": [
+      "İnsan beynini taklit eden nöronlar kullanması",
+      "Mantık ve kural tabanlı çalışması",
+      "Kendi kendine öğrenmesi",
+      "Devasa veri setlerine ihtiyaç duyması",
+      "Otonom olarak kural üretebilmesi"
+    ],
+    "correct_option": 1,
+    "explanation": "Sembolik YZ, kurallara ve mantıksal çıkarımlara dayalı klasik YZ yaklaşımıdır."
+  }
+]

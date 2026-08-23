@@ -1,1 +1,262 @@
-[]
+[
+  {
+    "id": 1,
+    "question": "1969'da yayınlanan ve Perceptron'ların XOR gibi lineer olmayan problemleri çözemeyeceğini kanıtlayarak ilk YZ Kışını tetikleyen kitabın yazarları kimlerdir?",
+    "options": [
+      "McCarthy & Shannon",
+      "Minsky & Papert",
+      "Hinton & LeCun",
+      "Turing & Church",
+      "Simon & Newell"
+    ],
+    "correct_option": 1,
+    "explanation": "Marvin Minsky ve Seymour Papert'ın 'Perceptrons' kitabı sinir ağları araştırmalarını yıllarca durdurmuştur."
+  },
+  {
+    "id": 2,
+    "question": "İleri beslemeli (feedforward) yapay sinir ağlarında ağırlıkların güncellenmesini sağlayan 'Geri Yayılım' (Backpropagation) algoritması hangi yıllarda popülerlik kazanmıştır?",
+    "options": [
+      "1960'lar",
+      "1980'ler",
+      "2000'ler",
+      "2010'lar",
+      "1990'lar"
+    ],
+    "correct_option": 1,
+    "explanation": "1986'da Geoffrey Hinton, Rumelhart ve Williams'ın makalesiyle Backpropagation algoritması yaygınlaşmıştır."
+  },
+  {
+    "id": 3,
+    "question": "Uzman Sistemler (Expert Systems) ilk olarak hangi alanlarda başarılı sonuçlar vermiştir?",
+    "options": [
+      "Görüntü Tanıma",
+      "Tıbbi Teşhis ve Kimya",
+      "Otonom Sürüş",
+      "Dil Çevirisi",
+      "Borsa Tahmini"
+    ],
+    "correct_option": 1,
+    "explanation": "MYCIN ve DENDRAL gibi erken uzman sistemler tıbbi teşhis ve kimyasal analizlerde kullanılmıştır."
+  },
+  {
+    "id": 4,
+    "question": "Japonya'nın 1980'lerde YZ araştırmalarına büyük bütçe ayırarak başlattığı ve beklenen başarıyı elde edemeyen projenin adı nedir?",
+    "options": [
+      "Fifth Generation Computer Systems (5GCS)",
+      "Project AI-X",
+      "Tokyo Brain Initiative",
+      "Mecha-Mind",
+      "Cyber-Japan Project"
+    ],
+    "correct_option": 0,
+    "explanation": "Beşinci Nesil Bilgisayar Sistemleri projesi, donanım destekli Prolog makineleri ile YZ'de çığır açmayı hedeflemiş ama başarısız olmuştur."
+  },
+  {
+    "id": 5,
+    "question": "Derin Öğrenmenin 'Babaları' olarak bilinen ve 2018'de Turing Ödülü'nü alan üç araştırmacı kimdir?",
+    "options": [
+      "Turing, Von Neumann, Shannon",
+      "McCarthy, Minsky, Simon",
+      "Hinton, LeCun, Bengio",
+      "Ng, Karpathy, Goodfellow",
+      "Hopfield, Rumelhart, Widrow"
+    ],
+    "correct_option": 2,
+    "explanation": "Geoffrey Hinton, Yann LeCun ve Yoshua Bengio, derin öğrenme devrimindeki katkılarından dolayı bu ödülü almıştır."
+  },
+  {
+    "id": 6,
+    "question": "Transformer mimarisinin temelini oluşturan, modele cümlenin içindeki bağlamı anlama yeteneği veren mekanizmanın adı nedir?",
+    "options": [
+      "Evrişim (Convolution)",
+      "Geçit (Gate)",
+      "Dikkat (Attention)",
+      "Havuzlama (Pooling)",
+      "Dropout"
+    ],
+    "correct_option": 2,
+    "explanation": "2017'deki makalenin de adı olan 'Self-Attention' mekanizması Transformer'ların kalbidir."
+  },
+  {
+    "id": 7,
+    "question": "1997'de Deep Blue Kasparov'u yenerken, 2011'de Jeopardy! (Riziko) yarışmasını kazanan IBM yapay zekasının adı nedir?",
+    "options": [
+      "AlphaZero",
+      "Watson",
+      "DeepQA",
+      "BlueGene",
+      "IBM Think"
+    ],
+    "correct_option": 1,
+    "explanation": "IBM Watson, doğal dil işleme yeteneklerini kullanarak insan şampiyonları mağlup etmiştir."
+  },
+  {
+    "id": 8,
+    "question": "Generative Adversarial Networks (GANs) mimarisi hangi yıl kim tarafından icat edilmiştir?",
+    "options": [
+      "2014 - Ian Goodfellow",
+      "2017 - Ashish Vaswani",
+      "2012 - Alex Krizhevsky",
+      "2020 - Sam Altman",
+      "2016 - Demis Hassabis"
+    ],
+    "correct_option": 0,
+    "explanation": "Ian Goodfellow ve arkadaşları 2014 yılında GAN'ları tanıtmış ve üretken YZ'de çığır açmıştır."
+  },
+  {
+    "id": 9,
+    "question": "Turing Testi'ni geçebilen bir YZ'nin 'anlama' yeteneğini sorgulayan 'Çince Odası' (Chinese Room) argümanını kim öne sürmüştür?",
+    "options": [
+      "Alan Turing",
+      "John Searle",
+      "Noam Chomsky",
+      "Hubert Dreyfus",
+      "David Chalmers"
+    ],
+    "correct_option": 1,
+    "explanation": "Filozof John Searle, 1980'de Çince Odası deneyiyle sözdiziminin (syntax) anlama (semantics) anlamına gelmediğini savunmuştur."
+  },
+  {
+    "id": 10,
+    "question": "Görüntü işlemede devrim yaratan CNN (Evrişimli Sinir Ağları) mimarisinin erken ve başarılı örneklerinden olan LeNet-5 hangi yıl geliştirilmiştir?",
+    "options": [
+      "1989",
+      "1998",
+      "2012",
+      "2006",
+      "1994"
+    ],
+    "correct_option": 1,
+    "explanation": "Yann LeCun tarafından 1998'de posta kodlarını tanımak için LeNet-5 geliştirilmiştir."
+  },
+  {
+    "id": 11,
+    "question": "2006 yılında 'Deep Learning' (Derin Öğrenme) teriminin popülerleşmesini sağlayan ve kısıtlı Boltzmann makineleriyle yapılan çalışma kime aittir?",
+    "options": [
+      "Geoffrey Hinton",
+      "Andrew Ng",
+      "Yann LeCun",
+      "Fei-Fei Li",
+      "Yoshua Bengio"
+    ],
+    "correct_option": 0,
+    "explanation": "Geoffrey Hinton'ın 2006'daki 'hızlı öğrenen derin inanç ağları' makalesi derin öğrenme çağını başlatmıştır."
+  },
+  {
+    "id": 12,
+    "question": "YZ Kışı (AI Winter) dönemlerinde araştırmacılar fon bulabilmek için YZ terimi yerine genellikle hangi terimleri kullanmışlardır?",
+    "options": [
+      "Bilişsel Bilişim & Makine Öğrenimi",
+      "Robotik Otomasyon",
+      "Veri Madenciliği",
+      "Semantik Analiz",
+      "Yapay Bilinç"
+    ],
+    "correct_option": 0,
+    "explanation": "YZ terimi itibar kaybettiği için 'Bilişsel Bilimler', 'Makine Öğrenimi' gibi alt dallar ismiyle fon aranmıştır."
+  },
+  {
+    "id": 13,
+    "question": "GPT serisinin temel aldığı dil modeli yaklaşımı (LLM) hangi mimari üzerine kuruludur?",
+    "options": [
+      "RNN",
+      "LSTM",
+      "CNN",
+      "Transformer",
+      "Autoencoder"
+    ],
+    "correct_option": 3,
+    "explanation": "GPT (Generative Pre-trained Transformer) doğrudan Transformer mimarisini temel alır."
+  },
+  {
+    "id": 14,
+    "question": "ELIZA'nın başarısının ardından 1972'de Stanford'da şizofren bir hastayı taklit etmek için yazılan chatbotun adı nedir?",
+    "options": [
+      "PARRY",
+      "SYBIL",
+      "ALICE",
+      "CLEVERBOT",
+      "SHRDLU"
+    ],
+    "correct_option": 0,
+    "explanation": "Kenneth Colby tarafından yazılan PARRY, ELIZA'nın psikiyatrist rolüne karşılık şizofren bir hastayı taklit etmiştir."
+  },
+  {
+    "id": 15,
+    "question": "AlphaGo'nun Kasparov'un Deep Blue maçından temel farkı nedir?",
+    "options": [
+      "Sadece kaba kuvvet (brute-force) kullanması",
+      "Derin Pekiştirmeli Öğrenme (Deep Reinforcement Learning) kullanması",
+      "Satranç yerine Dama oynaması",
+      "İnternet bağlantısı olmaması",
+      "Kuralları önceden bilmemesi"
+    ],
+    "correct_option": 1,
+    "explanation": "Deep Blue kaba kuvvetle hamleleri hesaplarken, AlphaGo Derin Pekiştirmeli Öğrenme ile oyunu oynayarak öğrenmiştir."
+  },
+  {
+    "id": 16,
+    "question": "2012'de ImageNet yarışmasını kazanan AlexNet'in başarısındaki kritik donanımsal etken neydi?",
+    "options": [
+      "TPU'ların icadı",
+      "Kuantum Bilgisayarlar",
+      "GPU'ların (Ekran Kartı) YZ hesaplamalarında kullanılması",
+      "Daha hızlı CPU'lar",
+      "SSD Depolama hızı"
+    ],
+    "correct_option": 2,
+    "explanation": "AlexNet, NVIDIA GPU'larını kullanarak ağları çok daha hızlı eğitmeyi başarmış ve devrim yaratmıştır."
+  },
+  {
+    "id": 17,
+    "question": "ImageNet veri setini oluşturarak derin öğrenme modellerinin devasa verilerle eğitilmesinin önünü açan araştırmacı kimdir?",
+    "options": [
+      "Fei-Fei Li",
+      "Andrew Ng",
+      "Yoshua Bengio",
+      "Ilya Sutskever",
+      "Andrej Karpathy"
+    ],
+    "correct_option": 0,
+    "explanation": "Fei-Fei Li, milyonlarca etiketli görselden oluşan ImageNet projesine liderlik etmiştir."
+  },
+  {
+    "id": 18,
+    "question": "OpenAI hangi yıl kurulmuştur?",
+    "options": [
+      "2012",
+      "2015",
+      "2018",
+      "2020",
+      "2016"
+    ],
+    "correct_option": 1,
+    "explanation": "OpenAI, 2015 yılında güvenli YZ (AGI) geliştirmek amacıyla kâr amacı gütmeyen bir kuruluş olarak kurulmuştur."
+  },
+  {
+    "id": 19,
+    "question": "İlk kendi kendine giden (otonom) araç çalışmalarından olan ve 1980'lerde CMU'da geliştirilen aracın adı nedir?",
+    "options": [
+      "Navlab",
+      "Waymo",
+      "Stanley",
+      "Tesla FSD",
+      "Alvin"
+    ],
+    "correct_option": 0,
+    "explanation": "Carnegie Mellon Üniversitesi (CMU) tarafından geliştirilen Navlab otonom araç tarihinin ilk örneklerindendir."
+  },
+  {
+    "id": 20,
+    "question": "1990'larda istatistiksel yaklaşımların YZ'de sembolik yaklaşımlara üstün gelmeye başlamasıyla yükselen makine öğrenimi dalı hangisidir?",
+    "options": [
+      "Mantık Programlama",
+      "Bulanık Mantık",
+      "Destek Vektör Makineleri (SVM) ve Olasılıksal Modeller",
+      "Uzman Sistemler",
+      "Bilişsel Haritalama"
+    ],
+    "correct_option": 2,
+    "explanation": "90'larda SVM'ler ve Gizli Markov Modelleri gibi matematiksel/istatistiksel modeller YZ'ye egemen olmuştur."
+  }
+]

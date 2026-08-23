@@ -1,1 +1,262 @@
-[]
+[
+  {
+    "id": 1,
+    "question": "John von Neumann ve Oskar Morgenstern'in 1944'te yayınladığı ve YZ'deki çok ajanlı (multi-agent) sistemlerin temellerinden olan teori hangisidir?",
+    "options": [
+      "Kaos Teorisi",
+      "Oyun Teorisi (Game Theory)",
+      "Karar Teorisi",
+      "Graf Teorisi",
+      "Kuyruk Teorisi"
+    ],
+    "correct_option": 1,
+    "explanation": "'Oyun Teorisi ve Ekonomik Davranış', rasyonel ajanların rekabet ve işbirliğini matematikselleştirmiştir."
+  },
+  {
+    "id": 2,
+    "question": "Geoffrey Hinton'ın 2017'de geleneksel CNN'lerin (Evrişimli Sinir Ağları) bazı sınırlarını aşmak için önerdiği yeni mimarinin adı nedir?",
+    "options": [
+      "Kapsül Ağları (Capsule Networks)",
+      "Sıvı Ağlar (Liquid Networks)",
+      "Spiking Neural Networks",
+      "Graph Neural Networks",
+      "Bayesian Networks"
+    ],
+    "correct_option": 0,
+    "explanation": "Kapsül ağları, hiyerarşik ilişkileri ve uzamsal (spatial) yapıları daha iyi öğrenmek için tasarlanmıştır."
+  },
+  {
+    "id": 3,
+    "question": "1950'lerde Arthur Samuel'in Dama programında kullandığı ve günümüzdeki pekiştirmeli öğrenmenin temellerinden olan algoritmik yaklaşım nedir?",
+    "options": [
+      "Minimax ve Alfa-Beta Budama",
+      "TD-Learning",
+      "Backpropagation",
+      "Q-Learning",
+      "Monte Carlo Tree Search"
+    ],
+    "correct_option": 0,
+    "explanation": "Samuel'in dama programı ağaç arama yöntemleri (Minimax) ve alfa-beta budaması üzerine kuruluydu."
+  },
+  {
+    "id": 4,
+    "question": "İlk yapay sinir ağı donanım uygulaması (SNARC) kim tarafından ve ne zaman inşa edilmiştir?",
+    "options": [
+      "1951 - Marvin Minsky",
+      "1957 - Frank Rosenblatt",
+      "1969 - Seymour Papert",
+      "1943 - McCulloch",
+      "1956 - John McCarthy"
+    ],
+    "correct_option": 0,
+    "explanation": "Marvin Minsky ve Dean Edmonds 1951'de vakum tüpleri kullanarak ilk sinir ağı donanımı olan SNARC'ı üretmiştir."
+  },
+  {
+    "id": 5,
+    "question": "Lighthill Raporu (1973) hangi ülkedeki YZ araştırmalarının fonlarının kesilmesine ve YZ kışına sebep olmuştur?",
+    "options": [
+      "ABD",
+      "Japonya",
+      "İngiltere",
+      "Sovyetler Birliği",
+      "Almanya"
+    ],
+    "correct_option": 2,
+    "explanation": "İngiliz parlamentosu için hazırlanan Lighthill Raporu, YZ'nin pratik sonuçlar üretmediğini savunarak Birleşik Krallık'taki fonları dondurmuştur."
+  },
+  {
+    "id": 6,
+    "question": "Yapay zekada 'Güçlü YZ' (Strong AI) ve 'Zayıf YZ' (Weak AI) ayrımını ilk kez formüle eden düşünür kimdir?",
+    "options": [
+      "John Searle",
+      "Alan Turing",
+      "Marvin Minsky",
+      "Nick Bostrom",
+      "Daniel Dennett"
+    ],
+    "correct_option": 0,
+    "explanation": "John Searle, Çince Odası deneyini açıklarken bilince sahip 'Strong AI' ile sadece simülasyon olan 'Weak AI' ayrımını yapmıştır."
+  },
+  {
+    "id": 7,
+    "question": "Derin Öğrenme devriminden önce, 2000'li yıllarda boyut küçültme ve özellik çıkarımı için sıkça kullanılan istatistiksel algoritma hangisidir?",
+    "options": [
+      "PCA (Temel Bileşenler Analizi)",
+      "LSTM",
+      "DBSCAN",
+      "K-Means",
+      "Random Forest"
+    ],
+    "correct_option": 0,
+    "explanation": "Derin öğrenme öncesinde veriyi basitleştirmek için PCA gibi manuel özellik çıkarım yöntemleri standarttı."
+  },
+  {
+    "id": 8,
+    "question": "Transformer'ların doğuş makalesi olan 'Attention is All You Need' makalesinin baş yazarı kimdir?",
+    "options": [
+      "Ilya Sutskever",
+      "Ashish Vaswani",
+      "Yann LeCun",
+      "Sam Altman",
+      "Oriol Vinyals"
+    ],
+    "correct_option": 1,
+    "explanation": "Google araştırmacısı Ashish Vaswani ve ekibi bu efsanevi makaleyi 2017'de yayınlamıştır."
+  },
+  {
+    "id": 9,
+    "question": "1980'lerde, uzman sistemlerin (kural tabanlı YZ) bakımı ve güncellenmesinin giderek imkansızlaşmasına verilen isim nedir?",
+    "options": [
+      "Kombinatoryal Patlama",
+      "Bilgi Darboğazı (Knowledge Acquisition Bottleneck)",
+      "Donanım Limiti",
+      "Veri Kıtlığı",
+      "Kuralların Çöküşü"
+    ],
+    "correct_option": 1,
+    "explanation": "Uzmanlardan kuralları çıkarıp sisteme kodlamanın aşırı maliyetli ve yavaş olması 'Bilgi Darboğazı' olarak anılıyordu."
+  },
+  {
+    "id": 10,
+    "question": "Pekiştirmeli Öğrenmenin (Reinforcement Learning) İncil'i sayılan ve alanın temellerini atan 1998 tarihli kitabın yazarları kimlerdir?",
+    "options": [
+      "Sutton & Barto",
+      "Goodfellow & Bengio",
+      "Russell & Norvig",
+      "Hastie & Tibshirani",
+      "Minsky & Papert"
+    ],
+    "correct_option": 0,
+    "explanation": "Richard S. Sutton ve Andrew G. Barto'nun 'Reinforcement Learning: An Introduction' kitabı alanın temel taşıdır."
+  },
+  {
+    "id": 11,
+    "question": "Yapay zeka etiği bağlamında, makine öğrenimi modellerinin eğitim verisindeki önyargıları (bias) öğrenip yansıtmasına ne ad verilir?",
+    "options": [
+      "Overfitting (Aşırı Öğrenme)",
+      "Algoritmik Önyargı (Algorithmic Bias)",
+      "Veri Kaçağı (Data Leakage)",
+      "Halüsinasyon",
+      "Sıfır Gün Zafiyeti"
+    ],
+    "correct_option": 1,
+    "explanation": "Modellerin verideki insan önyargılarını öğrenip kararlarına yansıtması Algoritmik Önyargı olarak bilinir."
+  },
+  {
+    "id": 12,
+    "question": "GPT modellerinde (LLM'lerde) bir modelin parametre sayısı ile performansının logaritmik olarak artacağını gösteren yasalara ne ad verilir?",
+    "options": [
+      "Moore Yasası",
+      "Ölçeklenme Yasaları (Scaling Laws)",
+      "Amdahl Yasası",
+      "Metcalfe Yasası",
+      "Zipf Yasası"
+    ],
+    "correct_option": 1,
+    "explanation": "OpenAI araştırmacılarının ortaya koyduğu Scaling Laws, daha büyük model ve verinin daima daha iyi sonuç verdiğini kanıtlamıştır."
+  },
+  {
+    "id": 13,
+    "question": "Derin Öğrenmede, ağların çok derinleştiğinde gradyanların kaybolmasını (Vanishing Gradient) çözerek yüzlerce katmanlı ağların eğitilmesini sağlayan mimari (2015) nedir?",
+    "options": [
+      "AlexNet",
+      "VGG",
+      "ResNet (Residual Networks)",
+      "GAN",
+      "DenseNet"
+    ],
+    "correct_option": 2,
+    "explanation": "Kaiming He ve ekibinin geliştirdiği ResNet, 'Atlama Bağlantıları' (Skip Connections) kullanarak bu sorunu çözmüştür."
+  },
+  {
+    "id": 14,
+    "question": "2005 yılında DARPA Grand Challenge'ı kazanarak otonom araç yarışında devrim yaratan ve Sebastian Thrun liderliğindeki Stanford takımının aracının adı nedir?",
+    "options": [
+      "Stanley",
+      "Boss",
+      "Sandstorm",
+      "Waymo",
+      "Terramax"
+    ],
+    "correct_option": 0,
+    "explanation": "Stanley, engelleri aşarak çöl parkurunu tamamlayan ilk otonom araç olmuştur."
+  },
+  {
+    "id": 15,
+    "question": "1990'larda RNN'lerin uzun vadeli bağımlılıkları öğrenememesi sorununu çözmek için Hochreiter ve Schmidhuber tarafından icat edilen hücre yapısı nedir?",
+    "options": [
+      "GRU",
+      "Transformer",
+      "LSTM (Long Short-Term Memory)",
+      "CNN",
+      "Autoencoder"
+    ],
+    "correct_option": 2,
+    "explanation": "LSTM'ler, içlerindeki geçit (gate) mekanizmaları sayesinde uzun vadeli hafızayı korumayı başarmıştır."
+  },
+  {
+    "id": 16,
+    "question": "Günümüzde LLM'leri belirli bir amaca uygun hizalamak (alignment) için insan geri bildirimi kullanan yöntemin kısaltması nedir?",
+    "options": [
+      "RLHF",
+      "GAN",
+      "RAG",
+      "LoRA",
+      "SFT"
+    ],
+    "correct_option": 0,
+    "explanation": "RLHF (Reinforcement Learning from Human Feedback), ChatGPT'nin bu kadar başarılı olmasını sağlayan temel hizalama yöntemidir."
+  },
+  {
+    "id": 17,
+    "question": "Frank Rosenblatt'ın Perceptron'u ilk geliştirildiğinde ağırlık güncellemeleri donanımsal olarak nasıl yapılıyordu?",
+    "options": [
+      "Vakum tüpleriyle",
+      "Motorlu potansiyometrelerle",
+      "Transistörlerle",
+      "Yazılım algoritmalarıyla",
+      "Kabloları manuel söküp takarak"
+    ],
+    "correct_option": 1,
+    "explanation": "Mark I Perceptron makinesi, ağırlıkları fiziksel olarak motorlu potansiyometreleri çevirerek güncelliyordu!"
+  },
+  {
+    "id": 18,
+    "question": "2020 yılında DeepMind'ın protein katlanması problemini 50 yıllık bir sırrı çözerek başardığı devrimsel YZ modelinin adı nedir?",
+    "options": [
+      "AlphaFold",
+      "DeepProtein",
+      "BioGo",
+      "FoldIt",
+      "RosettaAI"
+    ],
+    "correct_option": 0,
+    "explanation": "AlphaFold, amino asit diziliminden proteinin 3 boyutlu yapısını inanılmaz bir doğrulukla tahmin etmeyi başarmıştır."
+  },
+  {
+    "id": 19,
+    "question": "Alan Turing'in YZ temellerini attığı 1950 tarihli makalesinin başlığı nedir?",
+    "options": [
+      "On Computable Numbers",
+      "Computing Machinery and Intelligence",
+      "The Imitation Game",
+      "Intelligent Machinery",
+      "Can Machines Think?"
+    ],
+    "correct_option": 1,
+    "explanation": "Bu ünlü makalede 'Makineler düşünebilir mi?' sorusuyla Turing Testi (Taklit Oyunu) önerilmiştir."
+  },
+  {
+    "id": 20,
+    "question": "Sembolik YZ (GOFAI) ile Bağlantıcı YZ (Sinir Ağları) arasındaki tarihi felsefi ayrımın temel nedeni nedir?",
+    "options": [
+      "Donanım maliyetleri",
+      "Birinin kurallara, diğerinin veriye (örneklere) dayanması",
+      "Programlama dilleri (LISP vs C++)",
+      "Araştırma merkezlerinin rekabeti",
+      "Matematiksel fonksiyonların karmaşıklığı"
+    ],
+    "correct_option": 1,
+    "explanation": "Sembolik YZ dünyayı mantık kurallarıyla modellerken, Bağlantıcı YZ insan beyni gibi örneklerden deneyimle öğrenmeyi savunur."
+  }
+]
