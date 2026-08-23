@@ -1,7 +1,3 @@
-/* ==============================================================
-   GENEL AI TESTLERİ - İÇ SAYFA STİLLERİ
-============================================================== */
-
 /* YARIM HERO BANNER (Half Banner) */
 .half-hero {
     padding: 120px 16px 80px 16px !important;
@@ -21,7 +17,7 @@
 
 /* Custom AI Background generated via image tool */
 .ai-banner-bg {
-    background-image: url('../../../quiz_assets/test_assets/ai_quiz_banner.webp') !important;
+    background-image: url('../../../quiz_assets/test_assets/analist_quiz_banner.webp') !important;
 }
 
 .inner-module-main {
@@ -168,10 +164,10 @@
 }
 
 .accordion-item.active .accordion-content {
-    max-height: 800px; /* Büyük bir değer veriyoruz ki içeriği kapsasın */
+    max-height: 800px;
 }
 
-/* ZORLUK SEVİYELERİ GRID (Kolay, Orta, Zor) */
+/* ZORLUK SEVİYELERİ GRID */
 .difficulty-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -228,29 +224,21 @@
     margin: 0;
 }
 
-/* Zorluk Renkleri */
-.diff-card.easy {
-    border-color: rgba(16, 185, 129, 0.3);
-}
+.diff-card.easy { border-color: rgba(16, 185, 129, 0.3); }
 .diff-card.easy .diff-level { color: #10b981; }
 .diff-card.easy .dot { background: #10b981; box-shadow: 0 0 10px #10b981; }
 .diff-card.easy:hover { border-color: #10b981; box-shadow: 0 10px 20px rgba(16, 185, 129, 0.15); }
 
-.diff-card.medium {
-    border-color: rgba(245, 158, 11, 0.3);
-}
+.diff-card.medium { border-color: rgba(245, 158, 11, 0.3); }
 .diff-card.medium .diff-level { color: #f59e0b; }
 .diff-card.medium .dot { background: #f59e0b; box-shadow: 0 0 10px #f59e0b; }
 .diff-card.medium:hover { border-color: #f59e0b; box-shadow: 0 10px 20px rgba(245, 158, 11, 0.15); }
 
-.diff-card.hard {
-    border-color: rgba(239, 68, 68, 0.3);
-}
+.diff-card.hard { border-color: rgba(239, 68, 68, 0.3); }
 .diff-card.hard .diff-level { color: #ef4444; }
 .diff-card.hard .dot { background: #ef4444; box-shadow: 0 0 10px #ef4444; }
 .diff-card.hard:hover { border-color: #ef4444; box-shadow: 0 10px 20px rgba(239, 68, 68, 0.15); }
 
-/* MOBİL OPTİMİZASYON */
 @media (max-width: 768px) {
     .accordion-container {
         grid-template-columns: 1fr;
@@ -259,21 +247,17 @@
 
         grid-template-columns: 1fr;
     }
-    
     .accordion-header {
         padding: 16px;
     }
-    
     .acc-icon-box {
         width: 32px;
         height: 32px;
         font-size: 1rem;
     }
-    
     .accordion-header h3 {
         font-size: 1.05rem;
     }
-    
     .inner-module-main {
         padding: 0 16px;
     }
