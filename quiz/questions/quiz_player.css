@@ -2,7 +2,6 @@
 html, body {
     margin: 0 !important;
     padding: 0 !important;
-    /* DİKKAT: Ana arkaplan değişkeni --bg-dark'tır. */
     background-color: var(--bg-dark) !important;
 }
 
@@ -11,7 +10,7 @@ html, body {
     flex-direction: row;
     width: 100%;
     min-height: 100vh;
-    padding-top: 75px; /* Header boşluğu padding */
+    padding-top: 75px;
     box-sizing: border-box;
     font-family: 'Inter', 'Segoe UI', sans-serif;
 }
@@ -26,7 +25,16 @@ html, body {
     box-sizing: border-box;
 }
 
-
+.quiz-main-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--neon-blue); 
+    margin-top: 0;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 
 /* KART YAPI */
 .quiz-card {
@@ -36,6 +44,7 @@ html, body {
     display: flex;
     flex-direction: column;
     flex: 1;
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.1);
 }
 
 .question-area {
@@ -82,38 +91,77 @@ html, body {
 
 /* SAĞ TARAF (YAN PANEL) */
 .quiz-sidebar {
-    width: 350px; 
+    width: 320px; 
     background: var(--glass-bg); 
-    padding: 40px;
+    padding: 40px 30px;
     display: flex;
     flex-direction: column;
-    gap: 30px;
     color: var(--text-main);
     border-left: 3px solid var(--neon-blue); 
     box-sizing: border-box;
 }
 
-.sidebar-title {
-    margin-top: 0;
-    font-size: 1.8rem;
-    font-weight: 800;
-    font-family: 'Montserrat', sans-serif;
-    color: var(--neon-blue); 
-}
-
-.sidebar-stats {
+/* YENİ GÖSTERGE HAPLARI (PILLS) */
+.sidebar-menu {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px; /* PC'de eşit boşluk */
+    width: 100%;
 }
 
-.stat-item {
-    font-size: 1.2rem;
+.stat-pill {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 14px 20px;
+    background: var(--bg-card);
+    border-radius: 30px; /* Yuvarlak hatlar */
+    font-size: 1rem;
     font-weight: 700;
-    padding: 20px;
-    background: var(--bg-inner-box, rgba(0, 0, 0, 0.35)); 
-    border-radius: 12px;
-    border: 1px solid var(--border-inner-box, rgba(255, 255, 255, 0.15));
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+    border: 2px solid transparent; /* Varsayılan */
+    box-sizing: border-box;
+    cursor: default;
+}
+
+.stat-pill.back-btn {
+    cursor: pointer;
+}
+.stat-pill.back-btn:hover {
+    transform: scale(1.02);
+}
+
+.icon-left {
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+.diff-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+/* RENK TEMALARI */
+.red-pill {
+    /* Kırmızıya çalan estetik renk */
+    background: linear-gradient(135deg, #ef4444 0%, #f43f5e 100%);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.purple-pill {
+    border-color: rgba(139, 92, 246, 0.4);
+    color: var(--text-main);
+}
+
+.blue-pill {
+    border-color: rgba(14, 165, 233, 0.4);
     color: var(--text-main);
 }
 
@@ -123,112 +171,36 @@ html, body {
         flex-direction: column;
         padding-top: 60px;
     }
-
+    
     .quiz-sidebar {
         width: 100%;
         border-left: none;
-        border-bottom: 3px solid var(--neon-blue);
+        border-bottom: 2px solid var(--neon-blue);
         order: -1; 
-        padding: 20px;
-        gap: 15px;
+        padding: 15px;
     }
     
-    .sidebar-stats {
-        flex-direction: row; 
-        justify-content: space-between;
+    .sidebar-menu {
+        /* Mobilde en üstte ince bir çizgide gözüksünler (Row) */
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
     }
-
-    .stat-item {
-        padding: 15px;
-        flex: 1;
-        margin: 0 5px;
-        font-size: 1rem;
+    
+    .stat-pill {
+        flex: 1 1 calc(25% - 8px); /* 4 buton yanyana tek satır, sığmazsa 2x2 */
+        min-width: 120px; /* Çok daralırsa 2x2 grid olur */
+        padding: 10px;
+        font-size: 0.85rem;
+    }
+    
+    .quiz-main-title {
+        font-size: 1.5rem;
+        margin-top: 20px;
         text-align: center;
     }
-
+    
     .quiz-main {
         padding: 20px;
-    }
-
-    
-
-    .question-area {
-        padding: 20px;
-        font-size: 1.2rem;
-        min-height: 100px;
-    }
-
-    .options-area {
-        padding: 20px;
-    }
-
-    .option-btn {
-        padding: 12px 16px;
-        font-size: 1rem;
-    }
-}
-
-/* ÜST BAR (Geri Dön ve Zorluk) */
-.quiz-header-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
-}
-
-.back-btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
-    background: var(--neon-blue); /* Temanın canlı rengi */
-    color: var(--bg-dark); /* Yazı arka plan renginde */
-    border: none;
-    border-radius: 12px;
-    font-size: 1.05rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: transform 0.2s;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.back-btn:hover {
-    transform: translateX(-5px); /* Sola doğru hafif hareket */
-}
-
-.difficulty-indicator {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    background: var(--bg-card);
-    border: 2px solid var(--neon-blue);
-    border-radius: 20px;
-    font-weight: 700;
-    color: var(--text-main);
-    font-size: 0.95rem;
-}
-
-.diff-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    /* Varsayılan renk, JS ile değişecek */
-    background-color: var(--neon-yellow, #eab308); 
-    box-shadow: 0 0 8px var(--neon-yellow, #eab308);
-}
-
-.quiz-main-title {
-    margin-top: 0;
-    margin-bottom: 20px;
-    color: var(--neon-blue);
-    font-size: 2.2rem;
-    font-weight: 800;
-    font-family: 'Montserrat', sans-serif;
-    text-transform: uppercase;
-}
-@media (max-width: 900px) {
-    .quiz-main-title {
-        font-size: 1.8rem;
     }
 }

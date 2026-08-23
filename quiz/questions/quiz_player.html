@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="quiz_player.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="formulas-page">
     <script>
@@ -20,38 +21,41 @@
 
     <div class="quiz-layout">
         <main class="quiz-main">
-            <h1 class="quiz-main-title" id="main-title">[testin tam ismi]</h1>
+            <h1 class="quiz-main-title" id="main-title">Yükleniyor...</h1>
             <div class="quiz-card">
-                <div class="question-area" id="question-text">Soru alanı</div>
+                <div class="question-area" id="question-text">Soru alanı...</div>
                 <div class="divider"></div>
                 <div class="options-area" id="options-container">
-                    <button class="option-btn">cevap 1 (5 şıklı)</button>
-                    <button class="option-btn">cevap 2</button>
-                    <button class="option-btn">cevap 3</button>
-                    <button class="option-btn">cevap 4</button>
-                    <button class="option-btn">cevap 5</button>
+                    <!-- Butonlar JS ile gelecek -->
                 </div>
             </div>
         </main>
+        
         <aside class="quiz-sidebar">
-            <div class="quiz-header-bar">
-                <button class="back-btn" onclick="window.history.back()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-                    Geri Dön
+            <div class="sidebar-menu">
+                <button class="stat-pill red-pill back-btn" onclick="window.history.back()">
+                    <i class="fa-solid fa-arrow-left icon-left"></i>
+                    <span class="pill-text">Geri Dön</span>
                 </button>
-                <div class="difficulty-indicator" id="difficulty-badge">
-                    <span class="diff-dot"></span>
-                    <span class="diff-text" id="difficulty-text">Orta Seviye</span>
+                
+                <div class="stat-pill" id="difficulty-badge">
+                    <span class="diff-dot" id="diff-dot"></span>
+                    <span class="pill-text" id="difficulty-text">Yükleniyor...</span>
                 </div>
-            </div>
-            <div class="sidebar-stats">
-                <div class="stat-item"><span id="questions-left">[kaç soru kaldığı]</span></div>
-                <div class="stat-item"><span id="success-rate">[Başarı yüzdesi]</span></div>
+                
+                <div class="stat-pill purple-pill">
+                    <i class="fa-solid fa-list-check icon-left"></i>
+                    <span class="pill-text">Soru: <span id="questions-left">0 / 0</span></span>
+                </div>
+                
+                <div class="stat-pill blue-pill">
+                    <i class="fa-solid fa-percent icon-left"></i>
+                    <span class="pill-text">Başarı: <span id="success-rate">%0</span></span>
+                </div>
             </div>
         </aside>
     </div>
 
-    <!-- Dinamik bileşenler için scriptler -->
     <script src="../../js/components.js"></script>
     <script src="../../js/nav.js"></script>
     <script src="../../js/modal.js"></script>
