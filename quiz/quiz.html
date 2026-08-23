@@ -198,11 +198,12 @@
         </div>
 
         <!-- Alt Modül Kartları (Testler) -->
-        <div class="test-modules-grid">
+        <div class="carousel-container" id="programlama-carousel">
+              <div class="test-modules-grid" id="programlama-grid">
             <!-- Python -->
             <div class="test-module-card python-card">
                 <div class="test-module-header">
-                    <div class="test-module-icon"><i class="fa-brands fa-python"></i></div>
+                    <div class="test-module-icon"><img src="../assets/logos/python-logo.svg" alt="Python Logo" style="width:28px; height:28px; object-fit:contain; filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.4));"></div>
                     <h3>Python Testi</h3>
                 </div>
                 <p>Veri analizi, döngüler ve programlama temellerini kapsayan interaktif Python quizleri.</p>
@@ -212,7 +213,7 @@
             <!-- Excel -->
             <div class="test-module-card excel-card">
                 <div class="test-module-header">
-                    <div class="test-module-icon"><i class="fa-solid fa-file-excel"></i></div>
+                    <div class="test-module-icon"><img src="../assets/logos/excel-logo.svg" alt="Excel Logo" style="width:28px; height:28px; object-fit:contain; filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.4));"></div>
                     <h3>Excel Testi</h3>
                 </div>
                 <p>Gelişmiş formüller, pivot tablolar ve veri manipülasyonu yetkinlik testleri.</p>
@@ -222,7 +223,7 @@
             <!-- Git & GitHub -->
             <div class="test-module-card git-card">
                 <div class="test-module-header">
-                    <div class="test-module-icon"><i class="fa-brands fa-github"></i></div>
+                    <div class="test-module-icon"><img src="../assets/logos/git-logo.svg" alt="Git Logo" style="width:28px; height:28px; object-fit:contain; filter: drop-shadow(0 0 8px rgba(249, 115, 22, 0.4));"></div>
                     <h3>Git & GitHub Testi</h3>
                 </div>
                 <p>Versiyon kontrol sistemleri, commit yapısı ve takım çalışması senaryoları.</p>
@@ -232,13 +233,31 @@
             <!-- R Quiz -->
             <div class="test-module-card r-card">
                 <div class="test-module-header">
-                    <div class="test-module-icon"><i class="fa-brands fa-r-project"></i></div>
+                    <div class="test-module-icon"><img src="../assets/logos/r-logo.svg" alt="R Logo" style="width:28px; height:28px; object-fit:contain; filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.4));"></div>
                     <h3>R & R Studio Testi</h3>
                 </div>
                 <p>İstatistiksel hesaplama, veri görselleştirme ve R dili temelleri.</p>
                 <button class="test-module-btn" onclick="window.location.href='modules/programlama/r_studio/index.html';">Teste Başla</button>
             </div>
-        </div>
+        
+              <!-- SQL Quiz -->
+              <div class="test-module-card sql-card">
+                  <div class="test-module-header">
+                      <div class="test-module-icon"><img src="../assets/logos/sql-logo.svg" alt="SQL Logo" style="width:28px; height:28px; object-fit:contain; filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.4));"></div>
+                      <h3>SQL Testi</h3>
+                  </div>
+                  <p>Veritabanı sorgulama, JOIN işlemleri, alt sorgular ve veri manipülasyonu.</p>
+                  <button class="test-module-btn" onclick="window.location.href='modules/programlama/sql/index.html';">Teste Başla</button>
+              </div>
+          </div>
+          
+          <div class="carousel-controls">
+              <button class="carousel-btn prev-btn" aria-label="Önceki Testler"><i class="fa-solid fa-chevron-left"></i></button>
+              <button class="carousel-btn next-btn" aria-label="Sonraki Testler"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+
+
+</div>
 
         <!-- ==============================================
              AKADEMİK TESTLER KISMI 
@@ -476,6 +495,63 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+
+            // Programlama Carousel Logic
+            const progGrid = document.getElementById('programlama-grid');
+            const progPrevBtn = document.querySelector('#programlama-carousel .prev-btn');
+            const progNextBtn = document.querySelector('#programlama-carousel .next-btn');
+
+            if (progGrid && progPrevBtn && progNextBtn) {
+                const progCards = Array.from(progGrid.querySelectorAll('.test-module-card'));
+                let progCurrentPage = 0;
+                const progCardsPerPage = 4;
+                const progTotalPages = Math.ceil(progCards.length / progCardsPerPage);
+
+                const updateProgView = () => {
+                    progCards.forEach((card, index) => {
+                        const start = progCurrentPage * progCardsPerPage;
+                        const end = start + progCardsPerPage;
+                        if (index >= start && index < end) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+
+                    if (progCurrentPage === 0) {
+                        progPrevBtn.style.opacity = '0.5';
+                        progPrevBtn.style.cursor = 'not-allowed';
+                    } else {
+                        progPrevBtn.style.opacity = '1';
+                        progPrevBtn.style.cursor = 'pointer';
+                    }
+
+                    if (progCurrentPage >= progTotalPages - 1) {
+                        progNextBtn.style.opacity = '0.5';
+                        progNextBtn.style.cursor = 'not-allowed';
+                    } else {
+                        progNextBtn.style.opacity = '1';
+                        progNextBtn.style.cursor = 'pointer';
+                    }
+                };
+
+                progNextBtn.addEventListener('click', () => {
+                    if (progCurrentPage < progTotalPages - 1) {
+                        progCurrentPage++;
+                        updateProgView();
+                    }
+                });
+
+                progPrevBtn.addEventListener('click', () => {
+                    if (progCurrentPage > 0) {
+                        progCurrentPage--;
+                        updateProgView();
+                    }
+                });
+
+                updateProgView();
+            }
+
             const grid = document.getElementById('akademik-grid');
             const prevBtn = document.querySelector('#akademik-carousel .prev-btn');
             const nextBtn = document.querySelector('#akademik-carousel .next-btn');

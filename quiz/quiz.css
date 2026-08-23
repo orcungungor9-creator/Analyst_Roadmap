@@ -564,3 +564,11 @@ body.theme-light-emerald .formulas-hero .hero-subtitle {
         padding: 0 16px !important;
     }
 }
+
+/* --- SQL Rengi (Mavi) --- */
+.test-module-card.sql-card { border-color: #0284c7; }
+.test-module-card.sql-card .test-module-icon { color: #0284c7; }
+.test-module-card.sql-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(2, 132, 199, 0.3); border-color: #0284c7; }
+.test-module-card.sql-card .test-module-btn { border-color: #0284c7; background: #0284c7; color: #fff; }
+.test-module-card.sql-card:hover .test-module-btn { background: transparent; color: #0284c7; box-shadow: 0 0 15px rgba(2, 132, 199, 0.5); }
+
