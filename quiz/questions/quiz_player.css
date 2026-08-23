@@ -1,4 +1,4 @@
-/* SIFIRLAMA VE TAM EKRAN AYARLARI */
+﻿/* SIFIRLAMA VE TAM EKRAN AYARLARI */
 html, body {
     margin: 0 !important;
     padding: 0 !important;
@@ -148,7 +148,6 @@ html, body {
 
 /* RENK TEMALARI */
 .red-pill {
-    /* Kırmızıya çalan estetik renk */
     background: linear-gradient(135deg, #ef4444 0%, #f43f5e 100%);
     color: white;
     border: none;
@@ -181,15 +180,14 @@ html, body {
     }
     
     .sidebar-menu {
-        /* Mobilde en üstte ince bir çizgide gözüksünler (Row) */
         flex-direction: row;
         flex-wrap: wrap;
         gap: 8px;
     }
     
     .stat-pill {
-        flex: 1 1 calc(25% - 8px); /* 4 buton yanyana tek satır, sığmazsa 2x2 */
-        min-width: 120px; /* Çok daralırsa 2x2 grid olur */
+        flex: 1 1 calc(25% - 8px);
+        min-width: 120px;
         padding: 10px;
         font-size: 0.85rem;
     }
@@ -204,3 +202,28 @@ html, body {
         padding: 20px;
     }
 }
+
+/* --- EFEKTLER VE ANİMASYONLAR --- */
+@keyframes blinkGreen {
+    0% {
+        background-color: rgba(52, 211, 153, 0.1);
+        border-color: #34d399;
+        color: #34d399;
+    }
+    50% {
+        background-color: rgba(52, 211, 153, 0.6);
+        border-color: #34d399;
+        color: #fff;
+    }
+    100% {
+        background-color: rgba(52, 211, 153, 0.1);
+        border-color: #34d399;
+        color: #34d399;
+    }
+}
+
+.blink-correct {
+    animation: blinkGreen 1s ease-in-out infinite !important; 
+    transition: none !important;
+}
+

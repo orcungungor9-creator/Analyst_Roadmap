@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+﻿document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const kategori = urlParams.get('kategori');
     const modul = urlParams.get('modul');
@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // Title Mapping for professional display
     const titleMap = {
         'ai_tarihcesi': 'Yapay Zeka Tarihçesi Testi',
         'kavram_bilgisi': 'Kavram Bilgisi Testi',
@@ -21,27 +20,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let mappedTitle = titleMap[test];
     if(!mappedTitle) {
-        // Fallback
         mappedTitle = test.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') + " Testi";
     }
     document.getElementById('main-title').innerText = mappedTitle;
 
-    // Set Difficulty Badge Colors
     const diffBadge = document.getElementById('difficulty-badge');
     const diffText = document.getElementById('difficulty-text');
     const diffDot = document.getElementById('diff-dot');
     
     if (zorluk === 'kolay') {
         diffText.innerText = 'Kolay Seviye';
-        diffDot.style.backgroundColor = '#10b981'; // Green
+        diffDot.style.backgroundColor = '#10b981'; 
         diffBadge.style.borderColor = 'rgba(16, 185, 129, 0.4)';
     } else if (zorluk === 'orta') {
         diffText.innerText = 'Orta Seviye';
-        diffDot.style.backgroundColor = '#f59e0b'; // Yellow
+        diffDot.style.backgroundColor = '#f59e0b'; 
         diffBadge.style.borderColor = 'rgba(245, 158, 11, 0.4)';
     } else if (zorluk === 'zor') {
         diffText.innerText = 'Zor Seviye';
-        diffDot.style.backgroundColor = '#ef4444'; // Red
+        diffDot.style.backgroundColor = '#ef4444'; 
         diffBadge.style.borderColor = 'rgba(239, 68, 68, 0.4)';
     }
 
@@ -94,14 +91,32 @@ document.addEventListener('DOMContentLoaded', () => {
         const q = questions[currentIndex];
         const optionsContainer = document.getElementById('options-container');
         const allBtns = optionsContainer.querySelectorAll('.option-btn');
+        
+        allBtns.forEach(b => b.disabled = true);
 
         if (selectedIndex === q.correct_option) {
-            btnElement.classList.add('correct');
-            btnElement.style.backgroundColor = 'rgba(16, 185, 129, 0.2)';
-            btnElement.style.borderColor = '#10b981';
-            btnElement.style.color = '#10b981';
+            btnElement.classList.add('blink-correct');
             
-            allBtns.forEach(b => b.disabled = true);
+            if(window.confetti) {
+                const duration = 2000;
+                const end = Date.now() + duration;
+
+                (function frame() {
+                    confetti({
+                        particleCount: 5,
+                        angle: 270,
+                        spread: 120,
+                        origin: { x: Math.random(), y: -0.1 },
+                        colors: ['#8b5cf6', '#10b981', '#f59e0b', '#ef4444', '#0ea5e9'],
+                        zIndex: 9999,
+                        disableForReducedMotion: true
+                    });
+
+                    if (Date.now() < end) {
+                        requestAnimationFrame(frame);
+                    }
+                }());
+            }
 
             setTimeout(() => {
                 currentIndex++;
@@ -110,20 +125,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     finishQuiz();
                 }
-            }, 1000);
+            }, 2000);
+            
         } else {
-            btnElement.classList.add('wrong');
-            btnElement.style.backgroundColor = 'rgba(239, 68, 68, 0.2)';
-            btnElement.style.borderColor = '#ef4444';
-            btnElement.style.color = '#ef4444';
-            btnElement.disabled = true;
+            btnElement.style.backgroundColor = 'rgba(248, 113, 113, 0.15)';
+            btnElement.style.borderColor = '#f87171';
+            btnElement.style.color = '#f87171';
 
             let penalty = 5; 
             if (zorluk === 'orta') penalty = 10;
             if (zorluk === 'zor') penalty = 15;
-            
             score = Math.max(0, score - penalty);
             document.getElementById('success-rate').innerText = `%${score}`;
+            
+            const correctBtn = allBtns[q.correct_option];
+            if(correctBtn) {
+                correctBtn.classList.add('blink-correct');
+            }
+
+            setTimeout(() => {
+                currentIndex++;
+                if (currentIndex < questions.length) {
+                    renderQuestion();
+                } else {
+                    finishQuiz();
+                }
+            }, 2000);
         }
     }
 
