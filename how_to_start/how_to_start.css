@@ -1,2 +1,35 @@
 /* how_to_start Page Styles */
 
+/* 16:9 Banner Alanı (Tam Ekran) */
+.hero-banner-169 {
+    width: 100vw;
+    margin-left: calc(50% - 50vw); /* Kapsayıcıyı kırıp tam ekran yapar */
+    margin-top: 0; /* Üst bara tam yapışması için margin sıfırlandı */
+    height: 100vh; /* Ekranın alt boşluğunu tamamen kapatır */
+    
+    /* Dümdüz, opak ve temaya göre değişen arka plan rengi. 
+       Arkadaki mesh'i tamamen kapatır (saydam değildir). */
+    background-color: color-mix(in srgb, var(--neon-blue) 15%, var(--bg-dark) 85%);
+    
+    /* Bitiş çizgisi */
+    border-bottom: 4px solid var(--neon-blue);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    
+    position: relative;
+    z-index: 10;
+}
+
+/* Footer'ı en alta itmek için main alanını flex yapıp genişletiyoruz */
+.main-container {
+    width: 100%;
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+}
+
+/* Aşağı kaydırdıkça arkadaki 4 grafiği göreceğimiz boş alan */
+.scroll-reveal-space {
+    width: 100%;
+    min-height: 120vh; /* Kaydırma alanı yaratır */
+    background: transparent; /* Arkadaki bg-analytics-mesh görünür */
+}
