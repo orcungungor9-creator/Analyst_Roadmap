@@ -121,41 +121,68 @@
     <!-- 16:9 Renkli Banner (Tam Ekran) -->
     <div class="hero-banner-169">
         <div class="banner-content">
-            <h1 class="hero-title custom-brand-title">Nasıl Başlayabilirim?</h1>
-            <p class="banner-desc">
-                Bu sayfada neyi incelerseniz inceleyin, ne öğreneceğinize karar verirken önceliğiniz kendinizi ve alanları tanımak olmalıdır; bu, kendinize sağlam bir yol çizmenizi sağlayacaktır. Aşağıdaki butonları kullanarak veya sayfayı kaydırarak; çalışma alanlarına, motivasyon metinlerine ve hangi alanı seçerseniz seçin peşinizi bırakmayacak temel becerileri nasıl geliştireceğinize dair detaylı bilgi alabilirsiniz.
-            </p>
-            <div class="hero-actions" style="margin-top: 32px; justify-content: center;">
-                <button class="btn-hero btn-hero-formulas" onclick="document.getElementById('calisma-alanlari').scrollIntoView({behavior: 'smooth'})">
-                    <svg class="btn-hero-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                    </svg>
-                    Çalışma Alanları
-                </button>
-                <button class="btn-hero btn-hero-courses" onclick="document.getElementById('yol-haritasi').scrollIntoView({behavior: 'smooth'})">
-                    <svg class="btn-hero-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
-                        <line x1="8" y1="2" x2="8" y2="18"></line>
-                        <line x1="16" y1="6" x2="16" y2="22"></line>
-                    </svg>
-                    Yol Haritası
-                </button>
-                <button class="btn-hero btn-hero-charts" onclick="document.getElementById('nasil-gelistirecegim').scrollIntoView({behavior: 'smooth'})">
-                    <svg class="btn-hero-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-                        <polyline points="17 6 23 6 23 12"></polyline>
-                    </svg>
-                    Nasıl Geliştireceğim?
-                </button>
-                <button class="btn-hero btn-hero-start" onclick="document.getElementById('genel').scrollIntoView({behavior: 'smooth'})">
-                    <svg class="btn-hero-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                        <polyline points="2 17 12 22 22 17"></polyline>
-                        <polyline points="2 12 12 17 22 12"></polyline>
-                    </svg>
-                    Genel
-                </button>
+            <div class="banner-text-wrapper">
+                <h1 class="hero-title custom-brand-title">Nasıl Başlayabilirim?</h1>
+                <p class="banner-desc">
+                    Bu sayfada neyi incelerseniz inceleyin, ne öğreneceğinize karar verirken önceliğiniz kendinizi ve alanları tanımak olmalıdır; bu, kendinize sağlam bir yol çizmenizi sağlayacaktır. Aşağıdaki butonları kullanarak veya sayfayı kaydırarak; çalışma alanlarına, motivasyon metinlerine ve hangi alanı seçerseniz seçin peşinizi bırakmayacak temel becerileri nasıl geliştireceğinize dair detaylı bilgi alabilirsiniz.
+                </p>
+            </div>
+            <div class="hero-features-grid">
+                <!-- Çalışma Alanları Kartı -->
+                <a href="#calisma-alanlari" class="feature-card feature-blue">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Çalışma Alanları</h3>
+                        <p>Veri biliminin farklı alt dallarını (Analist, Mühendis vb.) keşfedin ve hedefinizi netleştirin.</p>
+                    </div>
+                </a>
+
+                <!-- Yol Haritası Kartı -->
+                <a href="#yol-haritasi" class="feature-card feature-purple">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+                            <line x1="8" y1="2" x2="8" y2="18"></line>
+                            <line x1="16" y1="6" x2="16" y2="22"></line>
+                        </svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Yol Haritası</h3>
+                        <p>Sıfırdan başlayıp sektöre girene kadar öğrenmeniz gereken konuların yapılandırılmış planı.</p>
+                    </div>
+                </a>
+
+                <!-- Nasıl Geliştireceğim Kartı -->
+                <a href="#nasil-gelistirecegim" class="feature-card feature-green">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                            <polyline points="17 6 23 6 23 12"></polyline>
+                        </svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Nasıl Geliştireceğim?</h3>
+                        <p>Teoriyi pratiğe dökmek, proje portföyü oluşturmak ve sektörde öne çıkmak için taktikler.</p>
+                    </div>
+                </a>
+
+                <!-- Genel Kartı -->
+                <a href="#genel" class="feature-card feature-orange">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Genel Bilgiler</h3>
+                        <p>Analitik düşünce yapısı, sektör ipuçları, kariyer tavsiyeleri ve motivasyon kaynakları.</p>
+                    </div>
+                </a>
             </div>
         </div>
     </div>

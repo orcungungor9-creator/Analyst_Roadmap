@@ -26,12 +26,19 @@
     z-index: 10;
 }
 
-/* Banner içindeki içerik kutusu */
+/* Banner içindeki içerik kutusu (Kartlar için geniş, metinler için ortalanmış yapıyı tutar) */
 .banner-content {
-    max-width: 800px;
+    width: 100%;
+    max-width: 1250px; /* Kartlara nefes alacak geniş alanı verir */
     z-index: 20; /* Arka plan tintinin üzerinde kalması için */
     animation: fadeInUp 0.8s ease-out;
     margin-bottom: 15vh; /* İçeriği merkezden yukarı taşır (Transform animasyonla çakıştığı için margin kullanıyoruz) */
+}
+
+/* Sadece metinleri okunaklı (dar) bir sütunda tutmak için */
+.banner-text-wrapper {
+    max-width: 850px;
+    margin: 0 auto;
 }
 
 /* Başlık boyutunu büyütme (Ara bir değer) */
@@ -67,23 +74,154 @@
     background: transparent; /* Arkadaki bg-analytics-mesh görünür */
 }
 
+/* =========================================
+   YENİ MODERN AKSİYON KARTLARI (GLASSMORPHISM)
+   ========================================= */
+.hero-features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+    width: 100%;
+    /* max-width kaldırıldı çünkü ana kapsayıcı .banner-content genişliğini kullanacak */
+}
+
+.feature-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left; /* Metni sola yaslayarak daha profesyonel ve kolay okunur kart görünümü sağlar */
+    padding: 24px;
+    background: var(--bg-card);
+    /* Temaya göre değişen, kalın ve belirgin çerçeve */
+    border: 4px solid var(--neon-blue);
+    border-radius: 20px;
+    text-decoration: none;
+    color: var(--text-main);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
+    /* Glass efekti */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    background: var(--glass-bg);
+    /* Üzerine gelindiğinde dışa doğru hafif parlama efekti */
+    box-shadow: 0 15px 35px var(--neon-blue-glow);
+}
+
+.feature-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: #ffffff; /* İkonlar her zaman beyaz */
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.1);
+}
+
+/* Renk Varyasyonları (Sadece ikonlar için sabit kalıyor, çerçeveler temaya bağlı) */
+.feature-blue .feature-icon {
+    background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+    box-shadow: 0 8px 20px rgba(14, 165, 233, 0.4);
+}
+
+.feature-purple .feature-icon {
+    background: linear-gradient(135deg, #8b5cf6, #a855f7);
+    box-shadow: 0 8px 20px rgba(168, 85, 247, 0.4);
+}
+
+.feature-green .feature-icon {
+    background: linear-gradient(135deg, #10b981, #34d399);
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+}
+
+.feature-orange .feature-icon {
+    background: linear-gradient(135deg, #f97316, #fb923c);
+    box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4);
+}
+
+/* İçerik Metinleri */
+.feature-content h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+}
+
+.feature-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin: 0;
+    opacity: 0.9;
+}
+
 /* Mobil Cihazlar İçin Özel Hizalama */
 @media (max-width: 768px) {
     .hero-banner-169 {
-        align-items: flex-start; /* İçeriği dikeyde merkeze değil, üste hizalar */
-        padding-top: 90px; /* Üst barın (header) yüksekliği kadar boşluk bırakır */
+        align-items: flex-start;
+        padding-top: 90px;
+        height: auto;
+        min-height: 100vh;
+        padding-bottom: 40px;
     }
     
     .banner-content {
-        margin-bottom: 0; /* Masaüstündeki merkezden kaydırma ofsetini iptal ederiz */
-        padding: 0 15px; /* Mobilde kenarlardan biraz daha nefes payı */
+        margin-bottom: 0;
+        padding: 0 15px;
     }
     
     .banner-content .hero-title {
-        font-size: 2.4rem; /* Mobilde başlık devasa durmasın diye bir tık küçültüldü */
+        font-size: 2.4rem;
     }
     
     .banner-desc {
         font-size: 1rem;
+    }
+
+    /* Mobilde şık ve yatay buton görünümü */
+    .hero-features-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-top: 32px;
+    }
+
+    .feature-card {
+        flex-direction: row;
+        align-items: center;
+        padding: 14px 20px;
+        border-radius: 50px; /* Hap (pill) buton şekli */
+    }
+
+    .feature-card:hover {
+        transform: none; /* Mobilde havaya kalkmayı iptal et */
+    }
+
+    .feature-icon {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 0;
+        margin-right: 16px;
+        flex-shrink: 0;
+        border-radius: 12px;
+    }
+
+    .feature-content h3 {
+        margin-bottom: 0;
+        font-size: 1rem;
+    }
+
+    .feature-content p {
+        display: none; /* Mobilde açıklama metinlerini gizle */
     }
 }
