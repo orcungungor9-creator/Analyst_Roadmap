@@ -15,8 +15,41 @@
     border-bottom: 4px solid var(--neon-blue);
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     
+    /* İçerik hizalama */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+    
     position: relative;
     z-index: 10;
+}
+
+/* Banner içindeki içerik kutusu */
+.banner-content {
+    max-width: 800px;
+    z-index: 20; /* Arka plan tintinin üzerinde kalması için */
+    animation: fadeInUp 0.8s ease-out;
+    margin-bottom: 15vh; /* İçeriği merkezden yukarı taşır (Transform animasyonla çakıştığı için margin kullanıyoruz) */
+}
+
+/* Başlık boyutunu büyütme (Ara bir değer) */
+.banner-content .hero-title {
+    font-size: 3.6rem;
+    margin-bottom: 16px;
+}
+
+/* Banner açıklama metni */
+.banner-desc {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-top: 16px;
+    font-weight: 500;
+    /* Metin rengini doğrudan temanın ana metin rengine ayarlıyoruz 
+       (Aydınlık temada koyu, karanlık temada açık renk olur) */
+    color: var(--text-main);
+    text-shadow: none; /* Açık temalarda çamurlu görünümü engellemek için gölge kaldırıldı */
 }
 
 /* Footer'ı en alta itmek için main alanını flex yapıp genişletiyoruz */
@@ -32,4 +65,25 @@
     width: 100%;
     min-height: 120vh; /* Kaydırma alanı yaratır */
     background: transparent; /* Arkadaki bg-analytics-mesh görünür */
+}
+
+/* Mobil Cihazlar İçin Özel Hizalama */
+@media (max-width: 768px) {
+    .hero-banner-169 {
+        align-items: flex-start; /* İçeriği dikeyde merkeze değil, üste hizalar */
+        padding-top: 90px; /* Üst barın (header) yüksekliği kadar boşluk bırakır */
+    }
+    
+    .banner-content {
+        margin-bottom: 0; /* Masaüstündeki merkezden kaydırma ofsetini iptal ederiz */
+        padding: 0 15px; /* Mobilde kenarlardan biraz daha nefes payı */
+    }
+    
+    .banner-content .hero-title {
+        font-size: 2.4rem; /* Mobilde başlık devasa durmasın diye bir tık küçültüldü */
+    }
+    
+    .banner-desc {
+        font-size: 1rem;
+    }
 }
