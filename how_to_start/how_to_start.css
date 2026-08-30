@@ -34,28 +34,21 @@
     margin-bottom: 15vh; /* İçeriği merkezden yukarı taşır (Transform animasyonla çakıştığı için margin kullanıyoruz) */
 }
 
-/* Sadece metinleri okunaklı (dar) bir sütunda tutmak için */
+/* Sadece metinleri okunaklı bir sütunda tutmak için (Daha geniş bir alan) */
 .banner-text-wrapper {
-    max-width: 850px;
+    max-width: 1100px; /* Metnin sıkışmasını engellemek için genişletildi */
     margin: 0 auto;
+}
+
+/* styles.css'ten gelen 800px sınırını bu sayfa için eziyoruz */
+.banner-text-wrapper .hero-subtitle {
+    max-width: 100%; 
 }
 
 /* Başlık boyutunu büyütme (Ara bir değer) */
 .banner-content .hero-title {
     font-size: 3.6rem;
     margin-bottom: 16px;
-}
-
-/* Banner açıklama metni */
-.banner-desc {
-    font-size: 1.15rem;
-    line-height: 1.7;
-    margin-top: 16px;
-    font-weight: 500;
-    /* Metin rengini doğrudan temanın ana metin rengine ayarlıyoruz 
-       (Aydınlık temada koyu, karanlık temada açık renk olur) */
-    color: var(--text-main);
-    text-shadow: none; /* Açık temalarda çamurlu görünümü engellemek için gölge kaldırıldı */
 }
 
 /* Footer'ı en alta itmek için main alanını flex yapıp genişletiyoruz */
@@ -182,10 +175,6 @@
     
     .banner-content .hero-title {
         font-size: 2.4rem;
-    }
-    
-    .banner-desc {
-        font-size: 1rem;
     }
 
     /* Mobilde şık ve yatay buton görünümü */
