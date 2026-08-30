@@ -9,7 +9,6 @@
     
     /* Dümdüz, opak ve temaya göre değişen arka plan rengi. 
        Arkadaki mesh'i tamamen kapatır (saydam değildir). */
-    background-color: color-mix(in srgb, var(--neon-blue) 15%, var(--bg-dark) 85%);
     
     /* Bitiş çizgisi */
     border-bottom: 4px solid var(--neon-blue);
