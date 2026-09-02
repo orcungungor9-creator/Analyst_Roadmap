@@ -296,13 +296,13 @@ html {
 .carousel-btn {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
-    width: 48px;
-    height: 48px;
+    transform: translateY(-50%) translateZ(0);
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    background: var(--bg-card);
-    border: 1px solid var(--glass-border);
-    color: var(--text-main);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(192, 132, 252, 0.3);
+    color: var(--neon-purple);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -312,16 +312,22 @@ html {
     z-index: 10;
 }
 
-.carousel-btn:hover {
-    background: color-mix(in srgb, var(--neon-blue) 15%, transparent);
-    border-color: var(--neon-blue);
-    color: var(--neon-blue);
-    box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
+.carousel-btn:hover:not(:disabled) {
+    background: var(--neon-purple);
+    color: #fff;
+    border-color: var(--neon-purple);
+    box-shadow: 0 0 25px rgba(192, 132, 252, 0.5);
+    transform: translateY(-50%) scale(1.1) translateZ(0);
+}
+
+.carousel-btn:active:not(:disabled) {
+    transform: translateY(-50%) scale(0.95) translateZ(0);
 }
 
 .carousel-btn:disabled {
     opacity: 0.3;
     cursor: not-allowed;
+    background: rgba(255, 255, 255, 0.5);
 }
 
 .prev-btn {
