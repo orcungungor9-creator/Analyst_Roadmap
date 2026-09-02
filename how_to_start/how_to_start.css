@@ -267,24 +267,14 @@ html {
 
 /* --- Veri Ekosisteminin İş Bölümü (Yeni Kart Tasarımı) --- */
 .ecosystem-section {
-    padding: 60px 24px;
-    max-width: 1700px; /* Kenarlardaki boşluğu azaltmak için çok daha genişletildi */
-    width: 90%; /* Yanlara okların sığması için %96'dan 90'a çekildi */
-    margin: 0 auto;
+    width: 100%;
+    margin: 0;
+    padding-top: 80px;
+    scroll-margin-top: 100px;
 }
 
 .section-header {
     margin-bottom: 40px;
-}
-
-.section-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    text-align: left;
-    color: var(--text-main);
-    display: flex;
-    align-items: center;
-    gap: 12px;
 }
 
 .ecosystem-carousel-wrapper {
@@ -292,6 +282,7 @@ html {
     max-width: 100%;
     display: flex;
     align-items: center;
+    padding: 0 80px; /* Oklar için yanlarda boşluk bırak */
 }
 
 .ecosystem-track-wrapper {
@@ -303,38 +294,42 @@ html {
 }
 
 .carousel-btn {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 16px;
     position: absolute;
-    z-index: 10;
-    color: var(--text-main); /* Temaya uyumlu ok rengi */
-    transition: transform 0.2s, opacity 0.2s;
-}
-
-.carousel-btn svg {
+    top: 50%;
+    transform: translateY(-50%);
     width: 48px;
     height: 48px;
-    stroke: currentColor;
-    filter: drop-shadow(0 0 4px rgba(0,0,0,0.2));
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    z-index: 10;
 }
 
-.carousel-btn:hover:not(:disabled) {
-    transform: scale(1.1);
+.carousel-btn:hover {
+    background: color-mix(in srgb, var(--neon-blue) 15%, transparent);
+    border-color: var(--neon-blue);
+    color: var(--neon-blue);
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
 }
 
 .carousel-btn:disabled {
-    opacity: 0.2;
+    opacity: 0.3;
     cursor: not-allowed;
 }
 
 .prev-btn {
-    left: -100px;
+    left: 10px;
 }
 
 .next-btn {
-    right: -100px;
+    right: 10px;
 }
 
 .ecosystem-container {
@@ -528,7 +523,11 @@ html {
 @media (max-width: 768px) {
     .ecosystem-section {
         width: 100%;
-        padding: 40px 16px;
+        padding: 40px 0 0 0;
+    }
+    
+    .ecosystem-carousel-wrapper {
+        padding: 0;
     }
     
     .carousel-btn {
