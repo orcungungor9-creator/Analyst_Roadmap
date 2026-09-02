@@ -265,7 +265,7 @@
 .ecosystem-section {
     padding: 60px 24px;
     max-width: 1700px; /* Kenarlardaki boşluğu azaltmak için çok daha genişletildi */
-    width: 96%; /* Yüzdelik bazda da geniş bir alan ayırır */
+    width: 90%; /* Yanlara okların sığması için %96'dan 90'a çekildi */
     margin: 0 auto;
 }
 
@@ -277,15 +277,67 @@
     color: var(--text-main);
 }
 
+.ecosystem-carousel-wrapper {
+    position: relative;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.ecosystem-track-wrapper {
+    overflow: hidden;
+    width: 100%;
+    border-radius: 20px;
+    padding: 10px; /* Kartların shadow'larının kesilmemesi için biraz boşluk */
+    margin: -10px; /* Dengelemek için */
+}
+
+.carousel-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 16px;
+    position: absolute;
+    z-index: 10;
+    color: var(--text-main); /* Temaya uyumlu ok rengi */
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.carousel-btn svg {
+    width: 48px;
+    height: 48px;
+    stroke: currentColor;
+    filter: drop-shadow(0 0 4px rgba(0,0,0,0.2));
+}
+
+.carousel-btn:hover:not(:disabled) {
+    transform: scale(1.1);
+}
+
+.carousel-btn:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+}
+
+.prev-btn {
+    left: -60px;
+}
+
+.next-btn {
+    right: -60px;
+}
+
 .ecosystem-container {
     display: flex;
-    flex-direction: column; /* Her satıra 1 tane gelecek şekilde değiştirildi */
+    flex-direction: row;
     gap: 40px;
-    max-width: 100%; /* Sınır kaldırıldı, dış section ne kadarsa o kadar uzayacak */
+    width: 100%;
     margin: 0 auto;
+    transition: transform 0.5s ease-in-out;
 }
 
 .ecosystem-card {
+    flex: 0 0 100%;
     background: var(--bg-card);
     border: 2px solid color-mix(in srgb, var(--neon-blue) 30%, transparent);
     border-radius: 20px;
@@ -465,8 +517,24 @@
 /* Mobil Uyumluluk */
 @media (max-width: 768px) {
     .ecosystem-section {
+        width: 100%;
         padding: 40px 16px;
     }
+    
+    .carousel-btn {
+        display: none; /* Mobilde okları gizle, kullanıcı kaydırsın (swipe) */
+    }
+    
+    .ecosystem-track-wrapper {
+        overflow-x: auto; /* Mobilde yatay scroll */
+        scroll-snap-type: x mandatory;
+        padding-bottom: 20px; /* Scrollbar için boşluk */
+    }
+    
+    .ecosystem-card {
+        scroll-snap-align: center;
+    }
+
     .section-title {
         font-size: 2rem;
     }
