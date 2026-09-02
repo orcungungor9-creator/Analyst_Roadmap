@@ -272,6 +272,12 @@ html {
     padding-top: 60px;
 }
 
+.general-info-section {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 .section-header {
     margin-bottom: 40px;
     scroll-margin-top: 120px;
@@ -528,7 +534,8 @@ html {
 
 /* Mobil Uyumluluk */
 @media (max-width: 768px) {
-    .ecosystem-section {
+    .ecosystem-section,
+    .general-info-section {
         width: 100%;
         padding: 40px 16px 0 16px;
     }
