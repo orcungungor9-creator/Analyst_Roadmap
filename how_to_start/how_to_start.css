@@ -279,18 +279,19 @@ html {
 
 .ecosystem-carousel-wrapper {
     position: relative;
+    width: 100%;
     max-width: 100%;
     display: flex;
     align-items: center;
     padding: 0 80px; /* Oklar için yanlarda boşluk bırak */
+    box-sizing: border-box;
 }
 
 .ecosystem-track-wrapper {
     overflow: hidden;
     width: 100%;
+    min-width: 0;
     border-radius: 20px;
-    padding: 10px; /* Kartların shadow'larının kesilmemesi için biraz boşluk */
-    margin: -10px; /* Dengelemek için */
 }
 
 .carousel-btn {
@@ -529,25 +530,33 @@ html {
 @media (max-width: 768px) {
     .ecosystem-section {
         width: 100%;
-        padding: 40px 0 0 0;
+        padding: 40px 16px 0 16px;
     }
     
     .ecosystem-carousel-wrapper {
-        padding: 0;
+        padding: 60px 0 0 0; /* Oklar için üstte boşluk */
     }
     
     .carousel-btn {
-        display: none; /* Mobilde okları gizle, kullanıcı kaydırsın (swipe) */
+        display: flex;
+        top: 0;
+        transform: none;
+        width: 48px;
+        height: 48px;
     }
-    
-    .ecosystem-track-wrapper {
-        overflow-x: auto; /* Mobilde yatay scroll */
-        scroll-snap-type: x mandatory;
-        padding-bottom: 20px; /* Scrollbar için boşluk */
+
+    .prev-btn {
+        right: auto;
+        left: calc(50% - 58px);
+    }
+
+    .next-btn {
+        right: auto;
+        left: calc(50% + 10px);
     }
     
     .ecosystem-card {
-        scroll-snap-align: center;
+        flex: 0 0 100%;
     }
 
     .section-title {
