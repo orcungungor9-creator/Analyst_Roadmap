@@ -269,12 +269,12 @@ html {
 .ecosystem-section {
     width: 100%;
     margin: 0;
-    padding-top: 80px;
-    scroll-margin-top: 100px;
+    padding-top: 60px;
 }
 
 .section-header {
     margin-bottom: 40px;
+    scroll-margin-top: 120px;
 }
 
 .ecosystem-carousel-wrapper {
