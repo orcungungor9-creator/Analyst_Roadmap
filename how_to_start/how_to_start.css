@@ -269,7 +269,7 @@ html {
 .ecosystem-section {
     width: 100%;
     margin: 0;
-    padding-top: 20px;
+    padding-top: 80px;
 }
 
 .general-info-section {
@@ -281,27 +281,27 @@ html {
 .gi-card {
     background: var(--bg-card);
     border: 1px solid var(--glass-border);
-    border-radius: 24px;
-    padding: 40px 48px;
+    border-radius: 20px;
+    padding: 32px 40px;
     box-shadow: var(--shadow-card);
 }
 
 .gi-card p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    margin-bottom: 20px;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
     color: #111111;
     position: relative;
-    padding-left: 20px;
+    padding-left: 18px;
 }
 
 .gi-card p::before {
     content: "•";
     color: var(--neon-purple, #a855f7);
-    font-size: 1.5em;
+    font-size: 1.4em;
     position: absolute;
     left: 0;
-    top: -4px;
+    top: -3px;
 }
 
 .gi-card p:last-child {
@@ -310,10 +310,10 @@ html {
 
 .gi-subtitle {
     font-family: var(--font-title);
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: var(--text-main);
-    margin: 32px 0 16px 0;
+    margin: 24px 0 12px 0;
 }
 
 .gi-read-more-btn {
@@ -358,21 +358,21 @@ html {
 }
 
 .roadmap-card {
-    padding: 60px 48px;
+    padding: 40px 32px;
 }
 
 .minimal-zigzag-container {
     display: flex;
     flex-direction: column;
-    gap: 60px;
+    gap: 24px;
 }
 
 .mz-row {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 32px;
     border-bottom: 1px solid var(--glass-border);
-    padding-bottom: 40px;
+    padding-bottom: 32px;
 }
 
 .mz-row:last-child {
@@ -390,10 +390,10 @@ html {
 
 .mz-text h3 {
     font-family: var(--font-title);
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: var(--text-main);
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
 .mz-text h3 span {
@@ -402,12 +402,12 @@ html {
 }
 
 .mz-text p {
-    font-size: 1.1rem;
-    line-height: 1.7;
+    font-size: 1rem;
+    line-height: 1.6;
     color: #111111;
-    margin: 0 0 16px 0;
+    margin: 0 0 12px 0;
     position: relative;
-    padding-left: 20px;
+    padding-left: 18px;
 }
 
 .mz-text p:last-child {
@@ -417,14 +417,14 @@ html {
 .mz-text p::before {
     content: "•";
     color: var(--step-color, #a855f7);
-    font-size: 1.5em;
+    font-size: 1.4em;
     position: absolute;
     left: 0;
-    top: -4px;
+    top: -3px;
 }
 
 .mz-image {
-    flex: 0 0 150px;
+    flex: 0 0 120px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -432,28 +432,28 @@ html {
 }
 
 .mz-row:hover .mz-image {
-    transform: translateY(-8px) scale(1.1);
-    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.08));
+    transform: translateY(-6px) scale(1.08);
+    filter: drop-shadow(0 12px 20px rgba(0,0,0,0.08));
 }
 
 .mz-image svg {
-    width: 96px !important;
-    height: 96px !important;
+    width: 72px !important;
+    height: 72px !important;
     stroke-width: 1.5 !important;
     opacity: 1;
-    filter: drop-shadow(0 0 15px rgba(0,0,0,0.1));
+    filter: drop-shadow(0 0 12px rgba(0,0,0,0.1));
 }
 
 .mz-image img {
-    width: 96px;
-    height: 96px;
+    width: 72px;
+    height: 72px;
     object-fit: contain;
-    filter: drop-shadow(0 0 15px rgba(0,0,0,0.1));
+    filter: drop-shadow(0 0 12px rgba(0,0,0,0.1));
 }
 
 .section-header {
     margin-bottom: 40px;
-    scroll-margin-top: 120px;
+    scroll-margin-top: 140px;
 }
 
 .ecosystem-carousel-wrapper {
