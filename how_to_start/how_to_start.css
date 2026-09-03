@@ -337,6 +337,94 @@ html {
     transform: rotate(180deg);
 }
 
+/* =========================================
+   YOL HARİTASI (MİNİMAL ZIG-ZAG) BÖLÜMÜ
+   ========================================= */
+.roadmap-section {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.roadmap-card {
+    padding: 60px 48px;
+}
+
+.minimal-zigzag-container {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.mz-row {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 40px;
+}
+
+.mz-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.mz-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.mz-text {
+    flex: 1;
+}
+
+.mz-text h3 {
+    font-family: var(--font-title);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 12px;
+}
+
+.mz-text h3 span {
+    color: var(--neon-purple);
+    margin-right: 8px;
+}
+
+.mz-text p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.mz-image {
+    flex: 0 0 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+}
+
+.mz-row:hover .mz-image {
+    transform: translateY(-8px) scale(1.1);
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.08));
+}
+
+.mz-image svg {
+    width: 96px !important;
+    height: 96px !important;
+    stroke-width: 1.5 !important;
+    opacity: 1;
+    filter: drop-shadow(0 0 15px rgba(0,0,0,0.1));
+}
+
+.mz-image img {
+    width: 96px;
+    height: 96px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 15px rgba(0,0,0,0.1));
+}
+
 .section-header {
     margin-bottom: 40px;
     scroll-margin-top: 120px;
@@ -636,6 +724,40 @@ html {
     
     .gi-subtitle {
         font-size: 1.25rem;
+    }
+
+    .roadmap-section {
+        width: 100%;
+        padding: 40px 16px 0 16px;
+    }
+
+    .roadmap-card {
+        padding: 30px 20px;
+    }
+
+    .minimal-zigzag-container {
+        gap: 40px;
+    }
+
+    .mz-row, 
+    .mz-row.reverse {
+        flex-direction: column;
+        text-align: center;
+        gap: 24px;
+        padding-bottom: 30px;
+    }
+
+    .mz-image {
+        width: 100%;
+        margin-bottom: -10px; /* Bring icon closer to text on mobile */
+    }
+
+    .mz-text h3 {
+        font-size: 1.25rem;
+    }
+    
+    .mz-text p {
+        font-size: 1rem;
     }
 
     .section-title {
