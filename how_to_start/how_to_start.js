@@ -60,16 +60,15 @@ window.toggleGIContent = function() {
         // Expand
         content.style.display = 'block';
         btn.classList.add('open');
-        span.textContent = 'Daha Az Göster';
+        span.textContent = 'Daha Az GÃ¶ster';
     } else {
         // Collapse
         content.style.display = 'none';
         btn.classList.remove('open');
-        span.textContent = 'Devamýný Oku';
+        span.textContent = 'DevamÄ±nÄ± Oku';
         
         // Scroll back to top of the card smoothly if the user is far down
         const cardTop = document.getElementById('genel').getBoundingClientRect().top + window.scrollY;
         window.scrollTo({ top: cardTop - 120, behavior: 'smooth' });
     }
 };
-
