@@ -290,7 +290,18 @@ html {
     font-size: 1.1rem;
     line-height: 1.7;
     margin-bottom: 20px;
-    color: var(--text-muted);
+    color: #111111;
+    position: relative;
+    padding-left: 20px;
+}
+
+.gi-card p::before {
+    content: "•";
+    color: var(--neon-purple, #a855f7);
+    font-size: 1.5em;
+    position: absolute;
+    left: 0;
+    top: -4px;
 }
 
 .gi-card p:last-child {
