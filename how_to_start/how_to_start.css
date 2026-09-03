@@ -269,7 +269,7 @@ html {
 .ecosystem-section {
     width: 100%;
     margin: 0;
-    padding-top: 60px;
+    padding-top: 20px;
 }
 
 .general-info-section {
@@ -559,25 +559,25 @@ html {
 .card-orange .eco-title { color: var(--section-color); }
 
 .eco-header {
-    padding: 32px;
+    padding: 16px 24px;
 }
 
 .eco-title {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 24px;
+    margin-bottom: 12px;
 }
 
 .eco-details {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
 }
 
 .eco-details p {
-    font-size: 1.05rem;
-    line-height: 1.6;
+    font-size: 0.9rem;
+    line-height: 1.5;
     color: var(--text-muted);
 }
 
@@ -587,24 +587,24 @@ html {
 }
 
 .eco-body {
-    padding: 32px;
+    padding: 16px 24px 24px 24px;
     display: flex;
-    gap: 24px;
+    gap: 16px;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: stretch;
     background: color-mix(in srgb, var(--bg-body) 30%, transparent);
-    flex-grow: 1; /* Alt kısım kendini genişletip eşit boyları korur */
+    flex-grow: 1;
 }
 
 /* İçleri doldurulacak kartlar */
 .role-card {
     flex: 1;
-    min-width: 200px;
+    min-width: 280px;
     max-width: 350px;
-    min-height: 280px;
     background: #ffffff;
-    border-radius: 16px;
-    border: 4px solid var(--section-color);
+    border-radius: 12px;
+    border: 3px solid var(--section-color);
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     padding: 24px;
     display: flex;
@@ -620,15 +620,15 @@ html {
 }
 
 .role-name {
-    font-size: 1.35rem;
+    font-size: 1.25rem;
     font-weight: 800;
     color: var(--text-main);
     margin: 0;
 }
 
 .role-icon {
-    width: 28px;
-    height: 28px;
+    width: 26px;
+    height: 26px;
     color: var(--section-color);
     display: flex;
     align-items: center;
@@ -639,18 +639,17 @@ html {
     font-size: 0.95rem;
     font-style: italic;
     color: var(--text-muted);
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     line-height: 1.4;
 }
 
 .role-tasks {
     list-style: none;
     padding: 0;
-    margin: 0 0 24px 0;
+    margin: 0 0 16px 0;
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    flex-grow: 1; /* Teknolojileri en alta iter */
+    gap: 10px;
 }
 
 .role-tasks li {
@@ -671,27 +670,27 @@ html {
 .role-tech {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-top: auto;
+    gap: 6px;
+    margin-top: 8px;
 }
 
 .role-tech span {
     font-size: 0.75rem;
     font-weight: 700;
-    padding: 6px 12px;
+    padding: 5px 12px;
     background: color-mix(in srgb, var(--section-color) 12%, transparent);
     color: var(--section-color);
-    border-radius: 16px;
+    border-radius: 14px;
 }
 
 /* PNG yerleştirilecek boş orta alan */
 .role-card-image-placeholder {
     flex: 1;
-    min-width: 200px;
+    min-width: 280px;
     max-width: 350px;
     background: #ffffff;
-    border-radius: 16px;
-    border: 4px solid var(--section-color);
+    border-radius: 12px;
+    border: 3px solid var(--section-color);
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     display: flex;
     align-items: center;
