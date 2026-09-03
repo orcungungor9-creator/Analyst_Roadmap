@@ -49,3 +49,27 @@ document.addEventListener('DOMContentLoaded', () => {
     
     updateCarousel();
 });
+
+// Genel Bilgiler Toggle Function
+window.toggleGIContent = function() {
+    const content = document.getElementById('giHiddenContent');
+    const btn = document.getElementById('giReadMoreBtn');
+    const span = btn.querySelector('span');
+    
+    if (content.style.display === 'none') {
+        // Expand
+        content.style.display = 'block';
+        btn.classList.add('open');
+        span.textContent = 'Daha Az Göster';
+    } else {
+        // Collapse
+        content.style.display = 'none';
+        btn.classList.remove('open');
+        span.textContent = 'Devamýný Oku';
+        
+        // Scroll back to top of the card smoothly if the user is far down
+        const cardTop = document.getElementById('genel').getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top: cardTop - 120, behavior: 'smooth' });
+    }
+};
+

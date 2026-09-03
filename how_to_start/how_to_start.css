@@ -278,6 +278,65 @@ html {
     padding: 0;
 }
 
+.gi-card {
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 40px 48px;
+    box-shadow: var(--shadow-card);
+}
+
+.gi-card p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    color: var(--text-muted);
+}
+
+.gi-card p:last-child {
+    margin-bottom: 0;
+}
+
+.gi-subtitle {
+    font-family: var(--font-title);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 32px 0 16px 0;
+}
+
+.gi-read-more-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 30px auto 0 auto;
+    background: rgba(249, 115, 22, 0.1);
+    color: #f97316;
+    border: 1px solid rgba(249, 115, 22, 0.3);
+    padding: 14px 32px;
+    border-radius: 12px;
+    font-family: var(--font-main);
+    font-weight: 600;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.gi-read-more-btn:hover {
+    background: #f97316;
+    color: white;
+    box-shadow: 0 8px 20px rgba(249, 115, 22, 0.3);
+}
+
+.gi-read-more-btn i {
+    transition: transform 0.3s ease;
+}
+
+.gi-read-more-btn.open i {
+    transform: rotate(180deg);
+}
+
 .section-header {
     margin-bottom: 40px;
     scroll-margin-top: 120px;
@@ -564,6 +623,19 @@ html {
     
     .ecosystem-card {
         flex: 0 0 100%;
+    }
+
+    .gi-card {
+        padding: 24px 20px;
+        border-radius: 20px;
+    }
+    
+    .gi-card p {
+        font-size: 1rem;
+    }
+    
+    .gi-subtitle {
+        font-size: 1.25rem;
     }
 
     .section-title {
