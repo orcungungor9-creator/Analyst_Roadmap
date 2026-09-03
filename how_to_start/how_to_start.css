@@ -393,8 +393,23 @@ html {
 .mz-text p {
     font-size: 1.1rem;
     line-height: 1.7;
-    color: var(--text-muted);
-    margin: 0;
+    color: #111111;
+    margin: 0 0 16px 0;
+    position: relative;
+    padding-left: 20px;
+}
+
+.mz-text p:last-child {
+    margin-bottom: 0;
+}
+
+.mz-text p::before {
+    content: "•";
+    color: var(--step-color, #a855f7);
+    font-size: 1.5em;
+    position: absolute;
+    left: 0;
+    top: -4px;
 }
 
 .mz-image {
