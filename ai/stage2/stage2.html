@@ -250,11 +250,11 @@
                                 <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(239, 68, 68, 0.15); border: 1px solid #ef4444; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: #ef4444;">3</div>
                                 <h3 style="color: var(--text-main); font-size: 1.5rem;">Veri Temizleme ve Ön İşleme (Preprocessing) 🧹</h3>
                             </div>
-                            <p style="color: var(--text-muted); margin-bottom: 16px; line-height: 1.7; font-size: 1.1rem;">
-                                Ham veri setleri genellikle analiz kalitesini düşüren eksik değerler (NULL) ve <strong>Aykırı Değerler (Outliers)</strong> içerir. Aykırı değerler, istatistiksel dağılımın dışında kalarak modelin varyansını artırırken, eksik veriler algoritmaların matris hesaplamalarında hata vermesine yol açar. 📉
+                            <p style="color: var(--text-muted); margin-bottom: 16px; margin-top: 16px; line-height: 1.7; font-size: 1.1rem;">
+                                <strong>Çöp Giren, Çöp Çıkar (Garbage In, Garbage Out):</strong> Yapay zeka sürecinin <em>tartışmasız en önemli ve en çok zaman alan aşamasıdır</em>. Ne kadar gelişmiş, süper zeki bir algoritma kullanırsanız kullanın, eğitime sokacağınız veri hatalı, eksik veya kirli ise modelin üreteceği sonuçlar da tamamen yanlış olacaktır. Bu aşamanın tek bir amacı vardır: Topladığımız ham verinin <strong>modelin eğitimi için yeterince düzgün, sağlıklı ve tutarlı olup olmadığının</strong> en katı kontrolünün yapılması.
                             </p>
                             <p style="color: var(--text-muted); margin-bottom: 16px; line-height: 1.7; font-size: 1.1rem;">
-                                Gürbüz (robust) bir model oluşturmak için, bu istatistiksel anormalliklerin imputasyon (veri tamamlama) veya eliminasyon yöntemleriyle giderilmesi veri mühendisliğinin en kritik optimizasyon aşamalarından biridir. 🛠️
+                                Gerçek dünya verileri asla kusursuz değildir; içinde eksik bırakılmış değerler (NULL), yanlış girilmiş uçuk rakamlar (Outlier) veya birbirini tekrarlayan satırlar bulunur. Modelin eğitim aşamasında zehirlenmemesi için; eksik veriler doldurulur (Imputation), mantıksız aykırı değerler traşlanır ve tüm veri seti eğitime hazır, pırıl pırıl bir formata kavuşturulur.
                             </p>
                         </div>
                 </div>
