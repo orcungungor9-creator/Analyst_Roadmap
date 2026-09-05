@@ -8,12 +8,46 @@
     <link rel="stylesheet" href="../../styles.css?v=3.4">
     <link rel="stylesheet" href="stage3.css">
     <style>
-        .step-content-flex { display: flex; gap: 32px; align-items: center; }
-        .step-text-content { flex: 1; }
-        .step-image-content { flex: 1; text-align: center; }
-        .step-image-content img { max-width: 100%; border-radius: 16px; border: 1px solid var(--glass-border); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        @media (max-width: 900px) { .step-content-flex { flex-direction: column; } }
-    </style>
+    .step-content-flex {
+        display: flex;
+        gap: 40px;
+        align-items: stretch;
+    }
+    .step-text-content {
+        flex: 1.35;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .step-text-content p, .step-text-content ul {
+        font-size: 1.1rem !important;
+        line-height: 1.7 !important;
+    }
+    .step-image-content {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .step-image-content img {
+        width: 100%;
+        height: 100%;
+        max-height: 380px;
+        object-fit: cover;
+        border-radius: 16px;
+        border: 1px solid var(--glass-border);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+    @media (max-width: 900px) {
+        .step-content-flex {
+            flex-direction: column;
+            gap: 24px;
+        }
+        .step-image-content img {
+            max-height: 280px;
+        }
+    }
+</style>
 </head>
 <body class="formulas-page">
     <script>
@@ -66,8 +100,7 @@
             <!-- 1. ADIM -->
             <div class="step-wrapper" style="margin-bottom: 80px;">
                 <div class="guide-card glass-card story-text-card">
-                    <div class="step-content-flex">
-                        <div class="step-text-content">
+                    <div class="step-text-content">
                             <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
                                 <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(56, 189, 248, 0.15); border: 1px solid var(--neon-blue); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: var(--neon-blue);">1</div>
                                 <h3 style="color: var(--text-main); font-size: 1.5rem;">Makine Öğrenimi (Machine Learning) Özünde Nedir? 🤖</h3>
@@ -79,10 +112,9 @@
                                 <strong>Eğitim Süreci Nasıl İşler?</strong> Süreç aslında kör bir insanın dağdan aşağı inmeye çalışmasına benzer (Gradient Descent). Algoritma başlangıçta tamamen rastgele ve saçma tahminler yapar. Yaptığı hatanın büyüklüğünü ölçer, buna <strong>Kayıp (Loss) Fonksiyonu</strong> denir. Amacı bu hatayı sıfıra indirmektir. Hatayı küçültmek için arka plandaki ağırlıklarını (denklemin katsayılarını) milim milim günceller (Optimizasyon). Bu "tahmin et -> hatayı gör -> kendini düzelt" döngüsünün milyonlarca kez tekrarlanmasına "Eğitim (Training)" adı verilir.
                             </p>
                         </div>
-                        <div class="step-image-content">
-                            <img loading="lazy" src="img/robot_training.webp" alt="Robot Training Model">
-                        </div>
-                    </div>
+                </div>
+                <div class="step-banner-image" style="margin-top: 24px; margin-bottom: 24px;">
+                    <img loading="lazy" src="img/robot_training.webp" alt="Robot Training Model" style="width: 100%; height: 250px; object-fit: cover; object-position: center; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 1px solid var(--glass-border); display: block;">
                 </div>
             </div>
             <!-- Bağlantı Metni 1 -->
@@ -178,8 +210,7 @@
             <!-- 4. ADIM -->
             <div class="step-wrapper" style="margin-bottom: 80px;">
                 <div class="guide-card glass-card story-text-card">
-                    <div class="step-content-flex">
-                        <div class="step-text-content">
+                    <div class="step-text-content">
                             <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
                                 <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(244, 63, 94, 0.15); border: 1px solid #f43f5e; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: #f43f5e;">4</div>
                                 <h3 style="color: var(--text-main); font-size: 1.5rem;">Ezber Tuzağı: Overfitting (Aşırı Öğrenme) ⚠️</h3>
@@ -196,10 +227,9 @@
                                 <li><strong>Dropout:</strong> Ağ içerisindeki bazı nöronları eğitim esnasında rastgele "kapatırız". Bu sayede nöronlar karar vermek için birbirlerine bağımlı olmaktan çıkar, tembelleşemezler ve verinin farklı özelliklerini öğrenmek zorunda kalırlar.</li>
                             </ul>
                         </div>
-                        <div class="step-image-content">
-                            <img loading="lazy" src="img/robot_overfitting.webp" alt="Robot Overfitting Concept">
-                        </div>
-                    </div>
+                </div>
+                <div class="step-banner-image" style="margin-top: 24px; margin-bottom: 24px;">
+                    <img loading="lazy" src="img/robot_overfitting.webp" alt="Robot Overfitting Concept" style="width: 100%; height: 250px; object-fit: cover; object-position: center; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 1px solid var(--glass-border); display: block;">
                 </div>
             </div>
             <!-- Bağlantı Metni 4 -->
@@ -238,8 +268,7 @@
             <!-- 6. ADIM -->
             <div class="step-wrapper" style="margin-bottom: 80px;">
                 <div class="guide-card glass-card story-text-card">
-                    <div class="step-content-flex">
-                        <div class="step-text-content">
+                    <div class="step-text-content">
                             <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
                                 <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(245, 158, 11, 0.15); border: 1px solid #f59e0b; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: #f59e0b;">6</div>
                                 <h3 style="color: var(--text-main); font-size: 1.5rem;">Zirve Noktası: Üretken Yapay Zeka (Generative AI) ✨</h3>
@@ -255,10 +284,9 @@
                                 <li><strong>Difüzyon Modelleri (Diffusion):</strong> Önce kusursuz bir görsele adım adım "dijital kumlanma (noise)" ekleyerek onu tamamen anlaşılmaz bir karıncalanmaya dönüştürmeyi öğrenirler. Daha sonra bu süreci zekice <strong>tersine çevirirler</strong>. Sizden "astronot kedi" yazısını aldığında, rastgele bir karıncalanmadan başlayıp yavaş yavaş pikselleri temizleyerek eşsiz bir şaheser ortaya çıkarırlar (Örn: Midjourney, DALL-E).</li>
                             </ul>
                         </div>
-                        <div class="step-image-content">
-                            <img loading="lazy" src="img/robot_generative.webp" alt="Generative AI Concept">
-                        </div>
-                    </div>
+                </div>
+                <div class="step-banner-image" style="margin-top: 24px; margin-bottom: 24px;">
+                    <img loading="lazy" src="img/robot_generative.webp" alt="Generative AI Concept" style="width: 100%; height: 250px; object-fit: cover; object-position: center; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 1px solid var(--glass-border); display: block;">
                 </div>
             </div>
         </div>

@@ -8,30 +8,46 @@
     <link rel="stylesheet" href="../../styles.css?v=3.4">
     <link rel="stylesheet" href="stage2.css">
     <style>
+    .step-content-flex {
+        display: flex;
+        gap: 40px;
+        align-items: stretch;
+    }
+    .step-text-content {
+        flex: 1.35;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .step-text-content p, .step-text-content ul {
+        font-size: 1.1rem !important;
+        line-height: 1.7 !important;
+    }
+    .step-image-content {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .step-image-content img {
+        width: 100%;
+        height: 100%;
+        max-height: 380px;
+        object-fit: cover;
+        border-radius: 16px;
+        border: 1px solid var(--glass-border);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+    @media (max-width: 900px) {
         .step-content-flex {
-            display: flex;
-            gap: 32px;
-            align-items: center;
-        }
-        .step-text-content {
-            flex: 1;
-        }
-        .step-image-content {
-            flex: 1;
-            text-align: center;
+            flex-direction: column;
+            gap: 24px;
         }
         .step-image-content img {
-            max-width: 100%;
-            border-radius: 16px;
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            max-height: 280px;
         }
-        @media (max-width: 900px) {
-            .step-content-flex {
-                flex-direction: column;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 <body class="formulas-page">
     <script>
@@ -84,8 +100,7 @@
             <!-- 1. ADIM -->
             <div class="step-wrapper">
                 <div class="guide-card glass-card story-text-card">
-                    <div class="step-content-flex">
-                        <div class="step-text-content">
+                    <div class="step-text-content">
                             <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
                                 <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(56, 189, 248, 0.15); border: 1px solid var(--neon-blue); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: var(--neon-blue);">1</div>
                                 <h3 style="color: var(--text-main); font-size: 1.5rem;">Dijitalleştirme ve Vektörizasyon (Encoding) 🔢</h3>
@@ -97,10 +112,9 @@
                                 Bu dönüşüm sürecine <strong>'Vektörizasyon'</strong> veya <strong>'Encoding'</strong> adı verilir. Verilerin sayısal matrislere dönüştürülmesi, yapay zekanın girdi verisini istatistiksel olarak anlamlandırmasını ve sınıflandırmasını sağlar.
                             </p>
                         </div>
-                        <div class="step-image-content">
-                            <img loading="lazy" src="img/robot_vectorization.webp" alt="Vektörizasyon Robotu">
-                        </div>
-                    </div>
+                </div>
+                <div class="step-banner-image" style="margin-top: 24px; margin-bottom: 24px;">
+                    <img loading="lazy" src="img/robot_vectorization.webp" alt="Vektörizasyon Robotu" style="width: 100%; height: 250px; object-fit: cover; object-position: center; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 1px solid var(--glass-border); display: block;">
                 </div>
                 
                 <div class="sim-card interactive-sim sim-matrix-rain" id="sim1">
@@ -231,8 +245,7 @@
             <!-- 3. ADIM -->
             <div class="step-wrapper">
                 <div class="guide-card glass-card story-text-card">
-                    <div class="step-content-flex">
-                        <div class="step-text-content">
+                    <div class="step-text-content">
                             <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
                                 <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(239, 68, 68, 0.15); border: 1px solid #ef4444; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: #ef4444;">3</div>
                                 <h3 style="color: var(--text-main); font-size: 1.5rem;">Veri Temizleme ve Ön İşleme (Preprocessing) 🧹</h3>
@@ -244,10 +257,9 @@
                                 Gürbüz (robust) bir model oluşturmak için, bu istatistiksel anormalliklerin imputasyon (veri tamamlama) veya eliminasyon yöntemleriyle giderilmesi veri mühendisliğinin en kritik optimizasyon aşamalarından biridir. 🛠️
                             </p>
                         </div>
-                        <div class="step-image-content">
-                            <img loading="lazy" src="img/robot_organizing.webp" alt="Veri Temizleme Robotu">
-                        </div>
-                    </div>
+                </div>
+                <div class="step-banner-image" style="margin-top: 24px; margin-bottom: 24px;">
+                    <img loading="lazy" src="img/robot_organizing.webp" alt="Veri Temizleme Robotu" style="width: 100%; height: 250px; object-fit: cover; object-position: center; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 1px solid var(--glass-border); display: block;">
                 </div>
 
                 <div class="sim-card interactive-sim sim-cleaning" id="sim3">
@@ -383,8 +395,7 @@
             <!-- 6. ADIM -->
             <div class="step-wrapper">
                 <div class="guide-card glass-card story-text-card">
-                    <div class="step-content-flex">
-                        <div class="step-text-content">
+                    <div class="step-text-content">
                             <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
                                 <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(225, 29, 72, 0.15); border: 1px solid #e11d48; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: #e11d48;">6</div>
                                 <h3 style="color: var(--text-main); font-size: 1.5rem;">Algoritmik Yanlılık ve Etik (Model Bias) 🎭</h3>
@@ -396,10 +407,9 @@
                                 Evrensel doğruluğu (accuracy) yüksek ve etik kurallara uygun modeller tasarlamak, ancak veri setindeki sınıf dengelerinin (Class Balance) optimize edilmesiyle mümkündür. Veri adaleti, matematiksel adaletten daha kritik bir başarı faktörüdür. ⚖️
                             </p>
                         </div>
-                        <div class="step-image-content">
-                            <img loading="lazy" src="img/robot_balancing.webp" alt="Yanlılık ve Denge Robotu">
-                        </div>
-                    </div>
+                </div>
+                <div class="step-banner-image" style="margin-top: 24px; margin-bottom: 24px;">
+                    <img loading="lazy" src="img/robot_balancing.webp" alt="Yanlılık ve Denge Robotu" style="width: 100%; height: 250px; object-fit: cover; object-position: center; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 1px solid var(--glass-border); display: block;">
                 </div>
                 
                 <div class="sim-card sim-bias" id="sim6" style="background: url('img/bliss_wallpaper.webp') no-repeat center center/cover; padding: 16px 24px;">
