@@ -164,18 +164,54 @@
             </div>
             <!-- Bağlantı Metni 2 -->
             <div style="text-align: center; margin-bottom: 80px; position: relative;">
-                <div style="width: 2px; height: 40px; background: linear-gradient(to bottom, var(--neon-purple), var(--neon-green)); margin: 0 auto 20px auto;"></div>
+                <div style="width: 2px; height: 40px; background: linear-gradient(to bottom, var(--neon-purple), var(--neon-yellow)); margin: 0 auto 20px auto;"></div>
                 <p style="color: var(--text-muted); font-size: 1.1rem; font-style: italic; max-width: 600px; margin: 0 auto;">
-                    "Temel algoritmaları ve sınırlarını gördük. Peki çözmemiz gereken problem daha karmaşık (örneğin görüntü veya ses tanıma) olduğunda, insan beyninden ilham alan daha derin mimarilere nasıl geçeriz?"
+                    "Denetimli algoritmalarla verilerimize kuralları biz öğrettik. Peki ya elimizde milyonlarca etiketlenmemiş ses kaydı ve karmaşık fotoğraf varsa? Model kendi kendine bu verileri nasıl gruplayacak?"
                 </p>
-                <div style="width: 2px; height: 40px; background: linear-gradient(to bottom, var(--neon-green), transparent); margin: 20px auto 0 auto;"></div>
+                <div style="width: 2px; height: 40px; background: linear-gradient(to bottom, var(--neon-yellow), transparent); margin: 20px auto 0 auto;"></div>
             </div>
+
+            
 
             <!-- 3. ADIM -->
             <div class="step-wrapper" style="margin-bottom: 80px;">
                 <div class="guide-card glass-card story-text-card">
+                    <div class="step-text-content">
+                        <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+                            <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(234, 179, 8, 0.15); border: 1px solid var(--neon-yellow); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: var(--neon-yellow);">3</div>
+                            <h3 style="color: var(--text-main); font-size: 1.5rem;">Denetimsiz Öğrenme ve Yapılandırılmamış Veri 🎧🖼️</h3>
+                        </div>
+                        <p style="color: var(--text-muted); margin-bottom: 16px; line-height: 1.8; font-size: 1.15rem;">
+                            <strong>Kendi Kendine Keşfetmek:</strong> Tablosal verilerde kuralları algoritmalarla kolayca çözebiliyoruz. Peki ya elimizde milyonlarca etiketlenmemiş ses dalgası veya karmaşık fotoğraf varsa? Modelin bunlara bakıp "bu bir kedi" diyebilmesi için önce verinin içinde kendi başına örüntüler (pattern) bulması gerekir. İşte burada <strong>Denetimsiz Öğrenme (Unsupervised Learning)</strong> devreye girer. Algoritmalar hiçbir hedef (cevap anahtarı) olmadan veriyi analiz eder ve piksel ya da frekans bazında birbirine benzeyenleri <strong>kümeler (Clustering)</strong>.
+                        </p>
+                        <p style="color: var(--text-muted); margin-bottom: 12px; line-height: 1.8; font-size: 1.15rem;">
+                            <strong>Görsel ve Ses Dünyasındaki Yeri:</strong>
+                        </p>
+                        <ul style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.8; margin: 0 0 0 24px; padding: 0;">
+                            <li style="margin-bottom: 8px;"><strong>Boyut İndirgeme (Dimensionality Reduction):</strong> Bir fotoğraf milyonlarca pikselden oluşur, bu da makine için çok fazla "gürültü" demektir. PCA veya Autoencoder gibi yaklaşımlar, görselin/sesin detaylarını atıp sadece özünü (en önemli matematiksel bileşenlerini) bırakır. Model böylece görseli veya sesi anlamsal uzayda daha iyi tanır.</li>
+                            <li><strong>Örüntü ve Anomali Tespiti:</strong> Milyonlarca normal ses kaydı dinleyen bir sistem, aralarından farklı bir ses dalgası geçtiğinde bunun bir arıza (örneğin motordaki bozukluk) olduğunu etiket gerektirmeden fark eder. Bu yaklaşım, karmaşık yapay sinir ağlarına geçmeden önce veriyi anlamlandırmanın en güçlü yoludur.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="step-banner-image" style="margin-top: 24px; margin-bottom: 24px;">
+                    <img loading="lazy" src="img/unsupervised_clustering.jpg" alt="Unsupervised Learning Image" style="width: 100%; height: 250px; object-fit: cover; object-position: center; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 1px solid var(--glass-border); display: block;">
+                </div>
+            </div>
+
+            <!-- Bağlantı Metni 3 -->
+            <div style="text-align: center; margin-bottom: 80px; position: relative;">
+                <div style="width: 2px; height: 40px; background: linear-gradient(to bottom, var(--neon-yellow), var(--neon-green)); margin: 0 auto 20px auto;"></div>
+                <p style="color: var(--text-muted); font-size: 1.1rem; font-style: italic; max-width: 600px; margin: 0 auto;">
+                    "Denetimsiz öğrenme ile karmaşık ve etiketsiz verileri gruplamayı başardık. Ancak bu görsel ve ses verilerini insan beynine çok daha yakın bir karmaşıklıkta işlemek istersek hangi mimariye geçmeliyiz?"
+                </p>
+                <div style="width: 2px; height: 40px; background: linear-gradient(to bottom, var(--neon-green), transparent); margin: 20px auto 0 auto;"></div>
+            </div>
+
+            <!-- 4. ADIM -->
+            <div class="step-wrapper" style="margin-bottom: 80px;">
+                <div class="guide-card glass-card story-text-card">
                     <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
-                        <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(16, 185, 129, 0.15); border: 1px solid var(--neon-green); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: var(--neon-green);">3</div>
+                        <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(16, 185, 129, 0.15); border: 1px solid var(--neon-green); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: var(--neon-green);">4</div>
                         <h3 style="color: var(--text-main); font-size: 1.5rem;">Yapay Sinir Ağları (Neural Networks) ve İşleyişi 🕸️</h3>
                     </div>
                     <p style="color: var(--text-muted); margin-bottom: 16px; line-height: 1.8; font-size: 1.15rem;">
@@ -198,7 +234,7 @@
                     </p>
                 </div>
             </div>
-            <!-- Bağlantı Metni 3 -->
+            <!-- Bağlantı Metni 4 -->
             <div style="text-align: center; margin-bottom: 80px; position: relative;">
                 <div style="width: 2px; height: 40px; background: linear-gradient(to bottom, var(--neon-green), #f43f5e); margin: 0 auto 20px auto;"></div>
                 <p style="color: var(--text-muted); font-size: 1.1rem; font-style: italic; max-width: 600px; margin: 0 auto;">
@@ -207,7 +243,7 @@
                 <div style="width: 2px; height: 40px; background: linear-gradient(to bottom, #f43f5e, transparent); margin: 20px auto 0 auto;"></div>
             </div>
 
-            <!-- 4. ADIM -->
+            <!-- 5. ADIM -->
             <div class="step-wrapper" style="margin-bottom: 80px;">
                 <div class="guide-card glass-card story-text-card">
                     <div class="step-text-content">
@@ -232,7 +268,7 @@
                     <img loading="lazy" src="img/robot_overfitting.webp" alt="Robot Overfitting Concept" style="width: 100%; height: 250px; object-fit: cover; object-position: center; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 1px solid var(--glass-border); display: block;">
                 </div>
             </div>
-            <!-- Bağlantı Metni 4 -->
+            <!-- Bağlantı Metni 5 -->
             <div style="text-align: center; margin-bottom: 80px; position: relative;">
                 <div style="width: 2px; height: 40px; background: linear-gradient(to bottom, #f43f5e, #3b82f6); margin: 0 auto 20px auto;"></div>
                 <p style="color: var(--text-muted); font-size: 1.1rem; font-style: italic; max-width: 600px; margin: 0 auto;">
@@ -241,7 +277,7 @@
                 <div style="width: 2px; height: 40px; background: linear-gradient(to bottom, #3b82f6, transparent); margin: 20px auto 0 auto;"></div>
             </div>
 
-            <!-- 5. ADIM -->
+            <!-- 6. ADIM -->
             <div class="step-wrapper" style="margin-bottom: 80px;">
                 <div class="guide-card glass-card story-text-card">
                     <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
@@ -256,7 +292,7 @@
                     </p>
                 </div>
             </div>
-            <!-- Bağlantı Metni 5 -->
+            <!-- Bağlantı Metni 6 -->
             <div style="text-align: center; margin-bottom: 80px; position: relative;">
                 <div style="width: 2px; height: 40px; background: linear-gradient(to bottom, #3b82f6, #f59e0b); margin: 0 auto 20px auto;"></div>
                 <p style="color: var(--text-muted); font-size: 1.1rem; font-style: italic; max-width: 600px; margin: 0 auto;">
@@ -265,7 +301,7 @@
                 <div style="width: 2px; height: 40px; background: linear-gradient(to bottom, #f59e0b, transparent); margin: 20px auto 0 auto;"></div>
             </div>
 
-            <!-- 6. ADIM -->
+            <!-- 7. ADIM -->
             <div class="step-wrapper" style="margin-bottom: 80px;">
                 <div class="guide-card glass-card story-text-card">
                     <div class="step-text-content">
