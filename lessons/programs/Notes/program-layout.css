@@ -1,4 +1,4 @@
-﻿.program-hero {
+.program-hero {
     margin-bottom: 40px;
     background: var(--bg-card);
     border: 4px solid var(--theme-color);
@@ -92,12 +92,7 @@
     overflow: hidden;
     transition: max-height 0.3s ease-out;
 }
-.accordion-inner {
-    padding: 24px;
-    color: var(--text-main);
-    opacity: 0.8;
-    line-height: 1.6;
-}
+.accordion-inner { padding: 24px; color: var(--text-main); line-height: 1.6; }
 
 /* Layout Wrapper for Notepad */
 .program-layout-wrapper {
@@ -117,6 +112,7 @@
 .right-column {
     position: sticky;
     top: 100px;
+    align-self: start;
     border-left: 5px solid var(--text-main);
     padding-left: 30px;
     height: calc(100vh - 140px);
@@ -681,4 +677,74 @@
 
 
 
+
+
+/* ==========================================================================
+   Syntax Highlighting Colors for Code Blocks
+   ========================================================================== */
+.syn-comment { color: #001f3f; } /* Dark navy */
+.syn-string { color: #E91E63; }
+.syn-number { color: #2196F3; }
+.syn-kw { color: #9C27B0; }
+.syn-fn { color: #E65100; }
+.syn-var { color: var(--text-main); font-weight: bold; }
+
+/* Dark themes */
+body.theme-dark .syn-comment,
+body.theme-ocean .syn-comment,
+body.theme-purple .syn-comment,
+body.theme-emerald .syn-comment,
+body.theme-cyberpunk .syn-comment,
+body.theme-cyber-neon .syn-comment,
+body.theme-amber .syn-comment,
+body.theme-dark-sakura .syn-comment,
+body.theme-mono-dark .syn-comment { color: #4CAF50; }
+
+body.theme-dark .syn-string,
+body.theme-ocean .syn-string,
+body.theme-purple .syn-string,
+body.theme-emerald .syn-string,
+body.theme-cyberpunk .syn-string,
+body.theme-cyber-neon .syn-string,
+body.theme-amber .syn-string,
+body.theme-dark-sakura .syn-string,
+body.theme-mono-dark .syn-string { color: #FF8A80; }
+
+body.theme-dark .syn-number,
+body.theme-ocean .syn-number,
+body.theme-purple .syn-number,
+body.theme-emerald .syn-number,
+body.theme-cyberpunk .syn-number,
+body.theme-cyber-neon .syn-number,
+body.theme-amber .syn-number,
+body.theme-dark-sakura .syn-number,
+body.theme-mono-dark .syn-number { color: #82B1FF; }
+
+body.theme-dark .syn-kw,
+body.theme-ocean .syn-kw,
+body.theme-purple .syn-kw,
+body.theme-emerald .syn-kw,
+body.theme-cyberpunk .syn-kw,
+body.theme-cyber-neon .syn-kw,
+body.theme-amber .syn-kw,
+body.theme-dark-sakura .syn-kw,
+body.theme-mono-dark .syn-kw { color: #EA80FC; }
+
+body.theme-dark .syn-fn,
+body.theme-ocean .syn-fn,
+body.theme-purple .syn-fn,
+body.theme-emerald .syn-fn,
+body.theme-cyberpunk .syn-fn,
+body.theme-cyber-neon .syn-fn,
+body.theme-amber .syn-fn,
+body.theme-dark-sakura .syn-fn,
+body.theme-mono-dark .syn-fn { color: #FFD180; }
+
+/* Fullscreen viewer is always dark */
+#fullscreen-viewer-modal .syn-comment { color: #4CAF50 !important; }
+#fullscreen-viewer-modal .syn-string { color: #FF8A80 !important; }
+#fullscreen-viewer-modal .syn-number { color: #82B1FF !important; }
+#fullscreen-viewer-modal .syn-kw { color: #EA80FC !important; }
+#fullscreen-viewer-modal .syn-fn { color: #FFD180 !important; }
+#fullscreen-viewer-modal .syn-var { color: #e2e8f0 !important; font-weight: bold !important; }
 

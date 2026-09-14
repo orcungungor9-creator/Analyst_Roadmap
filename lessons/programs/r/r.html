@@ -94,7 +94,58 @@
                 </div>
                 <div class="accordion-content">
                     <div class="accordion-inner">
-                        <p>2. Ders içeriği buraya gelecek...</p>
+                        <div class="lesson-content">
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">RStudio Arayüzü ve 4 Temel Panel</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">RStudio ekranı varsayılan olarak 4 ana bölmeye (panele) ayrılmıştır:</p>
+
+                            <!-- Source Panel -->
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Source (Kaynak) Paneli — Sol Üst</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Kodlarınızı yazdığınız, düzenlediğiniz ve .R formatında kaydettiğiniz editördür. Kodları doğrudan konsola yazmak yerine burada saklamak çalışmanızın sürekliliği açısından kritiktir.</p>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><em>İpucu:</em> Yazdığınız satırı çalıştırmak için yukarıdaki Run butonuna basabilir veya <code style="background: var(--bg-card); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--glass-border);">Ctrl + Enter</code> (Mac'te <code style="background: var(--bg-card); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--glass-border);">Cmd + Enter</code>) kısayolunu kullanabilirsiniz.</p>
+                            <img src="İmages/ders_2_img/source_panel.webp" alt="Source Paneli" style="max-width: 100%; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border: 1px solid var(--glass-border);">
+
+                            <!-- Console Panel -->
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Console (Konsol) Paneli — Sol Alt</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">R’ın motorudur; çalıştırdığınız kodların sonuçları ve hata mesajları burada anlık olarak görünür. Hızlı ve geçici kod denemeleri için uygundur; fakat buraya yazılan kodlar dosya olarak kaydedilmez.</p>
+                            <img src="İmages/ders_2_img/console_panel.webp" alt="Console Paneli" style="max-width: 100%; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border: 1px solid var(--glass-border);">
+
+                            <!-- Environment Panel -->
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Environment & History — Sağ Üst</h4>
+                            <ul style="margin-bottom: 15px; padding-left: 20px; line-height: 1.6; font-weight: 500; color: var(--text-main);">
+                                <li style="margin-bottom: 8px;"><strong>Environment:</strong> Çalışma boyunca tanımladığınız değişkenler, veri setleri (data frame) ve fonksiyonlar hafızada tutularak burada listelenir.</li>
+                                <li style="margin-bottom: 8px;"><strong>History:</strong> Oturum boyunca çalıştırdığınız tüm kod geçmişini kronolojik olarak gösterir.</li>
+                            </ul>
+                            <img src="İmages/ders_2_img/env_panel.webp" alt="Environment Paneli" style="max-width: 100%; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border: 1px solid var(--glass-border);">
+
+                            <!-- Files Panel -->
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Files, Plots, Packages & Help — Sağ Alt</h4>
+                            <ul style="margin-bottom: 15px; padding-left: 20px; line-height: 1.6; font-weight: 500; color: var(--text-main);">
+                                <li style="margin-bottom: 8px;"><strong>Files:</strong> Çalışma dizininizdeki dosya ve klasörleri yönetmenizi sağlar.</li>
+                                <li style="margin-bottom: 8px;"><strong>Plots:</strong> Çizdirdiğiniz grafiklerin görsel önizlemesini sunar.</li>
+                                <li style="margin-bottom: 8px;"><strong>Packages:</strong> Kurulu kütüphaneleri listeler, yenilerini yükleyip güncellemenizi sağlar.</li>
+                                <li style="margin-bottom: 8px;"><strong>Help:</strong> Takıldığınız fonksiyonların resmi dokümantasyonunu ve kullanım kılavuzlarını açar.</li>
+                            </ul>
+                            <img src="İmages/ders_2_img/plots_panel.webp" alt="Plots Paneli" style="max-width: 100%; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border: 1px solid var(--glass-border);">
+
+                            <!-- Code Block -->
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">🧪 İlk Kod Denemeleri</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Aşağıdaki kodları Source paneline yazıp <code style="background: var(--bg-card); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--glass-border);">Ctrl + Enter</code> ile çalıştırarak konsoldaki sonuçları inceleyebilirsiniz:</p>
+                            <pre style="background: var(--bg-card); color: var(--text-main); padding: 15px; border-radius: 8px; overflow-x: auto; font-family: monospace; line-height: 1.5; margin-bottom: 20px; border: 1px solid var(--glass-border);"><code># Basit bir matematiksel işlem
+2 + 2
+
+# Mantıksal (Logical) karşılaştırmalar
+5 > 3   # TRUE döner
+3 > 5   # FALSE döner
+
+# R'da mantıksal değerlerin sayısal karşılıkları vardır:
+# TRUE arka planda 1, FALSE ise 0 değerini taşır.
+TRUE == 1   # TRUE
+FALSE == 0  # TRUE
+T == 4      # FALSE (T, TRUE'nun kısaltmasıdır)
+
+# R oturumunu kapatmak/çıkış yapmak için:
+q()</code></pre>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -105,7 +156,127 @@
                 </div>
                 <div class="accordion-content">
                     <div class="accordion-inner">
-                        <p>3. Ders içeriği buraya gelecek...</p>
+                        <div class="lesson-content">
+                            <pre style="background: var(--bg-card); color: var(--text-main); padding: 15px; border-radius: 8px; overflow-x: auto; font-family: monospace; line-height: 1.6; margin-bottom: 20px; border: 1px solid var(--glass-border); font-size: 0.95rem;"><code><span class="syn-comment"># R egitimi ucuncu ders</span>
+
+<span class="syn-comment"># ~~~~~~~~( Degisken Nedir )~~~~~~~~~~</span>
+
+<span class="syn-comment"># Degisken neden kullaniriz ? Degisken, kullanacagimiz sahsi atama/atamalarimizdir.
+# Degiskenler kod yazarken isimizi kolaylastiracak sahsi kutulardir.
+# Bir islem yapar ve onu isimlendirirsiniz, belki 200 karakter olan bir islem 1 degisken olur.
+# Ana kullanim amaci neredeyse tamamen bu oldugundan degisken isimlerini kisa tutariz.
+
+# Calistirdigimiz komutlarin/kutularin "cikti" dedigimiz bir goruntusu olur.
+
+# Komutlar bizim R yazilim dilimizde isimizi kolaylastiran onceden programlanmis islemlerdir.
+
+# Ayni islemi kisa, uzun, daha kisa, daha uzun yollarla yapmak sizin ne kadar iyi sekilde 
+# dili ogrendiginiz ile alakalidir. 
+
+# Degisken dedigimiz kavram dilin en temellerinden biridir. Degiskeni olusturur ve kod
+# icinde istedigimiz gibi cagiririz. Ancak degisken atarken belli basli kurallar vardir.
+
+# Kutu olayini soyle aciklayayim, devasa bir islem yapip sonucunu her defasinda bir
+# degisken, yani kutu ile cagirmak istiyorum. koca islemi degisken tutuyor.</span>
+
+
+<span class="syn-comment"># ~~~~( Degisken turleri ve Kurallari )</span>
+
+
+<span class="syn-comment"># 1. ATAMA OPERATORU (Assignment Operator)
+# R dilinde bir veriyi isme baglamak icin "&lt;-" kullanilir.
+# Alt ve Tire tuslarina ayni anda basarak (Alt + -) bu isareti hizlica yapabilirsiniz.</span>
+
+<span class="syn-var">sayi</span> &lt;- <span class="syn-number">10</span>
+<span class="syn-var">metin</span> &lt;- <span class="syn-string">" R egitimine hos geldiniz"</span>
+
+<span class="syn-comment"># 2. ISIMLENDIRME KURALLARI
+# Bir degiskene her ismi veremezsiniz. Su kurallar hayati onem tasir:
+
+# A) Sayi ile baslayamaz:
+# 1degisken &lt;- 5  (YANLIS)</span>
+<span class="syn-var">degisken1</span> &lt;- <span class="syn-number">5</span>   <span class="syn-comment"># (DOGRU)</span>
+
+<span class="syn-comment"># B) Bosluk iceremez:
+# benim verim &lt;- 100 (YANLIS)</span>
+<span class="syn-var">benim_verim</span> &lt;- <span class="syn-number">100</span>   <span class="syn-comment"># (DOGRU - Alt tire kullanin)</span>
+<span class="syn-var">benimVerim</span> &lt;- <span class="syn-number">100</span>    <span class="syn-comment"># (DOGRU - CamelCase kullanin)</span>
+
+<span class="syn-comment"># C) Buyuk/Kucuk harf duyarlidir (Case Sensitive):
+# R icin "veri", "Veri" ve "VERI" birbirinden tamamen farkli 3 degiskendir.
+
+# D) Ozel karakter yasagi:
+# Degisken isimlerinde !, ?, $, % gibi karakterler kullanilamaz. 
+# Sadece nokta (.) ve alt tire (_) serbesttir.</span>
+
+
+<span class="syn-comment"># ~~~~( Degisken atama opsiyonlari)~~~~
+
+# Degiskenler illa "&lt;-" ile atanmaz, tek esittir "=" operatoru degisken atamaya yarar.</span>
+<span class="syn-var">esittir</span> = <span class="syn-number">850</span>
+
+<span class="syn-number">850</span> -&gt; <span class="syn-var">esittir2</span> <span class="syn-comment"># Normalde sagdakini sola atariz, ama ok nereye atama oraya. </span>
+
+<span class="syn-comment"># Not : " &lt;- " standart kabul edilir, cogunlukla " &lt;- " kullanilir.</span>
+
+
+<span class="syn-comment"># ~~~~( Temel Veri Tipleri )~~~~
+
+# Olusturdugumuz her degiskenin bir "tipi" vardir. Bunu class() komutu ile sorgulatabiliriz.
+
+# A) Numeric (Sayisal): Ondalikli veya tam sayilar.</span>
+<span class="syn-var">boy</span> &lt;- <span class="syn-number">1.82</span>
+<span class="syn-fn">class</span>(<span class="syn-var">boy</span>)
+
+<span class="syn-comment"># B) Integer (Tam Sayi): Sayinin sonuna L harfi konularak belirtilir.</span>
+<span class="syn-var">yas</span> &lt;- <span class="syn-number">25L</span>
+<span class="syn-fn">class</span>(<span class="syn-var">yas</span>)
+
+<span class="syn-comment"># C) Character (Metin): Her zaman cift veya tek tirnak icinde yazilir.</span>
+<span class="syn-var">isim</span> &lt;- <span class="syn-string">"Orcun"</span>
+<span class="syn-fn">class</span>(<span class="syn-var">isim</span>)
+
+<span class="syn-comment"># D) Logical (Mantiksal): Sadece Dogru (TRUE) veya Yanlis (FALSE) degeri alir.</span>
+<span class="syn-var">ogrenci_mi</span> &lt;- <span class="syn-kw">TRUE</span>
+<span class="syn-fn">class</span>(<span class="syn-var">ogrenci_mi</span>)
+
+<span class="syn-comment"># olusturdugumuz degiskenleri listeler</span>
+<span class="syn-fn">ls</span>()
+
+<span class="syn-comment"># Bu komut olusturdugumuz bir seyi silmeye yarar, metnini silmez ama enviromentten siler.</span>
+<span class="syn-fn">rm</span>()
+
+
+<span class="syn-comment"># ~~~~( Öğrenci Deneyi )~~~~
+# Şu anki environment'ında kaç değişken var?</span>
+<span class="syn-fn">ls</span>()
+
+<span class="syn-comment"># "yas" değişkenini sil ve tekrar kontrol et</span>
+<span class="syn-fn">rm</span>(<span class="syn-var">yas</span>)
+<span class="syn-fn">ls</span>()
+
+
+<span class="syn-comment"># Dip Not; onceki video scriptinde T ve F yani TRUE ve FALSE'i R programlama dilinin 
+# sirasiyla 1 ve 0 olarak algiladigindan bahsetmistim. 
+# Bu ders degiskenleri ogretirken bunu da es gecmemek lazim, TRUE ya da FALSE su an oldugu
+# gibi yazilirken ayrilmis degerlerdir, onlara deger atayamazsin, ama T ve F harflerine
+# bir deger atarsan bundan sonra projede verdigin degerler ne ise onlar o degeri alir.</span>
+
+
+<span class="syn-comment"># ~~~~( Kucuk Bir Not: Eksik Veri (NA) )~~~~
+
+# R'da ileride cok karsilasacagimiz bir terim var: NA (Not Available)
+# NA, "Mevcut Degil" veya "kayip Veri" anlamina gelir. 
+# Gercek hayatta veriler her zaman kusursuz degildir, misal bazen excel tablosundaki
+# bir hucre bos kalir veya veri girilmez. Iste R bu bosluklari NA olarak tanimlar.</span>
+ 
+<span class="syn-var">kayip_veri</span> &lt;- <span class="syn-kw">NA</span>
+
+<span class="syn-comment"># Su an icin bu kavrami sadece ismen bilmeniz yeterli. Ilerleyen derslerde 
+# matrisler (matrices) ve veri tablolari (data frames) gibi buyuk yapilari islerken, 
+# bos kalan hucrelerde NA kavraminin ne kadar hayati oldugunu ve bu kayip verilerle 
+# nasil basa cikacagimizi cok daha detayli gorecegiz.</span></code></pre>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -276,6 +447,13 @@
     <script src="r.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
 
 
 
