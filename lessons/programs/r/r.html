@@ -1114,7 +1114,90 @@
                 </div>
                 <div class="accordion-content">
                     <div class="accordion-inner">
-                        <p>10. Ders içeriği buraya gelecek...</p>
+                        <div class="lesson-content">
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Kütüphaneler, Açık Kaynak Mantığı ve CRAN</h4>
+                            
+                            <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 500; color: var(--text-main);">R programlama dili, parayla satılan sıradan bir yazılım değildir; <strong>"Açık Kaynak Kodlu" (Open Source)</strong> bir dildir. Peki bu ne demek?</p>
+                            
+                            <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>1. Açık Kaynak (Open Source) Ne Demektir?</strong><br>R tamamen ücretsizdir ve tüm dünyadaki bilim insanlarının, istatistikçilerin ve yazılımcıların gönüllü olarak geliştirdiği bir sistemdir. Avantajı şudur: R'ı üreten şirketin yeni bir özellik getirmesini beklemezsiniz. Japonya'daki bir genetikçi veya Amerika'daki bir finansçı kendi işini inanılmaz kolaylaştıran bir kod (paket) yazar ve bunu tüm dünyayla bedava paylaşır.</p>
+                            
+                            <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>2. CRAN Nedir? (The Comprehensive R Archive Network)</strong><br>Yukarıda bahsettiğimiz o "gönüllü" insanların yazdığı kodlar öyle internette başıboş dolaşmaz. CRAN, R'ın resmi, güvenilir ve virüs taramasından geçmiş devasa <strong>"App Store"udur (Uygulama Mağazası)</strong>. R'a yepyeni bir yetenek eklemek istediğinizde bu paketler otomatik olarak CRAN sunucularından güvenle indirilir.</p>
+                            
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>3. Paket (Package) Nedir?</strong><br>İçerisinde hazır komutlar, işinize yarayacak özel fonksiyonlar barındıran, R'ın yeteneklerini arşa çıkaran alet çantalarıdır.</p>
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Veri Manipülasyonunun Kralı: 'dplyr' Paketi</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Bugün R'ın en ünlü, en çok kullanılan paketini indireceğiz: <strong>dplyr</strong>. Neden dplyr? Eğer elinizde binlerce satırlık koca bir tablo varsa; içinden istediğiniz satırları filtrelemek, sadece belli sütunları çekip almak veya tabloları birleştirmek normal R kodlarıyla (Base R) eziyettir. dplyr paketi bu işlemleri adeta bir oyuncak gibi kolaylaştırır.</p>
+
+                            <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                                <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-warning-circle"></i> ÖNEMLİ UYARI: Paket Kodlarını Çalıştırma Hakkında</h5>
+                                <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Şu anki tüm paket işlemlerini tamamen göstermelik koyduk. Hepsini aynı anda çalıştırmayın. Komutları öğrenin yeter. İlerleyen derslerde bu üç kütüphanenin içine zaten bakacağız, o zaman kullanırsınız.</p>
+                            </div>
+
+                            <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>Adım 1: Paketi İndirmek (install.packages)</strong><br>Bu işlem telefona App Store'dan uygulama indirmek gibidir. Bilgisayarınıza <strong>SADECE BİR KERE YAPILIR!</strong> Silmedikçe orda kalır.<br><em>DİKKAT: İndirirken paket ismi mutlaka TIRNAK İÇİNDE (" ") yazılmalıdır. Eğer paket sizde varsa bu satırı çalıştırmak yerine başına # koyun.</em></p>
+                            <div class="code-box"><span class="syn-fn">install.packages</span>(<span class="syn-string">"dplyr"</span>) 
+<span class="syn-fn">install.packages</span>(<span class="syn-string">"ggplot2"</span>)
+<span class="syn-fn">install.packages</span>(<span class="syn-string">"readxl"</span>)</div>
+
+                            <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>Adım 2: Paketi Aktif Etmek ve Kapatmak (library)</strong><br>Uygulamayı telefona indirdiniz ama kullanmak için üzerine tıklayıp açmanız lazım! <code>library()</code> komutu, o paketi "o anki" çalışmanızda kullanıma açar. R'ı her kapatıp açtığınızda tekrar çağırmalısınız.<br><em>DİKKAT: library ile çağırırken tırnak işaretine GEREK YOKTUR!</em></p>
+                            <div class="code-box"><span class="syn-fn">library</span>(dplyr) 
+
+<span class="syn-comment"># Yüklü olan tüm paketlerinizi listelemek için sadece komutu yazın:</span>
+<span class="syn-fn">library</span>()
+
+<span class="syn-comment"># Bir paketin içinde hangi komutlar var merak ediyorsan help kısmından bakabilirsin:</span>
+<span class="syn-fn">help</span>(package = <span class="syn-string">"dplyr"</span>)</div>
+
+                            <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>Adım 3: Birden fazla paketle çalışmak</strong><br>Büyük bir projede tek paket yetmez, bazen 10-15 paketi aynı anda açarız. R'da projeyi bir inşaat (şantiye) gibi düşünün:</p>
+                            <div class="code-box"><span class="syn-fn">library</span>(readxl)  <span class="syn-comment"># Hamal ustayı çağırdık (Veriyi bilgisayardan içeri taşır)</span>
+<span class="syn-fn">library</span>(dplyr)   <span class="syn-comment"># Marangoz ustayı çağırdık (Veriyi keser, biçer, temizler)</span>
+<span class="syn-fn">library</span>(ggplot2) <span class="syn-comment"># Boyacı ustayı çağırdık (Veriyi boyar, grafik çizer)</span>
+<span class="syn-comment"># Bu ustaların hepsi aynı anda projenizde (şantiyede) çalışabilir.</span></div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Paketi Kapatmak (detach) ve İsim Çakışması (Masking)</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Madem hepsi aynı anda çalışıyor, neden bir paketi kapatalım? Çünkü bazen iki farklı usta, <strong>AYNI İSİMDE</strong> alet kullanır! Buna R dilinde <strong>"Masking" (İsim Çakışması - Maskeleme)</strong> denir.</p>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Örneğin: R'ın kendi temelinde <code>filter</code> (filtrele) komutu vardır, dplyr paketinin içinde de <code>filter</code> komutu vardır. Siz koda filter() yazınca R kafa karışıklığı yaşar. R genelde en son çağırdığınız paketin komutunu geçerli sayar. Çözüm 2 yoldur:</p>
+
+                            <p style="margin-bottom: 5px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>ÇÖZÜM 1: Paketi Kapatmak (Ustayı Kovmak)</strong></p>
+                            <div class="code-box"><span class="syn-comment"># Eğer paketi bir daha kullanmayacaksak programın aktif hafızasından çıkarır:</span>
+<span class="syn-fn">detach</span>(<span class="syn-string">"package:dplyr"</span>, unload=<span class="syn-kw">TRUE</span>) 
+
+<span class="syn-comment"># unload=FALSE yazarsak paketi uykuya alır ama RAM'de yer kaplamaya devam eder.</span>
+<span class="syn-fn">detach</span>(<span class="syn-string">"package:dplyr"</span>, unload=<span class="syn-kw">FALSE</span>)</div>
+
+                            <p style="margin-bottom: 5px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>ÇÖZÜM 2: İki kere İki Nokta Üst Üste (::)</strong><br>Hangi ustanın hangi aletini kullanmak istiyorsanız "paket_adi::komut_adi" şeklinde R'a direkt fısıldarsınız:</p>
+                            <div class="code-box">dplyr::<span class="syn-fn">filter</span>()  <span class="syn-comment"># Sadece dplyr'in filtresini kullan</span>
+stats::<span class="syn-fn">filter</span>()  <span class="syn-comment"># R'ın kendi orijinal filtresini kullan</span></div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Aktif ve Uyuyan Paketleri Görmek</h4>
+                            
+                            <div class="code-box"><span class="syn-comment"># 1. Sahada Çalışanları Görmek (search komutu):
+# "Şu an kimler aktif olarak iş yapıyor?" sorusunun cevabıdır.</span>
+<span class="syn-fn">search</span>()
+
+<span class="syn-comment"># NOT: detach(..., unload=FALSE) diyerek uykuya aldığınız (arka plana ittiğiniz) 
+# paketler, sahada olmadıkları için bu 'search()' listesinde GÖRÜNMEZ.</span>
+
+<span class="syn-comment"># 2. Arka Planda Uyuyanları Görmek (loadedNamespaces komutu):
+# Sahada aktif çalışan ustalar + arka planda yatan (uyuyan) tüm ustaların TAM LİSTESİDİR.
+# Bilgisayarın hafızasını gerçekte nelerin işgal ettiğini buradan anlarsınız.</span>
+<span class="syn-fn">loadedNamespaces</span>()</div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Pakete Atıfta Bulunmak (Citation)</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Proje bitiminde paketini kullandığımız kişiye atıfta bulunuruz.</p>
+                            <div class="code-box"><span class="syn-fn">citation</span>(<span class="syn-string">"dplyr"</span>)
+<span class="syn-comment"># Bu kodu yazdığımızda karşımıza iki metin çıkacak @manual yazan metne kadar olan o ilk
+# paragrafı direkt copy/paste yapabilirsiniz analiz dosyanıza.</span></div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Dipnotlar ve Arayüz (UI) Kolaylıkları</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Paketleri çalıştırdığınızda konsolda kırmızı yazılar çıkabilir, bazen bunun sebebi <strong>Masking</strong> olayıdır. O uyarıdan itibaren R en güncel olanı kullanır.</p>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">RStudio'nun sağ alt köşesindeki <strong>"Packages"</strong> sekmesine göz atın. Orası sizin cihazınızda yüklü olan tüm paketlerin listesidir. Yanındaki kutucuğu tıklayarak da <code>library()</code> komutunu yazmadan o paketi hızlıca aktif edebilirsiniz. Ayrıca güncellemeleri de arayüzden yapabilirsiniz:</p>
+                            
+                            <div class="code-box"><span class="syn-fn">update.packages</span>(<span class="syn-string">"dplyr"</span>) <span class="syn-comment"># Paketin yeni sürümü çıktıysa günceller.</span></div>
+                        </div>
                     </div>
                 </div>
             </div>
