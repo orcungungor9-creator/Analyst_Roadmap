@@ -408,7 +408,130 @@
                 </div>
                 <div class="accordion-content">
                     <div class="accordion-inner">
-                        <p>6. Ders içeriği buraya gelecek...</p>
+                        <div class="lesson-content">
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Vektörler ve Vektör Oluşturma</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Kodlama geçmişi olanlar bilir; birden fazla veriyi tek bir değişkende tutmak istediğimizde array'ler veya listeler kullanırız. R dilinde bunun en temel ve en baba hali <strong>"Vektör"</strong>dür.</p>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Vektörleri bir tren katarına benzetebilirsiniz. Tek bir isme sahip ama içinde birden fazla vagon (veri) taşıyor. Vektör oluşturmak için R'ın en meşhur fonksiyonunu kullanırız: <code>c()</code>. İngilizce "combine" (birleştir) kelimesinin baş harfidir.</p>
+                        
+                            <div class="code-box"><span class="syn-comment"># Tıpkı değişkenler gibi çıktı almak için sadece ismini yazıp çalıştırmamız yeterli:</span>
+<span class="syn-var">Uyeler</span> &lt;- <span class="syn-fn">c</span>(<span class="syn-string">"Orcun"</span>, <span class="syn-string">"Furkan"</span>, <span class="syn-string">"Ahmet"</span>) <span class="syn-comment"># Metin tipi</span>
+<span class="syn-var">Uyeler</span> <span class="syn-comment"># Konsolda: "Orcun" "Furkan" "Ahmet" yazar.</span>
+                        
+<span class="syn-var">kilolar</span> &lt;- <span class="syn-fn">c</span>(<span class="syn-number">75</span>, <span class="syn-number">80</span>, <span class="syn-number">85</span>) <span class="syn-comment"># Sayı tipi</span>
+<span class="syn-var">kilolar</span> <span class="syn-comment"># Konsolda: 75 80 85 yazar.</span>
+                        
+<span class="syn-var">Mantik</span> &lt;- <span class="syn-fn">c</span>(<span class="syn-kw">TRUE</span>, <span class="syn-kw">FALSE</span>, <span class="syn-kw">TRUE</span>) <span class="syn-comment"># Mantıksal tip</span>
+<span class="syn-var">Mantik</span> <span class="syn-comment"># Konsolda: TRUE FALSE TRUE yazar.</span></div>
+                        
+                            <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                                <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-warning-circle"></i> ALTIN KURAL: Tek Tip Veri Zorunluluğu</h5>
+                                <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Diğer dillerdeki listelerden farklı olarak R'da bir vektörün içindeki <strong>TÜM ELEMANLAR</strong> aynı veri tipinde olmak <strong>ZORUNDADIR</strong>. Ya hepsi metin olacak, ya hepsi sayı, ya da hepsi mantıksal (TRUE/FALSE).</p>
+                                <p style="margin-top: 10px; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Peki "Ben asi bir insanım, hem sayı hem metin koyacağım" derseniz ne olur? R hata vermez, ama sinsice tüm sayıları metne çevirir! (Buna <strong>Coercion</strong> denir).</p>
+                            </div>
+                        
+                            <div class="code-box"><span class="syn-var">karisik_vektor</span> &lt;- <span class="syn-fn">c</span>(<span class="syn-string">"Furkan"</span>, <span class="syn-number">70</span>, <span class="syn-kw">TRUE</span>)
+<span class="syn-fn">class</span>(<span class="syn-var">karisik_vektor</span>) <span class="syn-comment"># [1] "character" gördüğünüz gibi hepsini metin tipine çevirdi.</span>
+<span class="syn-comment"># İçine bakarsanız, 70 ve TRUE artık "70" ve "TRUE" olmuştur. Veri analizi hatalarının %90'ı buradan patlar!</span></div>
+                        
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Vektörlerden Eleman Çekme (Indexing)</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>R DİLİNDE SAYMAYA SIFIRDAN DEĞİL, BİRDEN BAŞLANIR!</strong><br><code>Uyeler</code> vektörünün ilk elemanı 0. index değil, 1. indextir. İçinden bir elemanı çağırmak için köşeli parantez <code>[]</code> kullanırız.</p>
+                        
+                            <div class="code-box"><span class="syn-var">Uyeler</span>[<span class="syn-number">1</span>]  <span class="syn-comment"># Bize "Orcun"u verir. Diğer dillerdeki gibi Uyeler[0] yazarsanız patlarsınız.</span>
+<span class="syn-var">Uyeler</span>[<span class="syn-number">3</span>]  <span class="syn-comment"># Bize "Ahmet"i verir.</span>
+                        
+<span class="syn-comment"># İstersek birden fazla elemanı da çekebiliriz (Yine c() kullanarak):</span>
+<span class="syn-var">Uyeler</span>[<span class="syn-fn">c</span>(<span class="syn-number">1</span>, <span class="syn-number">3</span>)] <span class="syn-comment"># 1. ve 3. elemanı (Orcun ve Ahmet) aynı anda getirir.</span>
+                        
+<span class="syn-var">kilolar</span>[<span class="syn-number">1</span>] &lt; <span class="syn-var">kilolar</span>[<span class="syn-number">3</span>] <span class="syn-comment"># TRUE verir.</span>
+<span class="syn-fn">class</span>(<span class="syn-var">kilolar</span>) <span class="syn-comment"># [1] "numeric"</span></div>
+                        
+                        
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Otomatik Vektör Oluşturma: seq() ve rep()</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Bazen 100 tane sayıyı elle tek tek girmek ameleliktir. R, kurallı vektörler üretmek için bize iki harika komut sunar.</p>
+                        
+                            <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>1. seq() -&gt; Sequence (Sıralama):</strong> Belli bir aralıkta, belli adımlarla sayı üretir.</p>
+                            <div class="code-box"><span class="syn-comment"># 10'dan başla, 100'e kadar git, 10'ar 10'ar atla:</span>
+<span class="syn-var">onarli_sayilar</span> &lt;- <span class="syn-fn">seq</span>(from = <span class="syn-number">10</span>, to = <span class="syn-number">100</span>, by = <span class="syn-number">10</span>) 
+<span class="syn-comment"># Çıktı: 10 20 30 40 50 60 70 80 90 100</span></div>
+                        
+                            <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>2. rep() -&gt; Repeat (Tekrar):</strong> Aynı değeri veya vektörü istediğimiz kadar tekrar ettirir.</p>
+                            <div class="code-box"><span class="syn-var">tekrarli_veri</span> &lt;- <span class="syn-fn">rep</span>(<span class="syn-string">"Kratos"</span>, times = <span class="syn-number">3</span>) 
+<span class="syn-comment"># Çıktı: "Kratos" "Kratos" "Kratos"</span></div>
+                        
+                        
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Vektör İçi İşlemler ve Matematik</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">R'ın en büyük gücü vektörleri birbirleriyle hızlıca işleme sokmasıdır.</p>
+                        
+                            <div class="code-box"><span class="syn-comment"># Diyelim ki günlük alınan kaloriler ve yakılan kaloriler elimizde:</span>
+<span class="syn-var">alinan_kalori</span> &lt;- <span class="syn-fn">c</span>(<span class="syn-number">2500</span>, <span class="syn-number">2700</span>, <span class="syn-number">2400</span>)
+<span class="syn-var">yakilan_kalori</span> &lt;- <span class="syn-fn">c</span>(<span class="syn-number">2800</span>, <span class="syn-number">2500</span>, <span class="syn-number">2600</span>)
+                        
+<span class="syn-comment"># Günlük net kalori durumunu tek satırda bulabiliriz (Döngü yazmaya gerek yok!):</span>
+<span class="syn-var">net_kalori</span> &lt;- <span class="syn-var">alinan_kalori</span> - <span class="syn-var">yakilan_kalori</span>
+<span class="syn-comment"># Çıktı: -300  200 -200 (Vektörün içindeki aynı indexteki sayıları birbiriyle işleme soktu)</span>
+                        
+<span class="syn-comment"># Vektörün içindeki tüm sayıların toplamını (sum) veya ortalamasını (mean) alma:</span>
+<span class="syn-var">toplam_alinan</span> &lt;- <span class="syn-fn">sum</span>(<span class="syn-var">alinan_kalori</span>)
+<span class="syn-var">ortalama_yakilan</span> &lt;- <span class="syn-fn">mean</span>(<span class="syn-var">yakilan_kalori</span>)</div>
+                        
+                        
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Vektör Elemanlarına İsim Verme: names()</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Vektörlerdeki verilerin kime veya neye ait olduğunu bilmek için isim (name) atayabiliriz.</p>
+                            
+                            <div class="code-box"><span class="syn-var">guc_seviyeleri</span> &lt;- <span class="syn-fn">c</span>(<span class="syn-number">95</span>, <span class="syn-number">100</span>, <span class="syn-number">90</span>)
+                        
+<span class="syn-comment"># Şimdi bu sayıların sırasıyla kimlere ait olduğunu belirtelim:</span>
+<span class="syn-fn">names</span>(<span class="syn-var">guc_seviyeleri</span>) &lt;- <span class="syn-fn">c</span>(<span class="syn-string">"Geralt"</span>, <span class="syn-string">"Ciri"</span>, <span class="syn-string">"Yennefer"</span>)
+                        
+<span class="syn-var">guc_seviyeleri</span>
+<span class="syn-comment"># Konsol çıktısı şöyle görünür:</span>
+<span class="syn-comment">#  Geralt     Ciri Yennefer </span>
+<span class="syn-comment">#      95      100       90</span>
+                        
+<span class="syn-comment"># Artık index numarası yerine direkt isimle de eleman çekebiliriz:</span>
+<span class="syn-var">guc_seviyeleri</span>[<span class="syn-string">"Ciri"</span>] <span class="syn-comment"># Bize 100 değerini döndürür.</span></div>
+                        
+                        
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Kategorik Vektörler: Factor ve Levels</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Eğer elimizdeki veri rastgele metinler değil de, belirli sınıflara ayrılabilen (kategorik) verilerse, onları <strong>"factor"</strong> olarak tanımlamamız gerekir.</p>
+                        
+                            <div class="code-box"><span class="syn-comment"># Örneğin bir haftalık beslenme öğünleri:</span>
+<span class="syn-var">ogunler</span> &lt;- <span class="syn-fn">c</span>(<span class="syn-string">"Aksam"</span>, <span class="syn-string">"Sabah"</span>, <span class="syn-string">"Ogle"</span>, <span class="syn-string">"Sabah"</span>, <span class="syn-string">"Aksam"</span>)
+                        
+<span class="syn-comment"># Bu sıradan bir karakter vektörüdür. Ancak biz R'a "Bunlar sıradan metin değil, 
+# bunlar benim öğün kategorilerim" demek istiyorsak factor() kullanırız:</span>
+<span class="syn-var">ogun_faktor</span> &lt;- <span class="syn-fn">factor</span>(<span class="syn-var">ogunler</span>)
+                        
+<span class="syn-var">ogun_faktor</span>
+<span class="syn-comment"># Çıktıda extra olarak şunu görürüz: Levels: Aksam Ogle Sabah</span>
+<span class="syn-comment"># "Level" (Seviye), bu verinin içinde benzersiz kaç tane kategori olduğunu gösterir.</span>
+<span class="syn-comment"># Özellikle ileride grafik çizerken, R bu level'lara göre veriyi otomatik gruplayacak 
+# ve her öğüne ayrı bir renk verecektir. Veri analizinin kalbi burasıdır!</span>
+                        
+<span class="syn-fn">class</span>(<span class="syn-var">ogun_faktor</span>) <span class="syn-comment"># Sınıfını gösterir.</span>
+<span class="syn-fn">levels</span>(<span class="syn-var">ogun_faktor</span>) <span class="syn-comment"># Level'larımızı listeler.</span></div>
+                        
+                        
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Ortam Temizliği ve Hafıza: rm() Komutu</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><code>ls()</code> komutu Environment'ta (Hafıza) ne var ne yok tüm değişkenlerimizi listeler. <code>rm()</code> ise (Remove / Sil) R'ın çöp tenekesidir. İşi biten değişkenleri, tabloları veya vektörleri R'ın hafızasından kalıcı olarak silmek için kullanırız.</p>
+                        
+                            <div class="code-box"><span class="syn-comment"># Üzerinde çalışmak için geçici değişkenler yaratalım:</span>
+<span class="syn-var">cop_vektor</span> &lt;- <span class="syn-fn">c</span>(<span class="syn-number">1</span>, <span class="syn-number">2</span>, <span class="syn-number">3</span>)
+<span class="syn-var">cop_tablo</span> &lt;- <span class="syn-fn">data.frame</span>(a = <span class="syn-fn">c</span>(<span class="syn-number">1</span>,<span class="syn-number">2</span>), b = <span class="syn-fn">c</span>(<span class="syn-number">3</span>,<span class="syn-number">4</span>))
+<span class="syn-var">tahil_fiyatlari</span> &lt;- <span class="syn-number">2</span>:<span class="syn-number">20</span>
+                        
+<span class="syn-comment"># 1. Tek bir şeyi silmek:</span>
+<span class="syn-fn">rm</span>(<span class="syn-var">cop_vektor</span>)
+<span class="syn-comment"># Artık konsola cop_vektor yazarsanız R size "Böyle bir obje bulunamadı" der. Çöpe gitti.</span>
+                        
+<span class="syn-comment"># 2. Birden fazla şeyi aynı anda silmek:</span>
+<span class="syn-fn">rm</span>(<span class="syn-var">cop_tablo</span>, <span class="syn-var">tahil_fiyatlari</span>) 
+                        
+<span class="syn-comment"># 3. Her şeyi (Tüm ortamı) silmek:</span>
+<span class="syn-fn">rm</span>(list = <span class="syn-fn">ls</span>())
+<span class="syn-comment"># Bu komutu çalıştırdığınızda sağ üstteki Environment paneli tertemiz, bomboş olur. 
+# Yeni bir projeye başlarken ortalığı temizlemek için harikadır.</span></div>
+                        </div>
                     </div>
                 </div>
             </div>
