@@ -1613,7 +1613,217 @@ stats::<span class="syn-fn">filter</span>()  <span class="syn-comment"># R'ın k
                 </div>
                 <div class="accordion-content">
                     <div class="accordion-inner">
-                        <p>14. Ders içeriği buraya gelecek...</p>
+                        <div class="lesson-content">
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Veri Görselleştirme: ggplot2 ve İleri Seviye Base R Ayarları</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Geçmiş derslerde veriyi tanıdık. Bu derste hem modern <strong>ggplot2</strong> paketinin katmanlarını öğreneceğiz hem de <strong>Base R</strong> (Temel R) grafiklerinde akla gelebilecek tüm ince ayarları (renk, boyut, font, dış metin) adım adım işleyeceğiz.</p>
+                            
+                            <div class="code-box"><span class="syn-comment"># Gereken Kütüphaneler (library komutu paketi aktif eder)</span>
+<span class="syn-fn">library</span>(<span class="syn-string">"ggplot2"</span>)  <span class="syn-comment"># Katmanlı modern grafik çizim paketimiz</span>
+<span class="syn-fn">library</span>(<span class="syn-string">"MASS"</span>)     <span class="syn-comment"># 'mammals' (memeliler) veri setini içeren istatistik paketi</span>
+<span class="syn-fn">library</span>(<span class="syn-string">"tibble"</span>)   <span class="syn-comment"># Veri yapısını modern ve okunaklı gösteren paket</span></div>
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 25px; font-size: 1.2rem; font-weight: 700;">BİRİNCİ BÖLÜM: GGPLOT2 GEOMETRİLERİ ( Nokta, Sütun, Çizgi )</h4>
+                            <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 500; color: var(--text-main);">ggplot2'de <code>aes</code> (estetik) ile veriyi eksenlere atar, <code>geom_</code> ile de şekli belirleriz.</p>
+                            
+                            <p style="margin-bottom: 5px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>1. NOKTA GRAFİĞİ (geom_point) VE AŞIRI YIĞILMA (Overplotting) ÇÖZÜMLERİ</strong></p>
+                            <div class="code-box"><span class="syn-comment"># diamonds (elmaslar) verisinde x'e karat, y'ye fiyat koyup nokta (scatter) çiziyoruz.</span>
+<span class="syn-fn">ggplot</span>(diamonds, <span class="syn-fn">aes</span>(carat, price)) + 
+  <span class="syn-fn">geom_point</span>() <span class="syn-comment"># Noktaları tuvale basar. Ancak veriler üst üste biner!</span></div>
+                            <div style="text-align: center;"><img src="images/plot14_1.png" alt="Aşırı Yığılma Scatter" style="width: 100%; max-width: 600px; border-radius: 8px; border: 1px solid var(--border-color); margin: 10px 0 20px 0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"></div>
+                            
+                            <div class="code-box"><span class="syn-comment"># Çözüm: alpha ve shape</span>
+<span class="syn-fn">ggplot</span>(diamonds, <span class="syn-fn">aes</span>(carat, price)) + 
+  <span class="syn-fn">geom_point</span>(alpha = <span class="syn-number">0.3</span>,       <span class="syn-comment"># alpha = 0.3: Noktaları %70 saydam yapar, üst üste binen yerler koyulaşır.</span>
+             shape = <span class="syn-string">"."</span>)       <span class="syn-comment"># shape = ".": Nokta şeklini iğne ucu gibi ufacık yapar ki kalabalık azalsın.</span></div>
+                            <div style="text-align: center;"><img src="images/plot14_2.png" alt="Alpha ve Shape Çözümü" style="width: 100%; max-width: 600px; border-radius: 8px; border: 1px solid var(--border-color); margin: 10px 0 20px 0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"></div>
+
+                            <div class="code-box"><span class="syn-comment"># Jitter (Titretme) ile Çözüm:
+# iris verisindeki noktalar üst üste binmesin diye pozisyonlarını rastgele hafifçe titretiriz.</span>
+j.fonk &lt;- <span class="syn-fn">position_jitter</span>(width = <span class="syn-number">1</span>) <span class="syn-comment"># width=1: Titreme genişliğini 1 birim olarak ayarladık.</span>
+
+<span class="syn-fn">ggplot</span>(iris, <span class="syn-fn">aes</span>(x=Sepal.Length, y=Sepal.Width, col=Species)) +
+  <span class="syn-fn">geom_point</span>(position = j.fonk) +    <span class="syn-comment"># Noktaları j.fonk kuralıyla kaydırarak çizer.</span>
+  <span class="syn-fn">labs</span>(x = <span class="syn-string">"Canak Yaprak Uzunlugu"</span>,  <span class="syn-comment"># labs: X ekseni ismini değiştirir.</span>
+       y = <span class="syn-string">"Canak Yaprak Genisligi"</span>, <span class="syn-comment"># labs: Y ekseni ismini değiştirir.</span>
+       col = <span class="syn-string">"Turler"</span>)               <span class="syn-comment"># labs: Renk açıklama kutusunun (legend) başlığını değiştirir.</span></div>
+                            <div style="text-align: center;"><img src="images/plot14_3.png" alt="Jitter Scatter" style="width: 100%; max-width: 600px; border-radius: 8px; border: 1px solid var(--border-color); margin: 10px 0 20px 0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"></div>
+
+
+                            <p style="margin-bottom: 5px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>2. SÜTUN VE HİSTOGRAM GRAFİKLERİ (geom_bar / geom_histogram)</strong></p>
+                            <div class="code-box"><span class="syn-comment"># Histogram: Bir verinin frekans (sayı) dağılımını gösterir.</span>
+<span class="syn-fn">ggplot</span>(mtcars, <span class="syn-fn">aes</span>(mpg)) + 
+  <span class="syn-fn">geom_histogram</span>(binwidth = <span class="syn-number">2.75</span>) <span class="syn-comment"># binwidth = 2.75: Her bir sütunun genişliğini belirler.</span></div>
+                            <div style="text-align: center;"><img src="images/plot14_4.png" alt="Histogram" style="width: 100%; max-width: 600px; border-radius: 8px; border: 1px solid var(--border-color); margin: 10px 0 20px 0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"></div>
+
+                            <div class="code-box"><span class="syn-comment"># ..density.. : Y eksenini "kaç adet" olduğu yerine, "yüzdelik yoğunluk" (density) olarak gösterir.</span>
+<span class="syn-fn">ggplot</span>(mtcars, <span class="syn-fn">aes</span>(mpg)) + 
+  <span class="syn-fn">geom_histogram</span>(<span class="syn-fn">aes</span>(y = ..density..), <span class="syn-comment"># Y eksenini yoğunluk fonksiyonuna bağladık.</span>
+                 binwidth = <span class="syn-number">2.75</span>,      <span class="syn-comment"># Sütun genişliği</span>
+                 fill = <span class="syn-string">"blue"</span>)        <span class="syn-comment"># fill: Sütunların "içini" maviye boyar.</span></div>
+                            <div style="text-align: center;"><img src="images/plot14_5.png" alt="Density Histogram" style="width: 100%; max-width: 600px; border-radius: 8px; border: 1px solid var(--border-color); margin: 10px 0 20px 0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"></div>
+
+                            <div class="code-box"><span class="syn-comment"># Bar Plot (Sütun Grafiği) Pozisyonları (am vites türüne göre silindir sayımı)</span>
+<span class="syn-fn">ggplot</span>(mtcars, <span class="syn-fn">aes</span>(x=cyl, fill = <span class="syn-fn">factor</span>(am))) + <span class="syn-fn">geom_bar</span>(position = <span class="syn-string">"stack"</span>) <span class="syn-comment"># stack: Sütunları üst üste yığar.</span>
+<span class="syn-fn">ggplot</span>(mtcars, <span class="syn-fn">aes</span>(x=cyl, fill = <span class="syn-fn">factor</span>(am))) + <span class="syn-fn">geom_bar</span>(position = <span class="syn-string">"fill"</span>)  <span class="syn-comment"># fill: Sütunları %100'lük oranla doldurur.</span>
+<span class="syn-fn">ggplot</span>(mtcars, <span class="syn-fn">aes</span>(x=cyl, fill = <span class="syn-fn">factor</span>(am))) + <span class="syn-fn">geom_bar</span>(position = <span class="syn-string">"dodge"</span>) <span class="syn-comment"># dodge: Sütunları yan yana, hizalı dizer.</span>
+
+<span class="syn-comment"># Dodge aralığını manuel ayarlamak için:</span>
+bindir &lt;- <span class="syn-fn">position_dodge</span>(<span class="syn-number">0.6</span>) <span class="syn-comment"># Sütunların arasındaki boşluğu 0.6 yaptık.</span>
+<span class="syn-fn">ggplot</span>(mtcars, <span class="syn-fn">aes</span>(x=cyl, fill = <span class="syn-fn">factor</span>(am))) + <span class="syn-fn">geom_bar</span>(position = bindir)</div>
+                            <div style="text-align: center;"><img src="images/plot14_6.png" alt="Bar Plot Kombinasyonu" style="width: 100%; max-width: 800px; border-radius: 8px; border: 1px solid var(--border-color); margin: 10px 0 20px 0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"></div>
+
+
+                            <p style="margin-bottom: 5px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>3. ÇİZGİ GRAFİKLERİ (geom_line) VE ZAMAN SERİSİ</strong></p>
+                            <div class="code-box"><span class="syn-comment"># İşsizlik (unemploy) verisini nüfusa (pop) bölüp oran çizgisi çekiyoruz.</span>
+<span class="syn-fn">ggplot</span>(economics, <span class="syn-fn">aes</span>(x=date, y = unemploy/pop)) + 
+  <span class="syn-fn">geom_line</span>() <span class="syn-comment"># Çizgi çizer, genelde zaman (date) verisi için kullanılır.</span></div>
+                            <div style="text-align: center;"><img src="images/plot14_7.png" alt="Zaman Serisi" style="width: 100%; max-width: 600px; border-radius: 8px; border: 1px solid var(--border-color); margin: 10px 0 20px 0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"></div>
+
+                            <div class="code-box"><span class="syn-comment"># ChickWeight verisi: Her civcivin (Chick) gelişimini ayrı ayrı çizmek için "group" kullanırız.</span>
+<span class="syn-fn">ggplot</span>(ChickWeight, <span class="syn-fn">aes</span>(Time, weight, group = Chick, color=Diet)) +
+  <span class="syn-fn">geom_line</span>() +                 <span class="syn-comment"># Her civciv için ayrı bir çizgi çekti.</span>
+  <span class="syn-fn">geom_smooth</span>(lwd = <span class="syn-number">2</span>,          <span class="syn-comment"># lwd = 2: Genel trend/eğilim çizgisini kalın çizer.</span>
+              se = <span class="syn-kw">F</span>)           <span class="syn-comment"># se = F: Trend çizgisinin etrafındaki gri güven aralığını kaldırır.</span></div>
+                            <div style="text-align: center;"><img src="images/plot14_8.png" alt="Çoklu Çizgi ve Trend" style="width: 100%; max-width: 600px; border-radius: 8px; border: 1px solid var(--border-color); margin: 10px 0 20px 0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"></div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 25px; font-size: 1.2rem; font-weight: 700;">İKİNCİ BÖLÜM: GGPLOT2 ÖZEL FONKSİYONLAR ( Logaritmik Ölçek, Stat_Smooth )</h4>
+                            <div class="code-box"><span class="syn-comment"># mammals (memeliler) verisinde değerler arasında uçurum vardır (örnek: fare vs fil).
+# Bu büyük farkları grafikte ezmek ve okunaklı kılmak için logaritma alınır.</span>
+<span class="syn-fn">ggplot</span>(mammals, <span class="syn-fn">aes</span>(x=body, y=brain)) +
+  <span class="syn-fn">geom_point</span>(alpha = <span class="syn-number">0.6</span>) +       <span class="syn-comment"># alpha = 0.6 ile saydamlık eklendi.</span>
+  <span class="syn-fn">coord_fixed</span>() +                 <span class="syn-comment"># coord_fixed: X ve Y eksen oranlarını sabitler, grafik sünmez.</span>
+  <span class="syn-fn">scale_x_log10</span>() +               <span class="syn-comment"># X eksenindeki değerleri 10 tabanında logaritmik yapar.</span>
+  <span class="syn-fn">scale_y_log10</span>() +               <span class="syn-comment"># Y eksenindeki değerleri 10 tabanında logaritmik yapar.</span>
+  <span class="syn-fn">stat_smooth</span>(method = <span class="syn-string">"lm"</span>,      <span class="syn-comment"># method="lm": Doğrusal (Linear Model) bir regresyon çizgisi çeker.</span>
+              col = <span class="syn-string">"red"</span>,        <span class="syn-comment"># Trend çizgisinin rengini kırmızı yapar.</span>
+              se = <span class="syn-kw">T</span>)             <span class="syn-comment"># se = T: Çizginin etrafına standart hata (güven) bulutunu ekler.</span></div>
+                            <div style="text-align: center;"><img src="images/plot14_9.png" alt="Logaritmik Ölçek ve Smooth" style="width: 100%; max-width: 600px; border-radius: 8px; border: 1px solid var(--border-color); margin: 10px 0 20px 0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"></div>
+
+                            <div class="code-box"><span class="syn-comment"># Faktörleştirme (Kategorik Algılatma)
+# cyl (silindir) sayısal bir değerdir (4, 6, 8). R bunu sürekli veri sanmasın diye factor() kullanırız.</span>
+<span class="syn-fn">ggplot</span>(mtcars, <span class="syn-fn">aes</span>(x=wt, y=mpg, col=<span class="syn-fn">factor</span>(cyl))) + 
+  <span class="syn-fn">geom_point</span>(shape = <span class="syn-number">1</span>, size = <span class="syn-number">4</span>) <span class="syn-comment"># shape = 1: İçi boş yuvarlak, size = 4: Normalden büyük yapar.</span></div>
+                            <div style="text-align: center;"><img src="images/plot14_10.png" alt="Faktörleştirilmiş Noktalar" style="width: 100%; max-width: 600px; border-radius: 8px; border: 1px solid var(--border-color); margin: 10px 0 20px 0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"></div>
+
+                            <div class="code-box"><span class="syn-comment"># Metin ekleme (geom_text): Yuvarlaklar yerine direkt faktör isimleri (etiketler) basılır.</span>
+<span class="syn-fn">ggplot</span>(mtcars, <span class="syn-fn">aes</span>(wt, mpg, label=<span class="syn-fn">factor</span>(cyl))) + 
+  <span class="syn-fn">geom_text</span>() <span class="syn-comment"># Nokta koymak yerine label (etiket) neyse onu grafikte yazar.</span></div>
+                            <div style="text-align: center;"><img src="images/plot14_11.png" alt="Metin Etiketleri" style="width: 100%; max-width: 600px; border-radius: 8px; border: 1px solid var(--border-color); margin: 10px 0 20px 0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"></div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 25px; font-size: 1.2rem; font-weight: 700;">ÜÇÜNCÜ BÖLÜM: BASE R GRAFİKLERİ VE İNCE AYARLAR ( Boyut, Font, Renk )</h4>
+                            
+                            <div class="code-box"><span class="syn-comment"># Eğitim amaçlı aşağıdaki satırların çalışması adına, notlarınızdaki LungCap değişkeni 
+# yerine R'daki örnek mtcars değişkenlerini kullanıyoruz. 
+# Age = wt (Ağırlık), LungCap = mpg (Yakıt Tüketimi) olarak okuyabilirsiniz.</span>
+<span class="syn-var">Age</span> &lt;- mtcars$wt
+<span class="syn-var">LungCap</span> &lt;- mtcars$mpg
+<span class="syn-var">Height</span> &lt;- mtcars$hp
+<span class="syn-var">Smoke</span> &lt;- <span class="syn-fn">as.factor</span>(<span class="syn-fn">ifelse</span>(mtcars$am == <span class="syn-number">1</span>, <span class="syn-string">"yes"</span>, <span class="syn-string">"no"</span>)) <span class="syn-comment"># factor() yaparak kategorik hale getirdik.</span></div>
+
+                            <p style="margin-bottom: 5px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>1. CEX (BOYUT) VE FONT (YAZI TİPİ) AYARLARI VE METİN EKLENMESİ</strong></p>
+                            <div class="code-box"><span class="syn-fn">plot</span>(Age, LungCap, 
+     main = <span class="syn-string">"Scatterplot"</span>,     <span class="syn-comment"># main: Grafiğin ana başlığı</span>
+     las = <span class="syn-number">1</span>,                  <span class="syn-comment"># las = 1: Y ekseni yazılarını dikeyden yataya çevirir.</span>
+     
+     <span class="syn-comment"># CEX (Boyut) Çarpanları: 1 normaldir, 1.5 yüzde 50 büyüktür.</span>
+     cex = <span class="syn-number">1.5</span>,                <span class="syn-comment"># cex: İçindeki NOKTALARIN boyutunu ayarlar.</span>
+     cex.main = <span class="syn-number">3</span>,             <span class="syn-comment"># cex.main: Sadece ANA BAŞLIĞIN boyutunu ayarlar.</span>
+     cex.lab = <span class="syn-number">1.25</span>,           <span class="syn-comment"># cex.lab: EKSEN İSİMLERİNİN boyutunu ayarlar.</span>
+     cex.axis = <span class="syn-number">0.75</span>,          <span class="syn-comment"># cex.axis: Eksen üzerindeki SAYILARIN boyutunu ayarlar.</span>
+     
+     <span class="syn-comment"># FONT (Yazı Tipi) Çarpanları: 1=Normal, 2=Kalın(Bold), 3=İtalik, 4=Kalın İtalik.</span>
+     font.main = <span class="syn-number">2</span>,            <span class="syn-comment"># font.main: Ana başlığı kalın yapar.</span>
+     font.lab = <span class="syn-number">3</span>,             <span class="syn-comment"># font.lab: Eksen isimlerini italik yapar.</span>
+     font.axis = <span class="syn-number">4</span>,            <span class="syn-comment"># font.axis: Eksen sayılarını kalın italik yapar.</span>
+     
+     <span class="syn-comment"># COL (Renk) Ayarları: 2=Kırmızı, 3=Yeşil, 4=Mavi veya direkt yazısı.</span>
+     col = <span class="syn-string">"orange"</span>,           <span class="syn-comment"># col: Noktaların rengini turuncu yapar.</span>
+     col.main = <span class="syn-string">"purple"</span>,      <span class="syn-comment"># col.main: Ana başlığın rengini mor yapar.</span>
+     col.lab = <span class="syn-string">"pink"</span>,         <span class="syn-comment"># col.lab: Eksen isimlerini pembe yapar.</span>
+     col.axis = <span class="syn-string">"Navy"</span>)        <span class="syn-comment"># col.axis: Eksen sayılarını lacivert yapar.</span>
+
+<span class="syn-comment"># abline: Düz referans çizgileri çeker.</span>
+<span class="syn-fn">abline</span>(h = <span class="syn-fn">mean</span>(LungCap),      <span class="syn-comment"># h: Yatay (Horizontal) çizgi çeker. mean(LungCap) ile ortalamaya hizaladık.</span>
+       col = <span class="syn-number">2</span>, lwd = <span class="syn-number">2</span>)       <span class="syn-comment"># Kırmızı, 2 birim kalınlık.</span>
+
+<span class="syn-fn">abline</span>(v = <span class="syn-fn">mean</span>(Age),          <span class="syn-comment"># v: Dikey (Vertical) çizgi çeker. Yaşın ortalamasına hizaladık.</span>
+       col = <span class="syn-number">5</span>, lwd = <span class="syn-number">4</span>)       <span class="syn-comment"># Açık mavi, 4 birim kalınlık.</span>
+
+<span class="syn-comment"># text: Grafiğin İÇİNE yazı yazar.</span>
+<span class="syn-fn">text</span>(x = <span class="syn-number">2.5</span>, y = <span class="syn-number">8.5</span>,         <span class="syn-comment"># Hangi x ve y koordinatına yazacağını seçtik.</span>
+     label = <span class="syn-string">"r=0.82"</span>,         <span class="syn-comment"># Ekrana basılacak yazı.</span>
+     adj = <span class="syn-number">0</span>,                  <span class="syn-comment"># adj = 0: Yazıyı sola yaslar.</span>
+     cex = <span class="syn-number">1.5</span>, col = <span class="syn-number">4</span>, font = <span class="syn-number">4</span>)
+
+<span class="syn-comment"># mtext (Margin Text): Grafiğin kenar boşluklarına (ÇERÇEVESİNE) dışarıdan yazı yazar.</span>
+<span class="syn-fn">mtext</span>(text = <span class="syn-string">"r=0.85"</span>,         
+      side = <span class="syn-number">3</span>,                <span class="syn-comment"># side = 3: Grafiğin ÜST dış kenarına yazar (1=Alt, 2=Sol, 3=Üst, 4=Sağ).</span>
+      adj = <span class="syn-number">1</span>,                 <span class="syn-comment"># adj = 1: Sağa doğru yaslar.</span>
+      col = <span class="syn-number">4</span>, cex = <span class="syn-number">1.25</span>, font = <span class="syn-number">4</span>)</div>
+                            <div style="text-align: center;"><img src="images/plot14_12.png" alt="Base R İnce Ayarlar" style="width: 100%; max-width: 600px; border-radius: 8px; border: 1px solid var(--border-color); margin: 10px 0 20px 0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"></div>
+
+                            <p style="margin-bottom: 5px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>2. AÇIKLAMA KUTUSU (legend) VE İKİNCİ VERİ (points, lines) EKLENMESİ</strong></p>
+                            <div class="code-box"><span class="syn-comment"># Sadece Sigara içmeyenleri (Smoke == "no") mavi renk (col=4) ve dolu yuvarlak (pch=16) ile çizdik.</span>
+<span class="syn-fn">plot</span>(Age[Smoke == <span class="syn-string">"no"</span>], LungCap[Smoke == <span class="syn-string">"no"</span>], 
+     main = <span class="syn-string">"Lungcap vs Age"</span>, 
+     xlab = <span class="syn-string">"Age"</span>, ylab = <span class="syn-string">"Lungcap"</span>, 
+     col = <span class="syn-number">4</span>, pch = <span class="syn-number">16</span>)
+
+<span class="syn-comment"># points: Açık olan grafiğe yeni bir katman/veri ekler (Sigara içenleri ekliyoruz).</span>
+<span class="syn-fn">points</span>(Age[Smoke == <span class="syn-string">"yes"</span>], LungCap[Smoke == <span class="syn-string">"yes"</span>], 
+       col = <span class="syn-number">2</span>,                <span class="syn-comment"># col = 2: İçenleri kırmızı yaptık.</span>
+       pch = <span class="syn-number">17</span>)               <span class="syn-comment"># pch = 17: İçenlerin şekli içi dolu ÜÇGEN oldu.</span>
+
+<span class="syn-comment"># lines ve smooth.spline: Noktaların arasından kavisli bir "düzleştirme" çizgisi geçirir.</span>
+<span class="syn-fn">lines</span>(<span class="syn-fn">smooth.spline</span>(Age[Smoke==<span class="syn-string">"no"</span>], LungCap[Smoke==<span class="syn-string">"no"</span>]), col=<span class="syn-number">4</span>) <span class="syn-comment"># İçilmeyenlerin mavi kavisli trendi.</span>
+<span class="syn-fn">lines</span>(<span class="syn-fn">smooth.spline</span>(Age[Smoke==<span class="syn-string">"yes"</span>], LungCap[Smoke==<span class="syn-string">"yes"</span>]), col=<span class="syn-number">2</span>) <span class="syn-comment"># İçenlerin kırmızı kavisli trendi.</span>
+
+<span class="syn-comment"># legend: Hangi rengin ne anlama geldiğini gösteren bilgi kutusunu ekler.</span>
+<span class="syn-fn">legend</span>(x = <span class="syn-string">"topright"</span>,         <span class="syn-comment"># Kutunun pozisyonu.</span>
+       legend = <span class="syn-fn">c</span>(<span class="syn-string">"Non-Smoke"</span>, <span class="syn-string">"Smoke"</span>), <span class="syn-comment"># Kutudaki yazılar.</span>
+       col = <span class="syn-fn">c</span>(<span class="syn-number">4</span>, <span class="syn-number">2</span>),          <span class="syn-comment"># İki grup için sırasıyla renkler (4=Mavi, 2=Kırmızı).</span>
+       pch = <span class="syn-fn">c</span>(<span class="syn-number">16</span>, <span class="syn-number">17</span>),        <span class="syn-comment"># İki grup için sırasıyla şekiller (16=Yuvarlak, 17=Üçgen).</span>
+       bty = <span class="syn-string">"n"</span>)              <span class="syn-comment"># bty = "n": (Box Type = None) Kutunun etrafındaki siyah çerçeveyi gizler.</span></div>
+                            <div style="text-align: center;"><img src="images/plot14_13.png" alt="Base R Legend ve Trend Çizgileri" style="width: 100%; max-width: 600px; border-radius: 8px; border: 1px solid var(--border-color); margin: 10px 0 20px 0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"></div>
+
+                            <p style="margin-bottom: 5px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>3. KUTU GRAFİĞİ (boxplot) İNCE AYARLARI</strong></p>
+                            <div class="code-box"><span class="syn-comment"># boxplot: Çeyreklikleri ve aykırı değerleri gösterir.</span>
+<span class="syn-fn">boxplot</span>(LungCap, 
+        main = <span class="syn-string">"Boxplot"</span>,      <span class="syn-comment"># Ana başlık.</span>
+        ylab = <span class="syn-string">"Lung Cap"</span>,     <span class="syn-comment"># Y ekseni etiketi.</span>
+        ylim = <span class="syn-fn">c</span>(<span class="syn-number">0</span>, <span class="syn-number">40</span>),       <span class="syn-comment"># ylim: Y eksenini 0 ile 40 arasına kilitleyerek grafiğin ölçeğini sabitler.</span>
+        las = <span class="syn-number">1</span>)               <span class="syn-comment"># las = 1: Y eksenindeki rakamları yan yatarak okuması kolay hale getirir.</span>
+
+<span class="syn-fn">boxplot</span>(LungCap ~ Smoke)       <span class="syn-comment"># Tilda (~) işareti: "Sigara içme durumuna GÖRE akciğer kapasitesini dağıt" demek.</span></div>
+                            <div style="text-align: center;"><img src="images/plot14_14.png" alt="Base R Gelişmiş Boxplot" style="width: 100%; max-width: 800px; border-radius: 8px; border: 1px solid var(--border-color); margin: 10px 0 20px 0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"></div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 25px; font-size: 1.2rem; font-weight: 700;">DÖRDÜNCÜ BÖLÜM: TANIMLAYICI İSTATİSTİKLER (Verinin Anatomisini Çıkarmak)</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Grafiği çizmeden önce veya sonra verinin matematiksel arkaplanına bakmak için kullanılır.</p>
+                            
+                            <div class="code-box"><span class="syn-fn">table</span>(Smoke)            <span class="syn-comment"># Kategorik verilerin kaç adet olduğunu sayar (Kaç kişi içen, kaç kişi içmeyen).</span>
+<span class="syn-fn">length</span>(Smoke)           <span class="syn-comment"># Toplam kaç adet gözlem / satır olduğunu söyler.</span>
+
+<span class="syn-fn">mean</span>(LungCap)           <span class="syn-comment"># Aritmetik ortalamayı verir.</span>
+<span class="syn-fn">mean</span>(LungCap, trim=<span class="syn-number">0.10</span>)<span class="syn-comment"># trim = 0.10: Kesikli ortalama yapar. Baştaki ve sondaki %10'luk aykırı kısmı atıp öyle ortalama alır.</span>
+<span class="syn-fn">median</span>(LungCap)         <span class="syn-comment"># Medyan (Ortanca) değeri bulur. Seriyi sıraya dizer, tam ortadakini alır.</span>
+
+<span class="syn-fn">var</span>(LungCap)            <span class="syn-comment"># Varyans: Verilerin ortalamadan ne kadar uzaklara dağıldığını gösterir.</span>
+<span class="syn-fn">sd</span>(LungCap)             <span class="syn-comment"># Standart Sapma: Varyansın kareköküdür ( sqrt(var) ile aynıdır ).</span>
+
+<span class="syn-fn">min</span>(LungCap)            <span class="syn-comment"># Serideki en küçük değeri verir.</span>
+<span class="syn-fn">max</span>(LungCap)            <span class="syn-comment"># Serideki en büyük değeri verir.</span>
+<span class="syn-fn">range</span>(LungCap)          <span class="syn-comment"># Verinin en küçük ve en büyük değeri arasındaki kapıyı/aralığı söyler.</span>
+<span class="syn-fn">quantile</span>(LungCap)       <span class="syn-comment"># Çeyreklikleri (%0, %25, %50, %75, %100) dilimler halinde verir. Boxplot'un sayısal halidir.</span>
+
+<span class="syn-fn">sum</span>(LungCap)            <span class="syn-comment"># Serideki tüm değerleri birbiriyle toplar.</span>
+<span class="syn-fn">cov</span>(LungCap, Age)       <span class="syn-comment"># Kovaryans: İki değişkenin (LungCap ve Age) birlikte nasıl değiştiğini ölçer.</span>
+<span class="syn-fn">cor</span>(Age, LungCap)       <span class="syn-comment"># Korelasyon: İki değişken arasındaki ilişkinin gücünü (0 ile 1 arası) ölçer.</span>
+
+<span class="syn-fn">summary</span>(mtcars)         <span class="syn-comment"># summary: İçine atılan verinin min, max, çeyreklikler, ortalama dahil TÜM özetini tek kalemde ekrana basar.</span></div>
+                        </div>
                     </div>
                 </div>
             </div>
