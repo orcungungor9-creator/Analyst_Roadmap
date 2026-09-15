@@ -327,7 +327,77 @@
                 </div>
                 <div class="accordion-content">
                     <div class="accordion-inner">
-                        <p>5. Ders içeriği buraya gelecek...</p>
+                        <div class="lesson-content">
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Operatörler Nedir?</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Operatörler fonksiyon olmayan ama dilin içindeki temel komutlardır. 5 alt gruba ayrılırlar çünkü kullanım amaçları birbirlerine oranla farklıdır. Bazıları matematik için, bazıları ise daha sonrasında göreceğimiz veri analizleri için işleri hızlandırır. Her operatör şekil bakımından birbirinden farklıdır ve bazılarını klavyede tuş kombinasyonları yardımıyla çağırırız.</p>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Operatörler 5 alt gruba ayrılır:</p>
+                            <ul style="margin-bottom: 25px; padding-left: 20px; line-height: 1.6; font-weight: 500; color: var(--text-main);">
+                                <li style="margin-bottom: 8px;">Aritmetik (Matematiksel) operatörler</li>
+                                <li style="margin-bottom: 8px;">Atama operatörleri</li>
+                                <li style="margin-bottom: 8px;">İlişkisel (Karşılaştırma) operatörleri</li>
+                                <li style="margin-bottom: 8px;">Mantıksal operatörler</li>
+                                <li style="margin-bottom: 8px;">Özel operatörler</li>
+                            </ul>
+                            <p style="margin-bottom: 25px; line-height: 1.6; font-weight: 500; color: var(--text-main);">İlk iki operatör türünü (Aritmetik & Atama) önceki derslerimizde gördüğünüz için bu derste kalan üçünü göstereceğim.</p>
+                        
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">3. İlişkisel (Karşılaştırma) Operatörleri</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Bu operatörler iki farklı değeri birbiriyle karşılaştırır. Bize her zaman mantıksal bir cevap döndürür: <span style="color: var(--theme-color); font-weight: 700;">TRUE</span> (Doğru) veya <span style="color: var(--theme-color); font-weight: 700;">FALSE</span> (Yanlış). İlerleyen derslerde devasa veri setlerini filtrelerken bunları çok kullanacağız.</p>
+                        
+                            <div class="code-box"><span class="syn-var">boy</span> &lt;- <span class="syn-number">182</span>
+<span class="syn-var">kilo</span> &lt;- <span class="syn-number">70</span>
+<span class="syn-var">hedef_kilo</span> &lt;- <span class="syn-number">75</span>
+                        
+<span class="syn-comment"># Küçüktür (&lt;) ve Büyüktür (&gt;)</span>
+<span class="syn-var">kilo</span> &lt; <span class="syn-var">hedef_kilo</span>   <span class="syn-comment"># Sonuç: TRUE (70, 75'ten küçüktür)</span>
+<span class="syn-var">boy</span> &gt; <span class="syn-number">190</span>           <span class="syn-comment"># Sonuç: FALSE (182, 190'dan büyük değildir)</span>
+                        
+<span class="syn-comment"># Küçük Eşittir (&lt;=) ve Büyük Eşittir (&gt;=)</span>
+<span class="syn-var">kilo</span> &lt;= <span class="syn-number">70</span>          <span class="syn-comment"># Sonuç: TRUE (Küçük veya eşit mi diye sorar, eşit olduğu için TRUE)</span>
+<span class="syn-var">boy</span> &gt;= <span class="syn-number">180</span>          <span class="syn-comment"># Sonuç: TRUE</span></div>
+                        
+                            <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                                <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-warning-circle"></i> ÇOK ÖNEMLİ KURAL: Eşittir (==) ve Eşit Değildir (!=)</h5>
+                                <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">R dilinde tek <code>=</code> işareti atama yapmak içindir. Eğer iki değer birbirine eşit mi diye sormak istiyorsak çift <code>==</code> kullanmalıyız.</p>
+                            </div>
+                        
+                            <div class="code-box"><span class="syn-var">kilo</span> == <span class="syn-number">70</span>          <span class="syn-comment"># Sonuç: TRUE</span>
+<span class="syn-var">kilo</span> != <span class="syn-var">hedef_kilo</span>  <span class="syn-comment"># Sonuç: TRUE (70, 75'e eşit değildir, yani doğru)</span></div>
+                        
+                        
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">4. Mantıksal Operatörler</h4>
+                            <p style="margin-bottom: 20px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Birden fazla karşılaştırma durumunu birbirine bağlamak istediğimizde devreye girerler.</p>
+                        
+                            <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>AND (&) - VE Operatörü:</strong><br>Bağladığı TÜM koşulların doğru (TRUE) olmasını ister. Biri bile yanlışsa FALSE verir.</p>
+                            <div class="code-box">(<span class="syn-var">kilo</span> &lt; <span class="syn-number">75</span>) &amp; (<span class="syn-var">boy</span> &gt; <span class="syn-number">180</span>)   <span class="syn-comment"># TRUE &amp; TRUE -&gt; Sonuç: TRUE</span>
+(<span class="syn-var">kilo</span> == <span class="syn-number">75</span>) &amp; (<span class="syn-var">boy</span> &gt; <span class="syn-number">180</span>)  <span class="syn-comment"># FALSE &amp; TRUE -&gt; Sonuç: FALSE</span></div>
+                        
+                            <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>OR (|) - VEYA Operatörü:</strong><br>Klavyede <kbd>Alt Gr + Tire</kbd> ya da <kbd>Alt Gr + &lt;</kbd> tuşlarına basarak yapılır. Koşullardan SADECE BİRİNİN doğru (TRUE) olması yeterlidir.</p>
+                            <div class="code-box">(<span class="syn-var">kilo</span> == <span class="syn-number">75</span>) | (<span class="syn-var">boy</span> &gt; <span class="syn-number">180</span>)  <span class="syn-comment"># FALSE | TRUE -&gt; Sonuç: TRUE (Boy tuttuğu için kurtardı)</span></div>
+                        
+                            <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>NOT (!) - DEĞİL Operatörü:</strong><br>Çıkan mantıksal sonucu tam tersine çevirir.</p>
+                            <div class="code-box">!(<span class="syn-var">kilo</span> == <span class="syn-number">70</span>)               <span class="syn-comment"># Normalde TRUE çıkardı, ama başındaki ! onu FALSE yaptı.</span></div>
+                        
+                        
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">5. Özel Operatörler</h4>
+                            <p style="margin-bottom: 20px; line-height: 1.6; font-weight: 500; color: var(--text-main);">R dilinin veri bilimi konusundaki gücünü gösteren, işleri çok hızlandıran araçlardır.</p>
+                        
+                            <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>Dizi / Seri Oluşturma (:):</strong><br>İki değer arasındaki tüm tam sayıları tek tek yazmak yerine hızlıca üretir.</p>
+                            <div class="code-box"><span class="syn-number">1</span>:<span class="syn-number">10</span>                        <span class="syn-comment"># Konsola 1'den 10'a kadar sayıları basar.</span>
+<span class="syn-var">gunler</span> &lt;- <span class="syn-number">1</span>:<span class="syn-number">7</span>               <span class="syn-comment"># 1'den 7'ye kadar olan sayıları 'gunler' değişkenine atar.</span></div>
+                        
+                            <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>İçinde mi? (%in%):</strong><br>Bir değerin, bir listenin veya vektörün içinde olup olmadığını hızlıca sorgular.</p>
+                            <div class="code-box"><span class="syn-number">5</span> %in% <span class="syn-number">1</span>:<span class="syn-number">10</span>                 <span class="syn-comment"># 5 sayısı, 1 ile 10 arasındaki sayıların içinde mi? (TRUE)</span>
+                        
+<span class="syn-comment"># Bir metin örneği verelim:</span>
+<span class="syn-string">"Kratos"</span> %in% <span class="syn-fn">c</span>(<span class="syn-string">"Geralt"</span>, <span class="syn-string">"Ciri"</span>, <span class="syn-string">"Yennefer"</span>) 
+<span class="syn-comment"># Sonuç: FALSE (Çünkü Kratos bu grubun içinde yok)</span>
+<span class="syn-comment"># Buradaki c() vektör denilen, bir ya da birden fazla veriyi gruplamaya yarayan komuttur.</span></div>
+                        
+                            <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                                <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-info"></i> İleri Düzey Operatörler Hakkında</h5>
+                                <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);"><code>%&gt;%</code> (Pipe/Boru) operatörü gibi çok daha gelişmiş özel operatörler de vardır. Ancak bu ileri düzey araçları ilerleyen konularda, özellikle 'tidyverse' paketini işlerken ayrıca göreceğiz.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
