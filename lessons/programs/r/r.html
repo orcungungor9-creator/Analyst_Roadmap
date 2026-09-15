@@ -287,7 +287,36 @@
                 </div>
                 <div class="accordion-content">
                     <div class="accordion-inner">
-                        <p>4. Ders içeriği buraya gelecek...</p>
+                        <div class="lesson-content">
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Temel Matematiksel İşlemler</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Matematiksel işlemleri yaparken değişkenleri kullanabilirsiniz. Aşağıda <span style="color: var(--theme-color); font-weight: 700;">"a"</span> ve <span style="color: var(--theme-color); font-weight: 700;">"b"</span> değişkenleri oluşturarak temel işlemleri nasıl yaptığımızı görebilirsiniz. İşlemlerin sonuçlarını da yeni değişkenlere atayabilirsiniz:</p>
+
+                            <div class="code-box"><span class="syn-var">a</span> &lt;- <span class="syn-number">20</span>
+<span class="syn-var">b</span> &lt;- <span class="syn-number">5</span>
+
+<span class="syn-var">toplam</span> &lt;- <span class="syn-var">a</span> + <span class="syn-var">b</span>   <span class="syn-comment"># 25</span>
+<span class="syn-var">fark</span> &lt;- <span class="syn-var">a</span> - <span class="syn-var">b</span>     <span class="syn-comment"># 15</span>
+<span class="syn-var">carpim</span> &lt;- <span class="syn-var">a</span> * <span class="syn-var">b</span>   <span class="syn-comment"># 100</span>
+<span class="syn-var">bolum</span> &lt;- <span class="syn-var">a</span> / <span class="syn-var">b</span>    <span class="syn-comment"># 4</span>
+<span class="syn-var">tambolme</span> &lt;- <span class="syn-var">a</span> %/% <span class="syn-number">3</span> <span class="syn-comment"># 6 (Kalanı atarak tam sonucu verir)</span>
+<span class="syn-var">us</span> &lt;- <span class="syn-var">b</span>^<span class="syn-number">2</span>         <span class="syn-comment"># 25 (b üzeri 2)</span>
+<span class="syn-var">us2</span> &lt;- <span class="syn-var">b</span>**<span class="syn-number">2</span>        <span class="syn-comment"># 25 (b üzeri 2)</span>
+<span class="syn-var">mod</span> &lt;- <span class="syn-var">a</span> %% <span class="syn-number">3</span>       <span class="syn-comment"># 2 (Yalnızca kalanı verir)</span></div>
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">İşlem Öncelikleri</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">R evrensel matematik kurallarına tamamen uygundur. İşlem öncelikleri bildiğimiz gibidir:</p>
+
+                            <div class="code-box"><span class="syn-number">2</span> * <span class="syn-number">8</span> / <span class="syn-number">4</span>   <span class="syn-comment"># Çarpma ve bölme aynı önceliğe sahip olduğu için işlemi soldan sağa doğru yapar.</span>
+<span class="syn-number">2</span> * <span class="syn-number">8</span> + <span class="syn-number">6</span>   <span class="syn-comment"># Burada önce çarpmayı yapar. (Bölme olsa bölmeyi yapardı)</span>
+<span class="syn-number">2</span> * <span class="syn-number">8</span> + <span class="syn-number">1</span> / <span class="syn-number">2</span> <span class="syn-comment"># Burada iki işlemi de ayrı ayrı yapar ve sonra toplar: (2*8) + (1/2) şeklinde görür.</span>
+<span class="syn-kw">T</span> + <span class="syn-number">2</span>       <span class="syn-comment"># Daha önce bahsettiğimiz gibi R için TRUE = 1 ve FALSE = 0'dır. (Sonuç: 3)</span>
+<span class="syn-number">2</span> * (<span class="syn-number">8</span> + <span class="syn-number">1</span>) <span class="syn-comment"># Bu sefer önce parantezin içini toplar.</span></div>
+
+                            <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                                <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-info"></i> Fonksiyon vs Operatör</h5>
+                                <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Matematiksel işlemler birer R fonksiyonu değildir. R fonksiyonları, R'ın içinde bulunan <code>isim()</code> şeklindeki, arkasındaki kod bloğu görünmeyen yardımcılarımızdır. Matematiksel işlemler ise <strong>"Operatör"</strong> olarak adlandırılır.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
