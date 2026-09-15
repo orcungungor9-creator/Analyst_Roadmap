@@ -1295,7 +1295,145 @@ stats::<span class="syn-fn">filter</span>()  <span class="syn-comment"># R'ın k
                 </div>
                 <div class="accordion-content">
                     <div class="accordion-inner">
-                        <p>12. Ders içeriği buraya gelecek...</p>
+                        <div class="lesson-content">
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Veri Manipülasyonunun Kralı: dplyr Paketi</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Geçmiş derslerde verileri seçmeyi, koşul yazmayı ve filtrelemeyi "Saf R" (Base R) ile yapmayı öğrendik. Örneğin köşeli parantezler <code>[]</code> ve <code>$</code> işaretleriyle boğuşuyorduk. Ancak veriler büyüdükçe bu yöntem işkenceye dönüşür.</p>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">İşte burada veri bilimcilerin en yakın dostu, "Veri Grameri" dediğimiz <strong>dplyr</strong> devreye girer! dplyr, kodlarımızı sanki İngilizce bir cümle okuyormuşuz gibi anlaşılır kılar.</p>
+
+                            <div class="code-box"><span class="syn-comment"># Önceki derslerde yüklediğimiz dev tidyverse paketinin içinden sadece dplyr'i çağırıyoruz:</span>
+<span class="syn-fn">library</span>(dplyr)
+
+<span class="syn-comment"># Üzerinde çalışacağımız küçük bir ekip/öğrenci tablosu yaratalım:</span>
+<span class="syn-var">ekip_verisi</span> &lt;- <span class="syn-fn">data.frame</span>(
+  isim = <span class="syn-fn">c</span>(<span class="syn-string">"Orcun"</span>, <span class="syn-string">"Furkan"</span>, <span class="syn-string">"Zehra"</span>, <span class="syn-string">"Ahmet"</span>, <span class="syn-string">"Veli"</span>, <span class="syn-string">"Ayse"</span>),
+  bolum = <span class="syn-fn">c</span>(<span class="syn-string">"Ekonometri"</span>, <span class="syn-string">"Yazilim"</span>, <span class="syn-string">"Yazilim"</span>, <span class="syn-string">"Yazilim"</span>, <span class="syn-string">"Ekonometri"</span>, <span class="syn-string">"Istatistik"</span>),
+  vize = <span class="syn-fn">c</span>(<span class="syn-number">85</span>, <span class="syn-number">70</span>, <span class="syn-number">95</span>, <span class="syn-number">65</span>, <span class="syn-number">45</span>, <span class="syn-number">90</span>),
+  final = <span class="syn-fn">c</span>(<span class="syn-number">95</span>, <span class="syn-number">80</span>, <span class="syn-number">100</span>, <span class="syn-number">75</span>, <span class="syn-number">55</span>, <span class="syn-number">95</span>),
+  spor_gecmisi = <span class="syn-fn">c</span>(<span class="syn-string">"Var"</span>, <span class="syn-string">"Yok"</span>, <span class="syn-string">"Var"</span>, <span class="syn-string">"Yok"</span>, <span class="syn-string">"Var"</span>, <span class="syn-string">"Yok"</span>)
+)
+
+<span class="syn-var">ekip_verisi</span></div>
+
+                            <p style="margin-bottom: 5px; font-size: 0.9rem; color: var(--text-muted); font-weight: 500;"><i class="ph ph-terminal-window"></i> Konsol Çıktısı (ekip_verisi):</p>
+                            <div class="table-responsive">
+                                <table class="r-output-table">
+                                    <tr><th class="row-name"></th><th>isim</th><th>bolum</th><th>vize</th><th>final</th><th>spor_gecmisi</th></tr>
+                                    <tr><td class="row-name">1</td><td>Orcun</td><td>Ekonometri</td><td>85</td><td>95</td><td>Var</td></tr>
+                                    <tr><td class="row-name">2</td><td>Furkan</td><td>Yazilim</td><td>70</td><td>80</td><td>Yok</td></tr>
+                                    <tr><td class="row-name">3</td><td>Zehra</td><td>Yazilim</td><td>95</td><td>100</td><td>Var</td></tr>
+                                    <tr><td class="row-name">4</td><td>Ahmet</td><td>Yazilim</td><td>65</td><td>75</td><td>Yok</td></tr>
+                                    <tr><td class="row-name">5</td><td>Veli</td><td>Ekonometri</td><td>45</td><td>55</td><td>Var</td></tr>
+                                    <tr><td class="row-name">6</td><td>Ayse</td><td>Istatistik</td><td>90</td><td>95</td><td>Yok</td></tr>
+                                </table>
+                            </div>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Data Frame'imiz hazır. Şimdi dplyr'in 5 Efsanevi Fiili ile şov yapalım. <strong>NOT:</strong> Tüm işlemlerde orijinal Pipe ( <code>%&gt;%</code> ) operatörünü kullanacağız!</p>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">1. filter() -&gt; Satırları Filtreleme (Koşul Belirtme)</h4>
+                            <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Excel'deki "Filtre" düğmesinin kod halidir. İstediğimiz şartı sağlayan satırları getirir.</p>
+                            
+                            <div class="code-box"><span class="syn-comment"># Sadece Ekonometri bölümündeki öğrencileri getir:</span>
+<span class="syn-var">ekip_verisi</span> %&gt;% 
+  <span class="syn-fn">filter</span>(<span class="syn-var">bolum</span> == <span class="syn-string">"Ekonometri"</span>)
+
+<span class="syn-comment"># Vize notu 80'den büyük VE spor geçmişi olanları getir:</span>
+<span class="syn-var">ekip_verisi</span> %&gt;% 
+  <span class="syn-fn">filter</span>(<span class="syn-var">vize</span> &gt; <span class="syn-number">80</span> &amp; <span class="syn-var">spor_gecmisi</span> == <span class="syn-string">"Var"</span>)</div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">2. select() -&gt; Sütunları Seçme veya Çıkarma</h4>
+                            <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 500; color: var(--text-main);">100 sütunluk bir veride sadece işinize yarayan 3 sütunu çekmek için kullanılır.</p>
+                            
+                            <div class="code-box"><span class="syn-comment"># Sadece isim ve final notlarını görelim:</span>
+<span class="syn-var">ekip_verisi</span> %&gt;% 
+  <span class="syn-fn">select</span>(<span class="syn-var">isim</span>, <span class="syn-var">final</span>)
+
+<span class="syn-comment"># "bolum" sütunu HARİÇ her şeyi getir (Başına eksi '-' koymamız yeterli):</span>
+<span class="syn-var">ekip_verisi</span> %&gt;% 
+  <span class="syn-fn">select</span>(-<span class="syn-var">bolum</span>)</div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">3. arrange() -&gt; Sıralama Yapma</h4>
+                            <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Excel'deki "A'dan Z'ye sırala" mantığıdır.</p>
+                            
+                            <div class="code-box"><span class="syn-comment"># Vize notuna göre küçükten büyüğe sırala:</span>
+<span class="syn-var">ekip_verisi</span> %&gt;% 
+  <span class="syn-fn">arrange</span>(<span class="syn-var">vize</span>)
+
+<span class="syn-comment"># Final notuna göre BÜYÜKTEN KÜÇÜĞE sırala (desc = descending/azalan):</span>
+<span class="syn-var">ekip_verisi</span> %&gt;% 
+  <span class="syn-fn">arrange</span>(<span class="syn-fn">desc</span>(<span class="syn-var">final</span>))</div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">4. mutate() -&gt; Yeni Sütun Oluşturma veya Güncelleme</h4>
+                            <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Mevcut verileri kullanarak yepyeni matematiksel sütunlar üretmek için kullanılır.</p>
+                            
+                            <div class="code-box"><span class="syn-comment"># Geçme notunu hesaplayalım (Vizenin %40'ı, Finalin %60'ı):
+# Ve bu sonucu "gecme_notu" adında YENİ bir sütuna atayalım:</span>
+<span class="syn-var">guncel_tablo</span> &lt;- <span class="syn-var">ekip_verisi</span> %&gt;% 
+  <span class="syn-fn">mutate</span>(gecme_notu = (<span class="syn-var">vize</span> * <span class="syn-number">0.4</span>) + (<span class="syn-var">final</span> * <span class="syn-number">0.6</span>))
+
+<span class="syn-var">guncel_tablo</span>
+<span class="syn-comment"># Tablonun en sağına baktığınızda hesaplanmış yepyeni bir sütun göreceksiniz!</span></div>
+
+                            <p style="margin-bottom: 5px; font-size: 0.9rem; color: var(--text-muted); font-weight: 500;"><i class="ph ph-terminal-window"></i> Konsol Çıktısı (guncel_tablo):</p>
+                            <div class="table-responsive">
+                                <table class="r-output-table">
+                                    <tr><th class="row-name"></th><th>isim</th><th>bolum</th><th>vize</th><th>final</th><th>spor_gecmisi</th><th>gecme_notu</th></tr>
+                                    <tr><td class="row-name">1</td><td>Orcun</td><td>Ekonometri</td><td>85</td><td>95</td><td>Var</td><td>91</td></tr>
+                                    <tr><td class="row-name">2</td><td>Furkan</td><td>Yazilim</td><td>70</td><td>80</td><td>Yok</td><td>76</td></tr>
+                                    <tr><td class="row-name">3</td><td>Zehra</td><td>Yazilim</td><td>95</td><td>100</td><td>Var</td><td>98</td></tr>
+                                    <tr><td class="row-name">4</td><td>Ahmet</td><td>Yazilim</td><td>65</td><td>75</td><td>Yok</td><td>71</td></tr>
+                                    <tr><td class="row-name">5</td><td>Veli</td><td>Ekonometri</td><td>45</td><td>55</td><td>Var</td><td>51</td></tr>
+                                    <tr><td class="row-name">6</td><td>Ayse</td><td>Istatistik</td><td>90</td><td>95</td><td>Yok</td><td>93</td></tr>
+                                </table>
+                            </div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">5. group_by() ve summarize() -&gt; Gruplama ve Özetleme (ÖLÜMCÜL KOMBO)</h4>
+                            <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Ekonometride ve veri analizinde en çok kullanacağınız ikilidir. "Bölümlere göre ortalama notlar nedir?" gibi kategorik soruların cevabını verir.</p>
+                            
+                            <div class="code-box"><span class="syn-comment"># Ekipteki öğrencileri "bolum"lerine göre grupla, sonra bu grupların vize ortalamasını bul:</span>
+<span class="syn-var">ekip_verisi</span> %&gt;% 
+  <span class="syn-fn">group_by</span>(<span class="syn-var">bolum</span>) %&gt;% 
+  <span class="syn-fn">summarize</span>(ortalama_vize = <span class="syn-fn">mean</span>(<span class="syn-var">vize</span>))</div>
+
+                            <p style="margin-bottom: 5px; font-size: 0.9rem; color: var(--text-muted); font-weight: 500;"><i class="ph ph-terminal-window"></i> Konsol Çıktısı (summarize):</p>
+                            <div class="table-responsive">
+                                <table class="r-output-table">
+                                    <tr><th class="row-name"></th><th>bolum</th><th>ortalama_vize</th></tr>
+                                    <tr><td class="row-name">1</td><td>Ekonometri</td><td>65.00</td></tr>
+                                    <tr><td class="row-name">2</td><td>Istatistik</td><td>90.00</td></tr>
+                                    <tr><td class="row-name">3</td><td>Yazilim</td><td>76.66</td></tr>
+                                </table>
+                            </div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">GRAND FINALE: Zincirleme Kod Yazımı (Şelale Mantığı)</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Pipe ( <code>%&gt;%</code> ) operatörünün asıl gücünü şimdi göreceksiniz. Birden çok dplyr fiilini alt alta bağlayarak tek bir nefeste harikalar yaratabiliriz.</p>
+                            
+                            <div class="code-box"><span class="syn-comment"># SENARYO: Sadece "Yazılım" bölümündeki öğrencileri al,
+# Final notlarına göre büyükten küçüğe sırala,
+# Sadece isim ve final notu sütunlarını ekranda göster!</span>
+
+<span class="syn-var">ekip_verisi</span> %&gt;% 
+  <span class="syn-fn">filter</span>(<span class="syn-var">bolum</span> == <span class="syn-string">"Yazilim"</span>) %&gt;% 
+  <span class="syn-fn">arrange</span>(<span class="syn-fn">desc</span>(<span class="syn-var">final</span>)) %&gt;% 
+  <span class="syn-fn">select</span>(<span class="syn-var">isim</span>, <span class="syn-var">final</span>)
+
+<span class="syn-comment"># İşte bu kadar! İç içe geçmiş, okuması imkansız parantez yığınları yerine,
+# yukarıdan aşağıya doğru cümle gibi okunan gerçek bir analist kodu yazdık.</span></div>
+
+                            <p style="margin-bottom: 5px; font-size: 0.9rem; color: var(--text-muted); font-weight: 500;"><i class="ph ph-terminal-window"></i> Konsol Çıktısı (Zincirleme Komut Sonucu):</p>
+                            <div class="table-responsive" style="margin-bottom: 0;">
+                                <table class="r-output-table">
+                                    <tr><th class="row-name"></th><th>isim</th><th>final</th></tr>
+                                    <tr><td class="row-name">1</td><td>Zehra</td><td>100</td></tr>
+                                    <tr><td class="row-name">2</td><td>Furkan</td><td>80</td></tr>
+                                    <tr><td class="row-name">3</td><td>Ahmet</td><td>75</td></tr>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
