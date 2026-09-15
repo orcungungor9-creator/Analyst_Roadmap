@@ -649,7 +649,161 @@
                 </div>
                 <div class="accordion-content">
                     <div class="accordion-inner">
-                        <p>8. Ders içeriği buraya gelecek...</p>
+                        <div class="lesson-content">
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Veri Çerçevesi (Data Frame)</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">R dilinin en önemli kısmına geldik. Geçen ders matrisleri öğrendik ama çok büyük bir dezavantajları vardı: İçine ya sadece sayı ya da sadece metin koyabiliyorduk. Gerçek hayatta veriler böyle değildir. Bir Excel tablosunda isim (Metin), yaş (Sayı) ve sigorta durumu (Mantıksal) aynı anda bulunabilir.</p>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">İşte farklı veri tiplerini aynı tabloda, kavgasız gürültüsüz tutan yapıya <strong>Veri Çerçevesi (Data Frame)</strong> diyoruz. Python'daki Pandas kütüphanesinin DataFrame'i ile aynıdır.</p>
+
+                            <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>1. data.frame() ile Sıfırdan Tablo Oluşturma:</strong></p>
+                            <div class="code-box"><span class="syn-var">isimler</span> &lt;- <span class="syn-fn">c</span>(<span class="syn-string">"Orcun"</span>, <span class="syn-string">"Furkan"</span>, <span class="syn-string">"Ahmet"</span>, <span class="syn-string">"Atakan"</span>, <span class="syn-string">"Deniz"</span>)
+<span class="syn-var">yaslar</span> &lt;- <span class="syn-fn">c</span>(<span class="syn-number">25</span>, <span class="syn-number">26</span>, <span class="syn-number">24</span>, <span class="syn-number">95</span>, <span class="syn-number">21</span>)
+<span class="syn-var">kilolar</span> &lt;- <span class="syn-fn">c</span>(<span class="syn-number">70</span>, <span class="syn-number">80</span>, <span class="syn-number">85</span>, <span class="syn-number">98</span>, <span class="syn-number">55</span>)
+<span class="syn-var">spora_gidiyor_mu</span> &lt;- <span class="syn-fn">c</span>(<span class="syn-kw">TRUE</span>, <span class="syn-kw">TRUE</span>, <span class="syn-kw">FALSE</span>, <span class="syn-kw">TRUE</span>, <span class="syn-kw">TRUE</span>)
+
+<span class="syn-comment"># Şimdi bunları tek bir tabloda birleştirelim:</span>
+<span class="syn-var">ekip_tablosu</span> &lt;- <span class="syn-fn">data.frame</span>(<span class="syn-var">isimler</span>, <span class="syn-var">yaslar</span>, <span class="syn-var">kilolar</span>, <span class="syn-var">spora_gidiyor_mu</span>)
+
+<span class="syn-var">ekip_tablosu</span>
+<span class="syn-comment"># Üstelik sayılar ve metinler matrislerdeki gibi "coercion"a uğrayıp bozulmadılar, 
+# kendi tiplerinde kaldılar. (Coercion: Zorunlu olarak hepsini aynı türe dönüştürmesi)</span></div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Sütun Çekmenin Kolay Yolu: Dolar "$" Operatörü</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Data Frame'lerde hayat çok kolaydır. İstediğimiz sütunu ismen çağırmak için değişken adının yanına <code>$</code> işareti koyarız.</p>
+
+                            <div class="code-box"><span class="syn-var">ekip_tablosu</span>$<span class="syn-var">kilolar</span>
+<span class="syn-comment"># Çıktı: 70 80 85 98 55</span></div>
+
+                            <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                                <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-warning-circle"></i> HATIRLATMA: Büyük/Küçük Harf Duyarlılığı</h5>
+                                <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">R büyük/küçük harf duyarlıdır! Eğer <code>ekip_tablosu$Kilolar</code> (büyük K ile) yazarsanız <strong>"NULL"</strong> (Yok) cevabı alırsınız.</p>
+                            </div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Veri Setini İnceleme ve Özetleme Opsiyonları</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Gerçek hayatta karşınıza 5 satırlık değil, 5 milyon satırlık veriler çıkacak. Veriyi hızlıca tanımak için şu komutların parametrelerini (opsiyonlarını) kullanırız:</p>
+
+                            <div class="code-box"><span class="syn-fn">head</span>(<span class="syn-var">ekip_tablosu</span>)         <span class="syn-comment"># Tablonun ilk 6 satırını getirir.</span>
+<span class="syn-fn">tail</span>(<span class="syn-var">ekip_tablosu</span>)         <span class="syn-comment"># Tablonun son 6 satırını getirir.</span>
+<span class="syn-fn">head</span>(<span class="syn-var">ekip_tablosu</span>, n = <span class="syn-number">3</span>)  <span class="syn-comment"># Tablonun sadece ilk 3 satırını getirir.</span>
+<span class="syn-fn">tail</span>(<span class="syn-var">ekip_tablosu</span>, n = <span class="syn-number">2</span>)  <span class="syn-comment"># Sadece son 2 satırı getirir.</span>
+<span class="syn-fn">str</span>(<span class="syn-var">ekip_tablosu</span>)          <span class="syn-comment"># (Structure) Hangi sütun hangi veri tipinde, anatomiyi çıkarır.</span>
+<span class="syn-fn">dim</span>(<span class="syn-var">ekip_tablosu</span>)          <span class="syn-comment"># Boyutlar: c(5, 4) şeklinde kaç satır/sütun olduğunu söyler.</span>
+<span class="syn-fn">dim</span>(<span class="syn-var">ekip_tablosu</span>)[<span class="syn-number">1</span>]       <span class="syn-comment"># Tablonun kaç satırı olduğunu söyler.</span>
+<span class="syn-fn">dim</span>(<span class="syn-var">ekip_tablosu</span>)[<span class="syn-number">2</span>]       <span class="syn-comment"># Tablonun kaç sütunu olduğunu söyler.</span></div>
+
+                            <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>TÜM TABLOYU</strong> tek komutla da özetleyebiliriz. Sayısal sütunların ortalamasını, median, min/max değerlerini; mantıksal sütunların ise kaç tane TRUE/FALSE olduğunu tek kalemde döker (Veri tiplerini de gösterir).</p>
+                            <div class="code-box"><span class="syn-fn">summary</span>(<span class="syn-var">ekip_tablosu</span>)
+<span class="syn-comment"># Tek bir sütunun özetini de alabilirsiniz:</span>
+<span class="syn-fn">summary</span>(<span class="syn-var">ekip_tablosu</span>$<span class="syn-var">yaslar</span>)</div>
+
+                            <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                                <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-warning-circle"></i> attach() ve detach() Tehlikesi (Masking)</h5>
+                                <p style="margin: 0 0 10px 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Eğer sırf bir sütunu çağırmak için sürekli <code>$</code> kullanma eziyetine katlanmak istemezseniz <code>attach()</code> komutu vardır. Babaya icazeti verip içindeki değişkenleri doğrudan tanıtırız:</p>
+                                <div class="code-box" style="margin-bottom: 10px; padding: 10px;"><span class="syn-fn">attach</span>(<span class="syn-var">ekip_tablosu</span>) 
+<span class="syn-fn">summary</span>(<span class="syn-var">yaslar</span>) <span class="syn-comment"># $ işareti olmadan çalışır</span></div>
+                                <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Ancak <code>attach</code> biraz da korkunç bir kardeştir. Açık kaldığı senaryoda, başka bir veri setiyle çalışırken aynı isimde değişkenler varsa çatışma yaşarız. Bu sorunun ismi <strong>"Masking"</strong>dir. Bu sebeple işimiz bittiğinde mutlaka <code>detach()</code> komutu ile geçici serbestliği kapatmalıyız:</p>
+                                <div class="code-box" style="margin-top: 10px; padding: 10px;"><span class="syn-fn">detach</span>(<span class="syn-var">ekip_tablosu</span>)</div>
+                            </div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Tabloyu Manipüle Etme (Ekleme, Silme, Sıralama, Filtreleme)</h4>
+                            
+                            <div class="code-box"><span class="syn-comment"># 1. Tabloya Yeni Sütun Ekleme:</span>
+<span class="syn-comment"># Tabloyu kurduk ama sonradan "Boy" bilgisini de eklemek istedik. 
+# Yeniden data.frame() yazmaya gerek yok! '$' işaretiyle anında yapıştırırız:</span>
+<span class="syn-var">ekip_tablosu</span>$<span class="syn-var">boylar</span> &lt;- <span class="syn-fn">c</span>(<span class="syn-number">182</span>, <span class="syn-number">185</span>, <span class="syn-number">178</span>, <span class="syn-number">190</span>, <span class="syn-number">175</span>)
+<span class="syn-comment"># R, bu yeni vektörü alır ve tablonun en sağına yepyeni bir sütun olarak ekler.</span>
+
+<span class="syn-comment"># 2. Sütun Silme:</span>
+<span class="syn-comment"># Diyelim ki "spora_gidiyor_mu" sütununa artık ihtiyacımız yok. 
+# O sütunun içine "NULL" (Hiçlik) atarsak, sütun tamamen tarihe karışır:</span>
+<span class="syn-var">ekip_tablosu</span>$<span class="syn-var">spora_gidiyor_mu</span> &lt;- <span class="syn-kw">NULL</span>
+
+<span class="syn-comment"># 3. Tabloyu Sıralama (order):</span>
+<span class="syn-comment"># Excel'deki "A'dan Z'ye sırala" işleminin karşılığıdır.
+# Tabloyu yaşlara göre küçükten büyüğe (gençten yaşlıya) sıralayalım:</span>
+<span class="syn-var">ekip_tablosu</span>[<span class="syn-fn">order</span>(<span class="syn-var">ekip_tablosu</span>$<span class="syn-var">yaslar</span>), ] 
+
+<span class="syn-comment"># "decreasing = TRUE" opsiyonu ile tam tersi (büyükten küçüğe) sıralayabiliriz:</span>
+<span class="syn-var">ekip_tablosu</span>[<span class="syn-fn">order</span>(<span class="syn-var">ekip_tablosu</span>$<span class="syn-var">yaslar</span>, decreasing = <span class="syn-kw">TRUE</span>), ]
+
+<span class="syn-comment"># 4. Hızlı Filtreleme (subset):</span>
+<span class="syn-comment"># Binlerce satırlık veriden sadece işimize yarayanları çekmek için harikadır.
+# Sadece yaşı 25'ten küçük olan üyeleri tablo olarak getir:</span>
+<span class="syn-fn">subset</span>(<span class="syn-var">ekip_tablosu</span>, <span class="syn-var">yaslar</span> &lt; <span class="syn-number">25</span>)
+
+<span class="syn-comment"># Birden fazla şartı '&amp;' (VE) ile bağlayabiliriz:
+# Yaşı 25'ten küçük VE kilosu 80'den büyük olanları getir:</span>
+<span class="syn-fn">subset</span>(<span class="syn-var">ekip_tablosu</span>, <span class="syn-var">yaslar</span> &lt; <span class="syn-number">25</span> &amp; <span class="syn-var">kilolar</span> &gt; <span class="syn-number">80</span>)</div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Paket Mantığı ve "tidyr" Paketi</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">R dilini yeni alınmış fabrikasyon bir telefon gibi düşünün. İçinde temel uygulamalar vardır. Ancak bazen verileri şekillendirmek, temizlemek ve adam etmek için özel araçlara ihtiyaç duyarız. İşte R'ın veri temizleme ve şekillendirme konusundaki en ünlü paketi <strong>"tidyr"</strong>dir.</p>
+                            
+                            <div class="code-box"><span class="syn-comment"># Eğer bilgisayarınızda yoksa önce şu komutla indirmeniz gerekir (Sadece 1 kez yapılır):</span>
+<span class="syn-comment"># install.packages("tidyr")</span>
+
+<span class="syn-comment"># Paketi çalışmamıza çağıralım:</span>
+<span class="syn-fn">library</span>(tidyr)</div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Orijinal Boru (Pipe) Operatörü: %&gt;%</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><code>tidyr</code> paketini çağırdığımızda R'ın en sevilen operatörü de yanımıza gelir: <code>%&gt;%</code></p>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Pipe operatörü <strong>"VE SONRA..."</strong> demektir. Kodların iç içe geçip kafamızı karıştırmasını engeller, yukarıdan aşağıya şelale gibi akmasını sağlar. <br><strong>RStudio Kısayolu:</strong> <kbd>Ctrl + Shift + M</kbd></p>
+
+                            <div class="code-box"><span class="syn-comment"># Klasik iç içe yazım (Okuması ve anlaması zordur, sondan başa okunur):
+# summary(subset(ekip_tablosu, yaslar &lt; 25))</span>
+
+<span class="syn-comment"># %&gt;% ile modern yazım (Soldan sağa doğru akar, yormaz):</span>
+<span class="syn-var">ekip_tablosu</span> %&gt;% 
+  <span class="syn-fn">subset</span>(<span class="syn-var">yaslar</span> &lt; <span class="syn-number">25</span>) %&gt;% 
+  <span class="syn-fn">summary</span>()
+
+<span class="syn-comment"># Gördüğünüz gibi: Tabloyu al %&gt;% 25'ten küçükleri filtrele %&gt;% En son özetini çıkar!</span></div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Veri Şekillendirme: separate ve pivot_longer</h4>
+                            
+                            <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>1. Sütun Ayırma (separate)</strong><br>Bazen bize gelen verilerde iki farklı bilgi tek bir sütuna sıkışmıştır. Örneğin üyelerin bulunduğu şehir ve bölge kodları tek sütunda olsun:</p>
+                            <div class="code-box"><span class="syn-var">ekip_tablosu</span>$<span class="syn-var">konum_kodu</span> &lt;- <span class="syn-fn">c</span>(<span class="syn-string">"Denizli_Ege"</span>, <span class="syn-string">"Izmir_Ege"</span>, <span class="syn-string">"Ankara_Anadolu"</span>, <span class="syn-string">"Istanbul_Marmara"</span>, <span class="syn-string">"Denizli_Ege"</span>)
+
+<span class="syn-comment"># Bu "konum_kodu" sütununu "_" işaretinden ikiye bölüp ayrı sütunlar yapalım:</span>
+<span class="syn-var">ekip_tablosu</span> &lt;- <span class="syn-var">ekip_tablosu</span> %&gt;% 
+  <span class="syn-fn">separate</span>(col = <span class="syn-var">konum_kodu</span>, into = <span class="syn-fn">c</span>(<span class="syn-string">"Sehir"</span>, <span class="syn-string">"Bolge"</span>), sep = <span class="syn-string">"_"</span>)
+
+<span class="syn-var">ekip_tablosu</span> <span class="syn-comment"># Artık tertemiz iki ayrı sütunumuz var!</span></div>
+
+                            <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>2. Genişten Uzuna Dönüştürme (pivot_longer)</strong><br>Ekonometride (özellikle panel veri analizlerinde) yıllara ait verilerin yan yana sütunlarda durması analizi zorlaştırır. Test etmek için ufak bir makroekonomik veri seti kuralım:</p>
+                            <div class="code-box"><span class="syn-var">makro_veri</span> &lt;- <span class="syn-fn">data.frame</span>(
+  Ulke = <span class="syn-fn">c</span>(<span class="syn-string">"TR"</span>, <span class="syn-string">"DE"</span>),
+  Yil_2024 = <span class="syn-fn">c</span>(<span class="syn-number">4.5</span>, <span class="syn-number">1.2</span>),
+  Yil_2025 = <span class="syn-fn">c</span>(<span class="syn-number">5.0</span>, <span class="syn-number">1.5</span>)
+)
+
+<span class="syn-var">makro_veri</span> <span class="syn-comment"># Bu tablo "Geniş" formattadır. Yıllar sütun ismi olmuş, bu iyi değil!</span>
+
+<span class="syn-comment"># Yılları ve oranları tek sütuna toplayıp veriyi aşağıya doğru uzatmak için 
+# modern R'ın en güçlü aracı olan pivot_longer() komutunu kullanıyoruz:</span>
+<span class="syn-var">uzun_veri</span> &lt;- <span class="syn-var">makro_veri</span> %&gt;% 
+  <span class="syn-fn">pivot_longer</span>(
+    cols = <span class="syn-fn">c</span>(<span class="syn-var">Yil_2024</span>, <span class="syn-var">Yil_2025</span>),  <span class="syn-comment"># Hangi sütunları aşağıya indireceğiz?</span>
+    names_to = <span class="syn-string">"Yil"</span>,              <span class="syn-comment"># Eski sütun isimleri hangi yeni sütuna gitsin?</span>
+    values_to = <span class="syn-string">"Buyume_Orani"</span>     <span class="syn-comment"># İçerideki rakamlar hangi yeni sütuna gitsin?</span>
+  )
+
+<span class="syn-var">uzun_veri</span> <span class="syn-comment"># İşte verimiz analize ve regresyona yüzde yüz hazır hale geldi!</span>
+
+<span class="syn-fn">ls</span>()</div>
+
+                            <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                                <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-info"></i> Dinamik Satır Sayısı Öğrenme</h5>
+                                <p style="margin: 0 0 10px 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Tablo boyutlarını öğrenmenin ekstra yolu:</p>
+                                <div class="code-box" style="margin-bottom: 10px; padding: 10px;"><span class="syn-fn">nrow</span>(<span class="syn-var">ekip_tablosu</span>)  <span class="syn-comment"># Number of ROWs -&gt; Satır Sayısı</span>
+<span class="syn-fn">ncol</span>(<span class="syn-var">ekip_tablosu</span>)  <span class="syn-comment"># Number of COLumns -&gt; Sütun Sayısı</span></div>
+                                <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">"Peki bu benim ne işime yarayacak?" derseniz: İleride <strong>for döngüleri (loops)</strong> yazarken "Tablonun 1. satırından başla, son satırına kadar git" demek istediğimizde, o "son satır" kısmına elle 5 yazmak yerine, dinamik olarak <code>nrow(ekip_tablosu)</code> yazacağız! Böylece tabloya yeni biri eklendiğinde kodumuz patlamayacak.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
