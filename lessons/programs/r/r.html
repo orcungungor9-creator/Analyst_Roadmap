@@ -31,6 +31,41 @@
             text-align: center;
             color: var(--text-muted);
         }
+
+        /* Accordion Fix & Syntax Highlighting */
+        .accordion-inner { opacity: 1 !important; }
+        .syn-comment { color: #001f3f; } /* Dark navy */
+        .syn-string { color: #E91E63; }
+        .syn-number { color: #2196F3; }
+        .syn-kw { color: #9C27B0; }
+        .syn-fn { color: #E65100; }
+        .syn-var { color: var(--text-main); font-weight: bold; }
+        
+        body.theme-dark .syn-comment, body.theme-ocean .syn-comment, body.theme-purple .syn-comment, body.theme-emerald .syn-comment, body.theme-cyberpunk .syn-comment, body.theme-cyber-neon .syn-comment, body.theme-amber .syn-comment, body.theme-dark-sakura .syn-comment, body.theme-mono-dark .syn-comment { color: #4CAF50; }
+        body.theme-dark .syn-string, body.theme-ocean .syn-string, body.theme-purple .syn-string, body.theme-emerald .syn-string, body.theme-cyberpunk .syn-string, body.theme-cyber-neon .syn-string, body.theme-amber .syn-string, body.theme-dark-sakura .syn-string, body.theme-mono-dark .syn-string { color: #FF8A80; }
+        body.theme-dark .syn-number, body.theme-ocean .syn-number, body.theme-purple .syn-number, body.theme-emerald .syn-number, body.theme-cyberpunk .syn-number, body.theme-cyber-neon .syn-number, body.theme-amber .syn-number, body.theme-dark-sakura .syn-number, body.theme-mono-dark .syn-number { color: #82B1FF; }
+        body.theme-dark .syn-kw, body.theme-ocean .syn-kw, body.theme-purple .syn-kw, body.theme-emerald .syn-kw, body.theme-cyberpunk .syn-kw, body.theme-cyber-neon .syn-kw, body.theme-amber .syn-kw, body.theme-dark-sakura .syn-kw, body.theme-mono-dark .syn-kw { color: #EA80FC; }
+        body.theme-dark .syn-fn, body.theme-ocean .syn-fn, body.theme-purple .syn-fn, body.theme-emerald .syn-fn, body.theme-cyberpunk .syn-fn, body.theme-cyber-neon .syn-fn, body.theme-amber .syn-fn, body.theme-dark-sakura .syn-fn, body.theme-mono-dark .syn-fn { color: #FFD180; }
+        
+        .code-box {
+            background: var(--bg-card);
+            color: var(--text-main);
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: monospace;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            border: 1px solid var(--glass-border);
+            font-size: 0.95rem;
+            white-space: pre-wrap;
+        }
+
+        .right-column {
+            align-self: start;
+            position: sticky;
+            top: 100px; /* Optional: Keep distance from top */
+        }
     </style>
 </head>
 <body class="r-page" style="display: flex; flex-direction: column; min-height: 100vh;">
@@ -130,21 +165,21 @@
                             <!-- Code Block -->
                             <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">🧪 İlk Kod Denemeleri</h4>
                             <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Aşağıdaki kodları Source paneline yazıp <code style="background: var(--bg-card); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--glass-border);">Ctrl + Enter</code> ile çalıştırarak konsoldaki sonuçları inceleyebilirsiniz:</p>
-                            <pre style="background: var(--bg-card); color: var(--text-main); padding: 15px; border-radius: 8px; overflow-x: auto; font-family: monospace; line-height: 1.5; margin-bottom: 20px; border: 1px solid var(--glass-border);"><code># Basit bir matematiksel işlem
-2 + 2
+                            <div class="code-box"><span class="syn-comment"># Basit bir matematiksel işlem</span>
+<span class="syn-number">2</span> + <span class="syn-number">2</span>
 
-# Mantıksal (Logical) karşılaştırmalar
-5 > 3   # TRUE döner
-3 > 5   # FALSE döner
+<span class="syn-comment"># Mantıksal (Logical) karşılaştırmalar</span>
+<span class="syn-number">5</span> &gt; <span class="syn-number">3</span>   <span class="syn-comment"># TRUE döner</span>
+<span class="syn-number">3</span> &gt; <span class="syn-number">5</span>   <span class="syn-comment"># FALSE döner</span>
 
-# R'da mantıksal değerlerin sayısal karşılıkları vardır:
-# TRUE arka planda 1, FALSE ise 0 değerini taşır.
-TRUE == 1   # TRUE
-FALSE == 0  # TRUE
-T == 4      # FALSE (T, TRUE'nun kısaltmasıdır)
+<span class="syn-comment"># R'da mantıksal değerlerin sayısal karşılıkları vardır:
+# TRUE arka planda 1, FALSE ise 0 değerini taşır.</span>
+<span class="syn-kw">TRUE</span> == <span class="syn-number">1</span>   <span class="syn-comment"># TRUE</span>
+<span class="syn-kw">FALSE</span> == <span class="syn-number">0</span>  <span class="syn-comment"># TRUE</span>
+<span class="syn-kw">T</span> == <span class="syn-number">4</span>      <span class="syn-comment"># FALSE (T, TRUE'nun kısaltmasıdır)</span>
 
-# R oturumunu kapatmak/çıkış yapmak için:
-q()</code></pre>
+<span class="syn-comment"># R oturumunu kapatmak/çıkış yapmak için:</span>
+<span class="syn-fn">q</span>()</div>
                         </div>
                     </div>
                 </div>
@@ -157,125 +192,91 @@ q()</code></pre>
                 <div class="accordion-content">
                     <div class="accordion-inner">
                         <div class="lesson-content">
-                            <pre style="background: var(--bg-card); color: var(--text-main); padding: 15px; border-radius: 8px; overflow-x: auto; font-family: monospace; line-height: 1.6; margin-bottom: 20px; border: 1px solid var(--glass-border); font-size: 0.95rem;"><code><span class="syn-comment"># R egitimi ucuncu ders</span>
-
-<span class="syn-comment"># ~~~~~~~~( Degisken Nedir )~~~~~~~~~~</span>
-
-<span class="syn-comment"># Degisken neden kullaniriz ? Degisken, kullanacagimiz sahsi atama/atamalarimizdir.
-# Degiskenler kod yazarken isimizi kolaylastiracak sahsi kutulardir.
-# Bir islem yapar ve onu isimlendirirsiniz, belki 200 karakter olan bir islem 1 degisken olur.
-# Ana kullanim amaci neredeyse tamamen bu oldugundan degisken isimlerini kisa tutariz.
-
-# Calistirdigimiz komutlarin/kutularin "cikti" dedigimiz bir goruntusu olur.
-
-# Komutlar bizim R yazilim dilimizde isimizi kolaylastiran onceden programlanmis islemlerdir.
-
-# Ayni islemi kisa, uzun, daha kisa, daha uzun yollarla yapmak sizin ne kadar iyi sekilde 
-# dili ogrendiginiz ile alakalidir. 
-
-# Degisken dedigimiz kavram dilin en temellerinden biridir. Degiskeni olusturur ve kod
-# icinde istedigimiz gibi cagiririz. Ancak degisken atarken belli basli kurallar vardir.
-
-# Kutu olayini soyle aciklayayim, devasa bir islem yapip sonucunu her defasinda bir
-# degisken, yani kutu ile cagirmak istiyorum. koca islemi degisken tutuyor.</span>
-
-
-<span class="syn-comment"># ~~~~( Degisken turleri ve Kurallari )</span>
-
-
-<span class="syn-comment"># 1. ATAMA OPERATORU (Assignment Operator)
-# R dilinde bir veriyi isme baglamak icin "&lt;-" kullanilir.
-# Alt ve Tire tuslarina ayni anda basarak (Alt + -) bu isareti hizlica yapabilirsiniz.</span>
-
-<span class="syn-var">sayi</span> &lt;- <span class="syn-number">10</span>
-<span class="syn-var">metin</span> &lt;- <span class="syn-string">" R egitimine hos geldiniz"</span>
-
-<span class="syn-comment"># 2. ISIMLENDIRME KURALLARI
-# Bir degiskene her ismi veremezsiniz. Su kurallar hayati onem tasir:
-
-# A) Sayi ile baslayamaz:
-# 1degisken &lt;- 5  (YANLIS)</span>
-<span class="syn-var">degisken1</span> &lt;- <span class="syn-number">5</span>   <span class="syn-comment"># (DOGRU)</span>
-
-<span class="syn-comment"># B) Bosluk iceremez:
-# benim verim &lt;- 100 (YANLIS)</span>
-<span class="syn-var">benim_verim</span> &lt;- <span class="syn-number">100</span>   <span class="syn-comment"># (DOGRU - Alt tire kullanin)</span>
-<span class="syn-var">benimVerim</span> &lt;- <span class="syn-number">100</span>    <span class="syn-comment"># (DOGRU - CamelCase kullanin)</span>
-
-<span class="syn-comment"># C) Buyuk/Kucuk harf duyarlidir (Case Sensitive):
-# R icin "veri", "Veri" ve "VERI" birbirinden tamamen farkli 3 degiskendir.
-
-# D) Ozel karakter yasagi:
-# Degisken isimlerinde !, ?, $, % gibi karakterler kullanilamaz. 
-# Sadece nokta (.) ve alt tire (_) serbesttir.</span>
-
-
-<span class="syn-comment"># ~~~~( Degisken atama opsiyonlari)~~~~
-
-# Degiskenler illa "&lt;-" ile atanmaz, tek esittir "=" operatoru degisken atamaya yarar.</span>
-<span class="syn-var">esittir</span> = <span class="syn-number">850</span>
-
-<span class="syn-number">850</span> -&gt; <span class="syn-var">esittir2</span> <span class="syn-comment"># Normalde sagdakini sola atariz, ama ok nereye atama oraya. </span>
-
-<span class="syn-comment"># Not : " &lt;- " standart kabul edilir, cogunlukla " &lt;- " kullanilir.</span>
-
-
-<span class="syn-comment"># ~~~~( Temel Veri Tipleri )~~~~
-
-# Olusturdugumuz her degiskenin bir "tipi" vardir. Bunu class() komutu ile sorgulatabiliriz.
-
-# A) Numeric (Sayisal): Ondalikli veya tam sayilar.</span>
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Değişken Nedir?</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Değişken neden kullanırız? Değişken, kullanacağımız şahsi atama/atamalarımızdır. Değişkenler kod yazarken işimizi kolaylaştıracak şahsi kutulardır.</p>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Bir işlem yapar ve onu isimlendirirsiniz, belki 200 karakter olan bir işlem 1 değişken olur. Ana kullanım amacı neredeyse tamamen bu olduğundan değişken isimlerini kısa tutarız.</p>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Çalıştırdığımız komutların/kutuların "çıktı" dediğimiz bir görüntüsü olur. Komutlar bizim R yazılım dilimizde işimizi kolaylaştıran önceden programlanmış işlemlerdir.</p>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Aynı işlemi kısa, uzun, daha kısa, daha uzun yollarla yapmak sizin ne kadar iyi şekilde dili öğrendiğiniz ile alakalıdır.</p>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Değişken dediğimiz kavram dilin en temellerinden biridir. Değişkeni oluşturur ve kod içinde istediğimiz gibi çağırırız. Ancak değişken atarken belli başlı kurallar vardır.</p>
+                            <p style="margin-bottom: 25px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Kutu olayını şöyle açıklayayım: devasa bir işlem yapıp sonucunu her defasında bir değişken (kutu) ile çağırmak istiyorum. Koca işlemi değişken tutuyor.</p>
+                        
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Değişken Türleri ve Kuralları</h4>
+                            
+                            <h5 style="color: var(--text-main); margin-bottom: 10px; font-size: 1.05rem; font-weight: 700;">1. Atama Operatörü (Assignment Operator)</h5>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">R dilinde bir veriyi isme bağlamak için <code>&lt;-</code> kullanılır. <br><strong>İpucu:</strong> Alt ve Tire tuşlarına aynı anda basarak (<kbd>Alt + -</kbd>) bu işareti hızlıca yapabilirsiniz.</p>
+                            
+                            <div class="code-box"><span class="syn-var">sayi</span> &lt;- <span class="syn-number">10</span>
+<span class="syn-var">metin</span> &lt;- <span class="syn-string">"R egitimine hos geldiniz"</span></div>
+                        
+                            <h5 style="color: var(--text-main); margin-bottom: 10px; font-size: 1.05rem; font-weight: 700;">2. İsimlendirme Kuralları</h5>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Bir değişkene her ismi veremezsiniz. Şu kurallar hayati önem taşır:</p>
+                            
+                            <ul style="margin-bottom: 15px; padding-left: 20px; line-height: 1.6; font-weight: 500; color: var(--text-main);">
+                                <li style="margin-bottom: 10px;"><strong>Sayı ile başlayamaz:</strong> <code>1degisken</code> (YANLIŞ)</li>
+                                <li style="margin-bottom: 10px;"><strong>Boşluk içeremez:</strong> <code>benim verim</code> (YANLIŞ). Bunun yerine alt tire (<code>benim_verim</code>) veya CamelCase (<code>benimVerim</code>) kullanın.</li>
+                                <li style="margin-bottom: 10px;"><strong>Büyük/Küçük harf duyarlıdır (Case Sensitive):</strong> R için "veri", "Veri" ve "VERI" birbirinden tamamen farklı 3 değişkendir.</li>
+                                <li style="margin-bottom: 10px;"><strong>Özel karakter yasağı:</strong> Değişken isimlerinde !, ?, $, % gibi karakterler kullanılamaz. Sadece nokta (.) ve alt tire (_) serbesttir.</li>
+                            </ul>
+                        
+                            <div class="code-box"><span class="syn-comment"># Sayı ile başlayamaz örneği</span>
+<span class="syn-var">degisken1</span> &lt;- <span class="syn-number">5</span>   <span class="syn-comment"># (DOĞRU)</span>
+                        
+<span class="syn-comment"># Boşluk içeremez örneği</span>
+<span class="syn-var">benim_verim</span> &lt;- <span class="syn-number">100</span>   <span class="syn-comment"># (DOĞRU - Alt tire kullanımı)</span>
+<span class="syn-var">benimVerim</span> &lt;- <span class="syn-number">100</span>    <span class="syn-comment"># (DOĞRU - CamelCase kullanımı)</span></div>
+                        
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Değişken Atama Opsiyonları</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Değişkenler illa <code>&lt;-</code> ile atanmaz. Tek eşittir <code>=</code> operatörü de değişken atamaya yarar. Ayrıca oku ters çevirerek <code>-&gt;</code> atama yönünü değiştirebilirsiniz, ok nereyi gösteriyorsa oraya atama yapılır. Ancak standart olarak çoğunlukla <code>&lt;-</code> kabul edilir.</p>
+                            
+                            <div class="code-box"><span class="syn-var">esittir</span> = <span class="syn-number">850</span>
+<span class="syn-number">850</span> -&gt; <span class="syn-var">esittir2</span> <span class="syn-comment"># Sağdakini sola değil, soldakini sağa atar.</span></div>
+                        
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Temel Veri Tipleri</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Oluşturduğumuz her değişkenin bir "tipi" vardır. Bunu <code>class()</code> komutu ile sorgulatabiliriz.</p>
+                            
+                            <ul style="margin-bottom: 15px; padding-left: 20px; line-height: 1.6; font-weight: 500; color: var(--text-main);">
+                                <li style="margin-bottom: 10px;"><strong>Numeric (Sayısal):</strong> Ondalıklı veya tam sayılar.</li>
+                                <li style="margin-bottom: 10px;"><strong>Integer (Tam Sayı):</strong> Sayının sonuna L harfi konularak belirtilir.</li>
+                                <li style="margin-bottom: 10px;"><strong>Character (Metin):</strong> Her zaman çift veya tek tırnak içinde yazılır.</li>
+                                <li style="margin-bottom: 10px;"><strong>Logical (Mantıksal):</strong> Sadece Doğru (TRUE) veya Yanlış (FALSE) değeri alır.</li>
+                            </ul>
+                        
+                            <div class="code-box"><span class="syn-comment"># Numeric</span>
 <span class="syn-var">boy</span> &lt;- <span class="syn-number">1.82</span>
 <span class="syn-fn">class</span>(<span class="syn-var">boy</span>)
-
-<span class="syn-comment"># B) Integer (Tam Sayi): Sayinin sonuna L harfi konularak belirtilir.</span>
+                        
+<span class="syn-comment"># Integer</span>
 <span class="syn-var">yas</span> &lt;- <span class="syn-number">25L</span>
 <span class="syn-fn">class</span>(<span class="syn-var">yas</span>)
-
-<span class="syn-comment"># C) Character (Metin): Her zaman cift veya tek tirnak icinde yazilir.</span>
+                        
+<span class="syn-comment"># Character</span>
 <span class="syn-var">isim</span> &lt;- <span class="syn-string">"Orcun"</span>
 <span class="syn-fn">class</span>(<span class="syn-var">isim</span>)
-
-<span class="syn-comment"># D) Logical (Mantiksal): Sadece Dogru (TRUE) veya Yanlis (FALSE) degeri alir.</span>
+                        
+<span class="syn-comment"># Logical</span>
 <span class="syn-var">ogrenci_mi</span> &lt;- <span class="syn-kw">TRUE</span>
-<span class="syn-fn">class</span>(<span class="syn-var">ogrenci_mi</span>)
-
-<span class="syn-comment"># olusturdugumuz degiskenleri listeler</span>
+<span class="syn-fn">class</span>(<span class="syn-var">ogrenci_mi</span>)</div>
+                        
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Değişkenleri Yönetmek (ls ve rm)</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Mevcut ortamınızda (environment) hangi değişkenlerin olduğunu listelemek için <code>ls()</code>, silmek için <code>rm()</code> komutlarını kullanırız. <code>rm()</code> metninizi silmez, sadece değişkene ait veriyi ortamdan kaldırır.</p>
+                            
+                            <div class="code-box"><span class="syn-comment"># Şu anki environment'ında kaç değişken var?</span>
 <span class="syn-fn">ls</span>()
-
-<span class="syn-comment"># Bu komut olusturdugumuz bir seyi silmeye yarar, metnini silmez ama enviromentten siler.</span>
-<span class="syn-fn">rm</span>()
-
-
-<span class="syn-comment"># ~~~~( Öğrenci Deneyi )~~~~
-# Şu anki environment'ında kaç değişken var?</span>
-<span class="syn-fn">ls</span>()
-
+                        
 <span class="syn-comment"># "yas" değişkenini sil ve tekrar kontrol et</span>
 <span class="syn-fn">rm</span>(<span class="syn-var">yas</span>)
-<span class="syn-fn">ls</span>()
-
-
-<span class="syn-comment"># Dip Not; onceki video scriptinde T ve F yani TRUE ve FALSE'i R programlama dilinin 
-# sirasiyla 1 ve 0 olarak algiladigindan bahsetmistim. 
-# Bu ders degiskenleri ogretirken bunu da es gecmemek lazim, TRUE ya da FALSE su an oldugu
-# gibi yazilirken ayrilmis degerlerdir, onlara deger atayamazsin, ama T ve F harflerine
-# bir deger atarsan bundan sonra projede verdigin degerler ne ise onlar o degeri alir.</span>
-
-
-<span class="syn-comment"># ~~~~( Kucuk Bir Not: Eksik Veri (NA) )~~~~
-
-# R'da ileride cok karsilasacagimiz bir terim var: NA (Not Available)
-# NA, "Mevcut Degil" veya "kayip Veri" anlamina gelir. 
-# Gercek hayatta veriler her zaman kusursuz degildir, misal bazen excel tablosundaki
-# bir hucre bos kalir veya veri girilmez. Iste R bu bosluklari NA olarak tanimlar.</span>
- 
-<span class="syn-var">kayip_veri</span> &lt;- <span class="syn-kw">NA</span>
-
-<span class="syn-comment"># Su an icin bu kavrami sadece ismen bilmeniz yeterli. Ilerleyen derslerde 
-# matrisler (matrices) ve veri tablolari (data frames) gibi buyuk yapilari islerken, 
-# bos kalan hucrelerde NA kavraminin ne kadar hayati oldugunu ve bu kayip verilerle 
-# nasil basa cikacagimizi cok daha detayli gorecegiz.</span></code></pre>
+<span class="syn-fn">ls</span>()</div>
+                        
+                            <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                                <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-info"></i> Önemli Not (TRUE / FALSE)</h5>
+                                <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Önceki videolarda T ve F yani TRUE ve FALSE'un R tarafından 1 ve 0 olarak algılandığından bahsetmiştik. TRUE ya da FALSE ayrılmış değerlerdir, onlara değer atayamazsınız. Ancak T ve F harflerine normal bir değişken gibi sayı vs. atarsanız, bundan sonra projenizde o harfler o değeri alır. Bu yüzden dikkatli olmalısınız!</p>
+                            </div>
+                        
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Eksik Veri (NA - Not Available)</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">R'da ileride çok karşılaşacağımız bir terim var: <strong>NA (Not Available)</strong>. "Mevcut Değil" veya "Kayıp Veri" anlamına gelir.</p>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Gerçek hayatta veriler her zaman kusursuz değildir, misal bazen excel tablosundaki bir hücre boş kalır veya veri girilmez. İşte R bu boşlukları NA olarak tanımlar. Şu an için bu kavramı ismen bilmeniz yeterli, ilerleyen derslerde tablolarla çalışırken eksik verilerle nasıl başa çıkacağımızı öğreneceğiz.</p>
+                            
+                            <div class="code-box"><span class="syn-var">kayip_veri</span> &lt;- <span class="syn-kw">NA</span></div>
                         </div>
                     </div>
                 </div>
