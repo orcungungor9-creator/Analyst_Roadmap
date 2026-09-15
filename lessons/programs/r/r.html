@@ -66,6 +66,49 @@
             position: sticky;
             top: 100px; /* Optional: Keep distance from top */
         }
+        
+        .r-output-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0 25px 0;
+            font-family: monospace;
+            font-size: 0.9rem;
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .r-output-table th, .r-output-table td {
+            padding: 10px 15px;
+            text-align: right;
+            border-bottom: 1px solid var(--glass-border);
+            border-right: 1px solid var(--glass-border);
+            color: var(--text-main);
+        }
+        .r-output-table th {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--theme-color);
+            font-weight: bold;
+        }
+        .r-output-table tr:last-child td {
+            border-bottom: none;
+        }
+        .r-output-table tr td:last-child, .r-output-table tr th:last-child {
+            border-right: none;
+        }
+        .r-output-table .row-name {
+            font-weight: bold;
+            color: var(--text-muted);
+            background: rgba(255,255,255,0.02);
+            text-align: left;
+        }
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
     </style>
 </head>
 <body class="r-page" style="display: flex; flex-direction: column; min-height: 100vh;">
@@ -550,14 +593,33 @@
                             <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>1. matrix() komutu ile sıfırdan matris üretmek:</strong><br>Örneğin 1'den 9'a kadar sayıları alıp 3 satır ve 3 sütunluk bir matris yapalım.</p>
                             <div class="code-box"><span class="syn-var">sayilar</span> &lt;- <span class="syn-number">1</span>:<span class="syn-number">9</span>
 <span class="syn-var">matris1</span> &lt;- <span class="syn-fn">matrix</span>(<span class="syn-var">sayilar</span>, nrow = <span class="syn-number">3</span>, ncol = <span class="syn-number">3</span>)
-<span class="syn-var">matris1</span>
-<span class="syn-comment"># R, verileri matrise doldururken varsayılan olarak "sütun sütun" (aşağı doğru) doldurur.</span>
+<span class="syn-var">matris1</span></div>
+                            
+                            <p style="margin-bottom: 5px; font-size: 0.9rem; color: var(--text-muted); font-weight: 500;"><i class="ph ph-terminal-window"></i> Konsol Çıktısı (Sütun Sütun Doldurma):</p>
+                            <div class="table-responsive">
+                                <table class="r-output-table">
+                                    <tr><th class="row-name"></th><th>[,1]</th><th>[,2]</th><th>[,3]</th></tr>
+                                    <tr><td class="row-name">[1,]</td><td>1</td><td>4</td><td>7</td></tr>
+                                    <tr><td class="row-name">[2,]</td><td>2</td><td>5</td><td>8</td></tr>
+                                    <tr><td class="row-name">[3,]</td><td>3</td><td>6</td><td>9</td></tr>
+                                </table>
+                            </div>
 
-<span class="syn-comment"># Verileri satır satır (sağa doğru) doldurmak isterseniz,
+                            <div class="code-box"><span class="syn-comment"># Verileri satır satır (sağa doğru) doldurmak isterseniz,
 # byrow (satıra göre) argümanını TRUE yapmalısınız:</span>
 <span class="syn-var">matris2</span> &lt;- <span class="syn-fn">matrix</span>(<span class="syn-var">sayilar</span>, nrow = <span class="syn-number">3</span>, ncol = <span class="syn-number">3</span>, byrow = <span class="syn-kw">TRUE</span>)
 <span class="syn-var">matris2</span>
 <span class="syn-comment"># Dipnot: ncol kısmının 3 olacağını R otomatik hesaplayabilir, es geçilebilir.</span></div>
+
+                            <p style="margin-bottom: 5px; font-size: 0.9rem; color: var(--text-muted); font-weight: 500;"><i class="ph ph-terminal-window"></i> Konsol Çıktısı (Satır Satır Doldurma):</p>
+                            <div class="table-responsive">
+                                <table class="r-output-table">
+                                    <tr><th class="row-name"></th><th>[,1]</th><th>[,2]</th><th>[,3]</th></tr>
+                                    <tr><td class="row-name">[1,]</td><td>1</td><td>2</td><td>3</td></tr>
+                                    <tr><td class="row-name">[2,]</td><td>4</td><td>5</td><td>6</td></tr>
+                                    <tr><td class="row-name">[3,]</td><td>7</td><td>8</td><td>9</td></tr>
+                                </table>
+                            </div>
 
 
                             <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Vektörleri Birleştirerek Matris Kurma</h4>
@@ -569,13 +631,33 @@
 
 <span class="syn-comment"># Bu vektörleri alt alta "satır" (row) olarak dizelim: rbind()</span>
 <span class="syn-var">ekip_satir</span> &lt;- <span class="syn-fn">rbind</span>(<span class="syn-var">Orcun</span>, <span class="syn-var">Furkan</span>, <span class="syn-var">Ahmet</span>)
-<span class="syn-var">ekip_satir</span>
+<span class="syn-var">ekip_satir</span></div>
 
-<span class="syn-comment"># Veya yan yana "sütun" (column) olarak dizelim: cbind()</span>
+                            <p style="margin-bottom: 5px; font-size: 0.9rem; color: var(--text-muted); font-weight: 500;"><i class="ph ph-terminal-window"></i> Konsol Çıktısı (rbind - Satır Birleştirme):</p>
+                            <div class="table-responsive">
+                                <table class="r-output-table">
+                                    <tr><th class="row-name"></th><th>[,1]</th><th>[,2]</th><th>[,3]</th></tr>
+                                    <tr><td class="row-name">Orcun</td><td>70</td><td>182</td><td>25</td></tr>
+                                    <tr><td class="row-name">Furkan</td><td>80</td><td>185</td><td>26</td></tr>
+                                    <tr><td class="row-name">Ahmet</td><td>85</td><td>178</td><td>24</td></tr>
+                                </table>
+                            </div>
+
+                            <div class="code-box"><span class="syn-comment"># Veya yan yana "sütun" (column) olarak dizelim: cbind()</span>
 <span class="syn-var">ekip_sutun</span> &lt;- <span class="syn-fn">cbind</span>(<span class="syn-var">Orcun</span>, <span class="syn-var">Furkan</span>, <span class="syn-var">Ahmet</span>)
-<span class="syn-var">ekip_sutun</span>
+<span class="syn-var">ekip_sutun</span></div>
 
-<span class="syn-comment"># rbind ve cbind komutları mevcut matrise yeni satır veya sütun eklemek için de kullanılır.
+                            <p style="margin-bottom: 5px; font-size: 0.9rem; color: var(--text-muted); font-weight: 500;"><i class="ph ph-terminal-window"></i> Konsol Çıktısı (cbind - Sütun Birleştirme):</p>
+                            <div class="table-responsive">
+                                <table class="r-output-table">
+                                    <tr><th class="row-name"></th><th>Orcun</th><th>Furkan</th><th>Ahmet</th></tr>
+                                    <tr><td class="row-name">[1,]</td><td>70</td><td>80</td><td>85</td></tr>
+                                    <tr><td class="row-name">[2,]</td><td>182</td><td>185</td><td>178</td></tr>
+                                    <tr><td class="row-name">[3,]</td><td>25</td><td>26</td><td>24</td></tr>
+                                </table>
+                            </div>
+
+                            <div class="code-box"><span class="syn-comment"># rbind ve cbind komutları mevcut matrise yeni satır veya sütun eklemek için de kullanılır.
 # Örneğin ekibe yeni biri katıldı (Veli) ve onu matrisimize eklemek istiyoruz:</span>
 <span class="syn-var">Veli</span> &lt;- <span class="syn-fn">c</span>(<span class="syn-number">72</span>, <span class="syn-number">180</span>, <span class="syn-number">23</span>)
 <span class="syn-var">ekip_satir</span> &lt;- <span class="syn-fn">rbind</span>(<span class="syn-var">ekip_satir</span>, <span class="syn-var">Veli</span>)</div>
@@ -667,6 +749,18 @@
 <span class="syn-comment"># Üstelik sayılar ve metinler matrislerdeki gibi "coercion"a uğrayıp bozulmadılar, 
 # kendi tiplerinde kaldılar. (Coercion: Zorunlu olarak hepsini aynı türe dönüştürmesi)</span></div>
 
+                            <p style="margin-bottom: 5px; font-size: 0.9rem; color: var(--text-muted); font-weight: 500;"><i class="ph ph-terminal-window"></i> Konsol Çıktısı (Data Frame):</p>
+                            <div class="table-responsive">
+                                <table class="r-output-table">
+                                    <tr><th class="row-name"></th><th>isimler</th><th>yaslar</th><th>kilolar</th><th>spora_gidiyor_mu</th></tr>
+                                    <tr><td class="row-name">1</td><td>Orcun</td><td>25</td><td>70</td><td>TRUE</td></tr>
+                                    <tr><td class="row-name">2</td><td>Furkan</td><td>26</td><td>80</td><td>TRUE</td></tr>
+                                    <tr><td class="row-name">3</td><td>Ahmet</td><td>24</td><td>85</td><td>FALSE</td></tr>
+                                    <tr><td class="row-name">4</td><td>Atakan</td><td>95</td><td>98</td><td>TRUE</td></tr>
+                                    <tr><td class="row-name">5</td><td>Deniz</td><td>21</td><td>55</td><td>TRUE</td></tr>
+                                </table>
+                            </div>
+
 
                             <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Sütun Çekmenin Kolay Yolu: Dolar "$" Operatörü</h4>
                             <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Data Frame'lerde hayat çok kolaydır. İstediğimiz sütunu ismen çağırmak için değişken adının yanına <code>$</code> işareti koyarız.</p>
@@ -693,9 +787,31 @@
 <span class="syn-fn">dim</span>(<span class="syn-var">ekip_tablosu</span>)[<span class="syn-number">2</span>]       <span class="syn-comment"># Tablonun kaç sütunu olduğunu söyler.</span></div>
 
                             <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>TÜM TABLOYU</strong> tek komutla da özetleyebiliriz. Sayısal sütunların ortalamasını, median, min/max değerlerini; mantıksal sütunların ise kaç tane TRUE/FALSE olduğunu tek kalemde döker (Veri tiplerini de gösterir).</p>
-                            <div class="code-box"><span class="syn-fn">summary</span>(<span class="syn-var">ekip_tablosu</span>)
-<span class="syn-comment"># Tek bir sütunun özetini de alabilirsiniz:</span>
+                            <div class="code-box"><span class="syn-fn">summary</span>(<span class="syn-var">ekip_tablosu</span>)</div>
+
+                            <p style="margin-bottom: 5px; font-size: 0.9rem; color: var(--text-muted); font-weight: 500;"><i class="ph ph-terminal-window"></i> Konsol Çıktısı (summary):</p>
+                            <div class="table-responsive">
+                                <table class="r-output-table">
+                                    <tr><th>isimler</th><th>yaslar</th><th>kilolar</th><th>spora_gidiyor_mu</th></tr>
+                                    <tr><td>Length:5</td><td>Min.   :21.0</td><td>Min.   :55.0</td><td>Mode :logical</td></tr>
+                                    <tr><td>Class :character</td><td>1st Qu.:24.0</td><td>1st Qu.:70.0</td><td>FALSE:1</td></tr>
+                                    <tr><td>Mode  :character</td><td>Median :25.0</td><td>Median :80.0</td><td>TRUE :4</td></tr>
+                                    <tr><td></td><td>Mean   :38.2</td><td>Mean   :77.6</td><td></td></tr>
+                                    <tr><td></td><td>3rd Qu.:26.0</td><td>3rd Qu.:85.0</td><td></td></tr>
+                                    <tr><td></td><td>Max.   :95.0</td><td>Max.   :98.0</td><td></td></tr>
+                                </table>
+                            </div>
+
+                            <div class="code-box"><span class="syn-comment"># Tek bir sütunun özetini de alabilirsiniz:</span>
 <span class="syn-fn">summary</span>(<span class="syn-var">ekip_tablosu</span>$<span class="syn-var">yaslar</span>)</div>
+
+                            <p style="margin-bottom: 5px; font-size: 0.9rem; color: var(--text-muted); font-weight: 500;"><i class="ph ph-terminal-window"></i> Konsol Çıktısı (Sadece "yaslar" özeti):</p>
+                            <div class="table-responsive">
+                                <table class="r-output-table">
+                                    <tr><th>Min.</th><th>1st Qu.</th><th>Median</th><th>Mean</th><th>3rd Qu.</th><th>Max.</th></tr>
+                                    <tr><td>21.0</td><td>24.0</td><td>25.0</td><td>38.2</td><td>26.0</td><td>95.0</td></tr>
+                                </table>
+                            </div>
 
                             <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
                                 <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-warning-circle"></i> attach() ve detach() Tehlikesi (Masking)</h5>
@@ -781,9 +897,18 @@
   Yil_2025 = <span class="syn-fn">c</span>(<span class="syn-number">5.0</span>, <span class="syn-number">1.5</span>)
 )
 
-<span class="syn-var">makro_veri</span> <span class="syn-comment"># Bu tablo "Geniş" formattadır. Yıllar sütun ismi olmuş, bu iyi değil!</span>
+<span class="syn-var">makro_veri</span> <span class="syn-comment"># Bu tablo "Geniş" formattadır. Yıllar sütun ismi olmuş, bu iyi değil!</span></div>
 
-<span class="syn-comment"># Yılları ve oranları tek sütuna toplayıp veriyi aşağıya doğru uzatmak için 
+                            <p style="margin-bottom: 5px; font-size: 0.9rem; color: var(--text-muted); font-weight: 500;"><i class="ph ph-terminal-window"></i> Konsol Çıktısı (makro_veri - Geniş Format):</p>
+                            <div class="table-responsive">
+                                <table class="r-output-table">
+                                    <tr><th class="row-name"></th><th>Ulke</th><th>Yil_2024</th><th>Yil_2025</th></tr>
+                                    <tr><td class="row-name">1</td><td>TR</td><td>4.5</td><td>5.0</td></tr>
+                                    <tr><td class="row-name">2</td><td>DE</td><td>1.2</td><td>1.5</td></tr>
+                                </table>
+                            </div>
+
+                            <div class="code-box"><span class="syn-comment"># Yılları ve oranları tek sütuna toplayıp veriyi aşağıya doğru uzatmak için 
 # modern R'ın en güçlü aracı olan pivot_longer() komutunu kullanıyoruz:</span>
 <span class="syn-var">uzun_veri</span> &lt;- <span class="syn-var">makro_veri</span> %&gt;% 
   <span class="syn-fn">pivot_longer</span>(
@@ -795,6 +920,17 @@
 <span class="syn-var">uzun_veri</span> <span class="syn-comment"># İşte verimiz analize ve regresyona yüzde yüz hazır hale geldi!</span>
 
 <span class="syn-fn">ls</span>()</div>
+
+                            <p style="margin-bottom: 5px; font-size: 0.9rem; color: var(--text-muted); font-weight: 500;"><i class="ph ph-terminal-window"></i> Konsol Çıktısı (uzun_veri - Uzun Format):</p>
+                            <div class="table-responsive">
+                                <table class="r-output-table">
+                                    <tr><th class="row-name"></th><th>Ulke</th><th>Yil</th><th>Buyume_Orani</th></tr>
+                                    <tr><td class="row-name">1</td><td>TR</td><td>Yil_2024</td><td>4.5</td></tr>
+                                    <tr><td class="row-name">2</td><td>TR</td><td>Yil_2025</td><td>5.0</td></tr>
+                                    <tr><td class="row-name">3</td><td>DE</td><td>Yil_2024</td><td>1.2</td></tr>
+                                    <tr><td class="row-name">4</td><td>DE</td><td>Yil_2025</td><td>1.5</td></tr>
+                                </table>
+                            </div>
 
                             <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
                                 <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-info"></i> Dinamik Satır Sayısı Öğrenme</h5>
