@@ -542,7 +542,103 @@
                 </div>
                 <div class="accordion-content">
                     <div class="accordion-inner">
-                        <p>7. Ders içeriği buraya gelecek...</p>
+                        <div class="lesson-content">
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Matrisler ve Matris Oluşturma</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Vektörleri öğrendik, şimdi işleri iki boyutlu hale getiriyoruz. Matrisleri Excel tablosu gibi düşünebilirsiniz: Satırlar (rows) ve sütunlar (columns) vardır.</p>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Tıpkı vektörlerde olduğu gibi, bir matrisin içindeki <strong>TÜM VERİLER</strong> aynı tipte olmak zorundadır.</p>
+
+                            <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>1. matrix() komutu ile sıfırdan matris üretmek:</strong><br>Örneğin 1'den 9'a kadar sayıları alıp 3 satır ve 3 sütunluk bir matris yapalım.</p>
+                            <div class="code-box"><span class="syn-var">sayilar</span> &lt;- <span class="syn-number">1</span>:<span class="syn-number">9</span>
+<span class="syn-var">matris1</span> &lt;- <span class="syn-fn">matrix</span>(<span class="syn-var">sayilar</span>, nrow = <span class="syn-number">3</span>, ncol = <span class="syn-number">3</span>)
+<span class="syn-var">matris1</span>
+<span class="syn-comment"># R, verileri matrise doldururken varsayılan olarak "sütun sütun" (aşağı doğru) doldurur.</span>
+
+<span class="syn-comment"># Verileri satır satır (sağa doğru) doldurmak isterseniz,
+# byrow (satıra göre) argümanını TRUE yapmalısınız:</span>
+<span class="syn-var">matris2</span> &lt;- <span class="syn-fn">matrix</span>(<span class="syn-var">sayilar</span>, nrow = <span class="syn-number">3</span>, ncol = <span class="syn-number">3</span>, byrow = <span class="syn-kw">TRUE</span>)
+<span class="syn-var">matris2</span>
+<span class="syn-comment"># Dipnot: ncol kısmının 3 olacağını R otomatik hesaplayabilir, es geçilebilir.</span></div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Vektörleri Birleştirerek Matris Kurma</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Sıfırdan matris yazmak yerine elimizdeki hazır vektörleri birleştirebiliriz. İki temel komut kullanırız: <code>rbind()</code> (Row Bind - Satır Birleştir) ve <code>cbind()</code> (Column Bind - Sütun Birleştir).</p>
+
+                            <div class="code-box"><span class="syn-var">Orcun</span> &lt;- <span class="syn-fn">c</span>(<span class="syn-number">70</span>, <span class="syn-number">182</span>, <span class="syn-number">25</span>) <span class="syn-comment"># Kilo, Boy, Yaş</span>
+<span class="syn-var">Furkan</span> &lt;- <span class="syn-fn">c</span>(<span class="syn-number">80</span>, <span class="syn-number">185</span>, <span class="syn-number">26</span>)
+<span class="syn-var">Ahmet</span> &lt;- <span class="syn-fn">c</span>(<span class="syn-number">85</span>, <span class="syn-number">178</span>, <span class="syn-number">24</span>)
+
+<span class="syn-comment"># Bu vektörleri alt alta "satır" (row) olarak dizelim: rbind()</span>
+<span class="syn-var">ekip_satir</span> &lt;- <span class="syn-fn">rbind</span>(<span class="syn-var">Orcun</span>, <span class="syn-var">Furkan</span>, <span class="syn-var">Ahmet</span>)
+<span class="syn-var">ekip_satir</span>
+
+<span class="syn-comment"># Veya yan yana "sütun" (column) olarak dizelim: cbind()</span>
+<span class="syn-var">ekip_sutun</span> &lt;- <span class="syn-fn">cbind</span>(<span class="syn-var">Orcun</span>, <span class="syn-var">Furkan</span>, <span class="syn-var">Ahmet</span>)
+<span class="syn-var">ekip_sutun</span>
+
+<span class="syn-comment"># rbind ve cbind komutları mevcut matrise yeni satır veya sütun eklemek için de kullanılır.
+# Örneğin ekibe yeni biri katıldı (Veli) ve onu matrisimize eklemek istiyoruz:</span>
+<span class="syn-var">Veli</span> &lt;- <span class="syn-fn">c</span>(<span class="syn-number">72</span>, <span class="syn-number">180</span>, <span class="syn-number">23</span>)
+<span class="syn-var">ekip_satir</span> &lt;- <span class="syn-fn">rbind</span>(<span class="syn-var">ekip_satir</span>, <span class="syn-var">Veli</span>)</div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Satır ve Sütun İsimlendirme</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Matrislerde sütun ve satırları isimlendirmek verinin okunabilirliğini artırır. Sütun isimleri için <code>colnames()</code>, satır isimleri için <code>rownames()</code> kullanılır.</p>
+
+                            <div class="code-box"><span class="syn-fn">colnames</span>(<span class="syn-var">ekip_satir</span>) &lt;- <span class="syn-fn">c</span>(<span class="syn-string">"Kilo"</span>, <span class="syn-string">"Boy"</span>, <span class="syn-string">"Yas"</span>)
+<span class="syn-var">ekip_satir</span></div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Matrislerden Eleman Çekme (Indexing)</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Matrisler 2 boyutlu olduğu için eleman çekerken <code>[Satır, Sütun]</code> formatını kullanırız. Kural: Önce satır, sonra sütun yazılır ve araya virgül konur.</p>
+
+                            <div class="code-box"><span class="syn-var">ekip_satir</span>[<span class="syn-number">1</span>, <span class="syn-number">2</span>] <span class="syn-comment"># 1. Satır (Orcun), 2. Sütun (Boy) kesişimi -&gt; Bize 182 verir.</span>
+
+<span class="syn-comment"># Sadece bir satırın veya sütunun tamamını çekmek isterseniz, diğer tarafı boş bırakırsınız.</span>
+<span class="syn-var">ekip_satir</span>[<span class="syn-number">2</span>, ]  <span class="syn-comment"># 2. Satır (Furkan) gelir, sütun kısmı boş olduğu için tüm bilgileri döner.</span>
+<span class="syn-var">ekip_satir</span>[, <span class="syn-number">3</span>]  <span class="syn-comment"># Satır kısmı boş, 3. Sütun (Yaş) gelir. Tüm ekibin yaşlarını döner.</span>
+
+<span class="syn-comment"># İsimlendirme yaptığımız için index numarası yerine direkt isim de yazabiliriz:</span>
+<span class="syn-var">ekip_satir</span>[<span class="syn-string">"Orcun"</span>, <span class="syn-string">"Kilo"</span>] <span class="syn-comment"># Orcun'un kilosunu verir (70).</span></div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Matrislerde Eksik Veri (NA) ile Çalışmak</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Diyelim ki Ahmet'in yaş bilgisini yanlış girdik ve sildik, şu an elimizde yok. Oraya 0 yazamayız (Çünkü 0 da bir yaştır ve ortalamayı aşağı çeker). Eksik veri olduğunu R'a belirtmek için <code>NA</code> yazmalıyız.</p>
+
+                            <div class="code-box"><span class="syn-var">ekip_satir</span>[<span class="syn-string">"Ahmet"</span>, <span class="syn-string">"Yas"</span>] &lt;- <span class="syn-kw">NA</span>
+<span class="syn-var">ekip_satir</span>
+
+<span class="syn-comment"># Bu ekibin yaş ortalamasını almak istersek NA yüzünden hata alırız:</span>
+<span class="syn-fn">mean</span>(<span class="syn-var">ekip_satir</span>[, <span class="syn-string">"Yas"</span>]) <span class="syn-comment"># Sonuç: NA çıkar.</span>
+
+<span class="syn-comment"># R'a NA değerlerini görmezden gelmesi için na.rm = TRUE argümanını ekleriz:</span>
+<span class="syn-fn">mean</span>(<span class="syn-var">ekip_satir</span>[, <span class="syn-string">"Yas"</span>], na.rm = <span class="syn-kw">TRUE</span>) <span class="syn-comment"># Sadece geçerli yaşların ortalamasını hesaplar.</span></div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Matris Boyutları ve Temel İşlemler</h4>
+                            
+                            <div class="code-box"><span class="syn-comment"># dim() komutu matrisin satır ve sütun sayısını vektör olarak verir.</span>
+<span class="syn-fn">dim</span>(<span class="syn-var">ekip_satir</span>)
+<span class="syn-fn">dim</span>(<span class="syn-var">ekip_satir</span>)[<span class="syn-number">1</span>] <span class="syn-comment"># Matrisin satır sayısını verir.</span>
+<span class="syn-fn">dim</span>(<span class="syn-var">ekip_satir</span>)[<span class="syn-number">2</span>] <span class="syn-comment"># Matrisin sütun sayısını verir.</span>
+
+<span class="syn-comment"># 1. Hızlı Toplam ve Ortalama (rowSums ve colMeans):</span>
+<span class="syn-fn">colMeans</span>(<span class="syn-var">ekip_satir</span>, na.rm = <span class="syn-kw">TRUE</span>) <span class="syn-comment"># Tüm sütunların ortalamasını tek işlemde verir.</span>
+<span class="syn-fn">rowSums</span>(<span class="syn-var">ekip_satir</span>, na.rm = <span class="syn-kw">TRUE</span>)  <span class="syn-comment"># Her satırın kendi içindeki toplamını verir.</span>
+
+<span class="syn-comment"># 2. Transpoz Alma (Satırları Sütun, Sütunları Satır Yapma):</span>
+<span class="syn-comment"># Tablonun yönünü değiştirmek için t() komutunu kullanırız:</span>
+<span class="syn-fn">t</span>(<span class="syn-var">ekip_satir</span>)
+
+<span class="syn-comment"># 3. Matris Çarpımı:</span>
+<span class="syn-comment"># matris * 2 -&gt; İçindeki her elemanı ayrı ayrı 2 ile çarpar.</span>
+<span class="syn-comment"># matris1 * matris2 -&gt; Aynı indeksteki elemanları karşılıklı çarpar.</span>
+<span class="syn-comment"># matris1 %*% matris2 -&gt; Lineer cebir kurallarına göre gerçek matris çarpımı yapar.</span></div>
+
+                            <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                                <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-info"></i> Sonraki Ders Hakkında</h5>
+                                <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Sonraki dersimizde tek tip veri zorunluluğu olmayan, gerçek hayatta veri analizi yaparken en çok kullanacağımız tablo yapısını, yani <strong>Veri Çerçevelerini (Data Frame)</strong> öğreneceğiz.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
