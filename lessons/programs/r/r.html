@@ -1208,7 +1208,83 @@ stats::<span class="syn-fn">filter</span>()  <span class="syn-comment"># R'ın k
                 </div>
                 <div class="accordion-content">
                     <div class="accordion-inner">
-                        <p>11. Ders içeriği buraya gelecek...</p>
+                        <div class="lesson-content">
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Veri Üretme ve Simülasyon</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Bu derste R'da sıfırdan veri üretmenin en temel ve yaygın kullanılan yöntemlerini öğreneceğiz. Modellerimizi test etmek veya pratik yapmak için bu komutlar çok işimize yarayacak.</p>
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">1. Temel Dizi ve Tekrar Komutları</h4>
+                            
+                            <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>a. Belirli bir aralıkta ardışık sayı üretme ( : operatörü ve seq )</strong></p>
+                            <div class="code-box"><span class="syn-var">ardisik_sayilar</span> &lt;- <span class="syn-number">1</span>:<span class="syn-number">50</span>  <span class="syn-comment"># 1'den 50'ye kadar tam sayılar</span>
+
+<span class="syn-comment"># Belirli adımlarla atlayarak sayı üretme (seq)
+# Örnek: 10'dan başlayıp 100'e kadar 10'ar 10'ar artan satırlar oluşturalım.</span>
+<span class="syn-var">onar_onar</span> &lt;- <span class="syn-fn">seq</span>(from = <span class="syn-number">10</span>, to = <span class="syn-number">100</span>, by = <span class="syn-number">10</span>) 
+<span class="syn-comment"># Çıktı: 10 20 30 40 50 60 70 80 90 100</span></div>
+
+                            <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>b. Verileri tekrar ettirme (rep)</strong><br>Aynı veriyi veya metni istediğimiz kadar çoğaltabiliriz.</p>
+                            <div class="code-box"><span class="syn-var">tekrar_eden_sayi</span> &lt;- <span class="syn-fn">rep</span>(<span class="syn-number">5</span>, times = <span class="syn-number">10</span>) 
+<span class="syn-comment"># 5 sayısını 10 kere yazar</span>
+
+<span class="syn-var">tekrar_eden_metin</span> &lt;- <span class="syn-fn">rep</span>(<span class="syn-fn">c</span>(<span class="syn-string">"A"</span>, <span class="syn-string">"B"</span>), times = <span class="syn-number">3</span>) 
+<span class="syn-comment"># Çıktı: "A" "B" "A" "B" "A" "B"</span></div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">2. Rastgele Seçim ve Örneklem (sample)</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Elimizdeki bir kümeden rastgele elemanlar seçmek için <code>sample</code> komutu kullanılır.</p>
+                            <div class="code-box"><span class="syn-var">isimler</span> &lt;- <span class="syn-fn">c</span>(<span class="syn-string">"Ali"</span>, <span class="syn-string">"Ayşe"</span>, <span class="syn-string">"Mehmet"</span>, <span class="syn-string">"Fatma"</span>)
+
+<span class="syn-comment"># Kümeden rastgele 2 kişi seçme</span>
+<span class="syn-var">rastgele_kisiler</span> &lt;- <span class="syn-fn">sample</span>(<span class="syn-var">isimler</span>, size = <span class="syn-number">2</span>)
+
+<span class="syn-comment"># Bir zarı 10 kere atma simülasyonu 
+# (Aynı sayı tekrar gelebileceği için replace = TRUE yapıyoruz)</span>
+<span class="syn-var">zar_atislari</span> &lt;- <span class="syn-fn">sample</span>(<span class="syn-number">1</span>:<span class="syn-number">6</span>, size = <span class="syn-number">10</span>, replace = <span class="syn-kw">TRUE</span>)</div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">3. Temel İstatistiksel Dağılımlar</h4>
+                            
+                            <div class="code-box"><span class="syn-comment"># Rastgele işlemlerin kodu her çalıştırdığımızda aynı sonucu vermesi için 
+# bir başlangıç noktası (seed) belirliyoruz.</span>
+<span class="syn-fn">set.seed</span>(<span class="syn-number">123</span>) 
+
+<span class="syn-comment"># a. Normal Dağılım (rnorm)
+# Doğadaki birçok ölçüm (boy, kilo, sınav notları vb.) bu dağılıma uyar.
+# n: Üretilecek veri sayısı, mean: Ortalama, sd: Standart sapma</span>
+<span class="syn-var">rastgele_boylar</span> &lt;- <span class="syn-fn">rnorm</span>(n = <span class="syn-number">100</span>, mean = <span class="syn-number">175</span>, sd = <span class="syn-number">10</span>)
+
+<span class="syn-comment"># b. Düzgün Dağılım (runif)
+# Belirli bir aralıktaki her sayının gelme ihtimali tamamen eşittir.
+# Örnek: 0 ile 100 arasında rastgele ondalıklı sayılar.</span>
+<span class="syn-var">rastgele_yuzdeler</span> &lt;- <span class="syn-fn">runif</span>(n = <span class="syn-number">50</span>, min = <span class="syn-number">0</span>, max = <span class="syn-number">100</span>)</div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">4. Öğrenilenleri Birleştirip Tablo (Data Frame) Yapma</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Yukarıdaki komutlarla, üzerinde çalışabileceğimiz sentetik bir veri seti oluşturalım.</p>
+                            
+                            <div class="code-box"><span class="syn-var">ogrenci_verisi</span> &lt;- <span class="syn-fn">data.frame</span>(
+  Ogrenci_No = <span class="syn-number">1</span>:<span class="syn-number">50</span>,
+  Cinsiyet = <span class="syn-fn">sample</span>(<span class="syn-fn">c</span>(<span class="syn-string">"Kız"</span>, <span class="syn-string">"Erkek"</span>), size = <span class="syn-number">50</span>, replace = <span class="syn-kw">TRUE</span>),
+  Sinav_Notu = <span class="syn-fn">round</span>(<span class="syn-fn">rnorm</span>(n = <span class="syn-number">50</span>, mean = <span class="syn-number">65</span>, sd = <span class="syn-number">15</span>)), <span class="syn-comment"># Notları tam sayıya yuvarladık</span>
+  Devamsizlik_Gunu = <span class="syn-fn">sample</span>(<span class="syn-number">0</span>:<span class="syn-number">10</span>, size = <span class="syn-number">50</span>, replace = <span class="syn-kw">TRUE</span>)
+)
+
+<span class="syn-comment"># Tablonun ilk 6 satırına bakarak ürettiğimiz veriyi kontrol edelim</span>
+<span class="syn-fn">head</span>(<span class="syn-var">ogrenci_verisi</span>)</div>
+
+                            <p style="margin-bottom: 5px; font-size: 0.9rem; color: var(--text-muted); font-weight: 500;"><i class="ph ph-terminal-window"></i> Konsol Çıktısı (head):</p>
+                            <div class="table-responsive">
+                                <table class="r-output-table">
+                                    <tr><th class="row-name"></th><th>Ogrenci_No</th><th>Cinsiyet</th><th>Sinav_Notu</th><th>Devamsizlik_Gunu</th></tr>
+                                    <tr><td class="row-name">1</td><td>1</td><td>Kız</td><td>56</td><td>4</td></tr>
+                                    <tr><td class="row-name">2</td><td>2</td><td>Erkek</td><td>63</td><td>2</td></tr>
+                                    <tr><td class="row-name">3</td><td>3</td><td>Kız</td><td>88</td><td>9</td></tr>
+                                    <tr><td class="row-name">4</td><td>4</td><td>Erkek</td><td>65</td><td>1</td></tr>
+                                    <tr><td class="row-name">5</td><td>5</td><td>Erkek</td><td>67</td><td>0</td></tr>
+                                    <tr><td class="row-name">6</td><td>6</td><td>Kız</td><td>91</td><td>7</td></tr>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
