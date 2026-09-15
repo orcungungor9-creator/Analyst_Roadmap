@@ -1444,7 +1444,165 @@ stats::<span class="syn-fn">filter</span>()  <span class="syn-comment"># R'ın k
                 </div>
                 <div class="accordion-content">
                     <div class="accordion-inner">
-                        <p>13. Ders içeriği buraya gelecek...</p>
+                        <div class="lesson-content">
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Veri Görselleştirmeye Giriş: Base R Grafikleri</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Aradan zaman geçmiş veya RStudio'yu yepyeni açmış olabilirsiniz. Bu yüzden hiçbir veriyi önceden çektiğimizi varsaymıyoruz, her şeye sıfırdan başlıyoruz! Bugün verileri görselleştirmeye başlıyoruz. Çizeceğimiz grafiklerde her bir komutun ekranda neyi değiştirdiğini "adım adım" göreceğiz.</p>
+                            
+                            <div class="code-box"><span class="syn-fn">data</span>(mtcars) <span class="syn-comment"># R'ın içindeki hazır araba verisini aktif ettik</span>
+<span class="syn-fn">head</span>(mtcars) <span class="syn-comment"># İlk 6 satıra baktık</span></div>
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 25px; font-size: 1.2rem; font-weight: 700;">BİRİNCİ BÖLÜM: HİSTOGRAM ( hist ) -&gt; Dağılımı Adım Adım İnşa Etmek</h4>
+                            
+                            <p style="margin-bottom: 5px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>Adım 1:</strong> Hiçbir parametre girmeden, en çirkin ve yalın haliyle çizelim.</p>
+                            <div class="code-box"><span class="syn-fn">hist</span>(mtcars$hp)</div>
+                            <div style="text-align: center;"><img src="images/plot1.png" alt="Yalın Histogram" style="width: 100%; max-width: 600px; border-radius: 8px; border: 1px solid var(--border-color); margin: 10px 0 20px 0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"></div>
+
+                            <p style="margin-bottom: 5px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>Adım 2:</strong> Makyaj yapalım! Renk, sınırlar ve başlıklar ekliyoruz.</p>
+                            <div class="code-box"><span class="syn-fn">hist</span>(mtcars$hp, 
+     main = <span class="syn-string">"Arabalarin Beygir Gucu Dagilimi"</span>, <span class="syn-comment"># main: Grafiğin en tepesindeki ana başlıktır.</span>
+     xlab = <span class="syn-string">"Beygir Gucu (HP)"</span>,                 <span class="syn-comment"># xlab: X ekseninin altına yazılacak etikettir.</span>
+     ylab = <span class="syn-string">"Frekans"</span>,                          <span class="syn-comment"># ylab: Y ekseninin yanına yazılacak etikettir.</span>
+     col = <span class="syn-number">5</span>,                                   <span class="syn-comment"># col (Color): Sütunların İÇİNİ boyar. (5 = Açık Mavi)</span>
+     border = <span class="syn-string">"darkblue"</span>,                       <span class="syn-comment"># border: Sütunların DIŞ çerçevesini çizer. (Bitişik durmasınlar diye)</span>
+     xlim = <span class="syn-fn">c</span>(<span class="syn-number">50</span>, <span class="syn-number">400</span>),                         <span class="syn-comment"># xlim: X ekseninin göstereceği minimum ve maksimum aralığı kilitler.</span>
+     las = <span class="syn-number">1</span>)                                   <span class="syn-comment"># las: Y eksenindeki sayıları dikeyden YATAY konuma çevirir.</span></div>
+
+                            <p style="margin-bottom: 5px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>Adım 3:</strong> Tuvale yazı (text) yazalım!</p>
+                            <div class="code-box"><span class="syn-fn">text</span>(x = <span class="syn-number">300</span>, 
+     y = <span class="syn-number">4</span>, 
+     labels = <span class="syn-string">"Canavarlar \nBurada -&gt;"</span>,         <span class="syn-comment"># \n işareti alt satıra geçmek (Enter'a basmak) demektir.</span>
+     col = <span class="syn-string">"red"</span>,                               <span class="syn-comment"># Yazının rengini kırmızı yapar.</span>
+     cex = <span class="syn-number">0.9</span>)                                 <span class="syn-comment"># cex (Character Expansion): Yazıyı normalden bir tık (0.9) ufaltır.</span></div>
+                            <div style="text-align: center;"><img src="images/plot2.png" alt="Renkli Histogram" style="width: 100%; max-width: 600px; border-radius: 8px; border: 1px solid var(--border-color); margin: 10px 0 20px 0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"></div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 25px; font-size: 1.2rem; font-weight: 700;">İKİNCİ BÖLÜM: KUTU GRAFİĞİ ( boxplot ) -&gt; Adım Adım Gelişim</h4>
+                            
+                            <p style="margin-bottom: 5px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>Adım 1:</strong> En sade haliyle yakıt tüketimi (mpg) kutusu. Çok renksiz.</p>
+                            <div class="code-box"><span class="syn-fn">boxplot</span>(mtcars$mpg)</div>
+                            <div style="text-align: center;"><img src="images/plot3.png" alt="Sade Boxplot" style="width: 100%; max-width: 600px; border-radius: 8px; border: 1px solid var(--border-color); margin: 10px 0 20px 0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"></div>
+
+                            <p style="margin-bottom: 5px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>Adım 2 ve 3:</strong> Y ekseninin sınırlarını (ylim) değiştirerek kutuyu sıkıştıralım ve aykırı değer uyarısı için tepeye bir yazı bırakalım.</p>
+                            <div class="code-box"><span class="syn-fn">boxplot</span>(mtcars$mpg, 
+        main = <span class="syn-string">"Yakit Tuketimi (MPG) Kutu Grafigi"</span>,
+        ylab = <span class="syn-string">"Mil / Galon"</span>,
+        col = <span class="syn-number">3</span>,                                <span class="syn-comment"># col (Color): Kutunun İÇİNİ yeşile boyar. (3 = Yeşil)</span>
+        ylim = <span class="syn-fn">c</span>(<span class="syn-number">0</span>, <span class="syn-number">45</span>),                        <span class="syn-comment"># ylim: Y eksenini 0'dan başlatıp 45'te bitirerek kutuyu ortalar.</span>
+        las = <span class="syn-number">1</span>)                                <span class="syn-comment"># las: Sayıları yatay yapar, okuması kolaylaşır.</span>
+
+<span class="syn-fn">text</span>(x = <span class="syn-number">1</span>, y = <span class="syn-number">40</span>, labels = <span class="syn-string">"Eger burada nokta olsaydi,\no bir aykiri deger olurdu!"</span>, col = <span class="syn-string">"blue"</span>)</div>
+                            <div style="text-align: center;"><img src="images/plot4.png" alt="Renkli Boxplot" style="width: 100%; max-width: 600px; border-radius: 8px; border: 1px solid var(--border-color); margin: 10px 0 20px 0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"></div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 25px; font-size: 1.2rem; font-weight: 700;">ÜÇÜNCÜ BÖLÜM: SAÇILIM GRAFİĞİ ( plot ) -&gt; Değişimi Canlı İzleyin!</h4>
+                            
+                            <p style="margin-bottom: 5px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>Adım 1:</strong> Hiçbir ekstra komut yok. Sadece X ve Y.</p>
+                            <div class="code-box"><span class="syn-fn">plot</span>(x = mtcars$hp, y = mtcars$mpg)</div>
+                            <div style="text-align: center;"><img src="images/plot5.png" alt="Sade Scatter" style="width: 100%; max-width: 600px; border-radius: 8px; border: 1px solid var(--border-color); margin: 10px 0 20px 0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"></div>
+
+                            <p style="margin-bottom: 5px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>Adım 2:</strong> Başlıkları ve eksenleri düzeltelim.</p>
+                            <div class="code-box"><span class="syn-fn">plot</span>(x = mtcars$hp, y = mtcars$mpg, 
+     main = <span class="syn-string">"Beygir Gucu ve Yakit Tuketimi Iliskisi"</span>,
+     xlab = <span class="syn-string">"Beygir Gucu (HP)"</span>,
+     ylab = <span class="syn-string">"Yakit Tuketimi (MPG)"</span>)</div>
+                            <div style="text-align: center;"><img src="images/plot6.png" alt="Başlıklı Scatter" style="width: 100%; max-width: 600px; border-radius: 8px; border: 1px solid var(--border-color); margin: 10px 0 20px 0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"></div>
+
+                            <p style="margin-bottom: 5px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>Adım 3 ve 4:</strong> Eksenleri uzatalım (xlim, ylim), yazıları yatay yapalım (las) ve <strong>noktaların kıyafetlerini değiştirelim!</strong></p>
+                            <div class="code-box"><span class="syn-fn">plot</span>(x = mtcars$hp, y = mtcars$mpg, 
+     main = <span class="syn-string">"Beygir Gucu ve Yakit Tuketimi Iliskisi"</span>,
+     xlab = <span class="syn-string">"Beygir Gucu (HP)"</span>,
+     ylab = <span class="syn-string">"Yakit Tuketimi (MPG)"</span>,
+     xlim = <span class="syn-fn">c</span>(<span class="syn-number">50</span>, <span class="syn-number">350</span>), 
+     ylim = <span class="syn-fn">c</span>(<span class="syn-number">5</span>, <span class="syn-number">40</span>),
+     las = <span class="syn-number">1</span>,
+     pch = <span class="syn-number">15</span>,                                  <span class="syn-comment"># pch (Point Character): Nokta şekli. 15 = İçi dolu KARE yapar.</span>
+     cex = <span class="syn-number">1.5</span>,                                 <span class="syn-comment"># cex: Boyut çarpanı. Kareleri normal boyutunun 1.5 katına çıkarır.</span>
+     col = <span class="syn-number">6</span>)                                   <span class="syn-comment"># col: Rengi 6 numara yani Mor/Pembe (Magenta) yapar.</span></div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 25px; font-size: 1.2rem; font-weight: 700;">DÖRDÜNCÜ BÖLÜM: ÇİZGİ VE YAZI EKLEME ( abline &amp; text ) -&gt; Final Dokunuşu</h4>
+                            
+                            <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 20px;">
+                                <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-warning-circle"></i> UYARI</h5>
+                                <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Bu komutlar en son çizilen plot açıkken çalışır. Yeni plot çizmez, var olanın üzerine katman atar.</p>
+                            </div>
+
+                            <p style="margin-bottom: 5px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Modellerle falan işimiz yok. Sahnemize manuel olarak istediğimiz hizadan düz referans çizgileri çekelim (h = yatay, v = dikey):</p>
+                            <div class="code-box"><span class="syn-comment"># 1. Y ekseninde 20 hizasından yatay bir referans çizgisi çekelim:</span>
+<span class="syn-fn">abline</span>(h = <span class="syn-number">20</span>,                                  <span class="syn-comment"># h: Yatay (Horizontal) hizasını belirler.</span>
+       col = <span class="syn-number">4</span>,                                 <span class="syn-comment"># col: Çizgiyi 4 numaralı renge (Mavi) boyar.</span>
+       lwd = <span class="syn-number">4</span>,                                 <span class="syn-comment"># lwd (Line Width): Çizgi kalınlığı. 4 kat kalınlaştırır.</span>
+       lty = <span class="syn-number">5</span>)                                 <span class="syn-comment"># lty (Line Type): Çizgi tipi. 5 = Uzun kesik çizgilerden oluşturur.</span>
+
+<span class="syn-comment"># 2. X ekseninde 200 hizasından aşağı dikey bir sınır çizgisi çekelim:</span>
+<span class="syn-fn">abline</span>(v = <span class="syn-number">200</span>,                                 <span class="syn-comment"># v: Dikey (Vertical) hizasını belirler.</span>
+       col = <span class="syn-number">2</span>,                                 <span class="syn-comment"># col: 2 numara yani Kırmızı.</span>
+       lwd = <span class="syn-number">3</span>,                                 <span class="syn-comment"># lwd: 3 kat kalın.</span>
+       lty = <span class="syn-number">2</span>)                                 <span class="syn-comment"># lty: 2 = Klasik kesik çizgi.</span>
+
+<span class="syn-comment"># Son olarak boş bir alana çıkan sonucu text ile yazıyoruz:</span>
+<span class="syn-fn">text</span>(x = <span class="syn-number">260</span>, y = <span class="syn-number">35</span>, 
+     labels = <span class="syn-string">"200 beygiri gecenler\nsag tarafta kaliyor!"</span>, 
+     col = <span class="syn-number">1</span>,                                   <span class="syn-comment"># col: Yazıyı 1 numaralı renge (Siyah) boyar.</span>
+     cex = <span class="syn-number">1.2</span>)                                 <span class="syn-comment"># cex: Yazıyı yüzde 20 (1.2) büyütür.</span></div>
+                            <div style="text-align: center;"><img src="images/plot7.png" alt="Çizgili Scatter" style="width: 100%; max-width: 600px; border-radius: 8px; border: 1px solid var(--border-color); margin: 10px 0 20px 0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"></div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 25px; font-size: 1.2rem; font-weight: 700;">BEŞİNCİ BÖLÜM: ÇOKLU GRAFİK VİTRİNİ ( par(mfrow) ) -&gt; Ekranı Bölmek</h4>
+                            <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Bazen birden fazla grafiği yan yana veya alt alta kıyaslamak isteriz. Bunun için paneli <code>par</code> (parameters) ve <code>mfrow</code> (multi-figure row) ile böleriz.</p>
+                            
+                            <div class="code-box"><span class="syn-comment"># 1. Paneli AÇIYORUZ (Izgara Oluşturma):
+# Ekranı 2 satır, 2 sütun (toplam 4 grafiklik) bir tabloya bölelim:</span>
+<span class="syn-fn">par</span>(mfrow = <span class="syn-fn">c</span>(<span class="syn-number">2</span>, <span class="syn-number">2</span>))
+
+<span class="syn-comment"># Şimdi ard arda 4 tane basit grafik çizdirelim, hepsi aynı ekranda kendi odasına yerleşecek:</span>
+<span class="syn-fn">hist</span>(mtcars$hp, col = <span class="syn-number">2</span>, main = <span class="syn-string">"1. Histogram"</span>)
+<span class="syn-fn">boxplot</span>(mtcars$mpg, col = <span class="syn-number">3</span>, main = <span class="syn-string">"2. Boxplot"</span>)
+<span class="syn-fn">plot</span>(mtcars$wt, mtcars$mpg, col = <span class="syn-number">4</span>, pch = <span class="syn-number">16</span>, main = <span class="syn-string">"3. Scatter Plot"</span>)
+<span class="syn-fn">plot</span>(mtcars$hp, mtcars$qsec, col = <span class="syn-number">6</span>, pch = <span class="syn-number">17</span>, main = <span class="syn-string">"4. Baska Bir Plot"</span>)
+
+<span class="syn-comment"># 2. Paneli KAPATIYORUZ (Fabrika Ayarlarına Dönüş):
+# İşimiz bittiğinde, bundan sonra çizeceğimiz grafikler küçücük kalmasın diye 
+# ekranı tekrar 1 satır, 1 sütun (tam ekran) haline geri döndürmeliyiz.</span>
+<span class="syn-fn">par</span>(mfrow = <span class="syn-fn">c</span>(<span class="syn-number">1</span>, <span class="syn-number">1</span>))
+
+<span class="syn-comment"># (Alternatif olarak sadece dev.off() yazarak da tüm grafik geçmişini temizleyip ekran bölmesini sıfırlayabilirsiniz.)</span></div>
+                            <div style="text-align: center;"><img src="images/plot8.png" alt="Grid Layout" style="width: 100%; max-width: 800px; border-radius: 8px; border: 1px solid var(--border-color); margin: 10px 0 20px 0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"></div>
+
+                            <hr style="border-color: rgba(255,255,255,0.1); margin: 30px 0;">
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.1rem; font-weight: 700;"><i class="ph ph-receipt"></i> ANALYST ROADMAP KOPYA KAĞIDI (CHEAT SHEET)</h4>
+                            <div class="code-box"><span class="syn-comment"># --- col (Renk Kodları) ---
+# 1 = Siyah (Varsayılan)
+# 2 = Kırmızı
+# 3 = Yeşil
+# 4 = Mavi
+# 5 = Açık Mavi (Turkuaz)
+# 6 = Mor / Pembe (Magenta)
+# 7 = Sarı
+# 8 = Gri
+# (Not: Sayılar yerine direkt "red", "blue", "yellow" vb. de yazabilirsiniz)
+
+# --- pch (Nokta Şekilleri) ---
+# 0  = İçi Boş Kare
+# 1  = İçi Boş Yuvarlak (Varsayılan)
+# 2  = İçi Boş Üçgen
+# 3  = Artı İşareti (+)
+# 4  = Çarpı İşareti (X)
+# 8  = Yıldız (*)
+# 15 = İçi Dolu Kare
+# 16 = İçi Dolu Yuvarlak
+# 17 = İçi Dolu Üçgen
+
+# --- lty (Çizgi Tipleri) ---
+# 0 = Görünmez (Blank)
+# 1 = Düz Çizgi (Solid - Varsayılan) 
+# 2 = Kesik Çizgi (Dashed) -&gt; Genelde güven aralıkları için.
+# 3 = Noktalı Çizgi (Dotted) -&gt; Eksen hizaları / referanslar.
+# 4 = Nokta-Kesik (Dotdash)
+# 5 = Uzun Kesik (Longdash)
+# 6 = Çift Kesik (Twodash)</span></div>
+                        </div>
                     </div>
                 </div>
             </div>
