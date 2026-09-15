@@ -950,7 +950,160 @@
                 </div>
                 <div class="accordion-content">
                     <div class="accordion-inner">
-                        <p>9. Ders içeriği buraya gelecek...</p>
+                        <div class="lesson-content">
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">İleri İstatistik ve Ekonometriye Giriş</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Geçen ders verilerimizi (Data Frame) adam etmeyi öğrendik. Şimdi bu verileri konuşturma, analiz etme ve geleceği tahmin etme zamanı! Bu dersi temel yetenek ağaçlarına ayırıyoruz.</p>
+
+                            <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                                <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-info"></i> EN ÖNEMLİ YETENEK: YARDIM ALMAK (Help Komutu)</h5>
+                                <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">R'da binlerce komut ve her komutun farklı varyasyonları vardır. Bunları ezberlemek imkansızdır! Gerçek bir analist tıkandığında R'ın kendi kılavuzuna başvurur.</p>
+                                <div class="code-box" style="margin-top: 10px; margin-bottom: 10px; padding: 10px;"><span class="syn-comment"># KURAL: İnternette aramadan önce fonksiyonun başına "?" koyun!</span>
+?<span class="syn-fn">mean</span>       <span class="syn-comment"># Sağ alt panelde (Help sekmesinde) resmi kılavuz açılır.</span>
+<span class="syn-fn">help</span>(<span class="syn-fn">scale</span>) <span class="syn-comment"># "?" ile aynı işi yapar. Tüm kullanım senaryolarını gösterir.</span></div>
+                            </div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">1. Veri Manipülasyonu: Kategorik ve Eksik Veriler</h4>
+                            
+                            <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>A) as.factor() ile Kategorilendirme</strong><br>R'a bir metnin sadece rastgele bir yazı değil, bir "kategori" (Örn: Cinsiyet, Şehir) olduğunu söylemek modellerin doğru çalışması için şarttır.</p>
+                            <div class="code-box"><span class="syn-var">kan_gruplari</span> &lt;- <span class="syn-fn">c</span>(<span class="syn-string">"A"</span>, <span class="syn-string">"B"</span>, <span class="syn-string">"0"</span>, <span class="syn-string">"AB"</span>, <span class="syn-string">"A"</span>, <span class="syn-string">"0"</span>)
+<span class="syn-var">kan_faktor</span> &lt;- <span class="syn-fn">as.factor</span>(<span class="syn-var">kan_gruplari</span>)
+
+<span class="syn-comment"># levels() -&gt; Bu verinin içinde "benzersiz" hangi kategoriler var diye listeler.</span>
+<span class="syn-fn">levels</span>(<span class="syn-var">kan_faktor</span>) <span class="syn-comment"># Çıktı: "0" "A" "AB" "B" (Alfabetik sıralar)</span></div>
+
+                            <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>B) Eksik Veri (NA) Kontrolü ve Temizliği</strong><br>Gerçek hayatta veriler kusursuz gelmez. R, boş veya kayıp hücreleri "NA" olarak okur.</p>
+                            <div class="code-box"><span class="syn-var">kirli_vektor</span> &lt;- <span class="syn-fn">c</span>(<span class="syn-number">10</span>, <span class="syn-number">20</span>, <span class="syn-kw">NA</span>, <span class="syn-number">40</span>, <span class="syn-kw">NA</span>, <span class="syn-number">60</span>)
+
+<span class="syn-fn">is.na</span>(<span class="syn-var">kirli_vektor</span>)      <span class="syn-comment"># Bize TRUE / FALSE sırası döner. (TRUE olanlar boş veridir)</span>
+<span class="syn-fn">sum</span>(<span class="syn-fn">is.na</span>(<span class="syn-var">kirli_vektor</span>)) <span class="syn-comment"># Toplam kaç tane boş hücre var? (Çıktı: 2)</span>
+
+<span class="syn-comment"># Tablodaki tüm NA'ları çöpe atıp temiz bir vektör/tablo yaratmak isterseniz:</span>
+<span class="syn-var">temiz_vektor</span> &lt;- <span class="syn-fn">na.omit</span>(<span class="syn-var">kirli_vektor</span>)</div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">2. Veriyi Hızlı Tanıma ve Röntgenini Çekme (EDA)</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Analize başlamadan önce verinin fotoğrafını ve röntgenini çekmeliyiz.</p>
+                            
+                            <div class="code-box"><span class="syn-var">ornek_tablo</span> &lt;- <span class="syn-fn">data.frame</span>(
+  yas = <span class="syn-fn">c</span>(<span class="syn-number">20</span>, <span class="syn-number">25</span>, <span class="syn-number">22</span>, <span class="syn-number">28</span>, <span class="syn-number">24</span>),
+  kilo = <span class="syn-fn">c</span>(<span class="syn-number">70</span>, <span class="syn-number">80</span>, <span class="syn-number">75</span>, <span class="syn-number">90</span>, <span class="syn-number">65</span>),
+  spor_yapiyor_mu = <span class="syn-fn">c</span>(<span class="syn-kw">TRUE</span>, <span class="syn-kw">FALSE</span>, <span class="syn-kw">TRUE</span>, <span class="syn-kw">TRUE</span>, <span class="syn-kw">FALSE</span>)
+)
+
+<span class="syn-comment"># A) Tabloyu Excel Gibi Görmek: View() (Baş harfi Büyük V ile yazılır!)</span>
+<span class="syn-fn">View</span>(<span class="syn-var">ornek_tablo</span>)
+
+<span class="syn-comment"># B) Verinin Anatomisi ve Kimliği</span>
+<span class="syn-fn">str</span>(<span class="syn-var">ornek_tablo</span>)        <span class="syn-comment"># Hangi sütun hangi veri tipinde gösterir.</span>
+<span class="syn-fn">class</span>(<span class="syn-var">ornek_tablo</span>)      <span class="syn-comment"># Objenin kimliğini söyler. (Çıktı: "data.frame")</span>
+<span class="syn-fn">attributes</span>(<span class="syn-var">ornek_tablo</span>) <span class="syn-comment"># Arka plandaki meta verileri (isimler, satır noları) çeker.</span>
+
+<span class="syn-comment"># C) Uzunluk ve Frekans (Sıklık)</span>
+<span class="syn-fn">length</span>(<span class="syn-var">ornek_tablo</span>)     <span class="syn-comment"># Bir tablonun SÜTUN SAYISINI verir.</span>
+
+<span class="syn-comment"># table() -&gt; Kategorik verilerde mükemmeldir! Hangi seçenekten kaç tane var bulur:</span>
+<span class="syn-fn">table</span>(<span class="syn-var">ornek_tablo</span>$<span class="syn-var">spor_yapiyor_mu</span>)</div>
+
+                            <p style="margin-bottom: 5px; font-size: 0.9rem; color: var(--text-muted); font-weight: 500;"><i class="ph ph-terminal-window"></i> Konsol Çıktısı (table):</p>
+                            <div class="table-responsive">
+                                <table class="r-output-table">
+                                    <tr><th>FALSE</th><th>TRUE</th></tr>
+                                    <tr><td>2</td><td>3</td></tr>
+                                </table>
+                            </div>
+
+                            <div class="code-box"><span class="syn-comment"># D) Sihirli Özet Komutu: summary()
+# summary() bir bukalemundur. İçine ne koyarsanız ona göre özet çıkarır!</span>
+<span class="syn-fn">summary</span>(<span class="syn-var">ornek_tablo</span>)</div>
+
+                            <p style="margin-bottom: 5px; font-size: 0.9rem; color: var(--text-muted); font-weight: 500;"><i class="ph ph-terminal-window"></i> Konsol Çıktısı (summary):</p>
+                            <div class="table-responsive">
+                                <table class="r-output-table">
+                                    <tr><th>yas</th><th>kilo</th><th>spor_yapiyor_mu</th></tr>
+                                    <tr><td>Min.   :20.0</td><td>Min.   :65.0</td><td>Mode :logical</td></tr>
+                                    <tr><td>1st Qu.:22.0</td><td>1st Qu.:70.0</td><td>FALSE:2</td></tr>
+                                    <tr><td>Median :24.0</td><td>Median :75.0</td><td>TRUE :3</td></tr>
+                                    <tr><td>Mean   :23.8</td><td>Mean   :76.0</td><td></td></tr>
+                                    <tr><td>3rd Qu.:25.0</td><td>3rd Qu.:80.0</td><td></td></tr>
+                                    <tr><td>Max.   :28.0</td><td>Max.   :90.0</td><td></td></tr>
+                                </table>
+                            </div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">2.5 Tanımlayıcı İstatistikler (Tekil Komutlar)</h4>
+                            
+                            <div class="code-box"><span class="syn-var">vektor</span> &lt;- <span class="syn-fn">c</span>(<span class="syn-number">10</span>, <span class="syn-number">50</span>, <span class="syn-number">20</span>, <span class="syn-number">40</span>, <span class="syn-number">30</span>)
+
+<span class="syn-fn">mean</span>(<span class="syn-var">vektor</span>)       <span class="syn-comment"># Ortalama</span>
+<span class="syn-fn">range</span>(<span class="syn-var">vektor</span>)      <span class="syn-comment"># Hangi aralıkta? (min ve max aynı anda)</span>
+<span class="syn-fn">which.max</span>(<span class="syn-var">vektor</span>)  <span class="syn-comment"># En büyük değer kaçıncı sırada? (Çıktı: 2)</span>
+
+<span class="syn-comment"># İçerisinde NA olan bir verinin ortalamasını alırken hata almamak için:</span>
+<span class="syn-fn">mean</span>(<span class="syn-var">kirli_vektor</span>, na.rm = <span class="syn-kw">TRUE</span>) <span class="syn-comment"># (Eksik veriyi görmezden gel)</span>
+
+<span class="syn-fn">var</span>(<span class="syn-var">vektor</span>)        <span class="syn-comment"># Varyans</span>
+<span class="syn-fn">sd</span>(<span class="syn-var">vektor</span>)         <span class="syn-comment"># Standart Sapma</span>
+<span class="syn-comment"># KRİTİK NOT: R'ın var() ve sd() komutları 'Örneklem' formülüyle (N-1) hesap yapar.</span>
+
+<span class="syn-comment"># scale() -&gt; Farklı boyutlardaki verileri (Örn: 3200 Kalori ve 5 Saat Uyku) 
+# aynı teraziye koymak ve Z-skoruna çevirmek için kullanılır.</span>
+<span class="syn-fn">scale</span>(<span class="syn-var">vektor</span>) 
+
+<span class="syn-var">calisma_saati</span> &lt;- <span class="syn-fn">c</span>(<span class="syn-number">2</span>, <span class="syn-number">4</span>, <span class="syn-number">6</span>, <span class="syn-number">8</span>, <span class="syn-number">10</span>)
+<span class="syn-var">sinav_notu</span> &lt;- <span class="syn-fn">c</span>(<span class="syn-number">40</span>, <span class="syn-number">55</span>, <span class="syn-number">70</span>, <span class="syn-number">85</span>, <span class="syn-number">95</span>)
+
+<span class="syn-fn">cov</span>(<span class="syn-var">calisma_saati</span>, <span class="syn-var">sinav_notu</span>) <span class="syn-comment"># Kovaryans (Birlikte hareketin yönü)</span>
+<span class="syn-fn">cor</span>(<span class="syn-var">calisma_saati</span>, <span class="syn-var">sinav_notu</span>) <span class="syn-comment"># Korelasyon (Standartlaşmış hali, -1 ile +1 arasında)</span></div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">3. Olasılık ve Rastgele Sayı Üretimi (Dağılımlar)</h4>
+                            
+                            <div class="code-box"><span class="syn-fn">set.seed</span>(<span class="syn-number">123</span>) <span class="syn-comment"># Rastgeleliği sabitlemek için (Herkes aynı sayıları üretsin diye)</span>
+
+<span class="syn-comment"># 1. Normal Dağılım (rnorm):
+# Doğa olaylarının çoğu bu çan eğrisine uyar. En çok kullanılan komuttur.</span>
+<span class="syn-var">normal_veri</span> &lt;- <span class="syn-fn">rnorm</span>(n = <span class="syn-number">10</span>, mean = <span class="syn-number">180</span>, sd = <span class="syn-number">5</span>) 
+
+<span class="syn-comment"># 2. Bernoulli ve Binom Dağılımı (rbinom):
+# Sadece iki ihtimalli (Yazı/Tura, Geçti/Kaldı) durumlar içindir.</span>
+<span class="syn-var">yazi_tura</span> &lt;- <span class="syn-fn">rbinom</span>(n = <span class="syn-number">10</span>, size = <span class="syn-number">1</span>, prob = <span class="syn-number">0.5</span>) 
+
+<span class="syn-comment"># 3. Uniform / Tekdüze Dağılım (runif):
+# Belirli bir aralıktaki her sayının gelme ihtimali eşittir (Zar atmak gibi).</span>
+<span class="syn-var">zar_gibi</span> &lt;- <span class="syn-fn">runif</span>(n = <span class="syn-number">5</span>, min = <span class="syn-number">1</span>, max = <span class="syn-number">6</span>)</div>
+
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">4. Makine Öğrenmesinin Temeli: Regresyon</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Yazım kuralı: <code>lm(Y ~ X)</code> -&gt; Y: Hedef/Bağımlı Değişken, X: Etkileyen/Bağımsız Değişken.</p>
+                            
+                            <div class="code-box"><span class="syn-comment"># "7 saat çalışırsam sınavdan kaç alırım?" sorusunun cevabı için:</span>
+<span class="syn-var">regresyon_modeli</span> &lt;- <span class="syn-fn">lm</span>(<span class="syn-var">sinav_notu</span> ~ <span class="syn-var">calisma_saati</span>)
+
+<span class="syn-comment"># Modeli kurduk, şimdi o sihirli summary() komutunu modelin üstüne salalım:</span>
+<span class="syn-fn">summary</span>(<span class="syn-var">regresyon_modeli</span>)</div>
+
+                            <p style="margin-bottom: 5px; font-size: 0.9rem; color: var(--text-muted); font-weight: 500;"><i class="ph ph-terminal-window"></i> Konsol Çıktısı (Regresyon Modeli Katsayıları - Coefficients):</p>
+                            <div class="table-responsive">
+                                <table class="r-output-table">
+                                    <tr><th class="row-name"></th><th>Estimate</th><th>Std. Error</th><th>t value</th><th>Pr(&gt;|t|)</th></tr>
+                                    <tr><td class="row-name">(Intercept)</td><td>27.500</td><td>3.551</td><td>7.744</td><td>0.00445 **</td></tr>
+                                    <tr><td class="row-name">calisma_saati</td><td>6.833</td><td>0.540</td><td>12.650</td><td>0.00105 **</td></tr>
+                                </table>
+                            </div>
+                            <p style="margin-top: -15px; margin-bottom: 15px; font-size: 0.85rem; color: var(--text-muted);"><em>FARK ETTİNİZ Mİ? summary() komutuna tablo verdiğimizde ortalama hesaplarken, Regresyon modeli verdiğimizde bize P-value, R-kare ve t-istatistiklerini döktü!</em></p>
+
+                            <div class="code-box"><span class="syn-comment"># Residuals (Hatalar/Kalıntılar): 
+# Gerçek sınav notu ile modelimizin tahmin ettiği not arasındaki farktır.</span>
+<span class="syn-var">hatalar</span> &lt;- <span class="syn-fn">residuals</span>(<span class="syn-var">regresyon_modeli</span>)
+
+<span class="syn-comment"># Hataların karesini alıp toplarsanız meşhur RSS (Residual Sum of Squares) 
+# değerine ulaşırsınız! Modelin ne kadar başarılı olduğunun en temel ölçütüdür.</span>
+<span class="syn-var">rss</span> &lt;- <span class="syn-fn">sum</span>(<span class="syn-var">hatalar</span>^<span class="syn-number">2</span>)
+<span class="syn-var">rss</span>
+
+<span class="syn-fn">ls</span>()</div>
+                        </div>
                     </div>
                 </div>
             </div>
