@@ -210,20 +210,19 @@
                         
                             <h5 style="color: var(--text-main); margin-bottom: 10px; font-size: 1.05rem; font-weight: 700;">2. İsimlendirme Kuralları</h5>
                             <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Bir değişkene her ismi veremezsiniz. Şu kurallar hayati önem taşır:</p>
-                            
-                            <ul style="margin-bottom: 15px; padding-left: 20px; line-height: 1.6; font-weight: 500; color: var(--text-main);">
-                                <li style="margin-bottom: 10px;"><strong>Sayı ile başlayamaz:</strong> <code>1degisken</code> (YANLIŞ)</li>
-                                <li style="margin-bottom: 10px;"><strong>Boşluk içeremez:</strong> <code>benim verim</code> (YANLIŞ). Bunun yerine alt tire (<code>benim_verim</code>) veya CamelCase (<code>benimVerim</code>) kullanın.</li>
-                                <li style="margin-bottom: 10px;"><strong>Büyük/Küçük harf duyarlıdır (Case Sensitive):</strong> R için "veri", "Veri" ve "VERI" birbirinden tamamen farklı 3 değişkendir.</li>
-                                <li style="margin-bottom: 10px;"><strong>Özel karakter yasağı:</strong> Değişken isimlerinde !, ?, $, % gibi karakterler kullanılamaz. Sadece nokta (.) ve alt tire (_) serbesttir.</li>
-                            </ul>
+
+                            <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>A) Sayı ile başlayamaz:</strong></p>
+                            <div class="code-box"><span class="syn-comment"># 1degisken &lt;- 5  (YANLIŞ)</span>
+<span class="syn-var">degisken1</span> &lt;- <span class="syn-number">5</span>   <span class="syn-comment"># (DOĞRU)</span></div>
                         
-                            <div class="code-box"><span class="syn-comment"># Sayı ile başlayamaz örneği</span>
-<span class="syn-var">degisken1</span> &lt;- <span class="syn-number">5</span>   <span class="syn-comment"># (DOĞRU)</span>
-                        
-<span class="syn-comment"># Boşluk içeremez örneği</span>
-<span class="syn-var">benim_verim</span> &lt;- <span class="syn-number">100</span>   <span class="syn-comment"># (DOĞRU - Alt tire kullanımı)</span>
-<span class="syn-var">benimVerim</span> &lt;- <span class="syn-number">100</span>    <span class="syn-comment"># (DOĞRU - CamelCase kullanımı)</span></div>
+                            <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>B) Boşluk içeremez:</strong></p>
+                            <div class="code-box"><span class="syn-comment"># benim verim &lt;- 100 (YANLIŞ)</span>
+<span class="syn-var">benim_verim</span> &lt;- <span class="syn-number">100</span>   <span class="syn-comment"># (DOĞRU - Alt tire kullanın)</span>
+<span class="syn-var">benimVerim</span> &lt;- <span class="syn-number">100</span>    <span class="syn-comment"># (DOĞRU - CamelCase kullanın)</span></div>
+
+                            <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>C) Büyük/Küçük harf duyarlıdır (Case Sensitive):</strong><br>R için "veri", "Veri" ve "VERI" birbirinden tamamen farklı 3 değişkendir.</p>
+
+                            <p style="margin-bottom: 25px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>D) Özel karakter yasağı:</strong><br>Değişken isimlerinde !, ?, $, % gibi karakterler kullanılamaz. Sadece nokta (.) ve alt tire (_) serbesttir.</p>
                         
                             <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Değişken Atama Opsiyonları</h4>
                             <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Değişkenler illa <code>&lt;-</code> ile atanmaz. Tek eşittir <code>=</code> operatörü de değişken atamaya yarar. Ayrıca oku ters çevirerek <code>-&gt;</code> atama yönünü değiştirebilirsiniz, ok nereyi gösteriyorsa oraya atama yapılır. Ancak standart olarak çoğunlukla <code>&lt;-</code> kabul edilir.</p>
