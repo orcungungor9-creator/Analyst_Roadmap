@@ -1,2 +1,6 @@
 /* spss Page Styles */
 
+
+.glass {
+    border: 3px solid var(--neon-blue) !important;
+}
