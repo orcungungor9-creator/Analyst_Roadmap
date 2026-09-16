@@ -189,6 +189,19 @@
     <!-- 3. ANA İÇERİK -->
     <main class="formulas-main" style="max-width: 1200px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
         
+        <!-- KAPSAMLI BAKIŞ: NEDİR & TARİHÇE -->
+        <div class="glass" style="padding: 40px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px; background: rgba(56, 189, 248, 0.03);">
+            <h3 style="font-size: 2.2rem; color: var(--text-main); margin-bottom: 24px; font-weight: 800;">📖 Excel Nedir? Kapsamlı Bir Bakış</h3>
+            <p style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.8; margin-bottom: 24px;">
+                Microsoft Excel, verileri yapılandırılmış devasa ızgaralarda (satır ve sütun hücrelerinde) düzenlemek, matematiksel/finansal hesaplamalar yapmak ve grafikler oluşturmak için tasarlanmış, dünyanın en popüler ve en yaygın kullanılan elektronik tablo (spreadsheet) yazılımıdır. Kod yazma bariyerini tamamen ortadan kaldırarak, formüller ve görsel araçlar (Örn: Pivot Tablolar) sayesinde herkesin veri analizi yapabilmesini sağlar. Küçük işletmelerin günlük gelir-gider takiplerinden, Fortune 500 şirketlerinin stratejik bütçe planlamalarına kadar her aşamada kullanılır. Sadece bir program değil, küresel iş dünyasının finansal okuryazarlık dilidir.
+            </p>
+            
+            <h3 style="font-size: 1.8rem; color: var(--text-main); margin-bottom: 16px; font-weight: 700;">⏳ Tarihsel İlerleyiş ve Çıkış Amacı</h3>
+            <p style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.8;">
+                1985 yılında Microsoft tarafından sürpriz bir şekilde ilk olarak Macintosh (Apple) sistemleri için piyasaya sürüldü (Windows sürümü 1987'de geldi). Amacı, o dönemin pazar liderleri olan VisiCalc ve Lotus 1-2-3 gibi eski nesil, kullanımı zor elektronik tabloları tahtından indirmekti. Excel, grafiksel kullanıcı arayüzünü (GUI) ve fare tıklamalarını ön plana çıkararak iş dünyasını devasa fiziki defterlerden kurtardı ve dijitalleşmenin öncüsü oldu. Zaman içinde VBA (Makro) entegrasyonu ve Power Query gibi devrimsel eklentilerle kendini sürekli yenileyerek 40 yıldır pazar lideri kalmayı başaran nadir yazılımlardandır.
+            </p>
+        </div>
+        
         <!-- YENİ: YAPAY ZEKA GÖRSEL EKRAN GÖRÜNTÜSÜ PANELİ -->
         <div class="glass" style="padding: 32px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
@@ -200,6 +213,20 @@
             </div>
             <div style="border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.6);">
                 <img loading="lazy" src="excel_dashboard_preview_1779067531909.webp" alt="Excel Dashboard Preview" style="width: 100%; height: auto; display: block;">
+            </div>
+        </div>
+
+
+
+        <!-- Sektörler & Veri Türleri -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 48px;">
+            <div class="glass" style="padding: 24px; border-radius: 20px; border: 1px solid var(--glass-border);">
+                <h3 style="font-size: 1.3rem; color: var(--text-main); margin-bottom: 16px;">🏢 Kimler Kullanır & Sektörler</h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">KOBİ'lerden tutun Fortune 500 şirketlerine kadar herkes kullanır. Finansal kontrolörler, muhasebeciler, iş analistleri ve İnsan Kaynakları uzmanları için temel bir araçtır.</p>
+            </div>
+            <div class="glass" style="padding: 24px; border-radius: 20px; border: 1px solid var(--glass-border);">
+                <h3 style="font-size: 1.3rem; color: var(--text-main); margin-bottom: 16px;">📊 Avantajlı Veri Türleri</h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">Küçük ve orta ölçekli finansal kayıtlar, çalışan listeleri, basit zaman serileri ve ad-hoc (anlık) raporlamalar için en uygun araçtır.</p>
             </div>
         </div>
 
@@ -424,6 +451,21 @@
 <span style="color: #8b949e;">// Satış tutarı 10.000 ₺'den büyük olan tüm satırları dinamik olarak başka bir alana listeler.</span>
 =FILTER(A2:E1000; D2:D1000 &gt; <span style="color: #a5d6ff;">10000</span>; <span style="color: #a5d6ff;">"Kriteri Karşılayan Kayıt Yok"</span>)</code></pre>
             </div>
+        </div>
+
+        <!-- Rakipler ve Kurulum -->
+        <div class="glass" style="padding: 32px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚔️ Rakiplerine Göre Farkı</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">Python, SQL veya R gibi programlama dillerine kıyasla neredeyse sıfır kod yazma gereksinimi sunar; görsel bir arayüzle tıklayarak (Pivot tablolar) analiz yapmayı sağlar. Ancak 1 milyon satır (Büyük Veri) sınırına ulaştığında donar ve çöker. Google Sheets'e göre ise masaüstü performansı ve makro (VBA) gücüyle öne çıkar.</p>
+            
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 16px;">Excel, Microsoft 365 ofis paketinin bir parçasıdır. Terminal veya komut satırı gerektirmez, tamamen görsel (GUI) bir kurulumu vardır:</p>
+            <ul style="color: var(--text-muted); line-height: 1.8; font-size: 1.05rem; padding-left: 20px;">
+                <li><b>Adım 1:</b> Microsoft.com'a gidin ve Microsoft 365 hesabınızla giriş yapın.</li>
+                <li><b>Adım 2:</b> "Office'i Yükle" veya "Uygulamaları İndir" butonuna tıklayın.</li>
+                <li><b>Adım 3:</b> İndirilen <code>.exe</code> (Windows) veya <code>.pkg</code> (Mac) dosyasını çalıştırın.</li>
+                <li><b>Adım 4:</b> Yönergeleri takip ederek kurulumu tamamlayın. Tüm işlemler otomatik olarak arka planda tamamlanacaktır.</li>
+            </ul>
         </div>
 
         <!-- ALT YÖNLENDİRME BUTONLARI -->

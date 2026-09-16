@@ -104,6 +104,19 @@
     <!-- 3. ANA İÇERİK -->
     <main class="formulas-main" style="max-width: 1200px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
         
+        <!-- KAPSAMLI BAKIŞ: NEDİR & TARİHÇE -->
+        <div class="glass" style="padding: 40px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px; background: rgba(56, 189, 248, 0.03);">
+            <h3 style="font-size: 2.2rem; color: var(--text-main); margin-bottom: 24px; font-weight: 800;">📖 SQL Nedir? Kapsamlı Bir Bakış</h3>
+            <p style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.8; margin-bottom: 24px;">
+                SQL (Structured Query Language / Yapılandırılmış Sorgu Dili), ilişkisel veritabanlarıyla (RDBMS) iletişim kurmak, devasa veri yığınları içinden istenilen bilgiyi bulup çıkarmak ve bu verileri manipüle etmek için kullanılan evrensel standart bir dildir. Python veya R gibi bir "programlama" dilinden ziyade bir "sorgu" dilidir; yani bilgisayara "bunu nasıl yapacağını" değil, "ne istediğinizi" söylersiniz. Milyonlarca satırlık bankacılık işlemleri, e-ticaret sepetleri veya hastane kayıtları SQL sayesinde güvenli, hatasız ve inanılmaz bir hızla tablo mantığıyla (satır ve sütunlar halinde) tutulur. Veri dünyasına atılan herkesin öğrenmesi gereken mutlak ve en temel araçtır.
+            </p>
+            
+            <h3 style="font-size: 1.8rem; color: var(--text-main); margin-bottom: 16px; font-weight: 700;">⏳ Tarihsel İlerleyiş ve Çıkış Amacı</h3>
+            <p style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.8;">
+                1970'lerin başında IBM araştırmacıları Donald Chamberlin ve Raymond Boyce tarafından geliştirildi. Edgar F. Codd'un yayınladığı efsanevi "Büyük Paylaşımlı Veri Bankaları için İlişkisel Veri Modeli" makalesine dayanarak, verileri düz metin dosyalarında karmakarışık tutmak yerine tablolar halinde düzenlemek ve bu tablolar arasındaki mantıksal (matematiksel küme teorisine dayanan) ilişkileri sorgulamak amacıyla ortaya çıktı. Başlangıçta adı SEQUEL idi. 1986'da Amerikan Ulusal Standartlar Enstitüsü (ANSI) tarafından resmi standart olarak kabul edildikten sonra modern veritabanı yönetim sistemlerinin (Oracle, PostgreSQL, MySQL) tek hakimi oldu.
+            </p>
+        </div>
+        
         <!-- YAPAY ZEKA GÖRSEL EKRAN GÖRÜNTÜSÜ PANELİ -->
         <div class="glass" style="padding: 32px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
@@ -115,6 +128,20 @@
             </div>
             <div style="border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.6);">
                 <img loading="lazy" src="sql_client_preview_1779067574864.webp" alt="SQL Client Preview" style="width: 100%; height: auto; display: block;">
+            </div>
+        </div>
+
+
+
+        <!-- Sektörler & Veri Türleri -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 48px;">
+            <div class="glass" style="padding: 24px; border-radius: 20px; border: 1px solid var(--glass-border);">
+                <h3 style="font-size: 1.3rem; color: var(--text-main); margin-bottom: 16px;">🏢 Kimler Kullanır & Sektörler</h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">Yazılım geliştiriciler (Backend), veri analistleri ve veri mühendisleri tarafından istisnasız kullanılır. Bankacılık, E-Ticaret ve Telekomünikasyon gibi milyarlarca işlemin tutulduğu tüm sektörlerin kalbidir.</p>
+            </div>
+            <div class="glass" style="padding: 24px; border-radius: 20px; border: 1px solid var(--glass-border);">
+                <h3 style="font-size: 1.3rem; color: var(--text-main); margin-bottom: 16px;">📊 Avantajlı Veri Türleri</h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">Kesin ve katı bir şemaya sahip olan yapılandırılmış veriler (Tablolar, Satırlar, Sütunlar). Finansal işlem (transaction) logları ve kullanıcı profili verilerinde hataya yer bırakmaz.</p>
             </div>
         </div>
 
@@ -232,6 +259,23 @@
 <span style="color: #ff7b72;">FROM</span> RankedSalaries
 <span style="color: #ff7b72;">WHERE</span> salary_rank &lt;= <span style="color: #a5d6ff;">3</span>
 <span style="color: #ff7b72;">ORDER BY</span> department_name <span style="color: #ff7b72;">ASC</span>, salary_rank <span style="color: #ff7b72;">ASC</span>;</code></pre>
+            </div>
+        </div>
+
+        <!-- Rakipler ve Kurulum -->
+        <div class="glass" style="padding: 32px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚔️ Rakiplerine Göre Farkı</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">MongoDB gibi NoSQL alternatiflerine kıyasla çok daha yüksek veri bütünlüğü (ACID prensipleri) sağlar. Python veya R gibi diller veriyi veritabanından çekip bilgisayarın RAM'inde işlerken, SQL hesaplamayı doğrudan verinin depolandığı sunucuda yaparak ağ ve bellek maliyetlerini minimize eder.</p>
+            
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 16px;">SQL tek bir program değil, bir dildir. Kullanmak için bir veritabanı motoru (PostgreSQL, MySQL, SQL Server) ve arayüz aracı (DBeaver, DataGrip, pgAdmin) kurmanız gerekir. PostgreSQL ve DBeaver ikilisi endüstri standardı açık kaynaklı bir başlangıçtır:</p>
+            <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 12px; font-family: monospace; color: #a3e635; overflow-x: auto; border: 1px solid rgba(255,255,255,0.1);">
+# MacOS (PostgreSQL Motoru ve DBeaver Arayüzü)
+brew install postgresql
+brew install --cask dbeaver-community
+
+# Linux (Ubuntu)
+sudo apt install postgresql postgresql-contrib
             </div>
         </div>
 

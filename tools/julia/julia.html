@@ -104,6 +104,19 @@
     <!-- 3. ANA İÇERİK -->
     <main class="formulas-main" style="max-width: 1200px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
         
+        <!-- KAPSAMLI BAKIŞ: NEDİR & TARİHÇE -->
+        <div class="glass" style="padding: 40px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px; background: rgba(56, 189, 248, 0.03);">
+            <h3 style="font-size: 2.2rem; color: var(--text-main); margin-bottom: 24px; font-weight: 800;">📖 Julia Nedir? Kapsamlı Bir Bakış</h3>
+            <p style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.8; margin-bottom: 24px;">
+                Julia, veri bilimi ve yüksek performanslı bilimsel hesaplamalar için sıfırdan yaratılmış, nispeten çok yeni ve heyecan verici açık kaynaklı bir programlama dilidir. Veri biliminde uzun süredir var olan "İki Dil Problemini" (Two-Language Problem) çözmek için tasarlanmıştır. Geleneksel olarak araştırmacılar, algoritmaları prototiplemek için Python (çünkü yazması kolaydır) kullanır, ancak bu kodlar büyük verilerde çok yavaş çalıştığı için daha sonra C veya C++ dillerine çevrilerek üretime alınırdı. Julia, gelişmiş JIT (Just-In-Time) derleyicisi sayesinde Python kadar kolay yazılabilen ancak C kadar hızlı çalışabilen mucizevi bir yapı sunar.
+            </p>
+            
+            <h3 style="font-size: 1.8rem; color: var(--text-main); margin-bottom: 16px; font-weight: 700;">⏳ Tarihsel İlerleyiş ve Çıkış Amacı</h3>
+            <p style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.8;">
+                2012 yılında MIT (Massachusetts Institute of Technology) araştırmacıları Jeff Bezanson, Stefan Karpinski, Viral B. Shah ve Alan Edelman tarafından dünyaya duyuruldu. Geliştiriciler ilk yayınladıkları manifestoda hedeflerini şöyle açıkladı: "Biz açgözlüyüz! Python'ın pratikliğini, C'nin olağanüstü hızını, R'nin istatistik gücünü ve MATLAB'ın lineer cebir yeteneğini tek bir dilde istiyoruz." Günümüzde özellikle yüksek frekanslı algoritmik ticaret yapan finans fonları, iklim modelleyicileri ve astrofizikçiler gibi mikrosaniyelik hesaplama hızlarına ihtiyaç duyan ileri teknoloji sektörlerinde hızla pazar payı kazanmaktadır.
+            </p>
+        </div>
+        
         <!-- YAPAY ZEKA GÖRSEL EKRAN GÖRÜNTÜSÜ PANELİ -->
         <div class="glass" style="padding: 32px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
@@ -115,6 +128,20 @@
             </div>
             <div style="border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.6);">
                 <img loading="lazy" src="julia_ide_preview_1779067693324.webp" alt="Julia IDE Preview" style="width: 100%; height: auto; display: block;">
+            </div>
+        </div>
+
+
+
+        <!-- Sektörler & Veri Türleri -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 48px;">
+            <div class="glass" style="padding: 24px; border-radius: 20px; border: 1px solid var(--glass-border);">
+                <h3 style="font-size: 1.3rem; color: var(--text-main); margin-bottom: 16px;">🏢 Kimler Kullanır & Sektörler</h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">İklim modelleyiciler, astrofizikçiler, makine öğrenmesi mühendisleri ve farmakoloji araştırmacıları. (Özellikle NASA ve yüksek frekanslı ticaret yapan finans (Hedge) fonları).</p>
+            </div>
+            <div class="glass" style="padding: 24px; border-radius: 20px; border: 1px solid var(--glass-border);">
+                <h3 style="font-size: 1.3rem; color: var(--text-main); margin-bottom: 16px;">📊 Avantajlı Veri Türleri</h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">Çok yüksek boyutta iteratif (döngüsel) işlem gerektiren karmaşık matematiksel veriler, diferansiyel denklemler ve ağır makine öğrenmesi algoritmaları.</p>
             </div>
         </div>
 
@@ -234,6 +261,25 @@ B = randn(<span style="color: #a5d6ff;">1000</span>, <span style="color: #a5d6ff
 
 <span style="color: #8b949e;"># @time makrosu ile matris çarpımının süresini ve bellek tahsisini anında ölçün</span>
 @time C = A * B</code></pre>
+            </div>
+        </div>
+
+        <!-- Rakipler ve Kurulum -->
+        <div class="glass" style="padding: 32px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚔️ Rakiplerine Göre Farkı</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">Doğrudan Python, R ve MATLAB'ın rakibidir. Barındırdığı LLVM tabanlı "Just-In-Time" (JIT) derleyicisi sayesinde Python'dan (saf kod bazında) onlarca kat daha hızlıdır. Ancak Python'un 30 yıllık geçmişiyle oluşturduğu devasa kütüphane ekosistemi ve topluluk desteği Julia'da (henüz) yeterince yaygın değildir.</p>
+            
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 16px;">Julia'yı doğrudan kurabilirsiniz, ancak en sağlıklı ve modern yöntem resmi sürüm yöneticisi olan <b>Juliaup</b> aracını terminalden kurmaktır:</p>
+            <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 12px; font-family: monospace; color: #a3e635; overflow-x: auto; border: 1px solid rgba(255,255,255,0.1);">
+# Windows (PowerShell veya Komut İstemcisi)
+winget install julia -s msstore
+
+# MacOS ve Linux Terminali:
+curl -fsSL https://install.julialang.org | sh
+
+# Terminalde REPL başlatmak için sadece şunu yazın:
+julia
             </div>
         </div>
 

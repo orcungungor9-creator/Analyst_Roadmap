@@ -104,6 +104,19 @@
     <!-- 3. ANA İÇERİK -->
     <main class="formulas-main" style="max-width: 1200px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
         
+        <!-- KAPSAMLI BAKIŞ: NEDİR & TARİHÇE -->
+        <div class="glass" style="padding: 40px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px; background: rgba(56, 189, 248, 0.03);">
+            <h3 style="font-size: 2.2rem; color: var(--text-main); margin-bottom: 24px; font-weight: 800;">📖 Python Nedir? Kapsamlı Bir Bakış</h3>
+            <p style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.8; margin-bottom: 24px;">
+                Python, 1990'ların başında geliştirilmiş, sözdizimi (syntax) açısından İngilizceye çok benzeyen, öğrenmesi son derece kolay, genel amaçlı ve yüksek seviyeli bir programlama dilidir. Günümüzde yazılım geliştirme dünyasının "İsviçre Çakısı" olarak kabul edilir. İster basit bir web sitesi yapıyor olun, ister devasa veritabanlarından saniyeler içinde karmaşık analizler çekiyor olun, ister yapay zeka (AI) ve büyük dil modellerini (LLM) eğitiyor olun; Python tüm bu süreçlerin merkezindeki ana dildir. Nesne yönelimli (OOP), fonksiyonel ve prosedürel programlama paradigmalarını aynı anda destekler. En büyük gücünü, sayıları on milyonları bulan tutkulu geliştirici topluluğundan ve bu topluluğun yarattığı, kodlamayı sıfırdan yapmanızı engelleyen devasa açık kaynak kütüphane ekosisteminden (NumPy, Pandas, TensorFlow, Scikit-Learn) alır.
+            </p>
+            
+            <h3 style="font-size: 1.8rem; color: var(--text-main); margin-bottom: 16px; font-weight: 700;">⏳ Tarihsel İlerleyiş ve Çıkış Amacı</h3>
+            <p style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.8;">
+                1991 yılında Hollandalı bilgisayar programcısı Guido van Rossum tarafından "okunabilir, temiz kod" felsefesiyle ve hobi amaçlı bir Noel projesi olarak yaratıldı. İsmini ünlü İngiliz komedi grubu "Monty Python"dan alır. Başlangıçta yalnızca basit sistem otomasyonları ve betik (scripting) görevleri için kullanılırken, 2010'lu yıllarda verinin dünyadaki en değerli maden haline gelmesiyle adeta bir patlama yaşadı. C ve C++ gibi dillerin performans gerektiren alt yapılarını sarmalayarak (wrapper), veri bilimcilere ve araştırmacılara hem pratik hem de güçlü bir analiz ortamı sundu ve bugün veri dünyasının tartışmasız lideri konumuna geldi.
+            </p>
+        </div>
+        
         <!-- YAPAY ZEKA GÖRSEL EKRAN GÖRÜNTÜSÜ PANELİ -->
         <div class="glass" style="padding: 32px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
@@ -115,6 +128,20 @@
             </div>
             <div style="border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.6);">
                 <img loading="lazy" src="python_ide_preview_1779067561448.webp" alt="Python IDE Preview" style="width: 100%; height: auto; display: block;">
+            </div>
+        </div>
+
+
+
+        <!-- Sektörler & Veri Türleri -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 48px;">
+            <div class="glass" style="padding: 24px; border-radius: 20px; border: 1px solid var(--glass-border);">
+                <h3 style="font-size: 1.3rem; color: var(--text-main); margin-bottom: 16px;">🏢 Kimler Kullanır & Sektörler</h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">Yapay zeka mühendisleri, veri bilimciler (Data Scientist) ve araştırmacılar tarafından sıklıkla kullanılır. Finans, sağlık, teknoloji, e-ticaret ve otonom sistemlerde yaygındır.</p>
+            </div>
+            <div class="glass" style="padding: 24px; border-radius: 20px; border: 1px solid var(--glass-border);">
+                <h3 style="font-size: 1.3rem; color: var(--text-main); margin-bottom: 16px;">📊 Avantajlı Veri Türleri</h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">Metin (NLP), görüntü (Computer Vision), zaman serileri ve büyük hacimli yapılandırılmamış (Unstructured) verilerde (Big Data) eşsiz bir avantaja sahiptir.</p>
             </div>
         </div>
 
@@ -233,6 +260,23 @@ predictions = model.predict(X_test)
 <span style="color: #8b949e;"># Doğruluk (Accuracy) oranının hesaplanması ve ekrana yazdırılması</span>
 acc = accuracy_score(y_test, predictions)
 <span style="color: #79c0ff;">print</span>(<span style="color: #a5d6ff;">f"Model Doğruluk Oranı: %</span>{acc * <span style="color: #a5d6ff;">100</span>:<span style="color: #a5d6ff;">.2f</span>}<span style="color: #a5d6ff;">"</span>)</code></pre>
+            </div>
+        </div>
+
+        <!-- Rakipler ve Kurulum -->
+        <div class="glass" style="padding: 32px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚔️ Rakiplerine Göre Farkı</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">R diline kıyasla genel amaçlı uygulama geliştirmeye (web backend, otomasyon) çok daha uygundur. Julia kadar hızlı olmasa da, devasa kütüphane desteği (scikit-learn, PyTorch) ve muazzam bir topluluk desteği ile açık ara liderdir.</p>
+            
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 16px;">Veri bilimi için en yaygın ve stabil yöntem <b>Anaconda</b> veya <b>Miniconda</b> kullanmaktır. Bağımsız kurulum için terminal yönergeleri:</p>
+            <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 12px; font-family: monospace; color: #a3e635; overflow-x: auto; border: 1px solid rgba(255,255,255,0.1);">
+# Resmi sitesinden veya paket yöneticisinden indirin:
+sudo apt install python3 python3-pip   # Linux
+brew install python                    # MacOS (Homebrew)
+
+# Veri bilimi kütüphanelerini yükleyin:
+pip install numpy pandas scikit-learn matplotlib jupyter
             </div>
         </div>
 

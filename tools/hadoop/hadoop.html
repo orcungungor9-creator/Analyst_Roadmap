@@ -100,6 +100,19 @@
     <!-- 3. ANA İÇERİK -->
     <main class="formulas-main" style="max-width: 1200px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
         
+        <!-- KAPSAMLI BAKIŞ: NEDİR & TARİHÇE -->
+        <div class="glass" style="padding: 40px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px; background: rgba(56, 189, 248, 0.03);">
+            <h3 style="font-size: 2.2rem; color: var(--text-main); margin-bottom: 24px; font-weight: 800;">📖 Hadoop Nedir? Kapsamlı Bir Bakış</h3>
+            <p style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.8; margin-bottom: 24px;">
+                Apache Hadoop, tek bir devasa süper bilgisayar yerine, binlerce standart bilgisayarı (node) birleştirerek petabaytlarca (milyonlarca GB) büyüklüğündeki verileri depolamaya ve dağıtık bir şekilde aynı anda işlemeye yarayan açık kaynaklı bir "Büyük Veri" (Big Data) altyapı çatısıdır (framework). Temel olarak iki ana bileşenden oluşur: Veriyi sunuculara bölen ve güvenli şekilde saklayan HDFS (Hadoop Distributed File System) ve bu bölünmüş veriler üzerinde eşzamanlı işlem yapılmasını sağlayan MapReduce algoritması. Hadoop bir programlama dili değil, büyük verinin üzerinde çalıştığı devasa bir işletim sistemidir.
+            </p>
+            
+            <h3 style="font-size: 1.8rem; color: var(--text-main); margin-bottom: 16px; font-weight: 700;">⏳ Tarihsel İlerleyiş ve Çıkış Amacı</h3>
+            <p style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.8;">
+                2006 yılında Yahoo mühendisleri Doug Cutting ve Mike Cafarella tarafından geliştirildi. O yıllarda internet sitelerinin verileri inanılmaz bir hızla artıyordu ve geleneksel (SQL) veritabanları bu milyarlarca satırlık web trafiği verisini işleyemez hale gelmişti. Doug Cutting, Google'ın yayınladığı "MapReduce ve Google File System" akademik makalelerinden ilham alarak Hadoop'u yarattı. Yazılıma, oğlunun oyuncak sarı filinin adını verdi (Hadoop). Büyük veri (Big Data) devrimini başlatan ve bugünkü modern veri mühendisliği mesleğini var eden en önemli teknolojidir.
+            </p>
+        </div>
+        
         <!-- GÖRSEL EKRAN GÖRÜNTÜSÜ PANELİ -->
         <div class="glass" style="padding: 32px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
@@ -111,6 +124,18 @@
             </div>
             <div style="border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.6);">
                 <img loading="lazy" src="hadoop_ide_preview.webp" alt="Hadoop IDE Preview" style="width: 100%; height: auto; display: block;">
+            </div>
+        </div>
+
+        <!-- Sektörler & Veri Türleri -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 48px;">
+            <div class="glass" style="padding: 24px; border-radius: 20px; border: 1px solid var(--glass-border);">
+                <h3 style="font-size: 1.3rem; color: var(--text-main); margin-bottom: 16px;">🏢 Kimler Kullanır & Sektörler</h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">Veri Mühendisleri, Büyük Veri (Big Data) Mimarları ve DevOps uzmanları tarafından altyapı olarak kurulur ve yönetilir. Telekomünikasyon, finans, e-ticaret log sistemleri ve sosyal medya devlerinin omurgasıdır.</p>
+            </div>
+            <div class="glass" style="padding: 24px; border-radius: 20px; border: 1px solid var(--glass-border);">
+                <h3 style="font-size: 1.3rem; color: var(--text-main); margin-bottom: 16px;">📊 Avantajlı Veri Türleri</h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">Klasik veritabanlarına sığmayan, petabaytlarca büyüklükteki ham ve yapılandırılmamış (Unstructured) log dosyaları, sensör verileri (IoT), medya dosyaları ve web tıklama verileri.</p>
             </div>
         </div>
 
@@ -209,6 +234,27 @@
 
 <span style="color: #8b949e;"># HDFS'ten yerel sisteme dosya alma</span>
 <span style="color: #79c0ff;">hdfs</span> dfs -get /user/hadoop/data/output.txt /local/path/</code></pre>
+            </div>
+        </div>
+
+        <!-- Rakipler ve Kurulum -->
+        <div class="glass" style="padding: 32px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚔️ Rakiplerine Göre Farkı</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">Klasik ilişkisel veritabanları (Oracle, SQL Server) tüm veriyi tek ve devasa bir makinede tutmaya çalışır; Hadoop ise veriyi ucuz, binlerce küçük makineye (HDFS) dağıtır. Günümüzde "veri işleme" (MapReduce) konusunda yerini büyük oranda çok daha hızlı olan Apache Spark'a devretmiş olsa da, veriyi ucuza "depolama" sistemi olan HDFS hâlâ sektör standardıdır.</p>
+            
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 16px;">Hadoop, sunuculara kurulan karmaşık bir mimaridir. Genellikle Linux üzerinde çalışır ve Java gerektirir. Basit (tek düğümlü / pseudo-distributed) bir kurulum senaryosu şöyledir:</p>
+            <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 12px; font-family: monospace; color: #a3e635; overflow-x: auto; border: 1px solid rgba(255,255,255,0.1);">
+# Ön gereksinim: Java kurulumu
+sudo apt install openjdk-8-jdk
+
+# Hadoop'un indirilmesi (Terminalden wget ile)
+wget https://downloads.apache.org/hadoop/common/hadoop-3.3.6/hadoop-3.3.6.tar.gz
+tar -xzvf hadoop-3.3.6.tar.gz
+
+# Ortam değişkenlerinin (.bashrc) ayarlanması
+export HADOOP_HOME=~/hadoop-3.3.6
+export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
             </div>
         </div>
 

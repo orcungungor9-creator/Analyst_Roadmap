@@ -102,6 +102,19 @@
     <!-- 3. ANA İÇERİK -->
     <main class="formulas-main" style="max-width: 1200px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
         
+        <!-- KAPSAMLI BAKIŞ: NEDİR & TARİHÇE -->
+        <div class="glass" style="padding: 40px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px; background: rgba(56, 189, 248, 0.03);">
+            <h3 style="font-size: 2.2rem; color: var(--text-main); margin-bottom: 24px; font-weight: 800;">📖 Stata Nedir? Kapsamlı Bir Bakış</h3>
+            <p style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.8; margin-bottom: 24px;">
+                Stata; veri yönetimi, istatistiksel analiz, ileri düzey grafik çizimi ve gelişmiş ekonometrik modelleme için kullanılan güçlü ve genel amaçlı ticari bir yazılım paketidir. SPSS'in aksine ağırlıklı olarak komut satırı (Do-File) ile çalışır, ancak R veya Python kadar karmaşık bir programlama mantığı gerektirmez; "syntax" olarak bilinen daha sade komutlarla yönetilir. Özellikle Panel Veri Analizi (zaman içinde aynı gözlemlerin tekrar tekrar ölçülmesi) konusunda endüstri standardıdır. Ekonometristler, epidemiyologlar (sağlık verisi araştırmacıları) ve siyaset bilimcilerin akademik yayın yaparken en güvendiği araçtır.
+            </p>
+            
+            <h3 style="font-size: 1.8rem; color: var(--text-main); margin-bottom: 16px; font-weight: 700;">⏳ Tarihsel İlerleyiş ve Çıkış Amacı</h3>
+            <p style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.8;">
+                1985 yılında StataCorp kurucusu William Gould tarafından piyasaya sürüldü. Yazılımın adı, "statistics" (istatistik) ve "data" (veri) kelimelerinin akıllıca birleştirilmesinden doğmuştur. Akademik araştırmacılara hızlı, güvenilir ve komut (syntax) odaklı bir ortam sağlayarak, yapılan analizlerin tam anlamıyla tekrarlanabilir (reproducible) olmasını amaçlamıştır. Yani bir ekonomist, makalesinde yaptığı analizleri bir "Do-File" ile diğer araştırmacılara ilettiğinde, aynı sonuçların anında teyit edilebilmesini sağlayarak bilim dünyasına büyük bir şeffaflık getirmiştir.
+            </p>
+        </div>
+        
         <!-- YAPAY ZEKA GÖRSEL EKRAN GÖRÜNTÜSÜ PANELİ -->
         <div class="glass" style="padding: 32px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
@@ -113,6 +126,20 @@
             </div>
             <div style="border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.6);">
                 <img loading="lazy" src="stata_interface_preview_1779067634546.webp" alt="Stata Interface Preview" style="width: 100%; height: auto; display: block;">
+            </div>
+        </div>
+
+
+
+        <!-- Sektörler & Veri Türleri -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 48px;">
+            <div class="glass" style="padding: 24px; border-radius: 20px; border: 1px solid var(--glass-border);">
+                <h3 style="font-size: 1.3rem; color: var(--text-main); margin-bottom: 16px;">🏢 Kimler Kullanır & Sektörler</h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">Ekonometristler, siyaset bilimciler, epidemiyologlar ve veri bilimciler. Üniversitelerin ekonomi ve siyaset bilimi bölümlerinde, düşünce kuruluşlarında (Think Tanks) yoğunlukla kullanılır.</p>
+            </div>
+            <div class="glass" style="padding: 24px; border-radius: 20px; border: 1px solid var(--glass-border);">
+                <h3 style="font-size: 1.3rem; color: var(--text-main); margin-bottom: 16px;">📊 Avantajlı Veri Türleri</h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">Kesit veri (cross-sectional), zaman serisi (time-series) ve özellikle aynı gözlemlerin zaman içinde tekrar tekrar ölçüldüğü Panel Veri (Panel Data) setlerinde eşsizdir.</p>
             </div>
         </div>
 
@@ -227,6 +254,20 @@ estimates store random_model
 <span style="color: #8b949e;">* H0: Rassal etkiler modeli uygundur (p > 0.05 ise RE, p < 0.05 ise FE seçilir)</span>
 hausman fixed_model random_model</code></pre>
             </div>
+        </div>
+
+        <!-- Rakipler ve Kurulum -->
+        <div class="glass" style="padding: 32px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚔️ Rakiplerine Göre Farkı</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">SPSS'e göre komut satırına (Do-File) daha çok dayanır; bu yüzden analizleri tekrarlanabilir (reproducible) kılmak ekonomistler için çok daha kolaydır. R'ye göre ücretli olmasına rağmen, Panel Veri Ekonometrisi konusunda Stata'nın yerleşik komutları çok daha stabil, hızlı ve endüstri standardı olarak kabul edilir.</p>
+            
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 16px;">Stata ticari bir yazılım olduğu için kurulumdan önce bir lisans koduna sahip olmanız gerekir. Terminal kullanılmaz, tamamen arayüz üzerinden kurulur:</p>
+            <ul style="color: var(--text-muted); line-height: 1.8; font-size: 1.05rem; padding-left: 20px;">
+                <li><b>Adım 1:</b> StataCorp'un sitesinden size uygun sürümü (Stata/BE, SE, MP) indirin.</li>
+                <li><b>Adım 2:</b> İndirdiğiniz kurulum sihirbazını başlatıp kurulumu yapın.</li>
+                <li><b>Adım 3:</b> İlk açılışta sizden Lisans Kodu, Seri Numarası ve Yetkilendirme Kodu isteyecektir. Bilgileri girerek Stata'yı aktif hale getirin.</li>
+            </ul>
         </div>
 
         <!-- ALT YÖNLENDİRME BUTONLARI -->

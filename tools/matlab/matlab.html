@@ -100,6 +100,19 @@
     <!-- 3. ANA İÇERİK -->
     <main class="formulas-main" style="max-width: 1200px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
         
+        <!-- KAPSAMLI BAKIŞ: NEDİR & TARİHÇE -->
+        <div class="glass" style="padding: 40px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px; background: rgba(56, 189, 248, 0.03);">
+            <h3 style="font-size: 2.2rem; color: var(--text-main); margin-bottom: 24px; font-weight: 800;">📖 MATLAB Nedir? Kapsamlı Bir Bakış</h3>
+            <p style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.8; margin-bottom: 24px;">
+                MATLAB (Matrix Laboratory); sayısal hesaplama, mühendislik matematiği, algoritma geliştirme ve sinyal işleme için dünyada en çok kullanılan ticari (kapalı kaynaklı) programlama dili ve etkileşimli çalışma ortamıdır. İsminden de anlaşılacağı üzere, temel veri yapısı "matrisler"dir. Bu sayede karmaşık diferansiyel denklemler, lineer cebir ve vektör işlemleri, döngü (for/while) kullanmaya gerek kalmadan tek bir satırda ışık hızında çözülebilir. Đặcellikle donanım modellemesi, kontrol sistemleri tasarımı ve fiziksel simülasyonları grafiksel olarak kurmanızı sağlayan Simulink eklentisi sayesinde mekanik ve elektronik mühendisliğinde rakipsiz bir devdir.
+            </p>
+            
+            <h3 style="font-size: 1.8rem; color: var(--text-main); margin-bottom: 16px; font-weight: 700;">⏳ Tarihsel İlerleyiş ve Çıkış Amacı</h3>
+            <p style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.8;">
+                1970'lerin sonlarında New Mexico Üniversitesi'nde matematikçi Cleve Moler tarafından tasarlandı. Temel amacı, öğrencilerinin dönemin popüler ancak yazması eziyetli olan Fortran ve C tabanlı LINPACK (matris hesaplama) kütüphanelerine, kolay bir syntax (sözdizimi) ile erişebilmesiydi. Başlangıçta basit bir akademik arayüz olan proje, 1984 yılında MathWorks firmasının kurulmasıyla tamamen ticari bir ürüne dönüştürüldü. Günümüzde otonom araçlardan uzay roketlerine, 5G anten tasarımlarından tıbbi cihaz algoritmalarına kadar fiziğin ve matematiğin donanıma dönüştüğü her yerde standarttır.
+            </p>
+        </div>
+        
         <!-- GÖRSEL EKRAN GÖRÜNTÜSÜ PANELİ -->
         <div class="glass" style="padding: 32px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
@@ -111,6 +124,20 @@
             </div>
             <div style="border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.6);">
                 <img loading="lazy" src="matlab_ide_preview.webp" alt="MATLAB IDE Preview" style="width: 100%; height: auto; display: block;">
+            </div>
+        </div>
+
+
+
+        <!-- Sektörler & Veri Türleri -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 48px;">
+            <div class="glass" style="padding: 24px; border-radius: 20px; border: 1px solid var(--glass-border);">
+                <h3 style="font-size: 1.3rem; color: var(--text-main); margin-bottom: 16px;">🏢 Kimler Kullanır & Sektörler</h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">Havacılık, uzay, otomotiv ve mekatronik mühendisleri. Fizikçiler ve Sinyal İşleme (Görüntü İşleme) uzmanları. Tesla'nın araç beyinlerinden NASA'nın uzay araçlarına kadar donanım simülasyonlarında kritiktir.</p>
+            </div>
+            <div class="glass" style="padding: 24px; border-radius: 20px; border: 1px solid var(--glass-border);">
+                <h3 style="font-size: 1.3rem; color: var(--text-main); margin-bottom: 16px;">📊 Avantajlı Veri Türleri</h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">Çok boyutlu matrisler, sinyal ve radyo frekans verileri, diferansiyel denklemler ve matematiksel fiziksel simülasyon modelleri.</p>
             </div>
         </div>
 
@@ -214,6 +241,20 @@ Z = <span style="color: #79c0ff;">sin</span>(R)./R;
 <span style="color: #79c0ff;">ylabel</span>(<span style="color: #a5d6ff;">'Y Ekseni'</span>);
 <span style="color: #79c0ff;">zlabel</span>(<span style="color: #a5d6ff;">'Dalga Genliği'</span>);</code></pre>
             </div>
+        </div>
+
+        <!-- Rakipler ve Kurulum -->
+        <div class="glass" style="padding: 32px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚔️ Rakiplerine Göre Farkı</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">Günümüzde açık kaynaklı Python (SciPy ve NumPy ekosistemi), MATLAB'ın en büyük ve ücretsiz rakibidir. Ancak MATLAB, özellikle donanım modelleme ve blok diyagramlarla simülasyon yapmayı sağlayan <b>Simulink</b> aracı sayesinde mühendislik alanında hala yerini korumaktadır. Dezavantajı ise kişisel kullanım için lisans ücretinin oldukça yüksek olmasıdır.</p>
+            
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 16px;">MATLAB, MathWorks üzerinden satın alınan devasa boyutlu ticari bir kurulumdur. Komut satırına ihtiyaç duyulmaz:</p>
+            <ul style="color: var(--text-muted); line-height: 1.8; font-size: 1.05rem; padding-left: 20px;">
+                <li><b>Adım 1:</b> MathWorks resmi web sitesine üniversite e-postanız (veya şirket) ile giriş yapın.</li>
+                <li><b>Adım 2:</b> Hesabınıza tanımlı olan lisans altındaki MATLAB yükleyicisini (Installer) indirin.</li>
+                <li><b>Adım 3:</b> Yükleyiciyi çalıştırın. İhtiyacınız olan ek kütüphaneleri (Toolbox - örn: Image Processing) seçerek 10-30 GB arası indirmeyi tamamlayın.</li>
+            </ul>
         </div>
 
         <!-- ALT YÖNLENDİRME BUTONLARI -->

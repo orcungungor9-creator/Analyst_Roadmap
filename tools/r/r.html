@@ -104,6 +104,19 @@
     <!-- 3. ANA İÇERİK -->
     <main class="formulas-main" style="max-width: 1200px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
         
+        <!-- KAPSAMLI BAKIŞ: NEDİR & TARİHÇE -->
+        <div class="glass" style="padding: 40px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px; background: rgba(56, 189, 248, 0.03);">
+            <h3 style="font-size: 2.2rem; color: var(--text-main); margin-bottom: 24px; font-weight: 800;">📖 R & RStudio Nedir? Kapsamlı Bir Bakış</h3>
+            <p style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.8; margin-bottom: 24px;">
+                R, bilgisayar bilimcilerinden ziyade istatistikçiler tarafından, istatistikçiler için yaratılmış eşsiz bir veri analizi ve programlama dilidir. Veri manipülasyonu, karmaşık istatistiksel testler ve akademik seviyede veri görselleştirme işlemleri için özel olarak tasarlanmıştır. Genel amaçlı dillerin (Python, Java) aksine, R'ın varoluş amacı sadece veriyi anlamlandırmaktır. RStudio ise bu dili kullanmayı son derece kolaylaştıran, verileri, grafikleri ve kodları tek bir modern ekranda birleştiren dünyanın en popüler entegre geliştirme ortamıdır (IDE). Akademik araştırmaların, biyolojik veri analizlerinin ve ileri düzey ekonometrinin dünya çapındaki standart dili olarak kabul edilir.
+            </p>
+            
+            <h3 style="font-size: 1.8rem; color: var(--text-main); margin-bottom: 16px; font-weight: 700;">⏳ Tarihsel İlerleyiş ve Çıkış Amacı</h3>
+            <p style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.8;">
+                1993 yılında Ross Ihaka ve Robert Gentleman tarafından Yeni Zelanda'daki Auckland Üniversitesi'nde geliştirildi (dilin ismi yaratıcılarının isimlerinin baş harfinden gelir). Eski ve ticari bir yazılım olan "S" dilinin açık kaynaklı ve modern bir alternatifi olarak ortaya çıktı. Temel amacı, akademisyenlerin ve istatistikçilerin on binlerce dolarlık ticari yazılımlara (SAS, SPSS) mahkum kalmadan, karmaşık veri analizlerini özgürce yapabilmesini sağlamaktı. CRAN adı verilen kütüphane havuzuna eklenen 18.000'den fazla bilimsel paket sayesinde bugün dünyadaki en karmaşık istatistiksel formüllerin bile R dilinde hazır bir çözümü bulunmaktadır.
+            </p>
+        </div>
+        
         <!-- YAPAY ZEKA GÖRSEL EKRAN GÖRÜNTÜSÜ PANELİ -->
         <div class="glass" style="padding: 32px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
@@ -115,6 +128,20 @@
             </div>
             <div style="border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.6);">
                 <img loading="lazy" src="r_studio_preview_1779067546158.webp" alt="R Studio Preview" style="width: 100%; height: auto; display: block;">
+            </div>
+        </div>
+
+
+
+        <!-- Sektörler & Veri Türleri -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 48px;">
+            <div class="glass" style="padding: 24px; border-radius: 20px; border: 1px solid var(--glass-border);">
+                <h3 style="font-size: 1.3rem; color: var(--text-main); margin-bottom: 16px;">🏢 Kimler Kullanır & Sektörler</h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">Ağırlıklı olarak biyoistatistikçiler, epidemiyologlar, ekonomistler, akademisyenler ve veri analistleri kullanır. Sağlık (Klinik araştırmalar), finans ve akademi en yaygın olduğu sektörlerdir.</p>
+            </div>
+            <div class="glass" style="padding: 24px; border-radius: 20px; border: 1px solid var(--glass-border);">
+                <h3 style="font-size: 1.3rem; color: var(--text-main); margin-bottom: 16px;">📊 Avantajlı Veri Türleri</h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">Satır ve sütunlardan oluşan yapılandırılmış (Structured) anket verileri, klinik deney sonuçları ve zaman serilerinde üstün bir performansa sahiptir.</p>
             </div>
         </div>
 
@@ -231,6 +258,26 @@ summary_table &lt;- <span style="color: #79c0ff;">tidy</span>(model)
   <span style="color: #79c0ff;">labs</span>(title = <span style="color: #a5d6ff;">"Araç Ağırlığı ve Yakıt Tüketimi İlişkisi"</span>,
        x = <span style="color: #a5d6ff;">"Ağırlık (1000 lbs)"</span>, y = <span style="color: #a5d6ff;">"Mil / Galon (mpg)"</span>) +
   <span style="color: #79c0ff;">theme_minimal</span>()</code></pre>
+            </div>
+        </div>
+
+        <!-- Rakipler ve Kurulum -->
+        <div class="glass" style="padding: 32px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚔️ Rakiplerine Göre Farkı</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">En büyük rakibi Python'dır. Python genel amaçlı bir dil iken R tamamen istatistik için yaratılmıştır. Bu nedenle CRAN kütüphanesindeki akademik istatistik paketleri Python'dan çok daha fazladır. Ayrıca <code>ggplot2</code> gibi paketler sayesinde R, veri görselleştirme estetiği konusunda Python'ı genellikle geride bırakır.</p>
+            
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 16px;">R kurulumu iki aşamalıdır. Önce dilin kendisi (R), ardından arayüz (RStudio) kurulur. CRAN web sitesinden doğrudan indirilebilir veya terminalden yüklenebilir:</p>
+            <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 12px; font-family: monospace; color: #a3e635; overflow-x: auto; border: 1px solid rgba(255,255,255,0.1);">
+# MacOS İçin (Homebrew):
+brew install r
+brew install --cask rstudio
+
+# Linux (Ubuntu):
+sudo apt install r-base
+
+# En çok kullanılan veri bilimi paketini RStudio konsolunda yüklemek için:
+install.packages("tidyverse")
             </div>
         </div>
 

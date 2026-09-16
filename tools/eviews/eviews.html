@@ -104,6 +104,19 @@
     <!-- 3. ANA İÇERİK -->
     <main class="formulas-main" style="max-width: 1200px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
         
+        <!-- KAPSAMLI BAKIŞ: NEDİR & TARİHÇE -->
+        <div class="glass" style="padding: 40px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px; background: rgba(56, 189, 248, 0.03);">
+            <h3 style="font-size: 2.2rem; color: var(--text-main); margin-bottom: 24px; font-weight: 800;">📖 EViews Nedir? Kapsamlı Bir Bakış</h3>
+            <p style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.8; margin-bottom: 24px;">
+                EViews (Econometric Views), özellikle makroekonomik zaman serisi analizleri, karmaşık finansal tahminleme (forecasting) ve simülasyon modellemeleri için spesifik olarak geliştirilmiş, Windows tabanlı ticari bir istatistik yazılımıdır. R veya Python'da günlerce kod yazarak kurabileceğiniz karmaşık ARMA, GARCH veya VAR (Vektör Otoregresyon) modellerini EViews üzerinde sadece birkaç pencereye (Views) tıklayarak saniyeler içinde tahmin edebilirsiniz. Bu pratik yapısı nedeniyle Dünya Bankası, IMF, merkez bankalarının araştırma birimleri ve küresel borsa (hisse senedi) analistleri tarafından tercih edilir.
+            </p>
+            
+            <h3 style="font-size: 1.8rem; color: var(--text-main); margin-bottom: 16px; font-weight: 700;">⏳ Tarihsel İlerleyiş ve Çıkış Amacı</h3>
+            <p style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.8;">
+                1994 yılında Quantitative Micro Software (QMS) tarafından Windows ortamına özel olarak (grafiksel arayüz avantajlarını kullanmak üzere) piyasaya sürüldü. Kökenleri, 1980'lerde büyük yankı uyandıran komut tabanlı eski MicroTSP (Time Series Processor) yazılımına dayanır. Temel varoluş amacı, merkez bankası uzmanlarını ve makroekonomistleri zorlu komutlar ezberlemekten kurtarıp, faiz, enflasyon ve GSYH gibi çok hassas zaman serisi modellerini daha şık, görsel ve yönetilebilir pencereler üzerinden anında analiz edilebilir kılmaktı.
+            </p>
+        </div>
+        
         <!-- YAPAY ZEKA GÖRSEL EKRAN GÖRÜNTÜSÜ PANELİ -->
         <div class="glass" style="padding: 32px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
@@ -115,6 +128,20 @@
             </div>
             <div style="border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.6);">
                 <img loading="lazy" src="eviews_interface_preview_1779067649794.webp" alt="EViews Interface Preview" style="width: 100%; height: auto; display: block;">
+            </div>
+        </div>
+
+
+
+        <!-- Sektörler & Veri Türleri -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 48px;">
+            <div class="glass" style="padding: 24px; border-radius: 20px; border: 1px solid var(--glass-border);">
+                <h3 style="font-size: 1.3rem; color: var(--text-main); margin-bottom: 16px;">🏢 Kimler Kullanır & Sektörler</h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">Merkez Bankaları uzmanları, hazine departmanları, makroekonomistler ve finansal analistler. Ulusal veya küresel ekonomi politikalarının etkilerini simüle etmek için kullanılır.</p>
+            </div>
+            <div class="glass" style="padding: 24px; border-radius: 20px; border: 1px solid var(--glass-border);">
+                <h3 style="font-size: 1.3rem; color: var(--text-main); margin-bottom: 16px;">📊 Avantajlı Veri Türleri</h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">Enflasyon oranları, GSYH büyümeleri, döviz kurları ve borsa endeksleri gibi zamana bağlı (Time Series) finansal ve makroekonomik veriler.</p>
             </div>
         </div>
 
@@ -228,6 +255,20 @@ equation eq1.ls dlog_cpi c fedfunds
 <span style="color: #8b949e;">' Ortalama denklemi: dlog_cpi c, Varyans denklemi: GARCH(1,1)</span>
 equation eq_garch.arch(1,1) dlog_cpi c</code></pre>
             </div>
+        </div>
+
+        <!-- Rakipler ve Kurulum -->
+        <div class="glass" style="padding: 32px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚔️ Rakiplerine Göre Farkı</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">Zaman Serisi Ekonometrisinde (ARIMA, GARCH modelleri) Stata ve R'den çok daha pratik bir grafiksel arayüze sahiptir; birkaç tıklama ile en karmaşık denklemler tahmin edilebilir. Ancak sadece Windows'a odaklıdır, macOS'ta dolaylı çalışır. Ayrıca genel amaçlı veri bilimi (Machine Learning) için yetersiz kalır.</p>
+            
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 16px;">EViews, S&P Global çatısı altındaki IHS Markit tarafından satılan ticari bir Windows yazılımıdır. Öğrenciler için ücretsiz "Student Version (Lite)" mevcuttur:</p>
+            <ul style="color: var(--text-muted); line-height: 1.8; font-size: 1.05rem; padding-left: 20px;">
+                <li><b>Adım 1:</b> EViews'un resmi web sitesinden Student Version için başvuru yapıp indirme bağlantısını ve seri numarasını e-posta ile alın.</li>
+                <li><b>Adım 2:</b> İndirilen .exe dosyasını Windows bilgisayarınızda çalıştırın. (Mac kullanıcılarının sanal makine kullanması önerilir).</li>
+                <li><b>Adım 3:</b> E-postanıza gelen seri numarasıyla yazılımı aktifleştirin.</li>
+            </ul>
         </div>
 
         <!-- ALT YÖNLENDİRME BUTONLARI -->

@@ -100,6 +100,19 @@
     <!-- 3. ANA İÇERİK -->
     <main class="formulas-main" style="max-width: 1200px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
         
+        <!-- KAPSAMLI BAKIŞ: NEDİR & TARİHÇE -->
+        <div class="glass" style="padding: 40px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px; background: rgba(56, 189, 248, 0.03);">
+            <h3 style="font-size: 2.2rem; color: var(--text-main); margin-bottom: 24px; font-weight: 800;">📖 PySpark Nedir? Kapsamlı Bir Bakış</h3>
+            <p style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.8; margin-bottom: 24px;">
+                PySpark, dünyanın en güçlü büyük veri işleme motoru olan Apache Spark'ın, Python programlama dili ile kullanılmasını sağlayan resmi API'sidir (arayüzüdür). Normal şartlarda Spark, JVM (Java) tabanlı olan Scala dili ile yazılmıştır ve son derece hızlı çalışır. Ancak veri bilimciler Python kullandıkları için, büyük veriyi (terabaytlarca) RAM (bellek) üzerinde saniyeler içinde işleyebilmek, makine öğrenmesi modelleri eğitebilmek ve devasa SQL sorguları çalıştırabilmek adına PySpark geliştirilmiştir. Bugün büyük veri dünyasında Pandas'ın yetmediği her noktada devreye giren modern endüstri standardıdır.
+            </p>
+            
+            <h3 style="font-size: 1.8rem; color: var(--text-main); margin-bottom: 16px; font-weight: 700;">⏳ Tarihsel İlerleyiş ve Çıkış Amacı</h3>
+            <p style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.8;">
+                Apache Spark, 2009 yılında UC Berkeley Üniversitesinin AMPLab'inde Matei Zaharia tarafından yaratıldı. Amacı, Hadoop'un çok yavaş çalışan disk tabanlı MapReduce algoritmasının yerini almak ve veriyi doğrudan RAM'de (in-memory) tutarak işlemleri 100 kat daha hızlı yapmaktı. Spark hızla yayıldıktan sonra, dünyayı kasıp kavuran veri bilimi ve yapay zeka topluluğuna (Python kullanıcılarına) hitap edebilmek için PySpark kütüphanesi yayınlandı. Bugün Databricks gibi devasa bulut platformlarının temelini oluşturmaktadır.
+            </p>
+        </div>
+        
         <!-- GÖRSEL EKRAN GÖRÜNTÜSÜ PANELİ -->
         <div class="glass" style="padding: 32px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
@@ -111,6 +124,18 @@
             </div>
             <div style="border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.6);">
                 <img loading="lazy" src="pyspark_ide_preview.webp" alt="PySpark IDE Preview" style="width: 100%; height: auto; display: block;">
+            </div>
+        </div>
+
+        <!-- Sektörler & Veri Türleri -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 48px;">
+            <div class="glass" style="padding: 24px; border-radius: 20px; border: 1px solid var(--glass-border);">
+                <h3 style="font-size: 1.3rem; color: var(--text-main); margin-bottom: 16px;">🏢 Kimler Kullanır & Sektörler</h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">Büyük Veri Mühendisleri (Data Engineers) ve Makine Öğrenmesi Mühendisleri (MLOps). Spotify, Netflix gibi dev şirketlerde gerçek zamanlı öneri algoritmaları ve veri boru hatlarında (Data Pipelines) kullanılır.</p>
+            </div>
+            <div class="glass" style="padding: 24px; border-radius: 20px; border: 1px solid var(--glass-border);">
+                <h3 style="font-size: 1.3rem; color: var(--text-main); margin-bottom: 16px;">📊 Avantajlı Veri Türleri</h3>
+                <p style="color: var(--text-muted); line-height: 1.6;">Streaming (gerçek zamanlı akan sensör/log verisi) ve tek bir makineye sığmayacak kadar büyük (Tersabayt boyutunda) dağıtık DataFrame analizleri.</p>
             </div>
         </div>
 
@@ -219,6 +244,26 @@ top_customers = df.filter(col(<span style="color: #a5d6ff;">"status"</span>) == 
 top_customers.show(5)
 
 spark.stop()</code></pre>
+            </div>
+        </div>
+
+        <!-- Rakipler ve Kurulum -->
+        <div class="glass" style="padding: 32px; border-radius: 28px; border: 1px solid var(--glass-border); margin-bottom: 48px;">
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚔️ Rakiplerine Göre Farkı</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">Standart Python (Pandas), sadece tek bir bilgisayarın RAM'ine sığan verilerle (Örn: 10 GB) çalışabilir, sığmadığında kod çöker. PySpark ise 100 farklı bilgisayarın RAM'ini sanal olarak tek bir bilgisayarmış gibi birleştirerek 10,000 GB veriyi işleyebilir. Hadoop MapReduce sistemine göre ise 100 kat daha hızlıdır.</p>
+            
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 16px;">Modern veri bilimi süreçlerinde yerel (local) kurulum pip üzerinden kolayca yapılabilir. Ancak arkada Java'nın yüklü olması şarttır:</p>
+            <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 12px; font-family: monospace; color: #a3e635; overflow-x: auto; border: 1px solid rgba(255,255,255,0.1);">
+# 1. Java'nın yüklü olduğundan emin olun (Spark Java motorunu kullanır)
+java -version
+
+# 2. PySpark kütüphanesini Python paket yöneticisiyle indirin:
+pip install pyspark
+
+# Kod içinde kullanım başlatmak için:
+# from pyspark.sql import SparkSession
+# spark = SparkSession.builder.appName("app").getOrCreate()
             </div>
         </div>
 
