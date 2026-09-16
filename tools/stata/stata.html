@@ -261,13 +261,26 @@ hausman fixed_model random_model</code></pre>
             <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚔️ Rakiplerine Göre Farkı</h3>
             <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">SPSS'e göre komut satırına (Do-File) daha çok dayanır; bu yüzden analizleri tekrarlanabilir (reproducible) kılmak ekonomistler için çok daha kolaydır. R'ye göre ücretli olmasına rağmen, Panel Veri Ekonometrisi konusunda Stata'nın yerleşik komutları çok daha stabil, hızlı ve endüstri standardı olarak kabul edilir.</p>
             
-            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi</h3>
-            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 16px;">Stata ticari bir yazılım olduğu için kurulumdan önce bir lisans koduna sahip olmanız gerekir. Terminal kullanılmaz, tamamen arayüz üzerinden kurulur:</p>
-            <ul style="color: var(--text-muted); line-height: 1.8; font-size: 1.05rem; padding-left: 20px;">
-                <li><b>Adım 1:</b> StataCorp'un sitesinden size uygun sürümü (Stata/BE, SE, MP) indirin.</li>
-                <li><b>Adım 2:</b> İndirdiğiniz kurulum sihirbazını başlatıp kurulumu yapın.</li>
-                <li><b>Adım 3:</b> İlk açılışta sizden Lisans Kodu, Seri Numarası ve Yetkilendirme Kodu isteyecektir. Bilgileri girerek Stata'yı aktif hale getirin.</li>
-            </ul>
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi: Kapsamlı Seçenekler</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">Stata kapalı kaynaklı, tamamen ücretli bir yazılımdır ve (SPSS'in aksine) aylık deneme sürümü bulunmaz. Windows, MacOS ve Linux platformlarında çalışır. Aşağıdaki kurulum seçeneklerine göz atabilirsiniz:</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr; gap: 16px;">
+                <!-- Yöntem 1 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #38bdf8;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">🎓 Üniversite / Kurum Lisansı İle Kurulum (Windows & Mac)</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">Çoğu ekonomi ve tıp fakültesi Stata'yı öğrencilerine ücretsiz sağlar.</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 8px;"><strong>Adım 1:</strong> Üniversitenizin yazılım havuzundan (Örn: download.stata.com üzerinden size verilen özel linkle) yükleyiciyi indirin.</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 8px;"><strong>Adım 2:</strong> Kurulum sırasında size uygun <strong>Sürümü</strong> seçmeniz istenecek. Stata/BE (Temel), SE (Genişletilmiş) veya MP (Çok Çekirdekli) arasından lisansınız hangisini kapsıyorsa onu seçmelisiniz.</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 8px;"><strong>Adım 3:</strong> Programı açtığınızda Serial Number, Code ve Authorization şifrelerinizi girip lisansı aktifleştirin.</p>
+                </div>
+
+                <!-- Yöntem 2 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #c084fc;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">🐧 Linux Sistemler (Sunucular) İçin Kurulum</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">Stata akademik sunucularda sıklıkla çalıştırılır. Stata'nın Linux sürümü (tar.gz dosyası) sisteme indirilip açıldıktan sonra, terminalden arayüz olmadan komut tabanlı çalıştırılabilir:</p>
+                    <code style="display: block; background: rgba(0,0,0,0.4); padding: 12px; border-radius: 8px; color: #a3e635; font-family: monospace;">./stata-mp -b do_dosyaniz.do</code>
+                </div>
+            </div>
         </div>
 
         <!-- ALT YÖNLENDİRME BUTONLARI -->

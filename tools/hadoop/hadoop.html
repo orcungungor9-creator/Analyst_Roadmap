@@ -242,19 +242,30 @@
             <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚔️ Rakiplerine Göre Farkı</h3>
             <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">Klasik ilişkisel veritabanları (Oracle, SQL Server) tüm veriyi tek ve devasa bir makinede tutmaya çalışır; Hadoop ise veriyi ucuz, binlerce küçük makineye (HDFS) dağıtır. Günümüzde "veri işleme" (MapReduce) konusunda yerini büyük oranda çok daha hızlı olan Apache Spark'a devretmiş olsa da, veriyi ucuza "depolama" sistemi olan HDFS hâlâ sektör standardıdır.</p>
             
-            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi</h3>
-            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 16px;">Hadoop, sunuculara kurulan karmaşık bir mimaridir. Genellikle Linux üzerinde çalışır ve Java gerektirir. Basit (tek düğümlü / pseudo-distributed) bir kurulum senaryosu şöyledir:</p>
-            <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 12px; font-family: monospace; color: #a3e635; overflow-x: auto; border: 1px solid rgba(255,255,255,0.1);">
-# Ön gereksinim: Java kurulumu
-sudo apt install openjdk-8-jdk
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi: Kapsamlı Seçenekler</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">Hadoop, "İleri-İleri" diyerek kurulabilecek bir program değil, devasa bir Linux dağıtık mimarisidir. Kurulumu karmaşıktır ve mutlaka arka planda <b>Java (JDK)</b> çalışmasını gerektirir. Öğrenme amaçlı (Single-Node) kurulum için şu yolları izleyebilirsiniz:</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr; gap: 16px;">
+                <!-- Yöntem 1 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #38bdf8;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">🐳 Modern ve Zahmetsiz Yöntem: Docker (Tüm OS)</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">SSH ayarları, XML dosyaları ve Java ortam değişkenleriyle uğraşmadan Hadoop denemenin en kolay yolu. Docker'ı kurduktan sonra tek bir komutla Hadoop Cluster'ı ayağa kalkar:</p>
+                    <code style="display: block; background: rgba(0,0,0,0.4); padding: 12px; border-radius: 8px; color: #a3e635; font-family: monospace;">docker pull sequenceiq/hadoop-docker:2.7.1<br>docker run -it sequenceiq/hadoop-docker:2.7.1 /etc/bootstrap.sh -bash</code>
+                </div>
 
-# Hadoop'un indirilmesi (Terminalden wget ile)
-wget https://downloads.apache.org/hadoop/common/hadoop-3.3.6/hadoop-3.3.6.tar.gz
-tar -xzvf hadoop-3.3.6.tar.gz
+                <!-- Yöntem 2 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #c084fc;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">🐧 Linux (Ubuntu) Saf Kurulum (Geleneksel)</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">Terminali açarak sıfırdan inşa etmek isterseniz:</p>
+                    <code style="display: block; background: rgba(0,0,0,0.4); padding: 12px; border-radius: 8px; color: #a3e635; font-family: monospace;"># Java Kurulumu<br>sudo apt install openjdk-8-jdk<br># Hadoop'u indirme ve açma<br>wget https://dlcdn.apache.org/hadoop/common/hadoop-3.3.6/hadoop-3.3.6.tar.gz<br>tar -xzvf hadoop-3.3.6.tar.gz</code>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 12px;">Bunun sonrasında <code>.bashrc</code> dosyasına JAVA_HOME yolunu eklemeniz ve <code>core-site.xml</code>, <code>hdfs-site.xml</code> dosyalarını yapılandırmanız gerekir.</p>
+                </div>
 
-# Ortam değişkenlerinin (.bashrc) ayarlanması
-export HADOOP_HOME=~/hadoop-3.3.6
-export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
+                <!-- Yöntem 3 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #34d399;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">☁️ Bulut (Cloud) Üzerinde Kullanım (Gerçek Endüstri Kullanımı)</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">Günümüzde şirketler kendi donanımlarına Hadoop kurmak yerine bulut sağlayıcılarının sunduğu hazır yönetilen (managed) Hadoop hizmetlerini kiralar. <strong>Amazon EMR (Elastic MapReduce)</strong> veya <strong>Google Cloud Dataproc</strong> kullanarak saniyeler içinde binlerce bilgisayarlık Hadoop kümesi oluşturabilirsiniz.</p>
+                </div>
             </div>
         </div>
 

@@ -264,13 +264,33 @@ Yillik_Buyume_Orani =
             <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚔️ Rakiplerine Göre Farkı</h3>
             <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">En büyük rakibi Tableau'dur. Power BI, DAX formül dili sayesinde Excel'e alışkın kullanıcılar için çok daha kolay bir öğrenme eğrisi sunar. Microsoft ekosistemine (Azure, Office 365, Teams) kusursuz entegre olur ve maliyeti (lisans ücreti) Tableau'ya kıyasla çok daha düşüktür.</p>
             
-            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi</h3>
-            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 16px;">Power BI Desktop yazılımı tamamen ücretsizdir ve grafik arayüz (GUI) ile kolayca kurulur. Komut satırına ihtiyaç yoktur:</p>
-            <ul style="color: var(--text-muted); line-height: 1.8; font-size: 1.05rem; padding-left: 20px;">
-                <li><b>Yöntem 1 (Önerilen):</b> Bilgisayarınızdan <b>Microsoft Store</b> uygulamasını açın, "Power BI Desktop" aratın ve "Yükle" butonuna tıklayın. (Bu yöntem otomatik güncellemeleri de sağlar).</li>
-                <li><b>Yöntem 2:</b> Microsoft'un resmi web sitesinden .exe uzantılı kurulum dosyasını indirerek klasik (İleri > İleri) yöntemiyle kurun.</li>
-                <li><i>Not:</i> Şu an için Power BI Desktop resmi olarak sadece Windows işletim sistemlerini desteklemektedir. Mac kullanıcıları Parallels Desktop veya Sanal Makine kullanmalıdır.</li>
-            </ul>
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi: Kapsamlı Seçenekler</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">Microsoft Power BI Desktop (veri modelleme ve raporlama yapacağınız ana masaüstü programı) tamamen <strong>ücretsizdir</strong>. Raporları şirket içinde paylaşmak istediğinizde Power BI Pro lisansı gerekir. Yalnızca Windows'u resmi olarak destekler.</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr; gap: 16px;">
+                <!-- Yöntem 1 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #38bdf8;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">💻 Microsoft Store İle Kurulum (Kesinlikle Önerilir)</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">Power BI her ay yeni özelliklerle güncellenir. Eğer Store üzerinden kurarsanız, güncellemeler arka planda otomatik yüklenir (manuel .exe güncellemesi yapmaktan kurtulursunuz).</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 8px;"><strong>Adım:</strong> Başlat menüsünü açıp "Microsoft Store"a girin. Arama çubuğuna "Power BI Desktop" yazın ve "Al / Yükle" butonuna tıklayın.</p>
+                </div>
+
+                <!-- Yöntem 2 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #c084fc;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">⬇️ Resmi Web Sitesinden Manuel Kurulum (.exe)</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 8px;">Eğer şirketinizin güvenlik ayarları Microsoft Store kullanımını engelliyorsa (IT politikaları), <code>powerbi.microsoft.com/desktop</code> adresine gidin. "Gelişmiş İndirme Seçenekleri"ne tıklayarak 64-bit sürümü (PBIDesktopSetup_x64.exe) indirin ve klasik yöntemle kurun.</p>
+                </div>
+
+                <!-- Yöntem 3 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #34d399;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">🍎 MacOS Kullanıcıları İçin Çözüm</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">Power BI'ın yerel (native) bir Mac versiyonu maalesef yoktur. Mac cihazlarda kullanmak için iki seçenek vardır:</p>
+                    <ul style="color: var(--text-muted); font-size: 0.95rem; margin-left: 20px; margin-bottom: 12px;">
+                        <li><strong>Parallels Desktop:</strong> Mac'inizde bir Windows sanal makinesi kurarak (en performanslı yöntem).</li>
+                        <li><strong>Boot Camp:</strong> Sadece Intel tabanlı Mac'ler için, diski bölerek gerçek bir Windows kurmak.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
         <!-- ALT YÖNLENDİRME BUTONLARI -->

@@ -247,20 +247,37 @@
             <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚔️ Rakiplerine Göre Farkı</h3>
             <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">Geçmişteki rakipleri olan SVN, CVS veya Mercurial gibi araçları günümüzde tamamen piyasadan silmiştir. %90'ın üzerindeki pazar payı ile fiili bir endüstri standardı ve tekelidir. <i>Not: Sıklıkla karıştırılan GitHub, GitLab veya Bitbucket; Git sisteminin bulut üzerinde görselleştirilmiş sunucu platformlarıdır, Git'in rakibi değil, tamamlayıcısıdır.</i></p>
             
-            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi</h3>
-            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 16px;">Git tamamen ücretsiz, komut satırı (terminal) tabanlı küçük bir yazılımdır. Çoğu modern işletim sisteminde yüklü gelir, yoksa şu şekilde kurulur:</p>
-            <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 12px; font-family: monospace; color: #a3e635; overflow-x: auto; border: 1px solid rgba(255,255,255,0.1);">
-# Windows Kurulumu:
-git-scm.com adresinden indirip Next-Next diyerek "Git Bash" kurun.
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi: Kapsamlı Seçenekler</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">Git bir grafiksel arayüz (GUI) yazılımı değil, temel bir çekirdek komut satırı aracıdır. Tüm işletim sistemlerine entegre çalışacak şekilde kurulabilir:</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr; gap: 16px;">
+                <!-- Yöntem 1 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #38bdf8;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">💻 Windows İçin Kurulum (Git Bash)</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">Windows kullanıcıları için en güvenli yol resmi yükleyiciyi indirmektir. Yanında "Git Bash" adı verilen ve Windows içinde Linux komutları (ls, cd, grep) çalıştırmanızı sağlayan mükemmel bir komut satırı ile gelir.</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 8px;"><strong>Adım:</strong> <code>git-scm.com/download/win</code> adresine gidin. 64-bit Git for Windows Setup dosyasını indirin. Kurulum sırasındaki ayarların tamamını varsayılan (Next) olarak bırakıp bitirin.</p>
+                </div>
 
-# MacOS Kurulumu (Terminal):
-brew install git
+                <!-- Yöntem 2 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #c084fc;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">🍎 MacOS İçin Kurulum (XCode veya Homebrew)</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">Eğer Mac'te terminali açıp <code>git --version</code> yazarsanız sistem size "Bunu kullanmak için XCode komut satırı araçları yüklenmeli" diyerek bir pencere açar, oradan otomatik kurabilirsiniz. Veya en güncel sürüm için:</p>
+                    <code style="display: block; background: rgba(0,0,0,0.4); padding: 12px; border-radius: 8px; color: #a3e635; font-family: monospace;">brew install git</code>
+                </div>
 
-# Linux (Ubuntu) Kurulumu:
-sudo apt-get install git
-
-# Kurulumu doğrulayın:
-git --version
+                <!-- Yöntem 3 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #34d399;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">🐧 Linux (Ubuntu) İçin Kurulum</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">Dünyadaki tüm Linux dağıtımlarında Git, ana depolarda bulunur. Saniyeler içinde terminalden kurulur:</p>
+                    <code style="display: block; background: rgba(0,0,0,0.4); padding: 12px; border-radius: 8px; color: #a3e635; font-family: monospace;">sudo apt update<br>sudo apt install git-all</code>
+                </div>
+                
+                <!-- Yöntem 4 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #f59e0b;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">👤 Kurulum Sonrası Kimlik Tanımlama (Şart)</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">Git'i kurduktan sonra yaptığınız değişikliklerin kime ait olduğunu bilmesi için bir kereye mahsus terminale (veya Git Bash'e) adınızı ve mailinizi tanıtmalısınız:</p>
+                    <code style="display: block; background: rgba(0,0,0,0.4); padding: 12px; border-radius: 8px; color: #a3e635; font-family: monospace;">git config --global user.name "Adınız Soyadınız"<br>git config --global user.email "mailiniz@example.com"</code>
+                </div>
             </div>
         </div>
 

@@ -252,18 +252,37 @@ spark.stop()</code></pre>
             <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚔️ Rakiplerine Göre Farkı</h3>
             <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">Standart Python (Pandas), sadece tek bir bilgisayarın RAM'ine sığan verilerle (Örn: 10 GB) çalışabilir, sığmadığında kod çöker. PySpark ise 100 farklı bilgisayarın RAM'ini sanal olarak tek bir bilgisayarmış gibi birleştirerek 10,000 GB veriyi işleyebilir. Hadoop MapReduce sistemine göre ise 100 kat daha hızlıdır.</p>
             
-            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi</h3>
-            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 16px;">Modern veri bilimi süreçlerinde yerel (local) kurulum pip üzerinden kolayca yapılabilir. Ancak arkada Java'nın yüklü olması şarttır:</p>
-            <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 12px; font-family: monospace; color: #a3e635; overflow-x: auto; border: 1px solid rgba(255,255,255,0.1);">
-# 1. Java'nın yüklü olduğundan emin olun (Spark Java motorunu kullanır)
-java -version
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi: Kapsamlı Seçenekler</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">PySpark bir Python kütüphanesi gibi görünse de, aslında arka planda devasa bir <strong>Java (JVM)</strong> motoru çalıştırır. Bu nedenle makinenizde öncelikle Java'nın (JDK) kurulu olması zorunludur. İşletim sisteminize göre aşağıdaki yöntemleri izleyebilirsiniz:</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr; gap: 16px;">
+                <!-- Yöntem 1 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #38bdf8;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">💻 Windows İçin Kurulum (En Çok Hata Alınan Yöntem)</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 8px;">Windows'ta Java'yı ve Winutils.exe adlı özel bir aracı yapılandırmazsanız PySpark hata verir.</p>
+                    <code style="display: block; background: rgba(0,0,0,0.4); padding: 12px; border-radius: 8px; color: #a3e635; font-family: monospace;">1. Java 8 veya 11'i kurun ve ortam değişkenlerine (JAVA_HOME) ekleyin.<br>2. Apache web sitesinden winutils.exe indirip C:\hadoop\bin dizinine koyun (HADOOP_HOME).<br>3. CMD'yi açıp: pip install pyspark jupyter</code>
+                </div>
 
-# 2. PySpark kütüphanesini Python paket yöneticisiyle indirin:
-pip install pyspark
+                <!-- Yöntem 2 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #c084fc;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">🍎 MacOS İçin Kurulum (Zahmetsiz)</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">Mac sistemleri Java uyumluluğu açısından daha rahattır. Terminal üzerinden birkaç komutla halledilebilir:</p>
+                    <code style="display: block; background: rgba(0,0,0,0.4); padding: 12px; border-radius: 8px; color: #a3e635; font-family: monospace;">brew install openjdk@11<br>brew install apache-spark<br>pip3 install pyspark</code>
+                </div>
 
-# Kod içinde kullanım başlatmak için:
-# from pyspark.sql import SparkSession
-# spark = SparkSession.builder.appName("app").getOrCreate()
+                <!-- Yöntem 3 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #34d399;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">🐧 Linux (Ubuntu) İçin Kurulum</h4>
+                    <code style="display: block; background: rgba(0,0,0,0.4); padding: 12px; border-radius: 8px; color: #a3e635; font-family: monospace;">sudo apt update<br>sudo apt install openjdk-11-jre-headless<br>pip install pyspark</code>
+                </div>
+                
+                <!-- Yöntem 4 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #f59e0b;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">🌐 Bulut ve Google Colab (Kurulum Yapmadan Kullanım)</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">Bilgisayarınızda hiçbir Java veya Python karmaşası yaşamak istemiyorsanız, Google Colab'i (tarayıcı tabanlı ücretsiz notebook) açın ve ilk hücreye şunu yazıp çalıştırın:</p>
+                    <code style="display: block; background: rgba(0,0,0,0.4); padding: 12px; border-radius: 8px; color: #a3e635; font-family: monospace;">!pip install pyspark<br>from pyspark.sql import SparkSession</code>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 12px;">Saniyeler içinde Spark emrinize amade olur.</p>
+                </div>
             </div>
         </div>
 

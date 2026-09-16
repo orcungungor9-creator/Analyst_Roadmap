@@ -268,15 +268,36 @@ acc = accuracy_score(y_test, predictions)
             <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚔️ Rakiplerine Göre Farkı</h3>
             <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">R diline kıyasla genel amaçlı uygulama geliştirmeye (web backend, otomasyon) çok daha uygundur. Julia kadar hızlı olmasa da, devasa kütüphane desteği (scikit-learn, PyTorch) ve muazzam bir topluluk desteği ile açık ara liderdir.</p>
             
-            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi</h3>
-            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 16px;">Veri bilimi için en yaygın ve stabil yöntem <b>Anaconda</b> veya <b>Miniconda</b> kullanmaktır. Bağımsız kurulum için terminal yönergeleri:</p>
-            <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 12px; font-family: monospace; color: #a3e635; overflow-x: auto; border: 1px solid rgba(255,255,255,0.1);">
-# Resmi sitesinden veya paket yöneticisinden indirin:
-sudo apt install python3 python3-pip   # Linux
-brew install python                    # MacOS (Homebrew)
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi: Kapsamlı Seçenekler</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">Python'ı kurmanın pek çok farklı yolu vardır. Sadece kodlama mı yapacaksınız, yoksa makine öğrenmesi ve veri bilimi kütüphaneleriyle mi uğraşacaksınız? Amacınıza göre sizin için en doğru yöntemi aşağıdan seçebilirsiniz:</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr; gap: 16px;">
+                <!-- Yöntem 1 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #38bdf8;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">💻 Windows İçin Kurulum</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;"><strong>Microsoft Store (En Kolayı):</strong> Başlat menüsünü açın, "Microsoft Store" yazın. Mağazada "Python 3.12" (veya güncel sürüm) aratın ve Yükle butonuna basın. Yol (PATH) ayarlarını otomatik halleder.</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 8px;"><strong>Resmi Yükleyici (Geleneksel):</strong> python.org adresinden ".exe" dosyasını indirin. Kuruluma başlarken <em>"Add Python to PATH"</em> kutucuğunu İŞARETLEMEYİ KESİNLİKLE UNUTMAYIN.</p>
+                </div>
 
-# Veri bilimi kütüphanelerini yükleyin:
-pip install numpy pandas scikit-learn matplotlib jupyter
+                <!-- Yöntem 2 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #c084fc;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">🍎 MacOS İçin Kurulum</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">Mac'lerde varsayılan olarak eski bir Python sürümü gelir. Modern sürümü kurmak için Homebrew paket yöneticisini kullanın (Terminali açıp yazın):</p>
+                    <code style="display: block; background: rgba(0,0,0,0.4); padding: 12px; border-radius: 8px; color: #a3e635; font-family: monospace;">brew install python</code>
+                </div>
+
+                <!-- Yöntem 3 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #34d399;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">🐧 Linux (Ubuntu/Debian) İçin Kurulum</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">Genellikle Linux dağıtımlarında Python önceden yüklü gelir. Ancak paketi ve PIP'i (Python kütüphane yöneticisi) güncellemek için:</p>
+                    <code style="display: block; background: rgba(0,0,0,0.4); padding: 12px; border-radius: 8px; color: #a3e635; font-family: monospace;">sudo apt update<br>sudo apt install python3 python3-pip python3-venv</code>
+                </div>
+                
+                <!-- Yöntem 4 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #f59e0b;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">🚀 Veri Bilimciler İçin Özel: Anaconda / Miniconda (Önerilen)</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">Python'ı işletim sistemine direkt kurmak projelerin birbirine girmesine (bağımlılık cehennemi) yol açar. Veri analizi veya yapay zeka yapacaksanız <strong>Anaconda</strong> web sitesine gidin, kendi işletim sisteminize uygun yükleyiciyi indirin. Numpy, Pandas, Jupyter gibi devasa veri paketlerini içinde hazır barındırır. Daha hafif bir sürüm isterseniz <strong>Miniconda</strong> tercih edin.</p>
+                </div>
             </div>
         </div>
 

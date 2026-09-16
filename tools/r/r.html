@@ -266,18 +266,37 @@ summary_table &lt;- <span style="color: #79c0ff;">tidy</span>(model)
             <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚔️ Rakiplerine Göre Farkı</h3>
             <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">En büyük rakibi Python'dır. Python genel amaçlı bir dil iken R tamamen istatistik için yaratılmıştır. Bu nedenle CRAN kütüphanesindeki akademik istatistik paketleri Python'dan çok daha fazladır. Ayrıca <code>ggplot2</code> gibi paketler sayesinde R, veri görselleştirme estetiği konusunda Python'ı genellikle geride bırakır.</p>
             
-            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi</h3>
-            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 16px;">R kurulumu iki aşamalıdır. Önce dilin kendisi (R), ardından arayüz (RStudio) kurulur. CRAN web sitesinden doğrudan indirilebilir veya terminalden yüklenebilir:</p>
-            <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 12px; font-family: monospace; color: #a3e635; overflow-x: auto; border: 1px solid rgba(255,255,255,0.1);">
-# MacOS İçin (Homebrew):
-brew install r
-brew install --cask rstudio
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi: Kapsamlı Seçenekler</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">R ekosistemine dahil olmak iki temel adımdan oluşur: Önce dilin ve motorun kendisini barındıran <b>R Base</b> uygulamasını kurarsınız, ardından kodları yazacağınız ve grafikleri göreceğiniz son derece modern <b>RStudio (IDE)</b> programını kurarsınız.</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr; gap: 16px;">
+                <!-- Yöntem 1 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #38bdf8;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">💻 Windows İçin Kurulum (Grafiksel Arayüz)</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 8px;"><strong>Adım 1:</strong> CRAN (The Comprehensive R Archive Network) web sitesine gidin (cran.r-project.org). "Download R for Windows" > "install R for the first time" yolunu izleyip .exe dosyasını indirip kurun.</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 8px;"><strong>Adım 2:</strong> Posit (eski adıyla RStudio) resmi web sitesine gidin, "RStudio Desktop Free" sürümünü indirip kurun.</p>
+                </div>
 
-# Linux (Ubuntu):
-sudo apt install r-base
+                <!-- Yöntem 2 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #c084fc;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">🍎 MacOS İçin Kurulum (Terminal & Homebrew)</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">CRAN'dan DMG indirip kurabileceğiniz gibi, terminalden Homebrew ile tüm süreçleri saniyeler içinde halledebilirsiniz:</p>
+                    <code style="display: block; background: rgba(0,0,0,0.4); padding: 12px; border-radius: 8px; color: #a3e635; font-family: monospace;">brew install r<br>brew install --cask rstudio</code>
+                </div>
 
-# En çok kullanılan veri bilimi paketini RStudio konsolunda yüklemek için:
-install.packages("tidyverse")
+                <!-- Yöntem 3 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #34d399;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">🐧 Linux (Ubuntu) İçin Kurulum</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">R, Linux'un bilimsel veri paketlerinde yerel olarak desteklenir.</p>
+                    <code style="display: block; background: rgba(0,0,0,0.4); padding: 12px; border-radius: 8px; color: #a3e635; font-family: monospace;">sudo apt update<br>sudo apt install r-base<br># Ardından rstudio.com sitesinden .deb dosyasını indirip kurun.</code>
+                </div>
+                
+                <!-- Yöntem 4 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #f59e0b;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">📦 İlk Paketlerinizi Yükleyin</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">RStudio'yu açtıktan sonra, Konsol sekmesine dünyadaki analistlerin en çok kullandığı veri paketi grubunu (Tidyverse) indirmek için şu komutu yazın:</p>
+                    <code style="display: block; background: rgba(0,0,0,0.4); padding: 12px; border-radius: 8px; color: #a3e635; font-family: monospace;">install.packages("tidyverse")</code>
+                </div>
             </div>
         </div>
 

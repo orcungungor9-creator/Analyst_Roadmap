@@ -273,13 +273,30 @@ ONEWAY Gelir BY Egitim_Durumu
             <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚔️ Rakiplerine Göre Farkı</h3>
             <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">R veya Python'a kıyasla en büyük avantajı hiç kod yazmayı gerektirmemesidir; üst menülerden "Analyze > Descriptive Statistics" diyerek saniyeler içinde analiz yapabilirsiniz. Dezavantajı ise R gibi dillerin aksine kurumsal lisans ücretlerinin çok yüksek olması ve analiz esnekliğinin (yeni çıkan algoritmalar) sadece menülerin izin verdiği kadar olmasıdır.</p>
             
-            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi</h3>
-            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 16px;">SPSS, IBM'in ticari bir ürünüdür ve grafik arayüz (GUI) ile standart bir program gibi kurulur:</p>
-            <ul style="color: var(--text-muted); line-height: 1.8; font-size: 1.05rem; padding-left: 20px;">
-                <li><b>Adım 1:</b> IBM'in resmi sitesinden (veya üniversitenizin sağladığı portal üzerinden) SPSS Statistics kurulum dosyasını (.exe veya .pkg) indirin.</li>
-                <li><b>Adım 2:</b> Kurulum sihirbazını başlatın ve Lisans Sözleşmesini kabul edin.</li>
-                <li><b>Adım 3:</b> Yükleme sonunda "License Authorization Wizard" ekranı açılacaktır. Üniversite veya şirketinizin size verdiği lisans anahtarını girerek aktivasyonu tamamlayın.</li>
-            </ul>
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi: Kapsamlı Seçenekler</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">IBM SPSS açık kaynaklı değildir ve yüksek ücretli bir lisans gerektirir. Sadece Windows ve MacOS sistemlerini resmi olarak destekler. Aşağıda kurulum ve erişim seçeneklerini bulabilirsiniz:</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr; gap: 16px;">
+                <!-- Yöntem 1 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #38bdf8;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">🎓 Üniversite / Öğrenci Lisansı İle Kurulum (En Yaygın)</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">Çoğu üniversite öğrenciler ve akademisyenler için ücretsiz kampüs lisansı sağlar.</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 8px;"><strong>Adım 1:</strong> Üniversitenizin Bilgi İşlem (IT) portalına girerek SPSS yükleyici (.exe veya .dmg) dosyasını ve "Authorization Code" (Lisans Kodu) bilgisini indirin.</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 8px;"><strong>Adım 2:</strong> Programı klasik şekilde kurun. Kurulum bittikten sonra otomatik açılan <em>License Authorization Wizard</em> (Lisans Yetkilendirme Sihirbazı) ekranına size verilen uzun kodu yapıştırın.</p>
+                </div>
+
+                <!-- Yöntem 2 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #c084fc;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">⏳ IBM Resmi Sitesinden 30 Günlük Deneme Sürümü</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 8px;">Öğrenci değilseniz ve aracı denemek istiyorsanız <code>ibm.com/products/spss-statistics</code> adresine gidin. "Try it for free" butonuna tıklayarak IBM hesabı oluşturun ve deneme sürümünü indirip kurun.</p>
+                </div>
+
+                <!-- Yöntem 3 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #34d399;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">💡 Ücretsiz ve Açık Kaynaklı Alternatif: PSPP</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">Eğer lisans bulamıyorsanız, SPSS'in arayüzünü ve temel fonksiyonlarını birebir taklit eden, GNU projesi olan tamamen ücretsiz <strong>PSPP</strong> yazılımını kullanabilirsiniz. <code>gnu.org/software/pspp/</code> adresinden Windows, Mac veya Linux için tek tıkla kurabilirsiniz.</p>
+                </div>
+            </div>
         </div>
 
         <!-- ALT YÖNLENDİRME BUTONLARI -->

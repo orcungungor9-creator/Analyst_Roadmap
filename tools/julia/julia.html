@@ -269,17 +269,31 @@ B = randn(<span style="color: #a5d6ff;">1000</span>, <span style="color: #a5d6ff
             <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚔️ Rakiplerine Göre Farkı</h3>
             <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">Doğrudan Python, R ve MATLAB'ın rakibidir. Barındırdığı LLVM tabanlı "Just-In-Time" (JIT) derleyicisi sayesinde Python'dan (saf kod bazında) onlarca kat daha hızlıdır. Ancak Python'un 30 yıllık geçmişiyle oluşturduğu devasa kütüphane ekosistemi ve topluluk desteği Julia'da (henüz) yeterince yaygın değildir.</p>
             
-            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi</h3>
-            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 16px;">Julia'yı doğrudan kurabilirsiniz, ancak en sağlıklı ve modern yöntem resmi sürüm yöneticisi olan <b>Juliaup</b> aracını terminalden kurmaktır:</p>
-            <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 12px; font-family: monospace; color: #a3e635; overflow-x: auto; border: 1px solid rgba(255,255,255,0.1);">
-# Windows (PowerShell veya Komut İstemcisi)
-winget install julia -s msstore
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi: Kapsamlı Seçenekler</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">Geçmişte (.exe veya .dmg) dosyalarıyla kurulan Julia, artık güncellemeleri kendi yöneten modern <b>Juliaup</b> aracı (Version Multiplexer) ile kurulmaktadır. Aşağıda en stabil ve resmi kurulum yöntemlerini bulabilirsiniz:</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr; gap: 16px;">
+                <!-- Yöntem 1 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #38bdf8;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">💻 Windows İçin Kurulum</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">En güvenli ve pratik yöntem Microsoft Store'u veya komut satırını kullanmaktır:</p>
+                    <code style="display: block; background: rgba(0,0,0,0.4); padding: 12px; border-radius: 8px; color: #a3e635; font-family: monospace;"># CMD veya PowerShell açıp şunu yazın:<br>winget install julia -s msstore</code>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 12px;">Artık terminale <code>julia</code> yazdığınızda etkileşimli REPL ortamı açılacaktır.</p>
+                </div>
 
-# MacOS ve Linux Terminali:
-curl -fsSL https://install.julialang.org | sh
+                <!-- Yöntem 2 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #c084fc;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">🍎 MacOS ve 🐧 Linux İçin Kurulum (Tek Satır)</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">Mac ve Linux için Julia geliştiricileri kurulumu (Juliaup) tek bir satıra indirgemiştir:</p>
+                    <code style="display: block; background: rgba(0,0,0,0.4); padding: 12px; border-radius: 8px; color: #a3e635; font-family: monospace;">curl -fsSL https://install.julialang.org | sh</code>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 12px;">Mac kullanıcıları dilerlerse Homebrew ile de (<code>brew install julia</code>) kurulum yapabilirler.</p>
+                </div>
 
-# Terminalde REPL başlatmak için sadece şunu yazın:
-julia
+                <!-- Yöntem 3 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #34d399;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">📦 Editör (IDE) Yapılandırması: VS Code</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">Kurulumdan sonra kod yazmak için Visual Studio Code (VS Code) uygulamasını indirip, eklentiler (Extensions) bölümünden <strong>Julia (julialang.language-julia)</strong> resmi eklentisini kurmanız en iyi deneyimi sunacaktır.</p>
+                </div>
             </div>
         </div>
 

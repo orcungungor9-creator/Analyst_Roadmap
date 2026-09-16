@@ -262,13 +262,24 @@ equation eq_garch.arch(1,1) dlog_cpi c</code></pre>
             <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚔️ Rakiplerine Göre Farkı</h3>
             <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">Zaman Serisi Ekonometrisinde (ARIMA, GARCH modelleri) Stata ve R'den çok daha pratik bir grafiksel arayüze sahiptir; birkaç tıklama ile en karmaşık denklemler tahmin edilebilir. Ancak sadece Windows'a odaklıdır, macOS'ta dolaylı çalışır. Ayrıca genel amaçlı veri bilimi (Machine Learning) için yetersiz kalır.</p>
             
-            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi</h3>
-            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 16px;">EViews, S&P Global çatısı altındaki IHS Markit tarafından satılan ticari bir Windows yazılımıdır. Öğrenciler için ücretsiz "Student Version (Lite)" mevcuttur:</p>
-            <ul style="color: var(--text-muted); line-height: 1.8; font-size: 1.05rem; padding-left: 20px;">
-                <li><b>Adım 1:</b> EViews'un resmi web sitesinden Student Version için başvuru yapıp indirme bağlantısını ve seri numarasını e-posta ile alın.</li>
-                <li><b>Adım 2:</b> İndirilen .exe dosyasını Windows bilgisayarınızda çalıştırın. (Mac kullanıcılarının sanal makine kullanması önerilir).</li>
-                <li><b>Adım 3:</b> E-postanıza gelen seri numarasıyla yazılımı aktifleştirin.</li>
-            </ul>
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi: Kapsamlı Seçenekler</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">EViews kapalı kaynaklı ticari bir yazılımdır ve <strong>sadece Windows</strong> işletim sistemini resmi olarak destekler. Mac kullanıcıları için sadece özel emülatörler vasıtasıyla erişim sağlanabilir:</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr; gap: 16px;">
+                <!-- Yöntem 1 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #38bdf8;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">💻 Windows İçin Kurulum (Öğrenci Sürümü)</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">EViews firması (IHS Markit), üniversite öğrencilerine çok kısıtlamalı ama ücretsiz bir "Student Version Lite" sürümü sunar. Ekonometri dersini geçmek için yeterlidir.</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 8px;"><strong>Adım 1:</strong> <code>eviews.com/download/student</code> adresine gidin ve .exe kurulum dosyasını indirin.</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 8px;"><strong>Adım 2:</strong> Klasik olarak kurulumu yapın. Açılışta sizden aktivasyon isteyecektir. İnternet bağlantınız açıkken aldığınız seri numarasını (Serial) ve kayıt isminizi girerek yazılımı kullanmaya başlayabilirsiniz.</p>
+                </div>
+
+                <!-- Yöntem 2 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #c084fc;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">🍎 MacOS İçin EViews Kullanımı</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 8px;">EViews'in Mac versiyonu (EViews Mac) teknik olarak Windows sürümünün, arka planda gizli bir <em>Wine/CrossOver</em> emülatörü ile paketlenmiş halidir. Resmi Mac sürümünü satın alsanız bile altyapısı Windows'tur. Alternatif olarak Mac kullanıcıları kendi cihazlarına <strong>Parallels Desktop</strong> kurarak standart Windows sürümünü çok daha verimli kullanabilirler.</p>
+                </div>
+            </div>
         </div>
 
         <!-- ALT YÖNLENDİRME BUTONLARI -->

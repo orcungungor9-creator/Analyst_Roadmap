@@ -248,13 +248,24 @@ Z = <span style="color: #79c0ff;">sin</span>(R)./R;
             <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚔️ Rakiplerine Göre Farkı</h3>
             <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">Günümüzde açık kaynaklı Python (SciPy ve NumPy ekosistemi), MATLAB'ın en büyük ve ücretsiz rakibidir. Ancak MATLAB, özellikle donanım modelleme ve blok diyagramlarla simülasyon yapmayı sağlayan <b>Simulink</b> aracı sayesinde mühendislik alanında hala yerini korumaktadır. Dezavantajı ise kişisel kullanım için lisans ücretinin oldukça yüksek olmasıdır.</p>
             
-            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi</h3>
-            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 16px;">MATLAB, MathWorks üzerinden satın alınan devasa boyutlu ticari bir kurulumdur. Komut satırına ihtiyaç duyulmaz:</p>
-            <ul style="color: var(--text-muted); line-height: 1.8; font-size: 1.05rem; padding-left: 20px;">
-                <li><b>Adım 1:</b> MathWorks resmi web sitesine üniversite e-postanız (veya şirket) ile giriş yapın.</li>
-                <li><b>Adım 2:</b> Hesabınıza tanımlı olan lisans altındaki MATLAB yükleyicisini (Installer) indirin.</li>
-                <li><b>Adım 3:</b> Yükleyiciyi çalıştırın. İhtiyacınız olan ek kütüphaneleri (Toolbox - örn: Image Processing) seçerek 10-30 GB arası indirmeyi tamamlayın.</li>
-            </ul>
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi: Kapsamlı Seçenekler</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">MATLAB son derece hacimli (tüm paketleri kurduğunuzda 30-40 GB'ı aşabilen) kapalı kaynaklı, profesyonel bir matematik/mühendislik yazılımıdır. Şirket (MathWorks) üzerinden lisans doğrulamasıyla kurulur:</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr; gap: 16px;">
+                <!-- Yöntem 1 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #38bdf8;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">💻 Yerel Kurulum (Windows, Mac, Linux İçin Ortak Yöntem)</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 8px;"><strong>Adım 1:</strong> MathWorks resmi sitesine gidin ve (tercihen kampüs lisansı olan öğrenci/akademisyen mailinizle) hesap oluşturun.</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 8px;"><strong>Adım 2:</strong> Hesabınızdaki lisans doğrulandığında "Download" sekmesinden cihazınıza özel hafif yükleyiciyi (installer) indirin.</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 8px;"><strong>Adım 3:</strong> Kurulum ekranında sadece ihtiyacınız olan Toolbox'ları (Örn: Simulink, Statistics and Machine Learning Toolbox) seçin. Tümünü seçmek disk alanınızı inanılmaz derecede doldurur.</p>
+                </div>
+
+                <!-- Yöntem 2 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #c084fc;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">🌐 MATLAB Online (Kurulumsuz Tarayıcı Sürümü)</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">Düşük donanımlı bir cihaza sahipseniz (Örn: Chromebook) veya kurulum beklemek istemiyorsanız, MathWorks lisansınız olduğu sürece tarayıcıdan <code>matlab.mathworks.com</code> adresine gidip bulut üzerinden MATLAB kullanabilirsiniz. Simulink gibi ağır grafik arayüzlü işlevler hariç tüm kodlamayı destekler.</p>
+                </div>
+            </div>
         </div>
 
         <!-- ALT YÖNLENDİRME BUTONLARI -->

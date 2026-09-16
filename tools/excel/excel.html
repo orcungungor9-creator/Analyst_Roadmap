@@ -458,14 +458,37 @@
             <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚔️ Rakiplerine Göre Farkı</h3>
             <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">Python, SQL veya R gibi programlama dillerine kıyasla neredeyse sıfır kod yazma gereksinimi sunar; görsel bir arayüzle tıklayarak (Pivot tablolar) analiz yapmayı sağlar. Ancak 1 milyon satır (Büyük Veri) sınırına ulaştığında donar ve çöker. Google Sheets'e göre ise masaüstü performansı ve makro (VBA) gücüyle öne çıkar.</p>
             
-            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi</h3>
-            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 16px;">Excel, Microsoft 365 ofis paketinin bir parçasıdır. Terminal veya komut satırı gerektirmez, tamamen görsel (GUI) bir kurulumu vardır:</p>
-            <ul style="color: var(--text-muted); line-height: 1.8; font-size: 1.05rem; padding-left: 20px;">
-                <li><b>Adım 1:</b> Microsoft.com'a gidin ve Microsoft 365 hesabınızla giriş yapın.</li>
-                <li><b>Adım 2:</b> "Office'i Yükle" veya "Uygulamaları İndir" butonuna tıklayın.</li>
-                <li><b>Adım 3:</b> İndirilen <code>.exe</code> (Windows) veya <code>.pkg</code> (Mac) dosyasını çalıştırın.</li>
-                <li><b>Adım 4:</b> Yönergeleri takip ederek kurulumu tamamlayın. Tüm işlemler otomatik olarak arka planda tamamlanacaktır.</li>
-            </ul>
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi: Kapsamlı Seçenekler</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">Excel açık kaynaklı veya ücretsiz bir yazılım değildir (tam masaüstü sürümü için). Kurulum süreci bilgisayarınıza veya kullanım şeklinize göre değişebilir. Sizin için en uygun yöntemi seçin:</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr; gap: 16px;">
+                <!-- Yöntem 1 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #38bdf8;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">💻 Microsoft 365 (Önerilen Masaüstü Aboneliği)</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 8px;"><strong>Adım 1:</strong> <code>microsoft.com/microsoft-365</code> adresine gidin. Bireysel veya Kurumsal planlardan birini seçerek (aylık/yıllık) abone olun.</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 8px;"><strong>Adım 2:</strong> Abone olduktan sonra panelinizden "Uygulamaları İndir" butonuna basarak .exe (Windows) veya .pkg (Mac) dosyasını indirip yükleyin.</p>
+                </div>
+
+                <!-- Yöntem 2 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #c084fc;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">🏪 Mağaza Üzerinden Kurulum</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">Windows kullanıcısıysanız doğrudan başlat menüsüne "Microsoft Store", Mac kullanıcısıysanız "App Store" yazarak mağazayı açın. Arama çubuğuna "Microsoft Excel" yazıp doğrudan tek tıkla kurabilirsiniz. Etkinleştirmek için yine hesabınıza giriş yapmanız istenir.</p>
+                </div>
+
+                <!-- Yöntem 3 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #34d399;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">☁️ Ücretsiz ve Online Yöntem (Kurulumsuz)</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">Hiçbir kurulum yapmadan, bilgisayarınızı kasmadan sadece tarayıcı üzerinden ücretsiz kullanmak istiyorsanız; tarayıcınızın adres çubuğuna şunu yazın ve Enter'a basın:</p>
+                    <code style="display: block; background: rgba(0,0,0,0.4); padding: 12px; border-radius: 8px; color: #a3e635; font-family: monospace;">excel.new</code>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 12px;">Böylece anında boş bir Excel çalışma sayfası bulutta (OneDrive) açılacaktır (Microsoft hesabı gerektirir).</p>
+                </div>
+                
+                <!-- Yöntem 4 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #f59e0b;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">🏢 Tek Seferlik Satın Alım (Office 2021/2024)</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">Aylık abone olmak istemiyorsanız, kalıcı lisans (Home & Student veya Professional Plus) satın alıp çevrimdışı kullanım için bilgisayarınıza gömebilirsiniz. Bu sürüm, yeni bulut ve yapay zeka güncellemelerini almayacaktır.</p>
+                </div>
+            </div>
         </div>
 
         <!-- ALT YÖNLENDİRME BUTONLARI -->

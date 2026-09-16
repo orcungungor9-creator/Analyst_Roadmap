@@ -313,13 +313,29 @@ var <span style="color: #a5d6ff;">2</span> gdp_growth interest_rate inflation</c
             <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚔️ Rakiplerine Göre Farkı</h3>
             <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">Doğrudan EViews ve Stata'nın ücretsiz alternatifidir. Arayüzü EViews kadar modern veya süslü olmasa da, alt yapısı (C dili) çok hızlı çalışır. Ayrıca GNU R, Python ve Julia ile yerleşik bir entegrasyonu (arka planda paslaşma) mevcuttur.</p>
             
-            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi</h3>
-            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 16px;">Gretl çok hafif ve tamamen ücretsiz bir araçtır. Kurulum için karmaşık terminal ayarlarına veya lisanslamaya ihtiyaç yoktur:</p>
-            <ul style="color: var(--text-muted); line-height: 1.8; font-size: 1.05rem; padding-left: 20px;">
-                <li><b>Adım 1:</b> Gretl'in barındırıldığı resmi SourceForge sayfasına (veya gretl.sourceforge.net) gidin.</li>
-                <li><b>Adım 2:</b> İşletim sisteminize (Windows, macOS veya Linux) uygun indirme bağlantısına tıklayın.</li>
-                <li><b>Adım 3:</b> İndirilen kurulum sihirbazını başlatın (İleri > İleri) ve saniyeler içinde kurulumu tamamlayın. Araç tamamen ücretsiz ve kullanıma hazırdır.</li>
-            </ul>
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi: Kapsamlı Seçenekler</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">Gretl (Gnu Regression, Econometrics and Time-series Library) açık kaynak kodludur, %100 ücretsizdir ve son derece hafif (birkaç MB) bir paket halinde gelir. Tüm işletim sistemlerinde çalışır:</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr; gap: 16px;">
+                <!-- Yöntem 1 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #38bdf8;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">💻 Windows İçin Kurulum (.exe Yükleyici)</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 8px;">Gretl'ın barındırıldığı resmi platform <strong>SourceForge</strong>'dur. Arama motoruna "gretl sourceforge" yazın veya <code>gretl.sourceforge.net</code> adresinden Windows bölümüne giderek 64-bit yükleyiciyi (gretl_install.exe) indirin. Hiçbir kısıtlama olmadan direkt kurup kullanabilirsiniz.</p>
+                </div>
+
+                <!-- Yöntem 2 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #c084fc;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">🍎 MacOS İçin Kurulum (.pkg Yükleyici)</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 8px;">Yine aynı resmi web sitesinin MacOS sekmesinden, Apple Silicon (M1/M2/M3) veya eski Intel işlemcinize uygun olan paket dosyasını indirerek kurulumu tamamlayın. Mac güvenliği kurulumu engellerse, Ayarlar > Gizlilik ve Güvenlik kısmından izni verin.</p>
+                </div>
+
+                <!-- Yöntem 3 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #34d399;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">🐧 Linux İçin Kurulum (Terminalden Tek Tık)</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">Açık kaynak dünyasının çocuğu olduğu için, Linux dağıtımlarında deposu zaten yerleşiktir. Hiçbir şey indirmenize gerek kalmadan terminalden:</p>
+                    <code style="display: block; background: rgba(0,0,0,0.4); padding: 12px; border-radius: 8px; color: #a3e635; font-family: monospace;">sudo apt update<br>sudo apt install gretl</code>
+                </div>
+            </div>
         </div>
 
         <!-- ALT YÖNLENDİRME BUTONLARI -->

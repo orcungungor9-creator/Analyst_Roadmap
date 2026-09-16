@@ -267,15 +267,38 @@
             <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚔️ Rakiplerine Göre Farkı</h3>
             <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">MongoDB gibi NoSQL alternatiflerine kıyasla çok daha yüksek veri bütünlüğü (ACID prensipleri) sağlar. Python veya R gibi diller veriyi veritabanından çekip bilgisayarın RAM'inde işlerken, SQL hesaplamayı doğrudan verinin depolandığı sunucuda yaparak ağ ve bellek maliyetlerini minimize eder.</p>
             
-            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi</h3>
-            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 16px;">SQL tek bir program değil, bir dildir. Kullanmak için bir veritabanı motoru (PostgreSQL, MySQL, SQL Server) ve arayüz aracı (DBeaver, DataGrip, pgAdmin) kurmanız gerekir. PostgreSQL ve DBeaver ikilisi endüstri standardı açık kaynaklı bir başlangıçtır:</p>
-            <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 12px; font-family: monospace; color: #a3e635; overflow-x: auto; border: 1px solid rgba(255,255,255,0.1);">
-# MacOS (PostgreSQL Motoru ve DBeaver Arayüzü)
-brew install postgresql
-brew install --cask dbeaver-community
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 16px;">⚙️ Kurulum Rehberi: Kapsamlı Seçenekler</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">SQL tek bir program değil, bir dildir. Sisteminize SQL kuramazsınız; SQL ile iletişim kuracak bir <b>Veritabanı Yönetim Sistemi (RDBMS)</b> ve kodlarınızı yazacağınız bir <b>Arayüz (Client/IDE)</b> kurmanız gerekir. Aşağıda endüstri standardı olan açık kaynaklı <strong>PostgreSQL</strong> motoru ve <strong>DBeaver</strong> arayüzü için tüm işletim sistemlerini kapsayan seçenekler sunulmuştur.</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr; gap: 16px;">
+                <!-- Yöntem 1 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #38bdf8;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">💻 Windows İçin Kurulum (Geleneksel & Modern)</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;"><strong>Seçenek 1 (Grafiksel Arayüz):</strong> EnterpriseDB'nin resmi sitesinden PostgreSQL Windows yükleyicisini indirin ve "Next" diyerek kurun. Şifrenizi (postgres) unutmayın. DBeaver'ı kendi sitesinden indirip kurun.</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 8px;"><strong>Seçenek 2 (Winget - PowerShell):</strong></p>
+                    <code style="display: block; background: rgba(0,0,0,0.4); padding: 12px; border-radius: 8px; color: #a3e635; font-family: monospace;">winget install -e --id PostgreSQL.PostgreSQL<br>winget install -e --id dbeaver.dbeaver</code>
+                </div>
 
-# Linux (Ubuntu)
-sudo apt install postgresql postgresql-contrib
+                <!-- Yöntem 2 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #c084fc;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">🍎 MacOS İçin Kurulum (Homebrew)</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">Mac kullanıcıları için en temiz yöntem Homebrew paket yöneticisini kullanmaktır. Terminali açın ve şu komutları sırasıyla girin:</p>
+                    <code style="display: block; background: rgba(0,0,0,0.4); padding: 12px; border-radius: 8px; color: #a3e635; font-family: monospace;">brew install postgresql<br>brew services start postgresql<br>brew install --cask dbeaver-community</code>
+                </div>
+
+                <!-- Yöntem 3 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #34d399;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">🐧 Linux (Ubuntu/Debian) İçin Kurulum</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">Linux dağıtımları PostgreSQL'i yerleşik depolarında bulundurur.</p>
+                    <code style="display: block; background: rgba(0,0,0,0.4); padding: 12px; border-radius: 8px; color: #a3e635; font-family: monospace;">sudo apt update<br>sudo apt install postgresql postgresql-contrib<br>sudo systemctl start postgresql<br>sudo snap install dbeaver-ce</code>
+                </div>
+                
+                <!-- Yöntem 4 -->
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 4px solid #f59e0b;">
+                    <h4 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 12px;">🐳 İleri Düzey: Docker İle Kurulum (Önerilen)</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">Sisteminizi kirletmeden, saniyeler içinde tamamen izole bir SQL sunucusu ayağa kaldırmak için en modern yöntemdir.</p>
+                    <code style="display: block; background: rgba(0,0,0,0.4); padding: 12px; border-radius: 8px; color: #a3e635; font-family: monospace;">docker run --name pg-server -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres</code>
+                </div>
             </div>
         </div>
 
