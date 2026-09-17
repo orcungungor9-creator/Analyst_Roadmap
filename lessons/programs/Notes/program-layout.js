@@ -1,4 +1,4 @@
-﻿document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     // Accordion Logic
     const accordions = document.querySelectorAll('.accordion-header');
     accordions.forEach(acc => {
@@ -10,11 +10,6 @@
                 item.classList.remove('active');
                 content.style.maxHeight = null;
             } else {
-                document.querySelectorAll('.accordion-item.active').forEach(other => {
-                    other.classList.remove('active');
-                    other.querySelector('.accordion-content').style.maxHeight = null;
-                });
-                
                 item.classList.add('active');
                 content.style.maxHeight = content.scrollHeight + "px";
             }
