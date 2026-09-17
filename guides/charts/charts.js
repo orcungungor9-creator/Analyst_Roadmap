@@ -427,5 +427,184 @@ document.addEventListener('DOMContentLoaded', () => {
                 }]
             });
 
+        // ------------------------------------------
+        // KATEGORİ 3: İSTATİSTİKSEL DAĞILIM VE AYKIRILIKLAR
+        // ------------------------------------------
+        
+        // 1. Histogram
+        renderChart('preview-hist', {
+            grid: { left: 15, right: 15, top: 20, bottom: 20 },
+            xAxis: { type: 'category', data: ['1','2','3','4','5','6','7'], show: false },
+            yAxis: { type: 'value', show: false },
+            series: [{
+                type: 'bar',
+                barWidth: '99.5%',
+                data: [5, 12, 25, 40, 22, 10, 4],
+                itemStyle: { color: '#c084fc', borderColor: '#fff', borderWidth: 1 }
+            }]
+        });
+
+        // 2. Kutu Grafiği (Box Plot)
+        renderChart('preview-box', {
+            grid: { left: 20, right: 20, top: 20, bottom: 20 },
+            xAxis: { type: 'category', data: ['A', 'B', 'C'], show: false },
+            yAxis: { type: 'value', show: false },
+            series: [{
+                type: 'boxplot',
+                data: [
+                    [10, 20, 30, 45, 60],
+                    [5, 15, 25, 35, 50],
+                    [15, 25, 35, 50, 70]
+                ],
+                itemStyle: { color: 'rgba(56,189,248,0.3)', borderColor: '#38bdf8', borderWidth: 2 }
+            }]
+        });
+
+        // 3. Violin Grafiği (Simülasyon)
+        renderChart('preview-violin', {
+            grid: { left: 10, right: 10, top: 10, bottom: 10 },
+            xAxis: { type: 'value', show: false, min: -30, max: 30 },
+            yAxis: { type: 'category', show: false, data: ['1','2','3','4','5','6','7','8','9'] },
+            series: [
+                // Sağ yarı (Pozitif alan)
+                {
+                    type: 'line',
+                    smooth: true,
+                    symbol: 'none',
+                    lineStyle: { width: 1.5, color: '#34d399' },
+                    areaStyle: { color: 'rgba(52,211,153,0.5)' },
+                    data: [0, 2, 8, 15, 25, 20, 10, 3, 0]
+                },
+                // Sol yarı (Negatif alan)
+                {
+                    type: 'line',
+                    smooth: true,
+                    symbol: 'none',
+                    lineStyle: { width: 1.5, color: '#34d399' },
+                    areaStyle: { color: 'rgba(52,211,153,0.5)' },
+                    data: [0, -2, -8, -15, -25, -20, -10, -3, 0]
+                },
+                // Merkezdeki kalın siyah çizgi (Çeyreklik açıklık - IQR)
+                {
+                    type: 'line',
+                    symbol: 'none',
+                    lineStyle: { width: 6, color: '#1e293b', cap: 'round' },
+                    data: [null, null, 0, 0, 0, 0, null, null, null],
+                    z: 3
+                },
+                // İnce sap çizgisi
+                {
+                    type: 'line',
+                    symbol: 'none',
+                    lineStyle: { width: 2, color: '#1e293b' },
+                    data: [null, 0, 0, 0, 0, 0, 0, 0, null],
+                    z: 2
+                },
+                // Medyan beyaz noktası
+                {
+                    type: 'scatter',
+                    symbolSize: 6,
+                    itemStyle: { color: '#ffffff' },
+                    data: [null, null, null, null, 0, null, null, null, null],
+                    z: 4
+                }
+            ]
+        });
+
+        // 4. Sırt Hattı Grafiği (Ridgeline)
+        renderChart('preview-ridge', {
+            grid: { left: 10, right: 10, top: 15, bottom: 15 },
+            xAxis: { type: 'category', data: ['1','2','3','4','5','6','7','8'], show: false },
+            yAxis: { type: 'value', show: false, max: 70 },
+            series: [
+                { type: 'line', smooth: true, symbol: 'none', areaStyle: { color: 'rgba(244,63,94,0.7)' }, lineStyle: { color: '#fff', width: 1 }, data: [5, 15, 35, 20, 10, 5, 2, 0], z: 3 },
+                { type: 'line', smooth: true, symbol: 'none', areaStyle: { color: 'rgba(56,189,248,0.7)' }, lineStyle: { color: '#fff', width: 1 }, data: [15, 25, 45, 30, 20, 15, 12, 10], z: 2 },
+                { type: 'line', smooth: true, symbol: 'none', areaStyle: { color: 'rgba(192,132,252,0.7)' }, lineStyle: { color: '#fff', width: 1 }, data: [25, 35, 55, 40, 30, 25, 22, 20], z: 1 }
+            ]
+        });
+
+        // 5. Q-Q Grafiği
+        renderChart('preview-qq', {
+            grid: { left: 15, right: 15, top: 15, bottom: 15 },
+            xAxis: { type: 'value', show: false, scale: true },
+            yAxis: { type: 'value', show: false, scale: true },
+            series: [
+                {
+                    type: 'scatter',
+                    symbolSize: 6,
+                    itemStyle: { color: '#fbbf24' },
+                    data: [[1,1.2], [2,1.9], [3,3.1], [4,3.8], [5,5.2], [6,6.1], [7,6.8]]
+                },
+                {
+                    type: 'line',
+                    symbol: 'none',
+                    lineStyle: { type: 'dashed', color: '#94a3b8', width: 2 },
+                    data: [[1,1], [7,7]]
+                }
+            ]
+        });
+
+        // 6. Arı Sürüsü (Beeswarm)
+        renderChart('preview-beeswarm', {
+            grid: { left: 15, right: 15, top: 15, bottom: 15 },
+            xAxis: { type: 'value', show: false },
+            yAxis: { type: 'value', show: false, min: -10, max: 10 },
+            series: [{
+                type: 'scatter',
+                symbolSize: 8,
+                itemStyle: { color: '#38bdf8' },
+                data: [
+                    [1, 0], [1.5, 2], [1.5, -2], 
+                    [2, 4], [2, 0], [2, -4],
+                    [2.5, 6], [2.5, 2], [2.5, -2], [2.5, -6],
+                    [3, 8], [3, 4], [3, 0], [3, -4], [3, -8],
+                    [3.5, 6], [3.5, 2], [3.5, -2], [3.5, -6],
+                    [4, 4], [4, 0], [4, -4],
+                    [4.5, 2], [4.5, -2], [5, 0]
+                ]
+            }]
+        });
+
+        // 7. Marjinal Yoğunluk Grafiği
+        renderChart('preview-marginal', {
+            grid: [
+                { left: '10%', right: '20%', top: '20%', bottom: '10%' }, // Scatter
+                { left: '10%', right: '20%', top: '5%', bottom: '82%' },  // Top Hist
+                { left: '82%', right: '5%', top: '20%', bottom: '10%' }   // Right Hist
+            ],
+            xAxis: [
+                { gridIndex: 0, type: 'value', show: false, scale: true },
+                { gridIndex: 1, type: 'category', show: false },
+                { gridIndex: 2, type: 'value', show: false }
+            ],
+            yAxis: [
+                { gridIndex: 0, type: 'value', show: false, scale: true },
+                { gridIndex: 1, type: 'value', show: false },
+                { gridIndex: 2, type: 'category', show: false }
+            ],
+            series: [
+                { type: 'scatter', xAxisIndex: 0, yAxisIndex: 0, symbolSize: 6, itemStyle: { color: '#c084fc' }, data: [[2,2],[3,4],[4,3],[5,5],[6,4],[7,6],[8,5]] },
+                { type: 'bar', xAxisIndex: 1, yAxisIndex: 1, barWidth: '100%', itemStyle: { color: 'rgba(192,132,252,0.5)' }, data: [1,2,3,4,3,2,1] },
+                { type: 'bar', xAxisIndex: 2, yAxisIndex: 2, barWidth: '100%', itemStyle: { color: 'rgba(192,132,252,0.5)' }, data: [1,2,3,4,3,2,1] }
+            ]
+        });
+
+        // 8. ECDF (Kümülatif Dağılım)
+        renderChart('preview-ecdf', {
+            grid: { left: 15, right: 15, top: 15, bottom: 15 },
+            xAxis: { type: 'value', show: false },
+            yAxis: { type: 'value', show: false, min: 0, max: 1 },
+            series: [{
+                type: 'line',
+                step: 'end',
+                symbolSize: 6,
+                itemStyle: { color: '#34d399' },
+                lineStyle: { width: 3 },
+                data: [
+                    [1, 0.1], [2, 0.25], [3, 0.45], [4, 0.65], [5, 0.85], [6, 1]
+                ]
+            }]
+        });
+
     }
 });

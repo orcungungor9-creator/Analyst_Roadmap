@@ -349,6 +349,104 @@
 
             </div>
         </div>
+
+        <div class="chart-section" id="cat-dagilim" data-category="Dağılım Grafikleri" style="display: none;">
+            <h2 class="chart-cat-title" style="text-align: left; justify-content: flex-start; display: flex; align-items: center; gap: 12px; margin-bottom: 30px; font-size: 1.6rem; color: var(--text-main);">
+                <i data-lucide="scatter-chart" style="color: var(--neon-blue); width: 32px; height: 32px;"></i> 
+                İstatistiksel Dağılım ve Aykırılıklar
+            </h2>
+            <div class="chart-grid">
+                
+                <!-- 1. Histogram -->
+                <div class="chart-card chart-item" data-title="histogram grafiği">
+                    <div class="chart-preview" id="preview-hist" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Histogram</strong>
+                        <p>Sürekli sayısal verileri belirli aralıklara (bin) bölerek hangi aralıkta ne kadar veri düştüğünü çizer.</p>
+                        <div class="chart-tags"><span>✅ Frekans</span><span>✅ Dağılım</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Yaş, gelir, fiyat gibi sürekli verilerin genel şeklini ve yığılmalarını görürken.</div>
+                    </div>
+                </div>
+
+                <!-- 2. Kutu Grafiği -->
+                <div class="chart-card chart-item" data-title="kutu grafiği box plot">
+                    <div class="chart-preview" id="preview-box" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Kutu Grafiği (Box Plot)</strong>
+                        <p>Verinin ortanca (medyan), çeyreklikler ve aykırı değerler gibi istatistiksel özetini kompakt biçimde sunar.</p>
+                        <div class="chart-tags"><span>✅ Aykırı Değer</span><span>✅ Özet</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Birçok kategorinin veri yayılımlarını ve aykırı uçlarını yan yana kıyaslarken.</div>
+                    </div>
+                </div>
+
+                <!-- 3. Violin Grafiği -->
+                <div class="chart-card chart-item" data-title="violin grafiği keman">
+                    <div class="chart-preview" id="preview-violin" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Violin Grafiği</strong>
+                        <p>Kutu grafiğinin istatistiksel sınırlarını, verinin yoğunluk (density) eğrisi ile birleştirerek gösterir.</p>
+                        <div class="chart-tags"><span>✅ Yoğunluk</span><span>✅ Şekil</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Verinin nerede kümelendiği kutu grafiğinde kayboluyorsa ve tümsekleri görmek şartsa.</div>
+                    </div>
+                </div>
+
+                <!-- 4. Sırt Hattı Grafiği -->
+                <div class="chart-card chart-item" data-title="sırt hattı ridgeline joyplot">
+                    <div class="chart-preview" id="preview-ridge" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Sırt Hattı Grafiği (Ridgeline)</strong>
+                        <p>Birden fazla yoğunluk eğrisini dikeyde üst üste bindirerek, birbiri ardına gelen sıradağlar gibi çizer.</p>
+                        <div class="chart-tags"><span>✅ Çoklu Grup</span><span>✅ Eğilim</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Zaman veya gruplar boyunca yoğunluk dağılımının nasıl değiştiğini sergilerken.</div>
+                    </div>
+                </div>
+
+                <!-- 5. Q-Q Grafiği -->
+                <div class="chart-card chart-item" data-title="qq grafiği quantile">
+                    <div class="chart-preview" id="preview-qq" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Q-Q Grafiği</strong>
+                        <p>Mevcut veri setinin (çoğunlukla normal) belirli bir teorik dağılıma uyup uymadığını test etmek için kullanılır.</p>
+                        <div class="chart-tags"><span>✅ Normallik Testi</span><span>✅ Çeyreklik</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Analiz öncesi verinin normal dağıldığı varsayımını teorik çapraz doğruyla test ederken.</div>
+                    </div>
+                </div>
+
+                <!-- 6. Arı Sürüsü -->
+                <div class="chart-card chart-item" data-title="arı sürüsü beeswarm swarm">
+                    <div class="chart-preview" id="preview-beeswarm" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Arı Sürüsü (Beeswarm)</strong>
+                        <p>Nokta grafiğindeki noktaların üst üste binmesini engelleyerek, yan yana genişlemelerini sağlayan dağılım formudur.</p>
+                        <div class="chart-tags"><span>✅ Tekil Veri</span><span>✅ Yığılma</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Küçük-orta boy veri setlerinde, tüm noktaları gizlemeden yoğunluğu göstermek için.</div>
+                    </div>
+                </div>
+
+                <!-- 7. Marjinal Yoğunluk -->
+                <div class="chart-card chart-item" data-title="marjinal yoğunluk marginal">
+                    <div class="chart-preview" id="preview-marginal" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Marjinal Yoğunluk Grafiği</strong>
+                        <p>Merkezdeki scatter grafiğinin eksenlerine x ve y boyutlarının kendi içindeki histogram/yoğunluk eğrilerini ekler.</p>
+                        <div class="chart-tags"><span>✅ Çift Boyut</span><span>✅ Tam Resim</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> İki değişkenin hem birbirleriyle ilişkisini hem de kendi tekil dağılımlarını aynı anda incelerken.</div>
+                    </div>
+                </div>
+
+                <!-- 8. ECDF -->
+                <div class="chart-card chart-item" data-title="kümülatif dağılım ecdf">
+                    <div class="chart-preview" id="preview-ecdf" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Kümülatif Dağılım Grafiği (ECDF)</strong>
+                        <p>Verilerin küçükten büyüğe doğru toplanarak toplamın yüzde kaçına tekabül ettiğini (0'dan 1'e) basamaklarla çizer.</p>
+                        <div class="chart-tags"><span>✅ Olasılık</span><span>✅ Kümülatif</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> "Gözlemlerin yüzde kaçı bu değerin altındadır?" sorusuna tam bir cevap ararken.</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </main>
 
     <!-- ECharts Kütüphanesi -->
