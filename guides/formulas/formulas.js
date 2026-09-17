@@ -147,3 +147,70 @@ function scrollToSearch() {
 
 window.initStandaloneFormulas = initStandaloneFormulas;
 window.scrollToSearch = scrollToSearch;
+// ==========================================
+// SCROLL & DROPDOWN MANAGEMENT (Added)
+// ==========================================
+
+function scrollCategoryFilters(direction) {
+    const container = document.getElementById('category-filters');
+    if (!container) return;
+    
+    // Calculate a scroll step (about 2 buttons width)
+    const step = 250; 
+    
+    if (direction === 'left') {
+        container.scrollBy({ left: -step, behavior: 'smooth' });
+    } else {
+        container.scrollBy({ left: step, behavior: 'smooth' });
+    }
+}
+
+// Search dropdown management
+function toggleSearchDropdown(e) {
+    if(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+    const dropdown = document.getElementById('search-dropdown-menu');
+    if (dropdown) {
+        dropdown.classList.toggle('show');
+    }
+}
+
+function selectDropdownCategory(cat) {
+    // Dropdown icindeki active class guncelleme
+    document.querySelectorAll('.dropdown-item').forEach(item => {
+        item.classList.remove('active');
+    });
+    const selectedItem = document.querySelector('.dropdown-item[onclick*=\"' + cat + '\"]');
+    if (selectedItem) selectedItem.classList.add('active');
+
+    // Asil filtre butonlarindaki active class guncelleme
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    filterBtns.forEach(btn => btn.classList.remove('active'));
+    
+    const targetBtn = document.querySelector('.filter-btn[data-filter=\"' + cat + '\"]');
+    if (targetBtn) {
+        targetBtn.classList.add('active');
+        // Bu click olayi yukaridaki filterFormulas fonksiyonunu tetikleyecek
+        targetBtn.click();
+    }
+
+    // Menuyu kapat
+    const dropdown = document.getElementById('search-dropdown-menu');
+    if (dropdown) dropdown.classList.remove('show');
+}
+
+// Menuyu disariya tiklaninca kapat
+document.addEventListener('click', (e) => {
+    const dropdown = document.getElementById('search-dropdown-menu');
+    const btn = document.querySelector('.search-hamburger-btn');
+    if (dropdown && dropdown.classList.contains('show') && !dropdown.contains(e.target) && (!btn || !btn.contains(e.target))) {
+        dropdown.classList.remove('show');
+    }
+});
+
+window.scrollCategoryFilters = scrollCategoryFilters;
+window.toggleSearchDropdown = toggleSearchDropdown;
+window.selectDropdownCategory = selectDropdownCategory;
+

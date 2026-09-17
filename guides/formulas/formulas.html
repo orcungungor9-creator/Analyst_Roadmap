@@ -160,12 +160,20 @@
                 <button class="dropdown-item" onclick="selectDropdownCategory('makine')">Makine Öğrenmesi</button>
             </div>
         </div>
-        <div class="category-filters">
-            <button class="filter-btn active" data-filter="all">Tümü</button>
-            <button class="filter-btn" data-filter="temel">Temel İstatistik</button>
-            <button class="filter-btn" data-filter="cikarimsal">Çıkarımsal İstatistik</button>
-            <button class="filter-btn" data-filter="ekonometri">Ekonometri &amp; Regresyon</button>
-            <button class="filter-btn" data-filter="makine">Makine Öğrenmesi</button>
+        <div class="category-filters-wrapper">
+            <button class="scroll-arrow left-arrow" aria-label="Sola Kaydır" onclick="scrollCategoryFilters('left')">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <div class="category-filters" id="category-filters">
+                <button class="filter-btn active" data-filter="all">Tümü</button>
+                <button class="filter-btn" data-filter="temel">Temel İstatistik</button>
+                <button class="filter-btn" data-filter="cikarimsal">Çıkarımsal İstatistik</button>
+                <button class="filter-btn" data-filter="ekonometri">Ekonometri &amp; Regresyon</button>
+                <button class="filter-btn" data-filter="makine">Makine Öğrenmesi</button>
+            </div>
+            <button class="scroll-arrow right-arrow" aria-label="Sağa Kaydır" onclick="scrollCategoryFilters('right')">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
         </div>
     </div>
 
