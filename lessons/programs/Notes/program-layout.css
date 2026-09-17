@@ -757,3 +757,31 @@ body {
 html {
     overflow-x: visible !important;
 }
+
+/* Global Code Box Styles (from r.html) */
+.code-box {
+    background: var(--bg-card);
+    color: var(--text-main);
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: monospace;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    border: 1px solid var(--glass-border);
+    font-size: 0.95rem;
+    white-space: pre-wrap;
+}
+
+.syn-comment { color: #001f3f; } /* Dark navy */
+.syn-string { color: #E91E63; }
+.syn-number { color: #2196F3; }
+.syn-kw { color: #9C27B0; }
+.syn-fn { color: #E65100; }
+.syn-var { color: var(--text-main); font-weight: bold; }
+
+body.theme-dark .syn-comment, body.theme-ocean .syn-comment, body.theme-purple .syn-comment, body.theme-emerald .syn-comment, body.theme-cyberpunk .syn-comment, body.theme-cyber-neon .syn-comment, body.theme-amber .syn-comment, body.theme-dark-sakura .syn-comment, body.theme-mono-dark .syn-comment { color: #4CAF50; }
+body.theme-dark .syn-string, body.theme-ocean .syn-string, body.theme-purple .syn-string, body.theme-emerald .syn-string, body.theme-cyberpunk .syn-string, body.theme-cyber-neon .syn-string, body.theme-amber .syn-string, body.theme-dark-sakura .syn-string, body.theme-mono-dark .syn-string { color: #FF8A80; }
+body.theme-dark .syn-number, body.theme-ocean .syn-number, body.theme-purple .syn-number, body.theme-emerald .syn-number, body.theme-cyberpunk .syn-number, body.theme-cyber-neon .syn-number, body.theme-amber .syn-number, body.theme-dark-sakura .syn-number, body.theme-mono-dark .syn-number { color: #82B1FF; }
+body.theme-dark .syn-kw, body.theme-ocean .syn-kw, body.theme-purple .syn-kw, body.theme-emerald .syn-kw, body.theme-cyberpunk .syn-kw, body.theme-cyber-neon .syn-kw, body.theme-amber .syn-kw, body.theme-dark-sakura .syn-kw, body.theme-mono-dark .syn-kw { color: #EA80FC; }
+body.theme-dark .syn-fn, body.theme-ocean .syn-fn, body.theme-purple .syn-fn, body.theme-emerald .syn-fn, body.theme-cyberpunk .syn-fn, body.theme-cyber-neon .syn-fn, body.theme-amber .syn-fn, body.theme-dark-sakura .syn-fn, body.theme-mono-dark .syn-fn { color: #FFD180; }

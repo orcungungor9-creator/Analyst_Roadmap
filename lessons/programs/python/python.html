@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -64,7 +64,47 @@
                 </div>
                 <div class="accordion-content">
                     <div class="accordion-inner">
-                        <p>1. Ders içeriği buraya gelecek...</p>
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Int (Tam Sayılar) &amp; Float (Ondalıklar)</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Python'da sayılar iki ana türde bulunur: tam sayılar (<strong>integers</strong>) ve ondalıklı sayılar (<strong>floats</strong>). Tam sayılar, negatif veya pozitif tüm küsuratsız değerleri temsil ederken; ondalıklı sayılar kesirli sayıları ifade eder.</p>
+                          
+                          <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                              <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-info"></i> Yorum Satırları (#)</h5>
+                              <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Python dilinde <strong>"#"</strong> sembolü ile başlayan satırlar yorum satırlarıdır ve programın çalışmasını etkilemez. Genellikle yazdığımız kodun ne yaptığını açıklamak için kullanılır. Program buraları dikkate almaz, sadece kodu okuyan kişilere bilgi sağlar.</p>
+                          </div>
+                          
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Tam Sayılar (Integers)</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Aşağıda pozitif, negatif ve sıfır değerine sahip çeşitli tam sayı değişkenleri tanımlanmış ve <code>print()</code> fonksiyonu ile ekrana yazdırılmıştır.</p>
+                          
+                          <div class="code-box"><span class="syn-var">tam_sayi1</span> = <span class="syn-number">10</span>
+<span class="syn-var">tam_sayi2</span> = <span class="syn-number">-5</span>
+<span class="syn-var">tam_sayi3</span> = <span class="syn-number">0</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">"Tam Sayılar:"</span>)         <span class="syn-comment"># Çıktı: Tam Sayılar:</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"tam_sayi1:"</span>, tam_sayi1) <span class="syn-comment"># Çıktı: tam_sayi1: 10</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"tam_sayi2:"</span>, tam_sayi2) <span class="syn-comment"># Çıktı: tam_sayi2: -5</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"tam_sayi3:"</span>, tam_sayi3) <span class="syn-comment"># Çıktı: tam_sayi3: 0</span></div>
+                          
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Ondalıklı Sayılar (Floats)</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Küsurat içeren sayılardır. Tıpkı tam sayılarda olduğu gibi pozitif, negatif veya 0.0 değerini alabilirler. Python'da ondalık kısım için virgül yerine mutlaka <strong>nokta (.)</strong> kullanılmalıdır.</p>
+                          
+                          <div class="code-box"><span class="syn-var">ondalikli_sayi1</span> = <span class="syn-number">3.14</span>
+<span class="syn-var">ondalikli_sayi2</span> = <span class="syn-number">-2.5</span>
+<span class="syn-var">ondalikli_sayi3</span> = <span class="syn-number">0.0</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">"\nOndalıklı Sayılar:"</span>)         <span class="syn-comment"># Çıktı: Ondalıklı Sayılar:</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"ondalikli_sayi1:"</span>, ondalikli_sayi1) <span class="syn-comment"># Çıktı: ondalikli_sayi1: 3.14</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"ondalikli_sayi2:"</span>, ondalikli_sayi2) <span class="syn-comment"># Çıktı: ondalikli_sayi2: -2.5</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"ondalikli_sayi3:"</span>, ondalikli_sayi3) <span class="syn-comment"># Çıktı: ondalikli_sayi3: 0.0</span></div>
+                          
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Veri Tiplerini Kontrol Etme: type()</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Bir değişkenin içerisindeki sayının Python tarafından nasıl (hangi tipte) algılandığını görmek için <code>type()</code> fonksiyonunu kullanırız. Sonuç olarak <strong>int</strong> veya <strong>float</strong> bilgisini döndürür.</p>
+                          
+                          <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"Veri Tipleri:"</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">"tam_sayi1 tipi:"</span>, <span class="syn-fn">type</span>(tam_sayi1))  <span class="syn-comment"># Çıktı: tam_sayi1 tipi: &lt;class 'int'&gt;</span>  
+<span class="syn-fn">print</span>(<span class="syn-string">"ondalikli_sayi1 tipi:"</span>, <span class="syn-fn">type</span>(ondalikli_sayi1))  <span class="syn-comment"># Çıktı: ondalikli_sayi1 tipi: &lt;class 'float'&gt;</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">"tam_sayi2 tipi:"</span>, <span class="syn-fn">type</span>(tam_sayi2))  <span class="syn-comment"># Çıktı: tam_sayi2 tipi: &lt;class 'int'&gt;</span>  
+<span class="syn-fn">print</span>(<span class="syn-string">"ondalikli_sayi2 tipi:"</span>, <span class="syn-fn">type</span>(ondalikli_sayi2))  <span class="syn-comment"># Çıktı: ondalikli_sayi2 tipi: &lt;class 'float'&gt;</span></div>
                     </div>
                 </div>
             </div>
@@ -75,7 +115,51 @@
                 </div>
                 <div class="accordion-content">
                     <div class="accordion-inner">
-                        <p>2. Ders içeriği buraya gelecek...</p>
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Python'da Matematiksel Operatörler</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Python'da sayılar üzerinde toplama, çıkarma, çarpma, bölme ve diğer matematiksel işlemleri gerçekleştirmek için çeşitli operatörler kullanılır. Değişkenler ve operatörler kullanılarak yapılan bu işlemler, programlama mantığını anlamak için çok önemlidir. İşlem önceliği ve parantez kullanımı, tıpkı matematikte olduğu gibi karmaşık ifadelerin doğru hesaplanmasını sağlar.</p>
+                          
+                          <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                              <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-info"></i> Bölme İşlemine Dikkat!</h5>
+                              <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Python'da normal bölme işlemi (<code>/</code>), işlem sonucu tam sayı çıksa bile <strong>her zaman float (ondalıklı)</strong> tipinde bir sonuç döndürür. Sadece tam kısmı almak istiyorsanız çift bölü (<code>//</code>) operatörünü kullanmalısınız.</p>
+                          </div>
+                          
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Temel Operatörler</h4>
+                          
+                          <div class="code-box"><span class="syn-var">a</span> = <span class="syn-number">10</span> <span class="syn-comment"># Bir tam sayı (integer) değişkeni</span>
+<span class="syn-var">b</span> = <span class="syn-number">3</span>  <span class="syn-comment"># Bir tam sayı (integer) değişkeni</span>
+
+<span class="syn-comment"># Toplama</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Toplama (a + b):"</span>, a + b)       <span class="syn-comment"># Çıktı: Toplama (a + b): 13</span>
+<span class="syn-comment"># Çıkarma</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Çıkarma (a - b):"</span>, a - b)       <span class="syn-comment"># Çıktı: Çıkarma (a - b): 7</span>
+<span class="syn-comment"># Çarpma</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Çarpma (a * b):"</span>, a * b)        <span class="syn-comment"># Çıktı: Çarpma (a * b): 30</span>
+<span class="syn-comment"># Bölme (Sonuç her zaman float döner)</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Bölme (a / b):"</span>, a / b)         <span class="syn-comment"># Çıktı: Bölme (a / b): 3.3333333333333335</span></div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Gelişmiş Operatörler</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Veri analizi ve algoritmalar yazarken mod alma ve üs alma gibi gelişmiş operatörler hayat kurtarıcıdır.</p>
+
+                          <div class="code-box"><span class="syn-comment"># Tam Sayı Bölmesi (Küsuratı atar, tam kısmı alır)</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Tam Sayı Bölmesi (a // b):"</span>, a // b)  <span class="syn-comment"># Çıktı: Tam Sayı Bölmesi (a // b): 3</span>
+
+<span class="syn-comment"># Mod Alma (Bölümden kalanı bulur)</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Mod Alma (a % b):"</span>, a % b)      <span class="syn-comment"># Çıktı: Mod Alma (a % b): 1</span>
+
+<span class="syn-comment"># Üs Alma (a'nın b kuvvetini alır)</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Üs Alma (a ** b):"</span>, a ** b)     <span class="syn-comment"># Çıktı: Üs Alma (a ** b): 1000</span></div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Kısa Atama (Kısaltılmış) Operatörleri</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Bir değişkenin değerini güncellerken kendisini tekrar yazmamak için kullanılan kısaltmalardır.</p>
+
+                          <div class="code-box"><span class="syn-var">x</span> = <span class="syn-number">5</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Başlangıç değeri x:"</span>, x)      <span class="syn-comment"># Çıktı: Başlangıç değeri x: 5</span>
+
+<span class="syn-var">x</span> += <span class="syn-number">5</span>  <span class="syn-comment"># x = x + 5 işleminin kısaltmasıdır</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"x += 5 sonrası yeni x:"</span>, x) <span class="syn-comment"># Çıktı: x += 5 sonrası yeni x: 10</span>
+
+<span class="syn-var">x</span> *= <span class="syn-number">2</span>  <span class="syn-comment"># x = x * 2 işleminin kısaltmasıdır</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"x *= 2 sonrası yeni x:"</span>, x) <span class="syn-comment"># Çıktı: x *= 2 sonrası yeni x: 20</span></div>
                     </div>
                 </div>
             </div>
