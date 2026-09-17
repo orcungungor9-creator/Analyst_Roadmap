@@ -53,9 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (sectionCat === categoryName) {
                     section.style.display = 'block';
                 } else if (sectionCat) {
-                    // Eşleşmiyorsa gizle (Diğer kategorileri eklediğimizde çalışır)
-                    // Şimdilik sadece Sıralama Grafikleri olduğu için, diğerleri eklenince çalışacak.
-                    // section.style.display = 'none'; 
+                    // Eşleşmiyorsa gizle
+                    section.style.display = 'none'; 
                 }
             });
             
@@ -68,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================================
-    // 3. ECHARTS İLE GRAFİK ÖNİZLEMELERİNİ ÇİZME
+    // 3. ECHARTS İLE GRAFİK ÖNİZLEMELERİNİ ÇİZME (RESIZEOBSERVER)
     // ==========================================
     if (typeof echarts !== 'undefined') {
         const commonOptions = {
@@ -79,189 +78,354 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const renderChart = (id, option) => {
             const el = document.getElementById(id);
-            if (el) {
-                const chart = echarts.init(el);
-                chart.setOption(Object.assign({}, commonOptions, option));
-                // Responsive davranış
+            if (!el || el.getAttribute('_echarts_instance_')) return;
+            
+            const chart = echarts.init(el);
+            chart.setOption(Object.assign({}, commonOptions, option));
+            
+            // ÇÖZÜM 2: ResizeObserver ile tam otomatik boyutlandırma
+            if (window.ResizeObserver) {
+                const resizeObserver = new ResizeObserver(() => {
+                    chart.resize();
+                });
+                resizeObserver.observe(el);
+            } else {
                 window.addEventListener('resize', () => chart.resize());
             }
         };
 
+        // KATEGORİ 1: SIRALAMA GRAFİKLERİ
         // 1. Bar / Sütun Grafiği
-        renderChart('preview-bar', {
-            xAxis: { type: 'category', data: ['A', 'B', 'C', 'D', 'E'], show: false },
-            yAxis: { type: 'value', show: false },
-            series: [{
-                data: [120, 200, 150, 80, 70],
-                type: 'bar',
-                itemStyle: { color: '#38bdf8', borderRadius: [4, 4, 0, 0] }
-            }]
-        });
-
-        // 2. Gruplu / Yığılmış Bar
-        renderChart('preview-grouped-bar', {
-            xAxis: { type: 'category', data: ['X', 'Y', 'Z'], show: false },
-            yAxis: { type: 'value', show: false },
-            series: [
-                { data: [120, 132, 101], type: 'bar', itemStyle: { color: '#38bdf8' }, barGap: '20%' },
-                { data: [220, 182, 191], type: 'bar', itemStyle: { color: '#34d399' } }
-            ]
-        });
-
-        // 3. Radar Grafiği
-        renderChart('preview-radar', {
-            radar: {
-                indicator: [
-                    { name: '', max: 100 }, { name: '', max: 100 }, { name: '', max: 100 },
-                    { name: '', max: 100 }, { name: '', max: 100 }, { name: '', max: 100 }
-                ],
-                splitArea: { show: false },
-                axisLine: { lineStyle: { color: 'rgba(192, 132, 252, 0.3)' } },
-                splitLine: { lineStyle: { color: 'rgba(192, 132, 252, 0.3)', type: 'dashed' } }
-            },
-            series: [{
-                type: 'radar',
-                data: [{
-                    value: [60, 73, 85, 40, 90, 50],
-                    areaStyle: { color: 'rgba(192, 132, 252, 0.4)' },
-                    lineStyle: { color: '#c084fc', width: 2 },
-                    itemStyle: { color: '#c084fc' }
-                }]
-            }]
-        });
-
-        // 4. Lollipop Grafiği (Bar + Scatter)
-        renderChart('preview-lollipop', {
-            grid: { left: 10, right: 10, top: 15, bottom: 10 },
-            xAxis: { type: 'category', data: ['A', 'B', 'C', 'D'], show: false },
-            yAxis: { type: 'value', show: false },
-            series: [
-                {
+            renderChart('preview-bar', {
+                xAxis: { type: 'category', data: ['A', 'B', 'C', 'D', 'E'], show: false },
+                yAxis: { type: 'value', show: false },
+                series: [{
+                    data: [120, 200, 150, 80, 70],
                     type: 'bar',
-                    data: [80, 50, 95, 35],
-                    barWidth: 3,
-                    itemStyle: { color: '#cbd5e1' } // Görünür sağlam bir gri çubuk
+                    itemStyle: { color: '#38bdf8', borderRadius: [4, 4, 0, 0] }
+                }]
+            });
+
+            // 2. Gruplu / Yığılmış Bar
+            renderChart('preview-grouped-bar', {
+                xAxis: { type: 'category', data: ['X', 'Y', 'Z'], show: false },
+                yAxis: { type: 'value', show: false },
+                series: [
+                    { data: [120, 132, 101], type: 'bar', itemStyle: { color: '#38bdf8' }, barGap: '20%' },
+                    { data: [220, 182, 191], type: 'bar', itemStyle: { color: '#34d399' } }
+                ]
+            });
+
+            // 3. Radar Grafiği
+            renderChart('preview-radar', {
+                radar: {
+                    indicator: [
+                        { name: '', max: 100 }, { name: '', max: 100 }, { name: '', max: 100 },
+                        { name: '', max: 100 }, { name: '', max: 100 }, { name: '', max: 100 }
+                    ],
+                    splitArea: { show: false },
+                    axisLine: { lineStyle: { color: 'rgba(192, 132, 252, 0.3)' } },
+                    splitLine: { lineStyle: { color: 'rgba(192, 132, 252, 0.3)', type: 'dashed' } }
                 },
-                {
-                    type: 'scatter',
-                    data: [80, 50, 95, 35],
-                    symbolSize: 16,
-                    itemStyle: {
-                        color: function(params) {
-                            var colors = ['#38bdf8', '#c084fc', '#34d399', '#fbbf24'];
-                            return colors[params.dataIndex];
+                series: [{
+                    type: 'radar',
+                    data: [{
+                        value: [60, 73, 85, 40, 90, 50],
+                        areaStyle: { color: 'rgba(192, 132, 252, 0.4)' },
+                        lineStyle: { color: '#c084fc', width: 2 },
+                        itemStyle: { color: '#c084fc' }
+                    }]
+                }]
+            });
+
+            // 4. Lollipop Grafiği (Bar + Scatter)
+            renderChart('preview-lollipop', {
+                grid: { left: 10, right: 10, top: 15, bottom: 10 },
+                xAxis: { type: 'category', data: ['A', 'B', 'C', 'D'], show: false },
+                yAxis: { type: 'value', show: false },
+                series: [
+                    {
+                        type: 'bar',
+                        data: [80, 50, 95, 35],
+                        barWidth: 3,
+                        itemStyle: { color: '#cbd5e1' }
+                    },
+                    {
+                        type: 'scatter',
+                        data: [80, 50, 95, 35],
+                        symbolSize: 16,
+                        itemStyle: {
+                            color: function(params) {
+                                var colors = ['#38bdf8', '#c084fc', '#34d399', '#fbbf24'];
+                                return colors[params.dataIndex];
+                            }
                         }
                     }
-                }
-            ]
-        });
+                ]
+            });
 
-        // 5. Kurşun Grafiği (Bullet)
-        renderChart('preview-bullet', {
-            grid: { left: 10, right: 10, top: 30, bottom: 30 },
-            xAxis: { type: 'value', show: false, max: 100 },
-            yAxis: { type: 'category', data: ['Metrik'], show: false },
-            series: [
-                // Arka plan performans aralıkları (Kötü, Orta, İyi)
-                { type: 'bar', data: [100], barWidth: 26, itemStyle: { color: '#f1f5f9' }, barGap: '-100%', animation: false },
-                { type: 'bar', data: [75], barWidth: 26, itemStyle: { color: '#e2e8f0' }, barGap: '-100%', animation: false },
-                { type: 'bar', data: [45], barWidth: 26, itemStyle: { color: '#cbd5e1' }, barGap: '-100%', animation: false },
-                // İç Bar (Gerçekleşen Değer)
-                { type: 'bar', data: [65], barWidth: 10, itemStyle: { color: '#38bdf8' }, barGap: '-100%', z: 10 },
-                // Hedef Çizgisi (Target Marker)
-                { type: 'scatter', data: [[85, 0]], symbol: 'rect', symbolSize: [5, 36], itemStyle: { color: '#1e293b' }, z: 20 }
-            ]
-        });
+            // 5. Kurşun Grafiği (Bullet)
+            renderChart('preview-bullet', {
+                grid: { left: 10, right: 10, top: 30, bottom: 30 },
+                xAxis: { type: 'value', show: false, max: 100 },
+                yAxis: { type: 'category', data: ['Metrik'], show: false },
+                series: [
+                    { type: 'bar', data: [100], barWidth: 26, itemStyle: { color: '#f1f5f9' }, barGap: '-100%', animation: false },
+                    { type: 'bar', data: [75], barWidth: 26, itemStyle: { color: '#e2e8f0' }, barGap: '-100%', animation: false },
+                    { type: 'bar', data: [45], barWidth: 26, itemStyle: { color: '#cbd5e1' }, barGap: '-100%', animation: false },
+                    { type: 'bar', data: [65], barWidth: 10, itemStyle: { color: '#38bdf8' }, barGap: '-100%', z: 10 },
+                    { type: 'scatter', data: [[85, 0]], symbol: 'rect', symbolSize: [5, 36], itemStyle: { color: '#1e293b' }, z: 20 }
+                ]
+            });
 
-        // 6. Eğim Grafiği (Slope)
-        renderChart('preview-slope', {
-            grid: { left: 25, right: 25, top: 20, bottom: 20 },
-            xAxis: { 
-                type: 'category', 
-                data: ['2023', '2024'], 
-                boundaryGap: false, 
-                show: true,
-                axisLine: { show: false },
-                axisTick: { show: false },
-                axisLabel: { color: '#94a3b8', fontWeight: '600', margin: 4 },
-                splitLine: { show: true, lineStyle: { color: '#e2e8f0', width: 2 } }
-            },
-            yAxis: { type: 'value', show: false },
-            series: [
-                {
-                    type: 'line', data: [85, 30], symbolSize: 10,
-                    lineStyle: { width: 3, color: '#f43f5e' }, itemStyle: { color: '#f43f5e' }
-                },
-                {
-                    type: 'line', data: [40, 75], symbolSize: 10,
-                    lineStyle: { width: 3, color: '#38bdf8' }, itemStyle: { color: '#38bdf8' }
-                },
-                {
-                    type: 'line', data: [55, 60], symbolSize: 10,
-                    lineStyle: { width: 3, color: '#34d399' }, itemStyle: { color: '#34d399' }
-                }
-            ]
-        });
-
-        // 7. Paralel Koordinatlar
-        renderChart('preview-parallel', {
-            parallelAxis: [
-                { dim: 0, name: '' },
-                { dim: 1, name: '' },
-                { dim: 2, name: '' }
-            ],
-            parallel: { left: 10, right: 10, top: 10, bottom: 10, axisExpandable: false },
-            series: {
-                type: 'parallel',
-                lineStyle: { width: 2, opacity: 0.7 },
-                data: [
-                    [1, 5, 3],
-                    [2, 3, 6],
-                    [4, 2, 4]
-                ],
-                // ECharts parallel doesn't easily support color per line via itemStyle in basic setup
-                // We'll apply a single solid color that looks good for preview
-                color: ['#38bdf8', '#c084fc', '#34d399'] 
-            }
-        });
-
-        // 8. Gösterge Grafiği (Gauge)
-        renderChart('preview-gauge', {
-            series: [
-                {
-                    type: 'gauge',
-                    startAngle: 180,
-                    endAngle: 0,
-                    center: ['50%', '80%'],
-                    radius: '100%',
-                    min: 0,
-                    max: 100,
-                    splitNumber: 1,
-                    axisLine: {
-                        lineStyle: {
-                            width: 15,
-                            color: [
-                                [0.3, '#f87171'],
-                                [0.7, '#fbbf24'],
-                                [1, '#34d399']
-                            ]
-                        }
-                    },
-                    pointer: {
-                        icon: 'path://M12.8,0.7l12,40.1H0.7L12.8,0.7z',
-                        length: '70%',
-                        width: 10,
-                        offsetCenter: [0, '-10%'],
-                        itemStyle: { color: 'auto' } // ibre rengi alan rengine uyar
-                    },
+            // 6. Eğim Grafiği (Slope)
+            renderChart('preview-slope', {
+                grid: { left: 25, right: 25, top: 20, bottom: 20 },
+                xAxis: { 
+                    type: 'category', 
+                    data: ['2023', '2024'], 
+                    boundaryGap: false, 
+                    show: true,
+                    axisLine: { show: false },
                     axisTick: { show: false },
-                    splitLine: { show: false },
-                    axisLabel: { show: false },
-                    title: { show: false },
-                    detail: { show: false },
-                    data: [{ value: 65 }]
+                    axisLabel: { color: '#94a3b8', fontWeight: '600', margin: 4 },
+                    splitLine: { show: true, lineStyle: { color: '#e2e8f0', width: 2 } }
+                },
+                yAxis: { type: 'value', show: false },
+                series: [
+                    {
+                        type: 'line', data: [85, 30], symbolSize: 10,
+                        lineStyle: { width: 3, color: '#f43f5e' }, itemStyle: { color: '#f43f5e' }
+                    },
+                    {
+                        type: 'line', data: [40, 75], symbolSize: 10,
+                        lineStyle: { width: 3, color: '#38bdf8' }, itemStyle: { color: '#38bdf8' }
+                    },
+                    {
+                        type: 'line', data: [55, 60], symbolSize: 10,
+                        lineStyle: { width: 3, color: '#34d399' }, itemStyle: { color: '#34d399' }
+                    }
+                ]
+            });
+
+            // 7. Paralel Koordinatlar
+            renderChart('preview-parallel', {
+                parallelAxis: [
+                    { dim: 0, name: '' },
+                    { dim: 1, name: '' },
+                    { dim: 2, name: '' }
+                ],
+                parallel: { left: 10, right: 10, top: 10, bottom: 10, axisExpandable: false },
+                series: {
+                    type: 'parallel',
+                    lineStyle: { width: 2, opacity: 0.7 },
+                    data: [
+                        [1, 5, 3],
+                        [2, 3, 6],
+                        [4, 2, 4]
+                    ],
+                    color: ['#38bdf8', '#c084fc', '#34d399'] 
                 }
-            ]
-        });
+            });
+
+            // 8. Gösterge Grafiği (Gauge)
+            renderChart('preview-gauge', {
+                series: [
+                    {
+                        type: 'gauge',
+                        startAngle: 180,
+                        endAngle: 0,
+                        center: ['50%', '80%'],
+                        radius: '100%',
+                        min: 0, max: 100,
+                        splitNumber: 1,
+                        axisLine: {
+                            lineStyle: {
+                                width: 15,
+                                color: [
+                                    [0.3, '#f87171'],
+                                    [0.7, '#fbbf24'],
+                                    [1, '#34d399']
+                                ]
+                            }
+                        },
+                        pointer: {
+                            icon: 'path://M12.8,0.7l12,40.1H0.7L12.8,0.7z',
+                            length: '70%',
+                            width: 10,
+                            offsetCenter: [0, '-10%'],
+                            itemStyle: { color: 'auto' } 
+                        },
+                        axisTick: { show: false },
+                        splitLine: { show: false },
+                        axisLabel: { show: false },
+                        title: { show: false },
+                        detail: { show: false },
+                        data: [{ value: 65 }]
+                    }
+                ]
+            });
+
+        // ------------------------------------------
+        // KATEGORİ 2: ZAMAN İÇİNDEKİ DEĞİŞİM (TREND)
+        // ------------------------------------------
+        
+            // 1. Çizgi Grafiği
+            renderChart('preview-line', {
+                grid: { left: 15, right: 15, top: 25, bottom: 25 },
+                xAxis: { type: 'category', data: ['O', 'Ş', 'M', 'N', 'M', 'H'], show: false },
+                yAxis: { type: 'value', show: false },
+                series: [{ 
+                    data: [15, 30, 22, 45, 35, 60], 
+                    type: 'line', 
+                    smooth: true, 
+                    symbolSize: 8,
+                    itemStyle: { color: '#38bdf8' }, 
+                    lineStyle: { width: 3 } 
+                }]
+            });
+
+            // 2. Alan Grafiği
+            renderChart('preview-area', {
+                grid: { left: 10, right: 10, top: 25, bottom: 25 },
+                xAxis: { type: 'category', data: ['O', 'Ş', 'M', 'N', 'M', 'H'], boundaryGap: false, show: false },
+                yAxis: { type: 'value', show: false },
+                series: [{ 
+                    data: [15, 30, 22, 45, 35, 60], 
+                    type: 'line', 
+                    smooth: true, 
+                    showSymbol: false,
+                    itemStyle: { color: '#c084fc' }, 
+                    lineStyle: { width: 2 },
+                    areaStyle: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                            { offset: 0, color: 'rgba(192,132,252,0.6)' },
+                            { offset: 1, color: 'rgba(192,132,252,0.05)' }
+                        ])
+                    }
+                }]
+            });
+
+            // 3. Mum Grafiği
+            renderChart('preview-candlestick', {
+                grid: { left: 15, right: 15, top: 15, bottom: 15 },
+                xAxis: { type: 'category', data: ['1', '2', '3', '4', '5'], show: false },
+                yAxis: { type: 'value', show: false, scale: true },
+                series: [{
+                    type: 'candlestick',
+                    data: [
+                        [20, 34, 10, 38],
+                        [40, 35, 30, 50],
+                        [31, 38, 33, 44],
+                        [38, 15, 5, 42],
+                        [15, 25, 10, 30]
+                    ],
+                    itemStyle: { 
+                        color: '#34d399', color0: '#f43f5e', 
+                        borderColor: '#34d399', borderColor0: '#f43f5e',
+                        borderWidth: 2
+                    }
+                }]
+            });
+
+            // 4. Otokorelasyon (Correlogram)
+            renderChart('preview-autocorr', {
+                grid: { left: 15, right: 15, top: 20, bottom: 20 },
+                xAxis: { 
+                    type: 'category', data: ['1','2','3','4','5','6','7','8'], 
+                    axisTick: {show: false}, axisLabel: {show: false}, 
+                    axisLine: {lineStyle:{color:'#94a3b8'}} 
+                },
+                yAxis: { type: 'value', show: false },
+                series: [
+                    {
+                        type: 'bar',
+                        barWidth: 6,
+                        itemStyle: { color: '#38bdf8', borderRadius: 2 },
+                        data: [1, 0.8, 0.4, 0.1, -0.3, -0.6, -0.2, 0.3]
+                    },
+                    // Güven aralıkları (Confidence bands)
+                    { type: 'line', data: [0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35], symbol: 'none', lineStyle: {type: 'dashed', color: '#cbd5e1', width: 2} },
+                    { type: 'line', data: [-0.35, -0.35, -0.35, -0.35, -0.35, -0.35, -0.35, -0.35], symbol: 'none', lineStyle: {type: 'dashed', color: '#cbd5e1', width: 2} }
+                ]
+            });
+
+            // 5. Kıvılcım Çizgileri (Sparkline)
+            renderChart('preview-sparkline', {
+                grid: { left: 5, right: 5, top: 25, bottom: 25 },
+                xAxis: { type: 'category', data: [1,2,3,4,5,6,7,8,9,10], show: false },
+                yAxis: { type: 'value', show: false, scale: true },
+                series: [{
+                    data: [12, 14, 18, 15, 22, 28, 25, 30, 35, 32],
+                    type: 'line',
+                    smooth: false,
+                    symbol: 'none',
+                    lineStyle: { color: '#fbbf24', width: 3 },
+                    markPoint: {
+                        data: [
+                            { type: 'max', name: 'Max', symbolSize: 24, itemStyle: {color: '#34d399'} }, 
+                            { type: 'min', name: 'Min', symbolSize: 24, itemStyle: {color: '#f43f5e'} }
+                        ],
+                        label: { show: false }
+                    }
+                }]
+            });
+
+            // 6. Akış Grafiği (Streamgraph)
+            renderChart('preview-stream', {
+                grid: { left: 5, right: 5, top: 20, bottom: 20 },
+                tooltip: { show: false },
+                singleAxis: { type: 'time', show: false },
+                series: [{
+                    type: 'themeRiver',
+                    data: [
+                        ['2023-01-01', 15, 'A'], ['2023-01-02', 25, 'A'], ['2023-01-03', 20, 'A'], ['2023-01-04', 35, 'A'],
+                        ['2023-01-01', 20, 'B'], ['2023-01-02', 15, 'B'], ['2023-01-03', 30, 'B'], ['2023-01-04', 10, 'B'],
+                        ['2023-01-01', 5, 'C'], ['2023-01-02', 10, 'C'], ['2023-01-03', 15, 'C'], ['2023-01-04', 25, 'C']
+                    ],
+                    color: ['#c084fc', '#38bdf8', '#34d399']
+                }]
+            });
+
+            // 7. Gantt Şeması
+            renderChart('preview-gantt', {
+                grid: { left: 15, right: 15, top: 20, bottom: 20 },
+                xAxis: { type: 'value', show: false, max: 100 },
+                yAxis: { type: 'category', data: ['3', '2', '1'], show: false },
+                series: [
+                    {
+                        type: 'bar',
+                        stack: 'total',
+                        itemStyle: { color: 'rgba(0,0,0,0)' },
+                        data: [60, 30, 10] // Başlangıç noktaları (alttan üste)
+                    },
+                    {
+                        type: 'bar',
+                        stack: 'total',
+                        barWidth: 16,
+                        itemStyle: { borderRadius: 4, color: function(params) {
+                            return ['#34d399', '#c084fc', '#38bdf8'][params.dataIndex];
+                        }},
+                        data: [35, 40, 30] // Süreler
+                    }
+                ]
+            });
+
+            // 8. Gecikme Grafiği (Lag Plot)
+            renderChart('preview-lag', {
+                grid: { left: 20, right: 20, top: 20, bottom: 20 },
+                xAxis: { type: 'value', show: false, scale: true },
+                yAxis: { type: 'value', show: false, scale: true },
+                series: [{
+                    type: 'scatter',
+                    symbolSize: 10,
+                    itemStyle: { color: 'rgba(56,189,248,0.7)' },
+                    data: [
+                        [1,2], [1.5, 2.5], [2, 1.8], [2.2, 3], [3, 2.5], [3.5, 3.2], 
+                        [4, 4.5], [4.2, 3.8], [4.8, 5], [5.5, 4.9], [6, 6.2], [6.5, 5.8]
+                    ]
+                }]
+            });
+
     }
 });

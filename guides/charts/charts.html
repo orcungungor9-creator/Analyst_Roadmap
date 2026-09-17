@@ -153,8 +153,8 @@
     </div>
 
     <!-- ANA İÇERİK BURAYA GELECEK -->
-    <main class="formulas-main" style="max-width: 1400px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
-        <div class="chart-section" id="cat-sirali" data-category="Sıralama Grafikleri" style="margin-top: 20px;">
+    <main class="formulas-main" style="max-width: 1400px; width: 100%; margin: 0 auto 100px auto; padding: 20px 24px 0 24px;">
+        <div class="chart-section" id="cat-sirali" data-category="Sıralama Grafikleri">
             <h2 class="chart-cat-title" style="text-align: left; justify-content: flex-start; display: flex; align-items: center; gap: 12px; margin-bottom: 30px; font-size: 1.6rem; color: var(--text-main);">
                 <i data-lucide="bar-chart-2" style="color: var(--neon-blue); width: 32px; height: 32px;"></i> 
                 Büyüklük ve Sıralama Kıyaslaması Grafikleri
@@ -246,6 +246,104 @@
                         <p>Tek bir veri noktasının (KPI) belirli bir hedef skalasında nerede olduğunu hız göstergesi benzeri bir yapıyla sunar.</p>
                         <div class="chart-tags"><span>✅ Tekil Metrik</span><span>✅ KPI</span></div>
                         <div class="chart-when">🎯 <em>Ne Zaman:</em> Hedef/Risk ölçümünde mevcut durumu çok net anlatmak gerektiğinde.</div>
+                    </div>
+                </div>
+
+            </div>
+        </div> <!-- Gerekli kapanış etiketi -->
+
+        <div class="chart-section" id="cat-zaman" data-category="Zaman Grafikleri" style="display: none;">
+            <h2 class="chart-cat-title" style="text-align: left; justify-content: flex-start; display: flex; align-items: center; gap: 12px; margin-bottom: 30px; font-size: 1.6rem; color: var(--text-main);">
+                <i data-lucide="clock" style="color: var(--neon-blue); width: 32px; height: 32px;"></i> 
+                Zaman İçindeki Değişim (Evolution & Trend)
+            </h2>
+            <div class="chart-grid">
+                
+                <!-- 1. Çizgi Grafiği -->
+                <div class="chart-card chart-item" data-title="çizgi grafiği line chart">
+                    <div class="chart-preview" id="preview-line" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Çizgi Grafiği (Line)</strong>
+                        <p>Verilerin zaman içindeki sürekli eğilimini ve değişimini gösterir. Ay, yıl veya gün bazlı trendler için standarttır.</p>
+                        <div class="chart-tags"><span>✅ Trend</span><span>✅ Sürekli</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Zaman içinde genel gidişatı ve gelişimi gözlemlemek için.</div>
+                    </div>
+                </div>
+
+                <!-- 2. Alan Grafiği -->
+                <div class="chart-card chart-item" data-title="alan grafiği area chart">
+                    <div class="chart-preview" id="preview-area" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Alan Grafiği (Area)</strong>
+                        <p>Çizgi grafiğinin altının doldurulmuş halidir. Eğilimin yanı sıra toplam büyüklüğü (hacmi) de vurgular.</p>
+                        <div class="chart-tags"><span>✅ Trend</span><span>✅ Hacim</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Bir eğilimin ne kadar yer kapladığını görsel olarak doldurarak anlatırken.</div>
+                    </div>
+                </div>
+
+                <!-- 3. Mum Grafiği -->
+                <div class="chart-card chart-item" data-title="mum grafiği candlestick">
+                    <div class="chart-preview" id="preview-candlestick" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Mum Grafiği (Candlestick)</strong>
+                        <p>Finansal verilerde açılış, kapanış, en yüksek ve en düşük (OHLC) değerleri tek bir gövdede gösterir.</p>
+                        <div class="chart-tags"><span>✅ Finans</span><span>✅ Dalgalanma</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Borsa, kripto gibi fiyat dalgalanmalarını tüm detaylarıyla gösterirken.</div>
+                    </div>
+                </div>
+
+                <!-- 4. Otokorelasyon -->
+                <div class="chart-card chart-item" data-title="otokorelasyon correlogram">
+                    <div class="chart-preview" id="preview-autocorr" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Otokorelasyon (Correlogram)</strong>
+                        <p>Bir zaman serisinin kendi geçmiş gecikmeleriyle (lag) olan korelasyonunu çubuklarla çizer.</p>
+                        <div class="chart-tags"><span>✅ İstatistik</span><span>✅ Mevsimsellik</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Seride döngü, tekrar veya mevsimsellik olup olmadığını tespit ederken.</div>
+                    </div>
+                </div>
+
+                <!-- 5. Kıvılcım Çizgileri -->
+                <div class="chart-card chart-item" data-title="kıvılcım çizgileri sparkline">
+                    <div class="chart-preview" id="preview-sparkline" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Kıvılcım Çizgileri (Sparkline)</strong>
+                        <p>Eksenleri veya ızgaraları olmayan, tek bir metriğin çok küçük formattaki mini trend çizgisidir.</p>
+                        <div class="chart-tags"><span>✅ Minimal</span><span>✅ Dashboard</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Tabloların içinde veya dar alanda genel yönelimi (artış/azalış) gösterirken.</div>
+                    </div>
+                </div>
+
+                <!-- 6. Akış Grafiği -->
+                <div class="chart-card chart-item" data-title="akış grafiği streamgraph">
+                    <div class="chart-preview" id="preview-stream" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Akış Grafiği (Streamgraph)</strong>
+                        <p>Yığılmış alan grafiğinin merkezi bir eksen etrafında nehir gibi dalgalanan oldukça estetik versiyonudur.</p>
+                        <div class="chart-tags"><span>✅ Kompozisyon</span><span>✅ Estetik</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Çok sayıda kategorinin pazar payı veya hacim değişimlerini pürüzsüzce sergilerken.</div>
+                    </div>
+                </div>
+
+                <!-- 7. Gantt Şeması -->
+                <div class="chart-card chart-item" data-title="gantt şeması gantt chart">
+                    <div class="chart-preview" id="preview-gantt" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Gantt Şeması</strong>
+                        <p>Projelerdeki görevlerin başlangıç ve bitiş sürelerini yatay çubuklar halinde bir takvimde planlar.</p>
+                        <div class="chart-tags"><span>✅ Proje Yönetimi</span><span>✅ Takvim</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Proje süreçlerini, bağımlılıkları ve genel iş takvimini takip ederken.</div>
+                    </div>
+                </div>
+
+                <!-- 8. Gecikme Grafiği -->
+                <div class="chart-card chart-item" data-title="gecikme grafiği lag plot">
+                    <div class="chart-preview" id="preview-lag" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Gecikme Grafiği (Lag Plot)</strong>
+                        <p>Serideki (t) anındaki veriyi (t-1) anındaki veriyle noktasal dağılım üzerinden karşılaştıran grafiktir.</p>
+                        <div class="chart-tags"><span>✅ İstatistik</span><span>✅ Rastgelelik</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Verinin rastgele dağılıp dağılmadığını ve belirgin bir yapı oluşturup oluşturmadığını incelerken.</div>
                     </div>
                 </div>
 

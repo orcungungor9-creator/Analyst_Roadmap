@@ -50,25 +50,38 @@ body.formulas-page main.formulas-main {
     box-shadow: 0 4px 15px var(--neon-blue-glow) !important;
 }
 
-/* KARTLARI 4'LÜ GRUPLAMA */
+/* KARTLARI 4'LÜ GRUPLAMA (Stabil Genişlikler) */
 .chart-grid {
-    grid-template-columns: repeat(4, 1fr) !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+}
+
+/* ECharts kanvaslarının kutuyu taşırmasını ve grid yapısını bozmasını engellemek için */
+.chart-card {
+    min-width: 0 !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.chart-preview {
+    min-width: 0 !important;
+    width: 100% !important;
 }
 
 @media (max-width: 1200px) {
     .chart-grid {
-        grid-template-columns: repeat(3, 1fr) !important;
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
     }
 }
 
 @media (max-width: 900px) {
     .chart-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     }
 }
 
 @media (max-width: 600px) {
     .chart-grid {
-        grid-template-columns: 1fr !important;
+        grid-template-columns: minmax(0, 1fr) !important;
     }
 }
