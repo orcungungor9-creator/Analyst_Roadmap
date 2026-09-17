@@ -153,9 +153,108 @@
     </div>
 
     <!-- ANA İÇERİK BURAYA GELECEK -->
-    <main class="formulas-main" style="max-width: 1300px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
+    <main class="formulas-main" style="max-width: 1400px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
+        <div class="chart-section" id="cat-sirali" data-category="Sıralama Grafikleri" style="margin-top: 20px;">
+            <h2 class="chart-cat-title" style="text-align: left; justify-content: flex-start; display: flex; align-items: center; gap: 12px; margin-bottom: 30px; font-size: 1.6rem; color: var(--text-main);">
+                <i data-lucide="bar-chart-2" style="color: var(--neon-blue); width: 32px; height: 32px;"></i> 
+                Büyüklük ve Sıralama Kıyaslaması Grafikleri
+            </h2>
+            <div class="chart-grid">
+                
+                <!-- 1. Bar / Sütun Grafiği -->
+                <div class="chart-card chart-item" data-title="bar sütun grafiği">
+                    <div class="chart-preview" id="preview-bar" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Bar / Sütun Grafiği</strong>
+                        <p>Kategoriler arasındaki değer farklılıklarını kıyaslar. Uzun etiketlerde yatay, zaman veya sıralı verilerde dikey (sütun) tercih edilir.</p>
+                        <div class="chart-tags"><span>✅ Kategorik</span><span>✅ Karşılaştırma</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Kategorik değerlerin büyüklüklerini basitçe kıyaslarken.</div>
+                    </div>
+                </div>
 
+                <!-- 2. Gruplu / Yığılmış Bar -->
+                <div class="chart-card chart-item" data-title="gruplu yığılmış bar">
+                    <div class="chart-preview" id="preview-grouped-bar" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Gruplu / Yığılmış Bar</strong>
+                        <p>Birden fazla alt kategoriyi aynı anda karşılaştırmak (gruplu) veya toplam içindeki payları (yığılmış) göstermek için kullanılır.</p>
+                        <div class="chart-tags"><span>✅ Alt Gruplar</span><span>✅ Kompozisyon</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Alt kırılımların ana kategoriye katkısını gösterirken.</div>
+                    </div>
+                </div>
+
+                <!-- 3. Radar (Spider) Grafiği -->
+                <div class="chart-card chart-item" data-title="radar spider grafiği">
+                    <div class="chart-preview" id="preview-radar" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Radar (Spider) Grafiği</strong>
+                        <p>Çok boyutlu verileri merkeze göre eşit aralıklı eksenlerde gösterir. Birden fazla değişkenin genel profilini karşılaştırır.</p>
+                        <div class="chart-tags"><span>✅ Çok Değişkenli</span><span>✅ Profil</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Farklı özniteliklere sahip birimlerin skorlarını kıyaslarken.</div>
+                    </div>
+                </div>
+
+                <!-- 4. Lollipop Grafiği -->
+                <div class="chart-card chart-item" data-title="lollipop grafiği">
+                    <div class="chart-preview" id="preview-lollipop" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Lollipop Grafiği</strong>
+                        <p>Bar grafiğinin daha ince bir çizgi ve uçtaki noktayla gösterilmiş halidir. Çok kategori olduğunda göz yormaması için tercih edilir.</p>
+                        <div class="chart-tags"><span>✅ Minimalist</span><span>✅ Karşılaştırma</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Bar grafiğinin kalabalık göründüğü bol veri noktalı durumlarda.</div>
+                    </div>
+                </div>
+
+                <!-- 5. Kurşun Grafiği -->
+                <div class="chart-card chart-item" data-title="kurşun grafiği bullet chart">
+                    <div class="chart-preview" id="preview-bullet" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Kurşun Grafiği (Bullet)</strong>
+                        <p>Bir performans metriğini hedef değere ve kabul edilebilir aralıklara (kötü, iyi, harika) göre kıyaslar. Az yer kaplar.</p>
+                        <div class="chart-tags"><span>✅ Hedef Analizi</span><span>✅ KPI</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Gerçekleşen değeri hedeflerle ve sınarlarla kıyaslarken.</div>
+                    </div>
+                </div>
+
+                <!-- 6. Eğim Grafiği -->
+                <div class="chart-card chart-item" data-title="eğim grafiği slope chart">
+                    <div class="chart-preview" id="preview-slope" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Eğim Grafiği (Slope)</strong>
+                        <p>İki farklı zaman noktası veya kategori arasındaki değer değişimini basitleştirerek (başı ve sonu birleştirerek) gösterir.</p>
+                        <div class="chart-tags"><span>✅ Değişim</span><span>✅ Sıralama</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Önce-sonra kıyaslaması yaparken veya sıralama değişikliklerinde.</div>
+                    </div>
+                </div>
+
+                <!-- 7. Paralel Koordinatlar -->
+                <div class="chart-card chart-item" data-title="paralel koordinatlar parallel coordinates">
+                    <div class="chart-preview" id="preview-parallel" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Paralel Koordinatlar</strong>
+                        <p>Çok boyutlu veri setlerindeki desenleri, kümeleri ve ilişkileri dikey uzanan eksenler üzerinden birbirine bağlayarak gösterir.</p>
+                        <div class="chart-tags"><span>✅ Çok Değişkenli</span><span>✅ Kümeleme</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Çok boyutlu verilerdeki profilleri ve bağlantıları keşfederken.</div>
+                    </div>
+                </div>
+
+                <!-- 8. Gösterge Grafiği -->
+                <div class="chart-card chart-item" data-title="gösterge grafiği gauge chart">
+                    <div class="chart-preview" id="preview-gauge" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Gösterge Grafiği (Gauge)</strong>
+                        <p>Tek bir veri noktasının (KPI) belirli bir hedef skalasında nerede olduğunu hız göstergesi benzeri bir yapıyla sunar.</p>
+                        <div class="chart-tags"><span>✅ Tekil Metrik</span><span>✅ KPI</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Hedef/Risk ölçümünde mevcut durumu çok net anlatmak gerektiğinde.</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </main>
+
+    <!-- ECharts Kütüphanesi -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
 
     <script src="../../js/components.js"></script>
 

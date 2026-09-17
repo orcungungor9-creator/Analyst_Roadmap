@@ -49,3 +49,26 @@ body.formulas-page main.formulas-main {
     border-color: var(--neon-blue) !important;
     box-shadow: 0 4px 15px var(--neon-blue-glow) !important;
 }
+
+/* KARTLARI 4'LÜ GRUPLAMA */
+.chart-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+}
+
+@media (max-width: 1200px) {
+    .chart-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+@media (max-width: 900px) {
+    .chart-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .chart-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
