@@ -240,12 +240,67 @@
             </div>
             <div class="accordion-item">
                 <div class="accordion-header">
-                    <h3 class="accordion-title">4. Ders: Veri Tipleri</h3>
+                    <h3 class="accordion-title">4. Ders: Veri Tipleri ve Input</h3>
                     <div class="accordion-icon"><i class="ph ph-caret-down"></i></div>
                 </div>
                 <div class="accordion-content">
                     <div class="accordion-inner">
-                        <p>4. Ders içeriği buraya gelecek...</p>
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Temel 5 Veri Tipi</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Günlük programlamada en sık kullanılan temel 5 veri tipi şunlardır: Metinler (<strong>str</strong>), tam sayılar (<strong>int</strong>), ondalıklı sayılar (<strong>float</strong>), mantıksal değerler (<strong>bool</strong>) ve birden çok veriyi sıralı tutan diziler (<strong>list</strong>).</p>
+                          
+                          <div class="code-box"><span class="syn-comment"># 1. BÖLÜM: DEĞİŞKENLERE TEMEL 5 VERİ TİPİNİ ATAMA</span>
+<span class="syn-var">metin_veri</span>     = <span class="syn-string">"Python Öğreniyorum"</span>      <span class="syn-comment"># str</span>
+<span class="syn-var">tam_sayi_veri</span>  = <span class="syn-number">10</span>                        <span class="syn-comment"># int</span>
+<span class="syn-var">ondalikli_veri</span> = <span class="syn-number">3.14</span>                      <span class="syn-comment"># float</span>
+<span class="syn-var">mantiksal_veri</span> = <span class="syn-kw">True</span>                      <span class="syn-comment"># bool</span>
+<span class="syn-var">liste_veri</span>     = [<span class="syn-number">1</span>, <span class="syn-number">2</span>, <span class="syn-string">"Elma"</span>, <span class="syn-kw">True</span>]      <span class="syn-comment"># list</span>
+
+<span class="syn-comment"># 2. BÖLÜM: DEĞİŞKENLERİ VE TİPLERİNİ YAZDIRMA</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"--- EN TEMEL 5 VERİ TİPİ ---\n"</span>)
+
+<span class="syn-fn">print</span>(<span class="syn-string">f"1. str   (Metin)     : {metin_veri} \t Tipi: {type(metin_veri)}"</span>)
+<span class="syn-comment"># Çıktı: 1. str   (Metin)     : Python Öğreniyorum 	 Tipi: &lt;class 'str'&gt;</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">f"2. int   (Tam Sayı)  : {tam_sayi_veri} \t\t\t Tipi: {type(tam_sayi_veri)}"</span>)
+<span class="syn-comment"># Çıktı: 2. int   (Tam Sayı)  : 10 			 Tipi: &lt;class 'int'&gt;</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">f"3. float (Ondalıklı) : {ondalikli_veri} \t\t\t Tipi: {type(ondalikli_veri)}"</span>)
+<span class="syn-comment"># Çıktı: 3. float (Ondalıklı) : 3.14 			 Tipi: &lt;class 'float'&gt;</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">f"4. bool  (Mantıksal) : {mantiksal_veri} \t\t\t Tipi: {type(mantiksal_veri)}"</span>)
+<span class="syn-comment"># Çıktı: 4. bool  (Mantıksal) : True 			 Tipi: &lt;class 'bool'&gt;</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">f"5. list  (Liste)     : {liste_veri} \t Tipi: {type(liste_veri)}"</span>)
+<span class="syn-comment"># Çıktı: 5. list  (Liste)     : [1, 2, 'Elma', True] 	 Tipi: &lt;class 'list'&gt;</span></div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">Kullanıcıdan Veri Alma: input()</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Python'da dışarıdan, yani kullanıcıdan klavye yoluyla veri almak için <code>input()</code> fonksiyonu kullanılır.</p>
+                          
+                          <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                              <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-info"></i> Tip Dönüşümü (Type Casting) Şart!</h5>
+                              <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);"><code>input()</code> fonksiyonundan gelen her veri, kullanıcı bir rakam bile girse varsayılan olarak <strong>"str" (metin)</strong> tipindedir. Bu verilerle matematiksel işlem yapabilmek için onları <code>int()</code> veya <code>float()</code> fonksiyonlarıyla sayısal tipe çevirmemiz gerekir.</p>
+                          </div>
+                          
+                          <div class="code-box"><span class="syn-comment"># 1. Standart Kullanım (Metin olarak alır)</span>
+<span class="syn-var">isim</span> = <span class="syn-fn">input</span>(<span class="syn-string">"Lütfen adınızı giriniz: "</span>)
+
+<span class="syn-comment"># 2. Tam Sayı (int) Olarak Veri Alma</span>
+<span class="syn-comment"># Kullanıcının girdiği metni int() fonksiyonu ile tam sayıya çeviriyoruz.</span>
+<span class="syn-var">yas</span> = <span class="syn-fn">int</span>(<span class="syn-fn">input</span>(<span class="syn-string">"Lütfen yaşınızı giriniz: "</span>))
+
+<span class="syn-comment"># 3. Ondalıklı Sayı (float) Olarak Veri Alma</span>
+<span class="syn-comment"># Kullanıcının girdiği metni float() fonksiyonu ile ondalıklı sayıya çeviriyoruz.</span>
+<span class="syn-var">boy</span> = <span class="syn-fn">float</span>(<span class="syn-fn">input</span>(<span class="syn-string">"Lütfen boyunuzu metre cinsinden giriniz (Örn: 1.75): "</span>))
+
+<span class="syn-fn">print</span>(<span class="syn-string">"\n--- GİRİLEN VERİLER VE YENİ TİPLERİ ---"</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">f"Merhaba {isim}, sisteme hoş geldin! \t Tipi: {type(isim)}"</span>)
+<span class="syn-comment"># Çıktı: Merhaba Ali, sisteme hoş geldin! 	 Tipi: &lt;class 'str'&gt;</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">f"Yaşınız: {yas} \t\t\t\t Tipi: {type(yas)}"</span>)
+<span class="syn-comment"># Çıktı: Yaşınız: 20 				 Tipi: &lt;class 'int'&gt;</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">f"Boyunuz: {boy} \t\t\t\t Tipi: {type(boy)}"</span>)
+<span class="syn-comment"># Çıktı: Boyunuz: 1.75 				 Tipi: &lt;class 'float'&gt;</span></div>
                     </div>
                 </div>
             </div>
