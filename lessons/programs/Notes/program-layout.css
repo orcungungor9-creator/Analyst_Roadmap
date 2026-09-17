@@ -90,7 +90,6 @@
 .accordion-content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-out;
 }
 .accordion-inner { padding: 24px; color: var(--text-main); line-height: 1.6; }
 
