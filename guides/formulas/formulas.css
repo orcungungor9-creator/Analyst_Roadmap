@@ -66,3 +66,68 @@
 .category-filters-wrapper .category-filters {
     margin-top: 0 !important;
 }
+/* ==========================================================================
+   HERO BANNER BACKGROUND
+   ========================================================================== */
+.formulas-hero {
+    position: relative;
+    max-width: 100% !important; /* Spans full width */
+    width: 100%;
+    margin-top: 0;
+    padding: 120px 24px 80px 24px !important;
+    background-image: url('formulas_banner.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    /* Gölge de kaldırıldı */
+}
+
+/* Midnight Blue (Gece Mavisi) Overlay */
+.formulas-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+        radial-gradient(ellipse at center, rgba(10, 20, 40, 0.6) 0%, transparent 65%),
+        linear-gradient(180deg, rgba(10, 20, 40, 0.85) 0%, rgba(10, 20, 40, 0.35) 30%, rgba(10, 20, 40, 0.35) 70%, rgba(10, 20, 40, 0.95) 100%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Açık temalarda siyah overlay'i biraz hafifletelim veya yazının okunması için karanlık kalmasını sağlayalım */
+body:not([class*="theme-dark"]):not(.theme-ocean):not(.theme-cyberpunk):not(.theme-purple):not(.theme-emerald):not(.theme-amber):not(.theme-dark-sakura) .formulas-hero .hero-title,
+body:not([class*="theme-dark"]):not(.theme-ocean):not(.theme-cyberpunk):not(.theme-purple):not(.theme-emerald):not(.theme-amber):not(.theme-dark-sakura) .formulas-hero .hero-subtitle {
+    color: #fff !important; /* Arka plan karanlık olduğu için açık temalarda da yazıyı beyaz yapıyoruz */
+}
+
+
+.formulas-hero .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1000px;
+}
+/* ==========================================================================
+   SEARCH BAR POSITION & BANNER FADE-OUT
+   ========================================================================== */
+#search-section {
+    margin-top: -180px !important; /* Arama çubuğunu açıklamanın hemen altına alır */
+    z-index: 10;
+    position: relative;
+}
+
+.formulas-hero {
+    /* Alt kısımdan yavaş yavaş saydamlaşması için maske (fade-out) */
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 65%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 0%, black 65%, transparent 100%);
+    
+    /* İçeriğin (yazıların) saydam kısma denk gelmemesi ve arama çubuğunun altında ezilmemesi için */
+    padding-bottom: 200px !important;
+}
+
+/* Sözlüğe Hoş Geldiniz yazısının arkası saydam olmasın */
+.formulas-hero .badge-pill {
+    background: var(--bg-dark) !important;
+    border: 1px solid var(--neon-blue) !important;
+}
