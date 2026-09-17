@@ -195,26 +195,26 @@
         grid-template-columns: 1fr;
     }
     .right-column {
-        position: fixed;
-        top: 0;
-        left: -100%;
-        width: 85%;
-        max-width: 380px;
-        height: 100vh;
+        position: fixed !important;
+        top: 0 !important;
+        left: -100% !important;
+        width: 85% !important;
+        max-width: 380px !important;
+        height: 100vh !important;
         background: var(--bg-dark);
-        z-index: 1000;
-        border-left: none;
-        border-right: 4px solid var(--theme-color);
-        border-top: none;
+        z-index: 1000 !important;
+        border-left: none !important;
+        border-right: 4px solid var(--theme-color) !important;
+        border-top: none !important;
         padding: 40px 24px;
-        margin-top: 0;
-        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        margin-top: 0 !important;
+        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
         box-shadow: 10px 0 30px rgba(0,0,0,0.5);
         min-width: 0;
-    max-width: 100%;
-}
+        overflow-y: auto !important;
+    }
     .right-column.open {
-        left: 0;
+        left: 0 !important;
     }
     
     .notepad-fab {
