@@ -123,261 +123,38 @@
 
 
     <!-- 2. HERO & BAŞLIK BÖLÜMÜ -->
-    <section class="formulas-hero">
-        <div class="hero-content">
-            <div class="badge-pill floating-slow">Görselleştirme & Karar Hub'ı</div>
-            <h1 class="hero-title">Grafik Seçim &amp; <span class="gradient-text">Görselleştirme Rehberi</span></h1>
-            <p class="hero-subtitle">
-                Doğru grafik seçimi verinin anlatısını güçlendirir, yanlış seçim ise okuyucuyu yanıltır. Verinizin
-                yapısına en uygun görselleştirme yöntemini belirleyin.
-            </p>
-        </div>
-    </section>
+    <div class="hero-banner-wrapper" style="align-items: flex-start; padding-top: 120px;">
+        <div class="hero-banner-bg"></div>
+        <div class="hero-banner-overlay"></div>
+        <section class="hero-section" style="max-width: 1600px; padding-top: 0; padding-left: 10px; padding-right: 10px;">
+            <div class="hero-content" style="width: 100%;">
+                <div class="badge-pill floating-slow">Grafikler Sözlüğü</div>
+                <h1 class="hero-title" style="color: var(--neon-blue);">Veri Görselleştirme Sözlüğü</h1>
+                <p class="hero-subtitle">Bu sayfada benim bildiğim kadarıyla grafik türleri ve bu grafiklerin olumlu, olumsuz yanlarını görebilirsiniz. Aşağıda 7 ana başlık altında yaklaşık 50 tane grafik bulunmaktadır.</p>
+                
+                <!-- Arama Çubuğu -->
+                <div class="search-wrapper" style="margin-top: 5px; margin-bottom: 30px;">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="text" id="chartSearch" class="search-input" placeholder="Grafik türü ara (örn: Histogram, Scatter)...">
+                </div>
 
-    <!-- 3. ANA İÇERİK -->
+                <!-- 7 Ana Başlık (Filtre Butonları) -->
+                <div class="charts-filter-container" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; width: 100%; margin: 0 auto;">
+                    <button class="charts-category-btn active">Sıralama Grafikleri</button>
+                    <button class="charts-category-btn">Zaman Grafikleri</button>
+                    <button class="charts-category-btn">Dağılım Grafikleri</button>
+                    <button class="charts-category-btn">İlişki Grafikleri</button>
+                    <button class="charts-category-btn">Parça-Bütün Grafikleri</button>
+                    <button class="charts-category-btn">Akış Grafikleri</button>
+                    <button class="charts-category-btn">Harita Grafikleri</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ANA İÇERİK BURAYA GELECEK -->
     <main class="formulas-main" style="max-width: 1300px; width: 100%; margin: 0 auto 100px auto; padding: 0 24px;">
-        <div class="glass"
-            style="padding: 48px; border-radius: 28px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 1px solid var(--glass-border);">
 
-            <!-- KATEGORİ: KARŞILAŞTIRMA -->
-            <div class="chart-section">
-                <h3 class="chart-cat-title"><span class="chart-cat-icon">📊</span> Karşılaştırma Grafikleri</h3>
-                <div class="chart-grid">
-                    <div class="chart-card">
-                        <div class="chart-preview bar-preview"></div>
-                        <div class="chart-info">
-                            <strong>Bar / Sütun Grafiği</strong>
-                            <p>Kategoriler arasındaki farklılıkları gösterir. Yatay bar uzun etiketler için daha
-                                okunaklıdır.</p>
-                            <div class="chart-tags"><span>✅ Kategorik</span><span>✅ Nitel/Nicel</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Birkaç kategorinin değerlerini kıyaslarken
-                            </div>
-                        </div>
-                    </div>
-                    <div class="chart-card">
-                        <div class="chart-preview grouped-bar-preview"></div>
-                        <div class="chart-info">
-                            <strong>Gruplu / Yığılmış Bar</strong>
-                            <p>Birden fazla grubu aynı anda karşılaştırır. Yığılmış bar toplamı da gösterir.</p>
-                            <div class="chart-tags"><span>✅ Zaman/Grup</span><span>✅ Oransal</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Çoklu kategori karşılaştırması</div>
-                        </div>
-                    </div>
-                    <div class="chart-card">
-                        <div class="chart-preview radar-preview"></div>
-                        <div class="chart-info">
-                            <strong>Radar (Spider) Grafiği</strong>
-                            <p>Çok boyutlu verileri tek bir görselde karşılaştırır. Performans değerlendirmesinde
-                                idealdir.</p>
-                            <div class="chart-tags"><span>✅ Çok değişken</span><span>✅ Skor</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Birden fazla birimi çok metrikte kıyaslarken
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- KATEGORİ: DAĞILIM -->
-            <div class="chart-section">
-                <h3 class="chart-cat-title"><span class="chart-cat-icon">🔵</span> Dağılım Grafikleri</h3>
-                <div class="chart-grid">
-                    <div class="chart-card">
-                        <div class="chart-preview hist-preview"></div>
-                        <div class="chart-info">
-                            <strong>Histogram</strong>
-                            <p>Sürekli değişkenin frekans dağılımını gösterir. Dağılımın şekli (normal, çarpık)
-                                anlaşılır.</p>
-                            <div class="chart-tags"><span>✅ Sürekli</span><span>✅ Dağılım</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Verinin dağılımını keşfetmek için</div>
-                        </div>
-                    </div>
-                    <div class="chart-card">
-                        <div class="chart-preview box-preview"></div>
-                        <div class="chart-info">
-                            <strong>Kutu Grafiği (Box Plot)</strong>
-                            <p>Medyan, çeyrekler, aşırı değerleri tek görselde özetler. Gruplar arası dağılım
-                                karşılaştırmasında standarttır.</p>
-                            <div class="chart-tags"><span>✅ Robust</span><span>✅ Aykırı</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Grupların dağılımını kıyaslarken</div>
-                        </div>
-                    </div>
-                    <div class="chart-card">
-                        <div class="chart-preview scatter-preview"></div>
-                        <div class="chart-info">
-                            <strong>Saçılım Grafiği (Scatter Plot)</strong>
-                            <p>İki değişken arasındaki ilişkiyi ve korelasyonu gösterir. Regresyon hattı eklenebilir.
-                            </p>
-                            <div class="chart-tags"><span>✅ Korelasyon</span><span>✅ Sürekli×Sürekli</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> İki değişken arasındaki bağı keşfetmek için
-                            </div>
-                        </div>
-                    </div>
-                    <div class="chart-card">
-                        <div class="chart-preview violin-preview"></div>
-                        <div class="chart-info">
-                            <strong>Violin Grafiği</strong>
-                            <p>Box plot + yoğunluk tahmini (KDE). Dağılımın biçimini ve yoğunluğunu birlikte gösterir.
-                            </p>
-                            <div class="chart-tags"><span>✅ Dağılım</span><span>✅ KDE</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Dağılım biçimini ayrıntılı görmek için</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- KATEGORİ: ZAMAN SERİSİ -->
-            <div class="chart-section">
-                <h3 class="chart-cat-title"><span class="chart-cat-icon">📈</span> Zaman Serisi Grafikleri</h3>
-                <div class="chart-grid">
-                    <div class="chart-card">
-                        <div class="chart-preview line-preview"></div>
-                        <div class="chart-info">
-                            <strong>Çizgi Grafiği (Line Chart)</strong>
-                            <p>Zaman içindeki eğilimi gösterir. Seri başına tek değer olmalıdır.</p>
-                            <div class="chart-tags"><span>✅ Trend</span><span>✅ Zaman</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Değişimin sürekliliği önemliyken</div>
-                        </div>
-                    </div>
-                    <div class="chart-card">
-                        <div class="chart-preview area-preview"></div>
-                        <div class="chart-info">
-                            <strong>Alan Grafiği (Area Chart)</strong>
-                            <p>Çizgi grafiğine alt alan dolgusu eklenerek hacim vurgulanmış halidir.</p>
-                            <div class="chart-tags"><span>✅ Hacim</span><span>✅ Birikim</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Miktar birikimini vurgulamak için</div>
-                        </div>
-                    </div>
-                    <div class="chart-card">
-                        <div class="chart-preview candlestick-preview"></div>
-                        <div class="chart-info">
-                            <strong>Mum Grafiği (Candlestick)</strong>
-                            <p>Finansal varlıkların Açılış-Yüksek-Düşük-Kapanış değerlerini gösterir.</p>
-                            <div class="chart-tags"><span>✅ Finans</span><span>✅ OHLC</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Hisse/döviz analizi</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- KATEGORİ: ORAN/PARÇA -->
-            <div class="chart-section">
-                <h3 class="chart-cat-title"><span class="chart-cat-icon">🥧</span> Oran ve Bütün Grafikleri</h3>
-                <div class="chart-grid">
-                    <div class="chart-card">
-                        <div class="chart-preview pie-preview"></div>
-                        <div class="chart-info">
-                            <strong>Pasta Grafiği (Pie Chart)</strong>
-                            <p>Bütünün parçalarını gösterir. En fazla 5–6 kategori için kullanın; fazlası okumayı
-                                zorlaştırır.</p>
-                            <div class="chart-tags"><span>✅ Oran</span><span>⚠️ Max 6 kategori</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Pazar payı, bütçe dağılımı</div>
-                        </div>
-                    </div>
-                    <div class="chart-card">
-                        <div class="chart-preview donut-preview"></div>
-                        <div class="chart-info">
-                            <strong>Halka Grafiği (Donut)</strong>
-                            <p>Pasta grafiğinin ortası boş versiyonu; merkeze toplam veya ek bilgi yazılabilir.</p>
-                            <div class="chart-tags"><span>✅ Oran</span><span>✅ Modern</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Pasta’dan estetik ama aynı amaç</div>
-                        </div>
-                    </div>
-                    <div class="chart-card">
-                        <div class="chart-preview treemap-preview"></div>
-                        <div class="chart-info">
-                            <strong>Treemap (Ağaç Haritası)</strong>
-                            <p>Hiyerarşik verileri iç içe dikdörtgenlerle gösterir. Büyüklük değer orantılıdır.</p>
-                            <div class="chart-tags"><span>✅ Hiyerarşi</span><span>✅ Boyut</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Dosya boyutları, portföy dağılımı</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- KATEGORİ: İLİŞKİ / DİĞER -->
-            <div class="chart-section">
-                <h3 class="chart-cat-title"><span class="chart-cat-icon">🔗</span> İlişki ve Diğer Grafik Türleri</h3>
-                <div class="chart-grid">
-                    <div class="chart-card">
-                        <div class="chart-preview heatmap-preview"></div>
-                        <div class="chart-info">
-                            <strong>Isı Haritası (Heatmap)</strong>
-                            <p>Matris yapısındaki değerleri renk yoğunluğuyla gösterir. Korelasyon matrislerinde sık
-                                kullanılır.</p>
-                            <div class="chart-tags"><span>✅ Korelasyon</span><span>✅ Matris</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Değişkenler arası ilişki matrisi</div>
-                        </div>
-                    </div>
-                    <div class="chart-card">
-                        <div class="chart-preview bubble-preview"></div>
-                        <div class="chart-info">
-                            <strong>Balon Grafiği (Bubble Chart)</strong>
-                            <p>Scatter’a 3. boyut ekler: X, Y koordinatına ek olarak balonun büyüklüğü 3. değişkeni
-                                ifade eder.</p>
-                            <div class="chart-tags"><span>✅ 3 Değişken</span><span>✅ Boyut</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Ülke/şirket 3 metrik kıyaslaması</div>
-                        </div>
-                    </div>
-                    <div class="chart-card">
-                        <div class="chart-preview sankey-preview"></div>
-                        <div class="chart-info">
-                            <strong>Sankey / Akış Diyagramı</strong>
-                            <p>Akış miktarlarını gösterir. Bağlantı genişliği değerle orantılıdır.</p>
-                            <div class="chart-tags"><span>✅ Akış</span><span>✅ Kaynak-Hedef</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Enerji, para, trafik akışları</div>
-                        </div>
-                    </div>
-                    <div class="chart-card">
-                        <div class="chart-preview funnel-preview"></div>
-                        <div class="chart-info">
-                            <strong>Huni Grafiği (Funnel)</strong>
-                            <p>Aşamalar arası dönüşüm oranını gösterir. Her aşamada kayıp ne kadar?</p>
-                            <div class="chart-tags"><span>✅ Satış</span><span>✅ Dönüşüm</span></div>
-                            <div class="chart-when">🎯 <em>Ne Zaman:</em> Satış/pazarlama huni analizi</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- HANGI GRAFİĞİ SEÇMELİYİM? -->
-            <div class="chart-guide">
-                <h3 class="dt-scale-title">🧠 Hangi Grafiği Seçmeliyim?</h3>
-                <div class="chart-guide-grid" style="margin-top: 20px;">
-                    <div class="chart-guide-item">
-                        <span>📊 Kategoriler karşılaştırıyorum</span>
-                        <strong>→ Bar Grafiği</strong>
-                    </div>
-                    <div class="chart-guide-item">
-                        <span>⏱️ Zaman içindeki değişimi gösteriyorum</span>
-                        <strong>→ Çizgi / Alan Grafiği</strong>
-                    </div>
-                    <div class="chart-guide-item">
-                        <span>🔍 İki değişken arası ilişkiyi araştırıyorum</span>
-                        <strong>→ Saçılım / Isı Haritası</strong>
-                    </div>
-                    <div class="chart-guide-item">
-                        <span>🥧 Oranı / payı gösteriyorum</span>
-                        <strong>→ Halka / Treemap</strong>
-                    </div>
-                    <div class="chart-guide-item">
-                        <span>📆 Dağılım biçimini anlıyorum</span>
-                        <strong>→ Histogram / Violin</strong>
-                    </div>
-                    <div class="chart-guide-item">
-                        <span>💹 Finansal veri analiz ediyorum</span>
-                        <strong>→ Mum (Candlestick)</strong>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    
-        <!-- LOOP NAVIGASYON -->
-        <div style="display: flex; justify-content: center; align-items: center; margin-top: 60px; margin-bottom: 40px; padding-top: 30px; border-top: 1px solid var(--glass-border);">
-            <a href="javascript:void(0)" onclick="localStorage.setItem('returnQuickGuide', 'charts'); window.location.href='../../index.html#guides-section';" style="display: flex; align-items: center; gap: 10px; padding: 14px 32px; border-radius: 50px; background: rgba(56, 189, 248, 0.15); border: 1px solid var(--neon-blue); color: var(--neon-blue); text-decoration: none; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(56, 189, 248, 0.2); transition: all 0.3s ease;" onmouseover="this.style.background='var(--neon-blue)'; this.style.color='#fff'; this.style.boxShadow='0 8px 25px rgba(56, 189, 248, 0.4)';" onmouseout="this.style.background='rgba(56, 189, 248, 0.15)'; this.style.color='var(--neon-blue)'; this.style.boxShadow='0 4px 15px rgba(56, 189, 248, 0.2)';">
-                <i data-lucide="compass" style="width: 22px; height: 22px;"></i> Hızlı Analitik Rehberlere Dön
-            </a>
-        </div>
     </main>
 
     <script src="../../js/components.js"></script>
