@@ -66,6 +66,7 @@ body.formulas-page main.formulas-main {
 .chart-preview {
     min-width: 0 !important;
     width: 100% !important;
+    pointer-events: none !important;
 }
 
 @media (max-width: 1200px) {

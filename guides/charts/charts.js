@@ -707,7 +707,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 type: 'graph',
                 layout: 'force',
                 roam: false,
-                force: { repulsion: 100, edgeLength: 30 },
+                force: { repulsion: 100, edgeLength: 30, layoutAnimation: false },
                 itemStyle: { color: '#fbbf24', borderColor: '#fff', borderWidth: 2 },
                 lineStyle: { color: '#cbd5e1', width: 2 },
                 data: [
@@ -1203,7 +1203,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     type: 'lines',
                     coordinateSystem: 'cartesian2d',
                     lineStyle: { color: '#38bdf8', width: 2, curveness: 0.3, opacity: 0.6 },
-                    effect: { show: true, symbol: 'arrow', symbolSize: 6, trailLength: 0 },
+                    effect: { show: false, symbol: 'arrow', symbolSize: 6, trailLength: 0 },
                     data: [
                         { coords: [[20, 50], [50, 80]] },
                         { coords: [[50, 80], [80, 40]] },
