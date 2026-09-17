@@ -170,7 +170,71 @@
                 </div>
                 <div class="accordion-content">
                     <div class="accordion-inner">
-                        <p>3. Ders içeriği buraya gelecek...</p>
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Değişken Nedir?</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Değişkenler, programda kullanacağımız verileri saklamak için kullandığımız bellek alanları, yani <strong>şahsi kutularımızdır</strong>. Python'da bir değişken oluşturmak için ona bir isim verir ve içine bir değer atarız. Bu değişkenler program çalışırken içerisindeki değerleri veya türleri değiştirebilir.</p>
+                          
+                          <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                              <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-info"></i> Atama Operatörü (=)</h5>
+                              <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Python dilinde değişken atamak için <strong>"=" (eşittir)</strong> operatörü kullanılır. Her zaman <strong>değişkenin ismi solda, içine atılacak değer ise sağda</strong> yer alır.</p>
+                          </div>
+                          
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Değişken Atama Örnekleri</h4>
+                          
+                          <div class="code-box"><span class="syn-comment"># Temel Veri Tipleri ile Atama</span>
+<span class="syn-var">yas</span> = <span class="syn-number">25</span>                  <span class="syn-comment"># Integer (Tam Sayı)</span>
+<span class="syn-var">isim</span> = <span class="syn-string">"Python"</span>           <span class="syn-comment"># String (Metin)</span>
+<span class="syn-var">sicaklik</span> = <span class="syn-number">36.5</span>           <span class="syn-comment"># Float (Ondalıklı Sayı)</span>
+<span class="syn-var">kabul_edildi</span> = <span class="syn-kw">True</span>       <span class="syn-comment"># Boolean (Mantıksal - Doğru/Yanlış)</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">"Yaş:"</span>, yas)                        <span class="syn-comment"># Çıktı: Yaş: 25</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"İsim:"</span>, isim)                      <span class="syn-comment"># Çıktı: İsim: Python</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Sıcaklık:"</span>, sicaklik)              <span class="syn-comment"># Çıktı: Sıcaklık: 36.5</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Kabul Edildi mi?:"</span>, kabul_edildi)  <span class="syn-comment"># Çıktı: Kabul Edildi mi?: True</span>
+
+<span class="syn-comment"># Çoklu Atama (Aynı satırda birden fazla değişkene atama yapma)</span>
+<span class="syn-var">a</span>, <span class="syn-var">b</span>, <span class="syn-var">c</span> = <span class="syn-number">10</span>, <span class="syn-number">20</span>, <span class="syn-string">"Merhaba"</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"\nÇoklu atama -> a:"</span>, a, <span class="syn-string">"b:"</span>, b, <span class="syn-string">"c:"</span>, c) <span class="syn-comment"># Çıktı: Çoklu atama -> a: 10 b: 20 c: Merhaba</span>
+
+<span class="syn-comment"># Aynı Değeri Birden Fazla Değişkene Atama</span>
+<span class="syn-var">x</span> = <span class="syn-var">y</span> = <span class="syn-var">z</span> = <span class="syn-number">100</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"x, y, z değerleri:"</span>, x, y, z)      <span class="syn-comment"># Çıktı: x, y, z değerleri: 100 100 100</span></div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">Değişken İsimlendirme Kuralları</h4>
+                          
+                          <h5 style="color: var(--text-main); margin-bottom: 10px; font-size: 1.05rem; font-weight: 700;">1. Rakam ile başlayamaz:</h5>
+                          <div class="code-box"><span class="syn-comment"># 1sayi = 10       # YANLIŞ! SyntaxError (Sözdizimi hatası) verir.</span>
+<span class="syn-var">sayi1</span> = <span class="syn-number">10</span>         <span class="syn-comment"># DOĞRU!</span></div>
+
+                          <h5 style="color: var(--text-main); margin-bottom: 10px; font-size: 1.05rem; font-weight: 700;">2. Boşluk bırakılamaz:</h5>
+                          <p style="margin-bottom: 10px; line-height: 1.6; font-size: 0.95rem; color: var(--text-muted);">Boşluk yerine alt çizgi ( _ ) kullanılır. Bu yazım türüne Python'da <strong>snake_case</strong> denir ve çok yaygındır.</p>
+                          <div class="code-box"><span class="syn-comment"># ogrenci numarasi = 123  # YANLIŞ!</span>
+<span class="syn-var">ogrenci_numarasi</span> = <span class="syn-number">123</span>    <span class="syn-comment"># DOĞRU!</span></div>
+
+                          <h5 style="color: var(--text-main); margin-bottom: 10px; font-size: 1.05rem; font-weight: 700;">3. Özel Karakterler KULLANILAMAZ:</h5>
+                          <p style="margin-bottom: 10px; line-height: 1.6; font-size: 0.95rem; color: var(--text-muted);">Sadece harfler, rakamlar ve alt çizgi (_) kullanılabilir. (@, !, #, % vb.) kullanılamaz.</p>
+                          <div class="code-box"><span class="syn-comment"># mail@adresi = "a@a.com" # YANLIŞ!</span>
+<span class="syn-var">mail_adresi</span> = <span class="syn-string">"a@a.com"</span>   <span class="syn-comment"># DOĞRU!</span></div>
+
+                          <h5 style="color: var(--text-main); margin-bottom: 10px; font-size: 1.05rem; font-weight: 700;">4. Büyük-Küçük Harf Duyarlıdır (Case Sensitive):</h5>
+                          <div class="code-box"><span class="syn-var">Sayi</span> = <span class="syn-number">50</span>
+<span class="syn-var">sayi</span> = <span class="syn-number">100</span>
+<span class="syn-fn">print</span>(<span class="syn-string">f"Büyük 'S' ile: {Sayi}, Küçük 's' ile: {sayi}"</span>) 
+<span class="syn-comment"># Çıktı: Büyük 'S' ile: 50, Küçük 's' ile: 100</span>
+<span class="syn-comment"># (İkisi bellekte tamamen farklı yer tutan farklı değişkenlerdir.)</span></div>
+
+                          <h5 style="color: var(--text-main); margin-bottom: 10px; font-size: 1.05rem; font-weight: 700;">5. Özel Anahtar Kelimeler (Keywords) KULLANILAMAZ:</h5>
+                          <p style="margin-bottom: 10px; line-height: 1.6; font-size: 0.95rem; color: var(--text-muted);">Python'un kendi sistem komutları değişken ismi yapılamaz. (Örnek: if, for, while, def, class, True, False, and, or vb.)</p>
+                          <div class="code-box"><span class="syn-comment"># if = "Koşul"     # YANLIŞ! 'if' Python'a ait bir komuttur.</span></div>
+
+                          <h5 style="color: var(--text-main); margin-bottom: 10px; font-size: 1.05rem; font-weight: 700;">6. Türkçe Karakter Kullanımı:</h5>
+                          <p style="margin-bottom: 10px; line-height: 1.6; font-size: 0.95rem; color: var(--text-muted);">Python 3'te Türkçe karakter (ç, ş, ğ, ü, ö, ı) desteklense de, kodların evrensel standartlarda olması için KULLANILMAMASI önerilir.</p>
+                          <div class="code-box"><span class="syn-comment"># kullanıcı_yaşı = 20  # ÇALIŞIR, ancak iyi bir pratik değildir.</span>
+<span class="syn-var">kullanici_yasi</span> = <span class="syn-number">20</span>    <span class="syn-comment"># DOĞRU PRATİK!</span></div>
+
+                          <h5 style="color: var(--text-main); margin-bottom: 10px; font-size: 1.05rem; font-weight: 700;">7. Mantıklı ve Kısa İsimlendirme:</h5>
+                          <p style="margin-bottom: 10px; line-height: 1.6; font-size: 0.95rem; color: var(--text-muted);">Değişken isimleri mümkünse kısa olmalı, ancak anlamlı olmalıdır. Anlamlı isimler kodun okunabilirliğini artırır.</p>
+                          <div class="code-box"><span class="syn-comment"># Tum_Siniflardaki_Öğrenci_Sayısı = 30  # Anlamlı ama gereksiz uzun</span>
+<span class="syn-var">ogrenci_sayisi</span> = <span class="syn-number">30</span>                   <span class="syn-comment"># Anlamlı ve kısa (En doğrusu)</span></div>
                     </div>
                 </div>
             </div>
