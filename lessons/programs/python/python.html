@@ -72,6 +72,11 @@
                               <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Python dilinde <strong>"#"</strong> sembolü ile başlayan satırlar yorum satırlarıdır ve programın çalışmasını etkilemez. Genellikle yazdığımız kodun ne yaptığını açıklamak için kullanılır. Program buraları dikkate almaz, sadece kodu okuyan kişilere bilgi sağlar.</p>
                           </div>
                           
+                          <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                              <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-info"></i> Ekrana Yazdırma: print()</h5>
+                              <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Python'da bir veriyi, metni veya bir işlemin sonucunu ekranda (konsolda) görebilmek için <strong><code>print()</code></strong> fonksiyonunu kullanırız. Parantezlerin içerisine yazılan her şey ekrana bastırılır. Eğer birden fazla veriyi yan yana yazdırmak istiyorsak aralarına virgül <strong>(,)</strong> koyarız.</p>
+                          </div>
+                          
                           <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Tam Sayılar (Integers)</h4>
                           <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Aşağıda pozitif, negatif ve sıfır değerine sahip çeşitli tam sayı değişkenleri tanımlanmış ve <code>print()</code> fonksiyonu ile ekrana yazdırılmıştır.</p>
                           
@@ -253,9 +258,16 @@
 <span class="syn-var">tam_sayi_veri</span>  = <span class="syn-number">10</span>                        <span class="syn-comment"># int</span>
 <span class="syn-var">ondalikli_veri</span> = <span class="syn-number">3.14</span>                      <span class="syn-comment"># float</span>
 <span class="syn-var">mantiksal_veri</span> = <span class="syn-kw">True</span>                      <span class="syn-comment"># bool</span>
-<span class="syn-var">liste_veri</span>     = [<span class="syn-number">1</span>, <span class="syn-number">2</span>, <span class="syn-string">"Elma"</span>, <span class="syn-kw">True</span>]      <span class="syn-comment"># list</span>
+<span class="syn-var">liste_veri</span>     = [<span class="syn-number">1</span>, <span class="syn-number">2</span>, <span class="syn-string">"Elma"</span>, <span class="syn-kw">True</span>]      <span class="syn-comment"># list</span></div>
 
-<span class="syn-comment"># 2. BÖLÜM: DEĞİŞKENLERİ VE TİPLERİNİ YAZDIRMA</span>
+                          <div style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #F59E0B; padding: 15px 20px; border-radius: 4px; margin-bottom: 25px; margin-top: 15px;">
+                              <h5 style="color: #F59E0B; margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-warning"></i> Kaçış Dizileri: \n ve \t</h5>
+                              <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Print fonksiyonu içerisinde bazı özel komutlar kullanabiliriz:<br>
+                              • <strong>\n (New Line):</strong> Kendisinden sonra gelen metni <b>bir alt satıra</b> indirir (Enter tuşu görevi görür).<br>
+                              • <strong>\t (Tab):</strong> Metinler arasında klavyedeki TAB tuşuna basılmış gibi <b>uzun bir boşluk</b> bırakır (Çıktıları hizalamak için idealdir).</p>
+                          </div>
+
+                          <div class="code-box"><span class="syn-comment"># 2. BÖLÜM: DEĞİŞKENLERİ VE TİPLERİNİ YAZDIRMA</span>
 <span class="syn-fn">print</span>(<span class="syn-string">"--- EN TEMEL 5 VERİ TİPİ ---\n"</span>)
 
 <span class="syn-fn">print</span>(<span class="syn-string">f"1. str   (Metin)     : {metin_veri} \t Tipi: {type(metin_veri)}"</span>)
