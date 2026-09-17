@@ -447,6 +447,402 @@
 
             </div>
         </div>
+
+        <!-- KATEGORİ 4: İLİŞKİ GRAFİKLERİ -->
+        <div class="chart-section" id="cat-iliski" data-category="İlişki Grafikleri" style="display: none;">
+            <h2 class="chart-cat-title" style="text-align: left; justify-content: flex-start; display: flex; align-items: center; gap: 12px; margin-bottom: 30px; font-size: 1.6rem; color: var(--text-main);">
+                <i data-lucide="share-2" style="color: var(--neon-blue); width: 32px; height: 32px;"></i> 
+                Değişkenler Arası İlişki ve Korelasyon
+            </h2>
+            <div class="chart-grid">
+                
+                <!-- 1. Scatter Plot -->
+                <div class="chart-card chart-item" data-title="saçılım grafiği scatter plot">
+                    <div class="chart-preview" id="preview-scatter" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Saçılım Grafiği (Scatter Plot)</strong>
+                        <p>İki sayısal değişken arasındaki korelasyonu (yönü, gücü, doğrusal olup olmadığını) noktalarla gösterir.</p>
+                        <div class="chart-tags"><span>✅ İlişki</span><span>✅ 2 Boyutlu</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> İki farklı metrik arasında bağ veya nedensellik ararken standart araçtır.</div>
+                    </div>
+                </div>
+
+                <!-- 2. Bubble Chart -->
+                <div class="chart-card chart-item" data-title="balon grafiği bubble chart">
+                    <div class="chart-preview" id="preview-bubble" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Balon Grafiği (Bubble Chart)</strong>
+                        <p>Saçılım grafiğine üçüncü bir sayıyı, noktaların (balonların) büyüklüğü olarak ekler (bazen renkle de dördüncü eklenebilir).</p>
+                        <div class="chart-tags"><span>✅ 3 Boyutlu Veri</span><span>✅ Karşılaştırma</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> X ve Y ilişkisine ek olarak "hacim" veya "etki" faktörünü de görmek gerektiğinde.</div>
+                    </div>
+                </div>
+
+                <!-- 3. Heatmap -->
+                <div class="chart-card chart-item" data-title="ısı haritası heatmap">
+                    <div class="chart-preview" id="preview-heatmap" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Isı Haritası (Heatmap)</strong>
+                        <p>İki kategorik değişkenin kesişimindeki sayısal büyüklükleri renk tonlarıyla matris halinde kodlar.</p>
+                        <div class="chart-tags"><span>✅ Yoğunluk</span><span>✅ Renk Kodlaması</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Çapraz tabloları veya gün/saat gibi iki eksenli desenleri hızlıca analiz ederken.</div>
+                    </div>
+                </div>
+
+                <!-- 4. Correlogram -->
+                <div class="chart-card chart-item" data-title="korelasyon matrisi correlogram">
+                    <div class="chart-preview" id="preview-corr-matrix" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Korelasyon Matrisi</strong>
+                        <p>Çok sayıda değişkenin birbiriyle olan tüm ikili korelasyon katsayılarını renkler ve dairelerle görselleştirir.</p>
+                        <div class="chart-tags"><span>✅ Çok Değişkenli</span><span>✅ Korelasyon</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Hangi özelliklerin (feature) birbirini güçlü şekilde etkilediğini veya tekrarladığını bulurken.</div>
+                    </div>
+                </div>
+
+                <!-- 5. Hexbin Plot -->
+                <div class="chart-card chart-item" data-title="altıgen kutu grafiği hexbin">
+                    <div class="chart-preview" id="preview-hexbin" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Altıgen Kutu (Hexbin Plot)</strong>
+                        <p>Saçılım grafiğinde çok fazla nokta üst üste binip okunmaz olduğunda alanı altıgenlere böler ve nokta sayısını renkle gösterir.</p>
+                        <div class="chart-tags"><span>✅ Büyük Veri</span><span>✅ 2D Yoğunluk</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> On binlerce noktalık devasa verilerde saçılım grafiği "kara bir leke"ye dönüştüğünde.</div>
+                    </div>
+                </div>
+
+                <!-- 6. Network Graph -->
+                <div class="chart-card chart-item" data-title="ağ grafiği network graph">
+                    <div class="chart-preview" id="preview-network" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Ağ Grafiği (Network)</strong>
+                        <p>Düğümler (nodes) ve onları birbirine bağlayan kenarlar (edges) ile karmaşık ilişkiler ağını haritalandırır.</p>
+                        <div class="chart-tags"><span>✅ Bağlantı</span><span>✅ Ağ Mimarisi</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Sosyal ağlar, bilgi sistemleri veya gruplar arası etkileşim haritaları çıkarırken.</div>
+                    </div>
+                </div>
+
+                <!-- 7. Chord Diagram -->
+                <div class="chart-card chart-item" data-title="kiriş diyagramı chord">
+                    <div class="chart-preview" id="preview-chord" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Kiriş Diyagramı (Chord)</strong>
+                        <p>Ögeleri bir çember etrafına dizer ve aralarındaki geçişleri/bağlantıları çemberi kesen kavisli şeritlerle çizer.</p>
+                        <div class="chart-tags"><span>✅ Akış (Flow)</span><span>✅ Simetri</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Gruplar arası veri akışını veya karşılıklı güçlü etkileşimleri estetikçe sunarken.</div>
+                    </div>
+                </div>
+
+                <!-- 8. Scatter Matrix -->
+                <div class="chart-card chart-item" data-title="serpilme matrisi scatter matrix pairs plot">
+                    <div class="chart-preview" id="preview-pairs" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Serpilme Matrisi (Pairs Plot)</strong>
+                        <p>Tüm değişken kombinasyonlarının kendi aralarındaki saçılım grafiklerini tek bir dev matris üzerinde gösterir.</p>
+                        <div class="chart-tags"><span>✅ Keşif (EDA)</span><span>✅ Bütünsel Bakış</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Veri setiyle ilk tanışıldığında (Keşifsel Veri Analizi) genel resmi anında kavramak için.</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- KATEGORİ 5: PARÇA-BÜTÜN GRAFİKLERİ -->
+        <div class="chart-section" id="cat-parca" data-category="Parça-Bütün Grafikleri" style="display: none;">
+            <h2 class="chart-cat-title" style="text-align: left; justify-content: flex-start; display: flex; align-items: center; gap: 12px; margin-bottom: 30px; font-size: 1.6rem; color: var(--text-main);">
+                <i data-lucide="pie-chart" style="color: var(--neon-blue); width: 32px; height: 32px;"></i> 
+                Parça-Bütün İlişkisi ve Kompozisyon
+            </h2>
+            <div class="chart-grid">
+                
+                <!-- 1. Pie Chart -->
+                <div class="chart-card chart-item" data-title="pasta grafiği pie chart">
+                    <div class="chart-preview" id="preview-pie" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Pasta Grafiği (Pie Chart)</strong>
+                        <p>Bir bütünün parçalarını (yüzdelerini) daire dilimleri şeklinde gösterir.</p>
+                        <div class="chart-tags"><span>✅ Klasik</span><span>✅ Yüzde</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Parça sayısı çok az (2-4) olduğunda ve net bir çoğunluk vurgulanmak istendiğinde.</div>
+                    </div>
+                </div>
+
+                <!-- 2. Donut Chart -->
+                <div class="chart-card chart-item" data-title="halka grafiği donut chart">
+                    <div class="chart-preview" id="preview-donut" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Halka Grafiği (Donut)</strong>
+                        <p>Ortası boş bırakılmış pasta grafiğidir, boşluğa toplam değer veya ikon eklenebilir.</p>
+                        <div class="chart-tags"><span>✅ Modern</span><span>✅ KPI Odaklı</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Dilimlerin oranını gösterirken merkezde ana bir mesaj (Toplam Satış vb.) verilmek istendiğinde.</div>
+                    </div>
+                </div>
+
+                <!-- 3. Treemap -->
+                <div class="chart-card chart-item" data-title="ağaç haritası treemap">
+                    <div class="chart-preview" id="preview-treemap" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Treemap (Ağaç Haritası)</strong>
+                        <p>Hiyerarşik verileri iç içe geçmiş dikdörtgenler olarak gösterir. Alan büyüklüğü değeri temsil eder.</p>
+                        <div class="chart-tags"><span>✅ Hiyerarşi</span><span>✅ Çoklu Kategori</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Yüzlerce alt kategorinin devasa bir bütün içindeki payını (örneğin bütçe kırılımı) tek bakışta sunarken.</div>
+                    </div>
+                </div>
+
+                <!-- 4. Waterfall Chart -->
+                <div class="chart-card chart-item" data-title="şelale grafiği waterfall chart">
+                    <div class="chart-preview" id="preview-waterfall" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Şelale Grafiği (Waterfall)</strong>
+                        <p>Başlangıç değerinin pozitif ve negatif eklemelerle nihai (toplam) değere nasıl ulaştığını adımlarla gösterir.</p>
+                        <div class="chart-tags"><span>✅ Finansal</span><span>✅ Adım Adım</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Bilanço, kar-zarar tablosu veya gelirdeki artış/azalış adımlarını raporlarken.</div>
+                    </div>
+                </div>
+
+                <!-- 5. Sunburst Chart -->
+                <div class="chart-card chart-item" data-title="güneş ışını grafiği sunburst chart">
+                    <div class="chart-preview" id="preview-sunburst" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Güneş Işını (Sunburst)</strong>
+                        <p>Çok katmanlı (hiyerarşik) veriyi içten dışa doğru genişleyen halkalarla gösterir.</p>
+                        <div class="chart-tags"><span>✅ Çok Katmanlı</span><span>✅ Merkezcil</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Pasta grafiği yetersiz kaldığında ve kırılımların (Alt kategorilerin) kırılımlarını dairesel estetikle göstermek gerektiğinde.</div>
+                    </div>
+                </div>
+
+                <!-- 6. %100 Stacked Bar Chart -->
+                <div class="chart-card chart-item" data-title="%100 yığılmış bar yüzde stacked">
+                    <div class="chart-preview" id="preview-100-stacked" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>%100 Yığılmış Bar Grafiği</strong>
+                        <p>Her bir sütunun uzunluğunu %100'e eşitleyerek, içindeki alt kategorilerin oransal dağılımını gösterir.</p>
+                        <div class="chart-tags"><span>✅ Oransal</span><span>✅ Karşılaştırma</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Grupların mutlak büyüklüklerinden ziyade, içlerindeki oransal dağılımın zamanla veya gruptan gruba nasıl değiştiğini kıyaslarken.</div>
+                    </div>
+                </div>
+
+                <!-- 7. Waffle Chart -->
+                <div class="chart-card chart-item" data-title="waffle grafiği waffle chart kare pasta">
+                    <div class="chart-preview" id="preview-waffle" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Waffle Grafiği</strong>
+                        <p>10x10'luk bir kare ızgarada yüzdeleri boyalı kare sayısıyla gösterir (Pasta grafiğine harika bir alternatiftir).</p>
+                        <div class="chart-tags"><span>✅ Yüzde</span><span>✅ İnografik</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Dashboard'larda veya infografiklerde yüzdelik başarıyı daha okunaklı ve modern sunmak için.</div>
+                    </div>
+                </div>
+
+                <!-- 8. Marimekko / Mozaik Chart -->
+                <div class="chart-card chart-item" data-title="mozaik marimekko grafiği">
+                    <div class="chart-preview" id="preview-marimekko" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Mozaik / Marimekko Grafiği</strong>
+                        <p>Yığılmış sütun grafiğine benzer, ancak sütunların sadece boyları değil, genişlikleri (X ekseni) de bir değeri temsil eder.</p>
+                        <div class="chart-tags"><span>✅ Çift Orantı</span><span>✅ Pazar Payı</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Sektördeki firmaların hem pazar payı büyüklüklerini hem de kendi içlerindeki ürün dağılımlarını aynı anda (2 eksenli) çizerken.</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- KATEGORİ 6: AKIŞ GRAFİKLERİ -->
+        <div class="chart-section" id="cat-akis" data-category="Akış Grafikleri" style="display: none;">
+            <h2 class="chart-cat-title" style="text-align: left; justify-content: flex-start; display: flex; align-items: center; gap: 12px; margin-bottom: 30px; font-size: 1.6rem; color: var(--text-main);">
+                <i data-lucide="git-merge" style="color: var(--neon-blue); width: 32px; height: 32px;"></i> 
+                Süreç, Akış ve Dönüşüm (Flow & Pipeline)
+            </h2>
+            <div class="chart-grid">
+                
+                <!-- 1. Sankey Diagram -->
+                <div class="chart-card chart-item" data-title="sankey akış diyagramı">
+                    <div class="chart-preview" id="preview-sankey" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Sankey Diyagramı</strong>
+                        <p>Enerji, malzeme veya maliyet transferlerini, genişlikleri miktarla orantılı oklar/şeritler halinde çizer.</p>
+                        <div class="chart-tags"><span>✅ Transfer</span><span>✅ Akışkanlık</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> "Nereden geldi, nereye gitti?" sorusuna (özellikle para, trafik ve enerji) cevap ararken.</div>
+                    </div>
+                </div>
+
+                <!-- 2. Funnel Chart -->
+                <div class="chart-card chart-item" data-title="huni grafiği funnel">
+                    <div class="chart-preview" id="preview-funnel" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Huni Grafiği (Funnel)</strong>
+                        <p>Doğrusal bir süreçte, her aşamada yaşanan kayıpları (düşüşleri) giderek daralan bir huni şeklinde gösterir.</p>
+                        <div class="chart-tags"><span>✅ Dönüşüm</span><span>✅ Satış</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Satış süreçlerinde veya web sitelerindeki dönüşüm hunilerindeki darboğazları bulurken.</div>
+                    </div>
+                </div>
+
+                <!-- 3. Alluvial Diagram -->
+                <div class="chart-card chart-item" data-title="alüvyal diyagram alluvial">
+                    <div class="chart-preview" id="preview-alluvial" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Alüvyal Diyagram</strong>
+                        <p>Farklı zaman aralıklarında veya durumlarda ağ ağ yapılarındaki kompozisyon değişimlerini katı sütunlar arası akışla gösterir.</p>
+                        <div class="chart-tags"><span>✅ Yapısal Değişim</span><span>✅ Zaman/Durum</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Kullanıcıların ardışık yıllar veya aşamalar boyunca nasıl grup veya segment değiştirdiğini izlerken.</div>
+                    </div>
+                </div>
+
+                <!-- 4. Dendrogram -->
+                <div class="chart-card chart-item" data-title="bağlantı ağacı dendrogram">
+                    <div class="chart-preview" id="preview-dendrogram" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Bağlantı Ağacı (Dendrogram)</strong>
+                        <p>Ögelerin birbirleriyle olan benzerliklerine göre nasıl hiyerarşik kümelere ayrıldığını dallanan bir ağaç gibi gösterir.</p>
+                        <div class="chart-tags"><span>✅ Kümeleme</span><span>✅ Taksonomi</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Makine öğrenmesinde hiyerarşik kümeleme (clustering) sonuçlarını ve mesafeleri görselleştirirken.</div>
+                    </div>
+                </div>
+
+                <!-- 5. Cumulative Flow Diagram -->
+                <div class="chart-card chart-item" data-title="kümülatif akış diyagramı cumulative flow">
+                    <div class="chart-preview" id="preview-cfd" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Kümülatif Akış (CFD)</strong>
+                        <p>İş kalemlerinin farklı aşamalardaki (Yapılacak, Devam Eden, Biten) sayısını zaman içinde yığılmış alanlar olarak gösterir.</p>
+                        <div class="chart-tags"><span>✅ Çevik (Agile)</span><span>✅ Darboğaz</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Kanban ve Scrum takımlarında iş akışının sağlığını ve tıkanma (bottleneck) noktalarını analiz ederken.</div>
+                    </div>
+                </div>
+
+                <!-- 6. Flowchart -->
+                <div class="chart-card chart-item" data-title="akış şeması flowchart">
+                    <div class="chart-preview" id="preview-flowchart" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Akış Şeması (Flowchart)</strong>
+                        <p>Bir algoritmanın, iş akışının veya sürecin adım adım ilerleyişini yönlü oklar ve farklı şekillerle tanımlar.</p>
+                        <div class="chart-tags"><span>✅ Mantık</span><span>✅ Algoritma</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Yazılım geliştirirken, karar süreçlerini veya operasyonel prosedürleri standartlaştırmak gerektiğinde.</div>
+                    </div>
+                </div>
+
+                <!-- 7. Decision Tree -->
+                <div class="chart-card chart-item" data-title="karar ağacı decision tree">
+                    <div class="chart-preview" id="preview-decision" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Karar Ağacı (Decision Tree)</strong>
+                        <p>Belirli koşullara (Evet/Hayır veya değer) göre dallanarak nihai bir sonuca ulaşan tahmin modelidir.</p>
+                        <div class="chart-tags"><span>✅ Koşullu</span><span>✅ Tahmin</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Kurallara dayalı bir sınıflandırma algoritmasının mantığını insan tarafından okunabilir şekilde sunarken.</div>
+                    </div>
+                </div>
+
+                <!-- 8. State Transition Diagram -->
+                <div class="chart-card chart-item" data-title="durum geçiş diyagramı state transition">
+                    <div class="chart-preview" id="preview-state" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Durum Geçiş Diyagramı</strong>
+                        <p>Sistemin sahip olabileceği sonlu durumları (state) ve olaylar karşısında bu durumlar arası geçişleri (oklar) modeller.</p>
+                        <div class="chart-tags"><span>✅ Sistem</span><span>✅ Olay Güdümlü</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Otomatların, yazılım yaşam döngülerinin veya donanım cihazlarının durum makinelerini tasarlarken.</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- KATEGORİ 7: HARİTA GRAFİKLERİ -->
+        <div class="chart-section" id="cat-harita" data-category="Harita Grafikleri" style="display: none;">
+            <h2 class="chart-cat-title" style="text-align: left; justify-content: flex-start; display: flex; align-items: center; gap: 12px; margin-bottom: 30px; font-size: 1.6rem; color: var(--text-main);">
+                <i data-lucide="map" style="color: var(--neon-blue); width: 32px; height: 32px;"></i> 
+                Mekansal ve Coğrafi Analizler (Geospatial)
+            </h2>
+            <div class="chart-grid">
+                
+                <!-- 1. Choropleth Map -->
+                <div class="chart-card chart-item" data-title="koroplet harita choropleth">
+                    <div class="chart-preview" id="preview-choropleth" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Koroplet Harita (Choropleth)</strong>
+                        <p>Bölgeleri (ülke, şehir, ilçe) taşıdıkları veri değerine göre açıktan koyuya doğru renklendiren standart istatistik haritasıdır.</p>
+                        <div class="chart-tags"><span>✅ Bölgesel</span><span>✅ Renk Skalası</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Nüfus yoğunluğu, kişi başı gelir, seçim sonuçları gibi bölge bazlı oranları kıyaslarken.</div>
+                    </div>
+                </div>
+
+                <!-- 2. Dot Density Map -->
+                <div class="chart-card chart-item" data-title="nokta yoğunluk haritası dot density">
+                    <div class="chart-preview" id="preview-dot-density" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Nokta Yoğunluk Haritası</strong>
+                        <p>Her bir noktanın belirli bir sayıyı/kişiyi temsil ettiği, noktaların sıklaştığı yerlerde yoğunluğu vurgulayan haritalardır.</p>
+                        <div class="chart-tags"><span>✅ Dağılım</span><span>✅ Kesin Konum</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Verinin idari sınırlara bağlı kalmadan gerçek hayatta nerelerde kümelendiğini göstermek için.</div>
+                    </div>
+                </div>
+
+                <!-- 3. Cartogram -->
+                <div class="chart-card chart-item" data-title="kartogram cartogram">
+                    <div class="chart-preview" id="preview-cartogram" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Kartogram (Cartogram)</strong>
+                        <p>Bölgelerin coğrafi boyutlarını değil, sahip oldukları verinin büyüklüğünü (örn. nüfus) yansıtacak şekilde şekillerini şişiren haritadır.</p>
+                        <div class="chart-tags"><span>✅ Veri Odaklı</span><span>✅ Deforme</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Fiziksel olarak küçük ama verisel olarak devasa (veya tam tersi) bölgelerin yarattığı görsel yanılgıyı kırmak için.</div>
+                    </div>
+                </div>
+
+                <!-- 4. Connection / Flow Map -->
+                <div class="chart-card chart-item" data-title="bağlantı haritası flow map">
+                    <div class="chart-preview" id="preview-connection-map" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Bağlantı Haritası (Flow Map)</strong>
+                        <p>Coğrafi noktalar arasındaki hareketi (göç, uçuş, ticaret) birbirine bağlanan kavisli veya yönlü çizgilerle gösterir.</p>
+                        <div class="chart-tags"><span>✅ Hareket</span><span>✅ Lojistik</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Küresel tedarik zincirlerini, uçuş rotalarını veya bölgesel göç dalgalarını analiz ederken.</div>
+                    </div>
+                </div>
+
+                <!-- 5. Proportional Symbol Map -->
+                <div class="chart-card chart-item" data-title="oransal sembol haritası proportional">
+                    <div class="chart-preview" id="preview-prop-symbol" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Oransal Sembol Haritası</strong>
+                        <p>Harita üzerindeki spesifik konumlara, o konumdaki değeri yansıtacak büyüklükte dairesel (veya farklı) semboller yerleştirir.</p>
+                        <div class="chart-tags"><span>✅ Sembol</span><span>✅ Miktar</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Bir şehrin sınırları içindeki üretimi değil de, spesifik bir fabrikanın/mağazanın hacmini vurgularken.</div>
+                    </div>
+                </div>
+
+                <!-- 6. Spatial Heatmap -->
+                <div class="chart-card chart-item" data-title="coğrafi ısı haritası spatial heatmap">
+                    <div class="chart-preview" id="preview-spatial-heatmap" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Coğrafi Isı Haritası</strong>
+                        <p>Noktasal verilerin oluşturduğu yoğunluğu yumuşak renk geçişleriyle (genelde kırmızı, sarı, yeşil) haritaya yansıtır.</p>
+                        <div class="chart-tags"><span>✅ Sıcaklık</span><span>✅ Kapsamlı</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Suç oranları, taksi çağrıları veya hastalık vakalarının en çok "yandığı" (sıcak noktalar) bölgeleri ararken.</div>
+                    </div>
+                </div>
+
+                <!-- 7. Hexbin Map -->
+                <div class="chart-card chart-item" data-title="altıgen kutu haritası hexbin map">
+                    <div class="chart-preview" id="preview-hexbin-map" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>Altıgen Kutu Haritası (Hexbin)</strong>
+                        <p>Haritayı eşit altıgen (petek) alanlara bölerek, her altıgenin içindeki veri yoğunluğunu renkle ifade eder.</p>
+                        <div class="chart-tags"><span>✅ Eşit Alan</span><span>✅ İstatistik</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Farklı büyüklükteki eyalet/ilçe sınırlarının yarattığı alansal önyargıları ortadan kaldırmak için.</div>
+                    </div>
+                </div>
+
+                <!-- 8. Isoline / Contour Map -->
+                <div class="chart-card chart-item" data-title="izolin kontur haritası contour map">
+                    <div class="chart-preview" id="preview-contour" style="height: 160px; width: 100%; background: transparent;"></div>
+                    <div class="chart-info">
+                        <strong>İzolin / Kontur Haritası</strong>
+                        <p>Aynı değere sahip noktaları birleştiren eğrilerle eş-yükselti, eş-basınç veya eş-sıcaklık (topografik) haritaları oluşturur.</p>
+                        <div class="chart-tags"><span>✅ Sürekli Veri</span><span>✅ Topografya</span></div>
+                        <div class="chart-when">🎯 <em>Ne Zaman:</em> Hava durumu (sıcaklık/basınç), rakım veya manyetik alanlar gibi sürekli uzamsal verileri modellerken.</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </main>
 
     <!-- ECharts Kütüphanesi -->
