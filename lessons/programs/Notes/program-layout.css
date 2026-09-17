@@ -110,6 +110,7 @@
 }
 
 .right-column {
+    position: -webkit-sticky;
     position: sticky;
     top: 100px;
     align-self: start;
@@ -120,6 +121,7 @@
     flex-direction: column;
     min-width: 0;
     max-width: 100%;
+    overflow-y: auto; /* İsteğe bağlı: içerik çok uzunsa panelin içinde kaydırılabilmesi için */
 }
 
 .notepad-title {
@@ -748,3 +750,11 @@ body.theme-mono-dark .syn-fn { color: #FFD180; }
 #fullscreen-viewer-modal .syn-fn { color: #FFD180 !important; }
 #fullscreen-viewer-modal .syn-var { color: #e2e8f0 !important; font-weight: bold !important; }
 
+
+/* Sticky panelin calisabilmesi icin body overflow-x degeri gecersiz kiliniyor */
+body {
+    overflow-x: visible !important;
+}
+html {
+    overflow-x: visible !important;
+}
