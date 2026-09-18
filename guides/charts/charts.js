@@ -63,6 +63,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 searchInput.value = '';
                 chartItems.forEach(item => item.style.display = 'flex');
             }
+
+            // Seçilen kategori başlığına pürüzsüz (smooth) şekilde kaydır
+            const activeSection = Array.from(chartSections).find(sec => sec.getAttribute('data-category') === categoryName);
+            if (activeSection) {
+                const navHeight = 90; // Üstteki sabit menü için boşluk payı
+                const sectionTop = activeSection.getBoundingClientRect().top + window.scrollY - navHeight;
+                window.scrollTo({
+                    top: sectionTop,
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 
