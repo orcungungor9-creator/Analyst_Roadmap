@@ -1315,3 +1315,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 });
+
+// En Başa Dön Butonu İşlevi
+document.addEventListener('DOMContentLoaded', () => {
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Lucide ikonlarını yeniden tetikle (eğer daha önceden yüklenmediyse)
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    }
+});
