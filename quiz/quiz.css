@@ -1,4 +1,4 @@
-/* quiz Page Styles */
+﻿/* quiz Page Styles */
 
 body.formulas-page {
     display: flex;
@@ -506,6 +506,7 @@ body.theme-light-emerald .formulas-hero .hero-subtitle {
         font-size: 2.2rem !important;
     }
     .moduler-title {
+    color: var(--neon-blue);
         font-size: 1.5rem;
     }
     
@@ -572,3 +573,9 @@ body.theme-light-emerald .formulas-hero .hero-subtitle {
 .test-module-card.sql-card .test-module-btn { border-color: #0284c7; background: #0284c7; color: #fff; }
 .test-module-card.sql-card:hover .test-module-btn { background: transparent; color: #0284c7; box-shadow: 0 0 15px rgba(2, 132, 199, 0.5); }
 
+
+/* ENFORCING TITLE COLOR AND REMOVING BLACK SHADOW ACROSS ALL THEMES */
+h1.moduler-title {
+    color: var(--neon-blue) !important;
+    text-shadow: 0 0 20px var(--neon-blue-glow) !important;
+}
