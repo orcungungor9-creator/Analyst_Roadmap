@@ -65,14 +65,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Seçilen kategori başlığına pürüzsüz (smooth) şekilde kaydır
-            const activeSection = Array.from(chartSections).find(sec => sec.getAttribute('data-category') === categoryName);
-            if (activeSection) {
+            const filterContainer = document.querySelector('.charts-filter-container');
+            if (filterContainer) {
                 const navHeight = 90; // Üstteki sabit menü için boşluk payı
-                const sectionTop = activeSection.getBoundingClientRect().top + window.scrollY - navHeight;
-                window.scrollTo({
-                    top: sectionTop,
-                    behavior: 'smooth'
-                });
+                const containerTop = filterContainer.getBoundingClientRect().top + window.scrollY - navHeight;
+                
+                // Eğer sayfanın en üstlerindeysek ve butonlara tıklıyorsak çok ufak bir kayma olmasın
+                if (Math.abs(window.scrollY - containerTop) > 20) {
+                    window.scrollTo({
+                        top: containerTop,
+                        behavior: 'smooth'
+                    });
+                }
             }
         });
     });
@@ -80,29 +84,48 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
     // 3. ECHARTS İLE GRAFİK ÖNİZLEMELERİNİ ÇİZME (RESIZEOBSERVER)
     // ==========================================
-    if (typeof echarts !== 'undefined') {
+    const initCharts = () => {
         const commonOptions = {
             animation: false, // Performans için küçük önizlemelerde animasyon kapalı
             tooltip: { show: false },
             grid: { left: 5, right: 5, top: 5, bottom: 5 }
         };
 
+        const chartOptionsMap = new Map();
+        
+        const chartObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const option = chartOptionsMap.get(el.id);
+                    if (option && !el.getAttribute('_echarts_instance_')) {
+                        // Ekrana giren grafiği çizdir (setTimeout ile UI thread'i rahatlatarak)
+                        setTimeout(() => {
+                            const chart = echarts.init(el);
+                            chart.setOption(Object.assign({}, commonOptions, option));
+                            
+                            // ÇÖZÜM 2: ResizeObserver ile tam otomatik boyutlandırma
+                            if (window.ResizeObserver) {
+                                const resizeObserver = new ResizeObserver(() => {
+                                    chart.resize();
+                                });
+                                resizeObserver.observe(el);
+                            } else {
+                                window.addEventListener('resize', () => chart.resize());
+                            }
+                        }, 0);
+                    }
+                    observer.unobserve(el);
+                }
+            });
+        }, { rootMargin: '600px' }); // Ekrana 600px yaklaşınca çizmeye başla
+
         const renderChart = (id, option) => {
             const el = document.getElementById(id);
-            if (!el || el.getAttribute('_echarts_instance_')) return;
-            
-            const chart = echarts.init(el);
-            chart.setOption(Object.assign({}, commonOptions, option));
-            
-            // ÇÖZÜM 2: ResizeObserver ile tam otomatik boyutlandırma
-            if (window.ResizeObserver) {
-                const resizeObserver = new ResizeObserver(() => {
-                    chart.resize();
-                });
-                resizeObserver.observe(el);
-            } else {
-                window.addEventListener('resize', () => chart.resize());
-            }
+            if (!el) return;
+            // Seçenekleri hafızaya al ve elementi gözlemlemeye başla (Tembel Yükleme - Lazy Loading)
+            chartOptionsMap.set(id, option);
+            chartObserver.observe(el);
         };
 
         // KATEGORİ 1: SIRALAMA GRAFİKLERİ
@@ -1312,8 +1335,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 { type: 'scatter', symbol: 'circle', symbolSize: 40, itemStyle: { color: 'none', borderColor: '#7dd3fc', borderWidth: 1.5 }, data: [[78, 28]] }
             ]
         });
+    };
 
-    }
+    // ECharts kütüphanesini asenkron (dinamik) olarak yükle (DOM blocking'i ve Navbar gecikmesini tamamen önlemek için)
+    const loadECharts = () => {
+        if (typeof echarts !== 'undefined') {
+            initCharts();
+            return;
+        }
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js';
+        script.onload = initCharts;
+        document.body.appendChild(script);
+    };
+
+    // Navbar'ın anında yüklenmesine izin ver, grafikleri bir tık sonra başlat
+    setTimeout(loadECharts, 50);
 });
 
 // En Başa Dön Butonu İşlevi

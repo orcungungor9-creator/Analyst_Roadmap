@@ -10,6 +10,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap"
         rel="stylesheet">
+    
+    <!-- ECharts kütüphanesini arka planda olabildiğince erken indirmeye başla (hız artışı için) -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js" as="script">
 </head>
 
 <body class="formulas-page">
@@ -852,13 +855,11 @@
         </div>
     </main>
 
-    <!-- ECharts Kütüphanesi -->
-    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
-
+    <!-- Temel Arayüz Bileşenleri (Sayfa düzeni için önce yüklenmeli) -->
     <script src="../../js/components.js"></script>
-
     <script src="../../js/nav.js"></script>
     <script src="../../js/modal.js"></script>
+
     <script src="../../js/script.js"></script>
     <script src="charts.js"></script>
 </body>
