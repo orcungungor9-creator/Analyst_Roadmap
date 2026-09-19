@@ -1,39 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const searchInput = document.getElementById('chartSearch');
     const filterBtns = document.querySelectorAll('.charts-category-btn');
-    const chartItems = document.querySelectorAll('.chart-item');
-    const chartSections = document.querySelectorAll('.chart-section'); // For future sections
+    const chartSections = document.querySelectorAll('.chart-section');
 
-    // 1. Arama İşlevi
-    if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-            const searchTerm = e.target.value.toLowerCase().trim();
-            
-            // Tüm kartları filtrele
-            chartItems.forEach(item => {
-                const title = item.getAttribute('data-title') || '';
-                const textContent = item.textContent.toLowerCase();
-                
-                if (title.includes(searchTerm) || textContent.includes(searchTerm)) {
-                    item.style.display = 'flex';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-
-            // Eğer bölüm içindeki tüm kartlar gizlendiyse başlığı da gizle (opsiyonel geliştirmeler için)
-            chartSections.forEach(section => {
-                const visibleCards = section.querySelectorAll('.chart-item[style="display: flex;"], .chart-item:not([style*="display: none"])');
-                if (visibleCards.length === 0) {
-                    section.style.display = 'none';
-                } else {
-                    section.style.display = 'block';
-                }
-            });
-        });
-    }
-
-    // 2. Kategori Filtreleme (Butonlara Tıklama)
+    // Kategori Filtreleme (Butonlara Tıklama)
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             // Aktif butonu değiştir
@@ -41,45 +10,54 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.classList.add('active');
 
             const categoryName = btn.textContent.trim();
+            let activeSection = null;
             
-            // Eğer "Tümü" gibi bir mantık eklenecekse burası genişletilebilir.
-            // Şimdilik, sadece tıklanan kategori ile eşleşen bölümü göstereceğiz.
-            
-            chartSections.forEach(section => {
-                // Burada data-category özelliği ile kontrol yapıyoruz
+            chartSections.forEach((section, index) => {
                 const sectionCat = section.getAttribute('data-category');
                 
-                // Eğer bölümün kategorisi tıklanan butona eşitse göster
-                if (sectionCat === categoryName) {
+                if (categoryName === 'Tüm Grafikler') {
                     section.style.display = 'block';
+                    // Tüm grafikler seçildiğinde en üstteki (ilk) başlığa kaydır
+                    if (index === 0) activeSection = section;
+                } else if (sectionCat === categoryName) {
+                    section.style.display = 'block';
+                    activeSection = section;
                 } else if (sectionCat) {
-                    // Eşleşmiyorsa gizle
                     section.style.display = 'none'; 
                 }
             });
             
-            // Filtre tıklandığında aramayı sıfırla
-            if(searchInput) {
-                searchInput.value = '';
-                chartItems.forEach(item => item.style.display = 'flex');
-            }
-
             // Seçilen kategori başlığına pürüzsüz (smooth) şekilde kaydır
-            const filterContainer = document.querySelector('.charts-filter-container');
-            if (filterContainer) {
-                const navHeight = 90; // Üstteki sabit menü için boşluk payı
-                const containerTop = filterContainer.getBoundingClientRect().top + window.scrollY - navHeight;
+            if (activeSection) {
+                // Navbar yüksekliği ve ekstra boşluk payı (tam başlığın olduğu hizaya kaydırmak için)
+                const navHeight = 90; 
+                // Biraz offset veriyoruz ki navbar başlığa tam yapışmasın (görseldeki hizalamaya göre)
+                const offset = 20;
                 
-                // Eğer sayfanın en üstlerindeysek ve butonlara tıklıyorsak çok ufak bir kayma olmasın
-                if (Math.abs(window.scrollY - containerTop) > 20) {
-                    window.scrollTo({
-                        top: containerTop,
-                        behavior: 'smooth'
-                    });
-                }
+                const sectionTop = activeSection.getBoundingClientRect().top + window.scrollY - navHeight - offset;
+                
+                // Kaydırma
+                window.scrollTo({
+                    top: sectionTop,
+                    behavior: 'smooth'
+                });
             }
         });
     });
+
+    // Kaydırma (Scroll) Ok Tuşları Mantığı
+    const filterContainer = document.querySelector('.charts-filter-container');
+    const scrollLeftBtn = document.getElementById('filterScrollLeft');
+    const scrollRightBtn = document.getElementById('filterScrollRight');
+
+    if (filterContainer && scrollLeftBtn && scrollRightBtn) {
+        scrollLeftBtn.addEventListener('click', () => {
+            filterContainer.scrollBy({ left: -300, behavior: 'smooth' });
+        });
+        scrollRightBtn.addEventListener('click', () => {
+            filterContainer.scrollBy({ left: 300, behavior: 'smooth' });
+        });
+    }
 
     // ==========================================
     // 3. ECHARTS İLE GRAFİK ÖNİZLEMELERİNİ ÇİZME (RESIZEOBSERVER)

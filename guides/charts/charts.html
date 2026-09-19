@@ -135,21 +135,29 @@
                 <h1 class="hero-title" style="color: var(--neon-blue);">Veri Görselleştirme Sözlüğü</h1>
                 <p class="hero-subtitle">Bu sayfada benim bildiğim kadarıyla grafik türleri ve bu grafiklerin olumlu, olumsuz yanlarını görebilirsiniz. Aşağıda 7 ana başlık altında yaklaşık 50 tane grafik bulunmaktadır.</p>
                 
-                <!-- Arama Çubuğu -->
-                <div class="search-wrapper" style="margin-top: 5px; margin-bottom: 30px;">
-                    <i data-lucide="search" class="search-icon"></i>
-                    <input type="text" id="chartSearch" class="search-input" placeholder="Grafik türü ara (örn: Histogram, Scatter)...">
-                </div>
 
-                <!-- 7 Ana Başlık (Filtre Butonları) -->
-                <div class="charts-filter-container" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; width: 100%; margin: 0 auto;">
-                    <button class="charts-category-btn active">Sıralama Grafikleri</button>
-                    <button class="charts-category-btn">Zaman Grafikleri</button>
-                    <button class="charts-category-btn">Dağılım Grafikleri</button>
-                    <button class="charts-category-btn">İlişki Grafikleri</button>
-                    <button class="charts-category-btn">Parça-Bütün Grafikleri</button>
-                    <button class="charts-category-btn">Akış Grafikleri</button>
-                    <button class="charts-category-btn">Harita Grafikleri</button>
+                <!-- Kategori Butonları ve Oklar -->
+                <div class="category-filters-wrapper" style="position: relative; display: flex; align-items: center; justify-content: center; width: 100%; max-width: 1200px; margin: 0 auto;">
+                    
+                    <button class="scroll-arrow left-arrow" id="filterScrollLeft" aria-label="Sola Kaydır" style="position: absolute; left: -20px; z-index: 10; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-main); box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                    </button>
+
+                    <div class="charts-filter-container" style="display: flex; justify-content: flex-start; flex-wrap: nowrap; gap: 12px; width: 100%; overflow-x: auto; padding: 10px 40px; scrollbar-width: none; -ms-overflow-style: none; scroll-behavior: smooth;">
+                        <style>.charts-filter-container::-webkit-scrollbar { display: none; }</style>
+                        <button class="charts-category-btn active">Tüm Grafikler</button>
+                        <button class="charts-category-btn">Sıralama Grafikleri</button>
+                        <button class="charts-category-btn">Zaman Grafikleri</button>
+                        <button class="charts-category-btn">Dağılım Grafikleri</button>
+                        <button class="charts-category-btn">İlişki Grafikleri</button>
+                        <button class="charts-category-btn">Parça-Bütün Grafikleri</button>
+                        <button class="charts-category-btn">Akış Grafikleri</button>
+                        <button class="charts-category-btn">Harita Grafikleri</button>
+                    </div>
+
+                    <button class="scroll-arrow right-arrow" id="filterScrollRight" aria-label="Sağa Kaydır" style="position: absolute; right: -20px; z-index: 10; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-main); box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                    </button>
                 </div>
             </div>
         </section>

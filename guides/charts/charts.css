@@ -23,9 +23,9 @@ body.formulas-page main.formulas-main {
     background: var(--bg-dark) !important;
     border: 1px solid var(--glass-border) !important;
     color: var(--text-main) !important;
-    padding: 12px 20px !important; /* Düğmeleri sığması için hafif ayarladık */
+    padding: 16px 32px !important; /* Butonları daha büyük yaptık */
     border-radius: 100px !important;
-    font-size: 1rem !important;
+    font-size: 1.15rem !important;
     letter-spacing: -0.2px !important;
     font-weight: 600 !important;
     cursor: pointer !important;
