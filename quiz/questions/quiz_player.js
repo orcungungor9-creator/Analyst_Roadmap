@@ -22,7 +22,7 @@
     if(!mappedTitle) {
         mappedTitle = test.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') + " Testi";
     }
-    document.getElementById('main-title').innerText = mappedTitle;
+        document.getElementById('sidebar-test-title').innerText = mappedTitle;
 
     const diffBadge = document.getElementById('difficulty-badge');
     const diffText = document.getElementById('difficulty-text');
