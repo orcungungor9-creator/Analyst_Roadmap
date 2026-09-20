@@ -1,1 +1,122 @@
-[]
+[
+    {
+        "question": "Python'da küsuratsız tam sayılar hangi veri tipi ile ifade edilir?",
+        "options": [
+            "int",
+            "float",
+            "print",
+            "yorum",
+            "metin"
+        ],
+        "correct_option": 0,
+        "explanation": "Tam sayılar (integers), Python'da küsuratsız değerleri temsil eder."
+    },
+    {
+        "question": "Aşağıdaki kod parçası çalıştırıldığında ekrana ne yazdırır?\n\n# Ekrana yazdırma komutu\nprint(10)",
+        "options": [
+            "# Ekrana yazdırma komutu",
+            "print(10)",
+            "10",
+            "Hata verir",
+            "Hiçbir şey yazdırmaz"
+        ],
+        "correct_option": 2,
+        "explanation": "Yorum satırı program tarafından dikkate alınmaz. print(10) sadece içerisindeki tam sayıyı ekrana bastırır."
+    },
+    {
+        "question": "Python dilinde '#' sembolü ile başlayan satırlar için hangisi doğrudur?",
+        "options": [
+            "Sayıları ondalıklı yapar",
+            "Sayıları tam sayı yapar",
+            "Yorum satırıdır ve çalışmayı etkilemez",
+            "Ekrana büyük harf yazdırır",
+            "Kodu hızlandırır"
+        ],
+        "correct_option": 2,
+        "explanation": "Python dilinde '#' sembolü ile başlayan satırlar yorum satırlarıdır ve çalışmayı etkilemez."
+    },
+    {
+        "question": "Aşağıdaki kodun çıktısı nedir?\n\nprint(3.14)",
+        "options": [
+            "3.14 (float)",
+            "3.14 (int)",
+            "3",
+            "Hata verir",
+            "Yorum satırı"
+        ],
+        "correct_option": 0,
+        "explanation": "3.14 kesirli bir sayı olduğu için float'tır ve print ile doğrudan ekrana bastırılır."
+    },
+    {
+        "question": "print() fonksiyonu içinde birden fazla veriyi yan yana yazdırmak istiyorsak, aralarına hangi işareti koyarız?",
+        "options": [
+            "nokta (.)",
+            "noktalı virgül (;)",
+            "artı (+)",
+            "virgül (,)",
+            "tire (-)"
+        ],
+        "correct_option": 3,
+        "explanation": "Birden fazla veriyi yan yana yazdırmak istiyorsak aralarına virgül (,) koyarız."
+    },
+    {
+        "question": "Aşağıdaki sayılardan hangisi bir tam sayıdır (integer)?",
+        "options": [
+            "-5.5",
+            "3.14",
+            "0.0",
+            "-10",
+            "7.1"
+        ],
+        "correct_option": 3,
+        "explanation": "-10, negatif bir sayı olmasına rağmen hiçbir küsuratı olmadığı için bir tam sayıdır (int)."
+    },
+    {
+        "question": "Bir programcı aşağıdaki kodu yazmıştır:\n\nprint(-5, 7.2)\n\nBu kodun amacı nedir?",
+        "options": [
+            "Sayıları toplamak",
+            "Sayıları çarpmak",
+            "Bir int ve bir float'ı yan yana yazdırmak",
+            "İkisini de yoruma çevirmek",
+            "Sayıları silmek"
+        ],
+        "correct_option": 2,
+        "explanation": "Araya virgül konularak yazılan veriler yan yana ekrana bastırılır. Burada bir tam sayı (-5) ve ondalıklı sayı (7.2) vardır."
+    },
+    {
+        "question": "Yorum satırları programın çalışmasını nasıl etkiler?",
+        "options": [
+            "Programı hızlandırır",
+            "Programı yavaşlatır",
+            "Hata mesajı oluşturur",
+            "Çalışmasını etkilemez",
+            "Programı durdurur"
+        ],
+        "correct_option": 3,
+        "explanation": "Yorum satırları programın çalışmasını etkilemez, program buraları dikkate almaz."
+    },
+    {
+        "question": "Aşağıdakilerden hangisi bir 'float' değeridir?",
+        "options": [
+            "5",
+            "-20",
+            "100",
+            "0",
+            "-4.8"
+        ],
+        "correct_option": 4,
+        "explanation": "Ondalıklı sayılar (floats) kesirli sayıları ifade eder. -4.8 kesirli bir değerdir."
+    },
+    {
+        "question": "Python'daki sayılar temel olarak kaç ana türde bulunur?",
+        "options": [
+            "Bir",
+            "İki",
+            "Üç",
+            "Dört",
+            "Beş"
+        ],
+        "correct_option": 1,
+        "explanation": "Python'da sayılar iki ana türde bulunur: tam sayılar (integers) ve ondalıklı sayılar (floats)."
+    }
+]

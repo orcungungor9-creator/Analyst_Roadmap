@@ -73,7 +73,7 @@
         document.getElementById('question-text').innerText = q.question;
         
         document.getElementById('questions-left').innerText = `${currentIndex + 1} / ${questions.length}`;
-        document.getElementById('success-rate').innerText = `%${score}`;
+        document.getElementById('success-rate').innerText = `%${Math.round(score)}`;
 
         const optionsContainer = document.getElementById('options-container');
         optionsContainer.innerHTML = '';
@@ -132,11 +132,9 @@
             btnElement.style.borderColor = '#f87171';
             btnElement.style.color = '#f87171';
 
-            let penalty = 5; 
-            if (zorluk === 'orta') penalty = 10;
-            if (zorluk === 'zor') penalty = 15;
+            let penalty = 100 / questions.length;
             score = Math.max(0, score - penalty);
-            document.getElementById('success-rate').innerText = `%${score}`;
+            document.getElementById('success-rate').innerText = `%${Math.round(score)}`;
             
             const correctBtn = allBtns[q.correct_option];
             if(correctBtn) {
@@ -158,7 +156,7 @@
         document.getElementById('question-text').innerText = "Tebrikler, testi tamamladınız!";
         document.getElementById('options-container').innerHTML = `
             <div style="text-align: center; padding: 20px;">
-                <h2 style="color: var(--neon-blue); font-size: 2.5rem; margin-bottom: 10px;">Skorunuz: %${score}</h2>
+                <h2 style="color: var(--neon-blue); font-size: 2.5rem; margin-bottom: 10px;">Skorunuz: %${Math.round(score)}</h2>
                 <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 1.2rem;">Tüm soruları yanıtladınız.</p>
                 <button class="option-btn" style="background: var(--neon-blue); color: white; border: none; padding: 15px 30px; font-weight: bold; border-radius: 12px; cursor: pointer;" onclick="window.location.href = '../modules/${kategori}/${modul}/index.html'">Test Seçimine Dön</button>
             </div>

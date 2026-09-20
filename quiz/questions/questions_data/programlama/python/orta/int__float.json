@@ -1,1 +1,122 @@
-[]
+[
+    {
+        "question": "Bir tam sayı ve bir ondalıklı sayıyı ekranda yan yana yazdırmak için yazılan aşağıdaki kodlardan hangisi DOĞRUDUR?",
+        "options": [
+            "print(5 - 3.14)",
+            "print(5 # 3.14)",
+            "print(5, 3.14)",
+            "print(5 ve 3.14)",
+            "print(5. 3.14)"
+        ],
+        "correct_option": 2,
+        "explanation": "Birden fazla veriyi yan yana yazdırmak istiyorsak aralarına virgül (,) koyarız."
+    },
+    {
+        "question": "Aşağıdaki kodun konsol (ekran) çıktısı ne olur?\n\n# print(8)\nprint(3.5)",
+        "options": [
+            "8",
+            "8 3.5",
+            "3.5",
+            "Hata verir",
+            "8, 3.5"
+        ],
+        "correct_option": 2,
+        "explanation": "İlk satır '#' ile başladığı için yorum satırıdır ve program tarafından dikkate alınmaz. Sadece ikinci satırdaki float değer (3.5) ekrana bastırılır."
+    },
+    {
+        "question": "Hangisi bir 'float' (ondalıklı sayı) tanımıdır?",
+        "options": [
+            "Sadece pozitif değerleri alan sayılardır",
+            "Sadece negatif tam sayıları temsil eder",
+            "Kesirli sayıları ifade eder",
+            "Ekrana metin yazdırmak için kullanılır",
+            "Kodu açıklamak için kullanılan satırlardır"
+        ],
+        "correct_option": 2,
+        "explanation": "ondalıklı sayılar (floats) kesirli sayıları ifade eder."
+    },
+    {
+        "question": "Negatif ve pozitif TÜM küsuratsız sayılar ortak olarak hangi tür altında sınıflandırılır?",
+        "options": [
+            "floats",
+            "integers",
+            "yorumlar",
+            "print",
+            "kesirliler"
+        ],
+        "correct_option": 1,
+        "explanation": "Tam sayılar (integers), negatif veya pozitif tüm küsuratsız değerleri temsil eder."
+    },
+    {
+        "question": "Aşağıdaki koddaki verilerin sırasıyla tipleri nelerdir?\n\nprint(-12, 0.45)",
+        "options": [
+            "float, int",
+            "int, int",
+            "float, float",
+            "int, float",
+            "yorum, int"
+        ],
+        "correct_option": 3,
+        "explanation": "-12 küsuratsız olduğu için int, 0.45 kesirli olduğu için float tipindedir."
+    },
+    {
+        "question": "Arka planda çalışan bir işlemin sonucunu gözümüzle (konsolda) görebilmek için ne yapılmalıdır?",
+        "options": [
+            "İşlemin başına '#' konulmalıdır",
+            "Sayı floats türüne çevrilmelidir",
+            "Sonuç print() fonksiyonunun parantezleri içine yazılmalıdır",
+            "Araya virgül konulmalıdır",
+            "Sayı integers türüne çevrilmelidir"
+        ],
+        "correct_option": 2,
+        "explanation": "Bir işlemin sonucunu ekranda (konsolda) görebilmek için print() fonksiyonunu kullanırız."
+    },
+    {
+        "question": "Bir geliştirici yazdığı kodun ne işe yaradığını, kodu okuyan diğer kişilere açıklamak istiyor. Aşağıdaki kodlardan hangisi bu amaca uygundur?",
+        "options": [
+            "print(Bu kod sayıyı yazar)",
+            "# Bu kod sayıyı ekrana yazar",
+            "int(Bu kod sayıyı yazar)",
+            "float(Bu kod sayıyı yazar)",
+            "Bu kod sayıyı yazar,"
+        ],
+        "correct_option": 1,
+        "explanation": "'#' sembolü kodu yorum satırına dönüştürür; program çalışırken burayı komut olarak okumaz, sadece bilgi sağlar."
+    },
+    {
+        "question": "Sadece kodu okuyan kişilere yönelik açıklamalar barındıran satırlara ne ad verilir?",
+        "options": [
+            "Ondalıklı satırlar",
+            "Yorum satırları",
+            "Yazdırma satırları",
+            "Tam sayı satırları",
+            "Konsol satırları"
+        ],
+        "correct_option": 1,
+        "explanation": "Yazılan kodun ne yaptığını açıklamak için kullanılan ve programı etkilemeyen satırlara yorum satırı denir."
+    },
+    {
+        "question": "Bir programcı aşağıdaki kodu yazmıştır:\n\nprint(-10)\nprint(4.2)\n\nProgram ekrana sırasıyla hangi tip sayıları yazdırmıştır?",
+        "options": [
+            "int ve int",
+            "float ve float",
+            "float ve int",
+            "int ve float",
+            "yorum ve int"
+        ],
+        "correct_option": 3,
+        "explanation": "-10 negatif bir tam sayı (int), 4.2 ise kesirli bir sayı (float)'dır."
+    },
+    {
+        "question": "Ondalıklı sayılara Python'da teknik olarak verilen İngilizce karşılık nedir?",
+        "options": [
+            "integers",
+            "floats",
+            "prints",
+            "comments",
+            "decimals"
+        ],
+        "correct_option": 1,
+        "explanation": "Ondalıklı sayılar 'floats' olarak ifade edilir."
+    }
+]

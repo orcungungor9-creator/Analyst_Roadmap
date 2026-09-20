@@ -1,1 +1,122 @@
-[]
+[
+    {
+        "question": "Aşağıdaki Python kodunun ekran (konsol) çıktısı tam olarak ne olur?\n\n# print(-15, 2.5)\nprint(8, -4.2)",
+        "options": [
+            "-15 2.5",
+            "-15, 2.5",
+            "8 -4.2",
+            "8, -4.2",
+            "Hata verir"
+        ],
+        "correct_option": 2,
+        "explanation": "İlk satır '#' ile başladığı için program onu okumaz. İkinci satırda 8 ve -4.2 virgülle ayrıldığı için ekranda yan yana boşluklu olarak '8 -4.2' görünür."
+    },
+    {
+        "question": "Aşağıdaki ifadelerden hangisi tam sayılar (integers) ve ondalıklı sayılar (floats) arasındaki temel farkı en doğru şekilde açıklar?",
+        "options": [
+            "Tam sayılar sadece ekrana yazdırılabilir, floats yazdırılamaz",
+            "Tam sayılar sadece pozitif olur, floats hem pozitif hem negatiftir",
+            "Tam sayılar sadece küsuratsız değerleri kapsarken, ondalıklı sayılar kesirli değerleri içerir",
+            "Tam sayılar yorum satırlarında kullanılır, floats print() fonksiyonunda",
+            "Tam sayılar virgülle ayrılır, floats '#' ile ayrılır"
+        ],
+        "correct_option": 2,
+        "explanation": "Tam sayılar küsuratsız değerleri temsil ederken; ondalıklı sayılar kesirli sayıları ifade eder."
+    },
+    {
+        "question": "Bir geliştirici yazdığı kodda aşağıdaki mantığı uygulamıştır:\n\nprint(10.5)\n# print(5)\n\nBu duruma göre konsolda görünecek verinin türü nedir?",
+        "options": [
+            "integer (Tam sayı)",
+            "float (Ondalıklı sayı)",
+            "yorum (Metin)",
+            "İki veri de görünür",
+            "Hata verir"
+        ],
+        "correct_option": 1,
+        "explanation": "Sadece ilk satırdaki 10.5 sayısı çalışır. 10.5 kesirli bir sayı olduğundan 'float' türündedir."
+    },
+    {
+        "question": "Bir programcı konsolda yan yana iki farklı veri görmek istiyor. Ancak kurala uymayarak 'print(veri1 veri2)' şeklinde (araya hiçbir şey koymadan) yazıyor. bu programcı neyi eksik yapmıştır?",
+        "options": [
+            "Araya '#' sembolü koymayı",
+            "Araya virgül (,) koymayı",
+            "Verileri floats türüne çevirmeyi",
+            "Verileri integers türüne çevirmeyi",
+            "Her veriyi ayrı ayrı print() kelimesiyle başlatmayı"
+        ],
+        "correct_option": 1,
+        "explanation": "Eğer birden fazla veriyi yan yana yazdırmak istiyorsak aralarına virgül (,) koyarız."
+    },
+    {
+        "question": "Aşağıdaki kodda kaç adet 'float' türünde veri ekrana yazdırılmaktadır?\n\nprint(1, -2.5, 3.0, 4)",
+        "options": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "correct_option": 2,
+        "explanation": "Burada -2.5 ve 3.0 sayıları kesirli yapıya sahip oldukları için float'tır. 1 ve 4 ise küsuratsız int değerlerdir. Dolayısıyla cevap 2'dir."
+    },
+    {
+        "question": "Bir yazılım projesinde kodun çalışması durdurulmadan, başka bir yazılımcıya kodun o kısmında bir 'integer' kullanıldığı belirtilmek isteniyor. Hangi satır doğrudur?",
+        "options": [
+            "print(Burada integer kullanılmıştır)",
+            "int(Burada integer kullanılmıştır)",
+            "float(Burada integer kullanılmıştır)",
+            "# Burada integer kullanılmıştır",
+            "Burada integer kullanılmıştır,"
+        ],
+        "correct_option": 3,
+        "explanation": "Kodun çalışmasını etkilemeden bilgi sağlamak için '#' sembolü ile başlayan yorum satırları kullanılır."
+    },
+    {
+        "question": "Birden fazla verinin aynı ekranda yan yana gösterilmesi için print() fonksiyonunun parantezleri içinde hangi yapısal kural uygulanır?",
+        "options": [
+            "Verilerin arasına '#' sembolü yerleştirilir",
+            "Veriler birbirine yapıştırılarak yazılır",
+            "Verilerin birbirinden virgül (,) ile ayrılması sağlanır",
+            "Verilerin biri integers diğeri floats yapılmak zorundadır",
+            "Verilerin hepsi yorum satırına çevrilir"
+        ],
+        "correct_option": 2,
+        "explanation": "Eğer birden fazla veriyi yan yana yazdırmak istiyorsak aralarına virgül (,) koyarız."
+    },
+    {
+        "question": "Aşağıdaki kodların hangisinde bir 'integer' ve bir 'float' başarılı bir şekilde sırasıyla yan yana ekrana yazdırılmaktadır?",
+        "options": [
+            "# print(5, 3.14)",
+            "print(5, 3.14)",
+            "print(3.14, 5)",
+            "print(5 # 3.14)",
+            "print(5, -10)"
+        ],
+        "correct_option": 1,
+        "explanation": "print(5, 3.14) kodu, önce 5 (integer) sonra 3.14 (float) verisini araya virgül koyarak başarılı bir şekilde ekrana bastırır."
+    },
+    {
+        "question": "'integers' ve 'floats' kelimelerinin Python bağlamındaki tam karşılıkları ve işlevleri sırasıyla hangi seçenekte doğru verilmiştir?",
+        "options": [
+            "integers: Kesirli sayılar | floats: Küsuratsız sayılar",
+            "integers: Yorum satırları | floats: Ekrana yazdırma",
+            "integers: Tam sayılar (küsuratsız) | floats: Ondalıklı sayılar (kesirli)",
+            "integers: Ekrana yazdırma | floats: Yorum satırları",
+            "integers: Pozitif sayılar | floats: Negatif sayılar"
+        ],
+        "correct_option": 2,
+        "explanation": "Tam sayılar (integers) küsuratsız değerleri temsil ederken; ondalıklı sayılar (floats) kesirli sayıları ifade eder."
+    },
+    {
+        "question": "Aşağıdaki kod bloğunun nihai amacı nedir?\n\n# Hata oranını ekrana bastırır\nprint(0.05)",
+        "options": [
+            "Sadece bir integer yazdırmak",
+            "Kodun ne yaptığını açıklamak ve bir float değeri ekrana yazdırmak",
+            "Kodu yoruma çevirip çalışmasını engellemek",
+            "İki farklı float değeri yan yana yazdırmak",
+            "Ekrana hem metin hem sayı yazdırmak"
+        ],
+        "correct_option": 1,
+        "explanation": "İlk satır kodun ne yaptığını açıklayan bir bilgi (yorum) verir. İkinci satır ise 0.05 (float) değerini ekrana (konsola) bastırır."
+    }
+]
