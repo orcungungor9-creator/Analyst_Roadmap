@@ -41,10 +41,16 @@
                     <span class="pill-text">Geri Dön</span>
                 </button>
                 
-                <button class="stat-pill" id="nav-toggle-btn" style="background: rgba(255, 255, 255, 0.05); border: 1px solid var(--neon-blue); color: var(--neon-blue); cursor: pointer; transition: all 0.3s; display: flex;">
-                    <i class="fa-solid fa-backward icon-left" id="nav-toggle-icon"></i>
-                    <span class="pill-text" id="nav-toggle-text">Önceki Soru</span>
-                </button>
+                <div class="nav-buttons-container">
+                    <button class="stat-pill nav-pill" id="nav-prev-btn">
+                        <i class="fa-solid fa-backward icon-left"></i>
+                        <span class="pill-text">Önceki</span>
+                    </button>
+                    <button class="stat-pill nav-pill" id="nav-next-btn">
+                        <span class="pill-text">Sonraki</span>
+                        <i class="fa-solid fa-forward" style="margin-left: 8px;"></i>
+                    </button>
+                </div>
                 
                 <div class="stat-pill" id="difficulty-badge">
                     <span class="diff-dot" id="diff-dot"></span>

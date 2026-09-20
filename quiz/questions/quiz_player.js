@@ -106,43 +106,27 @@ let userAnswers = [];
             optionsContainer.appendChild(btn);
         });
         
-        // Update navigation button
-        const navBtn = document.getElementById('nav-toggle-btn');
-        const navIcon = document.getElementById('nav-toggle-icon');
-        const navText = document.getElementById('nav-toggle-text');
+        // Update navigation buttons
+        const prevBtn = document.getElementById('nav-prev-btn');
+        const nextBtn = document.getElementById('nav-next-btn');
         
-        if (navBtn) {
-            navBtn.style.display = 'flex';
-            if (currentIndex === 0 && maxReachedIndex === 0) {
-                // Sönük (disabled) görünüm
-                navIcon.className = 'fa-solid fa-backward icon-left';
-                navText.innerText = 'Önceki Soru';
-                navBtn.style.borderColor = 'rgba(156, 163, 175, 0.3)';
-                navBtn.style.color = 'rgba(156, 163, 175, 0.5)';
-                navBtn.style.cursor = 'not-allowed';
-                navBtn.onclick = null;
+        if (prevBtn && nextBtn) {
+            // Önceki Butonu Mantığı
+            if (currentIndex === 0) {
+                prevBtn.disabled = true;
+                prevBtn.onclick = null;
             } else {
-                // Aktif görünüm
-                navBtn.style.borderColor = 'var(--neon-blue)';
-                navBtn.style.color = 'var(--neon-blue)';
-                navBtn.style.cursor = 'pointer';
-                
-                if (currentIndex < maxReachedIndex) {
-                    navIcon.className = 'fa-solid fa-forward icon-left';
-                    navText.innerText = 'Sonraki Soru';
-                    navBtn.onclick = navigateNext;
-                } else {
-                    navIcon.className = 'fa-solid fa-backward icon-left';
-                    navText.innerText = 'Önceki Soru';
-                    navBtn.onclick = navigatePrev;
-                }
-                
-                // Eğer ilk sorudaysak ve zaten çözülmüşse, 'Önceki'ye dönemeyiz
-                if (currentIndex === 0) {
-                    navIcon.className = 'fa-solid fa-forward icon-left';
-                    navText.innerText = 'Sonraki Soru';
-                    navBtn.onclick = navigateNext;
-                }
+                prevBtn.disabled = false;
+                prevBtn.onclick = navigatePrev;
+            }
+            
+            // Sonraki Butonu Mantığı
+            if (currentIndex >= maxReachedIndex) {
+                nextBtn.disabled = true;
+                nextBtn.onclick = null;
+            } else {
+                nextBtn.disabled = false;
+                nextBtn.onclick = navigateNext;
             }
         }
     }

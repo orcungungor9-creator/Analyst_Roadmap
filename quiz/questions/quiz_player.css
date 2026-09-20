@@ -165,6 +165,9 @@ html, body {
 }
 
 /* MOBİL UYUMLULUK */
+
+
+
 @media (max-width: 900px) {
     .quiz-layout {
         flex-direction: column;
@@ -243,9 +246,57 @@ html, body {
 }
 
 
+
+.nav-buttons-container {
+    display: flex; 
+    flex-direction: column; /* PC'de alt alta */
+    gap: 15px; 
+    width: 100%; 
+    order: 99; 
+    margin-top: auto;
+}
 @media (max-width: 900px) {
-    #nav-toggle-btn {
+    .nav-buttons-container {
         grid-column: 1 / 4 !important;
-        margin-bottom: 5px !important;
+        flex-direction: row !important; /* Mobilde yan yana */
+        margin-top: 5px !important;
+        gap: 8px !important;
+    }
+}
+
+.nav-pill {
+    cursor: pointer;
+    border-color: var(--neon-blue);
+    color: var(--neon-blue);
+    flex: 1; /* Yan yana durduklarında eşit alan kaplamaları için */
+}
+
+.nav-pill:hover:not(:disabled) {
+    transform: scale(1.02);
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+}
+
+.nav-pill:disabled {
+    border-color: rgba(156, 163, 175, 0.3) !important;
+    color: rgba(156, 163, 175, 0.5) !important;
+    cursor: not-allowed !important;
+    background: transparent !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Ensure flex-row in mobile inside grid */
+@media (max-width: 900px) {
+    .nav-buttons-container {
+        display: flex !important;
+        flex-direction: row !important; /* Mobilde yan yana */
+        gap: 8px !important;
+        grid-column: 1 / 4 !important;
+        margin-top: 5px !important;
+    }
+
+    .nav-buttons-container .nav-pill {
+        width: auto !important;
+        flex: 1 !important;
     }
 }
