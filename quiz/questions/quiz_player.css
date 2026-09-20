@@ -242,3 +242,10 @@ html, body {
     transition: none !important;
 }
 
+
+@media (max-width: 900px) {
+    #nav-toggle-btn {
+        grid-column: 1 / 4 !important;
+        margin-bottom: 5px !important;
+    }
+}

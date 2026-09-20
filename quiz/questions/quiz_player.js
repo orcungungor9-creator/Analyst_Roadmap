@@ -44,6 +44,8 @@
 
     let questions = [];
     let currentIndex = 0;
+let maxReachedIndex = 0;
+let userAnswers = [];
     let score = 100;
 
     const jsonPath = `questions_data/${kategori}/${modul}/${zorluk}/${test}.json`;
@@ -82,12 +84,75 @@
             const btn = document.createElement('button');
             btn.className = 'option-btn';
             btn.innerText = optText;
-            btn.onclick = () => handleAnswer(index, btn);
+            
+            if (currentIndex < maxReachedIndex) {
+                // Geriye dönük soru (Read-only)
+                btn.disabled = true;
+                btn.style.cursor = 'default';
+                const ans = userAnswers[currentIndex];
+                
+                if (index === ans.correct) {
+                    btn.classList.add('blink-correct');
+                    btn.style.backgroundColor = 'rgba(52, 211, 153, 0.15)'; // Soft green
+                } else if (index === ans.selected && ans.selected !== ans.correct) {
+                    btn.style.backgroundColor = 'rgba(248, 113, 113, 0.15)';
+                    btn.style.borderColor = '#f87171';
+                    btn.style.color = '#f87171';
+                }
+            } else {
+                // Aktif soru
+                btn.onclick = () => handleAnswer(index, btn);
+            }
             optionsContainer.appendChild(btn);
         });
+        
+        // Update navigation button
+        const navBtn = document.getElementById('nav-toggle-btn');
+        const navIcon = document.getElementById('nav-toggle-icon');
+        const navText = document.getElementById('nav-toggle-text');
+        
+        if (navBtn) {
+            navBtn.style.display = 'flex';
+            if (currentIndex === 0 && maxReachedIndex === 0) {
+                // Sönük (disabled) görünüm
+                navIcon.className = 'fa-solid fa-backward icon-left';
+                navText.innerText = 'Önceki Soru';
+                navBtn.style.borderColor = 'rgba(156, 163, 175, 0.3)';
+                navBtn.style.color = 'rgba(156, 163, 175, 0.5)';
+                navBtn.style.cursor = 'not-allowed';
+                navBtn.onclick = null;
+            } else {
+                // Aktif görünüm
+                navBtn.style.borderColor = 'var(--neon-blue)';
+                navBtn.style.color = 'var(--neon-blue)';
+                navBtn.style.cursor = 'pointer';
+                
+                if (currentIndex < maxReachedIndex) {
+                    navIcon.className = 'fa-solid fa-forward icon-left';
+                    navText.innerText = 'Sonraki Soru';
+                    navBtn.onclick = navigateNext;
+                } else {
+                    navIcon.className = 'fa-solid fa-backward icon-left';
+                    navText.innerText = 'Önceki Soru';
+                    navBtn.onclick = navigatePrev;
+                }
+                
+                // Eğer ilk sorudaysak ve zaten çözülmüşse, 'Önceki'ye dönemeyiz
+                if (currentIndex === 0) {
+                    navIcon.className = 'fa-solid fa-forward icon-left';
+                    navText.innerText = 'Sonraki Soru';
+                    navBtn.onclick = navigateNext;
+                }
+            }
+        }
     }
 
     function handleAnswer(selectedIndex, btnElement) {
+    userAnswers[currentIndex] = {
+        selected: selectedIndex,
+        correct: questions[currentIndex].correct_option
+    };
+
         const q = questions[currentIndex];
         const optionsContainer = document.getElementById('options-container');
         const allBtns = optionsContainer.querySelectorAll('.option-btn');
@@ -100,6 +165,7 @@
 
 
             setTimeout(() => {
+                maxReachedIndex = Math.max(maxReachedIndex, currentIndex + 1);
                 currentIndex++;
                 if (currentIndex < questions.length) {
                     renderQuestion();
@@ -123,6 +189,7 @@
             }
 
             setTimeout(() => {
+                maxReachedIndex = Math.max(maxReachedIndex, currentIndex + 1);
                 currentIndex++;
                 if (currentIndex < questions.length) {
                     renderQuestion();
@@ -130,6 +197,20 @@
                     finishQuiz();
                 }
             }, 1000);
+        }
+    }
+
+    function navigatePrev() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            renderQuestion();
+        }
+    }
+
+    function navigateNext() {
+        if (currentIndex < maxReachedIndex) {
+            currentIndex++;
+            renderQuestion();
         }
     }
 
