@@ -223,7 +223,7 @@ html, body {
 }
 
 .blink-correct {
-    animation: blinkGreen 1s ease-in-out infinite !important; 
+    animation: blinkGreen 0.5s ease-in-out infinite !important; 
     transition: none !important;
 }
 

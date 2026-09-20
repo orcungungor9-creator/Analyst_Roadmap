@@ -97,26 +97,7 @@
         if (selectedIndex === q.correct_option) {
             btnElement.classList.add('blink-correct');
             
-            if(window.confetti) {
-                const duration = 2000;
-                const end = Date.now() + duration;
 
-                (function frame() {
-                    confetti({
-                        particleCount: 5,
-                        angle: 270,
-                        spread: 120,
-                        origin: { x: Math.random(), y: -0.1 },
-                        colors: ['#8b5cf6', '#10b981', '#f59e0b', '#ef4444', '#0ea5e9'],
-                        zIndex: 9999,
-                        disableForReducedMotion: true
-                    });
-
-                    if (Date.now() < end) {
-                        requestAnimationFrame(frame);
-                    }
-                }());
-            }
 
             setTimeout(() => {
                 currentIndex++;
@@ -125,7 +106,7 @@
                 } else {
                     finishQuiz();
                 }
-            }, 2000);
+            }, 1000);
             
         } else {
             btnElement.style.backgroundColor = 'rgba(248, 113, 113, 0.15)';
@@ -148,7 +129,7 @@
                 } else {
                     finishQuiz();
                 }
-            }, 2000);
+            }, 1000);
         }
     }
 
