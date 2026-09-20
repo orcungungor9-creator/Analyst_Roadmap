@@ -1,1 +1,122 @@
-[]
+[
+    {
+        "question": "Python'da toplama işlemi yapmak için hangi operatör kullanılır?",
+        "options": [
+            "+",
+            "-",
+            "*",
+            "/",
+            "%"
+        ],
+        "correct_option": 0,
+        "explanation": "Toplama işlemi için '+' operatörü kullanılır."
+    },
+    {
+        "question": "Python'da normal bölme işlemi (/) yapıldığında sonucun veri tipi her zaman ne olur?",
+        "options": [
+            "Tam sayı (int)",
+            "Metin (str)",
+            "Ondalıklı (float)",
+            "Yorum",
+            "Bölünemez"
+        ],
+        "correct_option": 2,
+        "explanation": "Bölme işlemi (/), işlem sonucu tam sayı çıksa bile her zaman float (ondalıklı) tipinde bir sonuç döndürür."
+    },
+    {
+        "question": "Bir bölme işleminin sonucundaki küsuratı atıp sadece tam kısmını almak için hangi operatör kullanılır?",
+        "options": [
+            "/",
+            "//",
+            "%",
+            "**",
+            "*"
+        ],
+        "correct_option": 1,
+        "explanation": "Çift bölü (//) operatörü tam sayı bölmesi yapar ve küsuratı atarak sadece tam kısmı alır."
+    },
+    {
+        "question": "Bir bölme işleminden kalan sayıyı (mod) bulmak için hangi operatör kullanılır?",
+        "options": [
+            "//",
+            "/",
+            "%",
+            "**",
+            "+"
+        ],
+        "correct_option": 2,
+        "explanation": "Mod alma operatörü (%) bir sayının diğerine bölümünden kalanı bulur."
+    },
+    {
+        "question": "Python'da üs alma (bir sayının kuvvetini alma) işlemi hangi sembolle yapılır?",
+        "options": [
+            "^",
+            "*",
+            "**",
+            "//",
+            "%"
+        ],
+        "correct_option": 2,
+        "explanation": "Üs alma işlemi çift yıldız (**) operatörü ile gerçekleştirilir."
+    },
+    {
+        "question": "x += 5 kısa atama operatörü hangi işlemin kısaltılmış halidir?",
+        "options": [
+            "x = 5",
+            "x = x + 5",
+            "x = 5 + 5",
+            "x = x * 5",
+            "x = x - 5"
+        ],
+        "correct_option": 1,
+        "explanation": "x += 5 ifadesi, x değişkeninin mevcut değerine 5 ekleyip tekrar x'e atamanın (x = x + 5) kısa yoludur."
+    },
+    {
+        "question": "Aşağıdaki kodun çıktısı ne olur?\n\nprint(10 / 2)",
+        "options": [
+            "5",
+            "5.0",
+            "0",
+            "2",
+            "Hata verir"
+        ],
+        "correct_option": 1,
+        "explanation": "Normal bölme (/) her zaman float (ondalıklı) sonuç döndürdüğü için 5 değil, 5.0 çıktısı üretilir."
+    },
+    {
+        "question": "Aşağıdaki kodun çıktısı ne olur?\n\nprint(10 // 3)",
+        "options": [
+            "3.33",
+            "4",
+            "3.0",
+            "3",
+            "1"
+        ],
+        "correct_option": 3,
+        "explanation": "Tam sayı bölmesi (//) küsuratı atar. 10'un içinde 3 tam olarak 3 kere vardır."
+    },
+    {
+        "question": "Aşağıdaki kodun çıktısı ne olur?\n\nprint(3 * 4)",
+        "options": [
+            "7",
+            "34",
+            "12",
+            "12.0",
+            "3.4"
+        ],
+        "correct_option": 2,
+        "explanation": "Yıldız (*) operatörü çarpma işlemi yapar. 3 kere 4, 12'dir."
+    },
+    {
+        "question": "Matematikteki parantez kullanımı ve işlem önceliği kuralları Python için de geçerli midir?",
+        "options": [
+            "Hayır, kodlar sadece soldan sağa okunur",
+            "Evet, tıpkı matematikte olduğu gibi geçerlidir",
+            "Sadece tam sayılarda geçerlidir",
+            "Sadece çarpma işleminde geçerlidir",
+            "Hayır, Python kendi rastgele sırasını uygular"
+        ],
+        "correct_option": 1,
+        "explanation": "İşlem önceliği ve parantez kullanımı tıpkı matematikte olduğu gibi Python'da da karmaşık ifadelerin doğru hesaplanmasını sağlar."
+    }
+]

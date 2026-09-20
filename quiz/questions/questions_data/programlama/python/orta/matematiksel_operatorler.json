@@ -1,1 +1,122 @@
-[]
+[
+    {
+        "question": "Aşağıdaki kod çalıştırıldığında x'in son değeri ne olur?\n\nx = 10\nx *= 2\nx += 5",
+        "options": [
+            "17",
+            "20",
+            "25",
+            "30",
+            "15"
+        ],
+        "correct_option": 2,
+        "explanation": "Önce x *= 2 ile x değeri 20 olur. Sonra x += 5 ile x değeri 25'e çıkar."
+    },
+    {
+        "question": "Aşağıdaki mod alma (kalan bulma) işleminin sonucu nedir?\n\nprint(7 % 3)",
+        "options": [
+            "2.33",
+            "2",
+            "1",
+            "0",
+            "3"
+        ],
+        "correct_option": 2,
+        "explanation": "7'nin 3'e bölümünden kalan 1'dir. '%' operatörü bu kalanı verir."
+    },
+    {
+        "question": "Aşağıdaki kodun ekran çıktısı nedir?\n\nprint(2 ** 3)",
+        "options": [
+            "5",
+            "6",
+            "8",
+            "9",
+            "23"
+        ],
+        "correct_option": 2,
+        "explanation": "** operatörü üs alır. 2'nin 3. kuvveti (2 * 2 * 2) 8'dir."
+    },
+    {
+        "question": "Aşağıdaki kod parçası için hangi çıktı DOĞRUDUR?\n\na = 4\nprint(a / 2)",
+        "options": [
+            "2",
+            "2.0",
+            "0",
+            "8",
+            "4/2"
+        ],
+        "correct_option": 1,
+        "explanation": "Bölme işlemi (/) tam bölünse dahi daima ondalıklı (float) döner, bu yüzden sonuç 2.0 olur."
+    },
+    {
+        "question": "Aşağıdaki kodun çıktısı nedir?\n\nprint(15 // 4)",
+        "options": [
+            "3.75",
+            "4",
+            "3",
+            "3.0",
+            "15/4"
+        ],
+        "correct_option": 2,
+        "explanation": "15'i 4'e böldüğümüzde tam kısım 3'tür. // operatörü küsuratı silip sadece 3'ü alır."
+    },
+    {
+        "question": "Matematikteki işlem önceliği dikkate alındığında aşağıdaki kodun çıktısı ne olur?\n\nprint(5 + 2 * 3)",
+        "options": [
+            "21",
+            "10",
+            "11",
+            "30",
+            "11.0"
+        ],
+        "correct_option": 2,
+        "explanation": "Çarpma işleminin toplamaya göre önceliği vardır. Önce 2 * 3 = 6 yapılır, ardından 5 + 6 = 11 sonucu bulunur."
+    },
+    {
+        "question": "Aşağıdaki kısa atama operatörlerinden hangisi bir değişkenin (x) değerini kendi kendisiyle (x) çarpmak için GÜVENLE kullanılabilir?",
+        "options": [
+            "x *= 2",
+            "x **= 2",
+            "x *= x",
+            "x =* x",
+            "x += x"
+        ],
+        "correct_option": 2,
+        "explanation": "x *= x ifadesi, x değişkenini mevcut x değeriyle çarpıp tekrar x'e atar (x = x * x)."
+    },
+    {
+        "question": "Bir sayının çift mi yoksa tek mi olduğunu bulmak isteyen bir programcı aşağıdaki operatörlerden hangisini kullanmalıdır?",
+        "options": [
+            "/",
+            "//",
+            "**",
+            "%",
+            "+"
+        ],
+        "correct_option": 3,
+        "explanation": "Mod operatörü (%). Bir sayının 2'ye bölümünden kalan (sayı % 2) 0 ise çift, 1 ise tektir."
+    },
+    {
+        "question": "Aşağıdaki kod bloklarının hangisinde değişkenin güncellenmiş değeri 12'dir?",
+        "options": [
+            "x = 5\\nx += 6",
+            "x = 3\\nx *= 3",
+            "x = 10\\nx += 2",
+            "x = 4\\nx *= 4",
+            "x = 24\\nx /= 2"
+        ],
+        "correct_option": 2,
+        "explanation": "x = 10 ile başlar, x += 2 ile kendisine 2 eklenir ve sonuç 12 olur."
+    },
+    {
+        "question": "Aşağıdaki operatörlerden hangisi ile yapılan BÜTÜN işlemlerin sonucu kesinlikle 'float' türündedir?",
+        "options": [
+            "+",
+            "-",
+            "*",
+            "/",
+            "//"
+        ],
+        "correct_option": 3,
+        "explanation": "Normal bölme (/) işlemi ne olursa olsun daima float döndürür."
+    }
+]

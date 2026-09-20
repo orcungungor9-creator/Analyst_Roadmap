@@ -1,1 +1,122 @@
-[]
+[
+    {
+        "question": "Aşağıdaki birbirine bağlı matematiksel işlemlerin son çıktısı nedir?\n\nx = 10\nx = x // 3\nx *= 5\nprint(x)",
+        "options": [
+            "15",
+            "16.5",
+            "15.0",
+            "3.33",
+            "50"
+        ],
+        "correct_option": 0,
+        "explanation": "Önce x = 10 // 3 ile x'in değeri 3 olur. Sonra x *= 5 ile 3 * 5 = 15 olur. Tam sayı olduğu için 15 çıkar."
+    },
+    {
+        "question": "Aşağıdaki karmaşık işlemin sonucu nedir?\n\nprint(10 // 3 + 10 % 3)",
+        "options": [
+            "3.33",
+            "4",
+            "31",
+            "6",
+            "4.0"
+        ],
+        "correct_option": 1,
+        "explanation": "10 // 3 = 3'tür. 10 % 3 = 1'dir. İkisi toplandığında 3 + 1 = 4 sonucunu verir."
+    },
+    {
+        "question": "İşlem önceliği kurallarına göre aşağıdaki kod ne yazdırır?\n\nprint((10 + 2) / 4)",
+        "options": [
+            "12.5",
+            "3",
+            "3.0",
+            "12",
+            "10.5"
+        ],
+        "correct_option": 2,
+        "explanation": "Parantez içi önce yapılır: 10 + 2 = 12. Sonra bölme yapılır: 12 / 4. Normal bölme (/) olduğu için sonuç 3.0 olur."
+    },
+    {
+        "question": "Aşağıdaki birleşik kod parçasının ekran çıktısı ne olur?\n\nprint(14 % 5 + 2 ** 3)",
+        "options": [
+            "11",
+            "12",
+            "14",
+            "18",
+            "6"
+        ],
+        "correct_option": 1,
+        "explanation": "14 % 5 işlemi 4 sonucunu verir. 2 ** 3 işlemi 8 sonucunu verir. İkisi toplandığında (4 + 8) sonuç 12 olur."
+    },
+    {
+        "question": "Ekrana yan yana (virgülle ayrılmış şekilde) üç farklı değer basan bu kodun çıktısı tam olarak nedir?\n\nx = 5\ny = 2\nprint(x / y, x // y, x % y)",
+        "options": [
+            "2.5 2 1",
+            "2.5, 2, 1",
+            "2.0 2.5 1",
+            "2 2.5 0",
+            "2.5 2.0 1.0"
+        ],
+        "correct_option": 0,
+        "explanation": "print içinde virgülle ayrılan değerler ekrana aralarında birer boşluk olacak şekilde yazılır. x/y=2.5, x//y=2, x%y=1. Çıktı: '2.5 2 1'"
+    },
+    {
+        "question": "Aşağıdaki işlemin sonucu nedir? (İşlem önceliğine dikkat edin)\n\nprint(100 % 10 * 5)",
+        "options": [
+            "0",
+            "50",
+            "10",
+            "100",
+            "500"
+        ],
+        "correct_option": 0,
+        "explanation": "100'ün 10'a bölümünden kalan 0'dır. 0 ile 5 çarpıldığında sonuç yine 0 olur."
+    },
+    {
+        "question": "Değişkenler üzerinde uygulanan aşağıdaki işlemler sonucunda x'in son durumu ne olur?\n\nx = 2\nx += 3\nx *= x",
+        "options": [
+            "10",
+            "15",
+            "20",
+            "25",
+            "5"
+        ],
+        "correct_option": 3,
+        "explanation": "x = 2 ile başlar. x += 3 ile değeri 5 olur. Son satırda x *= x yapıldığında (5 * 5), yeni değeri 25 olur."
+    },
+    {
+        "question": "Bir sayının karesini aldıktan sonra 4'e tam olarak bölen (küsuratsız) Python işlemi aşağıdakilerden hangisidir?",
+        "options": [
+            "(sayi ** 2) / 4",
+            "sayi * 2 // 4",
+            "(sayi ** 2) % 4",
+            "(sayi ** 2) // 4",
+            "sayi ** (2 // 4)"
+        ],
+        "correct_option": 3,
+        "explanation": "sayi ** 2 sayının karesini alır, // 4 ise kalanı (küsuratı) silerek dörde böler."
+    },
+    {
+        "question": "Aşağıdaki kod bloklarından hangisi 'Hata (Error)' VERMEZ ve geçerli bir sayı üretir?",
+        "options": [
+            "print(5 // 0)",
+            "print(10 % 0)",
+            "print(0 / 5)",
+            "print(5 / 0)",
+            "Hiçbiri çalışmaz"
+        ],
+        "correct_option": 2,
+        "explanation": "Matematikte ve Python'da bir sayıyı 0'a bölmek tanımsızdır ve hata verir. Ancak 0'ı bir sayıya bölmek geçerlidir ve 0.0 sonucunu verir."
+    },
+    {
+        "question": "Aşağıdaki kodun çıktısı nedir?\n\na = 7\nb = 3\na += b\nb *= 2\nprint(a - b)",
+        "options": [
+            "1",
+            "4",
+            "6",
+            "10",
+            "16"
+        ],
+        "correct_option": 1,
+        "explanation": "a = 7, b = 3. a += b işlemiyle a = 10 olur. b *= 2 işlemiyle b = 6 olur. a - b (10 - 6) işlemi 4 sonucunu verir."
+    }
+]
