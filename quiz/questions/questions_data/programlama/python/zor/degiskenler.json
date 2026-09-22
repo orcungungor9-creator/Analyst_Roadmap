@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "x = y = z = 10\ny = 20\nx = z\nprint(x, y, z)\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "10 20 10",
+            "20 20 10",
+            "10 10 10",
+            "10 20 20"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "a, b = 5, 10\na, b = b, a\nprint(a)\n\nYukarıdaki kod çalıştırıldığında çıktı ne olur?",
+        "options": [
+            "5",
+            "10",
+            "Hata verir",
+            "b"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "_gizli_veri = 100\n_gizliVeri = 200\nGizli_Veri = 300\nprint(_gizli_veri)\n\nYukarıdaki kod bloğunda kaç farklı değişken tanımlanmıştır ve çıktı nedir?",
+        "options": [
+            "3 değişken tanımlanmıştır, çıktı: 100",
+            "2 değişken tanımlanmıştır, çıktı: 200",
+            "1 değişken tanımlanmıştır, çıktı: 300",
+            "Alt çizgi ile başladığı için hata verir"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Aşağıdaki çoklu atama denemelerinden hangisi ValueError (değer hatası) verir?",
+        "options": [
+            "a, b = 1, 2",
+            "a, b, c = 1, 2, 3",
+            "x = y = z = 5",
+            "a, b = 1, 2, 3"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "False = True\nprint(False)\n\nBu kod parçasının sonucu ne olur?",
+        "options": [
+            "True",
+            "False",
+            "SyntaxError (Sözdizimi hatası)",
+            "None"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "x = 10\nx = \"Merhaba\"\nx = 15.5\nprint(x)\n\nPython'da bir değişkene önce int, sonra string, sonra float atandığında sonuç ne olur?",
+        "options": [
+            "Değişken türü ilk atanan değerle (int) kilitlenir, hata verir.",
+            "Değişkenin türü en son atanan değere (float) dönüşür, 15.5 yazdırır.",
+            "String değer atandığında TypeError verir.",
+            "Bellekte 3 farklı x tutar, tümünü yazdırır."
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "isim1 = \"Ali\"\n1isim = \"Veli\"\n\nYukarıdaki kod çalıştırıldığında alacağınız spesifik hata türü hangisidir?",
+        "options": [
+            "TypeError",
+            "NameError",
+            "SyntaxError",
+            "ValueError"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "a = 5\nb = 5.0\nc = \"5\"\n\nYukarıdaki veri tipleri sırasıyla hangileridir?",
+        "options": [
+            "int, float, string",
+            "int, int, string",
+            "float, float, string",
+            "int, float, char"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "sayi_1 = 5\nSayi_1 = sayi_1\nsayi_1 = 10\nprint(Sayi_1)\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "10",
+            "5",
+            "sayi_1",
+            "NameError verir"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "if_durumu = True\nfor_sayaci = 10\nprint(if_durumu, for_sayaci)\n\nYukarıdaki kod çalışır mı?",
+        "options": [
+            "Çalışmaz, 'if' kelimesi değişken isimlerinde kullanılamaz.",
+            "Çalışmaz, 'for' kelimesi değişken isimlerinde kullanılamaz.",
+            "Çalışır, 'if' ve 'for' ek kelimelerle birleştiği için keyword olmaktan çıkmıştır.",
+            "Çalışır, ancak sadece Python 3'te."
+        ],
+        "correct_option": 2
+    }
+]

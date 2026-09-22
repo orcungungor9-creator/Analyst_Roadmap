@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "Aşağıdaki kod parçalarından hangisinde bir değişkene değer ataması (assignment) DOĞRU yapılmıştır?",
+        "options": [
+            "10 = x",
+            "x == 10",
+            "x = 10",
+            "x => 10"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Python'da değişken isimlendirme kurallarına göre aşağıdakilerden hangisi YANLIŞTIR?",
+        "options": [
+            "Değişken isimlerinde alt çizgi (_) kullanılabilir.",
+            "Değişken isimleri rakam ile başlayabilir.",
+            "Değişken isimlerinde boşluk bırakılamaz.",
+            "Değişken isimleri büyük-küçük harfe duyarlıdır."
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Aşağıdaki değişken tanımlamalarından hangisi syntax (sözdizimi) hatası verir?",
+        "options": [
+            "sayi_1 = 100",
+            "1_sayi = 100",
+            "_sayi1 = 100",
+            "sayi1 = 100"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "ogrenci yasi = 25\n\nYukarıdaki kod neden hata verir?",
+        "options": [
+            "Değişken isminde boşluk bırakıldığı için",
+            "Değer olarak 25 kullanıldığı için",
+            "ogrenci kelimesi Türkçe karakter içermediği için",
+            "Eşittir işareti kullanıldığı için"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "isim = \"Python\"\nyas = 25\n\nYukarıdaki kodda 'isim' ve 'yas' değişkenlerinin tuttuğu veri tipleri sırasıyla aşağıdakilerden hangisidir?",
+        "options": [
+            "Integer, Float",
+            "Float, String",
+            "String, Boolean",
+            "String, Integer"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "Aşağıdaki atamalardan hangisi Python kurallarına göre GEÇERLİDİR?",
+        "options": [
+            "ogrenci@no = 101",
+            "ogrenci_no = 101",
+            "ogrenci-no = 101",
+            "ogrenci!no = 101"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Sayi = 10\nsayi = 20\nprint(Sayi)\n\nYukarıdaki kodun çıktısı ne olur?",
+        "options": [
+            "20",
+            "10",
+            "Hata verir",
+            "30"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Aşağıdaki kelimelerden hangisi Python'da değişken ismi olarak KULLANILAMAZ?",
+        "options": [
+            "isim",
+            "if",
+            "sayac",
+            "toplam"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Python'da mantıksal (Boolean) değişken atamak için aşağıdakilerden hangisi doğrudur?",
+        "options": [
+            "durum = true",
+            "durum = \"True\"",
+            "durum = True",
+            "durum = TRUE"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "x = y = z = 50\n\nBu kodun anlamı aşağıdakilerden hangisidir?",
+        "options": [
+            "Sadece x değişkenine 50 değeri atanır.",
+            "x, y ve z değişkenlerine aynı anda 50 değeri atanır.",
+            "Hata verir, böyle bir kullanım yoktur.",
+            "z değişkeni x ve y'nin toplamına eşit olur."
+        ],
+        "correct_option": 1
+    }
+]

@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "a, b, c = 5, 10, 15\nprint(b)\n\nYukarıdaki kodun çıktısı ne olur?",
+        "options": [
+            "5",
+            "10",
+            "15",
+            "Hata verir"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "degisken_1 = 10\nDegisken_1 = 20\ndegisken_1 = 30\nprint(Degisken_1)\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "10",
+            "20",
+            "30",
+            "Hata verir"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Aşağıdaki kod bloklarından hangisi Syntax Error (sözdizimi hatası) VERMEZ?",
+        "options": [
+            "for = 10",
+            "True = 1",
+            "while_dongusu = 5",
+            "kullanici adi = 'Ali'"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "x = 10\ny = 20\nx = y\nprint(x)\n\nYukarıdaki kod çalıştırıldığında ekrana ne yazdırır?",
+        "options": [
+            "10",
+            "20",
+            "30",
+            "x"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Aşağıdaki çoklu atama örneklerinden hangisi DOĞRUDUR?",
+        "options": [
+            "isim, yas = 25, 'Ayşe'",
+            "isim, yas = 'Ayşe', 25",
+            "isim = 'Ayşe', yas = 25",
+            "'Ayşe', 25 = isim, yas"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "sicaklik = 25.5\nsicaklik = True\nprint(sicaklik)\n\nYukarıdaki kodun çıktısı ne olur?",
+        "options": [
+            "25.5",
+            "True",
+            "Tip hatası (TypeError) verir",
+            "False"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Python'da snake_case isimlendirme kuralına uygun olan değişken hangisidir?",
+        "options": [
+            "KullaniciYasi",
+            "kullaniciYasi",
+            "kullanici_yasi",
+            "kullanici-yasi"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Aşağıdakilerden hangisi evrensel standartlar açısından daha iyi bir kodlama pratiğidir?",
+        "options": [
+            "kullanıcı_yaşı = 20",
+            "kullanici_yasi = 20",
+            "KULLANICI_YAS = 20",
+            "k_y = 20"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "a = 5\nb = a\na = 10\nprint(b)\n\nYukarıdaki kodun çıktısı ne olur?",
+        "options": [
+            "5",
+            "10",
+            "a",
+            "b"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Aşağıdaki ifadelerden hangisi yanlıştır?",
+        "options": [
+            "Değişkenler program çalışırken tür değiştirebilir.",
+            "Değişken isimleri @ veya ! karakteri içeremez.",
+            "Python komutları (keywords) değişken ismi yapılamaz.",
+            "Değişken ismi her zaman eşittir (=) işaretinin sağında yer alır."
+        ],
+        "correct_option": 3
+    }
+]
