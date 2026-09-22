@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-<html lang="tr">
 
+<html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akademik Dersler | My Analyst LogBook</title>
-    <link rel="stylesheet" href="../styles.css?v=3.4">
-    <link rel="stylesheet" href="courses.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&family=Outfit:wght@600;700;800&display=swap"
-        rel="stylesheet">
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Akademik Dersler | My Analyst LogBook</title>
+<link href="../styles.css?v=3.4" rel="stylesheet"/>
+<link href="courses.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Montserrat:wght@700;800;900&amp;family=Outfit:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
         .courses-hero {
             width: 100%;
             max-width: 1000px;
@@ -185,9 +183,8 @@
         }
     </style>
 </head>
-
 <body class="formulas-page">
-    <script>
+<script>
         (function () {
             const savedTheme = localStorage.getItem('analyst_theme') || 'theme-light-purple';
             if (savedTheme !== 'theme-dark') {
@@ -195,219 +192,180 @@
             }
         })();
     </script>
-
-    <!-- DİNAMİK ARKA PLAN GRAFİK AĞI (BG ANALYTICS MESH) -->
-    <div class="bg-analytics-mesh">
-        <!-- SVG 1: İniş Çıkış Trend Çizgisi (Line & Area Chart) -->
-        <div class="bg-chart-item bg-chart-1">
-            <svg viewBox="0 0 400 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="bg-area-grad-1" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="var(--neon-blue)" stop-opacity="0.4" />
-                        <stop offset="100%" stop-color="var(--neon-blue)" stop-opacity="0.0" />
-                    </linearGradient>
-                </defs>
-                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40 L 370,190 L 10,190 Z"
-                    fill="url(#bg-area-grad-1)" />
-                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40" fill="none" stroke="var(--neon-blue)"
-                    stroke-width="4" stroke-linecap="round" />
-                <circle cx="130" cy="150" r="6" fill="var(--neon-green)" />
-                <circle cx="250" cy="90" r="6" fill="var(--neon-purple)" />
-                <circle cx="370" cy="40" r="8" fill="var(--neon-blue)">
-                </circle>
-            </svg>
-        </div>
-
-        <!-- SVG 2: Pasta / Donut Grafiği -->
-        <div class="bg-chart-item bg-chart-2">
-            <svg viewBox="0 0 200 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                <g transform="translate(100,100)">
-                    <!-- Dilim 1 (%45) -->
-                    <path d="M 0,-80 A 80,80 0 0,1 76,25 L 57,18 A 60,60 0 0,0 0,-60 Z" fill="var(--neon-blue)" />
-                    <!-- Dilim 2 (%35) -->
-                    <path d="M 76,25 A 80,80 0 0,1 -64,48 L -48,36 A 60,60 0 0,0 57,18 Z" fill="var(--neon-green)" />
-                    <!-- Dilim 3 (%20) -->
-                    <path d="M -64,48 A 80,80 0 0,1 0,-80 L 0,-60 A 60,60 0 0,0 -48,36 Z" fill="var(--neon-purple)" />
-                    <circle cx="0" cy="0" r="45" fill="none" stroke="var(--glass-border)" stroke-width="2"
-                        stroke-dasharray="5,5" />
-                </g>
-            </svg>
-        </div>
-
-        <!-- SVG 3: Sütun Grafiği (Bar Chart) -->
-        <div class="bg-chart-item bg-chart-3">
-            <svg viewBox="0 0 250 250" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                <!-- Arka plan grid çizgileri -->
-                <line x1="20" y1="50" x2="230" y2="50" stroke="var(--glass-border)" stroke-width="1"
-                    stroke-dasharray="4,4" />
-                <line x1="20" y1="100" x2="230" y2="100" stroke="var(--glass-border)" stroke-width="1"
-                    stroke-dasharray="4,4" />
-                <line x1="20" y1="150" x2="230" y2="150" stroke="var(--glass-border)" stroke-width="1"
-                    stroke-dasharray="4,4" />
-                <line x1="20" y1="200" x2="230" y2="200" stroke="var(--glass-border)" stroke-width="2" />
-
-                <!-- Sütun 1 -->
-                <rect x="35" y="120" width="30" height="80" rx="6" fill="var(--neon-blue)">
-                </rect>
-                <!-- Sütun 2 -->
-                <rect x="85" y="70" width="30" height="130" rx="6" fill="var(--neon-green)">
-                </rect>
-                <!-- Sütun 3 -->
-                <rect x="135" y="150" width="30" height="50" rx="6" fill="var(--neon-purple)">
-                </rect>
-                <!-- Sütun 4 -->
-                <rect x="185" y="90" width="30" height="110" rx="6" fill="var(--neon-blue)">
-                </rect>
-            </svg>
-        </div>
-
-        <!-- SVG 4: Mum & Radar Grafiği (Candlestick) -->
-        <div class="bg-chart-item bg-chart-4">
-            <svg viewBox="0 0 280 220" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                <!-- Mum 1 -->
-                <line x1="50" y1="30" x2="50" y2="170" stroke="var(--neon-green)" stroke-width="3" />
-                <rect x="38" y="70" width="24" height="60" rx="4" fill="var(--neon-green)" />
-
-                <!-- Mum 2 -->
-                <line x1="110" y1="50" x2="110" y2="190" stroke="var(--neon-blue)" stroke-width="3" />
-                <rect x="98" y="90" width="24" height="70" rx="4" fill="var(--neon-blue)" />
-
-                <!-- Mum 3 -->
-                <line x1="170" y1="20" x2="170" y2="150" stroke="var(--neon-purple)" stroke-width="3" />
-                <rect x="158" y="50" width="24" height="50" rx="4" fill="var(--neon-purple)" />
-
-                <!-- Mum 4 -->
-                <line x1="230" y1="60" x2="230" y2="200" stroke="var(--neon-green)" stroke-width="3" />
-                <rect x="218" y="100" width="24" height="55" rx="4" fill="var(--neon-green)" />
-            </svg>
-        </div>
-    </div>
-
-    <!-- 2. HERO & BAŞLIK BÖLÜMÜ -->
-    <section class="courses-hero" style="position: relative;  max-width: none; padding-top: 80px; padding-bottom: 40px;">
-        <!-- Banner arkaplanı ve gölgelendirmesi -->
-        <div style="position: fixed; top: 0; left: 0; width: 100%; height: 600px; z-index: -1; transform: translateZ(0); will-change: transform; background: url('academic_banner.webp') center 25%/cover no-repeat; mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%); opacity: 0.9;"></div>
-        <div style="position: fixed; top: 0; left: 0; width: 100%; height: 600px; z-index: -1; transform: translateZ(0); will-change: transform; opacity: 0.85; background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(88, 28, 135, 0.6) 50%, rgba(15, 23, 42, 0.95) 100%); mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%); pointer-events: none;"></div>
-        <div style="position: fixed; top: 0; left: 0; width: 100%; height: 600px; z-index: -1; transform: translateZ(0); will-change: transform; background: radial-gradient(circle at top, rgba(56, 189, 248, 0.25) 0%, transparent 60%); pointer-events: none;"></div>
-
-        <div class="hero-content" style="position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; padding: 0 24px;">
-            <div class="badge-pill floating-slow" style="background: rgba(15, 23, 42, 0.8);   border: 1px solid rgba(56, 189, 248, 0.5); color: #fff; margin-bottom: 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.6);">Müfredat &amp; Akademik Modüller</div>
-            <h1 class="hero-title" style="margin-bottom: 20px; color: #ffffff; text-shadow: 0 8px 40px rgba(0,0,0,0.9), 0 4px 15px rgba(0,0,0,0.8), 0 0 60px rgba(56, 189, 248, 0.6); font-weight: 800; letter-spacing: -0.5px;">Akademik Dersler</h1>
-            <p class="hero-subtitle" style="color: rgba(255,255,255,0.95); font-size: 1.15rem; line-height: 1.6; font-weight: 500; text-shadow: 0 4px 20px rgba(0,0,0,0.9), 0 2px 10px rgba(0,0,0,0.8); margin: 0;">
+<!-- DİNAMİK ARKA PLAN GRAFİK AĞI (BG ANALYTICS MESH) -->
+<div class="bg-analytics-mesh">
+<!-- SVG 1: İniş Çıkış Trend Çizgisi (Line & Area Chart) -->
+<div class="bg-chart-item bg-chart-1">
+<svg height="100%" viewbox="0 0 400 200" width="100%" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient id="bg-area-grad-1" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="var(--neon-blue)" stop-opacity="0.4"></stop>
+<stop offset="100%" stop-color="var(--neon-blue)" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40 L 370,190 L 10,190 Z" fill="url(#bg-area-grad-1)"></path>
+<path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40" fill="none" stroke="var(--neon-blue)" stroke-linecap="round" stroke-width="4"></path>
+<circle cx="130" cy="150" fill="var(--neon-green)" r="6"></circle>
+<circle cx="250" cy="90" fill="var(--neon-purple)" r="6"></circle>
+<circle cx="370" cy="40" fill="var(--neon-blue)" r="8">
+</circle>
+</svg>
+</div>
+<!-- SVG 2: Pasta / Donut Grafiği -->
+<div class="bg-chart-item bg-chart-2">
+<svg height="100%" viewbox="0 0 200 200" width="100%" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(100,100)">
+<!-- Dilim 1 (%45) -->
+<path d="M 0,-80 A 80,80 0 0,1 76,25 L 57,18 A 60,60 0 0,0 0,-60 Z" fill="var(--neon-blue)"></path>
+<!-- Dilim 2 (%35) -->
+<path d="M 76,25 A 80,80 0 0,1 -64,48 L -48,36 A 60,60 0 0,0 57,18 Z" fill="var(--neon-green)"></path>
+<!-- Dilim 3 (%20) -->
+<path d="M -64,48 A 80,80 0 0,1 0,-80 L 0,-60 A 60,60 0 0,0 -48,36 Z" fill="var(--neon-purple)"></path>
+<circle cx="0" cy="0" fill="none" r="45" stroke="var(--glass-border)" stroke-dasharray="5,5" stroke-width="2"></circle>
+</g>
+</svg>
+</div>
+<!-- SVG 3: Sütun Grafiği (Bar Chart) -->
+<div class="bg-chart-item bg-chart-3">
+<svg height="100%" viewbox="0 0 250 250" width="100%" xmlns="http://www.w3.org/2000/svg">
+<!-- Arka plan grid çizgileri -->
+<line stroke="var(--glass-border)" stroke-dasharray="4,4" stroke-width="1" x1="20" x2="230" y1="50" y2="50"></line>
+<line stroke="var(--glass-border)" stroke-dasharray="4,4" stroke-width="1" x1="20" x2="230" y1="100" y2="100"></line>
+<line stroke="var(--glass-border)" stroke-dasharray="4,4" stroke-width="1" x1="20" x2="230" y1="150" y2="150"></line>
+<line stroke="var(--glass-border)" stroke-width="2" x1="20" x2="230" y1="200" y2="200"></line>
+<!-- Sütun 1 -->
+<rect fill="var(--neon-blue)" height="80" rx="6" width="30" x="35" y="120">
+</rect>
+<!-- Sütun 2 -->
+<rect fill="var(--neon-green)" height="130" rx="6" width="30" x="85" y="70">
+</rect>
+<!-- Sütun 3 -->
+<rect fill="var(--neon-purple)" height="50" rx="6" width="30" x="135" y="150">
+</rect>
+<!-- Sütun 4 -->
+<rect fill="var(--neon-blue)" height="110" rx="6" width="30" x="185" y="90">
+</rect>
+</svg>
+</div>
+<!-- SVG 4: Mum & Radar Grafiği (Candlestick) -->
+<div class="bg-chart-item bg-chart-4">
+<svg height="100%" viewbox="0 0 280 220" width="100%" xmlns="http://www.w3.org/2000/svg">
+<!-- Mum 1 -->
+<line stroke="var(--neon-green)" stroke-width="3" x1="50" x2="50" y1="30" y2="170"></line>
+<rect fill="var(--neon-green)" height="60" rx="4" width="24" x="38" y="70"></rect>
+<!-- Mum 2 -->
+<line stroke="var(--neon-blue)" stroke-width="3" x1="110" x2="110" y1="50" y2="190"></line>
+<rect fill="var(--neon-blue)" height="70" rx="4" width="24" x="98" y="90"></rect>
+<!-- Mum 3 -->
+<line stroke="var(--neon-purple)" stroke-width="3" x1="170" x2="170" y1="20" y2="150"></line>
+<rect fill="var(--neon-purple)" height="50" rx="4" width="24" x="158" y="50"></rect>
+<!-- Mum 4 -->
+<line stroke="var(--neon-green)" stroke-width="3" x1="230" x2="230" y1="60" y2="200"></line>
+<rect fill="var(--neon-green)" height="55" rx="4" width="24" x="218" y="100"></rect>
+</svg>
+</div>
+</div>
+<!-- 2. HERO & BAŞLIK BÖLÜMÜ -->
+<section class="courses-hero" style="position: relative;  max-width: none; padding-top: 80px; padding-bottom: 40px;">
+<!-- Banner arkaplanı ve gölgelendirmesi -->
+<div style="position: fixed; top: 0; left: 0; width: 100%; height: 600px; z-index: -1; transform: translateZ(0); will-change: transform; background: url('academic_banner.webp') center 25%/cover no-repeat; mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%); opacity: 0.9;"></div>
+<div style="position: fixed; top: 0; left: 0; width: 100%; height: 600px; z-index: -1; transform: translateZ(0); will-change: transform; opacity: 0.85; background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(88, 28, 135, 0.6) 50%, rgba(15, 23, 42, 0.95) 100%); mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%); pointer-events: none;"></div>
+<div style="position: fixed; top: 0; left: 0; width: 100%; height: 600px; z-index: -1; transform: translateZ(0); will-change: transform; background: radial-gradient(circle at top, rgba(56, 189, 248, 0.25) 0%, transparent 60%); pointer-events: none;"></div>
+<div class="hero-content" style="position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; padding: 0 24px;">
+<div class="badge-pill floating-slow" style="background: rgba(15, 23, 42, 0.8);   border: 1px solid rgba(56, 189, 248, 0.5); color: #fff; margin-bottom: 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.6);">Müfredat &amp; Akademik Modüller</div>
+<h1 class="hero-title" style="margin-bottom: 20px; color: #ffffff; text-shadow: 0 8px 40px rgba(0,0,0,0.9), 0 4px 15px rgba(0,0,0,0.8), 0 0 60px rgba(56, 189, 248, 0.6); font-weight: 800; letter-spacing: -0.5px;">Akademik Dersler</h1>
+<p class="hero-subtitle" style="color: rgba(255,255,255,0.95); font-size: 1.15rem; line-height: 1.6; font-weight: 500; text-shadow: 0 4px 20px rgba(0,0,0,0.9), 0 2px 10px rgba(0,0,0,0.8); margin: 0;">
                 Veri dünyasına adım atarken istatistik gözünüzü korkutmasın. Burada, her şeyin en başından başlayarak veriyi anlamlandırmanın temel mantığını anlatmaya çalışıyorum. Akademik kavramları daha sade bir dille ele aldığım bu notlar sayesinde, kendi hızınızda ilerleyip sağlam bir altyapı kurabilirsiniz.
             </p>
-        </div>
-    </section>
-
-    <!-- 3. KART KATALOĞU -->
-    <main class="courses-grid">
-        <!-- 1. İstatistik -->
-        <div class="course-card lazy-fade" onclick="window.location.href='istatistik/istatistik.html'" 
-             style="--glow-color: var(--neon-blue); --glow-shadow: rgba(56, 189, 248, 0.15); --glow-border: var(--neon-blue); --glow-shadow-mini: rgba(56, 189, 248, 0.2); --glow-border-mini: rgba(56, 189, 248, 0.2); --glow-text: var(--neon-blue); --glow-bg-mini: rgba(56, 189, 248, 0.05);">
-            <div class="course-icon-wrapper">📊</div>
-            <span class="course-card-tag lazy-fade">İstatistik 101</span>
-            <h3>İstatistik</h3>
-            <p>Anakütle ve örneklem tanımları, birim, vasıf çeşitleri ile ortalama, medyan, mod, varyans ve standart sapma gibi tanımlayıcı verileri öğrenin.</p>
-            <span class="course-card-link lazy-fade"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Derse Başla</span>
-        </div>
-
-        <!-- 2. Olasılık -->
-        <div class="course-card lazy-fade" onclick="window.location.href='olasilik/olasilik.html'" 
-             style="--glow-color: var(--neon-green); --glow-shadow: rgba(52, 211, 153, 0.15); --glow-border: var(--neon-green); --glow-shadow-mini: rgba(52, 211, 153, 0.2); --glow-border-mini: rgba(52, 211, 153, 0.2); --glow-text: var(--neon-green); --glow-bg-mini: rgba(52, 211, 153, 0.05);">
-            <div class="course-icon-wrapper">🎲</div>
-            <span class="course-card-tag lazy-fade">Olasılık Teorisi</span>
-            <h3>Olasılık</h3>
-            <p>Rastlantısal süreçler, örnek uzay, temel olasılık kuralları, permütasyon, kombinasyon ve koşullu olasılığın kalbi olan Bayes Teoremi.</p>
-            <span class="course-card-link lazy-fade"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Derse Başla</span>
-        </div>
-
-        <!-- 3. Matematiksel İstatistik -->
-        <div class="course-card lazy-fade" onclick="window.location.href='matematiksel_istatistik/matematiksel_istatistik.html'" 
-             style="--glow-color: var(--neon-purple); --glow-shadow: rgba(192, 132, 252, 0.15); --glow-border: var(--neon-purple); --glow-shadow-mini: rgba(192, 132, 252, 0.2); --glow-border-mini: rgba(192, 132, 252, 0.2); --glow-text: var(--neon-purple); --glow-bg-mini: rgba(192, 132, 252, 0.05);">
-            <div class="course-icon-wrapper">🧮</div>
-            <span class="course-card-tag lazy-fade">Kuramsal Dağılımlar</span>
-            <h3>Matematiksel İstatistik</h3>
-            <p>Kesikli ve sürekli rastsal değişkenler, Olasılık Yoğunluk Fonksiyonu (PDF), beklenen değer, varyans ve efsanevi Merkezi Limit Teoremi.</p>
-            <span class="course-card-link lazy-fade"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Derse Başla</span>
-        </div>
-
-        <!-- 4. İstatistiksel Yöntemler -->
-        <div class="course-card lazy-fade" onclick="window.location.href='istatistiksel_yontemler/istatistiksel_yontemler.html'" 
-             style="--glow-color: var(--neon-orange); --glow-shadow: rgba(251, 146, 60, 0.15); --glow-border: var(--neon-orange); --glow-shadow-mini: rgba(251, 146, 60, 0.2); --glow-border-mini: rgba(251, 146, 60, 0.2); --glow-text: var(--neon-orange); --glow-bg-mini: rgba(251, 146, 60, 0.05);">
-            <div class="course-icon-wrapper">🧪</div>
-            <span class="course-card-tag lazy-fade">Çıkarımsal Analiz</span>
-            <h3>İstatistiksel Yöntemler</h3>
-            <p>İki bağımsız grup arasındaki farklılıklerin t-testi ile incelenmesi, ANOVA varyans analizi, korelasyon katsayıları ve anlamlılık analizleri.</p>
-            <span class="course-card-link lazy-fade"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Derse Başla</span>
-        </div>
-
-        <!-- 5. Regresyon Analizi -->
-        <div class="course-card lazy-fade" onclick="window.location.href='regresyon_analizi/regresyon_analizi.html'" 
-             style="--glow-color: var(--neon-yellow); --glow-shadow: rgba(251, 191, 36, 0.15); --glow-border: var(--neon-yellow); --glow-shadow-mini: rgba(251, 191, 36, 0.2); --glow-border-mini: rgba(251, 191, 36, 0.2); --glow-text: var(--neon-yellow); --glow-bg-mini: rgba(251, 191, 36, 0.05);">
-            <div class="course-icon-wrapper">📈</div>
-            <span class="course-card-tag lazy-fade">Modelleme</span>
-            <h3>Regresyon Analizi</h3>
-            <p>Basit doğrusal regresyon, En Küçük Kareler (OLS) yöntemi, regresyon katsayılarının anlamlılığı, R-Kare ve temel model varsayımları.</p>
-            <span class="course-card-link lazy-fade"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Derse Başla</span>
-        </div>
-
-        <!-- 6. Hipotez Testleri -->
-        <div class="course-card lazy-fade" onclick="window.location.href='hipotez_testleri/hipotez_testleri.html'" 
-             style="--glow-color: var(--neon-red); --glow-shadow: rgba(248, 113, 113, 0.15); --glow-border: var(--neon-red); --glow-shadow-mini: rgba(248, 113, 113, 0.2); --glow-border-mini: rgba(248, 113, 113, 0.2); --glow-text: var(--neon-red); --glow-bg-mini: rgba(248, 113, 113, 0.05);">
-            <div class="course-icon-wrapper">📉</div>
-            <span class="course-card-tag lazy-fade">Karar Teorisi</span>
-            <h3>Hipotez Testleri</h3>
-            <p>Sıfır ve alternatif hipotezler, anlamlılık seviyesi, I. ve II. Tip hatalar ile p-değeri üzerinden karar kuralları.</p>
-            <span class="course-card-link lazy-fade"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Derse Başla</span>
-        </div>
-
-        <!-- Yeni 1. Veri Yapilari -->
-        <div class="course-card lazy-fade" onclick="window.location.href='veri_yapilari/veri_yapilari.html'" 
-             style="--glow-color: var(--neon-blue); --glow-shadow: rgba(56, 189, 248, 0.15); --glow-border: var(--neon-blue); --glow-shadow-mini: rgba(56, 189, 248, 0.2); --glow-border-mini: rgba(56, 189, 248, 0.2); --glow-text: var(--neon-blue); --glow-bg-mini: rgba(56, 189, 248, 0.05);">
-            <div class="course-icon-wrapper">🧠</div>
-            <span class="course-card-tag lazy-fade">Bilgisayar Bilimleri</span>
-            <h3>Veri Yapıları ve Algoritmalar</h3>
-            <p>Özyineleme, ağaçlar, listeler, sıralama, graf algoritmaları ve zaman karmaşıklığı.</p>
-            <span class="course-card-link lazy-fade"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Derse Başla</span>
-        </div>
-
-        <!-- Yeni 2. Yöneylem -->
-        <div class="course-card lazy-fade" onclick="window.location.href='yoneylem/yoneylem.html'" 
-             style="--glow-color: var(--neon-green); --glow-shadow: rgba(52, 211, 153, 0.15); --glow-border: var(--neon-green); --glow-shadow-mini: rgba(52, 211, 153, 0.2); --glow-border-mini: rgba(52, 211, 153, 0.2); --glow-text: var(--neon-green); --glow-bg-mini: rgba(52, 211, 153, 0.05);">
-            <div class="course-icon-wrapper">📈</div>
-            <span class="course-card-tag lazy-fade">Optimizasyon</span>
-            <h3>Yöneylem Araştırması</h3>
-            <p>Doğrusal programlama, simpleks yöntemi, grafiksel yöntem ve duyarlılık analizi.</p>
-            <span class="course-card-link lazy-fade"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Derse Başla</span>
-        </div>
-
-        <!-- Yeni 3. YSA -->
-        <div class="course-card lazy-fade" onclick="window.location.href='ysa/ysa.html'" 
-             style="--glow-color: var(--neon-purple); --glow-shadow: rgba(192, 132, 252, 0.15); --glow-border: var(--neon-purple); --glow-shadow-mini: rgba(192, 132, 252, 0.2); --glow-border-mini: rgba(192, 132, 252, 0.2); --glow-text: var(--neon-purple); --glow-bg-mini: rgba(192, 132, 252, 0.05);">
-            <div class="course-icon-wrapper">🤖</div>
-            <span class="course-card-tag lazy-fade">Makine Öğrenmesi</span>
-            <h3>Yapay Sinir Ağlarına Giriş</h3>
-            <p>YSA temelleri, mimariler, yapay sinir ağı karakteristik özellikleri ve uygulama alanları.</p>
-            <span class="course-card-link lazy-fade"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Derse Başla</span>
-        </div>
-        
-        <!-- Yeni 4. Lineer Cebir -->
-        <div class="course-card lazy-fade" onclick="window.location.href='lineer_cebir/lineer_cebir.html'" 
-             style="--glow-color: var(--neon-yellow); --glow-shadow: rgba(251, 191, 36, 0.15); --glow-border: var(--neon-yellow); --glow-shadow-mini: rgba(251, 191, 36, 0.2); --glow-border-mini: rgba(251, 191, 36, 0.2); --glow-text: var(--neon-yellow); --glow-bg-mini: rgba(251, 191, 36, 0.05);">
-            <div class="course-icon-wrapper">📐</div>
-            <span class="course-card-tag lazy-fade">Lineer Sistemler</span>
-            <h3>Lineer Cebir</h3>
-            <p>Vektör uzayları, matris işlemleri, determinant, özdeğer ve özvektörler.</p>
-            <span class="course-card-link lazy-fade"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Derse Başla</span>
-        </div>
-    </main>
-
-    <script src="../js/components.js"></script>
-    <script src="../js/nav.js"></script>
-    <script src="../js/modal.js"></script>
-    <script src="../js/script.js"></script>
-    <script src="courses.js"></script>
+</div>
+</section>
+<!-- 3. KART KATALOĞU -->
+<main class="courses-grid">
+<!-- 1. İstatistik -->
+<div class="course-card lazy-fade locked-card" onclick="javascript:void(0)" style="--glow-color: var(--neon-blue); --glow-shadow: rgba(56, 189, 248, 0.15); --glow-border: var(--neon-blue); --glow-shadow-mini: rgba(56, 189, 248, 0.2); --glow-border-mini: rgba(56, 189, 248, 0.2); --glow-text: var(--neon-blue); --glow-bg-mini: rgba(56, 189, 248, 0.05);"><div class="locked-overlay-content"><i class="ph ph-lock-key"></i><span>Henüz İçerik Eklenmemiştir</span></div>
+<div class="course-icon-wrapper">📊</div>
+<span class="course-card-tag lazy-fade">İstatistik 101</span>
+<h3>İstatistik</h3>
+<p>Anakütle ve örneklem tanımları, birim, vasıf çeşitleri ile ortalama, medyan, mod, varyans ve standart sapma gibi tanımlayıcı verileri öğrenin.</p>
+<span class="course-card-link lazy-fade"><svg fill="currentColor" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="14"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Derse Başla</span>
+</div>
+<!-- 2. Olasılık -->
+<div class="course-card lazy-fade locked-card" onclick="javascript:void(0)" style="--glow-color: var(--neon-green); --glow-shadow: rgba(52, 211, 153, 0.15); --glow-border: var(--neon-green); --glow-shadow-mini: rgba(52, 211, 153, 0.2); --glow-border-mini: rgba(52, 211, 153, 0.2); --glow-text: var(--neon-green); --glow-bg-mini: rgba(52, 211, 153, 0.05);"><div class="locked-overlay-content"><i class="ph ph-lock-key"></i><span>Henüz İçerik Eklenmemiştir</span></div>
+<div class="course-icon-wrapper">🎲</div>
+<span class="course-card-tag lazy-fade">Olasılık Teorisi</span>
+<h3>Olasılık</h3>
+<p>Rastlantısal süreçler, örnek uzay, temel olasılık kuralları, permütasyon, kombinasyon ve koşullu olasılığın kalbi olan Bayes Teoremi.</p>
+<span class="course-card-link lazy-fade"><svg fill="currentColor" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="14"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Derse Başla</span>
+</div>
+<!-- 3. Matematiksel İstatistik -->
+<div class="course-card lazy-fade locked-card" onclick="javascript:void(0)" style="--glow-color: var(--neon-purple); --glow-shadow: rgba(192, 132, 252, 0.15); --glow-border: var(--neon-purple); --glow-shadow-mini: rgba(192, 132, 252, 0.2); --glow-border-mini: rgba(192, 132, 252, 0.2); --glow-text: var(--neon-purple); --glow-bg-mini: rgba(192, 132, 252, 0.05);"><div class="locked-overlay-content"><i class="ph ph-lock-key"></i><span>Henüz İçerik Eklenmemiştir</span></div>
+<div class="course-icon-wrapper">🧮</div>
+<span class="course-card-tag lazy-fade">Kuramsal Dağılımlar</span>
+<h3>Matematiksel İstatistik</h3>
+<p>Kesikli ve sürekli rastsal değişkenler, Olasılık Yoğunluk Fonksiyonu (PDF), beklenen değer, varyans ve efsanevi Merkezi Limit Teoremi.</p>
+<span class="course-card-link lazy-fade"><svg fill="currentColor" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="14"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Derse Başla</span>
+</div>
+<!-- 4. İstatistiksel Yöntemler -->
+<div class="course-card lazy-fade locked-card" onclick="javascript:void(0)" style="--glow-color: var(--neon-orange); --glow-shadow: rgba(251, 146, 60, 0.15); --glow-border: var(--neon-orange); --glow-shadow-mini: rgba(251, 146, 60, 0.2); --glow-border-mini: rgba(251, 146, 60, 0.2); --glow-text: var(--neon-orange); --glow-bg-mini: rgba(251, 146, 60, 0.05);"><div class="locked-overlay-content"><i class="ph ph-lock-key"></i><span>Henüz İçerik Eklenmemiştir</span></div>
+<div class="course-icon-wrapper">🧪</div>
+<span class="course-card-tag lazy-fade">Çıkarımsal Analiz</span>
+<h3>İstatistiksel Yöntemler</h3>
+<p>İki bağımsız grup arasındaki farklılıklerin t-testi ile incelenmesi, ANOVA varyans analizi, korelasyon katsayıları ve anlamlılık analizleri.</p>
+<span class="course-card-link lazy-fade"><svg fill="currentColor" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="14"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Derse Başla</span>
+</div>
+<!-- 5. Regresyon Analizi -->
+<div class="course-card lazy-fade locked-card" onclick="javascript:void(0)" style="--glow-color: var(--neon-yellow); --glow-shadow: rgba(251, 191, 36, 0.15); --glow-border: var(--neon-yellow); --glow-shadow-mini: rgba(251, 191, 36, 0.2); --glow-border-mini: rgba(251, 191, 36, 0.2); --glow-text: var(--neon-yellow); --glow-bg-mini: rgba(251, 191, 36, 0.05);"><div class="locked-overlay-content"><i class="ph ph-lock-key"></i><span>Henüz İçerik Eklenmemiştir</span></div>
+<div class="course-icon-wrapper">📈</div>
+<span class="course-card-tag lazy-fade">Modelleme</span>
+<h3>Regresyon Analizi</h3>
+<p>Basit doğrusal regresyon, En Küçük Kareler (OLS) yöntemi, regresyon katsayılarının anlamlılığı, R-Kare ve temel model varsayımları.</p>
+<span class="course-card-link lazy-fade"><svg fill="currentColor" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="14"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Derse Başla</span>
+</div>
+<!-- 6. Hipotez Testleri -->
+<div class="course-card lazy-fade locked-card" onclick="javascript:void(0)" style="--glow-color: var(--neon-red); --glow-shadow: rgba(248, 113, 113, 0.15); --glow-border: var(--neon-red); --glow-shadow-mini: rgba(248, 113, 113, 0.2); --glow-border-mini: rgba(248, 113, 113, 0.2); --glow-text: var(--neon-red); --glow-bg-mini: rgba(248, 113, 113, 0.05);"><div class="locked-overlay-content"><i class="ph ph-lock-key"></i><span>Henüz İçerik Eklenmemiştir</span></div>
+<div class="course-icon-wrapper">📉</div>
+<span class="course-card-tag lazy-fade">Karar Teorisi</span>
+<h3>Hipotez Testleri</h3>
+<p>Sıfır ve alternatif hipotezler, anlamlılık seviyesi, I. ve II. Tip hatalar ile p-değeri üzerinden karar kuralları.</p>
+<span class="course-card-link lazy-fade"><svg fill="currentColor" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="14"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Derse Başla</span>
+</div>
+<!-- Yeni 1. Veri Yapilari -->
+<div class="course-card lazy-fade locked-card" onclick="javascript:void(0)" style="--glow-color: var(--neon-blue); --glow-shadow: rgba(56, 189, 248, 0.15); --glow-border: var(--neon-blue); --glow-shadow-mini: rgba(56, 189, 248, 0.2); --glow-border-mini: rgba(56, 189, 248, 0.2); --glow-text: var(--neon-blue); --glow-bg-mini: rgba(56, 189, 248, 0.05);"><div class="locked-overlay-content"><i class="ph ph-lock-key"></i><span>Henüz İçerik Eklenmemiştir</span></div>
+<div class="course-icon-wrapper">🧠</div>
+<span class="course-card-tag lazy-fade">Bilgisayar Bilimleri</span>
+<h3>Veri Yapıları ve Algoritmalar</h3>
+<p>Özyineleme, ağaçlar, listeler, sıralama, graf algoritmaları ve zaman karmaşıklığı.</p>
+<span class="course-card-link lazy-fade"><svg fill="currentColor" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="14"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Derse Başla</span>
+</div>
+<!-- Yeni 2. Yöneylem -->
+<div class="course-card lazy-fade locked-card" onclick="javascript:void(0)" style="--glow-color: var(--neon-green); --glow-shadow: rgba(52, 211, 153, 0.15); --glow-border: var(--neon-green); --glow-shadow-mini: rgba(52, 211, 153, 0.2); --glow-border-mini: rgba(52, 211, 153, 0.2); --glow-text: var(--neon-green); --glow-bg-mini: rgba(52, 211, 153, 0.05);"><div class="locked-overlay-content"><i class="ph ph-lock-key"></i><span>Henüz İçerik Eklenmemiştir</span></div>
+<div class="course-icon-wrapper">📈</div>
+<span class="course-card-tag lazy-fade">Optimizasyon</span>
+<h3>Yöneylem Araştırması</h3>
+<p>Doğrusal programlama, simpleks yöntemi, grafiksel yöntem ve duyarlılık analizi.</p>
+<span class="course-card-link lazy-fade"><svg fill="currentColor" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="14"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Derse Başla</span>
+</div>
+<!-- Yeni 3. YSA -->
+<div class="course-card lazy-fade locked-card" onclick="javascript:void(0)" style="--glow-color: var(--neon-purple); --glow-shadow: rgba(192, 132, 252, 0.15); --glow-border: var(--neon-purple); --glow-shadow-mini: rgba(192, 132, 252, 0.2); --glow-border-mini: rgba(192, 132, 252, 0.2); --glow-text: var(--neon-purple); --glow-bg-mini: rgba(192, 132, 252, 0.05);"><div class="locked-overlay-content"><i class="ph ph-lock-key"></i><span>Henüz İçerik Eklenmemiştir</span></div>
+<div class="course-icon-wrapper">🤖</div>
+<span class="course-card-tag lazy-fade">Makine Öğrenmesi</span>
+<h3>Yapay Sinir Ağlarına Giriş</h3>
+<p>YSA temelleri, mimariler, yapay sinir ağı karakteristik özellikleri ve uygulama alanları.</p>
+<span class="course-card-link lazy-fade"><svg fill="currentColor" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="14"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Derse Başla</span>
+</div>
+<!-- Yeni 4. Lineer Cebir -->
+<div class="course-card lazy-fade locked-card" onclick="javascript:void(0)" style="--glow-color: var(--neon-yellow); --glow-shadow: rgba(251, 191, 36, 0.15); --glow-border: var(--neon-yellow); --glow-shadow-mini: rgba(251, 191, 36, 0.2); --glow-border-mini: rgba(251, 191, 36, 0.2); --glow-text: var(--neon-yellow); --glow-bg-mini: rgba(251, 191, 36, 0.05);"><div class="locked-overlay-content"><i class="ph ph-lock-key"></i><span>Henüz İçerik Eklenmemiştir</span></div>
+<div class="course-icon-wrapper">📐</div>
+<span class="course-card-tag lazy-fade">Lineer Sistemler</span>
+<h3>Lineer Cebir</h3>
+<p>Vektör uzayları, matris işlemleri, determinant, özdeğer ve özvektörler.</p>
+<span class="course-card-link lazy-fade"><svg fill="currentColor" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="14"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Derse Başla</span>
+</div>
+</main>
+<script src="../js/components.js"></script>
+<script src="../js/nav.js"></script>
+<script src="../js/modal.js"></script>
+<script src="../js/script.js"></script>
+<script src="courses.js"></script>
 </body>
-
 </html>
-
