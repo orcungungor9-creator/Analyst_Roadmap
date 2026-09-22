@@ -579,3 +579,62 @@ h1.moduler-title {
     color: var(--neon-blue) !important;
     text-shadow: 0 0 20px var(--neon-blue-glow) !important;
 }
+
+
+/* --- KILIT MEKANIZMASI --- */
+.test-module-card.locked-card {
+    position: relative;
+    cursor: not-allowed;
+    text-decoration: none;
+}
+
+.test-module-card.locked-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 30, 30, 0.7);
+    backdrop-filter: grayscale(80%);
+    z-index: 10;
+    border-radius: inherit;
+}
+
+.locked-overlay-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    width: 100%;
+}
+
+.locked-overlay-content i {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #a1a1aa;
+}
+
+.locked-overlay-content span {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #e4e4e7;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.test-module-card.locked-card:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.test-module-card.locked-card .test-module-btn {
+    pointer-events: none;
+    opacity: 0.5;
+}
