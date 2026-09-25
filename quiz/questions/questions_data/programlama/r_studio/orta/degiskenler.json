@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "R dilinde değişken atamak için '<-' dışında hangi operatörler de KULLANILABİLİR?",
+        "options": [
+            "Sadece '=' kullanılabilir.",
+            "Sadece '->' kullanılabilir.",
+            "'=' ve '->' kullanılabilir.",
+            "':=' ve '=>' kullanılabilir."
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "100 -> benim_verim\nYukarıdaki kod çalıştırıldığında ne olur?",
+        "options": [
+            "Syntax Error (Sözdizimi hatası) verir.",
+            "'benim_verim' adlı bir değişkene 100 değeri atanır.",
+            "100 sayısı 'benim_verim' ismine dönüştürülür.",
+            "Sadece konsolda 100 yazdırır, atama yapmaz."
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "boy <- 1.82\nclass(boy)\nYukarıdaki kodun çıktısı ne olur?",
+        "options": [
+            "\"numeric\"",
+            "\"integer\"",
+            "\"float\"",
+            "\"double\""
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Aşağıdaki isimlendirmelerden hangisi R standartlarında 'CamelCase' kuralına uygun bir değişkendir?",
+        "options": [
+            "benim_verim",
+            "benim.verim",
+            "benimVerim",
+            "Benim-Verim"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "T <- 50\nF <- 100\nBu atamalar R dilinde geçerli midir?",
+        "options": [
+            "Geçersizdir, T ve F sayı tutamaz.",
+            "Geçerlidir, ancak projedeki standart TRUE/FALSE kısaltmalarını bozacağından tehlikelidir.",
+            "Geçersizdir, T ve F ayrılmış (reserved) kelimelerdir, atama yapılamaz.",
+            "Geçerlidir ve R'da sıkça önerilen bir yöntemdir."
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "TRUE <- 10\nBu atama çalıştırılırsa ne olur?",
+        "options": [
+            "TRUE değeri 10 olarak güncellenir.",
+            "TRUE değişkenine 10 atanır.",
+            "Hata verir, çünkü TRUE ayrılmış (reserved) bir kelimedir ve değer atanamaz.",
+            "Hiçbir şey olmaz, arka planda yoksayar."
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "degisken_adi <- \"TRUE\"\nclass(degisken_adi)\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "\"logical\"",
+            "\"character\"",
+            "\"boolean\"",
+            "\"string\""
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "R'da nokta (.) işareti değişken isimlerinde kullanılabilir mi?",
+        "options": [
+            "Hayır, fonksiyonları çağırmak için ayrılmıştır.",
+            "Evet, özel karakterler arasında serbest olanlardandır (örn: musteri.yasi).",
+            "Hayır, sadece sayılarda ondalık ayırıcı olarak kullanılır.",
+            "Evet, ama sadece ismin en sonunda kullanılabilir."
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "rm(list = ls())\nBu komut RStudio'da ne işe yarar?",
+        "options": [
+            "Sadece 'list' adlı değişkeni siler.",
+            "Konsol ekranını temizler.",
+            "Environment (Ortam) panelindeki tüm değişkenleri topluca siler.",
+            "Hata verir."
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "x <- NA\nclass(x)\nÇıktısı varsayılan olarak ne olur?",
+        "options": [
+            "\"missing\"",
+            "\"logical\"",
+            "\"na\"",
+            "\"numeric\""
+        ],
+        "correct_option": 1
+    }
+]

@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "R dilinde bir veriyi bir isme bağlamak (değişken atamak) için en yaygın kullanılan operatör aşağıdakilerden hangisidir?",
+        "options": [
+            "=",
+            "<-",
+            "==",
+            "->"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "RStudio'da <- operatörünü hızlıca yazmak için kullanabileceğiniz klavye kısayolu aşağıdakilerden hangisidir?",
+        "options": [
+            "Ctrl + Shift",
+            "Alt + -",
+            "Shift + -",
+            "Ctrl + Enter"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Aşağıdaki değişken isimlendirmelerinden hangisi R dilinde DOĞRUDUR?",
+        "options": [
+            "1sayi <- 5",
+            "benim verim <- 10",
+            "benim_verim <- 15",
+            "özel!veri <- 20"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "R dilinde 'veri', 'Veri' ve 'VERI' değişkenleri aynı mıdır?",
+        "options": [
+            "Evet, R büyük/küçük harf ayrımı yapmaz.",
+            "Hayır, R Case Sensitive (büyük/küçük harf duyarlı) olduğu için tamamen farklı 3 değişkendir.",
+            "Evet, ama sadece Windows'ta aynıdır.",
+            "Sadece 'veri' ve 'Veri' aynıdır."
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Oluşturduğunuz bir değişkenin veri tipini öğrenmek için hangi komutu kullanırsınız?",
+        "options": [
+            "type()",
+            "typeof()",
+            "class()",
+            "print()"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Mevcut ortamınızda (environment) hangi değişkenlerin olduğunu listelemek için kullanılan komut aşağıdakilerden hangisidir?",
+        "options": [
+            "list()",
+            "rm()",
+            "ls()",
+            "dir()"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "R'da bir değişkeni (örneğin 'yas' değişkenini) hafızadan/ortamdan silmek için hangi komut kullanılır?",
+        "options": [
+            "delete(yas)",
+            "rm(yas)",
+            "clear(yas)",
+            "remove(yas)"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "R dilinde 'Kayıp Veri' veya 'Mevcut Değil' durumunu ifade eden terim aşağıdakilerden hangisidir?",
+        "options": [
+            "NULL",
+            "None",
+            "NA",
+            "NaN"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Aşağıdaki değişken atamalarından hangisi R dilinde HATA VERİR?",
+        "options": [
+            "sayi_1 <- 10",
+            "sayi.1 <- 10",
+            "sayi$1 <- 10",
+            "Sayi1 <- 10"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "yas <- 25L\nYukarıdaki atamada 25'in sonundaki 'L' harfi ne anlama gelir?",
+        "options": [
+            "Verinin Logical (Mantıksal) olduğunu belirtir.",
+            "Verinin Long (Uzun) olduğunu belirtir.",
+            "Verinin Integer (Tam Sayı) olduğunu belirtir.",
+            "Değişkenin kilitlendiğini (Locked) belirtir."
+        ],
+        "correct_option": 2
+    }
+]

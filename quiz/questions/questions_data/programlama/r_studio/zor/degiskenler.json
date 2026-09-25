@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "x <- 5\n10 -> x\nx = 15\nprint(x)\nYukarıdaki ardışık işlemlerin sonucunda konsola ne yazdırılır?",
+        "options": [
+            "5",
+            "10",
+            "15",
+            "Hata verir"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "a <- 10L\nb <- 10.0\nclass(a) == class(b)\nYukarıdaki işlemin sonucu nedir?",
+        "options": [
+            "TRUE",
+            "FALSE",
+            "NA",
+            "SyntaxError"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "T <- FALSE\nF <- TRUE\n(T == FALSE) & (F == TRUE)\nYukarıdaki kod çalıştırılırsa sonuç ne olur?",
+        "options": [
+            "Hata verir, T ve F değiştirilemez.",
+            "FALSE",
+            "TRUE",
+            "NA"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": ".gizli_veri <- 500\nls()\nYukarıdaki kod çalıştırıldığında '.gizli_veri' değişkeni ls() listesinde doğrudan görünür mü?",
+        "options": [
+            "Evet, tüm değişkenler gibi görünür.",
+            "Hayır, R'da nokta (.) ile başlayan değişkenler gizlidir ve varsayılan ls() ile listelenmez.",
+            "Hayır, nokta ile başlamak SyntaxError verdiği için atama gerçekleşmez.",
+            "Evet, ama sadece kırmızı renkle görünür."
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "x <- y <- z <- 100\nBu çoklu atama R dilinde çalışır mı?",
+        "options": [
+            "Hayır, sadece '=' ile çoklu atama yapılabilir.",
+            "Evet, çalışır. Üç değişkene de 100 atanır.",
+            "Hayır, SyntaxError verir.",
+            "Sadece z'ye 100 atanır, diğerleri NA olur."
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "rm(yas)\nKomutu çalıştırıldığında aşağıdakilerden hangisi gerçekleşmez?",
+        "options": [
+            "Değişkene ayrılan bellek serbest bırakılır.",
+            "'yas' değişkeni Environment panelinden silinir.",
+            "Source (Kaynak) dosyasındaki 'yas <- 25' metni de dosyadan otomatik silinir.",
+            "Daha sonra 'yas' çağrıldığında 'object not found' hatası alınır."
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "x = 5\ny <- 10\n15 -> z\nBu üç atama türü arasında performans veya geçerlilik açısından bir fark var mıdır?",
+        "options": [
+            "Evet, '=' en yavaş olanıdır.",
+            "Hayır, üçü de tamamen geçerli atama operatörleridir ve aynı işi yaparlar.",
+            "Evet, '->' sadece fonksiyon içinde kullanılabilir.",
+            "Evet, '=' sadece matematiksel işlemlerde geçerlidir."
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "NA_integer_\nNA_character_\nYukarıdaki gibi spesifik NA türlerinin kullanılma amacı nedir?",
+        "options": [
+            "Sadece süsleme amaçlıdır, standart NA'den farkı yoktur.",
+            "Eksik verinin tipini önceden belirterek, katı tip denetimi (strict typing) gerektiren veri yapılarını korumaktır.",
+            "Bu komutlar hatalıdır, R'da sadece 'NA' vardır.",
+            "Kayıp veriyi silmek için kullanılırlar."
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "veri_1 <- 50\nveri.1 <- 100\nprint(veri_1 + veri.1)\nÇıktı nedir?",
+        "options": [
+            "100",
+            "50",
+            "150",
+            "Hata verir, isimler aynı kabul edilir."
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "T <- TRUE\nT <- F\nprint(T)\nBu kodun çıktısı nedir? (Varsayılan ayarlarda)",
+        "options": [
+            "TRUE",
+            "FALSE",
+            "F",
+            "Hata verir"
+        ],
+        "correct_option": 1
+    }
+]
