@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "a <- 20\nb <- 6\nb_bolum <- a %/% b\nb_kalan <- a %% b\n\nBu işlemler sonucunda b_bolum ve b_kalan değişkenlerinin değerleri sırasıyla ne olur?",
+        "options": [
+            "3 ve 2",
+            "3.33 ve 2",
+            "3 ve 0",
+            "2 ve 3"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "2 * 8 / 4\nYukarıdaki işlemin sonucu R'da nasıl hesaplanır ve çıktı ne olur?",
+        "options": [
+            "Önce 8/4 yapılır, sonra 2 ile çarpılır. Çıktı: 4",
+            "Çarpma ve bölme aynı önceliğe sahip olduğu için soldan sağa yapılır. Önce 2*8, sonra /4. Çıktı: 4",
+            "Önce çarpma yapılır. Çıktı: 16",
+            "Hata verir."
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "R dilinde bir 'Fonksiyon' ile 'Operatör' arasındaki temel fark nedir?",
+        "options": [
+            "Operatörler metinlerle, fonksiyonlar sayılarla çalışır.",
+            "Fonksiyonlar her zaman isim() şeklinde kullanılırken, matematiksel semboller (+, -, *) operatördür.",
+            "Operatörler dışarıdan paket gerektirir, fonksiyonlar R'da hazır gelir.",
+            "İkisi de tamamen aynı şeydir, sadece farklı isimlendirilmiştir."
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "islem <- 2 * 8 + 1 / 2\n\nR bu işlemi matematiksel olarak nasıl gruplar?",
+        "options": [
+            "(2 * 8) + (1 / 2)",
+            "2 * (8 + 1) / 2",
+            "(2 * (8 + 1)) / 2",
+            "2 * (8 + (1 / 2))"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "F + T + F\n\nYukarıdaki işlemin (varsayılan ayarlarda) R konsolundaki sonucu ne olur?",
+        "options": [
+            "Hata verir",
+            "0",
+            "1",
+            "2"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "us_alma <- 3 ** 3\n\n'us_alma' değişkeninin tuttuğu değer aşağıdakilerden hangisidir?",
+        "options": [
+            "6",
+            "9",
+            "27",
+            "1"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "a <- 15\nb <- 4\ntambolme <- a %/% b\nmod <- a %% b\ntambolme + mod\n\nBu kod bloğunun sonucu nedir?",
+        "options": [
+            "6",
+            "7",
+            "15",
+            "3"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Asağıdaki kod parçalarından hangisi R'da 5 sayısının 2'ye tam bölümünden kalanı (mod) verir?",
+        "options": [
+            "5 %/% 2",
+            "5 / 2",
+            "5 %% 2",
+            "5 % 2"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "x <- 10\ny <- 3\nz <- x / y\n\nz değişkeninin değeri tam olarak ne olur?",
+        "options": [
+            "3",
+            "1",
+            "3.333333",
+            "NA"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "( 10 + 2 ) * 3 / 4\n\nBu işlemin sonucunda dönen değer kaçtır?",
+        "options": [
+            "11.5",
+            "9",
+            "12",
+            "30"
+        ],
+        "correct_option": 1
+    }
+]

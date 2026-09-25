@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "x <- 5\ny <- 2\n(x %% y) + (x %/% y) ** y\n\nYukarıdaki karmaşık işlemin sonucu nedir?",
+        "options": [
+            "5",
+            "25",
+            "9",
+            "16"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "a <- TRUE\nb <- FALSE\nc <- 10\nc * a / (b + a)\n\nBu işlemin matematiksel sonucu aşağıdakilerden hangisidir?",
+        "options": [
+            "Hata verir",
+            "0",
+            "10",
+            "Inf (Sonsuz)"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "sayi <- 20\n(sayi %/% 6) * 6 + (sayi %% 6) == sayi\n\nYukarıdaki mantıksal sorgunun R'daki sonucu ne döner?",
+        "options": [
+            "FALSE",
+            "TRUE",
+            "NA",
+            "Syntax Error"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "T <- 5\nF <- 2\nT + F * TRUE\n\nYukarıdaki kod çalıştırılırsa R'ın vereceği sonuç nedir?",
+        "options": [
+            "7",
+            "Hata verir",
+            "1",
+            "6"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "100 / 10 / 2 * 5\n\nBu işlem R'da nasıl bir sırayla çözülür ve çıktı ne olur?",
+        "options": [
+            "Önce (10/2) = 5, sonra 100/5 = 20, en son 20*5 = 100",
+            "Önce (2*5) = 10, sonra 100/10 = 10, en son 10/10 = 1. Çıktı: 1",
+            "Soldan sağa: 100/10 = 10, 10/2 = 5, 5*5 = 25. Çıktı: 25",
+            "Sağdan sola çözülür. Çıktı: 0.2"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "a <- 2 ^ 3 ** 2\n\nR dilinde ^ ve ** operatörleri arka arkaya kullanıldığında sağdan sola (right-to-left) önceliğe sahiptir (istisna). Ancak ikisi de aynı işi yapar. Bu işlemin sonucu nedir?",
+        "options": [
+            "64",
+            "512",
+            "8",
+            "Hata verir"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "x <- 7\ny <- -2\nx %% y\n\nR dilinde negatif bir sayıya göre mod (kalan) alma işlemi uygulandığında çıkacak sonuç matematiksel olarak nasıldır?",
+        "options": [
+            "-1",
+            "1",
+            "-1.5",
+            "Hata verir"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "x <- 4\ny <- 0\nx / y\n\nR dilinde bir sayının sıfıra bölünmesi (0 hariç) nasıl sonuçlanır?",
+        "options": [
+            "Hata (Error) fırlatır ve program durur.",
+            "Inf (Infinity - Sonsuz) değerini döndürür.",
+            "NA döndürür.",
+            "0 döndürür."
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "a <- 10\nb <- 3\nsonuc <- a - b * a %/% b + a %% b\n\nBu kodun çalıştırılması sonucunda 'sonuc' değişkeni hangi değeri alır?",
+        "options": [
+            "1",
+            "0",
+            "2",
+            "10"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "(TRUE + FALSE) * (TRUE + TRUE) ^ 2\n\nİfadesinin sayısal sonucu aşağıdakilerden hangisidir?",
+        "options": [
+            "2",
+            "4",
+            "8",
+            "1"
+        ],
+        "correct_option": 1
+    }
+]

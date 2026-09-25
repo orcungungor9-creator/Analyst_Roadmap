@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "a <- 20\nb <- 5\na - b\n\nYukarıdaki kodun R konsolundaki çıktısı ne olur?",
+        "options": [
+            "15",
+            "25",
+            "4",
+            "100"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "R'da iki sayıyı çarpmak için hangi operatör kullanılır?",
+        "options": [
+            "x",
+            "*",
+            "^",
+            "%%"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "R'da bir sayının üssünü (kuvvetini) almak için hangi operatör veya operatörler kullanılabilir?",
+        "options": [
+            "Sadece ^",
+            "Sadece **",
+            "Hem ^ hem de **",
+            "//"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "R'da 2 * 8 + 6 işleminin sonucu nedir?",
+        "options": [
+            "28",
+            "22",
+            "16",
+            "32"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Matematiksel işlemlerde işlem önceliğini değiştirmek için hangi işaret kullanılır?",
+        "options": [
+            "Kutu Parantez [ ]",
+            "Normal Parantez ( )",
+            "Süslü Parantez { }",
+            "Tırnak İşareti \" \""
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "R'da '%/%' operatörü ne işe yarar?",
+        "options": [
+            "Bölme işleminde sadece kalanı verir.",
+            "Bölme işleminde kalanı atarak tam sonucu (bölümü) verir.",
+            "İki sayının yüzdesini alır.",
+            "Üs alma işlemini yapar."
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "T + 2 işleminin R'daki sonucu aşağıdakilerden hangisidir? (Varsayılan ayarlarda)",
+        "options": [
+            "Hata verir",
+            "T2",
+            "3",
+            "2"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "a <- 10\na %% 3\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "3.33",
+            "3",
+            "1",
+            "0"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "R'da matematiksel işlemler (örneğin +, -, *) ne olarak adlandırılır?",
+        "options": [
+            "Fonksiyon",
+            "Değişken",
+            "Operatör",
+            "Paket"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "2 * ( 8 + 1 ) işleminin sonucu nedir?",
+        "options": [
+            "17",
+            "18",
+            "26",
+            "10"
+        ],
+        "correct_option": 1
+    }
+]
