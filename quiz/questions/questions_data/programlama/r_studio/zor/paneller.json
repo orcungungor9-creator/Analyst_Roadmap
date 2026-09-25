@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "Eğer yazdığınız kodların sürekliliğini sağlamak, daha sonra tekrar açıp düzenlemek istiyorsanız kodu HANGİ panele yazmalı ve kaydetmelisiniz?",
+        "options": [
+            "Console Paneli",
+            "Source Paneli",
+            "History Paneli",
+            "Environment Paneli"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Bir araştırmacı RStudio'da çalışırken daha önce hesaplayıp kaydettiği bir 'ortalama_yas' değişkeninin şu anki değerini görmek istemektedir. Kodu tekrar çalıştırmadan bu değeri hangi panelden kontrol edebilir?",
+        "options": [
+            "Packages",
+            "Environment",
+            "Plots",
+            "Files"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "TRUE == 1 ifadesi TRUE dönerken, T == 4 ifadesinin FALSE dönmesinin temel sebebi R dilinde nedir?",
+        "options": [
+            "T harfinin 4 sayısına eşitlenemeyen bir metin olması.",
+            "TRUE değerinin sayısal karşılığının her zaman 1 olması.",
+            "Mantıksal ifadelerin R'da sadece 0 dönebilmesi.",
+            "R dilinde 'T' kullanımının tamamen kaldırılmış olması."
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "CRAN ve Posit sırasıyla hangi görevleri üstlenir?",
+        "options": [
+            "CRAN, RStudio'yu sağlar; Posit, R motorunu sağlar.",
+            "CRAN, R motorunu sağlar; Posit, RStudio IDE'sini sağlar.",
+            "İkisi de grafik çizim kütüphaneleridir.",
+            "CRAN veritabanı yönetim sistemidir, Posit ise raporlama aracıdır."
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Mac bilgisayarlarda Source panelindeki bir kod satırını hızlıca çalıştırmak için Windows'taki Ctrl + Enter yerine hangi kısayol kullanılır?",
+        "options": [
+            "Option + Enter",
+            "Shift + Enter",
+            "Cmd + Enter",
+            "Fn + Enter"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "RStudio'da yazdığınız kod dosyasını (script) kaydederken standart olarak hangi dosya uzantısı kullanılır?",
+        "options": [
+            ".rstudio",
+            ".R",
+            ".py",
+            ".txt"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Hipotez testleri, regresyon analizleri ve makine öğrenmesi modelleri geliştirme gibi işlemler RStudio'nun temel kullanım amaçlarından hangisine girer?",
+        "options": [
+            "Raporlama",
+            "Veri Görselleştirme",
+            "İstatistik & Modelleme",
+            "Arayüz Geliştirme"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Aşağıdaki panellerden hangisi 'Sağ Alt' (Bottom Right) bölmesinde yer ALMAZ?",
+        "options": [
+            "Files",
+            "Plots",
+            "Packages",
+            "Environment"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "T == FALSE kodu çalıştırıldığında dönen sonuç ne olur?",
+        "options": [
+            "TRUE",
+            "FALSE",
+            "Hata verir",
+            "Belirsiz"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Bir öğrenci '5 > 3' kodunu Source paneline yazmış ancak Console'da bir sonuç görememiştir. Bunun en olası nedeni nedir?",
+        "options": [
+            "5'in 3'ten büyük olmaması.",
+            "Kodun sonunda ';' kullanılmamış olması.",
+            "Yazdığı satırı çalıştırmak için Ctrl + Enter yapmamış veya Run butonuna basmamış olması.",
+            "R'da büyüktür işaretinin '>' olmaması."
+        ],
+        "correct_option": 2
+    }
+]

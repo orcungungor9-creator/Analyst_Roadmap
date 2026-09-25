@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "RStudio'da ggplot2 gibi güçlü kütüphaneler genellikle hangi temel amaç için kullanılır?",
+        "options": [
+            "Veritabanı bağlantısı kurmak",
+            "Veri görselleştirme (grafik ve harita üretme)",
+            "Web sitesi kodlamak",
+            "Metin belgesi oluşturmak"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "R Markdown ve Quarto gibi araçlar RStudio'da ne işe yarar?",
+        "options": [
+            "Konsol geçmişini temizlemeye",
+            "Yeni R paketleri yazmaya",
+            "Doğrudan PDF, HTML veya sunum formatında rapor çıktıları almaya",
+            "RStudio temasını değiştirmeye"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Oturum boyunca çalıştırdığınız tüm kod geçmişini kronolojik olarak gösteren panel aşağıdakilerden hangisidir?",
+        "options": [
+            "Source",
+            "Environment",
+            "Console",
+            "History"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "RStudio'yu bilgisayarına yeni kuracak birisi için doğru kurulum sırası aşağıdakilerden hangisidir?",
+        "options": [
+            "Önce RStudio kurulur, ardından CRAN'dan R motoru kurulur.",
+            "Önce CRAN'dan R motoru kurulur, ardından Posit'ten RStudio kurulur.",
+            "Sıra fark etmez, ikisi de bağımsız çalışır.",
+            "Sadece RStudio kurmak yeterlidir, R motoru kendiliğinden iner."
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "T == 1 kodu R Console'unda çalıştırılırsa sonuç ne olur? (T, TRUE'nun kısaltmasıdır)",
+        "options": [
+            "Hata (Error) verir",
+            "FALSE",
+            "TRUE",
+            "NULL"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Kurulu kütüphaneleri listelemek, yenilerini yüklemek ve güncellemek için RStudio arayüzünde hangi paneli kullanırsınız?",
+        "options": [
+            "Files",
+            "Environment",
+            "Plots",
+            "Packages"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "Aşağıdaki ifadelerden hangisi Console (Konsol) paneli için YANLIŞTIR?",
+        "options": [
+            "Çalıştırdığınız kodların anlık sonuçlarını gösterir.",
+            "Hata mesajları bu panelde belirir.",
+            "Buraya yazılan kodlar otomatik olarak .R dosyası olarak kalıcı kaydedilir.",
+            "R'ın kalbi (motoru) olarak işlev görür."
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Çalışma dizininizdeki (working directory) dosya ve klasörleri yönetmenizi sağlayan panel sağ alt köşedeki hangi paneldir?",
+        "options": [
+            "History",
+            "Packages",
+            "Help",
+            "Files"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "Console'a 'q()' yazdığınızda RStudio'da ne gerçekleşir?",
+        "options": [
+            "Tüm değişkenler silinir",
+            "Help paneli açılır",
+            "R oturumu kapatılır (çıkış yapılır)",
+            "Son yazılan kod iptal edilir"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "R'da 'FALSE == 0' ifadesi çalıştırıldığında dönen mantıksal sonuç nedir?",
+        "options": [
+            "TRUE",
+            "FALSE",
+            "0",
+            "Hata verir"
+        ],
+        "correct_option": 0
+    }
+]

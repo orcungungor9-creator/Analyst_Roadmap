@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "RStudio nedir?",
+        "options": [
+            "Yalnızca grafik çizmeye yarayan bir programdır.",
+            "R programlama dili için geliştirilmiş en popüler entegre geliştirme ortamıdır (IDE).",
+            "Sadece veritabanı yönetimi için kullanılan bir araçtır.",
+            "R dilinin yerini alan yeni bir programlama dilidir."
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "RStudio'yu çalıştırabilmek için bilgisayarınızda öncelikle hangisinin kurulu olması ZORUNLUDUR?",
+        "options": [
+            "Python motoru",
+            "SQL Server",
+            "R motoru",
+            "C++ derleyicisi"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Kodlarınızı yazdığınız, düzenlediğiniz ve .R formatında kaydettiğiniz RStudio paneli aşağıdakilerden hangisidir?",
+        "options": [
+            "Source (Kaynak) Paneli",
+            "Console (Konsol) Paneli",
+            "Environment Paneli",
+            "Plots Paneli"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Yazdığınız kodların anlık sonuçlarını ve hata mesajlarını gördüğünüz, genellikle hızlı denemeler için kullanılan panel hangisidir?",
+        "options": [
+            "History",
+            "Source",
+            "Console",
+            "Packages"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "RStudio'da Source (Kaynak) panelinde yazdığınız bir kod satırını hızlıca çalıştırmak için hangi klavye kısayolu kullanılır?",
+        "options": [
+            "Ctrl + S",
+            "Ctrl + Enter",
+            "Alt + F4",
+            "Shift + Space"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Çalışmanız boyunca tanımladığınız değişkenleri ve veri setlerini (data frame) hafızada tutarak listeleyen panel hangisidir?",
+        "options": [
+            "History",
+            "Files",
+            "Console",
+            "Environment"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "Çizdirdiğiniz grafiklerin görsel önizlemesini sunan panel hangisidir?",
+        "options": [
+            "Plots Paneli",
+            "Source Paneli",
+            "Packages Paneli",
+            "Help Paneli"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Aşağıdaki kodlardan hangisi Console'da çalıştırıldığında TRUE sonucunu döndürür?",
+        "options": [
+            "3 > 5",
+            "2 + 2 == 5",
+            "5 > 3",
+            "FALSE == 1"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "R'da mantıksal (Logical) değerlerin sayısal karşılıkları vardır. TRUE ve FALSE sırasıyla hangi sayılara eşittir?",
+        "options": [
+            "TRUE = 0, FALSE = 1",
+            "TRUE = 1, FALSE = 0",
+            "TRUE = 1, FALSE = -1",
+            "TRUE = 100, FALSE = 0"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Takıldığınız fonksiyonların resmi dokümantasyonunu ve kullanım kılavuzlarını açan panel hangisidir?",
+        "options": [
+            "Help Paneli",
+            "History Paneli",
+            "Plots Paneli",
+            "Environment Paneli"
+        ],
+        "correct_option": 0
+    }
+]
