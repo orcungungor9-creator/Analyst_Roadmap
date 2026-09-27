@@ -1,0 +1,95 @@
+/* Veri Mimarisi Sayfasi Ozel Stilleri */
+
+/* --- HICBIR YERDE SAYDAMLIK (TRANSPARENCY) VE GLASSMORPHISM KULLANILMAYACAK --- */
+
+/* Üst Bar (Header) Override */
+.site-header {
+    background-color: var(--bg-dark) !important;
+    backdrop-filter: none !important;
+    border-bottom: 2px solid var(--border-color) !important;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1) !important;
+}
+
+.site-header.scrolled {
+    background-color: var(--bg-dark) !important;
+}
+
+/* Dropdown override */
+.dropdown-menu {
+    background-color: var(--bg-dark) !important;
+    backdrop-filter: none !important;
+    border: 2px solid var(--border-color) !important;
+}
+
+/* Ana İçerik Kapsayıcı */
+.solid-main-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    min-height: 50vh;
+}
+
+/* Saydam olmayan, tamamen katı renkli kart tasarımı */
+.solid-card {
+    background-color: var(--bg-card, #ffffff);
+    border: 2px solid var(--border-color, #e2e8f0);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    /* Asla backdrop-filter veya rgba() arka plan yok */
+    transition: transform 0.3s ease;
+}
+
+.solid-card:hover {
+    transform: translateY(-5px);
+}
+
+.solid-card h2 {
+    font-size: 2rem;
+    color: var(--text-main);
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+
+.solid-card p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.solid-img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid var(--border-color);
+}
+
+/* Koyu tema düzeltmeleri (Eğer koyu tema kullanılıyorsa var() değişkenleri değişir) */
+body.theme-dark .solid-card, 
+body.theme-ocean .solid-card, 
+body.theme-purple .solid-card, 
+body.theme-emerald .solid-card, 
+body.theme-cyberpunk .solid-card, 
+body.theme-cyber-neon .solid-card, 
+body.theme-amber .solid-card, 
+body.theme-dark-sakura .solid-card, 
+body.theme-mono-dark .solid-card {
+    background-color: var(--bg-card);
+    border-color: #333; /* Saydam olmayan kenarlık */
+}
+
+/* Lazy load efekti */
+.lazy-fade {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.lazy-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

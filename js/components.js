@@ -296,6 +296,11 @@ const MOBILE_NAV_HTML = `
                 <span style="font-weight: 800; color: var(--neon-blue); letter-spacing: 0.5px; font-size: 0.9rem; display: flex; align-items: center;"><i data-lucide="code" style="width: 18px; height: 18px; margin-right: 8px;"></i> Programlama Dersleri</span>
             </button>
 
+            <!-- MOBILE: VERİ MİMARİSİ -->
+            <button class="mobile-nav-item arch-hdr" onclick="window.location.href='${pathPrefix}Veri_Mimarisi/index.html'" style="display: flex; justify-content: space-between; align-items: center; margin-top: 4px; margin-bottom: 4px;">
+                <span style="font-weight: 800; color: #14b8a6; letter-spacing: 0.5px; font-size: 0.9rem; display: flex; align-items: center;"><i data-lucide="server" style="width: 18px; height: 18px; margin-right: 8px;"></i> Veri Mimarisi</span>
+            </button>
+
             <div style="width: 100%; margin: 12px 0 4px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
                 <span style="font-size: 0.85rem; font-weight: 800; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase;">Bağlantılar &amp; Ayarlar</span>
             </div>

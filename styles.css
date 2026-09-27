@@ -549,6 +549,17 @@ body {
     box-shadow: 0 0 15px rgba(56, 189, 248, 0.35);
 }
 
+.mobile-nav-item.arch-hdr {
+    border-color: rgba(20, 184, 166, 0.4);
+    background: rgba(20, 184, 166, 0.05);
+}
+.mobile-nav-item.arch-hdr:hover {
+    border-color: #14b8a6 !important;
+    background: rgba(20, 184, 166, 0.15) !important;
+    color: #14b8a6 !important;
+    box-shadow: 0 0 15px rgba(20, 184, 166, 0.35);
+}
+
 .mobile-nav-item.tools-hdr {
     border-color: rgba(52, 211, 153, 0.4);
     background: rgba(52, 211, 153, 0.05);
@@ -1026,6 +1037,29 @@ body.theme-light-emerald .hero-subtitle {
 }
 
 .btn-hero-prep:hover .btn-hero-icon {
+    transform: scale(1.2);
+}
+
+.btn-hero-arch {
+    background: rgba(20, 184, 166, 0.50);
+    border: 1px solid rgba(20, 184, 166, 0.9);
+    color: #000000;
+    box-shadow: 0 8px 25px rgba(20, 184, 166, 0.4);
+}
+
+.btn-hero-arch .btn-hero-icon {
+    color: inherit;
+    transition: transform 0.3s ease;
+}
+
+.btn-hero-arch:hover {
+    background: rgba(20, 184, 166, 0.25);
+    border-color: #14b8a6;
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(20, 184, 166, 0.4), 0 0 20px rgba(20, 184, 166, 0.3);
+}
+
+.btn-hero-arch:hover .btn-hero-icon {
     transform: scale(1.2);
 }
 
