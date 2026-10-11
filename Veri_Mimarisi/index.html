@@ -74,39 +74,81 @@
 
     <!-- MAIN CONTENT -->
     <style>
-        /* Ana Büyük Bölüm Kartları - Belirgin, Temaya Uygun Kalın Çerçeve */
-        /* Ana Büyük Bölüm Kartları - Belirgin, Temaya Uygun Çerçeve */
+        /* ==========================================================================
+           FLAT & MAT TASARIM REHBERİ:
+           - SIFIR GLASSMORPHISM (backdrop-filter: none, hiçbir saydam bulanıklık yok)
+           - DÜMDÜZ GÖLGESİZ MAT RENKLER (box-shadow: none, neon parlama yok)
+           - AŞAMA KARTLARI HER ZAMAN KENDİ MAT RENGİNDE AKTİF VE BELİRGİN
+           ========================================================================== */
+
+        /* 1. TÜM SAYFADA GLASSMORPHISM VE GÖLGELERİ İPTAL ET */
+        *, *::before, *::after {
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+        }
+
+        .hero-banner-wrapper {
+            box-shadow: none !important;
+            border-bottom: 2px solid #cbd5e1 !important;
+        }
+
+        .btn-hero {
+            box-shadow: none !important;
+        }
+        .btn-hero:hover {
+            box-shadow: none !important;
+        }
+
+        .site-header {
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            box-shadow: none !important;
+        }
+
+        /* 2. BÜYÜK BÖLÜM KARTLARI (TAMAMEN KATI MAT BEYAZ, SIFIR GÖLGE) */
         .veri-neden-card {
             padding: 40px; 
-            border-radius: 24px; 
-            border: 2px solid var(--neon-blue) !important; 
-            box-shadow: 0 10px 30px var(--neon-blue-glow) !important;
-            background: var(--bg-card);
+            border-radius: 20px; 
+            border: 2px solid #cbd5e1 !important; 
+            box-shadow: none !important;
+            background: #ffffff !important;
             position: relative; 
             z-index: 10;
-            transition: border-color 0.4s ease, box-shadow 0.4s ease;
         }
 
-        /* İçteki Madde ve Vurgu Kartları - Yumuşak, Göz Yormayan Zemin ve Çerçeve */
+        /* 3. İÇ MADDE VE VURGU KARTLARI (KATI MAT, SIFIR SAYDAMLIK) */
         .veri-neden-card .glass {
-            background: rgba(255, 255, 255, 0.75);
-            border: 1.5px solid color-mix(in srgb, var(--neon-blue) 35%, rgba(0, 0, 0, 0.08)) !important;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+            background: #f8fafc !important;
+            border: 1.5px solid #e2e8f0 !important;
+            box-shadow: none !important;
             border-radius: 16px;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
-        }
-
-        .veri-neden-card .glass[style*="border-left"] {
-            border-left: 5px solid var(--neon-blue) !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            transition: transform 0.2s ease, border-color 0.2s ease !important;
         }
 
         .veri-neden-card .glass:hover {
-            border-color: var(--neon-blue) !important;
-            box-shadow: 0 6px 20px var(--neon-blue-glow) !important;
+            border-color: #94a3b8 !important;
+            box-shadow: none !important;
             transform: translateY(-2px);
         }
 
-        /* Ana Alt Başlıklar */
+        /* 4. ADIMLAR ARASI BAĞLANTI OKLARI (GÖLGESİZ MAT ÇEMBER) */
+        .step-arrow-circle {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff !important;
+            box-shadow: none !important;
+            border-width: 2px !important;
+            border-style: solid !important;
+            flex-shrink: 0;
+        }
+
+        /* 5. BAŞLIK VE METİN TİPOGRAFİSİ */
         .veri-neden-card .subheading-title {
             color: #0f172a !important;
             font-size: 1.55rem;
@@ -114,10 +156,9 @@
             margin-bottom: 20px;
         }
 
-        /* Gövde / Paragraf Metinleri - Gözü Asla Yormayan Koyu Slate/Antrasit */
         .veri-neden-card p,
         .veri-neden-card li {
-            color: #1e293b !important; /* Slate-800: Yüksek kontrast, sıfır göz yorgunluğu */
+            color: #1e293b !important;
             line-height: 1.8;
             font-size: 1.05rem;
             font-weight: 450;
@@ -128,7 +169,6 @@
             font-weight: 700;
         }
 
-        /* Açık temalarda bölüm alt açıklaması */
         body.theme-light-purple .section-desc,
         body.theme-light-emerald .section-desc,
         body.theme-light-warm .section-desc,
@@ -137,7 +177,21 @@
             color: #334155 !important;
         }
 
-        /* Koyu Temalar İçin Otomatik Uyum */
+        /* 6. KOYU TEMALAR İÇİN OTOMATİK MAT UYUM */
+        body.theme-dark .veri-neden-card,
+        body.theme-ocean .veri-neden-card,
+        body.theme-purple .veri-neden-card,
+        body.theme-emerald .veri-neden-card,
+        body.theme-cyberpunk .veri-neden-card,
+        body.theme-cyber-neon .veri-neden-card,
+        body.theme-amber .veri-neden-card,
+        body.theme-dark-sakura .veri-neden-card,
+        body.theme-mono-dark .veri-neden-card {
+            background: #0f172a !important;
+            border-color: #334155 !important;
+            box-shadow: none !important;
+        }
+
         body.theme-dark .veri-neden-card .glass,
         body.theme-ocean .veri-neden-card .glass,
         body.theme-purple .veri-neden-card .glass,
@@ -147,8 +201,22 @@
         body.theme-amber .veri-neden-card .glass,
         body.theme-dark-sakura .veri-neden-card .glass,
         body.theme-mono-dark .veri-neden-card .glass {
-            background: rgba(255, 255, 255, 0.04);
-            border-color: color-mix(in srgb, var(--neon-blue) 45%, transparent) !important;
+            background: #1e293b !important;
+            border-color: #334155 !important;
+            box-shadow: none !important;
+        }
+
+        body.theme-dark .step-arrow-circle,
+        body.theme-ocean .step-arrow-circle,
+        body.theme-purple .step-arrow-circle,
+        body.theme-emerald .step-arrow-circle,
+        body.theme-cyberpunk .step-arrow-circle,
+        body.theme-cyber-neon .step-arrow-circle,
+        body.theme-amber .step-arrow-circle,
+        body.theme-dark-sakura .step-arrow-circle,
+        body.theme-mono-dark .step-arrow-circle {
+            background: #1e293b !important;
+            box-shadow: none !important;
         }
 
         body.theme-dark .veri-neden-card p,
@@ -161,7 +229,7 @@
         body.theme-amber .veri-neden-card p,
         body.theme-dark-sakura .veri-neden-card p,
         body.theme-mono-dark .veri-neden-card p {
-            color: #cbd5e1 !important; /* Rahat okunan açık gri */
+            color: #cbd5e1 !important;
         }
 
         body.theme-dark .veri-neden-card .subheading-title,
@@ -195,7 +263,7 @@
             }
         }
 
-        /* 4x2 Aşama Ayrıntıları Grid Sistemi */
+        /* 7. 4x2 AŞAMA AYRINTILARI GRID SİSTEMİ (MASAÜSTÜ 4x2, MOBİL 2 SÜTUN) */
         .stage-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -254,26 +322,28 @@
             }
         }
 
+        /* 8. AŞAMA KARTLARI - HER ZAMAN KENDİ MAT RENGİNDE, DÜMDÜZ VE GÖLGESİZ */
         .stage-card {
-            background: rgba(255, 255, 255, 0.85);
-            border: 2px solid var(--card-border-color, var(--glass-border)) !important;
-            border-radius: 20px;
+            background: #ffffff !important;
+            border: 2px solid var(--card-matte) !important;
+            border-radius: 18px;
             padding: 24px 22px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             min-height: 290px;
-            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+            transition: transform 0.25s ease !important;
             cursor: pointer;
             text-decoration: none !important;
             position: relative;
-            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+            box-shadow: none !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
         }
 
         .stage-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--card-accent-color) !important;
-            box-shadow: 0 14px 30px var(--card-glow-color, rgba(0,0,0,0.1)) !important;
+            transform: translateY(-4px);
+            box-shadow: none !important;
         }
 
         .stage-card-badge {
@@ -284,27 +354,48 @@
             border-radius: 20px;
             font-size: 0.8rem;
             font-weight: 800;
-            color: #fff;
+            color: #ffffff !important;
+            background: var(--card-matte) !important;
             letter-spacing: 0.5px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            box-shadow: none !important;
+        }
+
+        .stage-card-icon {
+            width: 22px;
+            height: 22px;
+            color: var(--card-matte) !important;
+            opacity: 1 !important;
         }
 
         .stage-card-title {
             font-size: 1.18rem;
             font-weight: 700;
-            color: #0f172a;
+            color: #0f172a !important;
             margin: 12px 0 10px 0;
             line-height: 1.35;
+        }
+
+        .stage-card-mission-tag {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--card-matte) !important;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .stage-card-mission {
             font-size: 0.95rem;
             line-height: 1.6;
-            color: #1e293b;
+            color: #334155 !important;
             margin: 0 0 18px 0;
             flex-grow: 1;
         }
 
+        /* BUTON: HER ZAMAN KENDİ MAT RENGİ İLE DOLU, BEYAZ YAZI VE İKON */
         .stage-card-btn {
             display: inline-flex;
             align-items: center;
@@ -312,42 +403,46 @@
             width: 100%;
             padding: 10px 16px;
             border-radius: 12px;
-            background: rgba(0, 0, 0, 0.04);
-            border: 1.5px solid rgba(0, 0, 0, 0.08);
-            color: #0f172a;
+            background: var(--card-matte) !important;
+            border: 1.5px solid var(--card-matte) !important;
+            color: #ffffff !important;
             font-size: 0.95rem;
             font-weight: 700;
             text-decoration: none;
-            transition: all 0.25s ease;
+            box-shadow: none !important;
+            transition: filter 0.2s ease, transform 0.2s ease;
         }
 
-        .stage-card:hover .stage-card-btn {
-            background: var(--card-accent-color);
-            border-color: var(--card-accent-color);
-            color: #ffffff !important;
-            box-shadow: 0 4px 14px var(--card-glow-color);
+        .stage-card-btn:hover {
+            filter: brightness(0.92);
         }
 
         .stage-play-icon-circle {
             width: 28px;
             height: 28px;
             border-radius: 50%;
-            background: var(--card-accent-color);
-            color: #ffffff;
+            background: #ffffff !important;
+            color: var(--card-matte) !important;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            transition: transform 0.25s ease;
+            box-shadow: none !important;
+            transition: transform 0.2s ease;
         }
 
-        .stage-card:hover .stage-play-icon-circle {
-            background: #ffffff;
-            color: var(--card-accent-color);
-            transform: scale(1.1);
+        .stage-card:hover .stage-play-icon-circle,
+        .stage-card-btn:hover .stage-play-icon-circle {
+            transform: scale(1.08);
         }
 
-        /* Dark Theme Support for Stage Cards */
+        .stage-play-icon-circle svg {
+            fill: currentColor !important;
+            stroke: none !important;
+            color: var(--card-matte) !important;
+        }
+
+        /* Koyu Temalar İçin Aşama Kartları */
         body.theme-dark .stage-card,
         body.theme-ocean .stage-card,
         body.theme-purple .stage-card,
@@ -357,7 +452,9 @@
         body.theme-amber .stage-card,
         body.theme-dark-sakura .stage-card,
         body.theme-mono-dark .stage-card {
-            background: rgba(15, 23, 42, 0.75) !important;
+            background: #1e293b !important;
+            border-color: var(--card-matte) !important;
+            box-shadow: none !important;
         }
 
         body.theme-dark .stage-card-title,
@@ -382,20 +479,6 @@
         body.theme-dark-sakura .stage-card-mission,
         body.theme-mono-dark .stage-card-mission {
             color: #cbd5e1 !important;
-        }
-
-        body.theme-dark .stage-card-btn,
-        body.theme-ocean .stage-card-btn,
-        body.theme-purple .stage-card-btn,
-        body.theme-emerald .stage-card-btn,
-        body.theme-cyberpunk .stage-card-btn,
-        body.theme-cyber-neon .stage-card-btn,
-        body.theme-amber .stage-card-btn,
-        body.theme-dark-sakura .stage-card-btn,
-        body.theme-mono-dark .stage-card-btn {
-            background: rgba(255, 255, 255, 0.06) !important;
-            border-color: rgba(255, 255, 255, 0.12) !important;
-            color: #f1f5f9 !important;
         }
     </style>
     <main class="main-container" style="max-width: 1400px; margin: 0 auto; padding: 0 24px 80px 24px;">
@@ -475,15 +558,15 @@
                 </div>
             </div>
 
-            <div class="glass" style="padding: 24px; background: rgba(56, 189, 248, 0.05); border-left: 4px solid var(--neon-blue); border-radius: 0 16px 16px 0;">
-                <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-main); font-weight: 600; margin-bottom: 20px;">
+            <div style="padding: 24px; background: #f0f9ff; border: 1.5px solid #bae6fd; border-left: 5px solid #2563eb; border-radius: 0 16px 16px 0;">
+                <p style="font-size: 1.15rem; line-height: 1.8; color: #0f172a; font-weight: 600; margin-bottom: 20px;">
                     Kısacası veri; görünmeyen örüntüleri ortaya çıkarmak, performansı ölçmek ve tesadüflere yer bırakmadan hedefe giden bir yol haritası (roadmap) çizebilmek için toplanır.
                 </p>
-                <div style="border-top: 1px dashed rgba(56, 189, 248, 0.3); padding-top: 20px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
-                    <p style="font-size: 1.05rem; color: var(--text-muted); margin: 0;">
+                <div style="border-top: 1px dashed #93c5fd; padding-top: 20px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+                    <p style="font-size: 1.05rem; color: #475569; margin: 0;">
                         Eğer "İstatistik bu işin neresinde?" diyorsanız bu konu için temel seviye rehber:
                     </p>
-                    <a href="../guides/basics/basics.html" style="background: rgba(56, 189, 248, 0.15); border: 1px solid var(--neon-blue); color: var(--neon-blue); padding: 8px 16px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s ease; cursor: pointer; font-size: 0.95rem;" onmouseover="this.style.background='var(--neon-blue)'; this.style.color='#fff'; this.style.boxShadow='0 0 15px rgba(56, 189, 248, 0.5)';" onmouseout="this.style.background='rgba(56, 189, 248, 0.15)'; this.style.color='var(--neon-blue)'; this.style.boxShadow='none';">
+                    <a href="../guides/basics/basics.html" style="background: #2563eb; border: 1.5px solid #2563eb; color: #ffffff; padding: 8px 16px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: filter 0.2s ease; cursor: pointer; font-size: 0.95rem; box-shadow: none;" onmouseover="this.style.filter='brightness(0.9)';" onmouseout="this.style.filter='none';">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg>
                         İstatistiğin Yapı Taşları 101 &rarr;
                     </a>
@@ -517,11 +600,11 @@
                     </h3>
 
                     <!-- Vurgu Kutusu (Model / Veri İlişkisi) -->
-                    <div style="background: rgba(192, 132, 252, 0.08); border-left: 4px solid var(--neon-purple); padding: 20px 24px; border-radius: 0 16px 16px 0; margin-bottom: 24px;">
-                        <p style="font-size: 1.15rem; font-weight: 700; color: var(--text-main); line-height: 1.7; margin: 0 0 8px 0;">
+                    <div style="background: #faf5ff; border: 1.5px solid #e9d5ff; border-left: 5px solid #7c3aed; padding: 20px 24px; border-radius: 0 16px 16px 0; margin-bottom: 24px;">
+                        <p style="font-size: 1.15rem; font-weight: 700; color: #0f172a; line-height: 1.7; margin: 0 0 8px 0;">
                             Kurulan hiçbir ekonometrik ya da istatistiksel model, toplanan veriden akıllı değildir.
                         </p>
-                        <p style="font-size: 1.05rem; font-weight: 600; color: var(--neon-purple); margin: 0;">
+                        <p style="font-size: 1.05rem; font-weight: 600; color: #7c3aed; margin: 0;">
                             "Nasıl beslersen analiz kalitesi o şekilde çıkar."
                         </p>
                     </div>
@@ -530,11 +613,11 @@
                         Bu konuda aklımıza ilk etapta veri temizleme gelse de, toplanan verinin <strong>kitleyi ne kadar iyi yansıttığı</strong> her şeyin önündedir.
                     </p>
 
-                    <div class="glass" style="background: rgba(255, 255, 255, 0.02); padding: 20px 24px; border-radius: 16px; margin-bottom: 32px;">
-                        <h4 style="font-size: 1.25rem; font-weight: 800; color: var(--neon-blue); margin-bottom: 8px;">
+                    <div style="background: #f8fafc; border: 1.5px solid #e2e8f0; padding: 20px 24px; border-radius: 16px; margin-bottom: 32px;">
+                        <h4 style="font-size: 1.25rem; font-weight: 800; color: #2563eb; margin-bottom: 8px;">
                             "Population = Sample?" &rarr; Bu ne demek?
                         </h4>
-                        <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-muted); margin: 0;">
+                        <p style="font-size: 1.1rem; line-height: 1.7; color: #475569; margin: 0;">
                             Örneklem (n), anakütlenin (N) küçük bir minyatürü olmalı ve onu en yansız şekilde temsil etmelidir.
                         </p>
                     </div>
@@ -646,8 +729,8 @@
                     </div>
 
                     <!-- Özet Kapanış Paneli -->
-                    <div class="glass" style="padding: 24px; background: rgba(192, 132, 252, 0.05); border-left: 4px solid var(--neon-purple); border-radius: 0 16px 16px 0;">
-                        <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-main); font-weight: 600; margin: 0;">
+                    <div style="padding: 24px; background: #faf5ff; border: 1.5px solid #e9d5ff; border-left: 5px solid #7c3aed; border-radius: 0 16px 16px 0;">
+                        <p style="font-size: 1.15rem; line-height: 1.8; color: #0f172a; font-weight: 600; margin: 0;">
                             Kısacası; örneklem (n) anakütleyi (N) tam olarak yansıtmadığında, modeliniz matematiksel olarak ne kadar sofistike olursa olsun üreteceği sonuçlar gerçeği yansıtmayacaktır.
                         </p>
                     </div>
@@ -679,8 +762,8 @@
                     </h3>
 
                     <!-- Vurgu Kutusu: Sürecin Mantığı ve Açıklaması -->
-                    <div class="glass" style="background: color-mix(in srgb, var(--neon-green) 8%, rgba(255,255,255,0.7)); border-left: 5px solid var(--neon-green) !important; padding: 26px 30px; border-radius: 0 18px 18px 0; margin-bottom: 32px;">
-                        <h4 style="font-size: 1.25rem; font-weight: 700; color: var(--neon-green); margin: 0 0 12px 0; display: flex; align-items: center; gap: 10px;">
+                    <div style="background: #f0fdf4; border: 1.5px solid #bbf7d0; border-left: 5px solid #16a34a !important; padding: 26px 30px; border-radius: 0 18px 18px 0; margin-bottom: 32px;">
+                        <h4 style="font-size: 1.25rem; font-weight: 700; color: #16a34a; margin: 0 0 12px 0; display: flex; align-items: center; gap: 10px;">
                             <i data-lucide="info" style="width: 22px; height: 22px;"></i>
                             Neden Bir Veri Mimarisi Tasarlıyoruz? (Sürecin Temel Mantığı)
                         </h4>
@@ -705,8 +788,8 @@
                     <div style="display: flex; flex-direction: column; gap: 24px; margin-bottom: 40px;">
                         <!-- 1. Adım -->
                         <div class="glass" style="padding: 26px 28px; border-radius: 18px;">
-                            <h4 style="color: var(--neon-blue); font-size: 1.3rem; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-                                <span style="background: var(--neon-blue); color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.5px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.12);">1. Adım</span>
+                            <h4 style="color: #2563eb; font-size: 1.3rem; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                                <span style="background: #2563eb; color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.5px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">1. Adım</span>
                                 Araştırma Sorusu ve Hipotezin Belirlenmesi
                             </h4>
                             <p style="margin-bottom: 12px;">
@@ -719,15 +802,15 @@
 
                         <!-- Ok: 1. Adım -> 2. Adım -->
                         <div style="display: flex; justify-content: center; align-items: center; margin: -6px 0;">
-                            <div class="glass" style="width: 42px; height: 42px; border-radius: 50%; border: 2px solid var(--neon-purple) !important; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(168, 85, 247, 0.35);">
-                                <i data-lucide="arrow-down" style="width: 22px; height: 22px; color: var(--neon-purple); stroke-width: 2.8;"></i>
+                            <div class="step-arrow-circle" style="border-color: #7c3aed;">
+                                <i data-lucide="arrow-down" style="width: 22px; height: 22px; color: #7c3aed; stroke-width: 2.8;"></i>
                             </div>
                         </div>
 
                         <!-- 2. Adım -->
                         <div class="glass" style="padding: 26px 28px; border-radius: 18px;">
-                            <h4 style="color: var(--neon-purple); font-size: 1.3rem; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-                                <span style="background: var(--neon-purple); color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.5px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.12);">2. Adım</span>
+                            <h4 style="color: #7c3aed; font-size: 1.3rem; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                                <span style="background: #7c3aed; color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.5px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">2. Adım</span>
                                 Evren ve Örneklem Çerçevesinin Tanımlanması
                             </h4>
                             <p style="margin-bottom: 12px;">
@@ -740,15 +823,15 @@
 
                         <!-- Ok: 2. Adım -> 3. Adım -->
                         <div style="display: flex; justify-content: center; align-items: center; margin: -6px 0;">
-                            <div class="glass" style="width: 42px; height: 42px; border-radius: 50%; border: 2px solid var(--neon-green) !important; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(34, 197, 94, 0.35);">
-                                <i data-lucide="arrow-down" style="width: 22px; height: 22px; color: var(--neon-green); stroke-width: 2.8;"></i>
+                            <div class="step-arrow-circle" style="border-color: #16a34a;">
+                                <i data-lucide="arrow-down" style="width: 22px; height: 22px; color: #16a34a; stroke-width: 2.8;"></i>
                             </div>
                         </div>
 
                         <!-- 3. Adım -->
                         <div class="glass" style="padding: 26px 28px; border-radius: 18px;">
-                            <h4 style="color: var(--neon-green); font-size: 1.3rem; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-                                <span style="background: var(--neon-green); color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.5px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.12);">3. Adım</span>
+                            <h4 style="color: #16a34a; font-size: 1.3rem; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                                <span style="background: #16a34a; color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.5px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">3. Adım</span>
                                 Zaman ve Mekan Boyutunu Belirlemek
                             </h4>
                             <p style="margin-bottom: 12px;">
@@ -763,15 +846,15 @@
 
                         <!-- Ok: 3. Adım -> 4. Adım -->
                         <div style="display: flex; justify-content: center; align-items: center; margin: -6px 0;">
-                            <div class="glass" style="width: 42px; height: 42px; border-radius: 50%; border: 2px solid var(--neon-orange) !important; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(249, 115, 22, 0.35);">
-                                <i data-lucide="arrow-down" style="width: 22px; height: 22px; color: var(--neon-orange); stroke-width: 2.8;"></i>
+                            <div class="step-arrow-circle" style="border-color: #ea580c;">
+                                <i data-lucide="arrow-down" style="width: 22px; height: 22px; color: #ea580c; stroke-width: 2.8;"></i>
                             </div>
                         </div>
 
                         <!-- 4. Adım -->
                         <div class="glass" style="padding: 26px 28px; border-radius: 18px;">
-                            <h4 style="color: var(--neon-orange); font-size: 1.3rem; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-                                <span style="background: var(--neon-orange); color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.5px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.12);">4. Adım</span>
+                            <h4 style="color: #ea580c; font-size: 1.3rem; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                                <span style="background: #ea580c; color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.5px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">4. Adım</span>
                                 Değişkenlerin Matematiksel Doğasını Seçmek (Ölçüm Düzeyi)
                             </h4>
                             <p style="margin-bottom: 12px;">
@@ -785,15 +868,15 @@
 
                         <!-- Ok: 4. Adım -> 5. Adım -->
                         <div style="display: flex; justify-content: center; align-items: center; margin: -6px 0;">
-                            <div class="glass" style="width: 42px; height: 42px; border-radius: 50%; border: 2px solid #ec4899 !important; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(236, 72, 153, 0.35);">
-                                <i data-lucide="arrow-down" style="width: 22px; height: 22px; color: #ec4899; stroke-width: 2.8;"></i>
+                            <div class="step-arrow-circle" style="border-color: #db2777;">
+                                <i data-lucide="arrow-down" style="width: 22px; height: 22px; color: #db2777; stroke-width: 2.8;"></i>
                             </div>
                         </div>
 
                         <!-- 5. Adım -->
                         <div class="glass" style="padding: 26px 28px; border-radius: 18px;">
-                            <h4 style="color: #ec4899; font-size: 1.3rem; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-                                <span style="background: #ec4899; color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.5px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.12);">5. Adım</span>
+                            <h4 style="color: #db2777; font-size: 1.3rem; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                                <span style="background: #db2777; color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.5px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">5. Adım</span>
                                 Kısıtlar ve Etik Çerçevenin Belirlenmesi
                             </h4>
                             <p style="margin-bottom: 12px;">
@@ -806,15 +889,15 @@
 
                         <!-- Ok: 5. Adım -> 6. Adım -->
                         <div style="display: flex; justify-content: center; align-items: center; margin: -6px 0;">
-                            <div class="glass" style="width: 42px; height: 42px; border-radius: 50%; border: 2px solid #06b6d4 !important; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(6, 182, 212, 0.35);">
-                                <i data-lucide="arrow-down" style="width: 22px; height: 22px; color: #06b6d4; stroke-width: 2.8;"></i>
+                            <div class="step-arrow-circle" style="border-color: #0891b2;">
+                                <i data-lucide="arrow-down" style="width: 22px; height: 22px; color: #0891b2; stroke-width: 2.8;"></i>
                             </div>
                         </div>
 
                         <!-- 6. Adım -->
                         <div class="glass" style="padding: 26px 28px; border-radius: 18px;">
-                            <h4 style="color: #06b6d4; font-size: 1.3rem; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-                                <span style="background: #06b6d4; color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.5px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.12);">6. Adım</span>
+                            <h4 style="color: #0891b2; font-size: 1.3rem; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                                <span style="background: #0891b2; color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.5px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">6. Adım</span>
                                 Dijital Altyapı ve Formatın Seçilmesi
                             </h4>
                             <p style="margin-bottom: 12px;">
@@ -829,15 +912,15 @@
 
                         <!-- Ok: 6. Adım -> 7. Adım -->
                         <div style="display: flex; justify-content: center; align-items: center; margin: -6px 0;">
-                            <div class="glass" style="width: 42px; height: 42px; border-radius: 50%; border: 2px solid #8b5cf6 !important; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(139, 92, 246, 0.35);">
-                                <i data-lucide="arrow-down" style="width: 22px; height: 22px; color: #8b5cf6; stroke-width: 2.8;"></i>
+                            <div class="step-arrow-circle" style="border-color: #4f46e5;">
+                                <i data-lucide="arrow-down" style="width: 22px; height: 22px; color: #4f46e5; stroke-width: 2.8;"></i>
                             </div>
                         </div>
 
                         <!-- 7. Adım -->
                         <div class="glass" style="padding: 26px 28px; border-radius: 18px;">
-                            <h4 style="color: #8b5cf6; font-size: 1.3rem; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-                                <span style="background: #8b5cf6; color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.5px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.12);">7. Adım</span>
+                            <h4 style="color: #4f46e5; font-size: 1.3rem; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                                <span style="background: #4f46e5; color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.5px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">7. Adım</span>
                                 Veri Toplama Kaynağının ve Aracının Seçimi
                             </h4>
                             <p style="margin-bottom: 12px;">
@@ -852,7 +935,7 @@
 
                         <!-- Ok: 7. Adım -> 8. Adım -->
                         <div style="display: flex; justify-content: center; align-items: center; margin: -6px 0;">
-                            <div class="glass" style="width: 42px; height: 42px; border-radius: 50%; border: 2px solid #d97706 !important; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(217, 119, 6, 0.35);">
+                            <div class="step-arrow-circle" style="border-color: #d97706;">
                                 <i data-lucide="arrow-down" style="width: 22px; height: 22px; color: #d97706; stroke-width: 2.8;"></i>
                             </div>
                         </div>
@@ -860,7 +943,7 @@
                         <!-- 8. Adım -->
                         <div class="glass" style="padding: 26px 28px; border-radius: 18px;">
                             <h4 style="color: #d97706; font-size: 1.3rem; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-                                <span style="background: #d97706; color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.5px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.12);">8. Adım</span>
+                                <span style="background: #d97706; color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.5px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">8. Adım</span>
                                 Örnekleme Tekniğinin Kararlaştırılması
                             </h4>
                             <p style="margin-bottom: 12px;">
@@ -874,7 +957,7 @@
 
                         <!-- Ok: 8. Adım -> 9. Adım -->
                         <div style="display: flex; justify-content: center; align-items: center; margin: -6px 0;">
-                            <div class="glass" style="width: 42px; height: 42px; border-radius: 50%; border: 2px solid #10b981 !important; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);">
+                            <div class="step-arrow-circle" style="border-color: #10b981;">
                                 <i data-lucide="arrow-down" style="width: 22px; height: 22px; color: #10b981; stroke-width: 2.8;"></i>
                             </div>
                         </div>
@@ -882,7 +965,7 @@
                         <!-- 9. Adım -->
                         <div class="glass" style="padding: 26px 28px; border-radius: 18px;">
                             <h4 style="color: #10b981; font-size: 1.3rem; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-                                <span style="background: #10b981; color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.5px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.12);">9. Adım</span>
+                                <span style="background: #10b981; color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.5px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">9. Adım</span>
                                 Faaliyet (İcra ve Canlı Veri Akışı)
                             </h4>
                             <p style="margin-bottom: 12px;">
@@ -895,8 +978,8 @@
                     </div>
 
                     <!-- Özet Kapanış Paneli: Bütüncül Değerlendirme -->
-                    <div class="glass" style="padding: 26px 30px; background: color-mix(in srgb, var(--neon-green) 8%, rgba(255,255,255,0.7)); border-left: 5px solid var(--neon-green) !important; border-radius: 0 18px 18px 0;">
-                        <h4 style="font-size: 1.25rem; font-weight: 700; color: var(--neon-green); margin: 0 0 12px 0; display: flex; align-items: center; gap: 10px;">
+                    <div style="padding: 26px 30px; background: #f0fdf4; border: 1.5px solid #bbf7d0; border-left: 5px solid #16a34a !important; border-radius: 0 18px 18px 0;">
+                        <h4 style="font-size: 1.25rem; font-weight: 700; color: #16a34a; margin: 0 0 12px 0; display: flex; align-items: center; gap: 10px;">
                             <i data-lucide="check-circle-2" style="width: 22px; height: 22px;"></i>
                             Sonuç: Gerçek Bir Veri Mimarı Olmanın Temel Kuralı
                         </h4>
@@ -943,14 +1026,14 @@
                     <!-- 4x2 Grid Container -->
                     <div class="stage-grid">
                         <!-- 1. Aşama Kartı -->
-                        <div class="stage-card" style="--card-accent-color: var(--neon-blue); --card-glow-color: var(--neon-blue-glow);" onclick="window.location.href='Veri_Mimarisi_Aşamaları/1.Aşama_Hipotezin_Belirlenmesi/index.html'">
+                        <div class="stage-card" style="--card-matte: #2563eb;" onclick="window.location.href='Veri_Mimarisi_Aşamaları/1.Aşama_Hipotezin_Belirlenmesi/index.html'">
                             <div>
                                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                                    <span class="stage-card-badge" style="background: var(--neon-blue);">1. Aşama</span>
-                                    <i data-lucide="help-circle" style="width: 20px; height: 20px; color: var(--neon-blue); opacity: 0.85;"></i>
+                                    <span class="stage-card-badge">1. Aşama</span>
+                                    <i data-lucide="help-circle" class="stage-card-icon"></i>
                                 </div>
                                 <h4 class="stage-card-title">Araştırma Sorusu ve Hipotez</h4>
-                                <div style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--neon-blue); margin-bottom: 6px; display: flex; align-items: center; gap: 5px;">
+                                <div class="stage-card-mission-tag">
                                     <i data-lucide="target" style="width: 13px; height: 13px;"></i> Temel Görevi
                                 </div>
                                 <p class="stage-card-mission">
@@ -959,7 +1042,7 @@
                             </div>
                             <a href="Veri_Mimarisi_Aşamaları/1.Aşama_Hipotezin_Belirlenmesi/index.html" class="stage-card-btn" onclick="event.stopPropagation();">
                                 <span class="stage-play-icon-circle">
-                                    <i data-lucide="play" style="width: 13px; height: 13px; fill: currentColor; stroke: none; margin-left: 2px;"></i>
+                                    <i data-lucide="play" style="width: 13px; height: 13px;"></i>
                                 </span>
                                 <span>Aşamaya Başla</span>
                                 <i data-lucide="arrow-right" style="width: 15px; height: 15px; margin-left: auto;"></i>
@@ -967,14 +1050,14 @@
                         </div>
 
                         <!-- 2. Aşama Kartı -->
-                        <div class="stage-card" style="--card-accent-color: var(--neon-purple); --card-glow-color: var(--neon-purple-glow);" onclick="window.location.href='Veri_Mimarisi_Aşamaları/2.Aşama_Evren_ve_Örneklem_Çerçevesi/index.html'">
+                        <div class="stage-card" style="--card-matte: #7c3aed;" onclick="window.location.href='Veri_Mimarisi_Aşamaları/2.Aşama_Evren_ve_Örneklem_Çerçevesi/index.html'">
                             <div>
                                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                                    <span class="stage-card-badge" style="background: var(--neon-purple);">2. Aşama</span>
-                                    <i data-lucide="users" style="width: 20px; height: 20px; color: var(--neon-purple); opacity: 0.85;"></i>
+                                    <span class="stage-card-badge">2. Aşama</span>
+                                    <i data-lucide="users" class="stage-card-icon"></i>
                                 </div>
                                 <h4 class="stage-card-title">Evren ve Örneklem Çerçevesi</h4>
-                                <div style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--neon-purple); margin-bottom: 6px; display: flex; align-items: center; gap: 5px;">
+                                <div class="stage-card-mission-tag">
                                     <i data-lucide="target" style="width: 13px; height: 13px;"></i> Temel Görevi
                                 </div>
                                 <p class="stage-card-mission">
@@ -983,7 +1066,7 @@
                             </div>
                             <a href="Veri_Mimarisi_Aşamaları/2.Aşama_Evren_ve_Örneklem_Çerçevesi/index.html" class="stage-card-btn" onclick="event.stopPropagation();">
                                 <span class="stage-play-icon-circle">
-                                    <i data-lucide="play" style="width: 13px; height: 13px; fill: currentColor; stroke: none; margin-left: 2px;"></i>
+                                    <i data-lucide="play" style="width: 13px; height: 13px;"></i>
                                 </span>
                                 <span>Aşamaya Başla</span>
                                 <i data-lucide="arrow-right" style="width: 15px; height: 15px; margin-left: auto;"></i>
@@ -991,14 +1074,14 @@
                         </div>
 
                         <!-- 3. Aşama Kartı -->
-                        <div class="stage-card" style="--card-accent-color: var(--neon-green); --card-glow-color: var(--neon-green-glow);" onclick="window.location.href='Veri_Mimarisi_Aşamaları/3.Aşama_Zaman_ve_Mekan_Boyutu/index.html'">
+                        <div class="stage-card" style="--card-matte: #16a34a;" onclick="window.location.href='Veri_Mimarisi_Aşamaları/3.Aşama_Zaman_ve_Mekan_Boyutu/index.html'">
                             <div>
                                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                                    <span class="stage-card-badge" style="background: var(--neon-green);">3. Aşama</span>
-                                    <i data-lucide="calendar-clock" style="width: 20px; height: 20px; color: var(--neon-green); opacity: 0.85;"></i>
+                                    <span class="stage-card-badge">3. Aşama</span>
+                                    <i data-lucide="calendar-clock" class="stage-card-icon"></i>
                                 </div>
                                 <h4 class="stage-card-title">Zaman ve Mekan Boyutu</h4>
-                                <div style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--neon-green); margin-bottom: 6px; display: flex; align-items: center; gap: 5px;">
+                                <div class="stage-card-mission-tag">
                                     <i data-lucide="target" style="width: 13px; height: 13px;"></i> Temel Görevi
                                 </div>
                                 <p class="stage-card-mission">
@@ -1007,7 +1090,7 @@
                             </div>
                             <a href="Veri_Mimarisi_Aşamaları/3.Aşama_Zaman_ve_Mekan_Boyutu/index.html" class="stage-card-btn" onclick="event.stopPropagation();">
                                 <span class="stage-play-icon-circle">
-                                    <i data-lucide="play" style="width: 13px; height: 13px; fill: currentColor; stroke: none; margin-left: 2px;"></i>
+                                    <i data-lucide="play" style="width: 13px; height: 13px;"></i>
                                 </span>
                                 <span>Aşamaya Başla</span>
                                 <i data-lucide="arrow-right" style="width: 15px; height: 15px; margin-left: auto;"></i>
@@ -1015,14 +1098,14 @@
                         </div>
 
                         <!-- 4. Aşama Kartı -->
-                        <div class="stage-card" style="--card-accent-color: var(--neon-orange); --card-glow-color: var(--neon-orange-glow);" onclick="window.location.href='Veri_Mimarisi_Aşamaları/4.Aşama_Değişkenlerin_Matematiksel_Doğası/index.html'">
+                        <div class="stage-card" style="--card-matte: #ea580c;" onclick="window.location.href='Veri_Mimarisi_Aşamaları/4.Aşama_Değişkenlerin_Matematiksel_Doğası/index.html'">
                             <div>
                                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                                    <span class="stage-card-badge" style="background: var(--neon-orange);">4. Aşama</span>
-                                    <i data-lucide="binary" style="width: 20px; height: 20px; color: var(--neon-orange); opacity: 0.85;"></i>
+                                    <span class="stage-card-badge">4. Aşama</span>
+                                    <i data-lucide="binary" class="stage-card-icon"></i>
                                 </div>
                                 <h4 class="stage-card-title">Ölçüm Düzeyi & Değişken Doğası</h4>
-                                <div style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--neon-orange); margin-bottom: 6px; display: flex; align-items: center; gap: 5px;">
+                                <div class="stage-card-mission-tag">
                                     <i data-lucide="target" style="width: 13px; height: 13px;"></i> Temel Görevi
                                 </div>
                                 <p class="stage-card-mission">
@@ -1031,7 +1114,7 @@
                             </div>
                             <a href="Veri_Mimarisi_Aşamaları/4.Aşama_Değişkenlerin_Matematiksel_Doğası/index.html" class="stage-card-btn" onclick="event.stopPropagation();">
                                 <span class="stage-play-icon-circle">
-                                    <i data-lucide="play" style="width: 13px; height: 13px; fill: currentColor; stroke: none; margin-left: 2px;"></i>
+                                    <i data-lucide="play" style="width: 13px; height: 13px;"></i>
                                 </span>
                                 <span>Aşamaya Başla</span>
                                 <i data-lucide="arrow-right" style="width: 15px; height: 15px; margin-left: auto;"></i>
@@ -1039,14 +1122,14 @@
                         </div>
 
                         <!-- 5. Aşama Kartı -->
-                        <div class="stage-card" style="--card-accent-color: #ec4899; --card-glow-color: rgba(236,72,153,0.35);" onclick="window.location.href='Veri_Mimarisi_Aşamaları/5.Aşama_Kısıtlar_ve_Etik_Çerçeve/index.html'">
+                        <div class="stage-card" style="--card-matte: #db2777;" onclick="window.location.href='Veri_Mimarisi_Aşamaları/5.Aşama_Kısıtlar_ve_Etik_Çerçeve/index.html'">
                             <div>
                                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                                    <span class="stage-card-badge" style="background: #ec4899;">5. Aşama</span>
-                                    <i data-lucide="shield-check" style="width: 20px; height: 20px; color: #ec4899; opacity: 0.85;"></i>
+                                    <span class="stage-card-badge">5. Aşama</span>
+                                    <i data-lucide="shield-check" class="stage-card-icon"></i>
                                 </div>
                                 <h4 class="stage-card-title">Kısıtlar ve Etik Çerçeve</h4>
-                                <div style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #ec4899; margin-bottom: 6px; display: flex; align-items: center; gap: 5px;">
+                                <div class="stage-card-mission-tag">
                                     <i data-lucide="target" style="width: 13px; height: 13px;"></i> Temel Görevi
                                 </div>
                                 <p class="stage-card-mission">
@@ -1055,7 +1138,7 @@
                             </div>
                             <a href="Veri_Mimarisi_Aşamaları/5.Aşama_Kısıtlar_ve_Etik_Çerçeve/index.html" class="stage-card-btn" onclick="event.stopPropagation();">
                                 <span class="stage-play-icon-circle">
-                                    <i data-lucide="play" style="width: 13px; height: 13px; fill: currentColor; stroke: none; margin-left: 2px;"></i>
+                                    <i data-lucide="play" style="width: 13px; height: 13px;"></i>
                                 </span>
                                 <span>Aşamaya Başla</span>
                                 <i data-lucide="arrow-right" style="width: 15px; height: 15px; margin-left: auto;"></i>
@@ -1063,14 +1146,14 @@
                         </div>
 
                         <!-- 6. Aşama Kartı -->
-                        <div class="stage-card" style="--card-accent-color: #06b6d4; --card-glow-color: rgba(6,182,212,0.35);" onclick="window.location.href='Veri_Mimarisi_Aşamaları/6.Aşama_Dijital_Altyapı_ve_Format/index.html'">
+                        <div class="stage-card" style="--card-matte: #0891b2;" onclick="window.location.href='Veri_Mimarisi_Aşamaları/6.Aşama_Dijital_Altyapı_ve_Format/index.html'">
                             <div>
                                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                                    <span class="stage-card-badge" style="background: #06b6d4;">6. Aşama</span>
-                                    <i data-lucide="database" style="width: 20px; height: 20px; color: #06b6d4; opacity: 0.85;"></i>
+                                    <span class="stage-card-badge">6. Aşama</span>
+                                    <i data-lucide="database" class="stage-card-icon"></i>
                                 </div>
                                 <h4 class="stage-card-title">Dijital Altyapı ve Format</h4>
-                                <div style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #06b6d4; margin-bottom: 6px; display: flex; align-items: center; gap: 5px;">
+                                <div class="stage-card-mission-tag">
                                     <i data-lucide="target" style="width: 13px; height: 13px;"></i> Temel Görevi
                                 </div>
                                 <p class="stage-card-mission">
@@ -1079,7 +1162,7 @@
                             </div>
                             <a href="Veri_Mimarisi_Aşamaları/6.Aşama_Dijital_Altyapı_ve_Format/index.html" class="stage-card-btn" onclick="event.stopPropagation();">
                                 <span class="stage-play-icon-circle">
-                                    <i data-lucide="play" style="width: 13px; height: 13px; fill: currentColor; stroke: none; margin-left: 2px;"></i>
+                                    <i data-lucide="play" style="width: 13px; height: 13px;"></i>
                                 </span>
                                 <span>Aşamaya Başla</span>
                                 <i data-lucide="arrow-right" style="width: 15px; height: 15px; margin-left: auto;"></i>
@@ -1087,14 +1170,14 @@
                         </div>
 
                         <!-- 7. Aşama Kartı -->
-                        <div class="stage-card" style="--card-accent-color: #8b5cf6; --card-glow-color: rgba(139,92,246,0.35);" onclick="window.location.href='Veri_Mimarisi_Aşamaları/7.Aşama_Veri_Toplama_Kaynağı_ve_Aracı/index.html'">
+                        <div class="stage-card" style="--card-matte: #4f46e5;" onclick="window.location.href='Veri_Mimarisi_Aşamaları/7.Aşama_Veri_Toplama_Kaynağı_ve_Aracı/index.html'">
                             <div>
                                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                                    <span class="stage-card-badge" style="background: #8b5cf6;">7. Aşama</span>
-                                    <i data-lucide="cpu" style="width: 20px; height: 20px; color: #8b5cf6; opacity: 0.85;"></i>
+                                    <span class="stage-card-badge">7. Aşama</span>
+                                    <i data-lucide="cpu" class="stage-card-icon"></i>
                                 </div>
                                 <h4 class="stage-card-title">Veri Kaynağı ve Araçlar</h4>
-                                <div style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #8b5cf6; margin-bottom: 6px; display: flex; align-items: center; gap: 5px;">
+                                <div class="stage-card-mission-tag">
                                     <i data-lucide="target" style="width: 13px; height: 13px;"></i> Temel Görevi
                                 </div>
                                 <p class="stage-card-mission">
@@ -1103,7 +1186,7 @@
                             </div>
                             <a href="Veri_Mimarisi_Aşamaları/7.Aşama_Veri_Toplama_Kaynağı_ve_Aracı/index.html" class="stage-card-btn" onclick="event.stopPropagation();">
                                 <span class="stage-play-icon-circle">
-                                    <i data-lucide="play" style="width: 13px; height: 13px; fill: currentColor; stroke: none; margin-left: 2px;"></i>
+                                    <i data-lucide="play" style="width: 13px; height: 13px;"></i>
                                 </span>
                                 <span>Aşamaya Başla</span>
                                 <i data-lucide="arrow-right" style="width: 15px; height: 15px; margin-left: auto;"></i>
@@ -1111,14 +1194,14 @@
                         </div>
 
                         <!-- 8. Aşama Kartı -->
-                        <div class="stage-card" style="--card-accent-color: #d97706; --card-glow-color: rgba(217,119,6,0.35);" onclick="window.location.href='Veri_Mimarisi_Aşamaları/8.Aşama_Örnekleme_Tekniği/index.html'">
+                        <div class="stage-card" style="--card-matte: #d97706;" onclick="window.location.href='Veri_Mimarisi_Aşamaları/8.Aşama_Örnekleme_Tekniği/index.html'">
                             <div>
                                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                                    <span class="stage-card-badge" style="background: #d97706;">8. Aşama</span>
-                                    <i data-lucide="pie-chart" style="width: 20px; height: 20px; color: #d97706; opacity: 0.85;"></i>
+                                    <span class="stage-card-badge">8. Aşama</span>
+                                    <i data-lucide="pie-chart" class="stage-card-icon"></i>
                                 </div>
                                 <h4 class="stage-card-title">Örnekleme Tekniği</h4>
-                                <div style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #d97706; margin-bottom: 6px; display: flex; align-items: center; gap: 5px;">
+                                <div class="stage-card-mission-tag">
                                     <i data-lucide="target" style="width: 13px; height: 13px;"></i> Temel Görevi
                                 </div>
                                 <p class="stage-card-mission">
@@ -1127,7 +1210,7 @@
                             </div>
                             <a href="Veri_Mimarisi_Aşamaları/8.Aşama_Örnekleme_Tekniği/index.html" class="stage-card-btn" onclick="event.stopPropagation();">
                                 <span class="stage-play-icon-circle">
-                                    <i data-lucide="play" style="width: 13px; height: 13px; fill: currentColor; stroke: none; margin-left: 2px;"></i>
+                                    <i data-lucide="play" style="width: 13px; height: 13px;"></i>
                                 </span>
                                 <span>Aşamaya Başla</span>
                                 <i data-lucide="arrow-right" style="width: 15px; height: 15px; margin-left: auto;"></i>
