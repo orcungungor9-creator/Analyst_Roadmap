@@ -323,7 +323,73 @@
                 </div>
                 <div class="accordion-content">
                     <div class="accordion-inner">
-                        <p>5. Ders içeriği buraya gelecek...</p>
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Print ve Input Fonksiyonları</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Bu derste Python'da kullanıcı ile etkileşime geçmemizi sağlayan iki temel fonksiyonun detaylarını inceleyeceğiz. <code>print()</code> ekrana çıktı yazdırmak için, <code>input()</code> ise kullanıcıdan klavye aracılığıyla veri almak için kullanılır.</p>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">1. print() Fonksiyonunun Detayları ve Parametreleri</h4>
+
+                          <div class="code-box"><span class="syn-comment"># Standart kullanım:</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Merhaba, Python eğitimine hoş geldin!"</span>)
+<span class="syn-comment"># Çıktı: Merhaba, Python eğitimine hoş geldin!</span>
+
+<span class="syn-comment"># Birden fazla değeri aralarına virgül koyarak aynı satırda yazdırabiliriz:</span>
+<span class="syn-var">dil</span> = <span class="syn-string">"Python"</span>
+<span class="syn-var">seviye</span> = <span class="syn-string">"Temel"</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Öğrenilen Dil:"</span>, dil, <span class="syn-string">"Seviye:"</span>, seviye)
+<span class="syn-comment"># Çıktı: Öğrenilen Dil: Python Seviye: Temel</span>
+
+<span class="syn-comment"># sep (Ayırıcı) Parametresi: Virgülle ayrılan değerlerin arasına ne konulacağını belirler.
+# Varsayılan değeri bir adet boşluktur (" ").</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Gün"</span>, <span class="syn-string">"Ay"</span>, <span class="syn-string">"Yıl"</span>, sep=<span class="syn-string">"/"</span>) 
+<span class="syn-comment"># Çıktı: Gün/Ay/Yıl</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Veri"</span>, <span class="syn-string">"Analizi"</span>, <span class="syn-string">"Dersleri"</span>, sep=<span class="syn-string">"-"</span>)
+<span class="syn-comment"># Çıktı: Veri-Analizi-Dersleri</span>
+
+<span class="syn-comment"># end (Sonlandırma) Parametresi: print işlemi bitince cümlenin sonuna ne ekleneceğini belirler.
+# Varsayılan değeri alt satıra geçme karakteridir ("\n").</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Bu cümle bitince alt satıra geçmeyecek."</span>, end=<span class="syn-string">" ---> "</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">"Buradan devam edecek!"</span>)
+<span class="syn-comment"># Çıktı: Bu cümle bitince alt satıra geçmeyecek. ---> Buradan devam edecek!</span>
+
+<span class="syn-comment"># f-string (Formatlı string): Metinlerin içine değişkenleri doğrudan gömmek için en pratik yöntem.</span>
+<span class="syn-var">puan</span> = <span class="syn-number">95</span>
+<span class="syn-fn">print</span>(<span class="syn-string">f"Seçilen dil {dil}, sınav puanı ise {puan}."</span>)
+<span class="syn-comment"># Çıktı: Seçilen dil Python, sınav puanı ise 95.</span></div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">2. input() Fonksiyonu ile Kullanıcı Etkileşimi</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Kullanıcıya bir soru sorup cevabını bir değişkende saklarız. Önceki derste gördüğümüz gibi input() her zaman veriyi <strong>str</strong> (metin) olarak getirir.</p>
+
+                          <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"\n--- KULLANICI BİLGİ SİSTEMİ ---\n"</span>)
+<span class="syn-var">kullanici_sehir</span> = <span class="syn-fn">input</span>(<span class="syn-string">"Hangi şehirde yaşıyorsunuz?: "</span>)
+<span class="syn-comment"># (Kullanıcının 'Ankara' yazdığını varsayalım)</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">f"Ne güzel, {kullanici_sehir} harika bir şehirdir!"</span>)
+<span class="syn-comment"># Çıktı: Ne güzel, Ankara harika bir şehirdir!</span></div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">3. Input ve Tip Dönüşümü (Type Casting) ile Matematik</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Eğer kullanıcıdan sayısal bir değer istiyorsak, gelen metni sayıya çevirmeliyiz (int veya float).</p>
+
+                          <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"\n--- MİNİ YAŞ HESAPLAMA UYGULAMASI ---\n"</span>)
+<span class="syn-comment"># Gelen string değeri int() ile tam sayıya çeviriyoruz.</span>
+<span class="syn-var">dogum_yili</span> = <span class="syn-fn">int</span>(<span class="syn-fn">input</span>(<span class="syn-string">"Lütfen doğum yılınızı giriniz (Örn: 1995): "</span>))
+<span class="syn-comment"># (Kullanıcının 1995 yazdığını varsayalım)</span>
+
+<span class="syn-var">guncel_yil</span> = <span class="syn-number">2026</span>
+<span class="syn-comment"># Artık dogum_yili bir tam sayı (int) olduğu için matematiksel çıkarma işlemi yapabiliriz.</span>
+<span class="syn-var">hesaplanan_yas</span> = guncel_yil - dogum_yili
+
+<span class="syn-fn">print</span>(<span class="syn-string">f"Siz {hesaplanan_yas} yaşındasınız!"</span>)
+<span class="syn-comment"># Çıktı: Siz 31 yaşındasınız!</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">"\n--- MİNİ HESAP MAKİNESİ ---\n"</span>)
+<span class="syn-comment"># Gelen string değeri float() ile ondalıklı sayıya çeviriyoruz.</span>
+<span class="syn-var">sayi1</span> = <span class="syn-fn">float</span>(<span class="syn-fn">input</span>(<span class="syn-string">"Lütfen ondalıklı veya tam bir sayı girin (Örn: 5.5): "</span>))
+<span class="syn-var">sayi2</span> = <span class="syn-fn">float</span>(<span class="syn-fn">input</span>(<span class="syn-string">"Lütfen ikinci sayıyı girin: "</span>))
+<span class="syn-comment"># (Kullanıcının 5.5 ve 4.5 girdiğini varsayalım)</span>
+
+<span class="syn-var">toplam</span> = sayi1 + sayi2
+<span class="syn-fn">print</span>(<span class="syn-string">f"Girdiğiniz {sayi1} ve {sayi2} sayılarının toplamı = {toplam}"</span>) 
+<span class="syn-comment"># Çıktı: Girdiğiniz 5.5 ve 4.5 sayılarının toplamı = 10.0</span></div>
                     </div>
                 </div>
             </div>
@@ -334,7 +400,86 @@
                 </div>
                 <div class="accordion-content">
                     <div class="accordion-inner">
-                        <p>6. Ders içeriği buraya gelecek...</p>
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Karakter Dizileri (Strings)</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Karakter dizileri (str), metinleri tuttuğumuz veri tipleridir. Python'da metinler harflerin, sayıların veya sembollerin bir araya gelmesiyle oluşur. Bu derste metinleri parçalamayı ve string metodlarıyla düzenlemeyi öğreneceğiz.</p>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">1. Metin Tanımlama ve Uzunluk Bulma (len)</h4>
+
+                          <div class="code-box"><span class="syn-comment"># Tek, çift veya üç tırnak ile string tanımlanabilir.</span>
+<span class="syn-var">mesaj</span> = <span class="syn-string">"Python öğrenmek çok zevkli!"</span>
+<span class="syn-var">cok_satirli_mesaj</span> = <span class="syn-string">"""Bu metin
+birden fazla
+satıra yayılabilir."""</span>
+
+<span class="syn-comment"># len() fonksiyonu: Bir string'in kaç karakterden oluştuğunu (uzunluğunu) verir.
+# Boşluklar ve noktalama işaretleri de birer karakter sayılır.</span>
+<span class="syn-var">karakter_sayisi</span> = <span class="syn-fn">len</span>(mesaj)
+<span class="syn-fn">print</span>(<span class="syn-string">"--- UZUNLUK (LEN) ---"</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">f"'{mesaj}' metni tam {karakter_sayisi} karakterden oluşuyor.\n"</span>)
+<span class="syn-comment"># Çıktı: 'Python öğrenmek çok zevkli!' metni tam 27 karakterden oluşuyor.</span></div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">2. İndeksleme ve Dilimleme (Slicing)</h4>
+
+                          <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                              <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-info"></i> Sıfırıncı İndeks Kuralı</h5>
+                              <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Python'da (ve çoğu programlama dilinde) saymaya 1'den değil <strong>0'dan başlanır!</strong> Yani bir metnin ilk harfi 0. indekstedir. Alt parçalara ayırmak için <code>metin[başlangıç : bitiş : adım]</code> kuralı kullanılır.</p>
+                          </div>
+
+                          <div class="code-box"><span class="syn-var">kurs_adi</span> = <span class="syn-string">"Veri Analizi"</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"--- İNDEKSLEME VE DİLİMLEME ---"</span>)
+
+<span class="syn-comment"># 1. Tek bir karaktere ulaşmak</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"İlk harf       :"</span>, kurs_adi[<span class="syn-number">0</span>])   
+<span class="syn-comment"># Çıktı: İlk harf       : V</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Üçüncü harf    :"</span>, kurs_adi[<span class="syn-number">2</span>])   
+<span class="syn-comment"># Çıktı: Üçüncü harf    : r</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Son harf       :"</span>, kurs_adi[<span class="syn-number">-1</span>])  
+<span class="syn-comment"># Çıktı: Son harf       : i (Negatif indeks sondan başlar)</span>
+
+<span class="syn-comment"># 2. Metnin bir kısmını kesmek (Dilimleme / Slicing)</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"İlk 4 harf     :"</span>, kurs_adi[<span class="syn-number">0</span>:<span class="syn-number">4</span>]) 
+<span class="syn-comment"># Çıktı: İlk 4 harf     : Veri (4. indeks dahil edilmez)</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"4'ten sonrakiler:"</span>, kurs_adi[<span class="syn-number">4</span>:])  
+<span class="syn-comment"># Çıktı: 4'ten sonrakiler:  Analizi (4. indeksten sona kadar)</span>
+
+<span class="syn-comment"># 3. Adım atlayarak veya tersten kesmek</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"İkişer atlayarak :"</span>, kurs_adi[::<span class="syn-number">2</span>]) 
+<span class="syn-comment"># Çıktı: İkişer atlayarak : Vr nlz (Baştan sona 2 adımda bir)</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Metni ters çevir :"</span>, kurs_adi[::<span class="syn-number">-1</span>])
+<span class="syn-comment"># Çıktı: Metni ters çevir : izilanA ireV (Geriye doğru 1 adım)</span></div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">3. En Sık Kullanılan String Metodları</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">String metodları, mevcut metni <strong>değiştirmez</strong>, bize düzenlenmiş yeni bir metin döndürür.</p>
+
+                          <div class="code-box"><span class="syn-var">ornek_metin</span> = <span class="syn-string">"   bugün hava ÇOK güzel.   "</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"\n--- STRING METODLARI ---"</span>)
+
+<span class="syn-comment"># 1. upper() ve lower(): Tüm harfleri büyütür veya küçültür.</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Büyük harf    :"</span>, ornek_metin.<span class="syn-fn">upper</span>())
+<span class="syn-comment"># Çıktı: Büyük harf    :    BUGÜN HAVA ÇOK GÜZEL.   </span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Küçük harf    :"</span>, ornek_metin.<span class="syn-fn">lower</span>())
+<span class="syn-comment"># Çıktı: Küçük harf    :    bugün hava çok güzel.   </span>
+
+<span class="syn-comment"># 2. title() ve capitalize(): Baş harfleri büyütür.</span>
+<span class="syn-comment"># title() her kelimenin, capitalize() sadece ilk kelimenin baş harfini büyütür.</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Title metodu  :"</span>, ornek_metin.<span class="syn-fn">title</span>())
+<span class="syn-comment"># Çıktı: Title metodu  :    Bugün Hava Çok Güzel.   </span>
+
+<span class="syn-comment"># 3. strip(): Metnin başındaki ve sonundaki gereksiz boşlukları siler.</span>
+<span class="syn-var">temiz_metin</span> = ornek_metin.<span class="syn-fn">strip</span>()
+<span class="syn-fn">print</span>(<span class="syn-string">f"Boşluksuz hali: '{temiz_metin}'"</span>)
+<span class="syn-comment"># Çıktı: Boşluksuz hali: 'bugün hava ÇOK güzel.'</span>
+
+<span class="syn-comment"># 4. replace(eski, yeni): Metin içindeki bir bölümü başka bir metinle değiştirir.</span>
+<span class="syn-var">degismis_metin</span> = temiz_metin.<span class="syn-fn">replace</span>(<span class="syn-string">"bugün"</span>, <span class="syn-string">"yarın"</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">"Değiştirilmiş :"</span>, degismis_metin)
+<span class="syn-comment"># Çıktı: Değiştirilmiş : yarın hava ÇOK güzel.</span>
+
+<span class="syn-comment"># 5. split(ayirici): Metni belirttiğimiz ayırıcıya göre bölüp bir liste (list) oluşturur.</span>
+<span class="syn-comment"># İçine değer girilmezse varsayılan olarak boşluklardan böler.</span>
+<span class="syn-var">kelimeler</span> = temiz_metin.<span class="syn-fn">split</span>()
+<span class="syn-fn">print</span>(<span class="syn-string">"Kelimeler     :"</span>, kelimeler) 
+<span class="syn-comment"># Çıktı: Kelimeler     : ['bugün', 'hava', 'ÇOK', 'güzel.']</span></div>
                     </div>
                 </div>
             </div>
@@ -345,7 +490,93 @@
                 </div>
                 <div class="accordion-content">
                     <div class="accordion-inner">
-                        <p>7. Ders içeriği buraya gelecek...</p>
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Listeler (Lists)</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Listeler (list), birden fazla veriyi tek bir değişkende sıralı bir şekilde tutmamızı sağlar. Köşeli parantezler <code>[]</code> kullanılarak oluşturulur ve elemanlar virgül ile ayrılır.</p>
+
+                          <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                              <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-info"></i> Değiştirilebilirlik (Mutable)</h5>
+                              <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Stringlerin (metinlerin) aksine, listeler <strong>"değiştirilebilir" (mutable)</strong> yapıdadır; yani oluşturulduktan sonra içindeki elemanları güncelleyebilir, silebilir veya yepyeni elemanlar ekleyebiliriz.</p>
+                          </div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">1. Liste Tanımlama ve Farklı Veri Tipleri</h4>
+
+                          <div class="code-box"><span class="syn-comment"># Bir liste aynı tipte veya tamamen farklı tipte veriler barındırabilir.</span>
+<span class="syn-var">sayilar</span> = [<span class="syn-number">10</span>, <span class="syn-number">20</span>, <span class="syn-number">30</span>, <span class="syn-number">40</span>, <span class="syn-number">50</span>]
+<span class="syn-var">isimler</span> = [<span class="syn-string">"Ali"</span>, <span class="syn-string">"Ayşe"</span>, <span class="syn-string">"Mehmet"</span>]
+<span class="syn-var">karisik_liste</span> = [<span class="syn-number">1</span>, <span class="syn-string">"Python"</span>, <span class="syn-number">3.14</span>, <span class="syn-kw">True</span>, [<span class="syn-number">5</span>, <span class="syn-number">6</span>]] <span class="syn-comment"># Listenin içinde başka bir liste bile olabilir!</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">"--- LİSTE OLUŞTURMA VE UZUNLUK (LEN) ---\n"</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">f"Sayılar listesi : {sayilar}"</span>)
+<span class="syn-comment"># Çıktı: Sayılar listesi : [10, 20, 30, 40, 50]</span>
+<span class="syn-fn">print</span>(<span class="syn-string">f"İsimler listesi : {isimler}"</span>)
+<span class="syn-comment"># Çıktı: İsimler listesi : ['Ali', 'Ayşe', 'Mehmet']</span>
+<span class="syn-fn">print</span>(<span class="syn-string">f"Karışık liste   : {karisik_liste}"</span>)
+<span class="syn-comment"># Çıktı: Karışık liste   : [1, 'Python', 3.14, True, [5, 6]]</span>
+
+<span class="syn-comment"># len() fonksiyonu karakter dizilerinde olduğu gibi listelerde de eleman sayısını verir.</span>
+<span class="syn-fn">print</span>(<span class="syn-string">f"\nSayılar listesinde {len(sayilar)} adet eleman var."</span>)
+<span class="syn-comment"># Çıktı: Sayılar listesinde 5 adet eleman var.</span></div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">2. İndeksleme, Dilimleme ve Eleman Değiştirme</h4>
+
+                          <div class="code-box"><span class="syn-comment"># Listelerde de indeksleme 0'dan başlar.</span>
+<span class="syn-var">programlama_dilleri</span> = [<span class="syn-string">"Python"</span>, <span class="syn-string">"Java"</span>, <span class="syn-string">"C++"</span>, <span class="syn-string">"R"</span>, <span class="syn-string">"SQL"</span>]
+
+<span class="syn-fn">print</span>(<span class="syn-string">"\n--- İNDEKSLEME VE ELEMAN GÜNCELLEME ---\n"</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">"İlk dil       :"</span>, programlama_dilleri[<span class="syn-number">0</span>])
+<span class="syn-comment"># Çıktı: İlk dil       : Python</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Son dil       :"</span>, programlama_dilleri[<span class="syn-number">-1</span>])
+<span class="syn-comment"># Çıktı: Son dil       : SQL</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"İlk 3 dil     :"</span>, programlama_dilleri[<span class="syn-number">0</span>:<span class="syn-number">3</span>]) <span class="syn-comment"># Dilimleme (Slicing)</span>
+<span class="syn-comment"># Çıktı: İlk 3 dil     : ['Python', 'Java', 'C++']</span>
+
+<span class="syn-comment"># Listelerin değiştirilebilir (mutable) olduğunu söylemiştik. 
+# İndeks belirterek mevcut bir elemanı başka bir değerle değiştirebiliriz.</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"\nGüncellemeden önce:"</span>, programlama_dilleri)
+<span class="syn-comment"># Çıktı: Güncellemeden önce: ['Python', 'Java', 'C++', 'R', 'SQL']</span>
+
+<span class="syn-var">programlama_dilleri</span>[<span class="syn-number">1</span>] = <span class="syn-string">"JavaScript"</span> <span class="syn-comment"># 1. indeksteki "Java"yı "JavaScript" yaptık</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Güncelledikten sonra:"</span>, programlama_dilleri)
+<span class="syn-comment"># Çıktı: Güncelledikten sonra: ['Python', 'JavaScript', 'C++', 'R', 'SQL']</span></div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">3. En Sık Kullanılan Liste Metodları</h4>
+
+                          <div class="code-box"><span class="syn-var">sepet</span> = [<span class="syn-string">"Elma"</span>, <span class="syn-string">"Armut"</span>, <span class="syn-string">"Muz"</span>]
+<span class="syn-fn">print</span>(<span class="syn-string">"\n--- LİSTE METODLARI ---\n"</span>)
+
+<span class="syn-comment"># 1. append(yeni_eleman): Listenin en sonuna yeni bir eleman ekler.</span>
+sepet.<span class="syn-fn">append</span>(<span class="syn-string">"Çilek"</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">"append('Çilek') sonrası :"</span>, sepet)
+<span class="syn-comment"># Çıktı: append('Çilek') sonrası : ['Elma', 'Armut', 'Muz', 'Çilek']</span>
+
+<span class="syn-comment"># 2. insert(indeks, yeni_eleman): Belirtilen indekse yeni eleman ekler, diğerlerini sağa kaydırır.</span>
+sepet.<span class="syn-fn">insert</span>(<span class="syn-number">1</span>, <span class="syn-string">"Kavun"</span>) <span class="syn-comment"># 1. indekse ekle</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"insert(1, 'Kavun')      :"</span>, sepet)
+<span class="syn-comment"># Çıktı: insert(1, 'Kavun')      : ['Elma', 'Kavun', 'Armut', 'Muz', 'Çilek']</span>
+
+<span class="syn-comment"># 3. remove(eleman): Belirtilen değere sahip ilk elemanı listeden siler.</span>
+sepet.<span class="syn-fn">remove</span>(<span class="syn-string">"Armut"</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">"remove('Armut') sonrası :"</span>, sepet)
+<span class="syn-comment"># Çıktı: remove('Armut') sonrası : ['Elma', 'Kavun', 'Muz', 'Çilek']</span>
+
+<span class="syn-comment"># 4. pop(indeks): Belirtilen indeksteki elemanı siler ve sildiği değeri bize döndürür.
+# İndeks yazılmazsa listenin en sonundaki elemanı siler.</span>
+<span class="syn-var">silinen_meyve</span> = sepet.<span class="syn-fn">pop</span>() <span class="syn-comment"># En sondaki "Çilek" silinir</span>
+<span class="syn-fn">print</span>(<span class="syn-string">f"pop() ile silinen       : {silinen_meyve}"</span>)
+<span class="syn-comment"># Çıktı: pop() ile silinen       : Çilek</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"pop() sonrası sepet     :"</span>, sepet)
+<span class="syn-comment"># Çıktı: pop() sonrası sepet     : ['Elma', 'Kavun', 'Muz']</span>
+
+<span class="syn-comment"># 5. sort(): Listenin elemanlarını küçükten büyüğe (veya alfabetik olarak) sıralar.
+# reverse() metodu veya reverse=True parametresi ile tersten sıralama yapılabilir.</span>
+<span class="syn-var">rakamlar</span> = [<span class="syn-number">8</span>, <span class="syn-number">1</span>, <span class="syn-number">5</span>, <span class="syn-number">2</span>, <span class="syn-number">9</span>]
+rakamlar.<span class="syn-fn">sort</span>()
+<span class="syn-fn">print</span>(<span class="syn-string">"\nsort() ile sıralanmış rakamlar :"</span>, rakamlar)
+<span class="syn-comment"># Çıktı: sort() ile sıralanmış rakamlar : [1, 2, 5, 8, 9]</span>
+
+rakamlar.<span class="syn-fn">sort</span>(reverse=<span class="syn-kw">True</span>) <span class="syn-comment"># Büyükten küçüğe sıralar</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Büyükten küçüğe sıralanmış     :"</span>, rakamlar)
+<span class="syn-comment"># Çıktı: Büyükten küçüğe sıralanmış     : [9, 8, 5, 2, 1]</span></div>
                     </div>
                 </div>
             </div>
@@ -356,7 +587,88 @@
                 </div>
                 <div class="accordion-content">
                     <div class="accordion-inner">
-                        <p>8. Ders içeriği buraya gelecek...</p>
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Demetler (Tuples)</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Demetler (tuple), listelere çok benzeyen ancak "değiştirilemez" (immutable) olan veri yapılarıdır. Normal parantez <code>()</code> kullanılarak veya sadece elemanlar virgülle ayrılarak oluşturulurlar. Sabit kalmasını istediğimiz veriler (örneğin harita koordinatları, ay isimleri, sistem ayarları) için idealdir.</p>
+
+                          <div style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #F59E0B; padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                              <h5 style="color: #F59E0B; margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-warning"></i> Değiştirilemez (Immutable) Yapı</h5>
+                              <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Oluşturulduktan sonra içindeki elemanlar güncellenemez, yeni eleman eklenemez veya silinemez. Listelerde çalışan <code>append()</code>, <code>remove()</code> gibi metodlar Tuple'larda kullanılamaz!</p>
+                          </div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">1. Demet (Tuple) Oluşturma ve Özel Durumlar</h4>
+
+                          <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                              <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-info"></i> Tek Elemanlı Tuple Kuralı</h5>
+                              <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Tek elemanlı bir tuple oluştururken sonuna virgül koymak <strong>zorunludur!</strong> (Örn: <code>("Elma",)</code>). Aksi takdirde Python bunu normal bir matematiksel parantez veya string olarak algılar.</p>
+                          </div>
+
+                          <div class="code-box"><span class="syn-comment"># Standart bir tuple tanımı</span>
+<span class="syn-var">renkler</span> = (<span class="syn-string">"Kırmızı"</span>, <span class="syn-string">"Yeşil"</span>, <span class="syn-string">"Mavi"</span>)
+
+<span class="syn-comment"># Parantez kullanmadan da tuple oluşturulabilir (Python virgülleri görünce tuple anlar)</span>
+<span class="syn-var">koordinatlar</span> = <span class="syn-number">41.0082</span>, <span class="syn-number">28.9784</span> 
+
+<span class="syn-var">tek_elemanli_tuple</span> = (<span class="syn-string">"Elma"</span>,)
+<span class="syn-var">normal_string</span> = (<span class="syn-string">"Elma"</span>) 
+
+<span class="syn-fn">print</span>(<span class="syn-string">"--- DEMET OLUŞTURMA ---\n"</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">f"Renkler        : {renkler} \t Tipi: {type(renkler)}"</span>)
+<span class="syn-comment"># Çıktı: Renkler        : ('Kırmızı', 'Yeşil', 'Mavi') 	 Tipi: &lt;class 'tuple'&gt;</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">f"Koordinatlar   : {koordinatlar} \t Tipi: {type(koordinatlar)}"</span>)
+<span class="syn-comment"># Çıktı: Koordinatlar   : (41.0082, 28.9784) 		 Tipi: &lt;class 'tuple'&gt;</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">f"Tek Elemanlı   : {tek_elemanli_tuple} \t\t Tipi: {type(tek_elemanli_tuple)}"</span>)
+<span class="syn-comment"># Çıktı: Tek Elemanlı   : ('Elma',) 			 Tipi: &lt;class 'tuple'&gt;</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">f"Virgülsüz Hata : {normal_string} \t\t Tipi: {type(normal_string)}"</span>)
+<span class="syn-comment"># Çıktı: Virgülsüz Hata : Elma 			 Tipi: &lt;class 'str'&gt;</span></div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">2. İndeksleme ve Değiştirilemezlik (Immutable)</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Listelerdeki ve stringlerdeki indeksleme (sıfırdan başlama) ve dilimleme mantığı tamamen geçerlidir.</p>
+
+                          <div class="code-box"><span class="syn-var">mevsimler</span> = (<span class="syn-string">"İlkbahar"</span>, <span class="syn-string">"Yaz"</span>, <span class="syn-string">"Sonbahar"</span>, <span class="syn-string">"Kış"</span>)
+
+<span class="syn-fn">print</span>(<span class="syn-string">"\n--- İNDEKSLEME VE DİLİMLEME ---\n"</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">"İlk mevsim    :"</span>, mevsimler[<span class="syn-number">0</span>])
+<span class="syn-comment"># Çıktı: İlk mevsim    : İlkbahar</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Son mevsim    :"</span>, mevsimler[<span class="syn-number">-1</span>])
+<span class="syn-comment"># Çıktı: Son mevsim    : Kış</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"İlk 2 mevsim  :"</span>, mevsimler[<span class="syn-number">0</span>:<span class="syn-number">2</span>])
+<span class="syn-comment"># Çıktı: İlk 2 mevsim  : ('İlkbahar', 'Yaz')</span>
+
+<span class="syn-comment"># DEĞİŞTİRİLEMEZLİK (IMMUTABILITY) KURALI:
+# Tuple içindeki bir elemanı listelerdeki gibi değiştiremeyiz.
+# Eğer aşağıdaki kodu çalıştırırsak Python "TypeError" hatası verir:</span>
+<span class="syn-comment"># mevsimler[1] = "Sıcak Yaz"  # HATA VERİR! Tuple nesnesi atama işlemini desteklemez.</span></div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">3. Demet Metodları ve Paket Açma (Unpacking)</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Tuple'lar değiştirilemez olduğu için sadece veri aramaya yönelik 2 adet metodları vardır: <code>count()</code> ve <code>index()</code>.</p>
+
+                          <div class="code-box"><span class="syn-var">sayilar_tuple</span> = (<span class="syn-number">1</span>, <span class="syn-number">5</span>, <span class="syn-number">3</span>, <span class="syn-number">5</span>, <span class="syn-number">9</span>, <span class="syn-number">5</span>, <span class="syn-number">2</span>)
+
+<span class="syn-fn">print</span>(<span class="syn-string">"\n--- DEMET METODLARI ---\n"</span>)
+<span class="syn-comment"># 1. count(eleman): Demetin içinde belirtilen elemandan kaç tane olduğunu sayar.</span>
+<span class="syn-fn">print</span>(<span class="syn-string">f"Tuple içinde '5' sayısı {sayilar_tuple.count(5)} kez geçiyor."</span>)
+<span class="syn-comment"># Çıktı: Tuple içinde '5' sayısı 3 kez geçiyor.</span>
+
+<span class="syn-comment"># 2. index(eleman): Belirtilen elemanın baştan kaçıncı indekste (ilk nerede) olduğunu söyler.</span>
+<span class="syn-fn">print</span>(<span class="syn-string">f"'9' sayısı tuple içinde {sayilar_tuple.index(9)}. indekste bulunuyor."</span>)
+<span class="syn-comment"># Çıktı: '9' sayısı tuple içinde 4. indekste bulunuyor.</span>
+
+<span class="syn-comment"># PAKET AÇMA (Unpacking): Tuple içindeki değerleri sırasıyla çoklu değişkenlere tek satırda atama işlemidir.
+# Python'da çok sık kullanılan ve kod okunuşunu güzelleştiren bir özelliktir.</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"\n--- PAKET AÇMA (UNPACKING) ---\n"</span>)
+
+<span class="syn-var">kullanici_bilgisi</span> = (<span class="syn-string">"Orçun"</span>, <span class="syn-number">20</span>, <span class="syn-string">"Ekonometri"</span>)
+<span class="syn-var">isim</span>, <span class="syn-var">yas</span>, <span class="syn-var">bolum</span> = kullanici_bilgisi <span class="syn-comment"># Elemanlar sırasıyla değişkenlere otomatik atandı!</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">f"İsim  : {isim}"</span>)
+<span class="syn-comment"># Çıktı: İsim  : Orçun</span>
+<span class="syn-fn">print</span>(<span class="syn-string">f"Yaş   : {yas}"</span>)
+<span class="syn-comment"># Çıktı: Yaş   : 20</span>
+<span class="syn-fn">print</span>(<span class="syn-string">f"Bölüm : {bolum}"</span>)
+<span class="syn-comment"># Çıktı: Bölüm : Ekonometri</span></div>
                     </div>
                 </div>
             </div>
@@ -367,7 +679,103 @@
                 </div>
                 <div class="accordion-content">
                     <div class="accordion-inner">
-                        <p>9. Ders içeriği buraya gelecek...</p>
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Kümeler (Sets)</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Kümeler (set), matematikteki küme mantığıyla aynı şekilde çalışan veri yapılarıdır. Süslü parantezler <code>{}</code> kullanılarak oluşturulurlar.</p>
+
+                          <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                              <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-info"></i> Küme Kuralları (Sırasız ve Benzersiz)</h5>
+                              <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Kümelerin en önemli iki özelliği vardır:<br>1. İçerisindeki elemanlar <strong>"sırasızdır"</strong> (indeksleme yapılamaz, yani <code>kume[0]</code> çalışmaz).<br>2. İçerisinde aynı elemandan birden fazla bulunamaz (<strong>benzersiz/unique</strong> veriler tutar).</p>
+                          </div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">1. Küme Oluşturma ve Benzersizlik Kuralı</h4>
+
+                          <div style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #F59E0B; padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                              <h5 style="color: #F59E0B; margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-warning"></i> Boş Küme Tuzağı</h5>
+                              <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Boş küme oluşturmak için <code>{}</code> <strong>YERİNE</strong> <code>set()</code> fonksiyonu kullanılmalıdır! Çünkü sadece <code>{}</code> kullanırsanız Python bunu bir sonraki derste göreceğimiz "sözlük (dictionary)" veri tipi olarak algılar.</p>
+                          </div>
+
+                          <div class="code-box"><span class="syn-comment"># Standart küme oluşturma</span>
+<span class="syn-var">meyveler</span> = {<span class="syn-string">"Elma"</span>, <span class="syn-string">"Armut"</span>, <span class="syn-string">"Muz"</span>, <span class="syn-string">"Elma"</span>, <span class="syn-string">"Armut"</span>}
+
+<span class="syn-fn">print</span>(<span class="syn-string">"--- KÜME OLUŞTURMA ---\n"</span>)
+<span class="syn-comment"># Çıktıda göreceğiniz gibi tekrar eden "Elma" ve "Armut" sadece birer kez yazdırılır.
+# Ayrıca elemanların sırası her çalıştırmada değişebilir, çünkü kümeler sırasızdır.</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Meyveler kümesi :"</span>, meyveler)
+<span class="syn-comment"># Çıktı: Meyveler kümesi : {'Elma', 'Armut', 'Muz'}</span>
+
+<span class="syn-var">bos_kume</span> = <span class="syn-fn">set</span>()
+<span class="syn-var">bos_sozluk</span> = {}
+<span class="syn-fn">print</span>(<span class="syn-string">f"bos_kume Tipi   : {type(bos_kume)}"</span>)
+<span class="syn-comment"># Çıktı: bos_kume Tipi   : &lt;class 'set'&gt;</span>
+<span class="syn-fn">print</span>(<span class="syn-string">f"bos_sozluk Tipi : {type(bos_sozluk)}"</span>)
+<span class="syn-comment"># Çıktı: bos_sozluk Tipi : &lt;class 'dict'&gt;</span>
+
+<span class="syn-comment"># Listeyi kümeye çevirerek tekrarlı verilerden kurtulmak (Veri temizlemede çok sık kullanılır)</span>
+<span class="syn-var">tekrarli_liste</span> = [<span class="syn-number">1</span>, <span class="syn-number">2</span>, <span class="syn-number">2</span>, <span class="syn-number">3</span>, <span class="syn-number">3</span>, <span class="syn-number">3</span>, <span class="syn-number">4</span>, <span class="syn-number">5</span>, <span class="syn-number">5</span>]
+<span class="syn-var">temiz_kume</span> = <span class="syn-fn">set</span>(tekrarli_liste)
+<span class="syn-fn">print</span>(<span class="syn-string">"\nTekrarlı Liste  :"</span>, tekrarli_liste)
+<span class="syn-comment"># Çıktı: Tekrarlı Liste  : [1, 2, 2, 3, 3, 3, 4, 5, 5]</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Kümeye Çevrilmiş:"</span>, temiz_kume)
+<span class="syn-comment"># Çıktı: Kümeye Çevrilmiş: {1, 2, 3, 4, 5}</span></div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">2. Kümeye Eleman Ekleme ve Çıkarma</h4>
+
+                          <div class="code-box"><span class="syn-var">renkler</span> = {<span class="syn-string">"Kırmızı"</span>, <span class="syn-string">"Mavi"</span>, <span class="syn-string">"Yeşil"</span>}
+<span class="syn-fn">print</span>(<span class="syn-string">"\n--- ELEMAN EKLEME VE ÇIKARMA ---\n"</span>)
+
+<span class="syn-comment"># 1. add(eleman): Kümeye yeni bir eleman ekler.</span>
+renkler.<span class="syn-fn">add</span>(<span class="syn-string">"Sarı"</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">"add('Sarı') sonrası       :"</span>, renkler)
+<span class="syn-comment"># Çıktı: add('Sarı') sonrası       : {'Kırmızı', 'Mavi', 'Yeşil', 'Sarı'}</span>
+
+<span class="syn-comment"># 2. remove(eleman): Belirtilen elemanı siler. Eğer eleman kümede yoksa HATA (KeyError) verir.</span>
+renkler.<span class="syn-fn">remove</span>(<span class="syn-string">"Mavi"</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">"remove('Mavi') sonrası    :"</span>, renkler)
+<span class="syn-comment"># Çıktı: remove('Mavi') sonrası    : {'Kırmızı', 'Yeşil', 'Sarı'}</span>
+
+<span class="syn-comment"># 3. discard(eleman): Belirtilen elemanı siler. Eleman kümede yoksa HATA VERMEZ (daha güvenlidir).</span>
+renkler.<span class="syn-fn">discard</span>(<span class="syn-string">"Siyah"</span>) <span class="syn-comment"># Siyah kümede yok ama program çökmeden devam eder.</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"discard('Siyah') denemesi :"</span>, renkler)
+<span class="syn-comment"># Çıktı: discard('Siyah') denemesi : {'Kırmızı', 'Yeşil', 'Sarı'}</span>
+
+<span class="syn-comment"># 4. clear(): Kümenin içindeki tüm elemanları silerek kümeyi boşaltır.</span>
+renkler.<span class="syn-fn">clear</span>()
+<span class="syn-fn">print</span>(<span class="syn-string">"clear() sonrası küme      :"</span>, renkler)
+<span class="syn-comment"># Çıktı: clear() sonrası küme      : set()</span></div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">3. Matematiksel Küme İşlemleri</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Kümeler, birden fazla veri grubu arasında karşılaştırma yaparken metodları sayesinde çok güçlüdür.</p>
+
+                          <div class="code-box"><span class="syn-var">kume_A</span> = {<span class="syn-number">1</span>, <span class="syn-number">2</span>, <span class="syn-number">3</span>, <span class="syn-number">4</span>, <span class="syn-number">5</span>}
+<span class="syn-var">kume_B</span> = {<span class="syn-number">4</span>, <span class="syn-number">5</span>, <span class="syn-number">6</span>, <span class="syn-number">7</span>, <span class="syn-number">8</span>}
+
+<span class="syn-fn">print</span>(<span class="syn-string">"\n--- MATEMATİKSEL KÜME İŞLEMLERİ ---\n"</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">f"A Kümesi: {kume_A}"</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">f"B Kümesi: {kume_B}\n"</span>)
+
+<span class="syn-comment"># 1. Birleşim (Union) -> union() veya | sembolü</span>
+<span class="syn-var">birlesim</span> = kume_A.<span class="syn-fn">union</span>(kume_B)
+<span class="syn-comment"># birlesim = kume_A | kume_B  # Alternatif kısa kullanım</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"1. Birleşim (A U B)       :"</span>, birlesim)
+<span class="syn-comment"># Çıktı: 1. Birleşim (A U B)       : {1, 2, 3, 4, 5, 6, 7, 8}</span>
+
+<span class="syn-comment"># 2. Kesişim (Intersection) -> intersection() veya & sembolü</span>
+<span class="syn-var">kesisim</span> = kume_A.<span class="syn-fn">intersection</span>(kume_B)
+<span class="syn-comment"># kesisim = kume_A & kume_B   # Alternatif kısa kullanım</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"2. Kesişim (A ∩ B)        :"</span>, kesisim)
+<span class="syn-comment"># Çıktı: 2. Kesişim (A ∩ B)        : {4, 5}</span>
+
+<span class="syn-comment"># 3. Fark (Difference) -> difference() veya - sembolü</span>
+<span class="syn-var">fark_A_B</span> = kume_A.<span class="syn-fn">difference</span>(kume_B) <span class="syn-comment"># A'da olup B'de olmayanlar</span>
+<span class="syn-comment"># fark_A_B = kume_A - kume_B  # Alternatif kısa kullanım</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"3. A'nın B'den Farkı (A-B):"</span>, fark_A_B)
+<span class="syn-comment"># Çıktı: 3. A'nın B'den Farkı (A-B): {1, 2, 3}</span>
+
+<span class="syn-comment"># 4. Simetrik Fark (Symmetric Difference) -> symmetric_difference() veya ^ sembolü
+# Her iki kümenin kesişimi dışındaki tüm elemanlar (Yalnızca birinde olanlar)</span>
+<span class="syn-var">simetrik_fark</span> = kume_A.<span class="syn-fn">symmetric_difference</span>(kume_B)
+<span class="syn-fn">print</span>(<span class="syn-string">"4. Simetrik Fark (A ^ B)  :"</span>, simetrik_fark)
+<span class="syn-comment"># Çıktı: 4. Simetrik Fark (A ^ B)  : {1, 2, 3, 6, 7, 8}</span></div>
                     </div>
                 </div>
             </div>
@@ -378,7 +786,91 @@
                 </div>
                 <div class="accordion-content">
                     <div class="accordion-inner">
-                        <p>10. Ders içeriği buraya gelecek...</p>
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Sözlükler (Dictionaries)</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Sözlükler (dict), verileri tıpkı gerçek hayattaki bir sözlük gibi "Anahtar-Değer" (Key-Value) çiftleri şeklinde tutan veri yapılarıdır. Özellikle yapılandırılmış veriler (veritabanı kayıtları, JSON dosyaları) için vazgeçilmezdir.</p>
+
+                          <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                              <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-info"></i> Anahtar - Değer (Key - Value) Mantığı</h5>
+                              <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Tıpkı kümeler gibi süslü parantez <code>{}</code> ile oluşturulurlar ancak kümelerden farklı olarak içerisinde <strong>iki nokta (:)</strong> barındıran eşleşmelerden oluşurlar. Sol taraf anahtarı (Key), sağ taraf o anahtarın değerini (Value) ifade eder.</p>
+                          </div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">1. Sözlük Oluşturma ve Veriye Erişim</h4>
+
+                          <div style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #F59E0B; padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                              <h5 style="color: #F59E0B; margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-warning"></i> get() Metodu ile Güvenli Erişim</h5>
+                              <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Olmayan bir anahtarı doğrudan köşeli parantezle çağırırsak Python <strong>KeyError</strong> hatası verip programı durdurur. Ancak <code>get()</code> metodu kullanırsak, hata vermek yerine <strong>None (Yok)</strong> cevabı döner ve program çökmekten kurtulur.</p>
+                          </div>
+
+                          <div class="code-box"><span class="syn-comment"># Bir profil kaydını sözlük ile modelleyelim:</span>
+<span class="syn-var">kullanici_profili</span> = {
+    <span class="syn-string">"isim"</span>: <span class="syn-string">"Orçun"</span>,
+    <span class="syn-string">"yas"</span>: <span class="syn-number">20</span>,
+    <span class="syn-string">"bolum"</span>: <span class="syn-string">"Ekonometri"</span>,
+    <span class="syn-string">"mezun_mu"</span>: <span class="syn-kw">False</span>,
+    <span class="syn-string">"yetenekler"</span>: [<span class="syn-string">"Python"</span>, <span class="syn-string">"SQL"</span>, <span class="syn-string">"R"</span>] <span class="syn-comment"># Değer olarak bir liste bile verebiliriz!</span>
+}
+
+<span class="syn-fn">print</span>(<span class="syn-string">"--- SÖZLÜK OLUŞTURMA VE ERİŞİM ---\n"</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">"Tüm Sözlük:"</span>, kullanici_profili)
+<span class="syn-comment"># Çıktı: Tüm Sözlük: {'isim': 'Orçun', 'yas': 20, 'bolum': 'Ekonometri', 'mezun_mu': False, 'yetenekler': ['Python', 'SQL', 'R']}</span>
+
+<span class="syn-comment"># Veriye erişmek için indeks numarası değil, doğrudan "Anahtar" (Key) adını kullanırız.</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"\nKullanıcının Adı  :"</span>, kullanici_profili[<span class="syn-string">"isim"</span>])
+<span class="syn-comment"># Çıktı: Kullanıcının Adı  : Orçun</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Okuduğu Bölüm     :"</span>, kullanici_profili[<span class="syn-string">"bolum"</span>])
+<span class="syn-comment"># Çıktı: Okuduğu Bölüm     : Ekonometri</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Bildiği ilk dil   :"</span>, kullanici_profili[<span class="syn-string">"yetenekler"</span>][<span class="syn-number">0</span>]) <span class="syn-comment"># Sözlük içindeki listeye erişim</span>
+<span class="syn-comment"># Çıktı: Bildiği ilk dil   : Python</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">"\nget() ile yaş     :"</span>, kullanici_profili.<span class="syn-fn">get</span>(<span class="syn-string">"yas"</span>))
+<span class="syn-comment"># Çıktı: get() ile yaş     : 20</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Olmayan bir veri  :"</span>, kullanici_profili.<span class="syn-fn">get</span>(<span class="syn-string">"okul_no"</span>)) <span class="syn-comment"># Hata vermez, None döner.</span>
+<span class="syn-comment"># Çıktı: Olmayan bir veri  : None</span></div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">2. Yeni Veri Ekleme ve Güncelleme</h4>
+
+                          <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"\n--- VERİ EKLEME VE GÜNCELLEME ---\n"</span>)
+
+<span class="syn-comment"># Yeni bir Anahtar-Değer çifti eklemek çok basittir.
+# Olmayan bir anahtara değer atarsak, doğrudan sözlüğe yeni kayıt olarak eklenir.</span>
+kullanici_profili[<span class="syn-string">"universite"</span>] = <span class="syn-string">"Pamukkale Üniversitesi"</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Üniversite eklendi    :"</span>, kullanici_profili)
+<span class="syn-comment"># Çıktı: Üniversite eklendi    : {'isim': 'Orçun', 'yas': 20, ... , 'universite': 'Pamukkale Üniversitesi'}</span>
+
+<span class="syn-comment"># Var olan bir anahtara yeni değer atarsak, eski değer güncellenir.</span>
+kullanici_profili[<span class="syn-string">"yas"</span>] = <span class="syn-number">21</span> 
+<span class="syn-fn">print</span>(<span class="syn-string">"Yaş güncellendi       :"</span>, kullanici_profili)
+<span class="syn-comment"># Çıktı: Yaş güncellendi       : {'isim': 'Orçun', 'yas': 21, ... , 'universite': 'Pamukkale Üniversitesi'}</span></div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">3. Temel Sözlük Metodları</h4>
+
+                          <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"\n--- SÖZLÜK METODLARI ---\n"</span>)
+
+<span class="syn-comment"># 1. keys(): Sadece sözlükteki "Anahtarları" (sol taraf) verir.</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Sadece Anahtarlar     :"</span>, kullanici_profili.<span class="syn-fn">keys</span>())
+<span class="syn-comment"># Çıktı: Sadece Anahtarlar     : dict_keys(['isim', 'yas', 'bolum', 'mezun_mu', 'yetenekler', 'universite'])</span>
+
+<span class="syn-comment"># 2. values(): Sadece sözlükteki "Değerleri" (sağ taraf) verir.</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Sadece Değerler       :"</span>, kullanici_profili.<span class="syn-fn">values</span>())
+<span class="syn-comment"># Çıktı: Sadece Değerler       : dict_values(['Orçun', 21, 'Ekonometri', False, ['Python', 'SQL', 'R'], 'Pamukkale Üniversitesi'])</span>
+
+<span class="syn-comment"># 3. items(): Anahtar ve değerleri gruplar halinde birlikte verir. 
+# Genelde döngülerle (for) verilerin üzerinde gezinmek için çok sık kullanılır.</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Anahtar-Değer Çiftleri:"</span>, kullanici_profili.<span class="syn-fn">items</span>())
+<span class="syn-comment"># Çıktı: Anahtar-Değer Çiftleri: dict_items([('isim', 'Orçun'), ('yas', 21), ...])</span>
+
+<span class="syn-comment"># 4. update(): Başka bir sözlükteki verileri mevcut sözlüğe katar veya aynı anahtarları günceller.</span>
+<span class="syn-var">fiziksel_bilgiler</span> = {<span class="syn-string">"boy_cm"</span>: <span class="syn-number">183</span>, <span class="syn-string">"kilo_kg"</span>: <span class="syn-number">75</span>, <span class="syn-string">"mezun_mu"</span>: <span class="syn-kw">True</span>}
+kullanici_profili.<span class="syn-fn">update</span>(fiziksel_bilgiler)
+<span class="syn-fn">print</span>(<span class="syn-string">"\nupdate() sonrası      :"</span>, kullanici_profili)
+<span class="syn-comment"># Çıktı: update() sonrası      : {'isim': 'Orçun', ... , 'boy_cm': 183, 'kilo_kg': 75, 'mezun_mu': True}</span>
+
+<span class="syn-comment"># 5. pop(anahtar): Belirtilen anahtarı ve onun değerini sözlükten siler, sildiği değeri döndürür.</span>
+<span class="syn-var">silinen_bolum</span> = kullanici_profili.<span class="syn-fn">pop</span>(<span class="syn-string">"bolum"</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">f"\npop() ile silinen bölüm: {silinen_bolum}"</span>)
+<span class="syn-comment"># Çıktı: pop() ile silinen bölüm: Ekonometri</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Sözlüğün Son Durumu    :"</span>, kullanici_profili)
+<span class="syn-comment"># Çıktı: Sözlüğün Son Durumu    : {'isim': 'Orçun', 'yas': 21, 'mezun_mu': True, ...}</span></div>
                     </div>
                 </div>
             </div>
@@ -389,7 +881,125 @@
                 </div>
                 <div class="accordion-content">
                     <div class="accordion-inner">
-                        <p>11. Ders içeriği buraya gelecek...</p>
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Karşılaştırma ve Mantıksal Operatörler</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Programlamada karar mekanizmalarını (if-else, döngüler vb.) kurabilmek için verileri birbiriyle karşılaştırmamız ve mantıksal sonuçlar üretmemiz gerekir. Karşılaştırma ve mantıksal operatörlerin sonucunda her zaman <strong>boolean (True veya False)</strong> veri tipi döner.</p>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">1. Karşılaştırma Operatörleri</h4>
+
+                          <div style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #F59E0B; padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                              <h5 style="color: #F59E0B; margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-warning"></i> = ve == Farkı</h5>
+                              <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Tek eşittir (<code>=</code>) işareti, değişkenlere değer <strong>atamak</strong> için kullanılır. Çift eşittir (<code>==</code>) işareti ise, iki değerin birbirine eşit olup olmadığını <strong>sorgulamak/kıyaslamak</strong> için kullanılır.</p>
+                          </div>
+
+                          <div class="code-box"><span class="syn-var">a</span> = <span class="syn-number">15</span>
+<span class="syn-var">b</span> = <span class="syn-number">20</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"--- KARŞILAŞTIRMA OPERATÖRLERİ ---\n"</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">f"A değişkeni: {a}, B değişkeni: {b}\n"</span>)
+
+<span class="syn-comment"># 1. Eşit mi? (==)</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"A, B'ye eşit mi? (a == b)       :"</span>, a == b)
+<span class="syn-comment"># Çıktı: A, B'ye eşit mi? (a == b)       : False</span>
+
+<span class="syn-comment"># 2. Eşit değil mi? (!=)</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"A, B'den farklı mı? (a != b)    :"</span>, a != b)
+<span class="syn-comment"># Çıktı: A, B'den farklı mı? (a != b)    : True</span>
+
+<span class="syn-comment"># 3. Büyüktür (>) ve Küçüktür (<)</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"A, B'den büyük mü? (a > b)      :"</span>, a > b)
+<span class="syn-comment"># Çıktı: A, B'den büyük mü? (a > b)      : False</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"A, B'den küçük mü? (a < b)      :"</span>, a < b)
+<span class="syn-comment"># Çıktı: A, B'den küçük mü? (a < b)      : True</span>
+
+<span class="syn-comment"># 4. Büyük Eşittir (>=) ve Küçük Eşittir (<=)</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"A, 15'e büyük veya eşit mi?     :"</span>, a >= <span class="syn-number">15</span>) 
+<span class="syn-comment"># Çıktı: A, 15'e büyük veya eşit mi?     : True (çünkü a zaten 15'e eşit.)</span>
+
+<span class="syn-comment"># Stringlerde (metinlerde) karşılaştırma da yapılabilir. Python büyük/küçük harf duyarlıdır!</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"\n'Python' == 'python' sonucu     :"</span>, <span class="syn-string">"Python"</span> == <span class="syn-string">"python"</span>)
+<span class="syn-comment"># Çıktı: 'Python' == 'python' sonucu     : False</span></div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">2. Mantıksal Operatörler (AND, OR, NOT)</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Birden fazla karşılaştırmayı (koşulu) birbirine bağlamak için kullanılırlar.</p>
+
+                          <div class="code-box"><span class="syn-var">sinav_puani</span> = <span class="syn-number">85</span>
+<span class="syn-var">devamsizlik</span> = <span class="syn-number">3</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"\n--- MANTIKSAL OPERATÖRLER ---\n"</span>)
+
+<span class="syn-comment"># 1. AND (Ve) Operatörü:
+# Bağlanan TÜM koşulların doğru (True) olması zorunludur. Biri bile False ise genel sonuç False çıkar.
+# Senaryo: Dersi geçmek için puan 50'den büyük/eşit OLMALI VE devamsızlık 5'ten küçük OLMALI.</span>
+<span class="syn-var">gecti_mi</span> = (sinav_puani >= <span class="syn-number">50</span>) <span class="syn-kw">and</span> (devamsizlik < <span class="syn-number">5</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">"Öğrenci dersi geçti mi? (AND)   :"</span>, gecti_mi)
+<span class="syn-comment"># Çıktı: Öğrenci dersi geçti mi? (AND)   : True</span>
+
+<span class="syn-comment"># 2. OR (Veya) Operatörü:
+# Bağlanan koşullardan SADECE BİRİNİN doğru (True) olması genel sonucun True olması için yeterlidir.
+# Senaryo: Burs almak için puan 90'dan büyük/eşit OLMALI VEYA devamsızlık 0 OLMALI.</span>
+<span class="syn-var">burs_aliyor_mu</span> = (sinav_puani >= <span class="syn-number">90</span>) <span class="syn-kw">or</span> (devamsizlik == <span class="syn-number">0</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">"Öğrenci burs alıyor mu? (OR)    :"</span>, burs_aliyor_mu)
+<span class="syn-comment"># Çıktı: Öğrenci burs alıyor mu? (OR)    : False</span>
+
+<span class="syn-comment"># 3. NOT (Değil) Operatörü:
+# Çıkan mantıksal sonucu tam tersine çevirir. (True ise False, False ise True yapar).</span>
+<span class="syn-var">sistem_aktif_mi</span> = <span class="syn-kw">True</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"\nSistem aktif mi?                :"</span>, sistem_aktif_mi)
+<span class="syn-fn">print</span>(<span class="syn-string">"Sistemin tersi (not aktif_mi)   :"</span>, <span class="syn-kw">not</span> sistem_aktif_mi)
+<span class="syn-comment"># Çıktı: Sistemin tersi (not aktif_mi)   : False</span>
+
+<span class="syn-comment"># --- KARMAŞIK KOŞULLARI BİRLEŞTİRME ---
+# Parantezler ile işlem önceliği belirleyerek daha uzun sorgular yazabiliriz.</span>
+<span class="syn-var">kredi_skoru</span> = <span class="syn-number">1200</span>
+<span class="syn-var">maas</span> = <span class="syn-number">30000</span>
+<span class="syn-var">kefil_var_mi</span> = <span class="syn-kw">False</span>
+
+<span class="syn-comment"># Senaryo (Kredi Onay Şartı): 
+# (Kredi skoru 1000'den büyük VE Maaşı 20000'den yüksek olmalı) VEYA Kefili olmalı.</span>
+<span class="syn-var">kredi_onayi</span> = ((kredi_skoru > <span class="syn-number">1000</span>) <span class="syn-kw">and</span> (maas > <span class="syn-number">20000</span>)) <span class="syn-kw">or</span> kefil_var_mi
+<span class="syn-fn">print</span>(<span class="syn-string">"\nKredi Onay Durumu               :"</span>, kredi_onayi)
+<span class="syn-comment"># Çıktı: Kredi Onay Durumu               : True</span></div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">3. Aitlik Operatörleri (in, not in)</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Bir verinin, bir dizinin (metin, liste, tuple, küme) içinde bulunup bulunmadığını sorgulamak için kullanılır. Özellikle listelerde ve metinlerde arama yaparken hayat kurtarır.</p>
+
+                          <div class="code-box"><span class="syn-var">kullanici_yetenekleri</span> = [<span class="syn-string">"Python"</span>, <span class="syn-string">"SQL"</span>, <span class="syn-string">"Excel"</span>]
+<span class="syn-var">aranan_kelime</span> = <span class="syn-string">"Analiz"</span>
+<span class="syn-var">metin</span> = <span class="syn-string">"Veri Analizi çok eğlenceli!"</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"\n--- AİTLİK (MEMBERSHIP) OPERATÖRLERİ ---\n"</span>)
+
+<span class="syn-comment"># 1. in (İçinde var mı?)</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Kullanıcı SQL biliyor mu? ('SQL' in liste)   :"</span>, <span class="syn-string">"SQL"</span> <span class="syn-kw">in</span> kullanici_yetenekleri)
+<span class="syn-comment"># Çıktı: Kullanıcı SQL biliyor mu? ('SQL' in liste)   : True</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Metinde 'Analiz' geçiyor mu?                 :"</span>, aranan_kelime <span class="syn-kw">in</span> metin)
+<span class="syn-comment"># Çıktı: Metinde 'Analiz' geçiyor mu?                 : True</span>
+
+<span class="syn-comment"># 2. not in (İçinde yok mu?)</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Kullanıcı R BİLMİYOR mu? ('R' not in liste)  :"</span>, <span class="syn-string">"R"</span> <span class="syn-kw">not in</span> kullanici_yetenekleri)
+<span class="syn-comment"># Çıktı: Kullanıcı R BİLMİYOR mu? ('R' not in liste)  : True</span></div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">4. Kimlik Operatörleri (is, is not)</h4>
+
+                          <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                              <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-info"></i> == ve is Arasındaki Kritik Fark</h5>
+                              <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);"><code>==</code> operatörü iki verinin yalnızca içeriğinin/değerinin aynı olup olmadığına bakar.<br><code>is</code> operatörü ise iki verinin bilgisayar hafızasında (bellekte) <strong>birebir aynı obje</strong> olup olmadığına bakar.</p>
+                          </div>
+
+                          <div class="code-box"><span class="syn-var">liste1</span> = [<span class="syn-number">1</span>, <span class="syn-number">2</span>, <span class="syn-number">3</span>]
+<span class="syn-var">liste2</span> = [<span class="syn-number">1</span>, <span class="syn-number">2</span>, <span class="syn-number">3</span>]
+<span class="syn-var">liste3</span> = liste1 <span class="syn-comment"># liste3, doğrudan liste1'in bellekteki yerini işaret ediyor.</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">"\n--- KİMLİK (IDENTITY) OPERATÖRLERİ ---\n"</span>)
+
+<span class="syn-comment"># Değerleri tamamen aynı olduğu için == sonucu True çıkar.</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"liste1 ve liste2 değerleri eşit mi? (==)   :"</span>, liste1 == liste2)
+<span class="syn-comment"># Çıktı: liste1 ve liste2 değerleri eşit mi? (==)   : True</span>
+
+<span class="syn-comment"># Değerleri aynı olsa da bellekte farklı yerlerde (farklı çekmecelerde) tutuldukları için is sonucu False çıkar.</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"liste1 ve liste2 AYNI obje mi? (is)        :"</span>, liste1 <span class="syn-kw">is</span> liste2)
+<span class="syn-comment"># Çıktı: liste1 ve liste2 AYNI obje mi? (is)        : False</span>
+
+<span class="syn-comment"># liste3 doğrudan liste1'e atandığı için ikisi de aynı objeyi işaret eder, sonuç True çıkar.</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"liste1 ve liste3 AYNI obje mi? (is)        :"</span>, liste1 <span class="syn-kw">is</span> liste3)
+<span class="syn-comment"># Çıktı: liste1 ve liste3 AYNI obje mi? (is)        : True</span></div>
                     </div>
                 </div>
             </div>
@@ -400,7 +1010,102 @@
                 </div>
                 <div class="accordion-content">
                     <div class="accordion-inner">
-                        <p>12. Ders içeriği buraya gelecek...</p>
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Koşullu İfadeler (If - Elif - Else)</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Koşullu ifadeler, programlarımızın karar vermesini sağlayan en temel yapılardır. Bir önceki derste öğrendiğimiz karşılaştırma ve mantıksal operatörlerden dönen True veya False (bool) değerlerine göre programın farklı kod bloklarını çalıştırmasını sağlar.</p>
+
+                          <div style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #F59E0B; padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                              <h5 style="color: #F59E0B; margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-warning"></i> En Önemli Kural: Girinti (Indentation)</h5>
+                              <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Python'da hangi kodun <code>if</code> bloğuna ait olduğunu belirtmek için süslü parantez kullanılmaz. Bunun yerine <strong>"girinti" (Tab tuşu veya 4 boşluk)</strong> kullanılır. İki nokta üst üste (<code>:</code>) işaretinden sonraki satır mutlaka içeriden başlamalıdır!</p>
+                          </div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">1. Temel If (Eğer) ve Else (Değilse) Yapısı</h4>
+
+                          <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"--- 1. TEMEL IF - ELSE ---\n"</span>)
+<span class="syn-var">yas</span> = <span class="syn-number">20</span>
+
+<span class="syn-comment"># Eğer yaş 18'den büyük veya eşitse (Sonuç True ise altındaki blok çalışır)</span>
+<span class="syn-kw">if</span> yas >= <span class="syn-number">18</span>:
+    <span class="syn-fn">print</span>(<span class="syn-string">"Ehliyet alabilirsiniz."</span>)
+    <span class="syn-fn">print</span>(<span class="syn-string">"Bu satır da if bloğunun içindedir."</span>)
+<span class="syn-comment"># Eğer yukarıdaki if koşulu False ise (Yani yaş 18'den küçükse) else bloğu çalışır.</span>
+<span class="syn-kw">else</span>:
+    <span class="syn-fn">print</span>(<span class="syn-string">"Ehliyet almak için yaşınız tutmuyor."</span>)
+    
+<span class="syn-fn">print</span>(<span class="syn-string">"Bu satırda girinti yok, o yüzden if-else durumundan bağımsız her zaman çalışır.\n"</span>)
+
+<span class="syn-comment"># Çıktı:
+# Ehliyet alabilirsiniz.
+# Bu satır da if bloğunun içindedir.
+# Bu satırda girinti yok, o yüzden if-else durumundan bağımsız her zaman çalışır.</span></div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">2. Elif (Değilse Eğer) İle Çoklu Koşullar</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Sadece iki ihtimal değil, birden fazla ihtimal varsa <code>elif</code> kullanılır. Python <strong>yukarıdan aşağıya doğru</strong> koşulları kontrol eder. İlk True olan bloğu çalıştırır ve diğerlerini kontrol etmeden yapıdan çıkar.</p>
+
+                          <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"--- 2. ELIF İLE ÇOKLU KONTROL ---\n"</span>)
+<span class="syn-var">sinav_notu</span> = <span class="syn-number">75</span>
+
+<span class="syn-kw">if</span> sinav_notu >= <span class="syn-number">90</span>:
+    <span class="syn-fn">print</span>(<span class="syn-string">"Harf Notunuz: AA"</span>)
+<span class="syn-kw">elif</span> sinav_notu >= <span class="syn-number">80</span>:
+    <span class="syn-fn">print</span>(<span class="syn-string">"Harf Notunuz: BA"</span>)
+<span class="syn-kw">elif</span> sinav_notu >= <span class="syn-number">70</span>:
+    <span class="syn-fn">print</span>(<span class="syn-string">"Harf Notunuz: BB"</span>)
+<span class="syn-kw">elif</span> sinav_notu >= <span class="syn-number">60</span>:
+    <span class="syn-fn">print</span>(<span class="syn-string">"Harf Notunuz: CB"</span>)
+<span class="syn-kw">else</span>:
+    <span class="syn-fn">print</span>(<span class="syn-string">"Dersten kaldınız, Harf Notunuz: FF"</span>)
+
+<span class="syn-comment"># Çıktı: Harf Notunuz: BB</span></div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">3. Mantıksal Operatörlerle Kullanım (and / or)</h4>
+
+                          <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"\n--- 3. MANTIKSAL OPERATÖRLERLE IF ---\n"</span>)
+<span class="syn-var">kullanici_adi</span> = <span class="syn-string">"admin"</span>
+<span class="syn-var">sifre</span> = <span class="syn-string">"12345"</span>
+
+<span class="syn-comment"># Hem kullanıcı adı doğru olmalı AND hem de şifre doğru olmalı</span>
+<span class="syn-kw">if</span> kullanici_adi == <span class="syn-string">"admin"</span> <span class="syn-kw">and</span> sifre == <span class="syn-string">"12345"</span>:
+    <span class="syn-fn">print</span>(<span class="syn-string">"Sisteme başarıyla giriş yapıldı!"</span>)
+<span class="syn-kw">else</span>:
+    <span class="syn-fn">print</span>(<span class="syn-string">"Kullanıcı adı veya şifre hatalı!"</span>)
+
+<span class="syn-comment"># Çıktı: Sisteme başarıyla giriş yapıldı!</span></div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">4. İç İçe (Nested) Koşullu İfadeler</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Bir koşulun içinde başka bir koşulu kontrol etmek isteyebiliriz. Bu durumda girintinin içine <strong>bir girinti daha</strong> ekleriz.</p>
+
+                          <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"\n--- 4. İÇ İÇE (NESTED) KONTROLLER ---\n"</span>)
+<span class="syn-var">sayi</span> = <span class="syn-number">15</span>
+
+<span class="syn-kw">if</span> sayi > <span class="syn-number">0</span>:
+    <span class="syn-fn">print</span>(<span class="syn-string">"Sayı pozitiftir."</span>)
+    <span class="syn-comment"># Sayı pozitifse, şimdi de çift mi tek mi olduğuna bakalım.
+    # Bir sayının 2'ye bölümünden kalan (modülüs %) 0 ise o sayı çifttir.</span>
+    <span class="syn-kw">if</span> sayi % <span class="syn-number">2</span> == <span class="syn-number">0</span>:
+        <span class="syn-fn">print</span>(<span class="syn-string">"Aynı zamanda bir çift sayıdır."</span>)
+    <span class="syn-kw">else</span>:
+        <span class="syn-fn">print</span>(<span class="syn-string">"Aynı zamanda bir tek sayıdır."</span>)
+<span class="syn-kw">elif</span> sayi < <span class="syn-number">0</span>:
+    <span class="syn-fn">print</span>(<span class="syn-string">"Sayı negatiftir."</span>)
+<span class="syn-kw">else</span>:
+    <span class="syn-fn">print</span>(<span class="syn-string">"Sayı sıfırdır."</span>)
+
+<span class="syn-comment"># Çıktı:
+# Sayı pozitiftir.
+# Aynı zamanda bir tek sayıdır.</span></div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">5. Kısa Kullanım (Ternary Operator)</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Basit bir if-else atamasını tek satırda yazarak kodu kısaltabiliriz. <br>Formül: <code>[Değer_True_İse] if [Koşul] else [Değer_False_İse]</code></p>
+
+                          <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"\n--- 5. TEK SATIRDA IF KULLANIMI ---\n"</span>)
+<span class="syn-var">bakiye</span> = <span class="syn-number">50</span>
+<span class="syn-var">urun_fiyati</span> = <span class="syn-number">80</span>
+
+<span class="syn-comment"># Uzun yazım yerine tek satırda atama:</span>
+<span class="syn-var">durum</span> = <span class="syn-string">"Satın Alındı"</span> <span class="syn-kw">if</span> bakiye >= urun_fiyati <span class="syn-kw">else</span> <span class="syn-string">"Bakiye Yetersiz"</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">f"İşlem Durumu: {durum}"</span>)
+<span class="syn-comment"># Çıktı: İşlem Durumu: Bakiye Yetersiz</span></div>
                     </div>
                 </div>
             </div>
@@ -411,7 +1116,112 @@
                 </div>
                 <div class="accordion-content">
                     <div class="accordion-inner">
-                        <p>13. Ders içeriği buraya gelecek...</p>
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Döngüler (Loops - For / While)</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Döngüler, belirli bir kod bloğunu tekrar tekrar çalıştırmamızı sağlayan yapılardır. Aynı işlemi defalarca yazmak yerine (DRY - Don't Repeat Yourself / Kendini Tekrar Etme prensibi), döngüleri kullanarak kodumuzu kısa, dinamik ve okunabilir hale getiririz. Python'da temel olarak iki çeşit döngü vardır: <code>for</code> ve <code>while</code>.</p>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">1. For Döngüsü ve Koleksiyonlar Üzerinde Gezinme</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><code>for</code> döngüsü, genellikle eleman sayısı belli olan veri yapılarının (liste, tuple, string, sözlük) içinde sırasıyla gezinmek (iterasyon) için kullanılır.</p>
+
+                          <div class="code-box"><span class="syn-var">ogrenciler</span> = [<span class="syn-string">"Ali"</span>, <span class="syn-string">"Ayşe"</span>, <span class="syn-string">"Mehmet"</span>, <span class="syn-string">"Zeynep"</span>]
+<span class="syn-fn">print</span>(<span class="syn-string">"--- 1. FOR DÖNGÜSÜ İLE LİSTELERDE GEZİNME ---\n"</span>)
+
+<span class="syn-comment"># ogrenciler listesindeki her bir eleman sırasıyla 'isim' değişkenine atanır ve içerideki kod çalıştırılır.</span>
+<span class="syn-kw">for</span> isim <span class="syn-kw">in</span> ogrenciler:
+    <span class="syn-fn">print</span>(<span class="syn-string">f"Öğrenci: {isim}"</span>)
+
+<span class="syn-comment"># Çıktı:
+# Öğrenci: Ali
+# Öğrenci: Ayşe
+# Öğrenci: Mehmet
+# Öğrenci: Zeynep</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">"\n--- STRING (METİN) ÜZERİNDE GEZİNME ---\n"</span>)
+<span class="syn-comment"># Stringler de birer karakter dizisi olduğu için for ile harf harf gezilebilir.</span>
+<span class="syn-var">kelime</span> = <span class="syn-string">"Python"</span>
+<span class="syn-kw">for</span> harf <span class="syn-kw">in</span> kelime:
+    <span class="syn-fn">print</span>(harf)
+    
+<span class="syn-comment"># Çıktı: P y t h o n (Alt alta)</span></div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">2. range() Fonksiyonu İle For Döngüsü</h4>
+
+                          <div class="code-box"><span class="syn-comment"># Belirli bir sayıda tekrar yapmasını istediğimiz durumlar için range() fonksiyonu kullanılır.
+# range(başlangıç, bitiş, adım_miktarı) şeklinde çalışır. Bitiş değeri dahil DEĞİLDİR!</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">"\n--- 2. RANGE() FONKSİYONU ---\n"</span>)
+
+<span class="syn-comment"># Sadece bitiş değeri verilirse 0'dan başlar (5 dahil değil).</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"range(5) çıktısı:"</span>)
+<span class="syn-kw">for</span> i <span class="syn-kw">in</span> <span class="syn-fn">range</span>(<span class="syn-number">5</span>):
+    <span class="syn-fn">print</span>(i, end=<span class="syn-string">" "</span>) <span class="syn-comment"># Yan yana yazdırmak için end=" " kullandık.</span>
+<span class="syn-comment"># Çıktı: 0 1 2 3 4</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">"\n\nrange(1, 10, 2) çıktısı (1'den 10'a ikişer):"</span>)
+<span class="syn-kw">for</span> i <span class="syn-kw">in</span> <span class="syn-fn">range</span>(<span class="syn-number">1</span>, <span class="syn-number">10</span>, <span class="syn-number">2</span>):
+    <span class="syn-fn">print</span>(i, end=<span class="syn-string">" "</span>)
+<span class="syn-comment"># Çıktı: 1 3 5 7 9</span></div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">3. While Döngüsü</h4>
+
+                          <div style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #F59E0B; padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                              <h5 style="color: #F59E0B; margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-warning"></i> Sonsuz Döngü (Infinite Loop) Tehlikesi</h5>
+                              <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);"><code>while</code> döngüsü, kendisine verilen koşul DOĞRU (True) olduğu sürece çalışmaya devam eder. Koşulun bir noktada YANLIŞ (False) olmasını sağlamazsak (örneğin sayacı artırmayı unutursak) döngü sonsuza kadar çalışır ve programınız/bilgisayarınız kilitlenebilir.</p>
+                          </div>
+
+                          <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"\n--- 3. WHILE DÖNGÜSÜ ---\n"</span>)
+<span class="syn-var">sayac</span> = <span class="syn-number">1</span>
+
+<span class="syn-comment"># sayac 5'ten küçük veya eşit olduğu SÜRECE bu blok çalışacak.</span>
+<span class="syn-kw">while</span> sayac <= <span class="syn-number">5</span>:
+    <span class="syn-fn">print</span>(<span class="syn-string">f"Sayaç şu an: {sayac}"</span>)
+    
+    <span class="syn-comment"># DİKKAT: Sayacı artırmayı unutursak sonsuz döngüye gireriz!</span>
+    sayac += <span class="syn-number">1</span> <span class="syn-comment"># sayac = sayac + 1 ile aynı anlama gelir.</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">"Döngü bitti, sayacın son değeri:"</span>, sayac)
+
+<span class="syn-comment"># Çıktı:
+# Sayaç şu an: 1
+# Sayaç şu an: 2
+# Sayaç şu an: 3
+# Sayaç şu an: 4
+# Sayaç şu an: 5
+# Döngü bitti, sayacın son değeri: 6</span></div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">4. Döngü Kontrol İfadeleri (Break ve Continue)</h4>
+
+                          <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                              <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-info"></i> Break ve Continue Arasındaki Fark</h5>
+                              <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);"><strong>break:</strong> Döngüyü <u>anında tamamen sonlandırır</u> ve dışarı çıkar.<br><strong>continue:</strong> Sadece <u>o anki adımı atlar</u> (pas geçer) ve döngüye sıradaki adımdan devam eder.</p>
+                          </div>
+
+                          <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"\n--- 4. BREAK VE CONTINUE İFADELERİ ---\n"</span>)
+<span class="syn-var">sayilar</span> = [<span class="syn-number">10</span>, <span class="syn-number">20</span>, <span class="syn-number">30</span>, <span class="syn-number">40</span>, <span class="syn-number">50</span>, <span class="syn-number">60</span>]
+
+<span class="syn-fn">print</span>(<span class="syn-string">"BREAK ÖRNEĞİ (30'u görünce dur):"</span>)
+<span class="syn-kw">for</span> sayi <span class="syn-kw">in</span> sayilar:
+    <span class="syn-kw">if</span> sayi == <span class="syn-number">30</span>:
+        <span class="syn-fn">print</span>(<span class="syn-string">"30 bulundu, döngüden çıkılıyor!"</span>)
+        <span class="syn-kw">break</span> <span class="syn-comment"># 30'u görünce döngü tamamen biter, 40,50,60'a bakmaz.</span>
+    <span class="syn-fn">print</span>(<span class="syn-string">"Sayı:"</span>, sayi)
+<span class="syn-comment"># Çıktı:
+# Sayı: 10
+# Sayı: 20
+# 30 bulundu, döngüden çıkılıyor!</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">"\nCONTINUE ÖRNEĞİ (Sadece 30'u atla, devam et):"</span>)
+<span class="syn-kw">for</span> sayi <span class="syn-kw">in</span> sayilar:
+    <span class="syn-kw">if</span> sayi == <span class="syn-number">30</span>:
+        <span class="syn-fn">print</span>(<span class="syn-string">"30 bulundu, bu adım pas geçiliyor!"</span>)
+        <span class="syn-kw">continue</span> <span class="syn-comment"># 30 için alttaki kodları çalıştırmaz, başa döner ve 40'tan devam eder.</span>
+    <span class="syn-fn">print</span>(<span class="syn-string">"Sayı:"</span>, sayi)
+<span class="syn-comment"># Çıktı:
+# Sayı: 10
+# Sayı: 20
+# 30 bulundu, bu adım pas geçiliyor!
+# Sayı: 40
+# Sayı: 50
+# Sayı: 60</span></div>
                     </div>
                 </div>
             </div>
@@ -422,7 +1232,118 @@
                 </div>
                 <div class="accordion-content">
                     <div class="accordion-inner">
-                        <p>14. Ders içeriği buraya gelecek...</p>
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Fonksiyonlar (Functions)</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Fonksiyonlar, belirli bir görevi yerine getirmek için yazılmış, tekrar tekrar kullanılabilen isimlendirilmiş kod bloklarıdır. Karmaşık programları daha küçük, yönetilebilir ve okunabilir parçalara böler. Python'da fonksiyon tanımlamak için <code>def</code> (define) anahtar kelimesi kullanılır.</p>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">1. Fonksiyon Tanımlama ve Çağırma</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Bir fonksiyonu tanımlamak onun çalışması için yeterli değildir. Çalışması için fonksiyonu ismiyle "çağırmamız" (call) gerekir.</p>
+
+                          <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"--- 1. FONKSİYON TANIMLAMA ---\n"</span>)
+
+<span class="syn-comment"># Parametre almayan basit bir fonksiyon tanımlayalım:
+# İki nokta üst üste (:) sonrası içeriden (girintili) yazılan her şey bu fonksiyona aittir.</span>
+<span class="syn-kw">def</span> <span class="syn-fn">karsilama_mesaji</span>():
+    <span class="syn-fn">print</span>(<span class="syn-string">"Sisteme hoş geldiniz!"</span>)
+    <span class="syn-fn">print</span>(<span class="syn-string">"Bugün harika işler başaracağız.\n"</span>)
+
+<span class="syn-comment"># Fonksiyonu çağırıyoruz (İstediğimiz kadar çağırabiliriz)</span>
+karsilama_mesaji()
+karsilama_mesaji() 
+
+<span class="syn-comment"># Çıktı:
+# Sisteme hoş geldiniz!
+# Bugün harika işler başaracağız.
+#
+# Sisteme hoş geldiniz!
+# Bugün harika işler başaracağız.</span></div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">2. Parametre ve Argüman Kullanımı</h4>
+
+                          <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                              <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-info"></i> Parametre mi, Argüman mı?</h5>
+                              <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Fonksiyonu <strong>tanımlarken</strong> yazdığımız soyut değişkenlere (kullanici_adi) "Parametre" denir.<br>Fonksiyonu <strong>çağırırken</strong> parantez içine gönderdiğimiz gerçek verilere ("Orçun") ise "Argüman" denir.</p>
+                          </div>
+
+                          <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"--- 2. PARAMETRELİ FONKSİYONLAR ---\n"</span>)
+
+<span class="syn-kw">def</span> <span class="syn-fn">platforma_giris</span>(kullanici_adi, platform_ismi):
+    <span class="syn-fn">print</span>(<span class="syn-string">f"Merhaba {kullanici_adi}, {platform_ismi} sistemine giriş yaptın!"</span>)
+
+platforma_giris(<span class="syn-string">"Orçun"</span>, <span class="syn-string">"Analyst Roadmap"</span>)
+platforma_giris(<span class="syn-string">"Ayşe"</span>, <span class="syn-string">"Veri Analizi Portalı"</span>)
+
+<span class="syn-comment"># Çıktı:
+# Merhaba Orçun, Analyst Roadmap sistemine giriş yaptın!
+# Merhaba Ayşe, Veri Analizi Portalı sistemine giriş yaptın!</span></div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">3. Return (Değer Döndürme) İfadesi</h4>
+
+                          <div style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #F59E0B; padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                              <h5 style="color: #F59E0B; margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-warning"></i> Print ve Return Karıştırılmamalıdır!</h5>
+                              <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);"><code>print()</code> sadece veriyi ekrana (terminale) yazdırır, ürettiği sonucu programın ilerleyen kısımlarında kullanamayız. <code>return</code> ifadesi ise fonksiyonun ürettiği sonucu bellekte bize geri verir, böylece bu sonucu bir değişkene atayıp başka hesaplamalarda kullanabiliriz. Ayrıca <code>return</code> çalıştığı anda fonksiyon o satırda biter.</p>
+                          </div>
+
+                          <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"\n--- 3. RETURN İLE DEĞER DÖNDÜRME ---\n"</span>)
+
+<span class="syn-comment"># Analitik bir hesaplamada sıkça kullandığımız basit bir ortalama alma fonksiyonu:</span>
+<span class="syn-kw">def</span> <span class="syn-fn">ortalama_hesapla</span>(sayi1, sayi2, sayi3):
+    toplam = sayi1 + sayi2 + sayi3
+    ortalama = toplam / <span class="syn-number">3</span>
+    <span class="syn-kw">return</span> ortalama <span class="syn-comment"># Hesaplanan değeri dışarı aktarır ve fonksiyon burada BİTER.</span>
+
+<span class="syn-comment"># Fonksiyondan dönen değeri 'sonuc' değişkenine kaydediyoruz.</span>
+<span class="syn-var">sonuc</span> = ortalama_hesapla(<span class="syn-number">85</span>, <span class="syn-number">90</span>, <span class="syn-number">75</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">f"Verilerin Ortalaması: {sonuc}"</span>)
+<span class="syn-comment"># Çıktı: Verilerin Ortalaması: 83.33333333333333</span>
+
+<span class="syn-comment"># Döndürülen değeri başka bir işlemde rahatça kullanabiliriz:</span>
+<span class="syn-kw">if</span> sonuc >= <span class="syn-number">80</span>:
+    <span class="syn-fn">print</span>(<span class="syn-string">"Performans durumu: Yüksek"</span>)
+<span class="syn-comment"># Çıktı: Performans durumu: Yüksek</span></div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">4. Varsayılan (Default) Parametreler</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Kullanıcı bir parametre girmezse, fonksiyonun hata vermek yerine bizim belirlediğimiz varsayılan bir değeri kullanmasını sağlayabiliriz.</p>
+
+                          <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"\n--- 4. VARSAYILAN PARAMETRELER ---\n"</span>)
+
+<span class="syn-comment"># algoritma parametresine varsayılan bir değer atadık:</span>
+<span class="syn-kw">def</span> <span class="syn-fn">model_olustur</span>(bagimsiz_degisken_sayisi, algoritma=<span class="syn-string">"Lineer Regresyon"</span>):
+    <span class="syn-fn">print</span>(<span class="syn-string">f"Seçilen Model: {algoritma}"</span>)
+    <span class="syn-fn">print</span>(<span class="syn-string">f"Değişken Sayısı: {bagimsiz_degisken_sayisi}\n"</span>)
+
+<span class="syn-fn">print</span>(<span class="syn-string">"2. argüman verilmediğinde:"</span>)
+model_olustur(<span class="syn-number">5</span>)
+<span class="syn-comment"># Çıktı:
+# Seçilen Model: Lineer Regresyon
+# Değişken Sayısı: 5</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">"İki argüman da verildiğinde:"</span>)
+model_olustur(<span class="syn-number">3</span>, <span class="syn-string">"Lojistik Regresyon"</span>)
+<span class="syn-comment"># Çıktı:
+# Seçilen Model: Lojistik Regresyon
+# Değişken Sayısı: 3</span></div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">5. Docstring (Fonksiyon Belgesi)</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Fonksiyonların ne işe yaradığını açıklamak için hemen altına üç tırnak (<code>"""</code>) ile <strong>docstring</strong> yazılır. Büyük projelerde, kendi yazdığınız aracı aylar sonra okurken veya başka analistlerle çalışırken kritik bir standarttır.</p>
+
+                          <div class="code-box"><span class="syn-kw">def</span> <span class="syn-fn">veri_temizle</span>(veri_listesi):
+    <span class="syn-string">"""
+    Bu fonksiyon, verilen listedeki eksik verileri (None) tespit eder
+    ve onları listeden çıkartarak temizlenmiş yeni bir liste döndürür.
+    """</span>
+    temiz_liste = []
+    <span class="syn-kw">for</span> eleman <span class="syn-kw">in</span> veri_listesi:
+        <span class="syn-kw">if</span> eleman <span class="syn-kw">is not None</span>:
+            temiz_liste.append(eleman)
+    <span class="syn-kw">return</span> temiz_liste
+
+<span class="syn-var">ornek_veri</span> = [<span class="syn-number">10</span>, <span class="syn-number">25</span>, <span class="syn-kw">None</span>, <span class="syn-number">40</span>, <span class="syn-kw">None</span>, <span class="syn-number">50</span>]
+
+<span class="syn-fn">print</span>(<span class="syn-string">"--- 5. DOCSTRING VE UYGULAMA ---\n"</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">f"Ham Veri Listesi : {ornek_veri}"</span>)
+<span class="syn-comment"># Çıktı: Ham Veri Listesi : [10, 25, None, 40, None, 50]</span>
+<span class="syn-fn">print</span>(<span class="syn-string">f"Temizlenmiş Veri : {veri_temizle(ornek_veri)}"</span>)
+<span class="syn-comment"># Çıktı: Temizlenmiş Veri : [10, 25, 40, 50]</span></div>
                     </div>
                 </div>
             </div>
@@ -433,7 +1354,103 @@
                 </div>
                 <div class="accordion-content">
                     <div class="accordion-inner">
-                        <p>15. Ders içeriği buraya gelecek...</p>
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Hata Yakalama (Exception Handling)</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Programlarımızı yazarken bazen bizim kontrolümüz dışında (kullanıcının yanlış veri girmesi, dosyanın bulunamaması, internetin kopması gibi) durumlarda hatalar oluşabilir. Python'da bir hata (Exception) meydana geldiğinde program aniden çöker (crash) ve çalışmayı durdurur. <strong>Hata Yakalama</strong> mekanizmaları (<code>try-except</code>) sayesinde, programın çökmesini engeller ve hata durumlarında ne yapılması gerektiğini Python'a söyleyebiliriz.</p>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">1. Temel Try - Except Yapısı</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><code>try</code> bloğu içine hata çıkarma potansiyeli olan riskli kodlar yazılır. Eğer hata oluşursa, program çökmek yerine <code>except</code> bloğuna atlar.</p>
+
+                          <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"--- 1. TEMEL TRY-EXCEPT KULLANIMI ---\n"</span>)
+
+<span class="syn-kw">try</span>:
+    <span class="syn-fn">print</span>(<span class="syn-string">"Riskli işlem deneniyor..."</span>)
+    <span class="syn-comment"># int() fonksiyonu harfleri sayıya çeviremez. Bu satır normalde ValueError verip programı çökertir.</span>
+    <span class="syn-var">hatali_sayi</span> = <span class="syn-fn">int</span>(<span class="syn-string">"on beş"</span>) 
+    <span class="syn-fn">print</span>(<span class="syn-string">"Bu satır asla çalışmayacak çünkü üstte hata oldu!"</span>)
+<span class="syn-kw">except</span>:
+    <span class="syn-comment"># Hata oluştuğunda program çökmek yerine kullanıcıya dostça bir mesaj verir.</span>
+    <span class="syn-fn">print</span>(<span class="syn-string">"HATA YAKALANDI: Girilen veri bir tam sayıya çevrilemedi!"</span>)
+
+<span class="syn-fn">print</span>(<span class="syn-string">"\nProgram çökmediği için bu satır sorunsuz çalışmaya devam ediyor.\n"</span>)
+
+<span class="syn-comment"># Çıktı:
+# Riskli işlem deneniyor...
+# HATA YAKALANDI: Girilen veri bir tam sayıya çevrilemedi!
+#
+# Program çökmediği için bu satır sorunsuz çalışmaya devam ediyor.</span></div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">2. Özel Hata Türlerini (Spesifik) Yakalama</h4>
+
+                          <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                              <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-info"></i> Her Hataya Farklı Çözüm</h5>
+                              <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Tüm hataları tek bir genel <code>except</code> ile yakalamak iyi bir pratik değildir. Sıfıra bölme hatası (<code>ZeroDivisionError</code>) ile veri tipi hatası (<code>TypeError</code>) için programa farklı tepkiler verdirtmeliyiz. En sona eklenen <code>except Exception as e:</code> ise gözden kaçan tüm bilinmeyen hataları yakalayıp detayını bize bildirir.</p>
+                          </div>
+
+                          <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"--- 2. SPESİFİK HATALARI YAKALAMA ---\n"</span>)
+<span class="syn-var">bolunen</span> = <span class="syn-number">100</span>
+<span class="syn-var">bolen</span> = <span class="syn-number">0</span> <span class="syn-comment"># Bir sayı sıfıra bölünemez!</span>
+
+<span class="syn-kw">try</span>:
+    sonuc = bolunen / bolen
+    <span class="syn-fn">print</span>(<span class="syn-string">f"Bölme İşlemi Sonucu: {sonuc}"</span>)
+<span class="syn-kw">except ZeroDivisionError</span>:
+    <span class="syn-comment"># Sadece sıfıra bölme hatası olursa burası çalışır.</span>
+    <span class="syn-fn">print</span>(<span class="syn-string">"MATEMATİK HATASI: Herhangi bir sayı 0'a bölünemez!"</span>)
+<span class="syn-kw">except TypeError</span>:
+    <span class="syn-comment"># Sadece yanlış veri tipiyle işlem yapılmaya çalışılırsa burası çalışır.</span>
+    <span class="syn-fn">print</span>(<span class="syn-string">"TİP HATASI: Matematiksel işlemler sadece sayılarla yapılabilir!"</span>)
+<span class="syn-kw">except Exception</span> <span class="syn-kw">as</span> e:
+    <span class="syn-comment"># Yukarıdakiler dışındaki TÜM bilinmeyen hataları yakalar. Hatanın adını 'e' değişkenine atar.</span>
+    <span class="syn-fn">print</span>(<span class="syn-string">f"BİLİNMEYEN BİR HATA OLUŞTU. Hata detayı: {e}"</span>)
+
+<span class="syn-comment"># Çıktı: MATEMATİK HATASI: Herhangi bir sayı 0'a bölünemez!</span></div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">3. Else ve Finally Blokları</h4>
+
+                          <div style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #F59E0B; padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                              <h5 style="color: #F59E0B; margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-warning"></i> Neden 'finally' Kullanıyoruz?</h5>
+                              <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);"><code>else</code> bloğu, try kısmında <strong>hiçbir hata çıkmazsa</strong> çalışır. <code>finally</code> bloğu ise hata çıksa da çıkmasa da <strong>mutlaka en sonda</strong> çalışır. <code>finally</code>, özellikle açık kalan bir dosyayı veya veritabanı bağlantısını güvenli bir şekilde kapatmak/temizlemek için kullanılır.</p>
+                          </div>
+
+                          <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"\n--- 3. ELSE VE FINALLY KULLANIMI ---\n"</span>)
+
+<span class="syn-kw">try</span>:
+    <span class="syn-fn">print</span>(<span class="syn-string">"Analiz için veritabanına bağlanılıyor..."</span>)
+    <span class="syn-comment"># Burada başarılı bir işlem simüle ediyoruz.</span>
+    <span class="syn-var">veri_sayisi</span> = <span class="syn-number">1500</span>
+<span class="syn-kw">except ValueError</span>:
+    <span class="syn-fn">print</span>(<span class="syn-string">"Veri okuma hatası oluştu!"</span>)
+<span class="syn-kw">else</span>:
+    <span class="syn-comment"># Hata olmadığı için bu blok çalışacak.</span>
+    <span class="syn-fn">print</span>(<span class="syn-string">f"BAŞARILI: Veritabanından toplam {veri_sayisi} satır veri çekildi."</span>)
+<span class="syn-kw">finally</span>:
+    <span class="syn-comment"># Her senaryoda çalışıp sistemi temizleyecek kısım.</span>
+    <span class="syn-fn">print</span>(<span class="syn-string">"KAPANIŞ: Veritabanı bağlantısı güvenli bir şekilde sonlandırıldı."</span>)
+
+<span class="syn-comment"># Çıktı:
+# Analiz için veritabanına bağlanılıyor...
+# BAŞARILI: Veritabanından toplam 1500 satır veri çekildi.
+# KAPANIŞ: Veritabanı bağlantısı güvenli bir şekilde sonlandırıldı.</span></div>
+
+                          <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">4. Bilinçli Hata Fırlatma (Raise)</h4>
+                          <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Bazen kodumuz teknik olarak doğru (hata vermeyen) bir kod olsa bile, bizim kurduğumuz iş mantığına ters düşen durumlarda (örneğin yaşın negatif girilmesi) manuel olarak kendi hatamızı fırlatmak (<code>raise</code>) isteyebiliriz.</p>
+
+                          <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"\n--- 4. BİLİNÇLİ HATA FIRLATMA (RAISE) ---\n"</span>)
+
+<span class="syn-kw">def</span> <span class="syn-fn">yas_dogrula</span>(yas):
+    <span class="syn-kw">if</span> yas < <span class="syn-number">0</span>:
+        <span class="syn-comment"># Sistem negatif yaşı tam sayı olarak algılar ama insan yaşı negatif olamaz!
+        # Burada kendi kuralımız için bilinçli bir ValueError fırlatıyoruz.</span>
+        <span class="syn-kw">raise ValueError</span>(<span class="syn-string">"Yaş değeri sıfırdan küçük (negatif) olamaz!"</span>)
+    <span class="syn-kw">else</span>:
+        <span class="syn-fn">print</span>(<span class="syn-string">f"Doğrulanan Yaş: {yas}"</span>)
+
+<span class="syn-kw">try</span>:
+    yas_dogrula(-<span class="syn-number">5</span>)
+<span class="syn-kw">except ValueError</span> <span class="syn-kw">as</span> hata_mesaji:
+    <span class="syn-fn">print</span>(<span class="syn-string">f"SİSTEM UYARISI: {hata_mesaji}"</span>)
+
+<span class="syn-comment"># Çıktı: SİSTEM UYARISI: Yaş değeri sıfırdan küçük (negatif) olamaz!</span></div>
                     </div>
                 </div>
             </div>
