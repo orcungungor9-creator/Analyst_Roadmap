@@ -105,7 +105,7 @@
             box-shadow: none !important;
         }
 
-        /* 2. BÜYÜK BÖLÜM KARTLARI (TAMAMEN KATI MAT BEYAZ, SIFIR GÖLGE) */
+        /* 2. BÜYÜK BÖLÜM KARTLARI (TAMAMEN KATI MAT BEYAZ, SIFIR GÖLGE, MAT RENKLİ ÇERÇEVELER) */
         .veri-neden-card {
             padding: 40px; 
             border-radius: 20px; 
@@ -116,19 +116,35 @@
             z-index: 10;
         }
 
-        /* 3. İÇ MADDE VE VURGU KARTLARI (KATI MAT, SIFIR SAYDAMLIK) */
+        #veri-neden-toplanir .veri-neden-card {
+            border: 2px solid #2563eb !important;
+        }
+
+        #n-n-kurali .veri-neden-card {
+            border: 2px solid #7c3aed !important;
+        }
+
+        #veri-toplama-asamalari .veri-neden-card {
+            border: 2px solid #16a34a !important;
+        }
+
+        #asama-ayrintilari .veri-neden-card {
+            border: 2px solid #4f46e5 !important;
+        }
+
+        /* 3. İÇ MADDE VE VURGU KARTLARI (KATI MAT, SIFIR SAYDAMLIK, MAT RENKLİ ÇİZGİLER) */
         .veri-neden-card .glass {
-            background: #f8fafc !important;
-            border: 1.5px solid #e2e8f0 !important;
+            background: #ffffff !important;
+            border: 2px solid var(--card-matte-border, #cbd5e1) !important;
             box-shadow: none !important;
             border-radius: 16px;
             backdrop-filter: none !important;
             -webkit-backdrop-filter: none !important;
-            transition: transform 0.2s ease, border-color 0.2s ease !important;
+            transition: transform 0.2s ease !important;
         }
 
         .veri-neden-card .glass:hover {
-            border-color: #94a3b8 !important;
+            border-color: var(--card-matte-border, #94a3b8) !important;
             box-shadow: none !important;
             transform: translateY(-2px);
         }
@@ -188,8 +204,55 @@
         body.theme-dark-sakura .veri-neden-card,
         body.theme-mono-dark .veri-neden-card {
             background: #0f172a !important;
-            border-color: #334155 !important;
             box-shadow: none !important;
+        }
+
+        body.theme-dark #veri-neden-toplanir .veri-neden-card,
+        body.theme-ocean #veri-neden-toplanir .veri-neden-card,
+        body.theme-purple #veri-neden-toplanir .veri-neden-card,
+        body.theme-emerald #veri-neden-toplanir .veri-neden-card,
+        body.theme-cyberpunk #veri-neden-toplanir .veri-neden-card,
+        body.theme-cyber-neon #veri-neden-toplanir .veri-neden-card,
+        body.theme-amber #veri-neden-toplanir .veri-neden-card,
+        body.theme-dark-sakura #veri-neden-toplanir .veri-neden-card,
+        body.theme-mono-dark #veri-neden-toplanir .veri-neden-card {
+            border-color: #2563eb !important;
+        }
+
+        body.theme-dark #n-n-kurali .veri-neden-card,
+        body.theme-ocean #n-n-kurali .veri-neden-card,
+        body.theme-purple #n-n-kurali .veri-neden-card,
+        body.theme-emerald #n-n-kurali .veri-neden-card,
+        body.theme-cyberpunk #n-n-kurali .veri-neden-card,
+        body.theme-cyber-neon #n-n-kurali .veri-neden-card,
+        body.theme-amber #n-n-kurali .veri-neden-card,
+        body.theme-dark-sakura #n-n-kurali .veri-neden-card,
+        body.theme-mono-dark #n-n-kurali .veri-neden-card {
+            border-color: #7c3aed !important;
+        }
+
+        body.theme-dark #veri-toplama-asamalari .veri-neden-card,
+        body.theme-ocean #veri-toplama-asamalari .veri-neden-card,
+        body.theme-purple #veri-toplama-asamalari .veri-neden-card,
+        body.theme-emerald #veri-toplama-asamalari .veri-neden-card,
+        body.theme-cyberpunk #veri-toplama-asamalari .veri-neden-card,
+        body.theme-cyber-neon #veri-toplama-asamalari .veri-neden-card,
+        body.theme-amber #veri-toplama-asamalari .veri-neden-card,
+        body.theme-dark-sakura #veri-toplama-asamalari .veri-neden-card,
+        body.theme-mono-dark #veri-toplama-asamalari .veri-neden-card {
+            border-color: #16a34a !important;
+        }
+
+        body.theme-dark #asama-ayrintilari .veri-neden-card,
+        body.theme-ocean #asama-ayrintilari .veri-neden-card,
+        body.theme-purple #asama-ayrintilari .veri-neden-card,
+        body.theme-emerald #asama-ayrintilari .veri-neden-card,
+        body.theme-cyberpunk #asama-ayrintilari .veri-neden-card,
+        body.theme-cyber-neon #asama-ayrintilari .veri-neden-card,
+        body.theme-amber #asama-ayrintilari .veri-neden-card,
+        body.theme-dark-sakura #asama-ayrintilari .veri-neden-card,
+        body.theme-mono-dark #asama-ayrintilari .veri-neden-card {
+            border-color: #4f46e5 !important;
         }
 
         body.theme-dark .veri-neden-card .glass,
@@ -202,7 +265,7 @@
         body.theme-dark-sakura .veri-neden-card .glass,
         body.theme-mono-dark .veri-neden-card .glass {
             background: #1e293b !important;
-            border-color: #334155 !important;
+            border-color: var(--card-matte-border, #334155) !important;
             box-shadow: none !important;
         }
 
@@ -513,7 +576,7 @@
 
             <div style="display: flex; flex-direction: column; gap: 20px; margin-bottom: 40px;">
                 <!-- Madde 1 -->
-                <div class="glass" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); padding: 24px; border-radius: 16px;">
+                <div class="glass" style="--card-matte-border: #2563eb; border: 2px solid #2563eb !important; padding: 24px; border-radius: 16px;">
                     <h3 style="color: var(--neon-blue); font-size: 1.3rem; margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
                         <span style="background: var(--neon-blue); color: #fff; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1rem; font-weight: bold; flex-shrink: 0;">1</span> 
                         Rasyonel ve Kanıta Dayalı Kararlar Almak
@@ -522,7 +585,7 @@
                 </div>
 
                 <!-- Madde 2 -->
-                <div class="glass" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); padding: 24px; border-radius: 16px;">
+                <div class="glass" style="--card-matte-border: #7c3aed; border: 2px solid #7c3aed !important; padding: 24px; border-radius: 16px;">
                     <h3 style="color: var(--neon-purple); font-size: 1.3rem; margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
                         <span style="background: var(--neon-purple); color: #fff; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1rem; font-weight: bold; flex-shrink: 0;">2</span> 
                         Gelecekteki Eğilimleri Tahmin Etmek (Forecasting)
@@ -531,7 +594,7 @@
                 </div>
 
                 <!-- Madde 3 -->
-                <div class="glass" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); padding: 24px; border-radius: 16px;">
+                <div class="glass" style="--card-matte-border: #16a34a; border: 2px solid #16a34a !important; padding: 24px; border-radius: 16px;">
                     <h3 style="color: var(--neon-green); font-size: 1.3rem; margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
                         <span style="background: var(--neon-green); color: #fff; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1rem; font-weight: bold; flex-shrink: 0;">3</span> 
                         Yapay Zeka ve Makine Öğrenmesi Modellerini Beslemek
@@ -540,7 +603,7 @@
                 </div>
 
                 <!-- Madde 4 -->
-                <div class="glass" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); padding: 24px; border-radius: 16px;">
+                <div class="glass" style="--card-matte-border: #ea580c; border: 2px solid #ea580c !important; padding: 24px; border-radius: 16px;">
                     <h3 style="color: var(--neon-orange); font-size: 1.3rem; margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
                         <span style="background: var(--neon-orange); color: #fff; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1rem; font-weight: bold; flex-shrink: 0;">4</span> 
                         Süreçleri Optimize Etmek ve Sorunları Tespit Etmek
@@ -549,16 +612,16 @@
                 </div>
 
                 <!-- Madde 5 -->
-                <div class="glass" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); padding: 24px; border-radius: 16px;">
-                    <h3 style="color: #ec4899; font-size: 1.3rem; margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
-                        <span style="background: #ec4899; color: #fff; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1rem; font-weight: bold; flex-shrink: 0;">5</span> 
+                <div class="glass" style="--card-matte-border: #db2777; border: 2px solid #db2777 !important; padding: 24px; border-radius: 16px;">
+                    <h3 style="color: #db2777; font-size: 1.3rem; margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
+                        <span style="background: #db2777; color: #fff; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1rem; font-weight: bold; flex-shrink: 0;">5</span> 
                         Davranışları Anlamak ve Kişiselleştirme Sunmak
                     </h3>
                     <p style="color: var(--text-muted); line-height: 1.7; font-size: 1.05rem;">Kullanıcıların veya müşterilerin tercihleri, geçmiş etkileşimleri ve alışkanlıkları toplanarak onlara en uygun içerikler, ürünler veya hizmetler sunulur.</p>
                 </div>
             </div>
 
-            <div style="padding: 24px; background: #f0f9ff; border: 1.5px solid #bae6fd; border-left: 5px solid #2563eb; border-radius: 0 16px 16px 0;">
+            <div style="padding: 24px; background: #f0f9ff; border: 2px solid #2563eb !important; border-left: 6px solid #2563eb !important; border-radius: 0 16px 16px 0;">
                 <p style="font-size: 1.15rem; line-height: 1.8; color: #0f172a; font-weight: 600; margin-bottom: 20px;">
                     Kısacası veri; görünmeyen örüntüleri ortaya çıkarmak, performansı ölçmek ve tesadüflere yer bırakmadan hedefe giden bir yol haritası (roadmap) çizebilmek için toplanır.
                 </p>
@@ -600,7 +663,7 @@
                     </h3>
 
                     <!-- Vurgu Kutusu (Model / Veri İlişkisi) -->
-                    <div style="background: #faf5ff; border: 1.5px solid #e9d5ff; border-left: 5px solid #7c3aed; padding: 20px 24px; border-radius: 0 16px 16px 0; margin-bottom: 24px;">
+                    <div style="background: #faf5ff; border: 2px solid #7c3aed !important; border-left: 6px solid #7c3aed !important; padding: 20px 24px; border-radius: 0 16px 16px 0; margin-bottom: 24px;">
                         <p style="font-size: 1.15rem; font-weight: 700; color: #0f172a; line-height: 1.7; margin: 0 0 8px 0;">
                             Kurulan hiçbir ekonometrik ya da istatistiksel model, toplanan veriden akıllı değildir.
                         </p>
@@ -613,7 +676,7 @@
                         Bu konuda aklımıza ilk etapta veri temizleme gelse de, toplanan verinin <strong>kitleyi ne kadar iyi yansıttığı</strong> her şeyin önündedir.
                     </p>
 
-                    <div style="background: #f8fafc; border: 1.5px solid #e2e8f0; padding: 20px 24px; border-radius: 16px; margin-bottom: 32px;">
+                    <div style="background: #f8fafc; border: 2px solid #2563eb !important; padding: 20px 24px; border-radius: 16px; margin-bottom: 32px;">
                         <h4 style="font-size: 1.25rem; font-weight: 800; color: #2563eb; margin-bottom: 8px;">
                             "Population = Sample?" &rarr; Bu ne demek?
                         </h4>
@@ -629,7 +692,7 @@
                     <!-- 9 Yanlılık Maddesi -->
                     <div style="display: flex; flex-direction: column; gap: 20px; margin-bottom: 40px;">
                         <!-- 1. Seçim Yanlılığı -->
-                        <div class="glass" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); padding: 24px; border-radius: 16px;">
+                        <div class="glass" style="--card-matte-border: #2563eb; border: 2px solid #2563eb !important; padding: 24px; border-radius: 16px;">
                             <h4 style="color: var(--neon-blue); font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
                                 <span style="background: var(--neon-blue); color: #fff; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1rem; font-weight: bold; flex-shrink: 0;">1</span>
                                 Seçim Yanlılığı (Selection Bias)
@@ -640,7 +703,7 @@
                         </div>
 
                         <!-- 2. Kapsama Hatası -->
-                        <div class="glass" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); padding: 24px; border-radius: 16px;">
+                        <div class="glass" style="--card-matte-border: #7c3aed; border: 2px solid #7c3aed !important; padding: 24px; border-radius: 16px;">
                             <h4 style="color: var(--neon-purple); font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
                                 <span style="background: var(--neon-purple); color: #fff; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1rem; font-weight: bold; flex-shrink: 0;">2</span>
                                 Kapsama Hatası (Undercoverage)
@@ -651,7 +714,7 @@
                         </div>
 
                         <!-- 3. Cevapsızlık Yanlılığı -->
-                        <div class="glass" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); padding: 24px; border-radius: 16px;">
+                        <div class="glass" style="--card-matte-border: #16a34a; border: 2px solid #16a34a !important; padding: 24px; border-radius: 16px;">
                             <h4 style="color: var(--neon-green); font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
                                 <span style="background: var(--neon-green); color: #fff; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1rem; font-weight: bold; flex-shrink: 0;">3</span>
                                 Cevapsızlık Yanlılığı (Non-response Bias)
@@ -662,7 +725,7 @@
                         </div>
 
                         <!-- 4. Ölçüm ve Gözlem Hatası -->
-                        <div class="glass" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); padding: 24px; border-radius: 16px;">
+                        <div class="glass" style="--card-matte-border: #ea580c; border: 2px solid #ea580c !important; padding: 24px; border-radius: 16px;">
                             <h4 style="color: var(--neon-orange); font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
                                 <span style="background: var(--neon-orange); color: #fff; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1rem; font-weight: bold; flex-shrink: 0;">4</span>
                                 Ölçüm ve Gözlem Hatası (Measurement Error)
@@ -673,9 +736,9 @@
                         </div>
 
                         <!-- 5. Hayatta Kalma Yanlılığı -->
-                        <div class="glass" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); padding: 24px; border-radius: 16px;">
-                            <h4 style="color: #ec4899; font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
-                                <span style="background: #ec4899; color: #fff; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1rem; font-weight: bold; flex-shrink: 0;">5</span>
+                        <div class="glass" style="--card-matte-border: #db2777; border: 2px solid #db2777 !important; padding: 24px; border-radius: 16px;">
+                            <h4 style="color: #db2777; font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
+                                <span style="background: #db2777; color: #fff; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1rem; font-weight: bold; flex-shrink: 0;">5</span>
                                 Hayatta Kalma Yanlılığı (Survivorship Bias)
                             </h4>
                             <p style="color: var(--text-muted); line-height: 1.7; font-size: 1.05rem; margin: 0;">
@@ -684,9 +747,9 @@
                         </div>
 
                         <!-- 6. Gönüllü Katılım Yanlılığı -->
-                        <div class="glass" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); padding: 24px; border-radius: 16px;">
-                            <h4 style="color: #06b6d4; font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
-                                <span style="background: #06b6d4; color: #fff; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1rem; font-weight: bold; flex-shrink: 0;">6</span>
+                        <div class="glass" style="--card-matte-border: #0891b2; border: 2px solid #0891b2 !important; padding: 24px; border-radius: 16px;">
+                            <h4 style="color: #0891b2; font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
+                                <span style="background: #0891b2; color: #fff; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1rem; font-weight: bold; flex-shrink: 0;">6</span>
                                 Gönüllü Katılım Yanlılığı (Voluntary Response Bias)
                             </h4>
                             <p style="color: var(--text-muted); line-height: 1.7; font-size: 1.05rem; margin: 0;">
@@ -695,9 +758,9 @@
                         </div>
 
                         <!-- 7. Hatırlama Yanlılığı -->
-                        <div class="glass" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); padding: 24px; border-radius: 16px;">
-                            <h4 style="color: #8b5cf6; font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
-                                <span style="background: #8b5cf6; color: #fff; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1rem; font-weight: bold; flex-shrink: 0;">7</span>
+                        <div class="glass" style="--card-matte-border: #4f46e5; border: 2px solid #4f46e5 !important; padding: 24px; border-radius: 16px;">
+                            <h4 style="color: #4f46e5; font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
+                                <span style="background: #4f46e5; color: #fff; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1rem; font-weight: bold; flex-shrink: 0;">7</span>
                                 Hatırlama Yanlılığı (Recall Bias)
                             </h4>
                             <p style="color: var(--text-muted); line-height: 1.7; font-size: 1.05rem; margin: 0;">
@@ -706,7 +769,7 @@
                         </div>
 
                         <!-- 8. Hawthorne Etkisi (Gözlemci Etkisi) -->
-                        <div class="glass" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); padding: 24px; border-radius: 16px;">
+                        <div class="glass" style="--card-matte-border: #d97706; border: 2px solid #d97706 !important; padding: 24px; border-radius: 16px;">
                             <h4 style="color: #d97706; font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
                                 <span style="background: #d97706; color: #fff; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1rem; font-weight: bold; flex-shrink: 0;">8</span>
                                 Hawthorne Etkisi (Gözlemci Etkisi)
@@ -717,9 +780,9 @@
                         </div>
 
                         <!-- 9. Zamanlama Yanlılığı -->
-                        <div class="glass" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); padding: 24px; border-radius: 16px;">
-                            <h4 style="color: #f43f5e; font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
-                                <span style="background: #f43f5e; color: #fff; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1rem; font-weight: bold; flex-shrink: 0;">9</span>
+                        <div class="glass" style="--card-matte-border: #e11d48; border: 2px solid #e11d48 !important; padding: 24px; border-radius: 16px;">
+                            <h4 style="color: #e11d48; font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
+                                <span style="background: #e11d48; color: #fff; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1rem; font-weight: bold; flex-shrink: 0;">9</span>
                                 Zamanlama Yanlılığı (Timing Bias)
                             </h4>
                             <p style="color: var(--text-muted); line-height: 1.7; font-size: 1.05rem; margin: 0;">
@@ -729,7 +792,7 @@
                     </div>
 
                     <!-- Özet Kapanış Paneli -->
-                    <div style="padding: 24px; background: #faf5ff; border: 1.5px solid #e9d5ff; border-left: 5px solid #7c3aed; border-radius: 0 16px 16px 0;">
+                    <div style="padding: 24px; background: #faf5ff; border: 2px solid #7c3aed !important; border-left: 6px solid #7c3aed !important; border-radius: 0 16px 16px 0;">
                         <p style="font-size: 1.15rem; line-height: 1.8; color: #0f172a; font-weight: 600; margin: 0;">
                             Kısacası; örneklem (n) anakütleyi (N) tam olarak yansıtmadığında, modeliniz matematiksel olarak ne kadar sofistike olursa olsun üreteceği sonuçlar gerçeği yansıtmayacaktır.
                         </p>
@@ -762,7 +825,7 @@
                     </h3>
 
                     <!-- Vurgu Kutusu: Sürecin Mantığı ve Açıklaması -->
-                    <div style="background: #f0fdf4; border: 1.5px solid #bbf7d0; border-left: 5px solid #16a34a !important; padding: 26px 30px; border-radius: 0 18px 18px 0; margin-bottom: 32px;">
+                    <div style="background: #f0fdf4; border: 2px solid #16a34a !important; border-left: 6px solid #16a34a !important; padding: 26px 30px; border-radius: 0 18px 18px 0; margin-bottom: 32px;">
                         <h4 style="font-size: 1.25rem; font-weight: 700; color: #16a34a; margin: 0 0 12px 0; display: flex; align-items: center; gap: 10px;">
                             <i data-lucide="info" style="width: 22px; height: 22px;"></i>
                             Neden Bir Veri Mimarisi Tasarlıyoruz? (Sürecin Temel Mantığı)
@@ -787,7 +850,7 @@
                     <!-- 9 Aşama Maddesi -->
                     <div style="display: flex; flex-direction: column; gap: 24px; margin-bottom: 40px;">
                         <!-- 1. Adım -->
-                        <div class="glass" style="padding: 26px 28px; border-radius: 18px;">
+                        <div class="glass" style="--card-matte-border: #2563eb; border: 2px solid #2563eb !important; padding: 26px 28px; border-radius: 18px;">
                             <h4 style="color: #2563eb; font-size: 1.3rem; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
                                 <span style="background: #2563eb; color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.5px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">1. Adım</span>
                                 Araştırma Sorusu ve Hipotezin Belirlenmesi
@@ -808,7 +871,7 @@
                         </div>
 
                         <!-- 2. Adım -->
-                        <div class="glass" style="padding: 26px 28px; border-radius: 18px;">
+                        <div class="glass" style="--card-matte-border: #7c3aed; border: 2px solid #7c3aed !important; padding: 26px 28px; border-radius: 18px;">
                             <h4 style="color: #7c3aed; font-size: 1.3rem; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
                                 <span style="background: #7c3aed; color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.5px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">2. Adım</span>
                                 Evren ve Örneklem Çerçevesinin Tanımlanması
@@ -829,7 +892,7 @@
                         </div>
 
                         <!-- 3. Adım -->
-                        <div class="glass" style="padding: 26px 28px; border-radius: 18px;">
+                        <div class="glass" style="--card-matte-border: #16a34a; border: 2px solid #16a34a !important; padding: 26px 28px; border-radius: 18px;">
                             <h4 style="color: #16a34a; font-size: 1.3rem; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
                                 <span style="background: #16a34a; color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.5px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">3. Adım</span>
                                 Zaman ve Mekan Boyutunu Belirlemek
@@ -852,7 +915,7 @@
                         </div>
 
                         <!-- 4. Adım -->
-                        <div class="glass" style="padding: 26px 28px; border-radius: 18px;">
+                        <div class="glass" style="--card-matte-border: #ea580c; border: 2px solid #ea580c !important; padding: 26px 28px; border-radius: 18px;">
                             <h4 style="color: #ea580c; font-size: 1.3rem; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
                                 <span style="background: #ea580c; color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.5px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">4. Adım</span>
                                 Değişkenlerin Matematiksel Doğasını Seçmek (Ölçüm Düzeyi)
@@ -874,7 +937,7 @@
                         </div>
 
                         <!-- 5. Adım -->
-                        <div class="glass" style="padding: 26px 28px; border-radius: 18px;">
+                        <div class="glass" style="--card-matte-border: #db2777; border: 2px solid #db2777 !important; padding: 26px 28px; border-radius: 18px;">
                             <h4 style="color: #db2777; font-size: 1.3rem; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
                                 <span style="background: #db2777; color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.5px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">5. Adım</span>
                                 Kısıtlar ve Etik Çerçevenin Belirlenmesi
@@ -895,7 +958,7 @@
                         </div>
 
                         <!-- 6. Adım -->
-                        <div class="glass" style="padding: 26px 28px; border-radius: 18px;">
+                        <div class="glass" style="--card-matte-border: #0891b2; border: 2px solid #0891b2 !important; padding: 26px 28px; border-radius: 18px;">
                             <h4 style="color: #0891b2; font-size: 1.3rem; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
                                 <span style="background: #0891b2; color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.5px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">6. Adım</span>
                                 Dijital Altyapı ve Formatın Seçilmesi
@@ -918,7 +981,7 @@
                         </div>
 
                         <!-- 7. Adım -->
-                        <div class="glass" style="padding: 26px 28px; border-radius: 18px;">
+                        <div class="glass" style="--card-matte-border: #4f46e5; border: 2px solid #4f46e5 !important; padding: 26px 28px; border-radius: 18px;">
                             <h4 style="color: #4f46e5; font-size: 1.3rem; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
                                 <span style="background: #4f46e5; color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.5px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">7. Adım</span>
                                 Veri Toplama Kaynağının ve Aracının Seçimi
@@ -941,7 +1004,7 @@
                         </div>
 
                         <!-- 8. Adım -->
-                        <div class="glass" style="padding: 26px 28px; border-radius: 18px;">
+                        <div class="glass" style="--card-matte-border: #d97706; border: 2px solid #d97706 !important; padding: 26px 28px; border-radius: 18px;">
                             <h4 style="color: #d97706; font-size: 1.3rem; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
                                 <span style="background: #d97706; color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.5px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">8. Adım</span>
                                 Örnekleme Tekniğinin Kararlaştırılması
@@ -963,7 +1026,7 @@
                         </div>
 
                         <!-- 9. Adım -->
-                        <div class="glass" style="padding: 26px 28px; border-radius: 18px;">
+                        <div class="glass" style="--card-matte-border: #10b981; border: 2px solid #10b981 !important; padding: 26px 28px; border-radius: 18px;">
                             <h4 style="color: #10b981; font-size: 1.3rem; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
                                 <span style="background: #10b981; color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.5px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">9. Adım</span>
                                 Faaliyet (İcra ve Canlı Veri Akışı)
@@ -978,7 +1041,7 @@
                     </div>
 
                     <!-- Özet Kapanış Paneli: Bütüncül Değerlendirme -->
-                    <div style="padding: 26px 30px; background: #f0fdf4; border: 1.5px solid #bbf7d0; border-left: 5px solid #16a34a !important; border-radius: 0 18px 18px 0;">
+                    <div style="padding: 26px 30px; background: #f0fdf4; border: 2px solid #16a34a !important; border-left: 6px solid #16a34a !important; border-radius: 0 18px 18px 0;">
                         <h4 style="font-size: 1.25rem; font-weight: 700; color: #16a34a; margin: 0 0 12px 0; display: flex; align-items: center; gap: 10px;">
                             <i data-lucide="check-circle-2" style="width: 22px; height: 22px;"></i>
                             Sonuç: Gerçek Bir Veri Mimarı Olmanın Temel Kuralı
