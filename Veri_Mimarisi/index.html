@@ -74,16 +74,124 @@
 
     <!-- MAIN CONTENT -->
     <style>
+        /* Ana Büyük Bölüm Kartları - Belirgin, Temaya Uygun Kalın Çerçeve */
+        /* Ana Büyük Bölüm Kartları - Belirgin, Temaya Uygun Çerçeve */
         .veri-neden-card {
             padding: 40px; 
             border-radius: 24px; 
-            border: 1px solid var(--glass-border); 
+            border: 2px solid var(--neon-blue) !important; 
+            box-shadow: 0 10px 30px var(--neon-blue-glow) !important;
+            background: var(--bg-card);
             position: relative; 
             z-index: 10;
+            transition: border-color 0.4s ease, box-shadow 0.4s ease;
         }
+
+        /* İçteki Madde ve Vurgu Kartları - Yumuşak, Göz Yormayan Zemin ve Çerçeve */
+        .veri-neden-card .glass {
+            background: rgba(255, 255, 255, 0.75);
+            border: 1.5px solid color-mix(in srgb, var(--neon-blue) 35%, rgba(0, 0, 0, 0.08)) !important;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+            border-radius: 16px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+
+        .veri-neden-card .glass[style*="border-left"] {
+            border-left: 5px solid var(--neon-blue) !important;
+        }
+
+        .veri-neden-card .glass:hover {
+            border-color: var(--neon-blue) !important;
+            box-shadow: 0 6px 20px var(--neon-blue-glow) !important;
+            transform: translateY(-2px);
+        }
+
+        /* Ana Alt Başlıklar */
+        .veri-neden-card .subheading-title {
+            color: #0f172a !important;
+            font-size: 1.55rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        /* Gövde / Paragraf Metinleri - Gözü Asla Yormayan Koyu Slate/Antrasit */
+        .veri-neden-card p,
+        .veri-neden-card li {
+            color: #1e293b !important; /* Slate-800: Yüksek kontrast, sıfır göz yorgunluğu */
+            line-height: 1.8;
+            font-size: 1.05rem;
+            font-weight: 450;
+        }
+
+        .veri-neden-card strong {
+            color: #0f172a !important;
+            font-weight: 700;
+        }
+
+        /* Açık temalarda bölüm alt açıklaması */
+        body.theme-light-purple .section-desc,
+        body.theme-light-emerald .section-desc,
+        body.theme-light-warm .section-desc,
+        body.theme-pink .section-desc,
+        body.theme-light-pure .section-desc {
+            color: #334155 !important;
+        }
+
+        /* Koyu Temalar İçin Otomatik Uyum */
+        body.theme-dark .veri-neden-card .glass,
+        body.theme-ocean .veri-neden-card .glass,
+        body.theme-purple .veri-neden-card .glass,
+        body.theme-emerald .veri-neden-card .glass,
+        body.theme-cyberpunk .veri-neden-card .glass,
+        body.theme-cyber-neon .veri-neden-card .glass,
+        body.theme-amber .veri-neden-card .glass,
+        body.theme-dark-sakura .veri-neden-card .glass,
+        body.theme-mono-dark .veri-neden-card .glass {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: color-mix(in srgb, var(--neon-blue) 45%, transparent) !important;
+        }
+
+        body.theme-dark .veri-neden-card p,
+        body.theme-dark .veri-neden-card li,
+        body.theme-ocean .veri-neden-card p,
+        body.theme-purple .veri-neden-card p,
+        body.theme-emerald .veri-neden-card p,
+        body.theme-cyberpunk .veri-neden-card p,
+        body.theme-cyber-neon .veri-neden-card p,
+        body.theme-amber .veri-neden-card p,
+        body.theme-dark-sakura .veri-neden-card p,
+        body.theme-mono-dark .veri-neden-card p {
+            color: #cbd5e1 !important; /* Rahat okunan açık gri */
+        }
+
+        body.theme-dark .veri-neden-card .subheading-title,
+        body.theme-ocean .veri-neden-card .subheading-title,
+        body.theme-purple .veri-neden-card .subheading-title,
+        body.theme-emerald .veri-neden-card .subheading-title,
+        body.theme-cyberpunk .veri-neden-card .subheading-title,
+        body.theme-cyber-neon .veri-neden-card .subheading-title,
+        body.theme-amber .veri-neden-card .subheading-title,
+        body.theme-dark-sakura .veri-neden-card .subheading-title,
+        body.theme-mono-dark .veri-neden-card .subheading-title {
+            color: #f8fafc !important;
+        }
+
+        body.theme-dark .veri-neden-card strong,
+        body.theme-ocean .veri-neden-card strong,
+        body.theme-purple .veri-neden-card strong,
+        body.theme-emerald .veri-neden-card strong,
+        body.theme-cyberpunk .veri-neden-card strong,
+        body.theme-cyber-neon .veri-neden-card strong,
+        body.theme-amber .veri-neden-card strong,
+        body.theme-dark-sakura .veri-neden-card strong,
+        body.theme-mono-dark .veri-neden-card strong {
+            color: #ffffff !important;
+        }
+
         @media (max-width: 900px) {
             .veri-neden-card {
                 padding: 24px;
+                border-width: 2px !important;
             }
         }
     </style>
@@ -105,7 +213,7 @@
             <!-- KART İÇERİĞİ -->
             <div class="glass veri-neden-card">
                 <div class="content-section" style="text-align: left; margin: 0;">
-                    <h3 style="font-size: 1.55rem; font-weight: 700; color: var(--text-main); margin-bottom: 20px; text-align: left;">
+                    <h3 class="subheading-title" style="text-align: left;">
                         Veri Toplamanın Temelleri ve Amaçları
                     </h3>
             
@@ -178,6 +286,168 @@
                     </a>
                 </div>
             </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. BÖLÜM: KİTLE = ÖRNEKLEM / N=n KURALI -->
+        <section class="section-container" id="n-n-kurali" style="text-align: left; gap: 28px; margin-top: 80px;">
+            <!-- BÖLÜM BAŞLIĞI (SECTION HEADER) -->
+            <div class="section-header" style="text-align: left;">
+                <h2 class="section-title" style="justify-content: flex-start; text-align: left;">
+                    <span class="icon-title" style="display: inline-flex; align-items: center;">
+                        <i data-lucide="scale" style="width: 32px; height: 32px; color: var(--neon-purple);"></i>
+                    </span>
+                    Kitle = Örneklem / N=n Kuralı
+                </h2>
+                <p class="section-desc" style="text-align: left;">
+                    Toplanan verinin anakütleyi temsil gücü ve ekonometrik modellerin geçerliliğini tehdit eden temel örneklem yanlılıkları.
+                </p>
+            </div>
+
+            <!-- KART İÇERİĞİ -->
+            <div class="glass veri-neden-card">
+                <div class="content-section" style="text-align: left; margin: 0;">
+                    <!-- Alt Başlık -->
+                    <h3 class="subheading-title" style="text-align: left;">
+                        Veri Kalitesi ve Temsiliyetin Temel İlkesi
+                    </h3>
+
+                    <!-- Vurgu Kutusu (Model / Veri İlişkisi) -->
+                    <div style="background: rgba(192, 132, 252, 0.08); border-left: 4px solid var(--neon-purple); padding: 20px 24px; border-radius: 0 16px 16px 0; margin-bottom: 24px;">
+                        <p style="font-size: 1.15rem; font-weight: 700; color: var(--text-main); line-height: 1.7; margin: 0 0 8px 0;">
+                            Kurulan hiçbir ekonometrik ya da istatistiksel model, toplanan veriden akıllı değildir.
+                        </p>
+                        <p style="font-size: 1.05rem; font-weight: 600; color: var(--neon-purple); margin: 0;">
+                            "Nasıl beslersen analiz kalitesi o şekilde çıkar."
+                        </p>
+                    </div>
+
+                    <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-main); margin-bottom: 20px;">
+                        Bu konuda aklımıza ilk etapta veri temizleme gelse de, toplanan verinin <strong>kitleyi ne kadar iyi yansıttığı</strong> her şeyin önündedir.
+                    </p>
+
+                    <div class="glass" style="background: rgba(255, 255, 255, 0.02); padding: 20px 24px; border-radius: 16px; margin-bottom: 32px;">
+                        <h4 style="font-size: 1.25rem; font-weight: 800; color: var(--neon-blue); margin-bottom: 8px;">
+                            "Population = Sample?" &rarr; Bu ne demek?
+                        </h4>
+                        <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-muted); margin: 0;">
+                            Örneklem (n), anakütlenin (N) küçük bir minyatürü olmalı ve onu en yansız şekilde temsil etmelidir.
+                        </p>
+                    </div>
+
+                    <h4 style="font-size: 1.3rem; font-weight: 700; color: var(--text-main); margin-bottom: 24px;">
+                        Aksi takdirde yaşanacak bazı önemli sorunlar ve yanlılıklar:
+                    </h4>
+
+                    <!-- 9 Yanlılık Maddesi -->
+                    <div style="display: flex; flex-direction: column; gap: 20px; margin-bottom: 40px;">
+                        <!-- 1. Seçim Yanlılığı -->
+                        <div class="glass" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); padding: 24px; border-radius: 16px;">
+                            <h4 style="color: var(--neon-blue); font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
+                                <span style="background: var(--neon-blue); color: #fff; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1rem; font-weight: bold; flex-shrink: 0;">1</span>
+                                Seçim Yanlılığı (Selection Bias)
+                            </h4>
+                            <p style="color: var(--text-muted); line-height: 1.7; font-size: 1.05rem; margin: 0;">
+                                Örnekleme dahil edilen birimlerin anakütleyi temsil etmekten uzak, belirli bir özelliğe doğru yığılmasıdır. Örneğin, bir bölgedeki konut piyasasını analiz ederken sadece başarıyla satışı gerçekleşmiş gayrimenkullerin verisini toplamak, aylarca satılamayan veya ilandan kaldırılan evleri dışarıda bırakacağı için pazarın genel değerlemesine dair sapmalı (biased) tahminler üretir.
+                            </p>
+                        </div>
+
+                        <!-- 2. Kapsama Hatası -->
+                        <div class="glass" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); padding: 24px; border-radius: 16px;">
+                            <h4 style="color: var(--neon-purple); font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
+                                <span style="background: var(--neon-purple); color: #fff; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1rem; font-weight: bold; flex-shrink: 0;">2</span>
+                                Kapsama Hatası (Undercoverage)
+                            </h4>
+                            <p style="color: var(--text-muted); line-height: 1.7; font-size: 1.05rem; margin: 0;">
+                                Anakütledeki bazı alt grupların örneklem çerçevesine en başından hiç dahil edilememesi durumudur. Temsiliyet yeteneğini doğrudan kırar.
+                            </p>
+                        </div>
+
+                        <!-- 3. Cevapsızlık Yanlılığı -->
+                        <div class="glass" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); padding: 24px; border-radius: 16px;">
+                            <h4 style="color: var(--neon-green); font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
+                                <span style="background: var(--neon-green); color: #fff; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1rem; font-weight: bold; flex-shrink: 0;">3</span>
+                                Cevapsızlık Yanlılığı (Non-response Bias)
+                            </h4>
+                            <p style="color: var(--text-muted); line-height: 1.7; font-size: 1.05rem; margin: 0;">
+                                Örnekleme seçilen ancak çeşitli sebeplerle veri elde edilemeyen (ulaşılamayan, reddeden) birimlerin, veri sağlayanlardan sistematik olarak farklı özellikler taşımasıdır.
+                            </p>
+                        </div>
+
+                        <!-- 4. Ölçüm ve Gözlem Hatası -->
+                        <div class="glass" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); padding: 24px; border-radius: 16px;">
+                            <h4 style="color: var(--neon-orange); font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
+                                <span style="background: var(--neon-orange); color: #fff; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1rem; font-weight: bold; flex-shrink: 0;">4</span>
+                                Ölçüm ve Gözlem Hatası (Measurement Error)
+                            </h4>
+                            <p style="color: var(--text-muted); line-height: 1.7; font-size: 1.05rem; margin: 0;">
+                                Örneklem kusursuz seçilse bile veriyi toplama aracının gerçeği yanlış kaydetmesidir. Kurulacak ekonometrik modellerde değişkenlerin hatalı ölçülmesi, doğrudan varyansı şişirir ve katsayıların anlamlılık testlerini bozar.
+                            </p>
+                        </div>
+
+                        <!-- 5. Hayatta Kalma Yanlılığı -->
+                        <div class="glass" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); padding: 24px; border-radius: 16px;">
+                            <h4 style="color: #ec4899; font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
+                                <span style="background: #ec4899; color: #fff; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1rem; font-weight: bold; flex-shrink: 0;">5</span>
+                                Hayatta Kalma Yanlılığı (Survivorship Bias)
+                            </h4>
+                            <p style="color: var(--text-muted); line-height: 1.7; font-size: 1.05rem; margin: 0;">
+                                Sadece belirli bir süreci "atlatabilmiş" veya başarılı olmuş gözlemlere odaklanıp, başarısız olanları (veya sistem dışına çıkanları) veri setinin dışında bırakma hatasıdır. Örneğin, ticari gayrimenkul yatırımlarının tarihsel getirisini analiz ederken sadece şu an açık olan ve faaliyet gösteren işletmelerin verisini toplamak, iflas edip kapanan dükkanları hesaba katmayacağı için pazarın karlılık oranını olduğundan çok daha yüksek gösterecektir.
+                            </p>
+                        </div>
+
+                        <!-- 6. Gönüllü Katılım Yanlılığı -->
+                        <div class="glass" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); padding: 24px; border-radius: 16px;">
+                            <h4 style="color: #06b6d4; font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
+                                <span style="background: #06b6d4; color: #fff; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1rem; font-weight: bold; flex-shrink: 0;">6</span>
+                                Gönüllü Katılım Yanlılığı (Voluntary Response Bias)
+                            </h4>
+                            <p style="color: var(--text-muted); line-height: 1.7; font-size: 1.05rem; margin: 0;">
+                                Veri toplama sürecinde örnekleme dahil olmanın tamamen katılımcıların inisiyatifine bırakılması durumudur. Genellikle bir konuya karşı çok güçlü duyguları olan (aşırı memnun veya çok öfkeli) kişiler veri sağlamaya gönüllü olurken, ortalama ve ılımlı fikre sahip büyük çoğunluk sessiz kalır. Bu da kütlenin gerçek varyansını bozar.
+                            </p>
+                        </div>
+
+                        <!-- 7. Hatırlama Yanlılığı -->
+                        <div class="glass" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); padding: 24px; border-radius: 16px;">
+                            <h4 style="color: #8b5cf6; font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
+                                <span style="background: #8b5cf6; color: #fff; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1rem; font-weight: bold; flex-shrink: 0;">7</span>
+                                Hatırlama Yanlılığı (Recall Bias)
+                            </h4>
+                            <p style="color: var(--text-muted); line-height: 1.7; font-size: 1.05rem; margin: 0;">
+                                Katılımcılardan geçmişteki olayları, harcamaları veya tercihleri hatırlamalarının istendiği anketlerde (retrospektif çalışmalarda) ortaya çıkar. İnsan hafızası yanıltıcıdır ve olayları yeniden kurgulamaya meyillidir; geçmişteki bir piyasa şokunu veya bir harcama kalemini olduğundan daha farklı veya abartılı hatırlayıp aktarabilirler.
+                            </p>
+                        </div>
+
+                        <!-- 8. Hawthorne Etkisi (Gözlemci Etkisi) -->
+                        <div class="glass" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); padding: 24px; border-radius: 16px;">
+                            <h4 style="color: #d97706; font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
+                                <span style="background: #d97706; color: #fff; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1rem; font-weight: bold; flex-shrink: 0;">8</span>
+                                Hawthorne Etkisi (Gözlemci Etkisi)
+                            </h4>
+                            <p style="color: var(--text-muted); line-height: 1.7; font-size: 1.05rem; margin: 0;">
+                                Verisi toplanan birimlerin (insanların), "gözlemlendiklerini veya ölçüldüklerini bildikleri için" normaldeki doğal davranışlarını değiştirmesidir. Özellikle anketörün varlığı, katılımcının gerçeği değil, toplumsal olarak kabul edilebilir veya "doğru" kabul edilen cevapları vermesine (Sosyal Arzu Edilebilirlik Yanlılığı) neden olabilir.
+                            </p>
+                        </div>
+
+                        <!-- 9. Zamanlama Yanlılığı -->
+                        <div class="glass" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); padding: 24px; border-radius: 16px;">
+                            <h4 style="color: #f43f5e; font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
+                                <span style="background: #f43f5e; color: #fff; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1rem; font-weight: bold; flex-shrink: 0;">9</span>
+                                Zamanlama Yanlılığı (Timing Bias)
+                            </h4>
+                            <p style="color: var(--text-muted); line-height: 1.7; font-size: 1.05rem; margin: 0;">
+                                Verinin toplandığı zaman diliminin (gün, ay, mevsim), sonuçları doğal olmayan bir şekilde etkilemesidir. Örneğin, konut kredisi faiz oranlarında sert bir artışın açıklandığı günün hemen sonrasında emlak piyasası eğilimleri üzerine toplanan veriler, genel uzun vadeli trendi yansıtmaz ve kurulacak modellerde sapkın (outlier) etkiler yaratır.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Özet Kapanış Paneli -->
+                    <div class="glass" style="padding: 24px; background: rgba(192, 132, 252, 0.05); border-left: 4px solid var(--neon-purple); border-radius: 0 16px 16px 0;">
+                        <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-main); font-weight: 600; margin: 0;">
+                            Kısacası; örneklem (n) anakütleyi (N) tam olarak yansıtmadığında, modeliniz matematiksel olarak ne kadar sofistike olursa olsun üreteceği sonuçlar gerçeği yansıtmayacaktır.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
