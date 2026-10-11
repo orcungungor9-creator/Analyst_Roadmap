@@ -319,6 +319,208 @@
             color: #ffffff !important;
         }
 
+        .veri-neden-card code {
+            background: rgba(0, 0, 0, 0.05);
+            color: #0f172a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        body.theme-dark .veri-neden-card code,
+        body.theme-ocean .veri-neden-card code,
+        body.theme-purple .veri-neden-card code,
+        body.theme-emerald .veri-neden-card code,
+        body.theme-cyberpunk .veri-neden-card code,
+        body.theme-cyber-neon .veri-neden-card code,
+        body.theme-amber .veri-neden-card code,
+        body.theme-dark-sakura .veri-neden-card code,
+        body.theme-mono-dark .veri-neden-card code {
+            background: rgba(255, 255, 255, 0.1) !important;
+            color: #e2e8f0 !important;
+        }
+
+        /* 7. VURGU VE ÖZET PANELLERİ (CALLOUT PANELS) */
+        .callout-panel {
+            border-radius: 0 18px 18px 0;
+            box-shadow: none !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            transition: transform 0.2s ease !important;
+            position: relative;
+        }
+
+        .callout-panel.callout-rounded {
+            border-radius: 16px !important;
+        }
+
+        /* Mavi Panel */
+        .callout-panel.callout-blue {
+            background: #f0f9ff !important;
+            border: 2px solid #2563eb !important;
+            border-left: 6px solid #2563eb !important;
+        }
+        .callout-panel.callout-blue.callout-rounded {
+            border-left: 2px solid #2563eb !important;
+        }
+        .callout-panel.callout-blue .callout-title,
+        .callout-panel.callout-blue h4 {
+            color: #2563eb !important;
+        }
+
+        /* Mor Panel */
+        .callout-panel.callout-purple {
+            background: #faf5ff !important;
+            border: 2px solid #7c3aed !important;
+            border-left: 6px solid #7c3aed !important;
+        }
+        .callout-panel.callout-purple .callout-title,
+        .callout-panel.callout-purple h4 {
+            color: #7c3aed !important;
+        }
+        .callout-panel.callout-purple .callout-subtitle {
+            color: #7c3aed !important;
+        }
+
+        /* Yeşil Panel */
+        .callout-panel.callout-green {
+            background: #f0fdf4 !important;
+            border: 2px solid #16a34a !important;
+            border-left: 6px solid #16a34a !important;
+        }
+        .callout-panel.callout-green .callout-title,
+        .callout-panel.callout-green h4 {
+            color: #16a34a !important;
+        }
+
+        /* Açık Temada Panel İçi Metin Renkleri */
+        .callout-panel p,
+        .callout-panel li {
+            color: #1e293b !important;
+        }
+        .callout-panel strong {
+            color: #0f172a !important;
+        }
+        .callout-panel .callout-divider {
+            border-top: 1px dashed #93c5fd !important;
+        }
+
+        /* Koyu Temalarda Callout Panelleri (Otomatik Koyu Zemin & Yüksek Kontrast) */
+        body.theme-dark .callout-panel,
+        body.theme-ocean .callout-panel,
+        body.theme-purple .callout-panel,
+        body.theme-emerald .callout-panel,
+        body.theme-cyberpunk .callout-panel,
+        body.theme-cyber-neon .callout-panel,
+        body.theme-amber .callout-panel,
+        body.theme-dark-sakura .callout-panel,
+        body.theme-mono-dark .callout-panel {
+            background: #1e293b !important;
+            box-shadow: none !important;
+        }
+
+        body.theme-dark .callout-panel p,
+        body.theme-dark .callout-panel li,
+        body.theme-ocean .callout-panel p,
+        body.theme-purple .callout-panel p,
+        body.theme-emerald .callout-panel p,
+        body.theme-cyberpunk .callout-panel p,
+        body.theme-cyber-neon .callout-panel p,
+        body.theme-amber .callout-panel p,
+        body.theme-dark-sakura .callout-panel p,
+        body.theme-mono-dark .callout-panel p {
+            color: #cbd5e1 !important;
+        }
+
+        body.theme-dark .callout-panel strong,
+        body.theme-ocean .callout-panel strong,
+        body.theme-purple .callout-panel strong,
+        body.theme-emerald .callout-panel strong,
+        body.theme-cyberpunk .callout-panel strong,
+        body.theme-cyber-neon .callout-panel strong,
+        body.theme-amber .callout-panel strong,
+        body.theme-dark-sakura .callout-panel strong,
+        body.theme-mono-dark .callout-panel strong {
+            color: #ffffff !important;
+        }
+
+        body.theme-dark .callout-panel.callout-green .callout-title,
+        body.theme-dark .callout-panel.callout-green h4,
+        body.theme-ocean .callout-panel.callout-green .callout-title,
+        body.theme-ocean .callout-panel.callout-green h4,
+        body.theme-purple .callout-panel.callout-green .callout-title,
+        body.theme-purple .callout-panel.callout-green h4,
+        body.theme-emerald .callout-panel.callout-green .callout-title,
+        body.theme-emerald .callout-panel.callout-green h4,
+        body.theme-cyberpunk .callout-panel.callout-green .callout-title,
+        body.theme-cyberpunk .callout-panel.callout-green h4,
+        body.theme-cyber-neon .callout-panel.callout-green .callout-title,
+        body.theme-cyber-neon .callout-panel.callout-green h4,
+        body.theme-amber .callout-panel.callout-green .callout-title,
+        body.theme-amber .callout-panel.callout-green h4,
+        body.theme-dark-sakura .callout-panel.callout-green .callout-title,
+        body.theme-dark-sakura .callout-panel.callout-green h4,
+        body.theme-mono-dark .callout-panel.callout-green .callout-title,
+        body.theme-mono-dark .callout-panel.callout-green h4 {
+            color: #34d399 !important;
+        }
+
+        body.theme-dark .callout-panel.callout-blue .callout-title,
+        body.theme-dark .callout-panel.callout-blue h4,
+        body.theme-ocean .callout-panel.callout-blue .callout-title,
+        body.theme-ocean .callout-panel.callout-blue h4,
+        body.theme-purple .callout-panel.callout-blue .callout-title,
+        body.theme-purple .callout-panel.callout-blue h4,
+        body.theme-emerald .callout-panel.callout-blue .callout-title,
+        body.theme-emerald .callout-panel.callout-blue h4,
+        body.theme-cyberpunk .callout-panel.callout-blue .callout-title,
+        body.theme-cyber-neon .callout-panel.callout-blue .callout-title,
+        body.theme-amber .callout-panel.callout-blue .callout-title,
+        body.theme-dark-sakura .callout-panel.callout-blue .callout-title,
+        body.theme-mono-dark .callout-panel.callout-blue .callout-title {
+            color: #60a5fa !important;
+        }
+
+        body.theme-dark .callout-panel.callout-purple .callout-title,
+        body.theme-dark .callout-panel.callout-purple h4,
+        body.theme-ocean .callout-panel.callout-purple .callout-title,
+        body.theme-ocean .callout-panel.callout-purple h4,
+        body.theme-purple .callout-panel.callout-purple .callout-title,
+        body.theme-purple .callout-panel.callout-purple h4,
+        body.theme-emerald .callout-panel.callout-purple .callout-title,
+        body.theme-emerald .callout-panel.callout-purple h4,
+        body.theme-cyberpunk .callout-panel.callout-purple .callout-title,
+        body.theme-cyber-neon .callout-panel.callout-purple .callout-title,
+        body.theme-amber .callout-panel.callout-purple .callout-title,
+        body.theme-dark-sakura .callout-panel.callout-purple .callout-title,
+        body.theme-mono-dark .callout-panel.callout-purple .callout-title {
+            color: #c084fc !important;
+        }
+
+        body.theme-dark .callout-panel.callout-purple .callout-subtitle,
+        body.theme-ocean .callout-panel.callout-purple .callout-subtitle,
+        body.theme-purple .callout-panel.callout-purple .callout-subtitle,
+        body.theme-emerald .callout-panel.callout-purple .callout-subtitle,
+        body.theme-cyberpunk .callout-panel.callout-purple .callout-subtitle,
+        body.theme-cyber-neon .callout-panel.callout-purple .callout-subtitle,
+        body.theme-amber .callout-panel.callout-purple .callout-subtitle,
+        body.theme-dark-sakura .callout-panel.callout-purple .callout-subtitle,
+        body.theme-mono-dark .callout-panel.callout-purple .callout-subtitle {
+            color: #c084fc !important;
+        }
+
+        body.theme-dark .callout-panel .callout-divider,
+        body.theme-ocean .callout-panel .callout-divider,
+        body.theme-purple .callout-panel .callout-divider,
+        body.theme-emerald .callout-panel .callout-divider,
+        body.theme-cyberpunk .callout-panel .callout-divider,
+        body.theme-cyber-neon .callout-panel .callout-divider,
+        body.theme-amber .callout-panel .callout-divider,
+        body.theme-dark-sakura .callout-panel .callout-divider,
+        body.theme-mono-dark .callout-panel .callout-divider {
+            border-color: #334155 !important;
+        }
+
         @media (max-width: 900px) {
             .veri-neden-card {
                 padding: 24px;
@@ -621,12 +823,12 @@
                 </div>
             </div>
 
-            <div style="padding: 24px; background: #f0f9ff; border: 2px solid #2563eb !important; border-left: 6px solid #2563eb !important; border-radius: 0 16px 16px 0;">
-                <p style="font-size: 1.15rem; line-height: 1.8; color: #0f172a; font-weight: 600; margin-bottom: 20px;">
+            <div class="callout-panel callout-blue" style="padding: 24px;">
+                <p style="font-size: 1.15rem; line-height: 1.8; font-weight: 600; margin-bottom: 20px;">
                     Kısacası veri; görünmeyen örüntüleri ortaya çıkarmak, performansı ölçmek ve tesadüflere yer bırakmadan hedefe giden bir yol haritası (roadmap) çizebilmek için toplanır.
                 </p>
-                <div style="border-top: 1px dashed #93c5fd; padding-top: 20px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
-                    <p style="font-size: 1.05rem; color: #475569; margin: 0;">
+                <div class="callout-divider" style="padding-top: 20px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+                    <p style="font-size: 1.05rem; margin: 0;">
                         Eğer "İstatistik bu işin neresinde?" diyorsanız bu konu için temel seviye rehber:
                     </p>
                     <a href="../guides/basics/basics.html" style="background: #2563eb; border: 1.5px solid #2563eb; color: #ffffff; padding: 8px 16px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: filter 0.2s ease; cursor: pointer; font-size: 0.95rem; box-shadow: none;" onmouseover="this.style.filter='brightness(0.9)';" onmouseout="this.style.filter='none';">
@@ -663,11 +865,11 @@
                     </h3>
 
                     <!-- Vurgu Kutusu (Model / Veri İlişkisi) -->
-                    <div style="background: #faf5ff; border: 2px solid #7c3aed !important; border-left: 6px solid #7c3aed !important; padding: 20px 24px; border-radius: 0 16px 16px 0; margin-bottom: 24px;">
-                        <p style="font-size: 1.15rem; font-weight: 700; color: #0f172a; line-height: 1.7; margin: 0 0 8px 0;">
+                    <div class="callout-panel callout-purple" style="padding: 20px 24px; margin-bottom: 24px;">
+                        <p style="font-size: 1.15rem; font-weight: 700; line-height: 1.7; margin: 0 0 8px 0;">
                             Kurulan hiçbir ekonometrik ya da istatistiksel model, toplanan veriden akıllı değildir.
                         </p>
-                        <p style="font-size: 1.05rem; font-weight: 600; color: #7c3aed; margin: 0;">
+                        <p class="callout-subtitle" style="font-size: 1.05rem; font-weight: 600; margin: 0;">
                             "Nasıl beslersen analiz kalitesi o şekilde çıkar."
                         </p>
                     </div>
@@ -676,11 +878,11 @@
                         Bu konuda aklımıza ilk etapta veri temizleme gelse de, toplanan verinin <strong>kitleyi ne kadar iyi yansıttığı</strong> her şeyin önündedir.
                     </p>
 
-                    <div style="background: #f8fafc; border: 2px solid #2563eb !important; padding: 20px 24px; border-radius: 16px; margin-bottom: 32px;">
-                        <h4 style="font-size: 1.25rem; font-weight: 800; color: #2563eb; margin-bottom: 8px;">
+                    <div class="callout-panel callout-blue callout-rounded" style="padding: 20px 24px; margin-bottom: 32px;">
+                        <h4 class="callout-title" style="font-size: 1.25rem; font-weight: 800; margin-bottom: 8px;">
                             "Population = Sample?" &rarr; Bu ne demek?
                         </h4>
-                        <p style="font-size: 1.1rem; line-height: 1.7; color: #475569; margin: 0;">
+                        <p style="font-size: 1.1rem; line-height: 1.7; margin: 0;">
                             Örneklem (n), anakütlenin (N) küçük bir minyatürü olmalı ve onu en yansız şekilde temsil etmelidir.
                         </p>
                     </div>
@@ -792,8 +994,8 @@
                     </div>
 
                     <!-- Özet Kapanış Paneli -->
-                    <div style="padding: 24px; background: #faf5ff; border: 2px solid #7c3aed !important; border-left: 6px solid #7c3aed !important; border-radius: 0 16px 16px 0;">
-                        <p style="font-size: 1.15rem; line-height: 1.8; color: #0f172a; font-weight: 600; margin: 0;">
+                    <div class="callout-panel callout-purple" style="padding: 24px;">
+                        <p style="font-size: 1.15rem; line-height: 1.8; font-weight: 600; margin: 0;">
                             Kısacası; örneklem (n) anakütleyi (N) tam olarak yansıtmadığında, modeliniz matematiksel olarak ne kadar sofistike olursa olsun üreteceği sonuçlar gerçeği yansıtmayacaktır.
                         </p>
                     </div>
@@ -825,8 +1027,8 @@
                     </h3>
 
                     <!-- Vurgu Kutusu: Sürecin Mantığı ve Açıklaması -->
-                    <div style="background: #f0fdf4; border: 2px solid #16a34a !important; border-left: 6px solid #16a34a !important; padding: 26px 30px; border-radius: 0 18px 18px 0; margin-bottom: 32px;">
-                        <h4 style="font-size: 1.25rem; font-weight: 700; color: #16a34a; margin: 0 0 12px 0; display: flex; align-items: center; gap: 10px;">
+                    <div class="callout-panel callout-green" style="padding: 26px 30px; margin-bottom: 32px;">
+                        <h4 class="callout-title" style="font-size: 1.25rem; font-weight: 700; margin: 0 0 12px 0; display: flex; align-items: center; gap: 10px;">
                             <i data-lucide="info" style="width: 22px; height: 22px;"></i>
                             Neden Bir Veri Mimarisi Tasarlıyoruz? (Sürecin Temel Mantığı)
                         </h4>
@@ -1041,8 +1243,8 @@
                     </div>
 
                     <!-- Özet Kapanış Paneli: Bütüncül Değerlendirme -->
-                    <div style="padding: 26px 30px; background: #f0fdf4; border: 2px solid #16a34a !important; border-left: 6px solid #16a34a !important; border-radius: 0 18px 18px 0;">
-                        <h4 style="font-size: 1.25rem; font-weight: 700; color: #16a34a; margin: 0 0 12px 0; display: flex; align-items: center; gap: 10px;">
+                    <div class="callout-panel callout-green" style="padding: 26px 30px;">
+                        <h4 class="callout-title" style="font-size: 1.25rem; font-weight: 700; margin: 0 0 12px 0; display: flex; align-items: center; gap: 10px;">
                             <i data-lucide="check-circle-2" style="width: 22px; height: 22px;"></i>
                             Sonuç: Gerçek Bir Veri Mimarı Olmanın Temel Kuralı
                         </h4>
