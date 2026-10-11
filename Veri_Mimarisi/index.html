@@ -194,6 +194,209 @@
                 border-width: 2px !important;
             }
         }
+
+        /* 4x2 Aşama Ayrıntıları Grid Sistemi */
+        .stage-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 1200px) {
+            .stage-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .stage-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 12px !important;
+            }
+
+            .stage-card {
+                padding: 16px 14px !important;
+                min-height: auto !important;
+                border-radius: 14px !important;
+            }
+
+            .stage-card-title {
+                font-size: 1rem !important;
+                margin: 8px 0 6px 0 !important;
+            }
+
+            .stage-card-mission {
+                font-size: 0.84rem !important;
+                line-height: 1.45 !important;
+                margin-bottom: 14px !important;
+            }
+
+            .stage-card-btn {
+                padding: 8px 10px !important;
+                font-size: 0.82rem !important;
+                gap: 6px !important;
+            }
+
+            .stage-play-icon-circle {
+                width: 24px !important;
+                height: 24px !important;
+            }
+
+            .stage-play-icon-circle svg {
+                width: 11px !important;
+                height: 11px !important;
+            }
+
+            .stage-card-badge {
+                font-size: 0.72rem !important;
+                padding: 3px 8px !important;
+            }
+        }
+
+        .stage-card {
+            background: rgba(255, 255, 255, 0.85);
+            border: 2px solid var(--card-border-color, var(--glass-border)) !important;
+            border-radius: 20px;
+            padding: 24px 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 290px;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+            cursor: pointer;
+            text-decoration: none !important;
+            position: relative;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+        }
+
+        .stage-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--card-accent-color) !important;
+            box-shadow: 0 14px 30px var(--card-glow-color, rgba(0,0,0,0.1)) !important;
+        }
+
+        .stage-card-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        }
+
+        .stage-card-title {
+            font-size: 1.18rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 12px 0 10px 0;
+            line-height: 1.35;
+        }
+
+        .stage-card-mission {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #1e293b;
+            margin: 0 0 18px 0;
+            flex-grow: 1;
+        }
+
+        .stage-card-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            padding: 10px 16px;
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.04);
+            border: 1.5px solid rgba(0, 0, 0, 0.08);
+            color: #0f172a;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+
+        .stage-card:hover .stage-card-btn {
+            background: var(--card-accent-color);
+            border-color: var(--card-accent-color);
+            color: #ffffff !important;
+            box-shadow: 0 4px 14px var(--card-glow-color);
+        }
+
+        .stage-play-icon-circle {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--card-accent-color);
+            color: #ffffff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: transform 0.25s ease;
+        }
+
+        .stage-card:hover .stage-play-icon-circle {
+            background: #ffffff;
+            color: var(--card-accent-color);
+            transform: scale(1.1);
+        }
+
+        /* Dark Theme Support for Stage Cards */
+        body.theme-dark .stage-card,
+        body.theme-ocean .stage-card,
+        body.theme-purple .stage-card,
+        body.theme-emerald .stage-card,
+        body.theme-cyberpunk .stage-card,
+        body.theme-cyber-neon .stage-card,
+        body.theme-amber .stage-card,
+        body.theme-dark-sakura .stage-card,
+        body.theme-mono-dark .stage-card {
+            background: rgba(15, 23, 42, 0.75) !important;
+        }
+
+        body.theme-dark .stage-card-title,
+        body.theme-ocean .stage-card-title,
+        body.theme-purple .stage-card-title,
+        body.theme-emerald .stage-card-title,
+        body.theme-cyberpunk .stage-card-title,
+        body.theme-cyber-neon .stage-card-title,
+        body.theme-amber .stage-card-title,
+        body.theme-dark-sakura .stage-card-title,
+        body.theme-mono-dark .stage-card-title {
+            color: #f8fafc !important;
+        }
+
+        body.theme-dark .stage-card-mission,
+        body.theme-ocean .stage-card-mission,
+        body.theme-purple .stage-card-mission,
+        body.theme-emerald .stage-card-mission,
+        body.theme-cyberpunk .stage-card-mission,
+        body.theme-cyber-neon .stage-card-mission,
+        body.theme-amber .stage-card-mission,
+        body.theme-dark-sakura .stage-card-mission,
+        body.theme-mono-dark .stage-card-mission {
+            color: #cbd5e1 !important;
+        }
+
+        body.theme-dark .stage-card-btn,
+        body.theme-ocean .stage-card-btn,
+        body.theme-purple .stage-card-btn,
+        body.theme-emerald .stage-card-btn,
+        body.theme-cyberpunk .stage-card-btn,
+        body.theme-cyber-neon .stage-card-btn,
+        body.theme-amber .stage-card-btn,
+        body.theme-dark-sakura .stage-card-btn,
+        body.theme-mono-dark .stage-card-btn {
+            background: rgba(255, 255, 255, 0.06) !important;
+            border-color: rgba(255, 255, 255, 0.12) !important;
+            color: #f1f5f9 !important;
+        }
     </style>
     <main class="main-container" style="max-width: 1400px; margin: 0 auto; padding: 0 24px 80px 24px;">
         <section class="section-container" id="veri-neden-toplanir" style="text-align: left; gap: 28px;">
@@ -706,6 +909,230 @@
                         <p style="font-size: 1.05rem; line-height: 1.75; margin: 0; font-weight: 600;">
                             İyi bir analisti vasat bir veri uygulayıcısından ayıran en kritik yetkinlik de tam olarak budur: Verinin doğuş anından ekonometrik modele girdiği ana kadar geçen tüm boru hattını uçtan uca tasarlayabilen bir <strong>mühendislik ve metodoloji refleksine</strong> sahip olmak.
                         </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. BÖLÜM: AŞAMA AYRINTILARI (4x2 GRID) -->
+        <section class="section-container" id="asama-ayrintilari" style="text-align: left; gap: 28px; margin-top: 80px;">
+            <!-- BÖLÜM BAŞLIĞI (SECTION HEADER) -->
+            <div class="section-header" style="text-align: left;">
+                <h2 class="section-title" style="justify-content: flex-start; text-align: left;">
+                    <span class="icon-title" style="display: inline-flex; align-items: center;">
+                        <i data-lucide="workflow" style="width: 32px; height: 32px; color: var(--neon-blue);"></i>
+                    </span>
+                    Aşama Ayrıntıları
+                </h2>
+                <p class="section-desc" style="text-align: left;">
+                    Veri mimarisini oluşturan 8 temel aşamanın metodolojik derinliği, formülleri ve uygulama rehberleri.
+                </p>
+            </div>
+
+            <!-- KART İÇERİĞİ -->
+            <div class="glass veri-neden-card">
+                <div class="content-section" style="text-align: left; margin: 0;">
+                    <!-- Alt Başlık -->
+                    <h3 class="subheading-title" style="text-align: left;">
+                        Veri Mimarisinin 8 Temel Aşaması
+                    </h3>
+                    <p style="font-size: 1.1rem; line-height: 1.75; color: var(--text-main); margin-bottom: 28px;">
+                        Her aşama, analitik sürecin farklı bir mühendislik problemini çözer. İlgili aşamanın metodolojisini, teorik arka planını ve pratik uygulama rehberini incelemek için kartlara tıklayabilir veya "Aşamaya Başla" butonunu kullanabilirsiniz.
+                    </p>
+
+                    <!-- 4x2 Grid Container -->
+                    <div class="stage-grid">
+                        <!-- 1. Aşama Kartı -->
+                        <div class="stage-card" style="--card-accent-color: var(--neon-blue); --card-glow-color: var(--neon-blue-glow);" onclick="window.location.href='Veri_Mimarisi_Aşamaları/1.Aşama_Hipotezin_Belirlenmesi/index.html'">
+                            <div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                    <span class="stage-card-badge" style="background: var(--neon-blue);">1. Aşama</span>
+                                    <i data-lucide="help-circle" style="width: 20px; height: 20px; color: var(--neon-blue); opacity: 0.85;"></i>
+                                </div>
+                                <h4 class="stage-card-title">Araştırma Sorusu ve Hipotez</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--neon-blue); margin-bottom: 6px; display: flex; align-items: center; gap: 5px;">
+                                    <i data-lucide="target" style="width: 13px; height: 13px;"></i> Temel Görevi
+                                </div>
+                                <p class="stage-card-mission">
+                                    Çözülecek problemi netleştirmek; bağımlı (Y) ve bağımsız (X) değişkenleri formüle ederek sınanabilir H₀ ve H₁ hipotezlerini kurmak.
+                                </p>
+                            </div>
+                            <a href="Veri_Mimarisi_Aşamaları/1.Aşama_Hipotezin_Belirlenmesi/index.html" class="stage-card-btn" onclick="event.stopPropagation();">
+                                <span class="stage-play-icon-circle">
+                                    <i data-lucide="play" style="width: 13px; height: 13px; fill: currentColor; stroke: none; margin-left: 2px;"></i>
+                                </span>
+                                <span>Aşamaya Başla</span>
+                                <i data-lucide="arrow-right" style="width: 15px; height: 15px; margin-left: auto;"></i>
+                            </a>
+                        </div>
+
+                        <!-- 2. Aşama Kartı -->
+                        <div class="stage-card" style="--card-accent-color: var(--neon-purple); --card-glow-color: var(--neon-purple-glow);" onclick="window.location.href='Veri_Mimarisi_Aşamaları/2.Aşama_Evren_ve_Örneklem_Çerçevesi/index.html'">
+                            <div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                    <span class="stage-card-badge" style="background: var(--neon-purple);">2. Aşama</span>
+                                    <i data-lucide="users" style="width: 20px; height: 20px; color: var(--neon-purple); opacity: 0.85;"></i>
+                                </div>
+                                <h4 class="stage-card-title">Evren ve Örneklem Çerçevesi</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--neon-purple); margin-bottom: 6px; display: flex; align-items: center; gap: 5px;">
+                                    <i data-lucide="target" style="width: 13px; height: 13px;"></i> Temel Görevi
+                                </div>
+                                <p class="stage-card-mission">
+                                    Hedef kitlenin (N) coğrafi ve mantıksal sınırlarını çizmek; seçim yanlılığına düşmeden çerçeve listesini eksiksiz oluşturmak.
+                                </p>
+                            </div>
+                            <a href="Veri_Mimarisi_Aşamaları/2.Aşama_Evren_ve_Örneklem_Çerçevesi/index.html" class="stage-card-btn" onclick="event.stopPropagation();">
+                                <span class="stage-play-icon-circle">
+                                    <i data-lucide="play" style="width: 13px; height: 13px; fill: currentColor; stroke: none; margin-left: 2px;"></i>
+                                </span>
+                                <span>Aşamaya Başla</span>
+                                <i data-lucide="arrow-right" style="width: 15px; height: 15px; margin-left: auto;"></i>
+                            </a>
+                        </div>
+
+                        <!-- 3. Aşama Kartı -->
+                        <div class="stage-card" style="--card-accent-color: var(--neon-green); --card-glow-color: var(--neon-green-glow);" onclick="window.location.href='Veri_Mimarisi_Aşamaları/3.Aşama_Zaman_ve_Mekan_Boyutu/index.html'">
+                            <div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                    <span class="stage-card-badge" style="background: var(--neon-green);">3. Aşama</span>
+                                    <i data-lucide="calendar-clock" style="width: 20px; height: 20px; color: var(--neon-green); opacity: 0.85;"></i>
+                                </div>
+                                <h4 class="stage-card-title">Zaman ve Mekan Boyutu</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--neon-green); margin-bottom: 6px; display: flex; align-items: center; gap: 5px;">
+                                    <i data-lucide="target" style="width: 13px; height: 13px;"></i> Temel Görevi
+                                </div>
+                                <p class="stage-card-mission">
+                                    Veri seti mimarisini belirlemek; Yatay Kesit, Zaman Serisi veya Panel Veri formatlarından hangisinin inşa edileceğini kararlaştırmak.
+                                </p>
+                            </div>
+                            <a href="Veri_Mimarisi_Aşamaları/3.Aşama_Zaman_ve_Mekan_Boyutu/index.html" class="stage-card-btn" onclick="event.stopPropagation();">
+                                <span class="stage-play-icon-circle">
+                                    <i data-lucide="play" style="width: 13px; height: 13px; fill: currentColor; stroke: none; margin-left: 2px;"></i>
+                                </span>
+                                <span>Aşamaya Başla</span>
+                                <i data-lucide="arrow-right" style="width: 15px; height: 15px; margin-left: auto;"></i>
+                            </a>
+                        </div>
+
+                        <!-- 4. Aşama Kartı -->
+                        <div class="stage-card" style="--card-accent-color: var(--neon-orange); --card-glow-color: var(--neon-orange-glow);" onclick="window.location.href='Veri_Mimarisi_Aşamaları/4.Aşama_Değişkenlerin_Matematiksel_Doğası/index.html'">
+                            <div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                    <span class="stage-card-badge" style="background: var(--neon-orange);">4. Aşama</span>
+                                    <i data-lucide="binary" style="width: 20px; height: 20px; color: var(--neon-orange); opacity: 0.85;"></i>
+                                </div>
+                                <h4 class="stage-card-title">Ölçüm Düzeyi & Değişken Doğası</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--neon-orange); margin-bottom: 6px; display: flex; align-items: center; gap: 5px;">
+                                    <i data-lucide="target" style="width: 13px; height: 13px;"></i> Temel Görevi
+                                </div>
+                                <p class="stage-card-mission">
+                                    Değişkenlerin matematiksel ölçeğini (Nitel/Kategorik veya Nicel/Sayısal) seçerek kukla değişken ve parametrik test sınırlarını çizmek.
+                                </p>
+                            </div>
+                            <a href="Veri_Mimarisi_Aşamaları/4.Aşama_Değişkenlerin_Matematiksel_Doğası/index.html" class="stage-card-btn" onclick="event.stopPropagation();">
+                                <span class="stage-play-icon-circle">
+                                    <i data-lucide="play" style="width: 13px; height: 13px; fill: currentColor; stroke: none; margin-left: 2px;"></i>
+                                </span>
+                                <span>Aşamaya Başla</span>
+                                <i data-lucide="arrow-right" style="width: 15px; height: 15px; margin-left: auto;"></i>
+                            </a>
+                        </div>
+
+                        <!-- 5. Aşama Kartı -->
+                        <div class="stage-card" style="--card-accent-color: #ec4899; --card-glow-color: rgba(236,72,153,0.35);" onclick="window.location.href='Veri_Mimarisi_Aşamaları/5.Aşama_Kısıtlar_ve_Etik_Çerçeve/index.html'">
+                            <div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                    <span class="stage-card-badge" style="background: #ec4899;">5. Aşama</span>
+                                    <i data-lucide="shield-check" style="width: 20px; height: 20px; color: #ec4899; opacity: 0.85;"></i>
+                                </div>
+                                <h4 class="stage-card-title">Kısıtlar ve Etik Çerçeve</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #ec4899; margin-bottom: 6px; display: flex; align-items: center; gap: 5px;">
+                                    <i data-lucide="target" style="width: 13px; height: 13px;"></i> Temel Görevi
+                                </div>
+                                <p class="stage-card-mission">
+                                    Bütçe ve zaman sınırlarını çizmek; KVKK/GDPR uyumu, veri minimizasyonu, bilgilendirilmiş onam ve anonimleştirme protokollerini devreye almak.
+                                </p>
+                            </div>
+                            <a href="Veri_Mimarisi_Aşamaları/5.Aşama_Kısıtlar_ve_Etik_Çerçeve/index.html" class="stage-card-btn" onclick="event.stopPropagation();">
+                                <span class="stage-play-icon-circle">
+                                    <i data-lucide="play" style="width: 13px; height: 13px; fill: currentColor; stroke: none; margin-left: 2px;"></i>
+                                </span>
+                                <span>Aşamaya Başla</span>
+                                <i data-lucide="arrow-right" style="width: 15px; height: 15px; margin-left: auto;"></i>
+                            </a>
+                        </div>
+
+                        <!-- 6. Aşama Kartı -->
+                        <div class="stage-card" style="--card-accent-color: #06b6d4; --card-glow-color: rgba(6,182,212,0.35);" onclick="window.location.href='Veri_Mimarisi_Aşamaları/6.Aşama_Dijital_Altyapı_ve_Format/index.html'">
+                            <div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                    <span class="stage-card-badge" style="background: #06b6d4;">6. Aşama</span>
+                                    <i data-lucide="database" style="width: 20px; height: 20px; color: #06b6d4; opacity: 0.85;"></i>
+                                </div>
+                                <h4 class="stage-card-title">Dijital Altyapı ve Format</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #06b6d4; margin-bottom: 6px; display: flex; align-items: center; gap: 5px;">
+                                    <i data-lucide="target" style="width: 13px; height: 13px;"></i> Temel Görevi
+                                </div>
+                                <p class="stage-card-mission">
+                                    Veri akışının hacim ve hızına göre SQL, NoSQL, Parquet, JSON veya CSV formatlarını seçmek; veri boru hattının depolama mimarisini kurmak.
+                                </p>
+                            </div>
+                            <a href="Veri_Mimarisi_Aşamaları/6.Aşama_Dijital_Altyapı_ve_Format/index.html" class="stage-card-btn" onclick="event.stopPropagation();">
+                                <span class="stage-play-icon-circle">
+                                    <i data-lucide="play" style="width: 13px; height: 13px; fill: currentColor; stroke: none; margin-left: 2px;"></i>
+                                </span>
+                                <span>Aşamaya Başla</span>
+                                <i data-lucide="arrow-right" style="width: 15px; height: 15px; margin-left: auto;"></i>
+                            </a>
+                        </div>
+
+                        <!-- 7. Aşama Kartı -->
+                        <div class="stage-card" style="--card-accent-color: #8b5cf6; --card-glow-color: rgba(139,92,246,0.35);" onclick="window.location.href='Veri_Mimarisi_Aşamaları/7.Aşama_Veri_Toplama_Kaynağı_ve_Aracı/index.html'">
+                            <div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                    <span class="stage-card-badge" style="background: #8b5cf6;">7. Aşama</span>
+                                    <i data-lucide="cpu" style="width: 20px; height: 20px; color: #8b5cf6; opacity: 0.85;"></i>
+                                </div>
+                                <h4 class="stage-card-title">Veri Kaynağı ve Araçlar</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #8b5cf6; margin-bottom: 6px; display: flex; align-items: center; gap: 5px;">
+                                    <i data-lucide="target" style="width: 13px; height: 13px;"></i> Temel Görevi
+                                </div>
+                                <p class="stage-card-mission">
+                                    Verinin birincil (anket, mülakat, IoT) mi yoksa ikincil (API, web scraping, veri ambarı) mi olduğunu belirleyip Python/R/SQL araçlarını seçmek.
+                                </p>
+                            </div>
+                            <a href="Veri_Mimarisi_Aşamaları/7.Aşama_Veri_Toplama_Kaynağı_ve_Aracı/index.html" class="stage-card-btn" onclick="event.stopPropagation();">
+                                <span class="stage-play-icon-circle">
+                                    <i data-lucide="play" style="width: 13px; height: 13px; fill: currentColor; stroke: none; margin-left: 2px;"></i>
+                                </span>
+                                <span>Aşamaya Başla</span>
+                                <i data-lucide="arrow-right" style="width: 15px; height: 15px; margin-left: auto;"></i>
+                            </a>
+                        </div>
+
+                        <!-- 8. Aşama Kartı -->
+                        <div class="stage-card" style="--card-accent-color: #d97706; --card-glow-color: rgba(217,119,6,0.35);" onclick="window.location.href='Veri_Mimarisi_Aşamaları/8.Aşama_Örnekleme_Tekniği/index.html'">
+                            <div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                    <span class="stage-card-badge" style="background: #d97706;">8. Aşama</span>
+                                    <i data-lucide="pie-chart" style="width: 20px; height: 20px; color: #d97706; opacity: 0.85;"></i>
+                                </div>
+                                <h4 class="stage-card-title">Örnekleme Tekniği</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #d97706; margin-bottom: 6px; display: flex; align-items: center; gap: 5px;">
+                                    <i data-lucide="target" style="width: 13px; height: 13px;"></i> Temel Görevi
+                                </div>
+                                <p class="stage-card-mission">
+                                    Anakütleyi en yansız şekilde yansıtacak gözlemleri seçmek için Olasılıklı (Basit Rastgele, Tabakalı) veya Olasılıksız matematiksel çekiliş yöntemini belirlemek.
+                                </p>
+                            </div>
+                            <a href="Veri_Mimarisi_Aşamaları/8.Aşama_Örnekleme_Tekniği/index.html" class="stage-card-btn" onclick="event.stopPropagation();">
+                                <span class="stage-play-icon-circle">
+                                    <i data-lucide="play" style="width: 13px; height: 13px; fill: currentColor; stroke: none; margin-left: 2px;"></i>
+                                </span>
+                                <span>Aşamaya Başla</span>
+                                <i data-lucide="arrow-right" style="width: 15px; height: 15px; margin-left: auto;"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

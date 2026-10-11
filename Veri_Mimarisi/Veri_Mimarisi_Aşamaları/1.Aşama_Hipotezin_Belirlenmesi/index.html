@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. Aşama: Araştırma Sorusu ve Hipotez | Veri Mimarisi | Analyst Roadmap</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('analyst_theme') || 'theme-light-purple';
+            if (savedTheme !== 'theme-dark') {
+                document.body.classList.add(savedTheme);
+            }
+        })();
+    </script>
+
+    <!-- Header injected via components.js -->
+
+    <main class="main-container" style="max-width: 1200px; margin: 40px auto; padding: 0 24px 80px 24px;">
+        <!-- Breadcrumb & Geri Dön Butonu -->
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+            <a href="../../Veri_Mimarisi/index.html#asama-ayrintilari" style="display: inline-flex; align-items: center; gap: 8px; color: var(--neon-blue); text-decoration: none; font-weight: 600; font-size: 0.95rem; padding: 8px 16px; border-radius: 12px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); transition: all 0.2s ease;">
+                <i data-lucide="arrow-left" style="width: 18px; height: 18px;"></i>
+                Aşama Ayrıntılarına Dön
+            </a>
+            <div style="color: var(--text-muted); font-size: 0.9rem;">
+                Veri Mimarisi / <span style="color: var(--text-main); font-weight: 600;">1. Aşama</span>
+            </div>
+        </div>
+
+        <!-- Aşama Hero Kartı -->
+        <section class="glass" style="padding: 36px; border-radius: 20px; border-left: 6px solid var(--neon-blue) !important; margin-bottom: 32px;">
+            <span style="background: var(--neon-blue); color: #fff; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; display: inline-block; margin-bottom: 16px;">
+                1. Aşama
+            </span>
+            <h1 style="font-size: 2.2rem; font-weight: 800; color: var(--text-main); margin-bottom: 12px;">
+                Araştırma Sorusu ve Hipotezin Belirlenmesi
+            </h1>
+            <p style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.7; max-width: 900px; margin: 0;">
+                Çözülecek analitik problemi netleştirmek, hedef çıktıyı (Y) ve açıklayıcı değişkenleri (X₁, X₂, ...) formüle ederek test edilebilir hipotezler (H₀ / H₁) kurmak.
+            </p>
+        </section>
+
+        <!-- İçerik Alanı -->
+        <section class="glass" style="padding: 40px; border-radius: 20px; text-align: center;">
+            <div style="width: 64px; height: 64px; border-radius: 50%; background: color-mix(in srgb, var(--neon-blue) 15%, transparent); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                <i data-lucide="help-circle" style="width: 32px; height: 32px; color: var(--neon-blue);"></i>
+            </div>
+            <h3 style="font-size: 1.4rem; font-weight: 700; color: var(--text-main); margin-bottom: 8px;">
+                Bu Aşamanın İçeriği Yapılandırılıyor
+            </h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 600px; margin: 0 auto 24px auto;">
+                Metodoloji detayları, formüller ve uygulama örnekleri eklendiğinde bu alanda görüntülenecektir.
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer injected via components.js -->
+    <script src="../../js/components.js"></script>
+    <script src="../../js/nav.js"></script>
+    <script src="../../js/modal.js"></script>
+    <script src="../../js/script.js"></script>
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
