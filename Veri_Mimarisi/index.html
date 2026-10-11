@@ -43,10 +43,11 @@
                     </button>
                     <button class="btn-hero btn-hero-courses" onclick="document.getElementById('n-n-kurali')?.scrollIntoView({behavior: 'smooth'})">
                         <svg class="btn-hero-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="4" y1="9" x2="20" y2="9"></line>
-                            <line x1="4" y1="15" x2="20" y2="15"></line>
-                            <line x1="10" y1="3" x2="8" y2="21"></line>
-                            <line x1="16" y1="3" x2="14" y2="21"></line>
+                            <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
+                            <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
+                            <path d="M7 21h10"></path>
+                            <path d="M12 3v18"></path>
+                            <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path>
                         </svg>
                         N=n Kuralı
                     </button>
@@ -60,10 +61,9 @@
                     </button>
                     <button class="btn-hero btn-hero-start" onclick="document.getElementById('asama-ayrintilari')?.scrollIntoView({behavior: 'smooth'})">
                         <svg class="btn-hero-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                            <line x1="11" y1="8" x2="11" y2="14"></line>
-                            <line x1="8" y1="11" x2="14" y2="11"></line>
+                            <rect width="8" height="8" x="3" y="3" rx="2"></rect>
+                            <path d="M7 11v4a2 2 0 0 0 2 2h4"></path>
+                            <rect width="8" height="8" x="13" y="13" rx="2"></rect>
                         </svg>
                         Aşama Ayrıntıları
                     </button>
@@ -475,15 +475,28 @@
                         Uçtan Uca 9 Adımda Veri Mimarisi ve Toplama Süreci
                     </h3>
 
-                    <!-- Vurgu Kutusu -->
-                    <div class="glass" style="background: color-mix(in srgb, var(--neon-green) 8%, rgba(255,255,255,0.7)); border-left: 5px solid var(--neon-green) !important; padding: 20px 24px; border-radius: 0 16px 16px 0; margin-bottom: 28px;">
-                        <p style="font-size: 1.15rem; font-weight: 700; line-height: 1.7; margin: 0 0 8px 0;">
-                            Sağlam bir veri mimarisi, rastgele veri toplamak değil; adım adım örülen bir mühendislik sürecidir.
+                    <!-- Vurgu Kutusu: Sürecin Mantığı ve Açıklaması -->
+                    <div class="glass" style="background: color-mix(in srgb, var(--neon-green) 8%, rgba(255,255,255,0.7)); border-left: 5px solid var(--neon-green) !important; padding: 26px 30px; border-radius: 0 18px 18px 0; margin-bottom: 32px;">
+                        <h4 style="font-size: 1.25rem; font-weight: 700; color: var(--neon-green); margin: 0 0 12px 0; display: flex; align-items: center; gap: 10px;">
+                            <i data-lucide="info" style="width: 22px; height: 22px;"></i>
+                            Neden Bir Veri Mimarisi Tasarlıyoruz? (Sürecin Temel Mantığı)
+                        </h4>
+                        <p style="font-size: 1.05rem; line-height: 1.75; margin: 0 0 12px 0;">
+                            Veri analitiği ve modelleme projelerinde yapılan en yaygın hata; neyi ölçeceğini ve anakütleyi nasıl temsil edeceğini netleştirmeden alelacele kod yazmaya, veri kazımaya (scraping) veya anket dağıtmaya girişmektir.
                         </p>
-                        <p style="font-size: 1.05rem; font-weight: 600; color: var(--neon-green) !important; margin: 0;">
-                            Hipotezden icraya kadar her aşama, bir sonraki analizin geçerliliğini doğrudan tayin eder.
+                        <p style="font-size: 1.05rem; line-height: 1.75; margin: 0 0 12px 0;">
+                            Mimarisiz toplanan veri; gizli sistematik yanlılıklar (bias), uyumsuz değişken ölçekleri, format karmaşası ve telafisi imkansız yasal risklerle sakatlanmış olarak gelir. Unutulmamalıdır ki: <strong>"Çöp Girerse Çöp Çıkar" (Garbage In, Garbage Out)</strong>. Dünyanın en sofistike yapay zeka algoritması veya ekonometrik modeli bile, temeli çürük bir veri yapısının üreteceği yanıltıcı sonuçları kurtaramaz.
+                        </p>
+                        <p style="font-size: 1.05rem; line-height: 1.75; margin: 0;">
+                            Aşağıda sıralanan <strong>9 aşamalı mimari</strong>; rastgele bir veri avına çıkmak yerine, kavramsal araştırma sorusundan dijital altyapıya ve canlı icraya kadar her halkası birbirine bağlı bir <strong>mühendislik disiplinidir</strong>. Her adım, kendisinden sonraki adımın ve nihai analizin bilimsel geçerliliğini garanti altına alır.
                         </p>
                     </div>
+
+                    <!-- Orta Başlık: 9 Adımda Veri Mimarisi -->
+                    <h3 class="subheading-title" style="text-align: left; margin: 36px 0 24px 0; font-size: 1.45rem; display: flex; align-items: center; gap: 12px; color: var(--text-main);">
+                        <i data-lucide="workflow" style="width: 26px; height: 26px; color: var(--neon-green);"></i>
+                        9 Adımda Veri Mimarisi
+                    </h3>
 
                     <!-- 9 Aşama Maddesi -->
                     <div style="display: flex; flex-direction: column; gap: 24px; margin-bottom: 40px;">
@@ -501,6 +514,13 @@
                             </p>
                         </div>
 
+                        <!-- Ok: 1. Adım -> 2. Adım -->
+                        <div style="display: flex; justify-content: center; align-items: center; margin: -6px 0;">
+                            <div class="glass" style="width: 42px; height: 42px; border-radius: 50%; border: 2px solid var(--neon-purple) !important; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(168, 85, 247, 0.35);">
+                                <i data-lucide="arrow-down" style="width: 22px; height: 22px; color: var(--neon-purple); stroke-width: 2.8;"></i>
+                            </div>
+                        </div>
+
                         <!-- 2. Adım -->
                         <div class="glass" style="padding: 26px 28px; border-radius: 18px;">
                             <h4 style="color: var(--neon-purple); font-size: 1.3rem; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
@@ -513,6 +533,13 @@
                             <p style="margin: 0;">
                                 Örneklem (n), anakütlenin minyatür bir kopyası gibi davranmalı ve onu en yansız biçimde temsil etmelidir. Çerçeve listesinin (sampling frame) güncel ve eksiksiz olması güvenceye alınarak seçim yanlılığının (selection bias) ve temsil yetersizliğinin önüne geçilir.
                             </p>
+                        </div>
+
+                        <!-- Ok: 2. Adım -> 3. Adım -->
+                        <div style="display: flex; justify-content: center; align-items: center; margin: -6px 0;">
+                            <div class="glass" style="width: 42px; height: 42px; border-radius: 50%; border: 2px solid var(--neon-green) !important; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(34, 197, 94, 0.35);">
+                                <i data-lucide="arrow-down" style="width: 22px; height: 22px; color: var(--neon-green); stroke-width: 2.8;"></i>
+                            </div>
                         </div>
 
                         <!-- 3. Adım -->
@@ -531,6 +558,13 @@
                             </p>
                         </div>
 
+                        <!-- Ok: 3. Adım -> 4. Adım -->
+                        <div style="display: flex; justify-content: center; align-items: center; margin: -6px 0;">
+                            <div class="glass" style="width: 42px; height: 42px; border-radius: 50%; border: 2px solid var(--neon-orange) !important; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(249, 115, 22, 0.35);">
+                                <i data-lucide="arrow-down" style="width: 22px; height: 22px; color: var(--neon-orange); stroke-width: 2.8;"></i>
+                            </div>
+                        </div>
+
                         <!-- 4. Adım -->
                         <div class="glass" style="padding: 26px 28px; border-radius: 18px;">
                             <h4 style="color: var(--neon-orange); font-size: 1.3rem; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
@@ -546,6 +580,13 @@
                             </p>
                         </div>
 
+                        <!-- Ok: 4. Adım -> 5. Adım -->
+                        <div style="display: flex; justify-content: center; align-items: center; margin: -6px 0;">
+                            <div class="glass" style="width: 42px; height: 42px; border-radius: 50%; border: 2px solid #ec4899 !important; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(236, 72, 153, 0.35);">
+                                <i data-lucide="arrow-down" style="width: 22px; height: 22px; color: #ec4899; stroke-width: 2.8;"></i>
+                            </div>
+                        </div>
+
                         <!-- 5. Adım -->
                         <div class="glass" style="padding: 26px 28px; border-radius: 18px;">
                             <h4 style="color: #ec4899; font-size: 1.3rem; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
@@ -558,6 +599,13 @@
                             <p style="margin: 0;">
                                 <strong>Yasal ve Etik Kırmızı Çizgiler:</strong> KVKK, GDPR uyumluluğu ve katılımcıların bilgilendirilmiş onam süreçleri yasal güvenceye alınmalıdır. <em>Veri Minimizasyonu</em> ilkesiyle, amaca doğrudan hizmet etmeyen hiçbir kişisel veya hassas veri toplanmamalı; toplanan veriler için maskeleme ve anonimleştirme protokolleri işletilmelidir.
                             </p>
+                        </div>
+
+                        <!-- Ok: 5. Adım -> 6. Adım -->
+                        <div style="display: flex; justify-content: center; align-items: center; margin: -6px 0;">
+                            <div class="glass" style="width: 42px; height: 42px; border-radius: 50%; border: 2px solid #06b6d4 !important; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(6, 182, 212, 0.35);">
+                                <i data-lucide="arrow-down" style="width: 22px; height: 22px; color: #06b6d4; stroke-width: 2.8;"></i>
+                            </div>
                         </div>
 
                         <!-- 6. Adım -->
@@ -576,6 +624,13 @@
                             </p>
                         </div>
 
+                        <!-- Ok: 6. Adım -> 7. Adım -->
+                        <div style="display: flex; justify-content: center; align-items: center; margin: -6px 0;">
+                            <div class="glass" style="width: 42px; height: 42px; border-radius: 50%; border: 2px solid #8b5cf6 !important; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(139, 92, 246, 0.35);">
+                                <i data-lucide="arrow-down" style="width: 22px; height: 22px; color: #8b5cf6; stroke-width: 2.8;"></i>
+                            </div>
+                        </div>
+
                         <!-- 7. Adım -->
                         <div class="glass" style="padding: 26px 28px; border-radius: 18px;">
                             <h4 style="color: #8b5cf6; font-size: 1.3rem; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
@@ -590,6 +645,13 @@
                                 • <strong>İkincil Kaynaklar (Secondary):</strong> Önceden derlenmiş veri ambarları; TÜİK, FED/FRED, Dünya Bankası, Kaggle veya şirket içi ERP/CRM kayıtları.<br>
                                 • <strong>Toplama Araçları:</strong> Python kütüphaneleri (REST API sorguları için <code>requests</code>, dinamik web kazıma için <code>Playwright</code>/<code>BeautifulSoup</code>), R betikleri veya otomatik SQL ambar akışları.
                             </p>
+                        </div>
+
+                        <!-- Ok: 7. Adım -> 8. Adım -->
+                        <div style="display: flex; justify-content: center; align-items: center; margin: -6px 0;">
+                            <div class="glass" style="width: 42px; height: 42px; border-radius: 50%; border: 2px solid #d97706 !important; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(217, 119, 6, 0.35);">
+                                <i data-lucide="arrow-down" style="width: 22px; height: 22px; color: #d97706; stroke-width: 2.8;"></i>
+                            </div>
                         </div>
 
                         <!-- 8. Adım -->
@@ -607,6 +669,13 @@
                             </p>
                         </div>
 
+                        <!-- Ok: 8. Adım -> 9. Adım -->
+                        <div style="display: flex; justify-content: center; align-items: center; margin: -6px 0;">
+                            <div class="glass" style="width: 42px; height: 42px; border-radius: 50%; border: 2px solid #10b981 !important; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);">
+                                <i data-lucide="arrow-down" style="width: 22px; height: 22px; color: #10b981; stroke-width: 2.8;"></i>
+                            </div>
+                        </div>
+
                         <!-- 9. Adım -->
                         <div class="glass" style="padding: 26px 28px; border-radius: 18px;">
                             <h4 style="color: #10b981; font-size: 1.3rem; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
@@ -622,10 +691,20 @@
                         </div>
                     </div>
 
-                    <!-- Özet Kapanış Paneli -->
-                    <div class="glass" style="padding: 24px; background: color-mix(in srgb, var(--neon-green) 6%, rgba(255,255,255,0.7)); border-left: 5px solid var(--neon-green) !important; border-radius: 0 16px 16px 0;">
-                        <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-main); font-weight: 600; margin: 0;">
-                            Kısacası veri toplama; tesadüfi bir veri avı değil, kavramsal hipotezden başlayıp doğru araç ve formatlarla icra edilen disiplinli bir mühendislik mimarisidir.
+                    <!-- Özet Kapanış Paneli: Bütüncül Değerlendirme -->
+                    <div class="glass" style="padding: 26px 30px; background: color-mix(in srgb, var(--neon-green) 8%, rgba(255,255,255,0.7)); border-left: 5px solid var(--neon-green) !important; border-radius: 0 18px 18px 0;">
+                        <h4 style="font-size: 1.25rem; font-weight: 700; color: var(--neon-green); margin: 0 0 12px 0; display: flex; align-items: center; gap: 10px;">
+                            <i data-lucide="check-circle-2" style="width: 22px; height: 22px;"></i>
+                            Sonuç: Gerçek Bir Veri Mimarı Olmanın Temel Kuralı
+                        </h4>
+                        <p style="font-size: 1.05rem; line-height: 1.75; margin: 0 0 12px 0;">
+                            Görüldüğü üzere veri toplama süreci; yalnızca web sitelerinden veri kazımak veya anket formu dağıtmaktan ibaret mekanik bir iş değildir. <strong>Hipotezi muğlak</strong> bir araştırma yönünü kaybeder; <strong>ölçek düzeyi yanlış</strong> seçilmiş bir değişken ekonometrik modelleri işlevsiz kılar; <strong>örneklem çerçevesi hatalı</strong> kurgulanmış bir çalışma ise tüm kitle hakkında yanıltıcı kararlar alınmasına yol açar.
+                        </p>
+                        <p style="font-size: 1.05rem; line-height: 1.75; margin: 0 0 12px 0;">
+                            1. Adımdan 8. Adıma kadar olan mimari tasarım eksiksiz yapıldığında; 9. Adım olan <strong>"Faaliyet (İcra)"</strong> aşaması artık bir kumar veya tesadüf olmaktan çıkar; öngörülebilir, ölçülebilir ve bilimsel geçerliliği tam bir mühendislik akışına dönüşür.
+                        </p>
+                        <p style="font-size: 1.05rem; line-height: 1.75; margin: 0; font-weight: 600;">
+                            İyi bir analisti vasat bir veri uygulayıcısından ayıran en kritik yetkinlik de tam olarak budur: Verinin doğuş anından ekonometrik modele girdiği ana kadar geçen tüm boru hattını uçtan uca tasarlayabilen bir <strong>mühendislik ve metodoloji refleksine</strong> sahip olmak.
                         </p>
                     </div>
                 </div>
