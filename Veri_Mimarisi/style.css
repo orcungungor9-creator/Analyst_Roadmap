@@ -2,25 +2,6 @@
 
 /* --- HICBIR YERDE SAYDAMLIK (TRANSPARENCY) VE GLASSMORPHISM KULLANILMAYACAK --- */
 
-/* Üst Bar (Header) Override */
-.site-header {
-    background-color: var(--bg-dark) !important;
-    backdrop-filter: none !important;
-    border-bottom: 2px solid var(--border-color) !important;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1) !important;
-}
-
-.site-header.scrolled {
-    background-color: var(--bg-dark) !important;
-}
-
-/* Dropdown override */
-.dropdown-menu {
-    background-color: var(--bg-dark) !important;
-    backdrop-filter: none !important;
-    border: 2px solid var(--border-color) !important;
-}
-
 /* Ana İçerik Kapsayıcı */
 .solid-main-container {
     max-width: 1200px;
