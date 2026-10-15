@@ -88,8 +88,9 @@
         }
 
         .hero-banner-wrapper {
-            box-shadow: none !important;
-            border-bottom: 2px solid #cbd5e1 !important;
+            border-bottom: 2px solid var(--neon-blue) !important;
+            box-shadow: 0 4px 20px var(--neon-blue-glow, rgba(56, 189, 248, 0.4)) !important;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
         .btn-hero {
@@ -102,7 +103,9 @@
         .site-header {
             backdrop-filter: none !important;
             -webkit-backdrop-filter: none !important;
-            box-shadow: none !important;
+            border-bottom: 2px solid var(--neon-blue) !important;
+            box-shadow: 0 4px 20px var(--neon-blue-glow, rgba(56, 189, 248, 0.4)) !important;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
         /* 2. BÜYÜK BÖLÜM KARTLARI (TAMAMEN KATI MAT BEYAZ, SIFIR GÖLGE, MAT RENKLİ ÇERÇEVELER) */
