@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "( 10 > 5 ) & ( 3 == 4 )\n\nYukarıdaki mantıksal işlemin sonucu nedir?",
+        "options": [
+            "NA",
+            "FALSE",
+            "1",
+            "TRUE"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "( 10 > 5 ) | ( 3 == 4 )\n\nYukarıdaki mantıksal işlemin sonucu nedir?",
+        "options": [
+            "0",
+            "FALSE",
+            "NULL",
+            "TRUE"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "sayi <- 20\nsayi <= 20\n\nYukarıdaki kodun çıktısı nedir ve sebebi aşağıdakilerden hangisidir?",
+        "options": [
+            "0 döner; eşitlik durumunda sayısal 0 üretir.",
+            "FALSE; çünkü 20, 20'den küçük değildir.",
+            "TRUE; çünkü '<=' operatörü küçük VEYA eşit mi diye sorar ve sayılar eşittir.",
+            "Hata verir; '<=' yerine '=<' kullanılmalıdır."
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "5 %in% 1:5\n\nYukarıdaki kod çalıştırıldığında konsolda ne görünür?",
+        "options": [
+            "1 2 3 4 5",
+            "FALSE",
+            "5",
+            "TRUE"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "gunler <- 1:7\n8 %in% gunler\n\nBu kodun çıktısı aşağıdakilerden hangisidir?",
+        "options": [
+            "FALSE",
+            "NA",
+            "TRUE",
+            "8"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "!( 10 != 10 )\n\nYukarıdaki ifadenin sonucu nedir?",
+        "options": [
+            "FALSE",
+            "TRUE",
+            "Hata verir",
+            "10"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "R dilinde operatörler kullanım amaçlarına göre kaç ana alt gruba ayrılır?",
+        "options": [
+            "5",
+            "3",
+            "7",
+            "4"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "a <- 10\nb <- 20\n( a < 15 ) & !( b == 20 )\n\nYukarıdaki kod parçasının sonucu nedir?",
+        "options": [
+            "NA",
+            "Hata verir",
+            "FALSE",
+            "TRUE"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "İlerleyen konularda özellikle 'tidyverse' paketinde göreceğimiz '%>%' operatörünün yaygın adı nedir?",
+        "options": [
+            "Atama Operatörü",
+            "Pipe (Boru) Operatörü",
+            "Kalan (Mod) Operatörü",
+            "Dizi Üretme Operatörü"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "\"elma\" %in% c(\"kiraz\", \"muz\", \"elma\")\n\nYukarıdaki kod parçasının sonucu ne olur?",
+        "options": [
+            "\"elma\"",
+            "3",
+            "FALSE",
+            "TRUE"
+        ],
+        "correct_option": 3
+    }
+]

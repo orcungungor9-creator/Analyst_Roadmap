@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "x <- 10\ny <- 20\nz <- 30\n(x < y) & (y < z) & (z != 30)\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "TRUE",
+            "NA",
+            "Hata verir",
+            "FALSE"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "a <- 5\nb <- 5\n!( (a == b) & (b > 10) ) | (a > 100)\n\nYukarıdaki karmaşık mantıksal ifadenin sonucu nedir?",
+        "options": [
+            "NA",
+            "TRUE",
+            "NULL",
+            "FALSE"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "x <- 3\ny <- 1:5\n(x %in% y) == TRUE\n\nYukarıdaki kod çalıştırıldığında çıktı ne olur?",
+        "options": [
+            "FALSE",
+            "SyntaxError",
+            "TRUE",
+            "3"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "x <- 0\n!(x == FALSE)\n\nR dilinde FALSE değerinin sayısal karşılığı 0 olduğuna göre bu kodun çıktısı nedir?",
+        "options": [
+            "TRUE",
+            "FALSE",
+            "0",
+            "Hata verir"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "p <- 7\n(p >= 5) & (p <= 10) & !(p %in% 1:6)\n\nYukarıdaki kodun sonucu nedir?",
+        "options": [
+            "NA",
+            "TRUE",
+            "FALSE",
+            "7"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "TRUE & FALSE | !FALSE\n\nYukarıdaki işlem önceliğine göre R konsolunda hangi sonucu verir?",
+        "options": [
+            "Error",
+            "NA",
+            "TRUE",
+            "FALSE"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "sayilar <- 10:15\n(10 %in% sayilar) & (16 %in% sayilar)\n\nBu kodun çalıştırılması sonucunda ne elde edilir?",
+        "options": [
+            "TRUE",
+            "10 16",
+            "NA",
+            "FALSE"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "a <- 4\nb <- 2\n(a / b == 2) & (a %/% b == 2) & (a %% b == 0)\n\nYukarıdaki matematik ve karşılaştırma operatörlerinin birleştiği kodun sonucu nedir?",
+        "options": [
+            "TRUE",
+            "FALSE",
+            "0",
+            "2"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "(!TRUE == FALSE) & !(TRUE == FALSE)\n\nYukarıdaki mantıksal sorgunun çıktısı nedir?",
+        "options": [
+            "NA",
+            "Syntax Error",
+            "TRUE",
+            "FALSE"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "x <- 5\n(x < 3) | (x > 10) | !(x == 5)\n\nYukarıdaki üçlü VEYA (|) zincirinin nihai çıktısı nedir?",
+        "options": [
+            "FALSE",
+            "NA",
+            "5",
+            "TRUE"
+        ],
+        "correct_option": 0
+    }
+]

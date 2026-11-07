@@ -12,70 +12,70 @@
     {
         "question": "R'da iki sayıyı çarpmak için hangi operatör kullanılır?",
         "options": [
-            "x",
+            "%%",
             "*",
             "^",
-            "%%"
+            "x"
         ],
         "correct_option": 1
     },
     {
         "question": "R'da bir sayının üssünü (kuvvetini) almak için hangi operatör veya operatörler kullanılabilir?",
         "options": [
-            "Sadece ^",
             "Sadece **",
-            "Hem ^ hem de **",
-            "//"
+            "//",
+            "Sadece ^",
+            "Hem ^ hem de **"
         ],
-        "correct_option": 2
+        "correct_option": 3
     },
     {
         "question": "R'da 2 * 8 + 6 işleminin sonucu nedir?",
         "options": [
             "28",
             "22",
-            "16",
-            "32"
+            "32",
+            "16"
         ],
         "correct_option": 1
     },
     {
         "question": "Matematiksel işlemlerde işlem önceliğini değiştirmek için hangi işaret kullanılır?",
         "options": [
-            "Kutu Parantez [ ]",
-            "Normal Parantez ( )",
             "Süslü Parantez { }",
-            "Tırnak İşareti \" \""
+            "Normal Parantez ( )",
+            "Tırnak İşareti \" \"",
+            "Kutu Parantez [ ]"
         ],
         "correct_option": 1
     },
     {
         "question": "R'da '%/%' operatörü ne işe yarar?",
         "options": [
-            "Bölme işleminde sadece kalanı verir.",
-            "Bölme işleminde kalanı atarak tam sonucu (bölümü) verir.",
             "İki sayının yüzdesini alır.",
-            "Üs alma işlemini yapar."
-        ],
-        "correct_option": 1
-    },
-    {
-        "question": "T + 2 işleminin R'daki sonucu aşağıdakilerden hangisidir? (Varsayılan ayarlarda)",
-        "options": [
-            "Hata verir",
-            "T2",
-            "3",
-            "2"
+            "Üs alma işlemini yapar.",
+            "Bölme işleminde kalanı atarak tam sonucu (bölümü) verir.",
+            "Bölme işleminde sadece kalanı verir."
         ],
         "correct_option": 2
     },
     {
+        "question": "T + 2 işleminin R'daki sonucu aşağıdakilerden hangisidir? (Varsayılan ayarlarda)",
+        "options": [
+            "2",
+            "T2",
+            "Hata verir",
+            "3"
+        ],
+        "correct_option": 3
+    },
+    {
         "question": "a <- 10\na %% 3\n\nYukarıdaki kodun çıktısı nedir?",
         "options": [
+            "0",
             "3.33",
-            "3",
             "1",
-            "0"
+            "3"
         ],
         "correct_option": 2
     },
@@ -92,11 +92,11 @@
     {
         "question": "2 * ( 8 + 1 ) işleminin sonucu nedir?",
         "options": [
-            "17",
             "18",
-            "26",
-            "10"
+            "17",
+            "10",
+            "26"
         ],
-        "correct_option": 1
+        "correct_option": 0
     }
 ]

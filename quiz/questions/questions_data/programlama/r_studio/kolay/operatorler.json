@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "R dilinde iki değerin birbirine eşit olup olmadığını kontrol etmek (karşılaştırma yapmak) için hangi operatör kullanılır?",
+        "options": [
+            "==",
+            "=",
+            "<-",
+            "equals()"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "R dilinde 'Eşit değildir' (Not equal) operatörü aşağıdakilerden hangisidir?",
+        "options": [
+            "<>",
+            "!==",
+            "!= ",
+            "NOT="
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "İlişkisel (karşılaştırma) operatörleri çalıştırıldığında her zaman hangi türde bir sonuç döndürür?",
+        "options": [
+            "Metinsel bir değer (Character)",
+            "Mantıksal bir değer (TRUE veya FALSE)",
+            "Hata mesajı",
+            "Sayısal bir değer (Numeric)"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "kilo <- 70\nhedef_kilo <- 75\nkilo < hedef_kilo\n\nYukarıdaki kodun R konsolundaki çıktısı ne olur?",
+        "options": [
+            "5",
+            "FALSE",
+            "-5",
+            "TRUE"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "R'da 'VE' (AND) mantıksal operatörü hangi sembol ile gösterilir?",
+        "options": [
+            "&",
+            "+",
+            "&&&",
+            "AND"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "R'da 'VEYA' (OR) mantıksal operatörü hangi sembol ile gösterilir?",
+        "options": [
+            "|",
+            "/",
+            "OR",
+            "|||"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Çıkan mantıksal sonucu tam tersine çeviren (NOT - DEĞİL) operatörü aşağıdakilerden hangisidir?",
+        "options": [
+            "~",
+            "-",
+            "!",
+            "?"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "R dilinde 1'den 10'a kadar olan tam sayıları tek tek yazmak yerine hızlıca bir seri/dizi olarak üretmek için hangi operatör kullanılır?",
+        "options": [
+            "--",
+            "->",
+            ":",
+            ".."
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Bir değerin bir listenin veya vektörün içinde olup olmadığını hızlıca sorgulamak için hangi özel operatör kullanılır?",
+        "options": [
+            "%inside%",
+            "%contains%",
+            "%has%",
+            "%in%"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "!( 5 > 3 )\n\nYukarıdaki ifadenin R konsolundaki çıktısı nedir?",
+        "options": [
+            "2",
+            "FALSE",
+            "Hata verir",
+            "TRUE"
+        ],
+        "correct_option": 1
+    }
+]

@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "x <- c(1, 2, 3)\ny <- c(10, 20, 30)\nz <- (x + y) * 2\nz[2]\n\nYukarıdaki kod parçasının çıktısı nedir?",
+        "options": [
+            "22",
+            "44",
+            "24",
+            "40"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "a <- c(TRUE, FALSE, TRUE)\nb <- c(10, 20, 30)\nsum(a * b)\n\nYukarıdaki işlemin sonucu nedir?",
+        "options": [
+            "40",
+            "20",
+            "Hata verir, mantıksal değerle sayı çarpılamaz",
+            "60"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "tekrar <- rep(c(1, 2), times = 3)\ntekrar[4]\n\nYukarıdaki kod parçasında tekrar vektörünün 4. elemanı kaçtır?",
+        "options": [
+            "2",
+            "1",
+            "3",
+            "4"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "notlar <- c(Mat = 90, Fizik = 80, Kimya = 70)\nnames(notlar)[2]\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "Fizik = 80",
+            "\"Mat\"",
+            "80",
+            "\"Fizik\""
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "v <- c(\"5\", 10, TRUE)\nclass(v[2])\n\nCoercion kuralına göre v[2] elemanının sınıfı (class) nedir?",
+        "options": [
+            "\"logical\"",
+            "\"numeric\"",
+            "\"integer\"",
+            "\"character\""
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "sayilar <- seq(1, 10, by = 3)\nsum(sayilar)\n\nYukarıdaki işlemin sonucu nedir?",
+        "options": [
+            "25",
+            "15",
+            "22",
+            "18"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "x <- c(10, 20, 30, 40)\nx[c(4, 1)]\n\nYukarıdaki indekslemenin çıktısı nedir?",
+        "options": [
+            "Hata verir, indeksler küçükten büyüğe olmalıdır",
+            "10 20 30 40",
+            "10 40",
+            "40 10"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "f <- factor(c(\"A\", \"B\", \"A\"))\nclass(levels(f))\n\nBir faktörün seviyelerini (levels) döndüren fonksiyonun çıktı tipi nedir?",
+        "options": [
+            "\"factor\"",
+            "\"numeric\"",
+            "\"character\"",
+            "\"levels\""
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "v <- c(2, 4, 6)\nsum(v > 3)\n\nR dilinde karşılaştırma operatörlerinin vektörel çalışması ve TRUE=1 kuralına göre yukarıdaki işlemin sonucu nedir?",
+        "options": [
+            "2",
+            "1",
+            "TRUE",
+            "10"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "a <- 10; b <- 20; c <- 30\nrm(a, b)\nlength(ls())\n\nYukarıdaki komutlar çalıştırıldıktan sonra ortamda kalan nesne sayısı nedir?",
+        "options": [
+            "2",
+            "1",
+            "3",
+            "0"
+        ],
+        "correct_option": 1
+    }
+]

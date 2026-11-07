@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "R dilinde birden fazla veriyi birleştirip tek bir vektör oluşturmak için hangi fonksiyon kullanılır?",
+        "options": [
+            "list()",
+            "vector()",
+            "combine()",
+            "c()"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "Vektör oluşturmak için kullanılan c() fonksiyonunun ismi İngilizce hangi kelimenin baş harfinden gelmektedir?",
+        "options": [
+            "character (karakter)",
+            "collect (topla)",
+            "combine (birleştir)",
+            "create (oluştur)"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "R dilinde vektör indeksleri (eleman sayımı) kaçtan başlar?",
+        "options": [
+            "0'dan",
+            "Değişkene göre değişir",
+            "1'den",
+            "-1'den"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Uyeler <- c(\"Orcun\", \"Furkan\", \"Ahmet\")\n\nYukarıdaki vektörün ilk elemanını (\"Orcun\") çağırmak için hangi kod kullanılır?",
+        "options": [
+            "Uyeler.first()",
+            "Uyeler[1]",
+            "Uyeler[[0]]",
+            "Uyeler[0]"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "R'da bir vektörün içindeki elemanların türleri ile ilgili altın kural nedir?",
+        "options": [
+            "Vektörler en fazla 5 eleman içerebilir.",
+            "Her eleman farklı bir veri tipinde olmak zorundadır.",
+            "Vektörler sadece metin verisi tutabilir.",
+            "Tüm elemanlar kesinlikle aynı veri tipinde olmak zorundadır."
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "rep(\"Kratos\", times = 3)\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "\"Kratos\" \"Kratos\" \"Kratos\"",
+            "Hata verir",
+            "3",
+            "\"Kratos 3\""
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "seq(from = 10, to = 30, by = 10)\n\nYukarıdaki kodun çıktısı aşağıdakilerden hangisidir?",
+        "options": [
+            "20",
+            "10 20 30",
+            "10 11 12 ... 30",
+            "10 30"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Bir sayısal vektörün içindeki tüm elemanların toplamını alan R fonksiyonu hangisidir?",
+        "options": [
+            "sum()",
+            "total()",
+            "add()",
+            "count()"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Bir sayısal vektörün ortalamasını hesaplamak için kullanılan fonksiyon hangisidir?",
+        "options": [
+            "mean()",
+            "average()",
+            "avg()",
+            "median()"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "R dilinde belirli sınıflara ayrılabilen kategorik verileri tanımlamak için hangi yapı kullanılır?",
+        "options": [
+            "matrix()",
+            "category()",
+            "group()",
+            "factor()"
+        ],
+        "correct_option": 3
+    }
+]

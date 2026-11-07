@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "karisik <- c(\"Furkan\", 70, TRUE)\nclass(karisik)\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "Hata verir, karışık veri eklenemez",
+            "\"numeric\"",
+            "\"character\"",
+            "\"logical\""
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Bir vektörün içine hem sayı hem metin konulduğunda R'ın hata vermeyip tüm elemanları metne çevirmesi olayına ne ad verilir?",
+        "options": [
+            "Coercion (Zorlama/Dönüştürme)",
+            "Indexing (İndeksleme)",
+            "Factorization (Faktörleştirme)",
+            "Compilation (Derleme)"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "a <- c(2500, 2700)\nb <- c(2800, 2500)\na - b\n\nYukarıdaki vektörel çıkarma işleminin sonucu nedir?",
+        "options": [
+            "-300  200",
+            "Hata verir, vektörler birbirinden çıkarılamaz",
+            "-100",
+            "5200"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Uyeler <- c(\"Orcun\", \"Furkan\", \"Ahmet\", \"Mehmet\")\n\nBu vektörün 1. ve 3. elemanlarını aynı anda çekmek için hangi kod yazılmalıdır?",
+        "options": [
+            "Uyeler[c(1, 3)]",
+            "Uyeler[1:3]",
+            "Uyeler(1, 3)",
+            "Uyeler[1, 3]"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "guc <- c(95, 100)\nnames(guc) <- c(\"Geralt\", \"Ciri\")\nguc[\"Ciri\"]\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "95",
+            "\"Ciri\"",
+            "NA",
+            "100"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "ogunler <- factor(c(\"Aksam\", \"Sabah\", \"Ogle\", \"Sabah\", \"Aksam\"))\nlevels(ogunler)\n\nYukarıdaki kodun çıktısında kaç benzersiz kategori seviyesi (level) yer alır?",
+        "options": [
+            "2 (Sabah, Aksam)",
+            "3 (Aksam, Ogle, Sabah)",
+            "1",
+            "5"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "rm(list = ls())\n\nBu komut çalıştırıldığında RStudio'da ne gerçekleşir?",
+        "options": [
+            "Sadece en son tanımlanan vektör silinir.",
+            "Environment panelindeki tüm değişkenler silinerek hafıza tamamen temizlenir.",
+            "Tüm RStudio uygulaması fabrika ayarlarına sıfırlanır.",
+            "Yalnızca konsol ekranı temizlenir."
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "v <- c(10, 20, 30)\n\nR dilinde v[0] yazıldığında ne döner?",
+        "options": [
+            "10 (ilk eleman)",
+            "30 (son eleman)",
+            "numeric(0) (sıfır uzunluklu boş vektör)",
+            "Hata (IndexOutOfRange)"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "sayilar <- seq(from = 5, to = 25, by = 5)\n\nBu vektörün 3. elemanı hangisidir?",
+        "options": [
+            "10",
+            "25",
+            "20",
+            "15"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "x <- c(10, 20, 30)\nsum(x) == mean(x) * 3\n\nYukarıdaki sorgunun çıktısı nedir?",
+        "options": [
+            "FALSE",
+            "NA",
+            "60",
+            "TRUE"
+        ],
+        "correct_option": 3
+    }
+]
