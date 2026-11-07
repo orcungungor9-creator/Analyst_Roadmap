@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "R dilinde farklı veri tiplerini (metin, sayı, mantıksal) aynı tabloda coercion'a uğramadan tutabilen iki boyutlu yapıya ne ad verilir?",
+        "options": [
+            "Vektör (Vector)",
+            "Faktör (Factor)",
+            "Matris (Matrix)",
+            "Veri Çerçevesi (Data Frame)"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "Bir veri çerçevesindeki (data frame) belirli bir sütunu ismiyle doğrudan çağırmak için hangi operatör kullanılır?",
+        "options": [
+            "@ (Et)",
+            "& (Ve)",
+            "$ (Dolar)",
+            "# (Kare)"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "head(df) komutu varsayılan olarak tablonun ilk kaç satırını ekrana getirir?",
+        "options": [
+            "10",
+            "1",
+            "6",
+            "5"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "tail(df, n = 2) komutu çalıştırıldığında konsola ne getirilir?",
+        "options": [
+            "Tablonun 2. sütunu",
+            "Tablonun ilk 2 satırı",
+            "Tablonun 2. satırı",
+            "Tablonun son 2 satırı"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "Bir veri çerçevesinin yapısını, hangi sütunun hangi veri tipinde olduğunu gösteren komut hangisidir?",
+        "options": [
+            "str()",
+            "type()",
+            "schema()",
+            "view()"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Bir tablodan mevcut bir sütunu (örneğin 'yas' sütununu) tamamen silmek için hangi atama yapılır?",
+        "options": [
+            "df$yas <- FALSE",
+            "df$yas <- NULL",
+            "df$yas <- NA",
+            "df$yas <- 0"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Bir tabloya yeni bir sütun eklemenin en pratik yolu aşağıdakilerden hangisidir?",
+        "options": [
+            "df.add('yeni_sutun', degerler)",
+            "df$yeni_sutun <- degerler",
+            "insert(df, yeni_sutun)",
+            "df + yeni_sutun"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "RStudio'da pipe (%>%) operatörünü hızlıca yazmak için hangi klavye kısayolu kullanılır?",
+        "options": [
+            "Ctrl + Shift + M",
+            "Alt + -",
+            "Ctrl + Alt + P",
+            "Ctrl + Enter"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Bir veri çerçevesinin satır sayısını dinamik olarak doğrudan öğrenmek için hangi fonksiyon kullanılır?",
+        "options": [
+            "rows()",
+            "count()",
+            "size()",
+            "nrow()"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "attach() komutu açık bırakıldığında başka bir veri setindeki aynı isimli değişkenlerin çakışması tehlikesine ne ad verilir?",
+        "options": [
+            "Masking",
+            "Coercion",
+            "Overfitting",
+            "Indexing"
+        ],
+        "correct_option": 0
+    }
+]

@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "df <- data.frame(a = 1:5, b = c(10, 20, 30, 40, 50))\ndf$c <- df$a * 2\ndf$c[3]\n\nYukarıdaki kodun çıktısı kaçtır?",
+        "options": [
+            "6",
+            "30",
+            "3",
+            "12"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "df <- data.frame(x = c(10, 20, 30), y = c(1, 2, 3))\ndf$y <- NULL\nncol(df)\n\nYukarıdaki işlemlerden sonra ncol(df) çıktısı kaçtır?",
+        "options": [
+            "1",
+            "0",
+            "2",
+            "3"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "df <- data.frame(yas = c(25, 20, 30))\ndf[order(df$yas), \"yas\"][1]\n\nYukarıdaki kod parçasının konsol çıktısı nedir?",
+        "options": [
+            "1",
+            "30",
+            "25",
+            "20"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "makro_veri <- data.frame(Ulke = \"TR\", Yil_2024 = 4.5, Yil_2025 = 5.0)\nuzun <- makro_veri %>% pivot_longer(cols = c(Yil_2024, Yil_2025), names_to = \"Yil\", values_to = \"Oran\")\nnrow(uzun)\n\nYukarıdaki dönüşümden sonra uzun tablosunun satır sayısı (nrow) kaçtır?",
+        "options": [
+            "1",
+            "3",
+            "4",
+            "2"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "df <- data.frame(kod = c(\"A_1\", \"B_2\"))\ndf2 <- df %>% separate(col = kod, into = c(\"Harf\", \"Sayi\"), sep = \"_\")\ndf2$Harf[2]\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "\"2\"",
+            "\"B\"",
+            "\"A\"",
+            "\"B_2\""
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "df <- data.frame(puan = c(10, 20, 30, 40))\ns <- subset(df, puan > 15 & puan < 35)\nnrow(s)\n\nFiltrelenen 's' alt tablosunun satır sayısı kaçtır?",
+        "options": [
+            "1",
+            "3",
+            "2",
+            "4"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "df <- data.frame(a = c(1, 2, 3), b = c(4, 5, 6))\nnrow(df) + ncol(df)\n\nYukarıdaki işlemin sonucu kaçtır?",
+        "options": [
+            "4",
+            "5",
+            "3",
+            "6"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "df <- data.frame(ad = c(\"Ali\", \"Veli\"), aktif = c(TRUE, FALSE))\nsummary(df$aktif)\n\nYukarıdaki kodun mantıksal sütun için verdiği summary çıktısında ne yer alır?",
+        "options": [
+            "Hata verir; mantıksal sütun özetlenemez",
+            "Sadece 'character' metni",
+            "Mode: logical ve TRUE: 1, FALSE: 1 frekansları",
+            "Min, Median, Mean sayısal özetleri"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "df <- data.frame(a = 1:6)\nhead(df, n = 4)$a[4]\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "1",
+            "4",
+            "NA",
+            "6"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "df <- data.frame(x = c(5, 1, 9))\norder(df$x)\n\nYukarıdaki order() komutunun döndürdüğü indeks sıralaması nedir?",
+        "options": [
+            "1 2 3",
+            "3 1 2",
+            "1 5 9",
+            "2 1 3"
+        ],
+        "correct_option": 3
+    }
+]

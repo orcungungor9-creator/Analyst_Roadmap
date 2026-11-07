@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "summary(df$yaslar) komutunun çıktısında aşağıdaki istatistiksel özetlerden hangisi yer ALMAZ?",
+        "options": [
+            "Standart Sapma (Standard Deviation)",
+            "1. Çeyreklik (1st Qu.)",
+            "Ortalama (Mean)",
+            "Medyan (Median)"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "ekip_tablosu[order(ekip_tablosu$yaslar, decreasing = TRUE), ] kodu tabloyu nasıl sıralar?",
+        "options": [
+            "Yalnızca en yaşlı kişinin satırını getirir",
+            "Yaşlara göre küçükten büyüğe (artan)",
+            "Sütun isimlerini alfabetik tersine sıralar",
+            "Yaşlara göre büyükten küçüğe (azalan)"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "subset(ekip_tablosu, yaslar < 25 & kilolar > 80) komutu hangi satırları filtreler?",
+        "options": [
+            "Tüm tabloyu",
+            "Yaşı 25'ten küçük VEYA kilosu 80'den büyük olanları",
+            "Yaşı 25'ten küçük VE kilosu 80'den büyük olanları",
+            "Yaşı 25'ten büyük olan tüm üyeleri"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "attach(ekip_tablosu) ile açılan değişken serbestliğini kapatıp olası Masking sorununu engellemek için hangi komut kullanılır?",
+        "options": [
+            "detach(ekip_tablosu)",
+            "close(ekip_tablosu)",
+            "unattach(ekip_tablosu)",
+            "rm(ekip_tablosu)"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "ekip_tablosu$Kilolar (büyük K ile) yazıldığında R'ın konsola NULL döndürmesinin temel sebebi nedir?",
+        "options": [
+            "Kilolar sütununun boş (NA) olması",
+            "Sütunların $ ile çağrılamaması",
+            "R'ın Case Sensitive (büyük/küçük harfe duyarlı) bir dil olması",
+            "Syntax hatası vermesi"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "tidyr paketinde yer alan separate() fonksiyonunun temel görevi nedir?",
+        "options": [
+            "Tek bir sütundaki birleşik metni belirlenen bir ayraca göre iki veya daha fazla ayrı sütuna bölmek",
+            "Sayısal verileri metinden ayırmak",
+            "Tabloyu iki farklı tabloya ayırmak",
+            "Eksik verileri tablodan çıkarmak"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "tidyr paketindeki pivot_longer() fonksiyonunun temel amacı nedir?",
+        "options": [
+            "Metin sütunlarını uzatmak",
+            "Tablodaki tüm satırları sütun yapmak (transpoz)",
+            "Veriye yeni boş satırlar eklemek",
+            "Geniş formattaki sütunları satırlara dökerek tabloyu uzun formata dönüştürmek"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "dim(df) sonucu c(100, 5) olan bir tabloda dim(df)[2] neyi ifade eder?",
+        "options": [
+            "Tablodaki 2. elemanın değerini",
+            "Tablonun sütun sayısını (5)",
+            "2. satırın toplamını",
+            "Tablonun satır sayısını (100)"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Modern R kod yazımında pipe (%>%) operatörü kavramsal olarak ne anlama gelir?",
+        "options": [
+            "Tabloyu filtrelemek",
+            "'Ve sonra...' (Soldaki işlemin sonucunu bir sonraki işlemin girdisi yapmak)",
+            "İki tabloyu birbirine eşitlemek",
+            "Döngüyü durdurmak"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "R'da data.frame() ile tablo kurarken matrislerden farklı olarak ne gerçekleşmez?",
+        "options": [
+            "Sütunlar $ ile çağrılamaz.",
+            "Coercion gerçekleşmez; sayılar metne dönüşmez, her sütun kendi tipinde kalır.",
+            "İki boyutlu yapı oluşmaz.",
+            "Satır isimleri atanamaz."
+        ],
+        "correct_option": 1
+    }
+]
