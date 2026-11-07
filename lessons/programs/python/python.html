@@ -1658,6 +1658,1161 @@ model_olustur(<span class="syn-number">3</span>, <span class="syn-string">"Lojis
                     </div>
                 </div>
             </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3 class="accordion-title">17. Ders: NumPy - Matematiksel ve İstatistiksel Operasyonlar</h3>
+                    <div class="accordion-icon"><i class="ph ph-caret-down"></i></div>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Matematiksel ve İstatistiksel Operasyonlar</h4>
+                        <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Bu derste oluşturduğumuz diziler (array) üzerinde hesaplamalar yapmayı öğreneceğiz. Özellikle ekonometrik modellerin (örneğin En Küçük Kareler - EKK / OLS tahmincilerinin) arka planında yatan lineer cebir ve matris işlemleri için NumPy'ın bu özellikleri temel yapı taşıdır.</p>
+
+                        <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                            <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-function"></i> Ekonometri ve Regresyonun Kalbi: Matris Matematiği</h5>
+                            <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Klasik regresyon formüllerinde katsayı tahmini yaparken kullanılan matematiksel süreç; <strong>nokta çarpım (dot)</strong>, <strong>transpoz (T)</strong> ve <strong>ters matris (inv)</strong> işlemlerine dayanır. NumPy'ın <code>linalg</code> modülü devasa veri setlerinde bu işlemleri saniyenin küçük bir kesrinde çözer.</p>
+                        </div>
+
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">1. Temel Matematiksel İşlemler</h4>
+                        <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Klasik <code>+</code> ve <code>-</code> gibi aritmetik operatörler doğrudan çalışır. Ancak NumPy'ın kendi fonksiyonları (<code>add</code>, <code>subtract</code>, <code>multiply</code>), büyük veri setlerinde bellek yönetimi ve okunabilirlik açısından daha profesyonel bir tercihtir.</p>
+
+                        <div class="code-box"><span class="syn-kw">import</span> numpy <span class="syn-kw">as</span> np
+
+<span class="syn-fn">print</span>(<span class="syn-string">"--- 1. TEMEL MATEMATİKSEL OPERASYONLAR ---\n"</span>)
+
+<span class="syn-var">a</span> = np.<span class="syn-fn">array</span>([<span class="syn-number">1</span>, <span class="syn-number">2</span>, <span class="syn-number">3</span>])
+<span class="syn-var">b</span> = np.<span class="syn-fn">array</span>([<span class="syn-number">4</span>, <span class="syn-number">5</span>, <span class="syn-number">6</span>])
+
+<span class="syn-fn">print</span>(<span class="syn-string">f"A Dizisi: {a}"</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">f"B Dizisi: {b}\n"</span>)
+
+<span class="syn-fn">print</span>(<span class="syn-string">"Toplama (add)      :"</span>, np.<span class="syn-fn">add</span>(a, b))
+<span class="syn-comment"># Çıktı: Toplama (add)      : [5 7 9]</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">"Çıkarma (subtract) :"</span>, np.<span class="syn-fn">subtract</span>(a, b))
+<span class="syn-comment"># Çıktı: Çıkarma (subtract) : [-3 -3 -3]</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">"Çarpma (multiply)  :"</span>, np.<span class="syn-fn">multiply</span>(a, b))
+<span class="syn-comment"># Çıktı: Çarpma (multiply)  : [ 4 10 18]</span></div>
+
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">2. Lineer Cebir ve Matris İşlemleri (linalg)</h4>
+
+                        <div style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #F59E0B; padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                            <h5 style="color: #F59E0B; margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-warning"></i> Determinant Sıfır Olursa Ne Olur? (Singular Matrix)</h5>
+                            <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Bir matrisin determinantı sıfır (<code>0</code>) ise o matrisin <strong>tersi (inverse) alınamaz</strong>. Çoklu doğrusal bağlantı (Multicollinearity) durumlarında regresyon modellerinin hata vermesinin altında yatan temel matematiksel sebep de budur.</p>
+                        </div>
+
+                        <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"\n--- 2. LİNEER CEBİR (MATRİS) İŞLEMLERİ ---\n"</span>)
+
+<span class="syn-comment"># Vektörel (Nokta) Çarpım: İki dizinin matris çarpım kuralına göre çarpılıp toplanmasıdır (1*4 + 2*5 + 3*6).</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"A ve B'nin Nokta Çarpımı (dot):"</span>, np.<span class="syn-fn">dot</span>(a, b))
+<span class="syn-comment"># Çıktı: A ve B'nin Nokta Çarpımı (dot): 32</span>
+
+<span class="syn-var">A</span> = np.<span class="syn-fn">array</span>([[<span class="syn-number">1</span>, <span class="syn-number">2</span>], [<span class="syn-number">3</span>, <span class="syn-number">4</span>]])
+<span class="syn-fn">print</span>(<span class="syn-string">"\nA Matrisi:\n"</span>, A)
+<span class="syn-comment"># Çıktı:
+# [[1 2]
+#  [3 4]]</span>
+
+<span class="syn-comment"># Transpoz (T): Satırları sütun, sütunları satır yapar.</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"\nMatrisin Transpozu (A.T):\n"</span>, A.T)
+<span class="syn-comment"># Çıktı:
+# [[1 3]
+#  [2 4]]</span>
+
+<span class="syn-comment"># Determinant (det): Matrisin tersinin alınıp alınamayacağını gösteren skaler değerdir (1*4 - 2*3 = -2).</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"\nMatrisin Determinantı (linalg.det):"</span>, np.linalg.<span class="syn-fn">det</span>(A))
+<span class="syn-comment"># Çıktı: Matrisin Determinantı (linalg.det): -2.0000000000000004</span>
+
+<span class="syn-comment"># Matrisin Tersi (inv): Kendisiyle çarpıldığında birim matrisi veren matristir.</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Matrisin Tersi (linalg.inv):\n"</span>, np.linalg.<span class="syn-fn">inv</span>(A))
+<span class="syn-comment"># Çıktı:
+# [[-2.   1. ]
+#  [ 1.5 -0.5]]</span></div>
+
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">3. İleri Matematiksel Dönüşümler</h4>
+                        <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Veri setlerindeki aşırı çarpıklıkları (skewness / outliers) düzeltmek veya doğrusal olmayan ilişkileri doğrusallaştırmak için uygulanan temel matematiksel dönüşümlerdir.</p>
+
+                        <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"\n--- 3. İLERİ MATEMATİKSEL DÖNÜŞÜMLER ---\n"</span>)
+
+<span class="syn-fn">print</span>(<span class="syn-string">"A'nın Karekökü (sqrt) :"</span>, np.<span class="syn-fn">sqrt</span>(a))
+<span class="syn-comment"># Çıktı: A'nın Karekökü (sqrt) : [1.         1.41421356 1.73205081]</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">"A'nın Üssü (exp)      :"</span>, np.<span class="syn-fn">exp</span>(a))
+<span class="syn-comment"># Çıktı: A'nın Üssü (exp)      : [ 2.71828183  7.3890561  20.08553692]</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">"B'nin Doğal Logaritması (log):"</span>, np.<span class="syn-fn">log</span>(b))
+<span class="syn-comment"># Çıktı: B'nin Doğal Logaritması (log): [1.38629436 1.60943791 1.79175947]</span></div>
+
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">4. Toplulaştırma (Aggregation) ve İstatistik</h4>
+                        <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Dizinin içindeki tüm gözlemleri özetleyip tek bir istatistiksel sonuç çıkaran merkezi eğilim ve dağılım fonksiyonlarıdır.</p>
+
+                        <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"\n--- 4. İSTATİSTİKSEL VE TOPLULAŞTIRICI METODLAR ---\n"</span>)
+
+<span class="syn-comment"># Toplam, Minimum ve Maksimum:</span>
+<span class="syn-fn">print</span>(<span class="syn-string">f"A Dizisi İçin; Toplam: {a.sum()}, Min: {a.min()}, Max: {a.max()}"</span>)
+<span class="syn-comment"># Çıktı: A Dizisi İçin; Toplam: 6, Min: 1, Max: 3</span>
+
+<span class="syn-var">istatistik_dizisi</span> = np.<span class="syn-fn">array</span>([<span class="syn-number">10</span>, <span class="syn-number">20</span>, <span class="syn-number">30</span>, <span class="syn-number">40</span>, <span class="syn-number">50</span>, <span class="syn-number">60</span>])
+
+<span class="syn-fn">print</span>(<span class="syn-string">f"\nİstatistik Dizisi: {istatistik_dizisi}"</span>)
+
+<span class="syn-fn">print</span>(<span class="syn-string">"Aritmetik Ortalama (mean)    :"</span>, istatistik_dizisi.<span class="syn-fn">mean</span>())
+<span class="syn-comment"># Çıktı: Aritmetik Ortalama (mean)    : 35.0</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">"Varyans (var)                :"</span>, istatistik_dizisi.<span class="syn-fn">var</span>())
+<span class="syn-comment"># Çıktı: Varyans (var)                : 291.6666666666667</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">"Standart Sapma (std)         :"</span>, istatistik_dizisi.<span class="syn-fn">std</span>())
+<span class="syn-comment"># Çıktı: Standart Sapma (std)         : 17.07825127659933</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3 class="accordion-title">18. Ders: Pandas - Seriler, DataFrameler ve Veriyi Tanıma</h3>
+                    <div class="accordion-icon"><i class="ph ph-caret-down"></i></div>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Pandas'a Giriş: Veri Analistinin Kodlanabilir Excel'i</h4>
+                        <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Pandas, veri bilimi dünyasının gelişmiş ve kodlanabilir Excel'idir. Tablosal verileri (satırlar ve sütunlar) işlemek, filtrelemek, temizlemek ve analiz etmek için veri analistlerinin en çok başvurduğu temel kütüphanedir.</p>
+
+                        <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                            <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-table"></i> Neden Excel Yerine Pandas?</h5>
+                            <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Excel büyük dosyalarda kilitlenirken veya çökme riski taşırken; Pandas belleği (RAM) optimize ederek milyonlarca satırlık büyük veri setlerini saniyeler içinde analiz eder, tekrarlayan analizleri tek tıkla otomatikleştirir ve hata payını sıfıra indirir.</p>
+                        </div>
+
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">1. Pandas Serileri (Series)</h4>
+                        <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Seri (Series), Pandas'ın tek boyutlu veri yapısıdır. Excel'deki tek bir sütun gibi düşünülebilir. NumPy dizilerinden en büyük farkı, her verinin yanında özel bir <strong>indeks (satır etiketi)</strong> tutmasıdır.</p>
+
+                        <div class="code-box"><span class="syn-kw">import</span> pandas <span class="syn-kw">as</span> pd
+<span class="syn-kw">import</span> numpy <span class="syn-kw">as</span> np
+
+<span class="syn-fn">print</span>(<span class="syn-string">"--- 1. PANDAS SERİLERİ (SERIES) ---\n"</span>)
+
+<span class="syn-var">fiyatlar</span> = [<span class="syn-number">150</span>, <span class="syn-number">200</span>, <span class="syn-number">250</span>, <span class="syn-number">300</span>]
+<span class="syn-var">urunler</span> = [<span class="syn-string">"Elma"</span>, <span class="syn-string">"Armut"</span>, <span class="syn-string">"Muz"</span>, <span class="syn-string">"Çilek"</span>]
+
+<span class="syn-comment"># Listeyi ve özel indeksleri vererek bir Seri oluşturuyoruz:</span>
+<span class="syn-var">fiyat_serisi</span> = pd.<span class="syn-fn">Series</span>(data=fiyatlar, index=urunler)
+
+<span class="syn-fn">print</span>(<span class="syn-string">"Ürün Fiyat Serisi:\n"</span>)
+<span class="syn-fn">print</span>(fiyat_serisi)
+<span class="syn-comment"># Çıktı:
+# Elma     150
+# Armut    200
+# Muz      250
+# Çilek    300
+# dtype: int64</span>
+
+<span class="syn-comment"># İndeks etiketleriyle veriye doğrudan erişim (Tıpkı sözlükler gibi):</span>
+<span class="syn-fn">print</span>(<span class="syn-string">f"\nMuzun Fiyatı: {fiyat_serisi['Muz']} TL"</span>)
+<span class="syn-comment"># Çıktı: Muzun Fiyatı: 250 TL</span></div>
+
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">2. DataFrame (Veri Çerçevesi) Oluşturma</h4>
+                        <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">DataFrame, satır ve sütunlardan oluşan iki boyutlu (2D) bir tablo yapısıdır. Python sözlüklerini (Dictionaries) kullanarak çok kolay bir şekilde tabloya dönüştürülebilir.</p>
+
+                        <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"\n--- 2. DATAFRAME (TABLO) OLUŞTURMA ---\n"</span>)
+
+<span class="syn-var">musteri_verisi</span> = {
+    <span class="syn-string">"Musteri_ID"</span>: [<span class="syn-number">101</span>, <span class="syn-number">102</span>, <span class="syn-number">103</span>, <span class="syn-number">104</span>, <span class="syn-number">105</span>],
+    <span class="syn-string">"Isim"</span>: [<span class="syn-string">"Ahmet"</span>, <span class="syn-string">"Ayşe"</span>, <span class="syn-string">"Mehmet"</span>, <span class="syn-string">"Fatma"</span>, <span class="syn-string">"Ali"</span>],
+    <span class="syn-string">"Yas"</span>: [<span class="syn-number">25</span>, <span class="syn-number">32</span>, <span class="syn-number">45</span>, <span class="syn-number">28</span>, <span class="syn-number">50</span>],
+    <span class="syn-string">"Kredi_Skoru"</span>: [<span class="syn-number">1100</span>, <span class="syn-number">1450</span>, <span class="syn-number">900</span>, <span class="syn-number">1600</span>, <span class="syn-number">1250</span>],
+    <span class="syn-string">"Aktif_mi"</span>: [<span class="syn-kw">True</span>, <span class="syn-kw">True</span>, <span class="syn-kw">False</span>, <span class="syn-kw">True</span>, <span class="syn-kw">False</span>]
+}
+
+<span class="syn-comment"># Sözlüğü Pandas DataFrame'ine çeviriyoruz:</span>
+<span class="syn-var">df</span> = pd.<span class="syn-fn">DataFrame</span>(musteri_verisi)
+
+<span class="syn-fn">print</span>(<span class="syn-string">"Müşteri Veri Tablosu (DataFrame):\n"</span>)
+<span class="syn-fn">print</span>(df)
+<span class="syn-comment"># Çıktı:
+#    Musteri_ID    Isim  Yas  Kredi_Skoru  Aktif_mi
+# 0         101   Ahmet   25         1100      True
+# 1         102    Ayşe   32         1450      True
+# 2         103  Mehmet   45          900     False
+# 3         104   Fatma   28         1600      True
+# 4         105     Ali   50         1250     False</span></div>
+
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">3. Veriyi Tanıma ve Özetleme (Exploration)</h4>
+
+                        <div style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #F59E0B; padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                            <h5 style="color: #F59E0B; margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-magnifying-glass"></i> Keşifçi Veri Analizinin (EDA) İlk Adımı</h5>
+                            <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Binlerce veya milyonlarca satırlık bir veri seti projeye dahil edildiğinde tablo asla doğrudan ekrana yazdırılmaz. İlk olarak <code>head()</code>, <code>info()</code> ve <code>describe()</code> metodlarıyla verinin genel röntgeni çekilir.</p>
+                        </div>
+
+                        <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"\n--- 3. VERİYİ TANIMA VE ÖZETLEME ---\n"</span>)
+
+<span class="syn-comment"># 1. head(n): Tablonun ilk n satırını getirir (Varsayılan 5'tir):</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"1. Tablonun ilk 3 satırı (head):\n"</span>)
+<span class="syn-fn">print</span>(df.<span class="syn-fn">head</span>(<span class="syn-number">3</span>))
+<span class="syn-comment"># Çıktı:
+#    Musteri_ID    Isim  Yas  Kredi_Skoru  Aktif_mi
+# 0         101   Ahmet   25         1100      True
+# 1         102    Ayşe   32         1450      True
+# 2         103  Mehmet   45          900     False</span>
+
+<span class="syn-comment"># 2. tail(n): Tablonun son n satırını getirir:</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"\n2. Tablonun son 2 satırı (tail):\n"</span>)
+<span class="syn-fn">print</span>(df.<span class="syn-fn">tail</span>(<span class="syn-number">2</span>))
+<span class="syn-comment"># Çıktı:
+#    Musteri_ID   Isim  Yas  Kredi_Skoru  Aktif_mi
+# 3         104  Fatma   28         1600      True
+# 4         105    Ali   50         1250     False</span>
+
+<span class="syn-comment"># 3. shape: Tablonun boyutlarını (Satır, Sütun) Tuple olarak verir:</span>
+<span class="syn-fn">print</span>(<span class="syn-string">f"\n3. Tablo Boyutu (shape): {df.shape[0]} Satır, {df.shape[1]} Sütun"</span>)
+<span class="syn-comment"># Çıktı: 3. Tablo Boyutu (shape): 5 Satır, 5 Sütun</span>
+
+<span class="syn-comment"># 4. info(): Sütun adlarını, dolu değer sayısını ve veri tiplerini gösterir:</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"\n4. Veri Seti Bilgisi (info):\n"</span>)
+df.<span class="syn-fn">info</span>()
+<span class="syn-comment"># Çıktı:
+# &lt;class 'pandas.core.frame.DataFrame'&gt;
+# RangeIndex: 5 entries, 0 to 4
+# Data columns (total 5 columns):
+#  #   Column       Non-Null Count  Dtype 
+# ---  ------       --------------  ----- 
+#  0   Musteri_ID   5 non-null      int64 
+#  1   Isim         5 non-null      object
+#  2   Yas          5 non-null      int64 
+#  3   Kredi_Skoru  5 non-null      int64 
+#  4   Aktif_mi     5 non-null      bool  
+# dtypes: bool(1), int64(3), object(1)
+# memory usage: 293.0+ bytes</span>
+
+<span class="syn-comment"># 5. describe(): Sayısal sütunların temel istatistiklerini hesaplar:</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"\n5. Tanımlayıcı İstatistikler (describe):\n"</span>)
+<span class="syn-fn">print</span>(df.<span class="syn-fn">describe</span>())
+<span class="syn-comment"># Çıktı:
+#        Musteri_ID        Yas  Kredi_Skoru
+# count    5.000000   5.000000     5.000000
+# mean   103.000000  36.000000  1260.000000
+# std      1.581139  10.747093   270.185122
+# min    101.000000  25.000000   900.000000
+# 25%    102.000000  28.000000  1100.000000
+# 50%    103.000000  32.000000  1250.000000
+# 75%    104.000000  45.000000  1450.000000
+# max    105.000000  50.000000  1600.000000</span></div>
+
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">4. Dışarıdan Veri Okuma (CSV ve Excel)</h4>
+                        <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Gerçek iş senaryolarında veriler elle girilmez; dosya sistemlerinden veya veri tabanlarından çekilir. Pandas, bu kaynakları tek satırda DataFrame'e dönüştürür.</p>
+
+                        <div class="code-box"><span class="syn-comment"># 1. CSV Dosyası Okuma:</span>
+<span class="syn-comment"># satis_verisi = pd.read_csv("satislar_2026.csv")</span>
+
+<span class="syn-comment"># 2. Excel Dosyası Okuma:</span>
+<span class="syn-comment"># musteri_verisi = pd.read_excel("musteriler.xlsx", sheet_name="Sayfa1")</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">"pd.read_csv() ve pd.read_excel() komutları ile dış dosyalar saniyeler içinde tabloya dönüştürülür."</span>)
+<span class="syn-comment"># Çıktı: pd.read_csv() ve pd.read_excel() komutları ile dış dosyalar saniyeler içinde tabloya dönüştürülür.</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3 class="accordion-title">19. Ders: Pandas - Veri Seçimi, İndeksleme ve Filtreleme</h3>
+                    <div class="accordion-icon"><i class="ph ph-caret-down"></i></div>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Veri Seçimi, İndeksleme ve Filtreleme</h4>
+                        <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Bir veri setini okuduktan sonra genellikle tablonun tamamına değil, analiz etmek istediğimiz spesifik satır ve sütunlara odaklanırız. Veri temizleme, hedef kitle filtreleme ve öznitelik mühendisliği süreçlerinde veri seçimi en kritik beceridir.</p>
+
+                        <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                            <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-cursor-click"></i> loc ve iloc Arasındaki Kritik Fark</h5>
+                            <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);"><strong>loc (Label-based):</strong> Satır ve sütunların <u>isimlerine (etiketlerine)</u> bakar. Dilimleme yapıldığında bitiş değeri <strong>dahildir</strong>.<br><strong>iloc (Integer Position-based):</strong> Tıpkı klasik Python listeleri gibi satır ve sütunların <u>sıra numaralarına (0, 1, 2...)</u> bakar. Dilimleme yapıldığında bitiş değeri <strong>dahil değildir</strong>.</p>
+                        </div>
+
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">1. Sütun Seçimi ve Yeni Sütun Oluşturma</h4>
+
+                        <div class="code-box"><span class="syn-kw">import</span> pandas <span class="syn-kw">as</span> pd
+
+<span class="syn-comment"># Örnek çalışan veri setimizi oluşturalım:</span>
+<span class="syn-var">veri</span> = {
+    <span class="syn-string">"Calisan_ID"</span>: [<span class="syn-number">1001</span>, <span class="syn-number">1002</span>, <span class="syn-number">1003</span>, <span class="syn-number">1004</span>, <span class="syn-number">1005</span>],
+    <span class="syn-string">"Isim"</span>: [<span class="syn-string">"Orçun"</span>, <span class="syn-string">"Zeynep"</span>, <span class="syn-string">"Ali"</span>, <span class="syn-string">"Ayşe"</span>, <span class="syn-string">"Mehmet"</span>],
+    <span class="syn-string">"Departman"</span>: [<span class="syn-string">"Veri Bilimi"</span>, <span class="syn-string">"Pazarlama"</span>, <span class="syn-string">"IT"</span>, <span class="syn-string">"Veri Bilimi"</span>, <span class="syn-string">"IT"</span>],
+    <span class="syn-string">"Maas"</span>: [<span class="syn-number">85000</span>, <span class="syn-number">45000</span>, <span class="syn-number">60000</span>, <span class="syn-number">95000</span>, <span class="syn-number">55000</span>],
+    <span class="syn-string">"Deneyim_Yil"</span>: [<span class="syn-number">3</span>, <span class="syn-number">1</span>, <span class="syn-number">4</span>, <span class="syn-number">5</span>, <span class="syn-number">2</span>]
+}
+<span class="syn-var">df</span> = pd.<span class="syn-fn">DataFrame</span>(veri)
+
+<span class="syn-fn">print</span>(<span class="syn-string">"--- 1. SÜTUN İŞLEMLERİ ---\n"</span>)
+
+<span class="syn-comment"># Tek bir sütun seçmek (Sonuç bir Pandas Serisi döner):</span>
+<span class="syn-var">isimler</span> = df[<span class="syn-string">"Isim"</span>]
+<span class="syn-fn">print</span>(<span class="syn-string">"Sadece İsimler Sütunu:\n"</span>, isimler, <span class="syn-string">"\n"</span>)
+<span class="syn-comment"># Çıktı:
+# 0     Orçun
+# 1    Zeynep
+# 2       Ali
+# 3      Ayşe
+# 4    Mehmet
+# Name: Isim, dtype: object</span>
+
+<span class="syn-comment"># Birden fazla sütun seçmek (Çift [[]] ile liste verilir):</span>
+<span class="syn-var">secili_sutunlar</span> = df[[<span class="syn-string">"Isim"</span>, <span class="syn-string">"Maas"</span>, <span class="syn-string">"Departman"</span>]]
+<span class="syn-fn">print</span>(<span class="syn-string">"Birden Fazla Sütun Seçimi:\n"</span>, secili_sutunlar, <span class="syn-string">"\n"</span>)
+<span class="syn-comment"># Çıktı:
+#      Isim   Maas    Departman
+# 0   Orçun  85000  Veri Bilimi
+# 1  Zeynep  45000    Pazarlama
+# 2     Ali  60000           IT
+# 3    Ayşe  95000  Veri Bilimi
+# 4  Mehmet  55000           IT</span>
+
+<span class="syn-comment"># Yeni Sütun Ekleme (%10 zamlı maaş sütunu):</span>
+df[<span class="syn-string">"Zamli_Maas"</span>] = df[<span class="syn-string">"Maas"</span>] * <span class="syn-number">1.10</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Yeni 'Zamli_Maas' sütunu eklendikten sonra:\n"</span>, df.<span class="syn-fn">head</span>(<span class="syn-number">3</span>), <span class="syn-string">"\n"</span>)
+<span class="syn-comment"># Çıktı:
+#    Calisan_ID    Isim    Departman   Maas  Deneyim_Yil  Zamli_Maas
+# 0        1001   Orçun  Veri Bilimi  85000            3     93500.0
+# 1        1002  Zeynep    Pazarlama  45000            1     49500.0
+# 2        1003     Ali           IT  60000            4     66000.0</span></div>
+
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">2. loc ve iloc ile Satır / Sütun İndeksleme</h4>
+
+                        <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"--- 2. LOC VE ILOC İLE İNDEKSLEME ---\n"</span>)
+
+<span class="syn-comment"># iloc: Pozisyon (sıra numarası) ile seçim [satır_sırası, sütun_sırası]</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"iloc: İlk 2 satır ve ilk 3 sütun:"</span>)
+<span class="syn-fn">print</span>(df.iloc[<span class="syn-number">0</span>:<span class="syn-number">2</span>, <span class="syn-number">0</span>:<span class="syn-number">3</span>], <span class="syn-string">"\n"</span>)
+<span class="syn-comment"># Çıktı:
+#    Calisan_ID    Isim    Departman
+# 0        1001   Orçun  Veri Bilimi
+# 1        1002  Zeynep    Pazarlama</span>
+
+<span class="syn-comment"># loc: İsim/Etiket ile seçim [satır_etiketi, sütun_etiketi] (Bitiş dahildir)</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"loc: 1'den 3'e kadar olan satırlar ve sadece 'Isim' ile 'Departman':"</span>)
+<span class="syn-fn">print</span>(df.loc[<span class="syn-number">1</span>:<span class="syn-number">3</span>, [<span class="syn-string">"Isim"</span>, <span class="syn-string">"Departman"</span>]], <span class="syn-string">"\n"</span>)
+<span class="syn-comment"># Çıktı:
+#      Isim    Departman
+# 1  Zeynep    Pazarlama
+# 2     Ali           IT
+# 3    Ayşe  Veri Bilimi</span></div>
+
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">3. Koşullu Veri Filtreleme</h4>
+
+                        <div style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #F59E0B; padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                            <h5 style="color: #F59E0B; margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-warning"></i> Pandas'ta 'and' ve 'or' Kullanılmaz!</h5>
+                            <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Pandas serilerinde mantıksal sorgu kurarken Python'ın klasik <code>and</code> ve <code>or</code> kelimeleri yerine <strong><code>&</code> (Ve)</strong> ve <strong><code>|</code> (Veya)</strong> sembolleri kullanılır. Ayrıca her koşul mutlaka ayrı <strong>parantez <code>()</code></strong> içine alınmalıdır.</p>
+                        </div>
+
+                        <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"--- 3. KOŞULLU VERİ FİLTRELEME ---\n"</span>)
+
+<span class="syn-comment"># 1. Tek Şartlı Filtreleme: Maaşı 60.000'den yüksek olanlar</span>
+<span class="syn-var">yuksek_maaslilar</span> = df[df[<span class="syn-string">"Maas"</span>] > <span class="syn-number">60000</span>]
+<span class="syn-fn">print</span>(<span class="syn-string">"Maaşı 60.000'den yüksek olanlar:\n"</span>, yuksek_maaslilar, <span class="syn-string">"\n"</span>)
+<span class="syn-comment"># Çıktı:
+#    Calisan_ID   Isim    Departman   Maas  Deneyim_Yil  Zamli_Maas
+# 0        1001  Orçun  Veri Bilimi  85000            3     93500.0
+# 3        1004   Ayşe  Veri Bilimi  95000            5    104500.0</span>
+
+<span class="syn-comment"># 2. Çok Şartlı Filtreleme (& - Ve): Departmanı 'Veri Bilimi' OLAN VE Deneyimi >= 3 yıl olanlar</span>
+<span class="syn-var">veri_bilimciler</span> = df[(df[<span class="syn-string">"Departman"</span>] == <span class="syn-string">"Veri Bilimi"</span>) & (df[<span class="syn-string">"Deneyim_Yil"</span>] >= <span class="syn-number">3</span>)]
+<span class="syn-fn">print</span>(<span class="syn-string">"Kıdemli Veri Bilimciler:\n"</span>, veri_bilimciler, <span class="syn-string">"\n"</span>)
+<span class="syn-comment"># Çıktı:
+#    Calisan_ID   Isim    Departman   Maas  Deneyim_Yil  Zamli_Maas
+# 0        1001  Orçun  Veri Bilimi  85000            3     93500.0
+# 3        1004   Ayşe  Veri Bilimi  95000            5    104500.0</span>
+
+<span class="syn-comment"># 3. Çok Şartlı Filtreleme (| - Veya): Departmanı 'IT' OLAN VEYA Maaşı < 50.000 olanlar</span>
+<span class="syn-var">karma_sorgu</span> = df[(df[<span class="syn-string">"Departman"</span>] == <span class="syn-string">"IT"</span>) | (df[<span class="syn-string">"Maas"</span>] < <span class="syn-number">50000</span>)]
+<span class="syn-fn">print</span>(<span class="syn-string">"IT çalışanları veya düşük maaşlılar:\n"</span>, karma_sorgu, <span class="syn-string">"\n"</span>)
+<span class="syn-comment"># Çıktı:
+#    Calisan_ID    Isim  Departman   Maas  Deneyim_Yil  Zamli_Maas
+# 1        1002  Zeynep  Pazarlama  45000            1     49500.0
+# 2        1003     Ali         IT  60000            4     66000.0
+# 4        1005  Mehmet         IT  55000            2     60500.0</span></div>
+
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">4. Sütun / Satır Silme ve İsim Değiştirme</h4>
+                        <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><code>drop()</code> metodu varsayılan olarak orijinal tabloyu bozmaz, geçici bir kopya döndürür. Değişikliğin kalıcı olması için <strong><code>inplace=True</code></strong> kullanılır veya tablo yeniden değişkene atanır. <code>axis=1</code> sütunları, <code>axis=0</code> satırları temsil eder.</p>
+
+                        <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"--- 4. SİLME VE İSİM DEĞİŞTİRME İŞLEMLERİ ---\n"</span>)
+
+<span class="syn-comment"># drop() ile sütun silme (axis=1 sütun, inplace=True kalıcı işlem):</span>
+df.<span class="syn-fn">drop</span>(<span class="syn-string">"Zamli_Maas"</span>, axis=<span class="syn-number">1</span>, inplace=<span class="syn-kw">True</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">"'Zamli_Maas' kalıcı olarak silindi:\n"</span>, df.<span class="syn-fn">head</span>(<span class="syn-number">2</span>), <span class="syn-string">"\n"</span>)
+<span class="syn-comment"># Çıktı:
+#    Calisan_ID    Isim    Departman   Maas  Deneyim_Yil
+# 0        1001   Orçun  Veri Bilimi  85000            3
+# 1        1002  Zeynep    Pazarlama  45000            1</span>
+
+<span class="syn-comment"># Sütun İsimlerini Değiştirme (rename):</span>
+df.<span class="syn-fn">rename</span>(columns={<span class="syn-string">"Isim"</span>: <span class="syn-string">"Ad_Soyad"</span>, <span class="syn-string">"Deneyim_Yil"</span>: <span class="syn-string">"Kidem"</span>}, inplace=<span class="syn-kw">True</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">"Sütun isimleri güncellendi:\n"</span>, df.<span class="syn-fn">head</span>(<span class="syn-number">2</span>))
+<span class="syn-comment"># Çıktı:
+#    Calisan_ID Ad_Soyad    Departman   Maas  Kidem
+# 0        1001    Orçun  Veri Bilimi  85000      3
+# 1        1002   Zeynep    Pazarlama  45000      1</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3 class="accordion-title">20. Ders: Pandas - Veri Temizleme ve Düzenleme</h3>
+                    <div class="accordion-icon"><i class="ph ph-caret-down"></i></div>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Veri Temizleme ve Ön İşleme (Data Cleaning & Preprocessing)</h4>
+                        <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Gerçek hayattaki ham veriler nadiren analize hazır ve mükemmeldir. İçinde eksik (null / NaN) kısımlar, tekrar eden (mükerrer) satırlar, yanlış yazılmış metinler ve hatalı veri tipleri barındırır. Veri bilimcilerin zamanının yaklaşık %80'ini harcadığı en kritik aşama <strong>veri temizleme</strong> sürecidir.</p>
+
+                        <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                            <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-wrench"></i> dropna() mı, fillna() mı?</h5>
+                            <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Eksik satırları doğrudan <code>dropna()</code> ile silmek ciddi veri kaybına ve örneklem yanlılığına (bias) yol açabilir. Bunun yerine sayısal verilerde ortalama (<code>mean</code>) veya medyan, kategorik verilerde ise mod (en sık geçen değer) ile <code>fillna()</code> uygulamak endüstri standardıdır.</p>
+                        </div>
+
+                        <div class="code-box"><span class="syn-kw">import</span> pandas <span class="syn-kw">as</span> pd
+<span class="syn-kw">import</span> numpy <span class="syn-kw">as</span> np
+
+<span class="syn-comment"># İçinde kasten yapılmış yapısal hatalar ve eksikler barındıran kirli veri seti:</span>
+<span class="syn-var">kirli_veri</span> = {
+    <span class="syn-string">"Musteri_ID"</span>: [<span class="syn-number">101</span>, <span class="syn-number">102</span>, <span class="syn-number">103</span>, <span class="syn-number">104</span>, <span class="syn-number">104</span>, <span class="syn-number">106</span>, <span class="syn-number">107</span>], <span class="syn-comment"># 104 iki kez yazılmış (Kopya)</span>
+    <span class="syn-string">"Isim"</span>: [<span class="syn-string">" orçun "</span>, <span class="syn-string">"Ayşe"</span>, <span class="syn-string">"MEHMET"</span>, <span class="syn-string">"Ali"</span>, <span class="syn-string">"Ali"</span>, <span class="syn-string">"Zeynep"</span>, np.nan], <span class="syn-comment"># Boşluk ve NaN hataları</span>
+    <span class="syn-string">"Yas"</span>: [<span class="syn-number">20</span>, <span class="syn-number">25</span>, np.nan, <span class="syn-number">30</span>, <span class="syn-number">30</span>, <span class="syn-number">28</span>, <span class="syn-number">35</span>], <span class="syn-comment"># Yaş sütununda eksik (NaN) var</span>
+    <span class="syn-string">"Maas"</span>: [<span class="syn-string">"85000"</span>, <span class="syn-string">"45000"</span>, <span class="syn-string">"60000"</span>, <span class="syn-string">"95000"</span>, <span class="syn-string">"95000"</span>, np.nan, <span class="syn-string">"75000"</span>] <span class="syn-comment"># Maaşlar metin (str) olarak girilmiş!</span>
+}
+<span class="syn-var">df</span> = pd.<span class="syn-fn">DataFrame</span>(kirli_veri)
+
+<span class="syn-fn">print</span>(<span class="syn-string">"--- 0. HAM (KİRLİ) VERİ SETİ ---\n"</span>)
+<span class="syn-fn">print</span>(df)
+<span class="syn-comment"># Çıktı:
+#    Musteri_ID     Isim   Yas    Maas
+# 0         101   orçun   20.0   85000
+# 1         102     Ayşe  25.0   45000
+# 2         103   MEHMET   NaN   60000
+# 3         104      Ali  30.0   95000
+# 4         104      Ali  30.0   95000
+# 5         106   Zeynep  28.0     NaN
+# 6         107      NaN  35.0   75000</span></div>
+
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">1. Eksik Verileri (NaN) Tespit Etme ve Çözme</h4>
+
+                        <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"\n--- 1. EKSİK VERİ (MISSING VALUE) YÖNETİMİ ---\n"</span>)
+
+<span class="syn-comment"># Hangi sütunda kaç tane boş (eksik) veri olduğunu tespit etme:</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Eksik Veri Sayısı:\n"</span>, df.<span class="syn-fn">isnull</span>().<span class="syn-fn">sum</span>(), <span class="syn-string">"\n"</span>)
+<span class="syn-comment"># Çıktı:
+# Musteri_ID    0
+# Isim          1
+# Yas           1
+# Maas          1
+# dtype: int64</span>
+
+<span class="syn-comment"># ÇÖZÜM A: Eksik satırları tamamen silmek (Veri kaybına yol açar):</span>
+<span class="syn-var">temiz_df</span> = df.<span class="syn-fn">dropna</span>()
+<span class="syn-fn">print</span>(<span class="syn-string">"A. İçinde eksik olan tüm satırlar silinirse:\n"</span>, temiz_df, <span class="syn-string">"\n"</span>)
+<span class="syn-comment"># Çıktı:
+#    Musteri_ID     Isim   Yas   Maas
+# 0         101   orçun   20.0  85000
+# 1         102     Ayşe  25.0  45000
+# 3         104      Ali  30.0  95000
+# 4         104      Ali  30.0  95000</span>
+
+<span class="syn-comment"># ÇÖZÜM B: Eksik verileri ortalama ile doldurmak (Tavsiye Edilen):</span>
+<span class="syn-var">yas_ortalamasi</span> = df[<span class="syn-string">"Yas"</span>].<span class="syn-fn">mean</span>()
+df[<span class="syn-string">"Yas"</span>].<span class="syn-fn">fillna</span>(yas_ortalamasi, inplace=<span class="syn-kw">True</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">f"B. Yaş ortalaması ({yas_ortalamasi}) ile eksikler dolduruldu:\n"</span>, df[<span class="syn-string">"Yas"</span>], <span class="syn-string">"\n"</span>)
+<span class="syn-comment"># Çıktı:
+# 0    20.0
+# 1    25.0
+# 2    28.0
+# 3    30.0
+# 4    30.0
+# 5    28.0
+# 6    35.0
+# Name: Yas, dtype: float64</span></div>
+
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">2. Tekrar Eden (Kopya) Kayıtları Silme</h4>
+
+                        <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"--- 2. KOPYA (DUPLICATE) VERİ TEMİZLİĞİ ---\n"</span>)
+
+<span class="syn-comment"># Hangi satırların birebir kopya olduğunu bulma:</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Hangi satırlar kopya? (True olanlar):\n"</span>, df.<span class="syn-fn">duplicated</span>())
+<span class="syn-comment"># Çıktı: 4. satır True döner (3. satırın kopyası)</span>
+
+<span class="syn-comment"># Kopya satırları kalıcı olarak temizleme:</span>
+df.<span class="syn-fn">drop_duplicates</span>(inplace=<span class="syn-kw">True</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">"\nKopyalar silindikten sonra veri:\n"</span>, df)
+<span class="syn-comment"># Çıktı:
+#    Musteri_ID     Isim   Yas    Maas
+# 0         101   orçun   20.0   85000
+# 1         102     Ayşe  25.0   45000
+# 2         103   MEHMET  28.0   60000
+# 3         104      Ali  30.0   95000
+# 5         106   Zeynep  28.0     NaN
+# 6         107      NaN  35.0   75000</span></div>
+
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">3. Metin (String) Manipülasyonu ve Temizliği</h4>
+                        <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Pandas'ta metin işlemlerini bir sütunun tamamına döngü kurmadan uygulamak için <strong><code>.str</code></strong> ön eki kullanılır. Baş ve sondaki boşlukları kırpmak için <code>strip()</code>, baş harfleri büyütmek için <code>title()</code> zincirlenebilir.</p>
+
+                        <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"\n--- 3. METİN (STRING) DÜZELTMELERİ ---\n"</span>)
+
+df[<span class="syn-string">"Isim"</span>] = df[<span class="syn-string">"Isim"</span>].str.<span class="syn-fn">strip</span>().str.<span class="syn-fn">title</span>()
+<span class="syn-fn">print</span>(<span class="syn-string">"Düzeltilmiş İsimler:\n"</span>, df[<span class="syn-string">"Isim"</span>])
+<span class="syn-comment"># Çıktı:
+# 0     Orçun
+# 1      Ayşe
+# 2    Mehmet
+# 3       Ali
+# 5    Zeynep
+# 6       NaN
+# Name: Isim, dtype: object</span></div>
+
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">4. Veri Tipi Dönüşümü (Type Casting - astype)</h4>
+
+                        <div style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #F59E0B; padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                            <h5 style="color: #F59E0B; margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-warning"></i> Tip Dönüşümü Öncesi NaN Kontrolü</h5>
+                            <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Metin olarak kalmış sayısal bir sütunu (örneğin <code>"85000"</code>) <code>astype()</code> ile sayıya çevirmeden önce içerisindeki <code>NaN</code> değerlerini temizlemeli veya doldurmalısınız; aksi takdirde Python <code>ValueError</code> hatası verir.</p>
+                        </div>
+
+                        <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"\n--- 4. VERİ TİPİ DÖNÜŞÜMÜ (ASTYPE) ---\n"</span>)
+
+df[<span class="syn-string">"Maas"</span>].<span class="syn-fn">fillna</span>(<span class="syn-number">0</span>, inplace=<span class="syn-kw">True</span>) <span class="syn-comment"># Eksik maaşı sıfır yaptık</span>
+df[<span class="syn-string">"Maas"</span>] = df[<span class="syn-string">"Maas"</span>].<span class="syn-fn">astype</span>(<span class="syn-fn">float</span>) <span class="syn-comment"># Metinleri sayısal forma (float) dönüştürdük</span>
+
+<span class="syn-comment"># Artık maaşların %10 zamlı halini matematiksel olarak hesaplayabiliriz:</span>
+df[<span class="syn-string">"Zamli_Maas"</span>] = df[<span class="syn-string">"Maas"</span>] * <span class="syn-number">1.10</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">"Son Temizlenmiş ve Dönüştürülmüş Veri Seti:\n"</span>, df)
+<span class="syn-comment"># Çıktı:
+#    Musteri_ID    Isim   Yas     Maas  Zamli_Maas
+# 0         101   Orçun  20.0  85000.0     93500.0
+# 1         102    Ayşe  25.0  45000.0     49500.0
+# 2         103  Mehmet  28.0  60000.0     66000.0
+# 3         104     Ali  30.0  95000.0    104500.0
+# 5         106  Zeynep  28.0      0.0         0.0
+# 6         107     NaN  35.0  75000.0     82500.0</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3 class="accordion-title">21. Ders: Pandas - İleri Seviye Veri Temizleme ve Dönüşümler</h3>
+                    <div class="accordion-icon"><i class="ph ph-caret-down"></i></div>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">İleri Seviye Veri Temizleme ve Dönüşümler</h4>
+                        <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Temel boşluk kırpma ve basit eksik veri doldurmanın ötesine geçiyoruz. Ekonometrik modeller ve makine öğrenimi algoritmaları için veriyi tam anlamıyla istatistiksel ve yapısal olarak hazır hale getireceğimiz ileri seviye temizlik adımlarını inceleyeceğiz.</p>
+
+                        <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                            <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-chart-bar"></i> IQR (Interquartile Range) Neden Hayatidir?</h5>
+                            <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Aritmetik ortalama aykırı değerlere (outlier) karşı aşırı hassastır; 50.000 TL maaş alan personellerin arasına yanlışlıkla girilen bir 5.000.000 TL ortalamayı tamamen saptırır. Çeyreklikler arası açıklık (IQR = Q3 - Q1) yöntemi, verinin orta %50'lik gövdesine odaklanarak güvenli alt ve üst sınırları objektif bir istatistiksel formülle belirler.</p>
+                        </div>
+
+                        <div class="code-box"><span class="syn-kw">import</span> pandas <span class="syn-kw">as</span> pd
+<span class="syn-kw">import</span> numpy <span class="syn-kw">as</span> np
+
+<span class="syn-comment"># Standart hatalar, aykırı değerler ve kirli metinler barındıran gerçekçi senaryo:</span>
+<span class="syn-var">karma_veri</span> = {
+    <span class="syn-string">"Calisan_ID"</span>: [<span class="syn-number">1</span>, <span class="syn-number">2</span>, <span class="syn-number">3</span>, <span class="syn-number">4</span>, <span class="syn-number">5</span>, <span class="syn-number">6</span>],
+    <span class="syn-comment"># Farklı sistemlerden geldiği için tarih formatları tutarsız:</span>
+    <span class="syn-string">"Ise_Giris"</span>: [<span class="syn-string">"12-05-2026"</span>, <span class="syn-string">"2026/05/13"</span>, <span class="syn-string">"14 Mayıs 2026"</span>, <span class="syn-string">"15-05-2026"</span>, <span class="syn-string">"16-05-2026"</span>, np.nan],
+    <span class="syn-comment"># Şehir ve telefon aynı hücrede birleşmiş kirli metin:</span>
+    <span class="syn-string">"Iletisim"</span>: [<span class="syn-string">"Denizli Mah: Merkez Tel: 05551112233"</span>, 
+                 <span class="syn-string">"Ankara Mah: Kızılay Tel: 05324445566"</span>, 
+                 <span class="syn-string">"İzmir Mah: Bornova Tel: 05447778899"</span>, 
+                 <span class="syn-string">"Bursa Mah: Nilüfer"</span>, <span class="syn-comment"># Telefon yok</span>
+                 <span class="syn-string">"Antalya Tel: 05001119999"</span>,
+                 np.nan],
+    <span class="syn-comment"># 5. Çalışan yanlışlıkla 5 milyon maaş alıyor (Aykırı Değer / Outlier):</span>
+    <span class="syn-string">"Maas"</span>: [<span class="syn-number">45000</span>, <span class="syn-number">50000</span>, <span class="syn-number">48000</span>, <span class="syn-number">52000</span>, <span class="syn-number">5000000</span>, <span class="syn-number">47000</span>], 
+    <span class="syn-comment"># Modellerin anlayabilmesi için sayısallaştırılacak kategorik veri:</span>
+    <span class="syn-string">"Kidem_Seviyesi"</span>: [<span class="syn-string">"Junior"</span>, <span class="syn-string">"Mid"</span>, <span class="syn-string">"Senior"</span>, <span class="syn-string">"Junior"</span>, <span class="syn-string">"Mid"</span>, <span class="syn-string">"Mid"</span>]
+}
+<span class="syn-var">df</span> = pd.<span class="syn-fn">DataFrame</span>(karma_veri)
+
+<span class="syn-fn">print</span>(<span class="syn-string">"--- 0. HAM VE KİRLİ VERİ SETİ ---\n"</span>)
+<span class="syn-fn">print</span>(df)
+<span class="syn-comment"># Çıktı:
+#    Calisan_ID      Ise_Giris                               Iletisim     Maas Kidem_Seviyesi
+# 0           1     12-05-2026  Denizli Mah: Merkez Tel: 05551112233    45000         Junior
+# 1           2     2026/05/13   Ankara Mah: Kızılay Tel: 05324445566    50000            Mid
+# 2           3  14 Mayıs 2026    İzmir Mah: Bornova Tel: 05447778899    48000         Senior
+# 3           4     15-05-2026                     Bursa Mah: Nilüfer    52000         Junior
+# 4           5     16-05-2026               Antalya Tel: 05001119999  5000000            Mid
+# 5           6            NaN                                    NaN    47000            Mid</span></div>
+
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">1. Tarih ve Zaman (Datetime) Standartlaştırması</h4>
+                        <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><code>pd.to_datetime()</code> fonksiyonu, tarih formatlarını algılayıp evrensel <code>YYYY-AA-GG</code> standardına çevirir. <code>errors="coerce"</code> parametresi, çözümlenemeyen bozuk formatları programı çökertmek yerine güvenle <strong>NaT (Not a Time)</strong> olarak işaretler.</p>
+
+                        <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"\n--- 1. TARİH FORMATLARINI HİZALAMA ---\n"</span>)
+
+df[<span class="syn-string">"Ise_Giris"</span>] = pd.<span class="syn-fn">to_datetime</span>(df[<span class="syn-string">"Ise_Giris"</span>], errors=<span class="syn-string">"coerce"</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">"Düzeltilmiş Tarih Sütunu:\n"</span>, df[<span class="syn-string">"Ise_Giris"</span>])
+<span class="syn-comment"># Çıktı:
+# 0   2026-12-05
+# 1   2026-05-13
+# 2          NaT
+# 3   2026-05-15
+# 4   2026-05-16
+# 5          NaT
+# Name: Ise_Giris, dtype: datetime64[ns]</span></div>
+
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">2. Aykırı Değer (Outlier) Yönetimi</h4>
+                        <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Maaş sütunundaki 5 Milyon TL gibi uçuk değerler ortalamayı ve regresyon doğrusunu tamamen saptırır. Bu aykırı değerleri istatistiksel <strong>IQR</strong> formülüyle tespit edip filteleriz.</p>
+
+                        <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"\n--- 2. AYKIRI DEĞER TESPİTİ VE FİLTRELEME ---\n"</span>)
+
+<span class="syn-var">Q1</span> = df[<span class="syn-string">"Maas"</span>].<span class="syn-fn">quantile</span>(<span class="syn-number">0.25</span>) <span class="syn-comment"># 1. Çeyreklik (%25)</span>
+<span class="syn-var">Q3</span> = df[<span class="syn-string">"Maas"</span>].<span class="syn-fn">quantile</span>(<span class="syn-number">0.75</span>) <span class="syn-comment"># 3. Çeyreklik (%75)</span>
+<span class="syn-var">IQR</span> = Q3 - Q1 <span class="syn-comment"># Çeyreklikler Arası Açıklık</span>
+
+<span class="syn-var">ust_sinir</span> = Q3 + <span class="syn-number">1.5</span> * IQR
+<span class="syn-var">alt_sinir</span> = Q1 - <span class="syn-number">1.5</span> * IQR
+
+<span class="syn-fn">print</span>(<span class="syn-string">f"Hesaplanan Güvenli Maaş Sınırları: {alt_sinir} - {ust_sinir}"</span>)
+<span class="syn-comment"># Çıktı: Hesaplanan Güvenli Maaş Sınırları: 40875.0 - 57875.0</span>
+
+<span class="syn-comment"># Aykırı değeri tablodan filtreleyerek temizliyoruz:</span>
+<span class="syn-var">df_temiz</span> = df[(df[<span class="syn-string">"Maas"</span>] >= alt_sinir) & (df[<span class="syn-string">"Maas"</span>] <= ust_sinir)].<span class="syn-fn">copy</span>()
+<span class="syn-fn">print</span>(<span class="syn-string">"\nAykırı Değer Çıktıktan Sonra Maaşlar:\n"</span>, df_temiz[<span class="syn-string">"Maas"</span>])
+<span class="syn-comment"># Çıktı:
+# 0    45000
+# 1    50000
+# 2    48000
+# 3    52000
+# 5    47000
+# Name: Maas, dtype: int64</span></div>
+
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">3. Regex ile Karmaşık Metin Ayıklama</h4>
+                        <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Bir metin bloğunun içerisinden belirli bir desene (pattern) uyan verileri çekmek için Düzenli İfadeler (Regex) kullanılır. Örneğin <code>r'(05\d{9})'</code> deseni: <code>05</code> ile başlayan ve peşine 9 basamaklı rakam gelen telefon numaralarını cımbızla çeker.</p>
+
+                        <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"\n--- 3. METİN İÇİNDEN VERİ ÇEKME (REGEX) ---\n"</span>)
+
+df_temiz[<span class="syn-string">"Telefon"</span>] = df_temiz[<span class="syn-string">"Iletisim"</span>].str.<span class="syn-fn">extract</span>(<span class="syn-string">r'(05\d{9})'</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">"Metin İçinden Cımbızlanan Telefonlar:\n"</span>, df_temiz[[<span class="syn-string">"Iletisim"</span>, <span class="syn-string">"Telefon"</span>]])
+<span class="syn-comment"># Çıktı:
+#                                 Iletisim      Telefon
+# 0  Denizli Mah: Merkez Tel: 05551112233  05551112233
+# 1   Ankara Mah: Kızılay Tel: 05324445566  05324445566
+# 2    İzmir Mah: Bornova Tel: 05447778899  05447778899
+# 3                     Bursa Mah: Nilüfer          NaN
+# 5                                    NaN          NaN</span></div>
+
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">4. Kategorik Verileri Sayısallaştırma (Encoding)</h4>
+
+                        <div style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #F59E0B; padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                            <h5 style="color: #F59E0B; margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-warning"></i> Makine Öğrenimi ve Regresyon Metin Okuyamaz!</h5>
+                            <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Yapay zeka ve ekonometrik modeller yalnızca sayılarla (matrislerle) hesaplama yapabilir. Bu nedenle 'Junior, Mid, Senior' gibi sıralı (ordinal) kategorik verileri <code>map()</code> yardımıyla sayısal ağırlıklara (1, 2, 3) dönüştürmek zorundayız.</p>
+                        </div>
+
+                        <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"\n--- 4. KATEGORİK VERİ ENCODING (SAYISALLAŞTIRMA) ---\n"</span>)
+
+<span class="syn-var">kidem_sozlugu</span> = {
+    <span class="syn-string">"Junior"</span>: <span class="syn-number">1</span>,
+    <span class="syn-string">"Mid"</span>: <span class="syn-number">2</span>,
+    <span class="syn-string">"Senior"</span>: <span class="syn-number">3</span>
+}
+
+df_temiz[<span class="syn-string">"Kidem_Skoru"</span>] = df_temiz[<span class="syn-string">"Kidem_Seviyesi"</span>].<span class="syn-fn">map</span>(kidem_sozlugu)
+<span class="syn-fn">print</span>(<span class="syn-string">"Kıdem Seviyelerinin Sayısal Karşılıkları:\n"</span>, df_temiz[[<span class="syn-string">"Kidem_Seviyesi"</span>, <span class="syn-string">"Kidem_Skoru"</span>]])
+<span class="syn-comment"># Çıktı:
+#   Kidem_Seviyesi  Kidem_Skoru
+# 0         Junior            1
+# 1            Mid            2
+# 2         Senior            3
+# 3         Junior            1
+# 5            Mid            2</span>
+
+<span class="syn-comment"># Gerekli dönüşümü tamamlanan eski kirli sütunu düşürüyoruz:</span>
+df_temiz.<span class="syn-fn">drop</span>(<span class="syn-string">"Iletisim"</span>, axis=<span class="syn-number">1</span>, inplace=<span class="syn-kw">True</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">"\n--- SAVAŞTAN ÇIKMIŞ TEMİZ DATAFRAME ---\n"</span>)
+<span class="syn-fn">print</span>(df_temiz)
+<span class="syn-comment"># Çıktı:
+#    Calisan_ID  Ise_Giris   Maas Kidem_Seviyesi      Telefon  Kidem_Skoru
+# 0           1 2026-12-05  45000         Junior  05551112233            1
+# 1           2 2026-05-13  50000            Mid  05324445566            2
+# 2           3        NaT  48000         Senior  05447778899            3
+# 3           4 2026-05-15  52000         Junior          NaN            1
+# 5           6        NaT  47000            Mid          NaN            2</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3 class="accordion-title">22. Ders: Pandas - İleri Manipülasyon ve İlişkisel Veritabanı Mantığı</h3>
+                    <div class="accordion-icon"><i class="ph ph-caret-down"></i></div>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">İleri Seviye Pandas Manipülasyonu: Ustalık Sınıfı</h4>
+                        <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Bu ders, Pandas'ın en güçlü olduğu <strong>İlişkisel Veritabanı (SQL Join) Mantığı</strong>, <strong>Split-Apply-Combine (Böl-Uygula-Birleştir)</strong> mimarisi ve kurumsal iş zekası raporlarının omurgasını oluşturan <strong>Gelişmiş Pivot Tabloların</strong> rehberidir.</p>
+
+                        <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                            <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-database"></i> SQL Join Mantığı ile Birebir Paralellik</h5>
+                            <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Pandas'taki <code>pd.merge()</code> fonksiyonu, SQL'deki <code>INNER JOIN</code>, <code>LEFT JOIN</code> ve <code>FULL OUTER JOIN</code> sorgularını Python ortamında tam performansla çalıştırır. Birden çok ilişkisel tabloyu ortak birincil/yabancı anahtar (Primary/Foreign Key) üzerinden tek bir analiz tablosunda birleştirmemizi sağlar.</p>
+                        </div>
+
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">1. Veri Birleştirme ve SQL Join Mantıkları (Merge)</h4>
+
+                        <div class="code-box"><span class="syn-kw">import</span> pandas <span class="syn-kw">as</span> pd
+<span class="syn-kw">import</span> numpy <span class="syn-kw">as</span> np
+
+<span class="syn-fn">print</span>(<span class="syn-string">"--- 1. TABLO BİRLEŞTİRME (MERGE & JOINS) ---\n"</span>)
+
+<span class="syn-comment"># Şirket veritabanından çekilmiş iki ilişkisel tablo:</span>
+<span class="syn-var">df_personel</span> = pd.<span class="syn-fn">DataFrame</span>({
+    <span class="syn-string">"ID"</span>: [<span class="syn-number">1</span>, <span class="syn-number">2</span>, <span class="syn-number">3</span>, <span class="syn-number">4</span>, <span class="syn-number">5</span>],
+    <span class="syn-string">"Isim"</span>: [<span class="syn-string">"Orçun"</span>, <span class="syn-string">"Ayşe"</span>, <span class="syn-string">"Mehmet"</span>, <span class="syn-string">"Zeynep"</span>, <span class="syn-string">"Ali"</span>],
+    <span class="syn-string">"Dept_Kodu"</span>: [<span class="syn-string">"D1"</span>, <span class="syn-string">"D2"</span>, <span class="syn-string">"D1"</span>, <span class="syn-string">"D3"</span>, <span class="syn-string">"D5"</span>] <span class="syn-comment"># D5 departmanı diğer tabloda yok</span>
+})
+
+<span class="syn-var">df_departman</span> = pd.<span class="syn-fn">DataFrame</span>({
+    <span class="syn-string">"Dept_Kodu"</span>: [<span class="syn-string">"D1"</span>, <span class="syn-string">"D2"</span>, <span class="syn-string">"D3"</span>, <span class="syn-string">"D4"</span>], <span class="syn-comment"># D4 departmanında hiç personel yok</span>
+    <span class="syn-string">"Departman_Adi"</span>: [<span class="syn-string">"Veri Bilimi"</span>, <span class="syn-string">"Finans"</span>, <span class="syn-string">"Pazarlama"</span>, <span class="syn-string">"İK"</span>],
+    <span class="syn-string">"Butce"</span>: [<span class="syn-number">500000</span>, <span class="syn-number">300000</span>, <span class="syn-number">200000</span>, <span class="syn-number">150000</span>]
+})
+
+<span class="syn-comment"># A. INNER JOIN: Sadece her iki tabloda da karşılığı olan satırları getirir.</span>
+<span class="syn-var">inner_join</span> = pd.<span class="syn-fn">merge</span>(df_personel, df_departman, on=<span class="syn-string">"Dept_Kodu"</span>, how=<span class="syn-string">"inner"</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">"A. INNER JOIN (Sadece tam eşleşenler):\n"</span>, inner_join, <span class="syn-string">"\n"</span>)
+<span class="syn-comment"># Çıktı:
+#    ID    Isim Dept_Kodu Departman_Adi   Butce
+# 0   1   Orçun        D1   Veri Bilimi  500000
+# 1   3  Mehmet        D1   Veri Bilimi  500000
+# 2   2    Ayşe        D2        Finans  300000
+# 3   4  Zeynep        D3     Pazarlama  200000</span>
+
+<span class="syn-comment"># B. LEFT JOIN: Sol tablonun (personel) tamamını korur; sağda karşılığı yoksa NaN basar.</span>
+<span class="syn-var">left_join</span> = pd.<span class="syn-fn">merge</span>(df_personel, df_departman, on=<span class="syn-string">"Dept_Kodu"</span>, how=<span class="syn-string">"left"</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">"B. LEFT JOIN (Ali'nin departmanı bulunamadı - NaN):\n"</span>, left_join, <span class="syn-string">"\n"</span>)
+<span class="syn-comment"># Çıktı:
+#    ID    Isim Dept_Kodu Departman_Adi     Butce
+# 0   1   Orçun        D1   Veri Bilimi  500000.0
+# 1   2    Ayşe        D2        Finans  300000.0
+# 2   3  Mehmet        D1   Veri Bilimi  500000.0
+# 3   4  Zeynep        D3     Pazarlama  200000.0
+# 4   5     Ali        D5           NaN       NaN</span>
+
+<span class="syn-comment"># C. OUTER JOIN: Her iki tablodaki tüm satırları getirir; eşleşmeyenlere karşılıklı NaN basar.</span>
+<span class="syn-var">outer_join</span> = pd.<span class="syn-fn">merge</span>(df_personel, df_departman, on=<span class="syn-string">"Dept_Kodu"</span>, how=<span class="syn-string">"outer"</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">"C. OUTER JOIN (Hem Ali hem İK listede, eksikler NaN):\n"</span>, outer_join, <span class="syn-string">"\n"</span>)
+<span class="syn-comment"># Çıktı:
+#     ID    Isim Dept_Kodu Departman_Adi     Butce
+# 0  1.0   Orçun        D1   Veri Bilimi  500000.0
+# 1  3.0  Mehmet        D1   Veri Bilimi  500000.0
+# 2  2.0    Ayşe        D2        Finans  300000.0
+# 3  4.0  Zeynep        D3     Pazarlama  200000.0
+# 4  5.0     Ali        D5           NaN       NaN
+# 5  NaN     NaN        D4            İK  150000.0</span></div>
+
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">2. Böl, Uygula, Birleştir (groupby & Named Aggregation)</h4>
+                        <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Çoklu hiyerarşik kırılımlarda (Örn: Bölge &gt; Şehir) tek tek sütun hesaplamak yerine <strong>Named Aggregation</strong> ile yeni oluşturulacak özet sütun isimlerini doğrudan Python kodu içinde tanımlayabiliriz.</p>
+
+                        <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"--- 2. ÇOKLU GRUPLAMA VE NAMED AGGREGATION ---\n"</span>)
+
+<span class="syn-var">df_satis</span> = pd.<span class="syn-fn">DataFrame</span>({
+    <span class="syn-string">"Bolge"</span>: [<span class="syn-string">"Marmara"</span>, <span class="syn-string">"Marmara"</span>, <span class="syn-string">"Marmara"</span>, <span class="syn-string">"Ege"</span>, <span class="syn-string">"Ege"</span>, <span class="syn-string">"Ege"</span>],
+    <span class="syn-string">"Sehir"</span>: [<span class="syn-string">"Istanbul"</span>, <span class="syn-string">"Istanbul"</span>, <span class="syn-string">"Bursa"</span>, <span class="syn-string">"Izmir"</span>, <span class="syn-string">"Izmir"</span>, <span class="syn-string">"Mugla"</span>],
+    <span class="syn-string">"Satisci"</span>: [<span class="syn-string">"Ali"</span>, <span class="syn-string">"Ayşe"</span>, <span class="syn-string">"Mehmet"</span>, <span class="syn-string">"Zeynep"</span>, <span class="syn-string">"Can"</span>, <span class="syn-string">"Efe"</span>],
+    <span class="syn-string">"Ciro"</span>: [<span class="syn-number">120</span>, <span class="syn-number">150</span>, <span class="syn-number">90</span>, <span class="syn-number">200</span>, <span class="syn-number">130</span>, <span class="syn-number">110</span>],
+    <span class="syn-string">"Maliyet"</span>: [<span class="syn-number">80</span>, <span class="syn-number">90</span>, <span class="syn-number">60</span>, <span class="syn-number">120</span>, <span class="syn-number">80</span>, <span class="syn-number">70</span>]
+})
+df_satis[<span class="syn-string">"Kar"</span>] = df_satis[<span class="syn-string">"Ciro"</span>] - df_satis[<span class="syn-string">"Maliyet"</span>]
+
+<span class="syn-comment"># Çoklu Kırılım ve Özel İsimlendirilmiş Özet Tablo:</span>
+<span class="syn-var">bolge_ozeti</span> = df_satis.<span class="syn-fn">groupby</span>([<span class="syn-string">"Bolge"</span>, <span class="syn-string">"Sehir"</span>]).<span class="syn-fn">agg</span>(
+    Toplam_Ciro=(<span class="syn-string">"Ciro"</span>, <span class="syn-string">"sum"</span>),
+    Ortalama_Kar=(<span class="syn-string">"Kar"</span>, <span class="syn-string">"mean"</span>),
+    En_Iyi_Satisci_Cirosu=(<span class="syn-string">"Ciro"</span>, <span class="syn-string">"max"</span>),
+    Satisci_Sayisi=(<span class="syn-string">"Satisci"</span>, <span class="syn-string">"count"</span>)
+)
+<span class="syn-fn">print</span>(<span class="syn-string">"Çoklu Kırılım ve Özel İsimlendirilmiş Özet Tablo:\n"</span>, bolge_ozeti, <span class="syn-string">"\n"</span>)
+<span class="syn-comment"># Çıktı:
+#                    Toplam_Ciro  Ortalama_Kar  En_Iyi_Satisci_Cirosu  Satisci_Sayisi
+# Bolge   Sehir                                                                      
+# Ege     Izmir              330          65.0                    200               2
+#         Mugla              110          40.0                    110               1
+# Marmara Bursa               90          30.0                     90               1
+#         Istanbul           270          50.0                    150               2</span></div>
+
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">3. İleri Seviye Manipülasyon (transform, filter, apply)</h4>
+
+                        <div style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #F59E0B; padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                            <h5 style="color: #F59E0B; margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-arrows-split"></i> transform() Neden Bu Kadar Güçlü?</h5>
+                            <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Standart <code>agg()</code> fonksiyonu gruplama yaptıktan sonra satır sayısını azaltarak özet bir tablo döner. Fakat <code>transform()</code>, hesaplanan grup özetini (örneğin bölge toplam cirosunu) <strong>orijinal tablonun her bir satırına tek tek geri yayınlar</strong>. Böylece satışçının kendi bölgesindeki yüzde payı gibi ileri seviye metrikleri tek satırda türetebilirsiniz.</p>
+                        </div>
+
+                        <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"--- 3. TRANSFORM, FILTER VE APPLY BÜYÜSÜ ---\n"</span>)
+
+<span class="syn-comment"># A. TRANSFORM: Grup bilgisini ham satırlara geri yayınlama</span>
+df_satis[<span class="syn-string">"Bolge_Toplam_Ciro"</span>] = df_satis.<span class="syn-fn">groupby</span>(<span class="syn-string">"Bolge"</span>)[<span class="syn-string">"Ciro"</span>].<span class="syn-fn">transform</span>(<span class="syn-string">"sum"</span>)
+df_satis[<span class="syn-string">"Bolge_Ici_Pay_Yuzde"</span>] = (df_satis[<span class="syn-string">"Ciro"</span>] / df_satis[<span class="syn-string">"Bolge_Toplam_Ciro"</span>]) * <span class="syn-number">100</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">"A. Transform (Orijinal tabloya grup hesaplamasını yedirme):\n"</span>)
+<span class="syn-fn">print</span>(df_satis[[<span class="syn-string">"Satisci"</span>, <span class="syn-string">"Bolge"</span>, <span class="syn-string">"Ciro"</span>, <span class="syn-string">"Bolge_Toplam_Ciro"</span>, <span class="syn-string">"Bolge_Ici_Pay_Yuzde"</span>]], <span class="syn-string">"\n"</span>)
+<span class="syn-comment"># Çıktı:
+#   Satisci    Bolge  Ciro  Bolge_Toplam_Ciro  Bolge_Ici_Pay_Yuzde
+# 0     Ali  Marmara   120                360            33.333333
+# 1    Ayşe  Marmara   150                360            41.666667
+# 2  Mehmet  Marmara    90                360            25.000000
+# 3  Zeynep      Ege   200                440            45.454545
+# 4     Can      Ege   130                440            29.545455
+# 5     Efe      Ege   110                440            25.000000</span>
+
+<span class="syn-comment"># B. FILTER: Grubu koşula göre tamamen eleme</span>
+<span class="syn-var">karliligi_yuksek_bolgeler</span> = df_satis.<span class="syn-fn">groupby</span>(<span class="syn-string">"Bolge"</span>).<span class="syn-fn">filter</span>(<span class="syn-kw">lambda</span> x: x[<span class="syn-string">"Kar"</span>].<span class="syn-fn">sum</span>() > <span class="syn-number">150</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">"B. Filter (Toplam karı 150 altı olan Marmara tamamen elendi):\n"</span>, karliligi_yuksek_bolgeler[[<span class="syn-string">"Bolge"</span>, <span class="syn-string">"Satisci"</span>, <span class="syn-string">"Kar"</span>]], <span class="syn-string">"\n"</span>)
+<span class="syn-comment"># Çıktı:
+#   Bolge Satisci  Kar
+# 3   Ege  Zeynep   80
+# 4   Ege     Can   50
+# 5   Ege     Efe   40</span>
+
+<span class="syn-comment"># C. APPLY: Gruba özel fonksiyon uygulama (Örn: Ciro Makası = Max - Min)</span>
+<span class="syn-kw">def</span> <span class="syn-fn">makas_hesapla</span>(grup):
+    <span class="syn-kw">return</span> grup.<span class="syn-fn">max</span>() - grup.<span class="syn-fn">min</span>()
+
+<span class="syn-var">ciro_makasi</span> = df_satis.<span class="syn-fn">groupby</span>(<span class="syn-string">"Bolge"</span>)[<span class="syn-string">"Ciro"</span>].<span class="syn-fn">apply</span>(makas_hesapla)
+<span class="syn-fn">print</span>(<span class="syn-string">"C. Apply (Bölgeler arası Ciro Makası):\n"</span>, ciro_makasi, <span class="syn-string">"\n"</span>)
+<span class="syn-comment"># Çıktı:
+# Bolge
+# Ege        90
+# Marmara    60
+# Name: Ciro, dtype: int64</span></div>
+
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">4. Gelişmiş Pivot Tablolar (Pivot Table)</h4>
+                        <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Excel'in Pivot Tablo (Özet Tablo) yeteneğinin tam programlanabilir karşılığıdır. <code>fill_value=0</code> boş hücreleri sıfırla doldurur, <code>margins=True</code> ise satır ve sütun sonlarına otomatik <strong>GENEL TOPLAM</strong> ekler.</p>
+
+                        <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"--- 4. GELİŞMİŞ PİVOT TABLOLAR ---\n"</span>)
+
+<span class="syn-var">df_pivot_icin</span> = pd.<span class="syn-fn">concat</span>([df_satis, pd.<span class="syn-fn">DataFrame</span>({<span class="syn-string">"Bolge"</span>:[<span class="syn-string">"Ege"</span>], <span class="syn-string">"Sehir"</span>:[<span class="syn-string">"Istanbul"</span>], <span class="syn-string">"Ciro"</span>:[<span class="syn-number">100</span>]})], ignore_index=<span class="syn-kw">True</span>)
+
+<span class="syn-var">pivot_rapor</span> = pd.<span class="syn-fn">pivot_table</span>(
+    data=df_pivot_icin,
+    values=<span class="syn-string">"Ciro"</span>,             <span class="syn-comment"># Hesaplanacak değer</span>
+    index=<span class="syn-string">"Bolge"</span>,             <span class="syn-comment"># Satırlar (Y Ekseni)</span>
+    columns=<span class="syn-string">"Sehir"</span>,           <span class="syn-comment"># Sütunlar (X Ekseni)</span>
+    aggfunc=<span class="syn-string">"sum"</span>,             <span class="syn-comment"># Toplama fonksiyonu</span>
+    fill_value=<span class="syn-number">0</span>,              <span class="syn-comment"># NaN yerine 0 yaz</span>
+    margins=<span class="syn-kw">True</span>,              <span class="syn-comment"># Satır/Sütun Genel Toplamı ekle</span>
+    margins_name=<span class="syn-string">"TOPLAM"</span>      <span class="syn-comment"># Toplam etiketinin adı</span>
+)
+
+<span class="syn-fn">print</span>(<span class="syn-string">"Tam Donanımlı Pivot Tablo:\n"</span>, pivot_rapor)
+<span class="syn-comment"># Çıktı:
+# Sehir    Bursa  Istanbul  Izmir  Mugla  TOPLAM
+# Bolge                                         
+# Ege          0       100    330    110     540
+# Marmara     90       270      0      0     360
+# TOPLAM      90       370    330    110     900</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3 class="accordion-title">23. Ders: Pandas - İstatistiksel Komutlar ve Metrikler</h3>
+                    <div class="accordion-icon"><i class="ph ph-caret-down"></i></div>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">İstatistiksel Komutlar ve Metrikler</h4>
+                        <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">İstatistiksel analizler, makine öğrenimi modellerinin ve ekonometrik tahminlemelerin temelini oluşturur. Pandas, arka planda NumPy'ı kullanarak veri setinin istatistiksel röntgenini saniyeler içinde çeker.</p>
+
+                        <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                            <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-chart-line-up"></i> Ekonometrik Varsayımlar: Çarpıklık ve Basıklık</h5>
+                            <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Regresyon modellerinde hata terimlerinin normal dağılması (Jarque-Bera testi) kritik bir varsayımdır. <code>skew()</code> (çarpıklık) değerinin 0'dan büyük olması sağa doğru uzun bir kuyruk olduğunu; <code>kurt()</code> (basıklık) değerinin yüksek olması ise kuyrukların kalın olduğunu ve veri setinde aşırı aykırı değerler bulunduğunu gösterir.</p>
+                        </div>
+
+                        <div class="code-box"><span class="syn-kw">import</span> pandas <span class="syn-kw">as</span> pd
+<span class="syn-kw">import</span> numpy <span class="syn-kw">as</span> np
+
+<span class="syn-comment"># Sayısal, kategorik ve zaman serisi özellikleri taşıyan analiz veri seti:</span>
+<span class="syn-var">veri</span> = {
+    <span class="syn-string">"Tarih"</span>: pd.<span class="syn-fn">date_range</span>(start=<span class="syn-string">"2026-01-01"</span>, periods=<span class="syn-number">10</span>),
+    <span class="syn-string">"Satis_Miktari"</span>: [<span class="syn-number">100</span>, <span class="syn-number">120</span>, <span class="syn-number">130</span>, <span class="syn-number">90</span>, <span class="syn-number">110</span>, <span class="syn-number">500</span>, <span class="syn-number">105</span>, <span class="syn-number">115</span>, <span class="syn-number">125</span>, <span class="syn-number">95</span>], <span class="syn-comment"># 500 aykırı değer</span>
+    <span class="syn-string">"Reklam_Harcamasi"</span>: [<span class="syn-number">10</span>, <span class="syn-number">12</span>, <span class="syn-number">15</span>, <span class="syn-number">9</span>, <span class="syn-number">11</span>, <span class="syn-number">45</span>, <span class="syn-number">10</span>, <span class="syn-number">11</span>, <span class="syn-number">13</span>, <span class="syn-number">9</span>],
+    <span class="syn-string">"Urun_Kategorisi"</span>: [<span class="syn-string">"A"</span>, <span class="syn-string">"A"</span>, <span class="syn-string">"B"</span>, <span class="syn-string">"A"</span>, <span class="syn-string">"B"</span>, <span class="syn-string">"C"</span>, <span class="syn-string">"A"</span>, <span class="syn-string">"B"</span>, <span class="syn-string">"A"</span>, <span class="syn-string">"C"</span>]
+}
+<span class="syn-var">df</span> = pd.<span class="syn-fn">DataFrame</span>(veri)
+<span class="syn-comment"># Zaman serisi analizleri (hareketli ortalama vb.) için Tarih sütununu indeks yapıyoruz:</span>
+df.<span class="syn-fn">set_index</span>(<span class="syn-string">"Tarih"</span>, inplace=<span class="syn-kw">True</span>)
+
+<span class="syn-fn">print</span>(<span class="syn-string">"--- 0. ANALİZ EDİLECEK VERİ SETİ ---\n"</span>)
+<span class="syn-fn">print</span>(df, <span class="syn-string">"\n"</span>)
+<span class="syn-comment"># Çıktı:
+#             Satis_Miktari  Reklam_Harcamasi Urun_Kategorisi
+# Tarih                                                      
+# 2026-01-01            100                10               A
+# 2026-01-02            120                12               A
+# 2026-01-03            130                15               B
+# 2026-01-04             90                 9               A
+# 2026-01-05            110                11               B
+# 2026-01-06            500                45               C
+# 2026-01-07            105                10               A
+# 2026-01-08            115                11               B
+# 2026-01-09            125                13               A
+# 2026-01-10             95                 9               C</span></div>
+
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">1. Merkezi Eğilim ve Yayılım Ölçüleri</h4>
+                        <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Aykırı değerler ortalamayı (Mean) yukarı çekerken, medyan (Median) sıralı ortanca değer olduğu için aşırı uç değerlerden etkilenmez ve daha dirençli (robust) bir merkez ölçüsü sunar.</p>
+
+                        <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"--- 1. MERKEZİ EĞİLİM VE YAYILIM ---\n"</span>)
+
+<span class="syn-comment"># Klasik istatistiksel metrikler:</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Ortalama (Mean)          :"</span>, df[<span class="syn-string">"Satis_Miktari"</span>].<span class="syn-fn">mean</span>())
+<span class="syn-comment"># Çıktı: Ortalama (Mean)          : 149.0</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">"Medyan (Median)          :"</span>, df[<span class="syn-string">"Satis_Miktari"</span>].<span class="syn-fn">median</span>())
+<span class="syn-comment"># Çıktı: Medyan (Median)          : 112.5 (Aykırı değerden etkilenmedi!)</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">"Mod (Mode - En sık geçen):"</span>, df[<span class="syn-string">"Urun_Kategorisi"</span>].<span class="syn-fn">mode</span>()[<span class="syn-number">0</span>])
+<span class="syn-comment"># Çıktı: Mod (Mode - En sık geçen): A</span>
+
+<span class="syn-comment"># Yayılım metrikleri:</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Varyans (Var)            :"</span>, df[<span class="syn-string">"Satis_Miktari"</span>].<span class="syn-fn">var</span>())
+<span class="syn-comment"># Çıktı: Varyans (Var)            : 15465.555555555557</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">"Standart Sapma (Std)     :"</span>, df[<span class="syn-string">"Satis_Miktari"</span>].<span class="syn-fn">std</span>())
+<span class="syn-comment"># Çıktı: Standart Sapma (Std)     : 124.36058682539077</span>
+
+<span class="syn-comment"># Özel Çeyreklikler (Quantile) - %90'lık dilim:</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"%90'lık Dilim (Quantile)  :"</span>, df[<span class="syn-string">"Satis_Miktari"</span>].<span class="syn-fn">quantile</span>(<span class="syn-number">0.90</span>), <span class="syn-string">"\n"</span>)
+<span class="syn-comment"># Çıktı: %90'lık Dilim (Quantile)  : 147.0</span></div>
+
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">2. Dağılımın Şekli (Çarpıklık ve Basıklık)</h4>
+
+                        <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"--- 2. DAĞILIM ŞEKLİ (ÇARPIKLIK VE BASIKLIK) ---\n"</span>)
+
+<span class="syn-var">carpiklik</span> = df[<span class="syn-string">"Satis_Miktari"</span>].<span class="syn-fn">skew</span>()
+<span class="syn-var">basiklik</span> = df[<span class="syn-string">"Satis_Miktari"</span>].<span class="syn-fn">kurt</span>()
+
+<span class="syn-fn">print</span>(<span class="syn-string">f"Çarpıklık Skoru (Skew) : {carpiklik:.2f} (Pozitif: Sağa uzun kuyruk var)"</span>)
+<span class="syn-comment"># Çıktı: Çarpıklık Skoru (Skew) : 2.97 (Pozitif: Sağa uzun kuyruk var)</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">f"Basıklık Skoru (Kurt)  : {basiklik:.2f} (Yüksek basıklık: Kalın kuyruklar, aykırı değer uyarısı)\n"</span>)
+<span class="syn-comment"># Çıktı: Basıklık Skoru (Kurt)  : 9.03 (Yüksek basıklık: Kalın kuyruklar, aykırı değer uyarısı)</span></div>
+
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">3. Değişkenler Arası İlişkiler (Korelasyon ve Kovaryans)</h4>
+                        <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Kovaryans iki değişkenin ham yönünü gösterirken; <strong>Korelasyon</strong> kovaryansı standartlaştırarak <code>-1</code> ile <code>+1</code> arasına sıkıştırır ve ilişkinin gücünü gösterir.</p>
+
+                        <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"--- 3. KORELASYON VE KOVARYANS ---\n"</span>)
+
+<span class="syn-var">kovaryans_matrisi</span> = df[[<span class="syn-string">"Satis_Miktari"</span>, <span class="syn-string">"Reklam_Harcamasi"</span>]].<span class="syn-fn">cov</span>()
+<span class="syn-fn">print</span>(<span class="syn-string">"Kovaryans Matrisi:\n"</span>, kovaryans_matrisi, <span class="syn-string">"\n"</span>)
+<span class="syn-comment"># Çıktı:
+#                   Satis_Miktari  Reklam_Harcamasi
+# Satis_Miktari      15465.555556       1355.555556
+# Reklam_Harcamasi    1355.555556        120.444444</span>
+
+<span class="syn-var">korelasyon_matrisi</span> = df[[<span class="syn-string">"Satis_Miktari"</span>, <span class="syn-string">"Reklam_Harcamasi"</span>]].<span class="syn-fn">corr</span>(method=<span class="syn-string">"pearson"</span>)
+<span class="syn-fn">print</span>(<span class="syn-string">"Pearson Korelasyon Matrisi:\n"</span>, korelasyon_matrisi, <span class="syn-string">"\n"</span>)
+<span class="syn-comment"># Çıktı:
+#                   Satis_Miktari  Reklam_Harcamasi
+# Satis_Miktari          1.000000          0.993688
+# Reklam_Harcamasi       0.993688          1.000000</span></div>
+
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">4. Zaman Serisi ve Hareketli (Rolling) İstatistikler</h4>
+
+                        <div style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #F59E0B; padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                            <h5 style="color: #F59E0B; margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-wave-sine"></i> Finansal Trendlerde Rolling Window</h5>
+                            <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Günlük borsa ve satış verileri çok fazla rastgele dalgalanma (gürültü) içerir. <code>rolling(window=3).mean()</code> gibi hareketli ortalamalar, geçmiş pencerenin ortalamasını alarak piyasa gürültüsünü filtreler ve ana trend yönünü netleştirir.</p>
+                        </div>
+
+                        <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"--- 4. KÜMÜLATİF VE HAREKETLİ (ROLLING) İSTATİSTİKLER ---\n"</span>)
+
+<span class="syn-comment"># Kümülatif (Birikimli) Toplam:</span>
+df[<span class="syn-string">"Kümülatif_Satis"</span>] = df[<span class="syn-string">"Satis_Miktari"</span>].<span class="syn-fn">cumsum</span>()
+
+<span class="syn-comment"># 3 Günlük Hareketli Ortalama (Rolling Trend):</span>
+df[<span class="syn-string">"3_Gunluk_Ort_Trend"</span>] = df[<span class="syn-string">"Satis_Miktari"</span>].<span class="syn-fn">rolling</span>(window=<span class="syn-number">3</span>).<span class="syn-fn">mean</span>()
+
+<span class="syn-fn">print</span>(<span class="syn-string">"Birikimli Toplam ve Hareketli Trend Analizi:\n"</span>)
+<span class="syn-fn">print</span>(df[[<span class="syn-string">"Satis_Miktari"</span>, <span class="syn-string">"Kümülatif_Satis"</span>, <span class="syn-string">"3_Gunluk_Ort_Trend"</span>]].<span class="syn-fn">head</span>(<span class="syn-number">6</span>), <span class="syn-string">"\n"</span>)
+<span class="syn-comment"># Çıktı:
+#             Satis_Miktari  Kümülatif_Satis  3_Gunluk_Ort_Trend
+# Tarih                                                         
+# 2026-01-01            100              100                 NaN
+# 2026-01-02            120              220                 NaN
+# 2026-01-03            130              350          116.666667
+# 2026-01-04             90              440          113.333333
+# 2026-01-05            110              550          110.000000
+# 2026-01-06            500             1050          233.333333</span></div>
+
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">5. Kategorik (Frekans) İstatistikleri</h4>
+
+                        <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"--- 5. FREKANS VE BENZERSİZLİK (CATEGORICAL) ---\n"</span>)
+
+<span class="syn-comment"># value_counts(): Kategorik verilerin sayısal adet dağılımı:</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Kategori Frekansları:\n"</span>, df[<span class="syn-string">"Urun_Kategorisi"</span>].<span class="syn-fn">value_counts</span>(), <span class="syn-string">"\n"</span>)
+<span class="syn-comment"># Çıktı:
+# A    5
+# B    3
+# C    2
+# Name: Urun_Kategorisi, dtype: int64</span>
+
+<span class="syn-comment"># Yüzdelik (%) Dağılım (normalize=True):</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Kategori Yüzdeleri (%):\n"</span>, df[<span class="syn-string">"Urun_Kategorisi"</span>].<span class="syn-fn">value_counts</span>(normalize=<span class="syn-kw">True</span>) * <span class="syn-number">100</span>, <span class="syn-string">"\n"</span>)
+<span class="syn-comment"># Çıktı:
+# A    50.0
+# B    30.0
+# C    20.0
+# Name: Urun_Kategorisi, dtype: float64</span>
+
+<span class="syn-comment"># unique() ve nunique():</span>
+<span class="syn-fn">print</span>(<span class="syn-string">"Benzersiz Kategoriler (Liste) :"</span>, df[<span class="syn-string">"Urun_Kategorisi"</span>].<span class="syn-fn">unique</span>())
+<span class="syn-comment"># Çıktı: Benzersiz Kategoriler (Liste) : ['A' 'B' 'C']</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">"Benzersiz Kategori Sayısı     :"</span>, df[<span class="syn-string">"Urun_Kategorisi"</span>].<span class="syn-fn">nunique</span>())
+<span class="syn-comment"># Çıktı: Benzersiz Kategori Sayısı     : 3</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3 class="accordion-title">24. Ders: Pandas - İleri İstatistik, Finansal Metrikler ve Örneklem</h3>
+                    <div class="accordion-icon"><i class="ph ph-caret-down"></i></div>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">İleri İstatistik, Finansal Metrikler ve Örneklem</h4>
+                        <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Bu derste özellikle ekonometride zaman serisi (Time Series) modelleri kurarken (ARIMA, ARCH/GARCH) veriyi durağanlaştırmak için kullanılan fark alma metodlarını, finansal getiri hesaplamalarını, çapraz tablo (crosstab) analizlerini ve istatistiksel örneklem çekmeyi inceleyeceğiz.</p>
+
+                        <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                            <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-chart-line"></i> Zaman Serilerinde Durağanlık (Stationarity)</h5>
+                            <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Ekonometrik zaman serisi modellerinde serinin ortalama ve varyansının zaman boyunca sabit olması (durağanlık) temel şarttır. Trend içeren serilerde <code>diff()</code> ile fark almak trendi yok ederek seriyi durağan hale getirir.</p>
+                        </div>
+
+                        <div class="code-box"><span class="syn-kw">import</span> pandas <span class="syn-kw">as</span> pd
+<span class="syn-kw">import</span> numpy <span class="syn-kw">as</span> np
+
+<span class="syn-comment"># Finansal analiz ve çapraz tablo simülasyonu için özel veri seti:</span>
+<span class="syn-var">veri</span> = {
+    <span class="syn-string">"Tarih"</span>: pd.<span class="syn-fn">date_range</span>(start=<span class="syn-string">"2026-01-01"</span>, periods=<span class="syn-number">6</span>, freq=<span class="syn-string">"M"</span>), <span class="syn-comment"># Aylık periyot</span>
+    <span class="syn-string">"Hisse_Fiyati"</span>: [<span class="syn-number">100</span>, <span class="syn-number">105</span>, <span class="syn-number">102</span>, <span class="syn-number">110</span>, <span class="syn-number">115</span>, <span class="syn-number">108</span>],
+    <span class="syn-string">"Musteri_Segmenti"</span>: [<span class="syn-string">"Kurumsal"</span>, <span class="syn-string">"Bireysel"</span>, <span class="syn-string">"Bireysel"</span>, <span class="syn-string">"Kurumsal"</span>, <span class="syn-string">"Kurumsal"</span>, <span class="syn-string">"Bireysel"</span>],
+    <span class="syn-string">"Risk_Seviyesi"</span>: [<span class="syn-string">"Dusuk"</span>, <span class="syn-string">"Yuksek"</span>, <span class="syn-string">"Dusuk"</span>, <span class="syn-string">"Dusuk"</span>, <span class="syn-string">"Yuksek"</span>, <span class="syn-string">"Yuksek"</span>]
+}
+<span class="syn-var">df</span> = pd.<span class="syn-fn">DataFrame</span>(veri)
+df.<span class="syn-fn">set_index</span>(<span class="syn-string">"Tarih"</span>, inplace=<span class="syn-kw">True</span>)
+
+<span class="syn-fn">print</span>(<span class="syn-string">"--- 0. İLERİ ANALİZ VERİ SETİ ---\n"</span>)
+<span class="syn-fn">print</span>(df, <span class="syn-string">"\n"</span>)
+<span class="syn-comment"># Çıktı:
+#             Hisse_Fiyati Musteri_Segmenti Risk_Seviyesi
+# Tarih                                                  
+# 2026-01-31           100         Kurumsal         Dusuk
+# 2026-02-28           105         Bireysel        Yuksek
+# 2026-03-31           102         Bireysel         Dusuk
+# 2026-04-30           110         Kurumsal         Dusuk
+# 2026-05-31           115         Kurumsal        Yuksek
+# 2026-06-30           108         Bireysel        Yuksek</span></div>
+
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">1. Zaman Serisi Değişim Metrikleri</h4>
+                        <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><code>diff()</code> mutlak dönemsel farkı ($Y_t - Y_{t-1}$) hesaplarken, <code>pct_change()</code> finansal varlıkların oransal/yüzdesel getirisini hesaplar.</p>
+
+                        <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"--- 1. YÜZDESEL VE MUTLAK DEĞİŞİMLER ---\n"</span>)
+
+<span class="syn-comment"># A. diff() - Mutlak Fark (Fark Alma):</span>
+df[<span class="syn-string">"Mutlak_Fark_1_Donem"</span>] = df[<span class="syn-string">"Hisse_Fiyati"</span>].<span class="syn-fn">diff</span>(periods=<span class="syn-number">1</span>)
+
+<span class="syn-comment"># B. pct_change() - Yüzdesel Getiri:</span>
+df[<span class="syn-string">"Yuzdesel_Getiri"</span>] = df[<span class="syn-string">"Hisse_Fiyati"</span>].<span class="syn-fn">pct_change</span>() * <span class="syn-number">100</span>
+
+<span class="syn-fn">print</span>(<span class="syn-string">"Zaman Serisi Değişimleri ve Finansal Getiriler:\n"</span>)
+<span class="syn-fn">print</span>(df[[<span class="syn-string">"Hisse_Fiyati"</span>, <span class="syn-string">"Mutlak_Fark_1_Donem"</span>, <span class="syn-string">"Yuzdesel_Getiri"</span>]], <span class="syn-string">"\n"</span>)
+<span class="syn-comment"># Çıktı:
+#             Hisse_Fiyati  Mutlak_Fark_1_Donem  Yuzdesel_Getiri
+# Tarih                                                         
+# 2026-01-31           100                  NaN              NaN
+# 2026-02-28           105                  5.0         5.000000
+# 2026-03-31           102                 -3.0        -2.857143
+# 2026-04-30           110                  8.0         7.843137
+# 2026-05-31           115                  5.0         4.545455
+# 2026-06-30           108                 -7.0        -6.086957
+# * Not: İlk satırlar hesaplanacak bir 'önceki' değer olmadığı için her zaman NaN döner.</span></div>
+
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">2. Genişleyen Pencere (Expanding) İstatistikleri</h4>
+
+                        <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                            <h5 style="color: var(--neon-blue); margin-bottom: 5px; font-size: 1rem; font-weight: 700;"><i class="ph ph-arrows-out-cardinal"></i> Rolling vs Expanding Farkı</h5>
+                            <p style="margin: 0; line-height: 1.5; font-size: 0.95rem; color: var(--text-main);">Bir önceki derste gördüğümüz <code>rolling()</code> sabit bir zaman penceresine (örneğin son 3 gün) odaklanırdı. <code>expanding()</code> ise en baştan başlar ve her adımda havuzuna yeni bir gözlem katarak kümülatif büyür. 'Tüm zamanların zirvesi' (All-Time High) veya genel ortalama takibi için vazgeçilmezdir.</p>
+                        </div>
+
+                        <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"--- 2. GENİŞLEYEN (KÜMÜLATİF) İSTATİSTİKLER ---\n"</span>)
+
+df[<span class="syn-string">"TumZamanlar_Ortalamasi"</span>] = df[<span class="syn-string">"Hisse_Fiyati"</span>].<span class="syn-fn">expanding</span>().<span class="syn-fn">mean</span>()
+df[<span class="syn-string">"TumZamanlar_Maksi"</span>] = df[<span class="syn-string">"Hisse_Fiyati"</span>].<span class="syn-fn">expanding</span>().<span class="syn-fn">max</span>()
+
+<span class="syn-fn">print</span>(<span class="syn-string">"Genişleyen Pencere Analizi:\n"</span>)
+<span class="syn-fn">print</span>(df[[<span class="syn-string">"Hisse_Fiyati"</span>, <span class="syn-string">"TumZamanlar_Ortalamasi"</span>, <span class="syn-string">"TumZamanlar_Maksi"</span>]], <span class="syn-string">"\n"</span>)
+<span class="syn-comment"># Çıktı:
+#             Hisse_Fiyati  TumZamanlar_Ortalamasi  TumZamanlar_Maksi
+# Tarih                                                              
+# 2026-01-31           100              100.000000              100.0
+# 2026-02-28           105              102.500000              105.0
+# 2026-03-31           102              102.333333              105.0
+# 2026-04-30           110              104.250000              110.0
+# 2026-05-31           115              106.400000              115.0
+# 2026-06-30           108              106.666667              115.0</span></div>
+
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">3. Sıralama ve Derecelendirme (Ranking)</h4>
+                        <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Verileri büyüklüklerine göre derecelendirir (SQL'deki <code>DENSE_RANK()</code> fonksiyonunun karşılığıdır). <code>ascending=False</code> en yüksek değere 1. sırayı verir.</p>
+
+                        <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"--- 3. İSTATİSTİKSEL SIRALAMA (RANK) ---\n"</span>)
+
+df[<span class="syn-string">"Fiyat_Siralamasi"</span>] = df[<span class="syn-string">"Hisse_Fiyati"</span>].<span class="syn-fn">rank</span>(ascending=<span class="syn-kw">False</span>, method=<span class="syn-string">"dense"</span>)
+
+<span class="syn-fn">print</span>(<span class="syn-string">"Fiyatların Büyüklük Sıralaması:\n"</span>)
+<span class="syn-fn">print</span>(df[[<span class="syn-string">"Hisse_Fiyati"</span>, <span class="syn-string">"Fiyat_Siralamasi"</span>]].<span class="syn-fn">sort_values</span>(<span class="syn-string">"Fiyat_Siralamasi"</span>), <span class="syn-string">"\n"</span>)
+<span class="syn-comment"># Çıktı:
+#             Hisse_Fiyati  Fiyat_Siralamasi
+# Tarih                                     
+# 2026-05-31           115               1.0
+# 2026-04-30           110               2.0
+# 2026-06-30           108               3.0
+# 2026-02-28           105               4.0
+# 2026-03-31           102               5.0
+# 2026-01-31           100               6.0</span></div>
+
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">4. Çapraz Tablolar (crosstab) - Kategorik Analiz</h4>
+                        <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Ki-Kare (Chi-Square) bağımsızlık testine girmeden önce iki kategorik değişkenin kesişim frekanslarını incelemek için kullanılır. Pivot tablonun frekans (sayma) odaklı istatistiksel versiyonudur.</p>
+
+                        <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"--- 4. İSTATİSTİKSEL ÇAPRAZ TABLOLAR (CROSSTAB) ---\n"</span>)
+
+<span class="syn-var">capraz_tablo</span> = pd.<span class="syn-fn">crosstab</span>(
+    index=df[<span class="syn-string">"Musteri_Segmenti"</span>],   <span class="syn-comment"># Satırlardaki kategori</span>
+    columns=df[<span class="syn-string">"Risk_Seviyesi"</span>],    <span class="syn-comment"># Sütunlardaki kategori</span>
+    margins=<span class="syn-kw">True</span>,                   <span class="syn-comment"># Toplamları göster</span>
+    margins_name=<span class="syn-string">"Genel Toplam"</span>
+)
+
+<span class="syn-fn">print</span>(<span class="syn-string">"Kategorik Değişkenlerin Çapraz Frekans Tablosu:\n"</span>)
+<span class="syn-fn">print</span>(capraz_tablo, <span class="syn-string">"\n"</span>)
+<span class="syn-comment"># Çıktı:
+# Risk_Seviyesi     Dusuk  Yuksek  Genel Toplam
+# Musteri_Segmenti                             
+# Bireysel              1       2             3
+# Kurumsal              2       1             3
+# Genel Toplam          3       3             6</span></div>
+
+                        <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 30px; font-size: 1.2rem; font-weight: 700;">5. İstatistiksel Rastgele Örneklem (Sampling)</h4>
+                        <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Büyük veri setlerinde model eğitirken veya A/B testi yürütürken, tablonun tamamı yerine yansız (unbiased) rastgele örneklem çekilir. <code>random_state</code> değeri kod her çalıştığında aynı rastgeleliği korumayı sağlar.</p>
+
+                        <div class="code-box"><span class="syn-fn">print</span>(<span class="syn-string">"--- 5. RASTGELE ÖRNEKLEM ÇEKME (SAMPLE) ---\n"</span>)
+
+<span class="syn-comment"># A. Satır sayısına göre örneklem (Rastgele 2 satır):</span>
+<span class="syn-var">ornek_n</span> = df.<span class="syn-fn">sample</span>(n=<span class="syn-number">2</span>, random_state=<span class="syn-number">42</span>)
+
+<span class="syn-comment"># B. Orana göre örneklem (Veri setinin %30'u):</span>
+<span class="syn-var">ornek_frac</span> = df.<span class="syn-fn">sample</span>(frac=<span class="syn-number">0.30</span>, random_state=<span class="syn-number">42</span>)
+
+<span class="syn-fn">print</span>(<span class="syn-string">"Veri Setinden Rastgele Seçilen %30'luk Örneklem:\n"</span>)
+<span class="syn-fn">print</span>(ornek_frac[[<span class="syn-string">"Hisse_Fiyati"</span>, <span class="syn-string">"Musteri_Segmenti"</span>]])
+<span class="syn-comment"># Çıktı:
+#             Hisse_Fiyati Musteri_Segmenti
+# Tarih                                    
+# 2026-01-31           100         Kurumsal
+# 2026-06-30           108         Bireysel</span></div>
+                    </div>
+                </div>
+            </div>
         </div>
         </div>
         <!-- End of left-column -->
