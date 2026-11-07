@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "Python'da hata oluşma riski taşıyan kod blokları hangi anahtar kelime içerisine yazılır?",
+        "options": [
+            "catch",
+            "except",
+            "finally",
+            "try"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "try bloğu içerisinde bir hata (exception) meydana geldiğinde programın çökmesini önleyerek devreye giren blok hangisidir?",
+        "options": [
+            "finally",
+            "except",
+            "else",
+            "throw"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Bir sayıyı 0'a (sıfıra) bölmeye çalıştığımızda Python hangi hata türünü fırlatır?",
+        "options": [
+            "ValueError",
+            "IndexError",
+            "ZeroDivisionError",
+            "TypeError"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Sayısal bir tipe dönüştürme işleminde geçersiz bir karakter veya metin girildiğinde (örneğin int('on beş')) hangi hata oluşur?",
+        "options": [
+            "IndexError",
+            "KeyError",
+            "ValueError",
+            "ZeroDivisionError"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Birbirleriyle uyumsuz veri tipleri arasında matematiksel işlem yapılmaya çalışıldığında (örneğin metin ile sayıyı toplamak) hangi hata türü oluşur?",
+        "options": [
+            "TypeError",
+            "NameError",
+            "ValueError",
+            "ZeroDivisionError"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "try-except yapısında hata çıksa da çıkmasa da her zaman ve MUTLAKA en sonda çalışan blok hangisidir?",
+        "options": [
+            "finally",
+            "else",
+            "always",
+            "except"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "try-except yapısında try bloğu HİÇBİR HATA VERMEDEN başarıyla tamamlandığında çalışan blok hangisidir?",
+        "options": [
+            "then",
+            "finally",
+            "else",
+            "except"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Programcının belirli bir kural ihlal edildiğinde manuel (bilinçli) olarak bir hata fırlatmasını sağlayan anahtar kelime hangisidir?",
+        "options": [
+            "throw",
+            "error",
+            "crash",
+            "raise"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "Yakalanan bir hatanın nesnesine ve hata açıklama detayına erişmek için hangi standart sözdizimi kullanılır?",
+        "options": [
+            "except Exception as e:",
+            "catch Exception with e:",
+            "try Exception into e:",
+            "except (e):"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Yazılım geliştirmede Hata Yakalama (Exception Handling) mekanizmasının temel amacı nedir?",
+        "options": [
+            "Kodun çalışma hızını iki katına çıkarmak",
+            "Beklenmeyen hatalarda programın aniden çökmesini (crash) önlemek ve kontrollü akış sağlamak",
+            "Sonsuz döngüleri engellemek",
+            "Değişkenlerin veri tiplerini otomatik olarak dönüştürmek"
+        ],
+        "correct_option": 1
+    }
+]

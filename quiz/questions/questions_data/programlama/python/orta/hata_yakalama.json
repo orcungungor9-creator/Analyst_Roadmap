@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "try:\n    x = 10 / 0\nexcept ZeroDivisionError:\n    print('Sıfıra bölünemez')\nexcept Exception:\n    print('Genel hata')\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "Genel hata",
+            "Sıfıra bölünemez\nGenel hata",
+            "Sıfıra bölünemez",
+            "ZeroDivisionError"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "try:\n    sayi = int('100')\nexcept ValueError:\n    print('Hata!')\nelse:\n    print('Başarılı:', sayi)\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "Başarılı: 100",
+            "Hata!",
+            "None",
+            "Başarılı: 100\nHata!"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "try:\n    print('A')\n    x = 1 / 0\n    print('B')\nexcept ZeroDivisionError:\n    print('C')\nfinally:\n    print('D')\n\nYukarıdaki kodun çıktısı sırasıyla nedir?",
+        "options": [
+            "A\nC\nD",
+            "C\nD",
+            "A\nC",
+            "A\nB\nC\nD"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "try:\n    print('İşlem tamamlandı')\nfinally:\n    print('Kapanış yapıldı')\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "İşlem tamamlandı\nKapanış yapıldı",
+            "İşlem tamamlandı",
+            "Kapanış yapıldı",
+            "SyntaxError"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "finally bloğu yazılım geliştirme pratiklerinde en çok hangi amaçla kullanılır?",
+        "options": [
+            "Matematiksel hesaplama sonuçlarını ekrana yazdırmak için",
+            "Açık kalan dosya veya veritabanı bağlantılarını her senaryoda güvenle kapatıp sistemi temizlemek için",
+            "Sadece hata oluştuğunda kullanıcıya uyarı vermek için",
+            "Oluşan hataları yok sayıp gizlemek için"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "def yas_kontrol(yas):\n    if yas < 0:\n        raise ValueError('Geçersiz yaş')\n    return yas\n\ntry:\n    yas_kontrol(-5)\nexcept ValueError as e:\n    print(e)\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "None",
+            "ValueError",
+            "Geçersiz yaş",
+            "-5"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "try:\n    a = '5'\n    b = 2\n    print(a + b)\nexcept TypeError:\n    print('Tip uyuşmazlığı')\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "TypeError",
+            "7",
+            "52",
+            "Tip uyuşmazlığı"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "try:\n    x = 10\nexcept:\n    print('Hata')\nelse:\n    print('Else çalıştı')\nfinally:\n    print('Finally çalıştı')\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "Finally çalıştı",
+            "Else çalıştı\nFinally çalıştı",
+            "Else çalıştı",
+            "Hata\nFinally çalıştı"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Birden fazla except bloğu yazılırken genel 'except Exception:' bloğunun en sona konulmasının sebebi nedir?",
+        "options": [
+            "Genel blok sadece kodun sonunda çalışabilir kuralı vardır",
+            "Python en başta yazılan except Exception ifadesinde SyntaxError verir",
+            "Hata detayını alabilmek için en sonda bulunması zorunludur",
+            "En başa konulursa tüm hataları erkenden yakalar ve alttaki spesifik blokların çalışmasını engeller"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "try:\n    liste = [1, 2, 3]\n    print(liste[0])\nexcept IndexError:\n    print('Hata')\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "IndexError",
+            "1",
+            "Hata",
+            "None"
+        ],
+        "correct_option": 1
+    }
+]

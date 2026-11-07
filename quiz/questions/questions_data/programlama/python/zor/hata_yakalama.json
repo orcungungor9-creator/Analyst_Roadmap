@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "def bol(a, b):\n    try:\n        return a / b\n    except ZeroDivisionError:\n        return 'Tanımsız'\n    finally:\n        print('Hesaplama bitti')\n\nprint(bol(10, 2))\n\nYukarıdaki kodun ekran çıktısı sırasıyla nedir?",
+        "options": [
+            "5.0",
+            "Hesaplama bitti\n5.0",
+            "5.0\nHesaplama bitti",
+            "Hesaplama bitti"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "def bol(a, b):\n    try:\n        return a / b\n    except ZeroDivisionError:\n        return 'Tanımsız'\n    finally:\n        print('Hesaplama bitti')\n\nprint(bol(10, 0))\n\nYukarıdaki kodun ekran çıktısı sırasıyla nedir?",
+        "options": [
+            "Tanımsız\nHesaplama bitti",
+            "Hesaplama bitti\nTanımsız",
+            "Tanımsız",
+            "ZeroDivisionError"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "try:\n    x = int('abc')\nexcept ZeroDivisionError:\n    print('Sıfıra bölme')\nexcept ValueError:\n    print('Değer hatası')\nelse:\n    print('Sorunsuz')\nfinally:\n    print('Sonlandı')\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "Değer hatası\nSonlandı",
+            "Sorunsuz\nSonlandı",
+            "Sıfıra bölme\nSonlandı",
+            "Değer hatası"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "toplam = 0\nveriler = ['10', '20', 'hatalı', '30']\nfor v in veriler:\n    try:\n        toplam += int(v)\n    except ValueError:\n        continue\nprint(toplam)\n\nYukarıdaki veri dönüştürme döngüsünün çıktısı nedir?",
+        "options": [
+            "50",
+            "0",
+            "ValueError",
+            "60"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "def bakiye_cek(mevcut, miktar):\n    if miktar > mevcut:\n        raise ValueError('Yetersiz Bakiye')\n    return mevcut - miktar\n\ntry:\n    kalan = bakiye_cek(100, 150)\nexcept ValueError as err:\n    print(f'Uyarı: {err}')\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "Uyarı: ValueError",
+            "None",
+            "Uyarı: Yetersiz Bakiye",
+            "-50"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "try:\n    try:\n        x = 1 / 0\n    except ValueError:\n        print('İç ValueError')\nexcept ZeroDivisionError:\n    print('Dış ZeroDivisionError')\n\nYukarıdaki iç içe (nested) try-except kodunun çıktısı nedir?",
+        "options": [
+            "None",
+            "İç ValueError",
+            "ZeroDivisionError",
+            "Dış ZeroDivisionError"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "sayilar = [10, 0, '5', 2]\nsonuclar = []\nfor s in sayilar:\n    try:\n        sonuclar.append(100 / s)\n    except (ZeroDivisionError, TypeError):\n        sonuclar.append(None)\nprint(sonuclar)\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "[10.0, 50.0]",
+            "[None, None, None, None]",
+            "[10.0, None, None, 50.0]",
+            "TypeError"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "x = 10\ntry:\n    x = x + 5\n    raise Exception()\n    x = x + 10\nexcept Exception:\n    x = x * 2\nprint(x)\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "20",
+            "25",
+            "50",
+            "30"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "try:\n    int('123')\nexcept ValueError:\n    print('Hata')\nelse:\n    print('Else')\n    raise KeyError('Yeni Hata')\nfinally:\n    print('Finally')\n\nYukarıdaki kod çalıştırıldığında hata fırlatılmadan hemen önce konsola sırasıyla ne yazdırılır?",
+        "options": [
+            "Else\nFinally",
+            "Else",
+            "Hata\nFinally",
+            "Finally"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "def kontrol():\n    try:\n        return 'TRY'\n    finally:\n        return 'FINALLY'\n\nprint(kontrol())\n\nYukarıdaki fonksiyonun ekran çıktısı nedir?",
+        "options": [
+            "TRY\nFINALLY",
+            "FINALLY",
+            "SyntaxError",
+            "TRY"
+        ],
+        "correct_option": 1
+    }
+]
