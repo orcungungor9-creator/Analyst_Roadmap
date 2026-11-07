@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "range(1, 10, 2) ifadesi bir döngü içerisinde sırasıyla hangi sayıları üretir?",
+        "options": [
+            "1, 2, 3, 4, 5, 6, 7, 8, 9",
+            "1, 3, 5, 7, 9, 11",
+            "2, 4, 6, 8, 10",
+            "1, 3, 5, 7, 9"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "print() fonksiyonunun çıktıları alt alta yazdırmak yerine aralarında boşluk bırakarak yan yana yazdırması için hangi parametresi kullanılır?",
+        "options": [
+            "inline=True",
+            "sep=' '",
+            "end=' '",
+            "side=' '"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "sayac = 1\nwhile sayac <= 5:\n    sayac += 1\nprint('Döngü bitti, sayaç:', sayac)\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "Döngü bitti, sayaç: 4",
+            "Döngü bitti, sayaç: 6",
+            "Döngü bitti, sayaç: 1",
+            "Döngü bitti, sayaç: 5"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Bir while döngüsünde koşulun hiçbir zaman False olmaması (örneğin sayacın artırılmasının unutulması) durumunda ne meydana gelir?",
+        "options": [
+            "Sonsuz döngü (Infinite Loop) oluşur ve program kilitlenebilir",
+            "Python 100 adım sonra otomatik olarak hata vermeden durur",
+            "SyntaxError hatası fırlatılır",
+            "Döngü hiçbir zaman başlamadan sonlanır"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "sayilar = [10, 20, 30, 40, 50]\nfor x in sayilar:\n    if x == 30:\n        break\n    print(x)\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "10\n20\n30\n40\n50",
+            "10\n20\n30",
+            "30\n40\n50",
+            "10\n20"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "sayilar = [10, 20, 30, 40]\nfor x in sayilar:\n    if x == 20:\n        continue\n    print(x, end=' ')\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "10 20 30 40 ",
+            "10 30 40 ",
+            "10 ",
+            "20 30 40 "
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "toplam = 0\nfor i in range(1, 4):\n    toplam += i\nprint(toplam)\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "10",
+            "3",
+            "6",
+            "4"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "meyveler = ['elma', 'armut', 'muz']\nfor m in meyveler:\n    if m == 'armut':\n        break\n    print(m)\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "armut\nmuz",
+            "elma\narmut",
+            "elma\nmuz",
+            "elma"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "sayac = 3\nwhile sayac > 0:\n    print(sayac, end=' ')\n    sayac -= 1\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "3 2 1 0 ",
+            "3 2 1 ",
+            "3 2 ",
+            "2 1 0 "
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "for i in range(5, 0, -1):\n    print(i, end=' ')\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "5 4 3 2 1 ",
+            "4 3 2 1 0 ",
+            "5 4 3 2 1 0 ",
+            "5 0 -1 "
+        ],
+        "correct_option": 0
+    }
+]

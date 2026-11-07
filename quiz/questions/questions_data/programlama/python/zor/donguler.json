@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "toplam = 0\nfor i in range(1, 6):\n    if i % 2 == 0:\n        continue\n    toplam += i\nprint(toplam)\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "9",
+            "6",
+            "15",
+            "8"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "i = 1\nwhile i < 10:\n    if i == 5:\n        break\n    i += 2\nprint(i)\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "5",
+            "9",
+            "3",
+            "7"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "adet = 0\nfor harf in 'Veri Analizi':\n    if harf.lower() == 'i':\n        adet += 1\nprint(adet)\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "2",
+            "4",
+            "3",
+            "1"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "sayilar = [2, 4, 6, 8, 10]\nsonuc = 0\nfor s in sayilar:\n    if s > 6:\n        break\n    sonuc += s\nprint(sonuc)\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "30",
+            "6",
+            "20",
+            "12"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "x = 0\nfor i in range(3):\n    for j in range(2):\n        x += 1\nprint(x)\n\nYukarıdaki iç içe (nested) döngü kodunun çıktısı nedir?",
+        "options": [
+            "5",
+            "2",
+            "3",
+            "6"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "sayi = 1\nwhile True:\n    if sayi * 3 > 10:\n        break\n    sayi += 1\nprint(sayi)\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "12",
+            "4",
+            "5",
+            "3"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "liste = [1, 2, 3, 4, 5]\nyeni = []\nfor x in liste:\n    if x == 3:\n        continue\n    yeni.append(x * 2)\nprint(yeni)\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "[2, 4]",
+            "[6]",
+            "[2, 4, 6, 8, 10]",
+            "[2, 4, 8, 10]"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "s = 0\nfor i in range(5):\n    if i == 2:\n        pass\n    s += i\nprint(s)\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "10",
+            "3",
+            "15",
+            "8"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "metin = 'Python'\nsonuc = ''\nfor ch in metin:\n    if ch in 'yo':\n        continue\n    sonuc += ch\nprint(sonuc)\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "Pthon",
+            "Pthn",
+            "Python",
+            "yo"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "a = 10\nwhile a > 0:\n    a -= 3\n    if a == 4:\n        continue\nprint(a)\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "4",
+            "0",
+            "-2",
+            "1"
+        ],
+        "correct_option": 2
+    }
+]

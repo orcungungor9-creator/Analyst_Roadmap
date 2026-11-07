@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "Python'da temel olarak hangi iki çeşit döngü (loop) yapısı bulunur?",
+        "options": [
+            "loop ve repeat",
+            "foreach ve until",
+            "for ve while",
+            "do ve while"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Programlamada aynı işlemi defalarca yazmak yerine döngüler kullanarak kod tekrarını önleme prensibine ne ad verilir?",
+        "options": [
+            "WET (Write Everything Twice)",
+            "DRY (Don't Repeat Yourself / Kendini Tekrar Etme)",
+            "KISS (Keep It Simple)",
+            "OOP (Object Oriented Programming)"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Genellikle eleman sayısı veya sınırları belli olan veri yapılarında (liste, tuple, string) sırayla gezinmek (iterasyon) için hangi döngü tercih edilir?",
+        "options": [
+            "for",
+            "while",
+            "repeat",
+            "switch"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Kendisine verilen belirli bir mantıksal koşul True (doğru) olduğu sürece çalışmaya devam eden döngü hangisidir?",
+        "options": [
+            "for",
+            "while",
+            "in",
+            "range"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Belirli sayıda tekrar yapmak veya ardışık sayı dizisi üretmek için for döngüsü ile birlikte en sık kullanılan fonksiyon hangisidir?",
+        "options": [
+            "loop()",
+            "series()",
+            "range()",
+            "count()"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "range(5) fonksiyonu bir for döngüsünde kullanıldığında sırasıyla hangi sayıları üretir?",
+        "options": [
+            "1, 2, 3, 4",
+            "0, 1, 2, 3, 4, 5",
+            "1, 2, 3, 4, 5",
+            "0, 1, 2, 3, 4"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "Çalışmakta olan bir döngüyü anında tamamen sonlandırıp döngü dışına çıkaran anahtar kelime hangisidir?",
+        "options": [
+            "stop",
+            "continue",
+            "exit",
+            "break"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "Döngünün sadece o anki adımını pas geçip (atlayıp) döngüye bir sonraki adımdan devam edilmesini sağlayan anahtar kelime hangisidir?",
+        "options": [
+            "skip",
+            "continue",
+            "pass",
+            "break"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "kelime = 'Python'\nfor harf in kelime:\n    print(harf)\n\nYukarıdaki kodda for döngüsü toplam kaç kez çalışır (iterasyon yapar)?",
+        "options": [
+            "5",
+            "1",
+            "7",
+            "6"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "for i in range(3):\n    print('Merhaba')\n\nYukarıdaki kod çalıştırıldığında ekrana kaç kez 'Merhaba' yazdırılır?",
+        "options": [
+            "3",
+            "4",
+            "2",
+            "1"
+        ],
+        "correct_option": 0
+    }
+]
