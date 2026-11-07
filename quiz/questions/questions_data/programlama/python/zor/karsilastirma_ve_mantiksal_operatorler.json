@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "liste1 = [1, 2, 3]\nliste2 = [1, 2, 3]\nprint(liste1 is liste2)\n\nYukarıdaki kodun çıktısı ve sebebi nedir?",
+        "options": [
+            "None (İki farklı liste kıyaslanamaz)",
+            "False (İçerikleri aynı olsa da bellekte farklı nesneler olarak saklanırlar)",
+            "True (İçerikleri birebir aynı olduğu için bellekte de aynıdırlar)",
+            "SyntaxError (Listelerde is operatörü kullanılamaz)"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "liste1 = [1, 2, 3]\nliste3 = liste1\nprint(liste1 is liste3)\n\nYukarıdaki kodun çıktısı ve sebebi nedir?",
+        "options": [
+            "None (Bellek referansı sorgulanamaz)",
+            "TypeError (Listeler arasında doğrudan is karşılaştırması yapılamaz)",
+            "False (Atama yapıldığında liste1'in yeni ve bağımsız bir kopyası oluşturulur)",
+            "True (liste3 doğrudan liste1'e atandığı için ikisi de bellekte aynı nesneyi işaret eder)"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "kredi_skoru = 1200\nmaas = 30000\nkefil_var_mi = False\nkredi_onayi = ((kredi_skoru > 1000) and (maas > 20000)) or kefil_var_mi\nprint(kredi_onayi)\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "True",
+            "None",
+            "SyntaxError",
+            "False"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "sonuc = (5 > 3) and (2 > 10) or (7 == 7)\nprint(sonuc)\n\nYukarıdaki mantıksal ifadenin çıktısı nedir?",
+        "options": [
+            "True",
+            "None",
+            "False",
+            "7"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "sayilar = [10, 20, 30]\nprint(15 not in sayilar and 20 in sayilar)\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "True",
+            "TypeError",
+            "False",
+            "None"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "a = [5, 6]\nb = [5, 6]\nprint(a is not b)\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "SyntaxError",
+            "None",
+            "True",
+            "False"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "durum = not (True and not False)\nprint(durum)\n\nYukarıdaki mantıksal ifadenin çıktısı nedir?",
+        "options": [
+            "None",
+            "False",
+            "SyntaxError",
+            "True"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "cumle = 'Python ile veri analizi'\nprint(('veri' in cumle) and not ('java' in cumle))\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "False",
+            "None",
+            "True",
+            "ValueError"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "x = 25\ny = 30\nz = 25\nprint((x == z) and (x != y) and not (y < z))\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "SyntaxError",
+            "None",
+            "False",
+            "True"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "x = [1, 2]\ny = x\nprint((x == y) and (x is y))\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "None",
+            "True",
+            "False",
+            "SyntaxError"
+        ],
+        "correct_option": 1
+    }
+]

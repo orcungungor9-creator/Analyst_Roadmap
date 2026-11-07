@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "Python'da büyük/küçük harf duyarlılığı (case-sensitivity) düşünüldüğünde, print('Python' == 'python') ifadesinin çıktısı ne olur?",
+        "options": [
+            "SyntaxError",
+            "True",
+            "False",
+            "None"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "puan = 85\ndevamsizlik = 3\ngecti_mi = (puan >= 50) and (devamsizlik < 5)\nprint(gecti_mi)\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "True",
+            "False",
+            "None",
+            "85"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "sinav_puani = 85\ndevamsizlik = 3\nburs_aliyor_mu = (sinav_puani >= 90) or (devamsizlik == 0)\nprint(burs_aliyor_mu)\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "85",
+            "True",
+            "None",
+            "False"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "sistem_aktif_mi = True\nprint(not sistem_aktif_mi)\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "True",
+            "None",
+            "False",
+            "!True"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Bir elemanın belirtilen bir dizinin veya listenin içinde BULUNMADIĞINI sorgulamak için hangi aitlik operatörü kullanılır?",
+        "options": [
+            "absent in",
+            "not in",
+            "is not",
+            "in not"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "kullanici_yetenekleri = ['Python', 'SQL', 'Excel']\nprint('R' not in kullanici_yetenekleri)\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "IndexError",
+            "None",
+            "False",
+            "True"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "metin = 'Veri Analizi çok eğlenceli!'\nprint('Analiz' in metin)\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "None",
+            "True",
+            "False",
+            "ValueError"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "'==' operatörü ile 'is' operatörü arasındaki temel fark aşağıdakilerden hangisinde doğru açıklanmıştır?",
+        "options": [
+            "is operatörü değer eşitliğini kontrol eder; == bellek adresine bakar",
+            "== sadece değer/içerik eşitliğine bakar; is nesnelerin bellekte birebir aynı obje olup olmadığına bakar",
+            "İkisi tamamen aynı işlevi görür, aralarında hiçbir fark yoktur",
+            "== sadece sayılarda kullanılır; is ise sadece metinlerde kullanılır"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "liste1 = [1, 2, 3]\nliste2 = [1, 2, 3]\nprint(liste1 == liste2)\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "True",
+            "TypeError",
+            "False",
+            "[1, 2, 3]"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "x = 10\nprint((x > 5) and not (x == 10))\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "False",
+            "10",
+            "None",
+            "True"
+        ],
+        "correct_option": 0
+    }
+]

@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "Python'da karşılaştırma ve mantıksal operatörlerin sonucunda her zaman hangi veri tipi döner?",
+        "options": [
+            "bool (True veya False)",
+            "str ('True' veya 'False')",
+            "int (0 veya 1)",
+            "float (1.0 veya 0.0)"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Python'da bir değişkene değer atamak (assignment) için hangi operatör kullanılır?",
+        "options": [
+            "eq",
+            "== (Çift eşittir)",
+            "= (Tek eşittir)",
+            ":= (Atama operatörü)"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "İki değerin birbirine eşit olup olmadığını sorgulamak (kıyaslamak) için hangi operatör kullanılır?",
+        "options": [
+            "!=",
+            "==",
+            "=",
+            "==="
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "İki değerin birbirinden farklı (eşit değil) olup olmadığını sorgulamak için hangi operatör kullanılır?",
+        "options": [
+            "!=",
+            "<>",
+            "!==",
+            "not ="
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Bir değerin diğerinden büyük veya eşit olup olmadığını kontrol eden karşılaştırma operatörü hangisidir?",
+        "options": [
+            "==>",
+            ">",
+            "=>",
+            ">="
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "Mantıksal 'and' (ve) operatörünün sonucunun True olması için hangi şart gereklidir?",
+        "options": [
+            "Koşulların sayısının çift olması",
+            "Koşullardan sadece birinin True olması yeterlidir",
+            "Bağlanan TÜM koşulların True olması",
+            "En az bir koşulun False olması"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Mantıksal 'or' (veya) operatörünün sonucunun True olması için hangi şart yeterlidir?",
+        "options": [
+            "Tüm koşulların zorunlu olarak True olması",
+            "Tüm koşulların False olması",
+            "İlk koşulun mutlaka True olması",
+            "Bağlanan koşullardan en az birinin True olması"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "Bir mantıksal sonucun tam tersini alan (True ise False, False ise True yapan) operatör hangisidir?",
+        "options": [
+            "not",
+            "opposite",
+            "reverse",
+            "invert"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Bir elemanın bir liste veya karakter dizisi içerisinde var olup olmadığını sorgulayan aitlik operatörü hangisidir?",
+        "options": [
+            "has",
+            "in",
+            "is",
+            "contains"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "a = 15\nb = 20\nprint(a > b)\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "15",
+            "True",
+            "None",
+            "False"
+        ],
+        "correct_option": 3
+    }
+]
