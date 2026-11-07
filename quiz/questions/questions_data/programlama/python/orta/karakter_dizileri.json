@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "title() metodu ile capitalize() metodu arasındaki temel fark nedir?",
+        "options": [
+            "title() her kelimenin baş harfini büyütür, capitalize() ise yalnızca metnin ilk kelimesinin baş harfini büyütür.",
+            "İkisi de tamamen aynı işi yapar.",
+            "title() metni büyük harfe, capitalize() küçük harfe çevirir.",
+            "capitalize() her kelimenin baş harfini büyütür, title() sadece ilk harfi büyütür."
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "kurs = \"Veri Analizi\"\nprint(kurs[0:4])\n\nBitiş indeksinin dahil edilmediği kuralına göre yukarıdaki dilimlemenin çıktısı nedir?",
+        "options": [
+            "\"Veri \"",
+            "\"Veri\"",
+            "\"Ver\"",
+            "\"eri \""
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "s = \"merhaba dünya\"\nprint(s.capitalize())\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "\"merhaba Dünya\"",
+            "\"MERHABA DÜNYA\"",
+            "\"Merhaba dünya\"",
+            "\"Merhaba Dünya\""
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "metin = \"12345\"\nprint(metin[::-1])\n\nYukarıdaki tersten dilimleme işleminin çıktısı nedir?",
+        "options": [
+            "\"-54321\"",
+            "\"5\"",
+            "\"12345\"",
+            "\"54321\""
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "yazi = \"elma,armut,muz\"\nsonuc = yazi.split(\",\")\nprint(sonuc)\n\nYukarıdaki kodun konsol çıktısı tam olarak nedir?",
+        "options": [
+            "('elma', 'armut', 'muz')",
+            "['elma', 'armut', 'muz']",
+            "\"elma armut muz\"",
+            "elma, armut, muz"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "metin = \"Python\"\nprint(metin[2:])\n\nYukarıdaki dilimlemenin çıktısı nedir?",
+        "options": [
+            "\"ython\"",
+            "\"ytho\"",
+            "\"thon\"",
+            "\"on\""
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "kelime = \"araba\"\nprint(kelime.replace(\"a\", \"e\"))\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "\"ereba\"",
+            "\"eraba\"",
+            "\"arebe\"",
+            "\"erebe\""
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "Python'da string metodları (örneğin metin.upper()) çalıştırıldığında orijinal değişkenin içeriği kalıcı olarak değişir mi?",
+        "options": [
+            "Evet; string metodları değişkenin bellekteki orijinal değerini kalıcı olarak günceller.",
+            "Hayır; stringler değiştirilemez (immutable) olduğu için metod sadece yeni bir metin döndürür, orijinali korur.",
+            "Değişkenin türüne göre değişir.",
+            "Yalnızca upper() ve lower() değiştirir."
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "ad = \"   Ali   \"\nprint(ad.strip() + \"!\")\n\nYukarıdaki kodun konsol çıktısı nedir?",
+        "options": [
+            "\"Ali!\"",
+            "\"   Ali   !\"",
+            "\"!Ali\"",
+            "\"Ali !\""
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "kod = \"ABCDEF\"\nprint(kod[::2])\n\nİkişer adım atlayarak yapılan yukarıdaki dilimlemenin çıktısı nedir?",
+        "options": [
+            "\"ACE\"",
+            "\"AB\"",
+            "\"ACD\"",
+            "\"BDF\""
+        ],
+        "correct_option": 0
+    }
+]

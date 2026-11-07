@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "Python'da bir karakter dizisinin (string) kaç karakterden oluştuğunu (uzunluğunu) bulan fonksiyon hangisidir?",
+        "options": [
+            "size()",
+            "count()",
+            "length()",
+            "len()"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "Python'da string indeksleme yaparken ilk karakterin indeksi kaçtır?",
+        "options": [
+            "1",
+            "-1",
+            "Değişkene göre değişir",
+            "0"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "metin = \"Python\"\n\nmetin[0] ve metin[-1] ifadelerinin çıktıları sırasıyla nedir?",
+        "options": [
+            "'y' ve 'n'",
+            "'Python' ve 'n'",
+            "'P' ve 'n'",
+            "'P' ve 'o'"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Bir metindeki tüm harfleri BÜYÜK harfe dönüştüren string metodu hangisidir?",
+        "options": [
+            "large()",
+            "toUpper()",
+            "upper()",
+            "capitalize()"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Bir metindeki tüm harfleri KÜÇÜK harfe dönüştüren string metodu hangisidir?",
+        "options": [
+            "strip()",
+            "lower()",
+            "toLower()",
+            "small()"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Bir metnin başındaki ve sonundaki gereksiz boşlukları silerek temizlemek için hangi metod kullanılır?",
+        "options": [
+            "strip()",
+            "trim()",
+            "clean()",
+            "clear()"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Metin içindeki belirli bir bölümü veya kelimeyi başka bir metinle değiştirmek için hangi metod kullanılır?",
+        "options": [
+            "change()",
+            "replace()",
+            "switch()",
+            "swap()"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Bir metni boşluklardan veya belirtilen bir ayırıcıdan bölerek bir liste (list) haline getiren metod hangisidir?",
+        "options": [
+            "slice()",
+            "split()",
+            "divide()",
+            "cut()"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "metin = \"veri analizi\"\nprint(metin.title())\n\nYukarıdaki kodun konsol çıktısı nedir?",
+        "options": [
+            "\"Veri Analizi\"",
+            "\"Veri analizi\"",
+            "\"VERI ANALIZI\"",
+            "\"veri Analizi\""
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "metin = \"a b c\"\nlen(metin)\n\nBoşlukların da birer karakter sayıldığı kuralına göre yukarıdaki kodun çıktısı kaçtır?",
+        "options": [
+            "5",
+            "3",
+            "4",
+            "6"
+        ],
+        "correct_option": 0
+    }
+]

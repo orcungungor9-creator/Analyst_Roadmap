@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "s = \"Python\"\nprint(s[1:5])\n\nYukarıdaki dilimlemenin çıktısı nedir?",
+        "options": [
+            "\"ython\"",
+            "\"ytho\"",
+            "\"ytho \"",
+            "\"Pyth\""
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "metin = \"veri analizi\"\nprint(len(metin.split()))\n\nYukarıdaki kod parçasının konsol çıktısı kaçtır?",
+        "options": [
+            "12",
+            "11",
+            "3",
+            "2 (Bölünen kelimelerden oluşan listenin uzunluğu)"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "a = \"kod\"\nb = a.replace(\"k\", \"m\")\nprint(a, b)\n\nStringlerin değiştirilemezliği kuralına göre yukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "mod mod",
+            "kod kod",
+            "kod mod",
+            "mod"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "x = \"abcdef\"\nprint(x[-3:])\n\nYukarıdaki negatif indeksli dilimlemenin çıktısı nedir?",
+        "options": [
+            "\"def\"",
+            "\"cde\"",
+            "\"fed\"",
+            "\"d\""
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "yazi = \" hava güzel \"\nprint(len(yazi), len(yazi.strip()))\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "11 10",
+            "12 10",
+            "10 10",
+            "12 12"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "cumle = \"python çok zevkli\"\nprint(cumle.split()[1])\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "['çok']",
+            "\"python\"",
+            "\"çok\"",
+            "\"zevkli\""
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "s = \"123456\"\nprint(s[1:5:2])\n\n1. indeksten 5. indekse kadar 2'şer adım atlayan dilimlemenin çıktısı nedir?",
+        "options": [
+            "\"2345\"",
+            "\"135\"",
+            "\"25\"",
+            "\"24\""
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "metin = \"kitap\"\nmetin[0] = \"K\"\n\nYukarıdaki atama satırı çalıştırılırsa ne gerçekleşir?",
+        "options": [
+            "TypeError verir; string karakterlerine doğrudan atama yapılamaz (immutable yapı).",
+            "Sadece bir uyarı verir ama çalışır.",
+            "metin 'Kitap' olarak güncellenir.",
+            "metin 'kitap' olarak kalır, hata vermez."
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "a = \"Ankara-İzmir-İstanbul\"\nprint(a.split(\"-\")[-1])\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "\"İzmir\"",
+            "\"Ankara\"",
+            "['İstanbul']",
+            "\"İstanbul\""
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "s = \"AbCdEf\"\nprint(s.lower().title())\n\nYukarıdaki zincirleme string metodlarının çıktısı nedir?",
+        "options": [
+            "\"AbCdEf\"",
+            "\"Abcdef\"",
+            "\"abcdef\"",
+            "\"ABCDEF\""
+        ],
+        "correct_option": 1
+    }
+]
