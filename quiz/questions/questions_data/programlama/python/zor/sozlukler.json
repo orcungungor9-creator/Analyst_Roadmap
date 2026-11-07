@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "d = {\"puanlar\": [10, 20, 30]}\nd[\"puanlar\"].append(40)\nprint(len(d[\"puanlar\"]))\n\nSözlük içindeki liste elemanına append() uygulandıktan sonra listenin eleman sayısı kaç olur?",
+        "options": [
+            "4",
+            "3",
+            "TypeError",
+            "1"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "d = {\"a\": 10, \"b\": 20}\nd[\"a\"] += 5\nprint(d[\"a\"])\n\nYukarıdaki değer artırma işleminin çıktısı kaçtır?",
+        "options": [
+            "10",
+            "5",
+            "TypeError",
+            "15"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "d = {\"x\": 1, \"y\": 2}\nprint(len(d.items()))\n\nYukarıdaki kod parçasının konsol çıktısı kaçtır?",
+        "options": [
+            "TypeError",
+            "2",
+            "4",
+            "1"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "kisi = {\"ad\": \"Ali\"}\nkisi.update({\"yas\": 30, \"sehir\": \"Ankara\"})\nprint(len(kisi))\n\nupdate() işlemi ile birden fazla yeni anahtar eklendikten sonra sözlüğün uzunluğu (len) kaç olur?",
+        "options": [
+            "4",
+            "1",
+            "3",
+            "2"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "d = {\"sayilar\": [1, 2, 3]}\ntoplam = sum(d[\"sayilar\"])\nprint(toplam * 2)\n\nYukarıdaki kodun konsol çıktısı kaçtır?",
+        "options": [
+            "24",
+            "12",
+            "18",
+            "6"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "d = {\"a\": 1, \"b\": 2}\nx = d.pop(\"b\")\ny = d.get(\"b\")\nprint(x, y)\n\nYukarıdaki kod parçasının konsol çıktısı nedir?",
+        "options": [
+            "2 None",
+            "2 2",
+            "None 2",
+            "KeyError"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "d = {\"a\": 100}\nprint(d.get(\"b\") == None)\n\nOlmayan bir anahtar get() ile sorgulandığında dönen değerin None ile kıyaslaması ne verir?",
+        "options": [
+            "False",
+            "KeyError",
+            "True",
+            "None"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "d = {\"k1\": {\"k2\": \"Hedef\"}}\nprint(d[\"k1\"][\"k2\"])\n\nİç içe (nested) sözlük yapısına sahip yukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "KeyError",
+            "\"k2\"",
+            "\"Hedef\"",
+            "{'k2': 'Hedef'}"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "d = {\"a\": 5, \"b\": 10}\nprint(list(d.values())[1])\n\nSözlük değerleri listeye çevrilip 1. indeksi istendiğinde konsola ne yazdırılır?",
+        "options": [
+            "1",
+            "5",
+            "dict_values",
+            "10"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "d = {}\nd[1] = \"Tam Sayı\"\nd[\"1\"] = \"Metin\"\nprint(len(d))\n\nPython'da int(1) ile str(\"1\") farklı tipler olduğu kuralına göre yukarıdaki sözlüğün eleman sayısı (len) kaçtır?",
+        "options": [
+            "2 (İki farklı anahtar olarak ayrı ayrı kaydedilir)",
+            "1 (Birbirini ezer)",
+            "0",
+            "TypeError"
+        ],
+        "correct_option": 0
+    }
+]

@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "sozluk = {\"a\": 1, \"b\": 2}\nprint(sozluk[\"c\"])\n\nSözlükte olmayan bir anahtar köşeli parantezle doğrudan çağrılırsa Python ne tepki verir?",
+        "options": [
+            "0 döndürür.",
+            "Boş string \"\" döner.",
+            "None döndürür.",
+            "KeyError hatası fırlatır."
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "sozluk = {\"a\": 1, \"b\": 2}\nprint(sozluk.get(\"c\"))\n\nYukarıdaki get() kodunun konsol çıktısı nedir?",
+        "options": [
+            "0",
+            "False",
+            "KeyError",
+            "None"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "veri = {\"isim\": \"Orçun\", \"diller\": [\"Python\", \"SQL\", \"R\"]}\nprint(veri[\"diller\"][0])\n\nSözlük içindeki liste değerine erişen yukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "TypeError",
+            "\"Python\"",
+            "[\"Python\", \"SQL\", \"R\"]",
+            "\"SQL\""
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "sozluk = {\"x\": 10}\nsozluk[\"y\"] = 20\nprint(len(sozluk))\n\nOlmayan bir anahtara değer atandıktan sonra sözlüğün eleman sayısı (len) kaç olur?",
+        "options": [
+            "30",
+            "2 (Yeni bir anahtar-değer çifti olarak eklenir)",
+            "TypeError",
+            "1"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "d = {\"a\": 1, \"b\": 2}\nsilinen = d.pop(\"a\")\nprint(silinen, d)\n\nYukarıdaki pop() işleminin konsol çıktısı nedir?",
+        "options": [
+            "{'b': 2} 1",
+            "'a' {'b': 2}",
+            "None {'a': 1, 'b': 2}",
+            "1 {'b': 2}"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "s1 = {\"a\": 1, \"b\": 2}\ns2 = {\"b\": 99, \"c\": 3}\ns1.update(s2)\nprint(s1[\"b\"])\n\nupdate() metodunun çalışma kuralına göre yukarıdaki kodun çıktısı kaçtır?",
+        "options": [
+            "TypeError",
+            "99 (Ortak anahtarın değeri yenisiyle güncellenir)",
+            "2",
+            "101"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "profil = {\"ad\": \"Ece\", \"yas\": 22}\nprint(list(profil.keys()))\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "['Ece', 22]",
+            "dict_keys",
+            "['ad', 'yas']",
+            "[('ad', 'Ece'), ('yas', 22)]"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "puanlar = {\"mat\": 80, \"fizik\": 90}\nprint(sum(puanlar.values()))\n\nSözlük değerlerinin toplamını alan yukarıdaki kodun çıktısı kaçtır?",
+        "options": [
+            "TypeError",
+            "170.0",
+            "170",
+            "8090"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "sozluk = {\"a\": 1, \"b\": 2}\nsonuc = sozluk.get(\"a\") + sozluk.get(\"b\")\nprint(sonuc)\n\nYukarıdaki işlemin çıktısı nedir?",
+        "options": [
+            "3",
+            "\"12\"",
+            "KeyError",
+            "None"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "tekrarli = {\"x\": 1, \"x\": 2}\nprint(tekrarli)\n\nBir sözlükte aynı anahtar birden fazla kez tanımlanırsa ne olur?",
+        "options": [
+            "{'x': 2} (Son yazılan değer önceki değeri ezer)",
+            "SyntaxError verir",
+            "{'x': 1, 'x': 2}",
+            "{'x': [1, 2]}"
+        ],
+        "correct_option": 0
+    }
+]

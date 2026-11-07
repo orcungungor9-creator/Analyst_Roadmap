@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "Python'da verileri 'Anahtar-Değer' (Key-Value) çiftleri şeklinde tutan veri yapısı hangisidir?",
+        "options": [
+            "Sözlük (dict)",
+            "Küme (set)",
+            "Liste (list)",
+            "Demet (tuple)"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Bir sözlük tanımlanırken anahtar (Key) ile o anahtarın değeri (Value) arasına hangi noktalama işareti konulur?",
+        "options": [
+            "- (Tire)",
+            "= (Eşittir)",
+            ": (İki nokta)",
+            "-> (Ok işareti)"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "kisi = {\"isim\": \"Ali\", \"yas\": 25}\n\nYukarıdaki sözlükten Ali'nin yaşını çekmek için hangi kod yazılmalıdır?",
+        "options": [
+            "kisi.yas",
+            "kisi(yas)",
+            "kisi[1]",
+            "kisi[\"yas\"]"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "Sözlükte bulunmayan bir anahtarı çağırırken KeyError hatası fırlatmak yerine güvenli bir şekilde 'None' dönmesini sağlayan metod hangisidir?",
+        "options": [
+            "get()",
+            "check()",
+            "find()",
+            "search()"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Bir sözlükteki yalnızca tüm anahtarları (sol tarafı) listeleyen metod hangisidir?",
+        "options": [
+            "values()",
+            "names()",
+            "keys()",
+            "items()"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Bir sözlükteki yalnızca tüm değerleri (sağ tarafı) listeleyen metod hangisidir?",
+        "options": [
+            "data()",
+            "values()",
+            "keys()",
+            "elements()"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Bir sözlükteki anahtar ve değerleri ikili eşleşmeler (tuple çiftleri) halinde veren metod hangisidir?",
+        "options": [
+            "pairs()",
+            "items()",
+            "entries()",
+            "all()"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Bir sözlükten belirli bir anahtarı ve onun değerini silip, sildiği değeri geriye döndüren metod hangisidir?",
+        "options": [
+            "discard()",
+            "remove()",
+            "delete()",
+            "pop()"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "Bir sözlükte toplam kaç adet anahtar-değer çifti olduğunu öğrenmek için hangi fonksiyon kullanılır?",
+        "options": [
+            "count()",
+            "size()",
+            "len()",
+            "length()"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "ogrenci = {\"not\": 80}\nogrenci[\"not\"] = 90\nprint(ogrenci[\"not\"])\n\nVar olan bir anahtara yeni değer atandığında yukarıdaki kodun çıktısı ne olur?",
+        "options": [
+            "80 (Değiştirilemez)",
+            "KeyError",
+            "[80, 90]",
+            "90 (Eski değer güncellenir)"
+        ],
+        "correct_option": 3
+    }
+]
