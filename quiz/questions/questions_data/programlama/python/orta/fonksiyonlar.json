@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "print() fonksiyonu ile return ifadesi arasındaki temel fark nedir?",
+        "options": [
+            "print sadece sayılarda, return ise sadece metinlerde kullanılır",
+            "İkisi tamamen aynı işlevi görür ve birbirinin yerine kullanılabilir",
+            "return değeri sadece ekrana basar; print ise bellekte tutar",
+            "print veriyi sadece ekrana yazdırır; return ise hesaplanan değeri programda kullanılmak üzere dışarı aktarır"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "def model_olustur(bagimsiz_degisken, algoritma='Lineer Regresyon'):\n    print(f'{algoritma} - {bagimsiz_degisken}')\n\nmodel_olustur(5)\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "5 - Lineer Regresyon",
+            "TypeError (Eksik argüman)",
+            "None - 5",
+            "Lineer Regresyon - 5"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "def model_olustur(bagimsiz_degisken, algoritma='Lineer Regresyon'):\n    print(algoritma)\n\nmodel_olustur(3, 'Lojistik Regresyon')\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "SyntaxError",
+            "Lineer Regresyon",
+            "Lojistik Regresyon - 3",
+            "Lojistik Regresyon"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "def carp(x, y):\n    print(x * y)\n\nsonuc = carp(4, 5)\nprint(sonuc)\n\nYukarıdaki kodun ekran çıktısı sırasıyla nedir?",
+        "options": [
+            "None\n20",
+            "20\nNone",
+            "20",
+            "20\n20"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "def ortalama(s1, s2, s3):\n    return (s1 + s2 + s3) / 3\n\nnot_ort = ortalama(80, 90, 70)\nprint(not_ort)\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "70.0",
+            "240",
+            "80.0",
+            "80"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "def kare_al(x):\n    return x ** 2\n\nsonuc = kare_al(kare_al(3))\nprint(sonuc)\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "81",
+            "9",
+            "18",
+            "27"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "def kontrol(x):\n    if x > 0:\n        return 'Pozitif'\n    return 'Sıfır veya Negatif'\n\nprint(kontrol(10))\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "Pozitif",
+            "None",
+            "Pozitif\nSıfır veya Negatif",
+            "Sıfır veya Negatif"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "def hesapla(a, b=2):\n    return a * b\n\nprint(hesapla(5))\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "TypeError",
+            "2",
+            "10",
+            "5"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Python'da çok satırlı bir Docstring (fonksiyon belgesi) tanımlamak için hangi tırnak yapısı kullanılır?",
+        "options": [
+            "Yorum işareti (#)",
+            "Köşeli parantez ([])",
+            "Üç çift tırnak (\"\"\") veya üç tek tırnak (''')",
+            "Tek tırnak (')"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "def bilgi(isim, yas):\n    return f'{isim}: {yas}'\n\nprint(bilgi(yas=25, isim='Ali'))\n\nİsimlendirilmiş argümanlar (keyword arguments) kullanılarak çağrılan yukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "25: Ali",
+            "Ali: 25",
+            "TypeError",
+            "isim: yas"
+        ],
+        "correct_option": 1
+    }
+]

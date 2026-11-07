@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "Python'da yeni bir fonksiyon tanımlamak için hangi anahtar kelime kullanılır?",
+        "options": [
+            "def",
+            "function",
+            "func",
+            "define"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Bir fonksiyon tanımlandıktan sonra içindeki kodların çalışması için ne yapılmalıdır?",
+        "options": [
+            "İsmi ve parantezleri kullanılarak çağrılması (call edilmesi)",
+            "print() fonksiyonunun içine yazılması zorunludur",
+            "Mutlaka bir değişkene atanması gerekir",
+            "Sadece tanımlanması çalışması için yeterlidir"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Bir fonksiyonu TANIMLARKEN parantez içine yazdığımız soyut değişken isimlerine ne ad verilir?",
+        "options": [
+            "Argüman",
+            "Docstring",
+            "Metod",
+            "Parametre"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "Bir fonksiyonu ÇAĞIRIRKEN parantez içine gönderdiğimiz somut/gerçek değerlere ne ad verilir?",
+        "options": [
+            "Tanım",
+            "Argüman",
+            "Return",
+            "Parametre"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Bir fonksiyonun ürettiği hesaplama sonucunu programın ilerisinde kullanılmak üzere bellekte geri döndüren anahtar kelime hangisidir?",
+        "options": [
+            "return",
+            "give",
+            "send",
+            "output"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Fonksiyonların ne işe yaradığını açıklayan ve fonksiyon tanımının hemen altına üç tırnak (\"\"\") ile yazılan açıklama metinlerine ne ad verilir?",
+        "options": [
+            "Tag (Etiket)",
+            "Docstring (Fonksiyon Belgesi)",
+            "Comment (Yorum)",
+            "Annotation (Not)"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "def topla(a, b):\n    return a + b\n\nprint(topla(3, 5))\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "topla",
+            "35",
+            "None",
+            "8"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "Bir fonksiyonun içerisindeki 'return' ifadesi çalıştırıldığında ne gerçekleşir?",
+        "options": [
+            "Fonksiyon return'den sonraki satırları da çalıştırmaya devam eder",
+            "Fonksiyon en başa dönüp tekrar çalışır",
+            "Hesaplanan değer dışarı aktarılır ve fonksiyon o satırda derhal sonlanır",
+            "Dönen değer otomatik olarak terminale yazdırılır"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Kullanıcı fonksiyonu çağırırken bir parametreyi girmediğinde hata almamak için fonksiyon tanımında önceden belirlenen değere ne ad verilir?",
+        "options": [
+            "Statik Parametre",
+            "Varsayılan (Default) Parametre",
+            "Sabit Değişken",
+            "Zorunlu Argüman"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "def selamla():\n    print('Merhaba Dünya')\n\nselamla()\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "def",
+            "None",
+            "Merhaba Dünya",
+            "selamla"
+        ],
+        "correct_option": 2
+    }
+]

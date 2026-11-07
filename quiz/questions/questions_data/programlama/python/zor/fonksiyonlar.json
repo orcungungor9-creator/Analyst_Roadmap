@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "def veri_temizle(veri_listesi):\n    temiz_liste = []\n    for eleman in veri_listesi:\n        if eleman is not None:\n            temiz_liste.append(eleman)\n    return temiz_liste\n\nveri = [10, None, 20, None, 30]\nprint(veri_temizle(veri))\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "3",
+            "[None, None]",
+            "[10, 20, 30, None]",
+            "[10, 20, 30]"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "def islem(x):\n    print('A')\n    return x * 2\n    print('B')\n\nsonuc = islem(4)\n\nYukarıdaki fonksiyon çalıştırıldığında ekrana ne yazdırılır?",
+        "options": [
+            "Hiçbir şey yazdırılmaz",
+            "Sadece B",
+            "Sadece A",
+            "A ve B"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "def kontrol(sayi):\n    if sayi % 2 == 0:\n        return 'Çift'\n    else:\n        return 'Tek'\n\nsonuclar = [kontrol(i) for i in [1, 2, 3, 4]]\nprint(sonuclar)\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "['Tek', 'Tek', 'Çift', 'Çift']",
+            "['Çift', 'Tek', 'Çift', 'Tek']",
+            "['Tek', 'Çift', 'Tek', 'Çift']",
+            "[1, 2, 3, 4]"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "def topla_ve_carp(a, b):\n    return a + b, a * b\n\ntoplam, carpim = topla_ve_carp(3, 4)\nprint(toplam, carpim)\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "7 12",
+            "7",
+            "12 7",
+            "(7, 12)"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "def kat_ekle(liste, carpan=2):\n    return [x * carpan for x in liste]\n\nsayilar = [1, 2, 3]\nprint(kat_ekle(sayilar, 3))\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "[3, 6, 9]",
+            "TypeError",
+            "[1, 2, 3, 3]",
+            "[2, 4, 6]"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "def filtrele(notlar, sinir=50):\n    gecenler = []\n    for n in notlar:\n        if n >= sinir:\n            gecenler.append(n)\n    return len(gecenler)\n\npuanlar = [40, 55, 70, 45, 90]\nprint(filtrele(puanlar))\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "4",
+            "3",
+            "2",
+            "5"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "def sirala(a, b, c):\n    if a > b and a > c:\n        return a\n    elif b > c:\n        return b\n    else:\n        return c\n\nprint(sirala(15, 42, 28))\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "None",
+            "42",
+            "28",
+            "15"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Python'da varsayılan (default) parametre tanımlarken hangi kurala uyulması zorunludur?",
+        "options": [
+            "Varsayılan değerli parametreler her zaman en başta tanımlanmalıdır",
+            "Parametrelerin sırası tamamen önemsizdir",
+            "Bir fonksiyonda en fazla 1 adet varsayılan parametre bulunabilir",
+            "Varsayılan değeri olan parametreler, varsayılan değeri olmayan parametrelerden SONRA yazılmalıdır"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "def metin_analizi(cumle):\n    kelimeler = cumle.split()\n    return len(kelimeler), len(cumle)\n\nkelime_sayisi, karakter_sayisi = metin_analizi('Veri Analizi')\nprint(kelime_sayisi)\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "12",
+            "1",
+            "11",
+            "2"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "def gizli_islem(n):\n    if n <= 1:\n        return 1\n    return n * gizli_islem(n - 1)\n\nprint(gizli_islem(4))\n\nYukarıdaki özyinelemeli (recursive) fonksiyonun ekran çıktısı nedir?",
+        "options": [
+            "24",
+            "10",
+            "16",
+            "4"
+        ],
+        "correct_option": 0
+    }
+]
