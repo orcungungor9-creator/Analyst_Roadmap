@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "ekip_verisi %>% filter(vize > 80 & spor_gecmisi == \"Var\")\n\nYukarıdaki filtreleme kodunda kullanılan '&' operatörü ne anlama gelir?",
+        "options": [
+            "Vize notu 80'den büyük VEYA spor geçmişi 'Var' olanları filtreler.",
+            "Hem vize notu 80'den büyük VE hem de spor geçmişi 'Var' olan satırları filtreler.",
+            "Vize notu 80 olan tüm öğrencileri getirir.",
+            "Koşulları sırayla test edip ilk uyanı getirir."
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "ekip_verisi %>% select(-bolum)\n\nYukarıdaki kod çalıştırıldığında konsola gelen tablonun yapısı nasıldır?",
+        "options": [
+            "Yalnızca 'bolum' sütununu içerir.",
+            "Hata verir; eksi işareti kullanılamaz.",
+            "'bolum' sütunu dışındaki tüm sütunları içerir.",
+            "'bolum' sütunundaki boş hücreleri siler."
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "ekip_verisi %>% arrange(desc(final))\n\nYukarıdaki sıralama komutu sonucunda tablonun en üst satırında hangi öğrenci yer alır?",
+        "options": [
+            "Final notu en düşük olan öğrenci",
+            "Final notu ortalamaya en yakın öğrenci",
+            "İlk girilen öğrenci",
+            "Final notu en yüksek olan öğrenci"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "guncel_tablo <- ekip_verisi %>% mutate(gecme_notu = (vize * 0.4) + (final * 0.6))\n\nYukarıdaki mutate() işlemi sonucunda guncel_tablo'da ne değişir?",
+        "options": [
+            "Vize ve final sütunları tamamen silinir.",
+            "Sadece ortalama konsola yazdırılır, tablo değişmez.",
+            "Yalnızca geçme notu 60'tan büyük olanlar filtrelenir.",
+            "Tablonun en sağına vize ve finalin ağırlıklı ortalamasını tutan 'gecme_notu' adında yeni bir sütun eklenir."
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "ekip_verisi %>% group_by(bolum) %>% summarize(ortalama_vize = mean(vize))\n\nYukarıdaki kodun ürettiği özet tablonun satır sayısı neye eşittir?",
+        "options": [
+            "Sadece 1 satıra",
+            "Veri setindeki benzersiz (farklı) bölüm sayısına",
+            "Tüm öğrencilerin toplam sayısına",
+            "Vize notu girilmiş öğrenci sayısına"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "dplyr paketi genel olarak R ekosistemindeki hangi büyük paket ailesinin (şemsiyesinin) bir parçasıdır?",
+        "options": [
+            "tidyverse",
+            "rstudio-core",
+            "baseR",
+            "ggplot-tools"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Base R'daki 'subset(df, vize > 80)' işleminin modern dplyr paketindeki doğrudan karşılığı hangisidir?",
+        "options": [
+            "df %>% mutate(vize > 80)",
+            "df %>% arrange(vize > 80)",
+            "df %>% filter(vize > 80)",
+            "df %>% select(vize > 80)"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "ekip_verisi %>% arrange(vize)\n\nYukarıdaki kod vize notlarına göre nasıl bir sıralama yapar?",
+        "options": [
+            "Küçükten büyüğe (artan) sırada",
+            "Büyükten küçüğe (azalan) sırada",
+            "Alfabetik sırada",
+            "Rastgele sırada"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "dplyr fonksiyonlarının içine sütun isimleri yazılırken (örn: filter(bolum == 'Yazilim')) tırnak işareti kullanımı nasıldır?",
+        "options": [
+            "Sütun isimleri tırnaksız yazılır, sadece aranan metin değeri tırnak içine alınır.",
+            "Tüm harfler büyük olmak zorundadır.",
+            "Sütun ismi de mutlaka tırnak içinde yazılmalıdır.",
+            "Hiçbir şeyde tırnak kullanılamaz."
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "dplyr'da pipe (%>%) operatörü kullanmanın en büyük pratik yararı nedir?",
+        "options": [
+            "Bellek (RAM) kullanımını sıfıra indirir.",
+            "Hata mesajlarını gizler.",
+            "Kodların çalışma süresini 10 kat hızlandırır.",
+            "İç içe geçmiş karmaşık parantez yığınları yerine, soldan sağa ve yukarıdan aşağıya akıcı, okunabilir kod yazmayı sağlar."
+        ],
+        "correct_option": 3
+    }
+]

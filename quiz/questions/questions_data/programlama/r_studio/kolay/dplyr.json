@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "R dilinde modern veri manipülasyonu için geliştirilen ve 'Veri Grameri' olarak tanımlanan popüler paket hangisidir?",
+        "options": [
+            "dplyr",
+            "ggplot2",
+            "readxl",
+            "baseR"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "dplyr paketinde belirli koşulları sağlayan SATIRLARI filtrelemek için hangi fonksiyon kullanılır?",
+        "options": [
+            "select()",
+            "filter()",
+            "arrange()",
+            "mutate()"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "dplyr paketinde tablodan yalnızca istenen SÜTUNLARI seçmek veya istemeyenleri çıkarmak için hangi fonksiyon kullanılır?",
+        "options": [
+            "select()",
+            "filter()",
+            "choose()",
+            "extract()"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Tablodaki satırları belirli bir sütuna göre küçükten büyüğe veya büyükten küçüğe sıralamak için hangi dplyr fonksiyonu kullanılır?",
+        "options": [
+            "sort()",
+            "order()",
+            "arrange()",
+            "rank()"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Tablodaki mevcut sütunları kullanarak yeni bir hesaplanmış sütun oluşturmak veya mevcut sütunu güncellemek için hangi fonksiyon kullanılır?",
+        "options": [
+            "create()",
+            "calculate()",
+            "mutate()",
+            "generate()"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "arrange() fonksiyonu ile sıralama yaparken büyükten küçüğe (azalan) sıralama sağlamak için sütun adı hangi fonksiyon içine yazılır?",
+        "options": [
+            "decrease()",
+            "desc()",
+            "down()",
+            "rev()"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "select() fonksiyonunda belirli bir sütun HARİÇ diğer tüm sütunları getirmek için sütun adının başına hangi işaret konulur?",
+        "options": [
+            "! (Ünlem işareti)",
+            "# (Kare işareti)",
+            "~ (Tilde işareti)",
+            "- (Eksi işareti, örn: select(-bolum))"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "dplyr fonksiyonlarını bir zincir gibi birbirine bağlayan ve 've sonra...' anlamına gelen boru (pipe) operatörü hangisidir?",
+        "options": [
+            "%>%",
+            "%in%",
+            "::",
+            "->"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Verileri belirli kategorik değişkenlere göre gruplayıp ardından grup bazında istatistiksel özetler (ortalama vb.) çıkarmak için hangi iki fonksiyon birlikte kullanılır?",
+        "options": [
+            "group_by() ve mutate()",
+            "filter() ve select()",
+            "arrange() ve head()",
+            "group_by() ve summarize()"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "ekip_verisi %>% select(isim, final)\n\nYukarıdaki kodun temel işlevi nedir?",
+        "options": [
+            "Yeni bir isim ve final sütunu oluşturmak",
+            "Tablodan yalnızca 'isim' ve 'final' sütunlarını çekip göstermek",
+            "İsimleri ve final notlarını küçükten büyüğe sıralamak",
+            "Final notu olan isimleri filtrelemek"
+        ],
+        "correct_option": 1
+    }
+]
