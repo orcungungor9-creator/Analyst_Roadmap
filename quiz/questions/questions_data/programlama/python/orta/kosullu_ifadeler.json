@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "Python'da birden çok elif bloğu bulunan bir yapıda, koşulların değerlendirilme sırası ve çalışma mantığı nasıldır?",
+        "options": [
+            "Yukarıdan aşağıya sırayla kontrol edilir, True olan ilk blok çalıştırılır ve diğerlerine bakılmadan çıkılır",
+            "Yalnızca sonuncu blok çalıştırılır",
+            "Koşullar rastgele sırada kontrol edilir",
+            "Tüm bloklar sırayla kontrol edilir ve True olan hepsi çalıştırılır"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "sinav_notu = 75\nif sinav_notu >= 90:\n    print('AA')\nelif sinav_notu >= 80:\n    print('BA')\nelif sinav_notu >= 70:\n    print('BB')\nelif sinav_notu >= 60:\n    print('CB')\nelse:\n    print('FF')\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "BA",
+            "BB",
+            "AA",
+            "FF"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "kullanici_adi = 'admin'\nsifre = '12345'\nif kullanici_adi == 'admin' and sifre == '12345':\n    print('Sisteme başarıyla giriş yapıldı!')\nelse:\n    print('Kullanıcı adı veya şifre hatalı!')\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "True",
+            "admin",
+            "Sisteme başarıyla giriş yapıldı!",
+            "Kullanıcı adı veya şifre hatalı!"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "kullanici_adi = 'admin'\nsifre = '9999'\nif kullanici_adi == 'admin' and sifre == '12345':\n    print('Giriş başarılı')\nelse:\n    print('Giriş başarısız')\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "Giriş başarılı",
+            "SyntaxError",
+            "admin",
+            "Giriş başarısız"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "bakiye = 50\nurun_fiyati = 80\ndurum = 'Satın Alındı' if bakiye >= urun_fiyati else 'Bakiye Yetersiz'\nprint(durum)\n\nYukarıdaki tek satırlık (ternary) kodun çıktısı nedir?",
+        "options": [
+            "False",
+            "Bakiye Yetersiz",
+            "Satın Alındı",
+            "None"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "puan = 80\nif puan >= 60:\n    print('Geçti')\n    if puan >= 90:\n        print('Derece Yaptı')\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "SyntaxError",
+            "Geçti\nDerece Yaptı",
+            "Geçti",
+            "Derece Yaptı"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "sayi = -5\nif sayi > 0:\n    print('Pozitif')\nelif sayi < 0:\n    print('Negatif')\nelse:\n    print('Sıfır')\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "None",
+            "Pozitif",
+            "Sıfır",
+            "Negatif"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "x = 10\ny = 20\nsonuc = 'Eşit' if x == y else 'Farklı'\nprint(sonuc)\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "Eşit",
+            "Farklı",
+            "None",
+            "False"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Aşağıdaki kod parçalarından hangisi Python girinti (indentation) kuralına uyulmadığı için IndentationError hatası verir?",
+        "options": [
+            "if x > 0:\nprint('Pozitif')",
+            "if x > 0:\n    print('Pozitif')",
+            "if x > 0:\n    pass",
+            "if x > 0: print('Pozitif')"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "a = 15\nb = 20\nif a > 10 or b < 10:\n    print('Koşul sağlandı')\nelse:\n    print('Koşul sağlanmadı')\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "Koşul sağlandı",
+            "True",
+            "SyntaxError",
+            "Koşul sağlanmadı"
+        ],
+        "correct_option": 0
+    }
+]

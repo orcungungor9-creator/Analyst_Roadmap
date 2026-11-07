@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "Python'da kod bloklarının hangi if veya else yapısına ait olduğunu belirtmek için süslü parantez {} yerine ne kullanılır?",
+        "options": [
+            "Köşeli parantez ([])",
+            "Çift tırnak (\"\")",
+            "Noktalı virgül (;)",
+            "Girinti (Indentation - Tab veya 4 boşluk)"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "Python'da if, elif ve else gibi koşul satırlarının en sonuna hangi noktalama işareti konulmalıdır?",
+        "options": [
+            "; (Noktalı virgül)",
+            ", (Virgül)",
+            "-> (Ok işareti)",
+            ": (İki nokta üst üste)"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "Bir koşul yapısında if koşulu sağlanmadığında (False olduğunda) çalışacak varsayılan blok hangi anahtar kelime ile tanımlanır?",
+        "options": [
+            "otherwise",
+            "catch",
+            "else",
+            "default"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "İkiden fazla ihtimali kontrol etmek için 'değilse eğer' anlamında kullanılan Python anahtar kelimesi hangisidir?",
+        "options": [
+            "elseif",
+            "then",
+            "elif",
+            "else if"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Bir if bloğunun altındaki girintili kodların çalışması için if koşulunun hangi boolean değere eşit olması gerekir?",
+        "options": [
+            "None",
+            "True",
+            "0",
+            "False"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "yas = 20\nif yas >= 18:\n    print('Ehliyet alabilirsiniz.')\nelse:\n    print('Yaşınız tutmuyor.')\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "Ehliyet alabilirsiniz.",
+            "True",
+            "Yaşınız tutmuyor.",
+            "SyntaxError"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "if-else yapılarından sonra gelen ve girintisiz (en soldan) yazılan bir kod satırı için hangisi doğrudur?",
+        "options": [
+            "Sadece if koşulu True ise çalışır",
+            "if-else durumundan bağımsız olarak her zaman çalışır",
+            "Girinti olmadığı için IndentationError verir",
+            "Sadece else bloğu çalıştığında çalışır"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Tek satırda if-else (Ternary Operator) kullanımının genel formülü hangisidir?",
+        "options": [
+            "if [Koşul] then [Değer_True_İse] else [Değer_False_İse]",
+            "[Değer_True_İse] if [Koşul] else [Değer_False_İse]",
+            "[Koşul] ? [Değer_True_İse] : [Değer_False_İse]",
+            "else [Değer_False_İse] if [Koşul] [Değer_True_İse]"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "sayi = 10\nif sayi > 5:\n    print('Büyük')\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "Büyük",
+            "10",
+            "Küçük",
+            "None"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "x = 4\nif x > 10:\n    print('A')\nelse:\n    print('B')\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "B",
+            "A",
+            "SyntaxError",
+            "AB"
+        ],
+        "correct_option": 0
+    }
+]

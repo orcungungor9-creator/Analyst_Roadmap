@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "sayi = 15\nif sayi > 0:\n    print('Sayı pozitiftir.')\n    if sayi % 2 == 0:\n        print('Aynı zamanda bir çift sayıdır.')\n    else:\n        print('Aynı zamanda bir tek sayıdır.')\nelif sayi < 0:\n    print('Sayı negatiftir.')\nelse:\n    print('Sayı sıfırdır.')\n\nYukarıdaki kodun ekran çıktısı sırasıyla nedir?",
+        "options": [
+            "Sayı pozitiftir.",
+            "Sayı pozitiftir.\nAynı zamanda bir tek sayıdır.",
+            "Sayı pozitiftir.\nAynı zamanda bir çift sayıdır.",
+            "Aynı zamanda bir tek sayıdır."
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "x = 75\nif x >= 50:\n    print('A')\nelif x >= 70:\n    print('B')\nelse:\n    print('C')\n\nYukarıdaki kodun çıktısı nedir ve neden?",
+        "options": [
+            "B (75 değeri 70'e daha yakın olduğu için)",
+            "A\nB (İki koşul da True sağlandığı için ikisi de ekrana yazılır)",
+            "C (else bloğu devreye girer)",
+            "A (İlk sağlanan True koşulunun bloğu çalışır ve yapı sonlanır)"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "a = 5\nb = 10\nmesaj = 'Büyük' if a > b else ('Küçük' if a < b else 'Eşit')\nprint(mesaj)\n\nYukarıdaki zincirleme (nested) ternary ifadenin çıktısı nedir?",
+        "options": [
+            "Büyük",
+            "Eşit",
+            "Küçük",
+            "SyntaxError"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "sayi = 0\nif sayi > 0:\n    print('Pozitif')\nelif sayi < 0:\n    print('Negatif')\nelse:\n    print('Sıfır')\n    if sayi == 0:\n        print('Nötr')\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "Sıfır\nNötr",
+            "Sıfır",
+            "Nötr",
+            "Pozitif\nNötr"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "puan = 85\ndevamsizlik = 2\nif puan >= 70 and not (devamsizlik > 5):\n    print('Geçti')\nelse:\n    print('Kaldı')\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "SyntaxError",
+            "Geçti",
+            "Kaldı",
+            "None"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "x = 12\nif x % 2 == 0:\n    if x % 3 == 0:\n        print('2 ve 3\\'e bölünür')\n    else:\n        print('Sadece 2\\'ye bölünür')\nelse:\n    print('2\\'ye bölünmez')\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "None",
+            "Sadece 2'ye bölünür",
+            "2 ve 3'e bölünür",
+            "2'ye bölünmez"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "yas = 16\nizin_belgesi = True\nif yas >= 18 or (yas >= 15 and izin_belgesi):\n    print('Katılabilir')\nelse:\n    print('Katılamaz')\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "True",
+            "Katılamaz",
+            "None",
+            "Katılabilir"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "x = 10\nsonuc = 'Pozitif' if x > 0 else 'Negatif'\nprint(type(sonuc))\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "<class 'str'>",
+            "<class 'int'>",
+            "<class 'bool'>",
+            "<class 'NoneType'>"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "durum = False\nif not durum:\n    print('Çalıştı 1')\nif durum:\n    print('Çalıştı 2')\nelse:\n    print('Çalıştı 3')\n\nYukarıdaki kodun ekran çıktısı nedir?",
+        "options": [
+            "Çalıştı 3",
+            "Çalıştı 1",
+            "Çalıştı 1\nÇalıştı 2",
+            "Çalıştı 1\nÇalıştı 3"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "a = 20\nb = 30\nif a < b:\n    fark = b - a\n    if fark > 5:\n        fark *= 2\nprint(fark)\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "10",
+            "20",
+            "5",
+            "30"
+        ],
+        "correct_option": 1
+    }
+]
