@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "Python'da demetler (tuple) standart olarak hangi parantez türü kullanılarak oluşturulur?",
+        "options": [
+            "[ ] (Köşeli Parantez)",
+            "{ } (Süslü Parantez)",
+            "( ) (Normal Parantez)",
+            "< > (Açılı Parantez)"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Demetlerin (tuple) listelerden en temel yapısal farkı nedir?",
+        "options": [
+            "İndeksleme desteklememeleri",
+            "Değiştirilemez (Immutable) olmaları; sonradan eleman eklenemez, güncellenemez veya silinemez.",
+            "Yalnızca sayısal verileri tutabilmeleri",
+            "Python'da fonksiyon olarak çalışmaları"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "x = (\"Elma\",)\n\nYukarıdaki tek elemanlı değişkenin veri tipi (class) nedir?",
+        "options": [
+            "<class 'tuple'>",
+            "<class 'str'>",
+            "<class 'list'>",
+            "SyntaxError"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "x = (\"Elma\")\n\nSonunda virgül olmadan parantez içinde yazılan yukarıdaki değişkenin veri tipi nedir?",
+        "options": [
+            "<class 'tuple'>",
+            "<class 'str'> (Normal metin olarak algılanır)",
+            "<class 'list'>",
+            "<class 'set'>"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Bir demetin (tuple) toplam eleman sayısını öğrenmek için hangi fonksiyon kullanılır?",
+        "options": [
+            "count()",
+            "length()",
+            "len()",
+            "size()"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Bir demet içerisinde belirli bir elemandan toplam kaç adet olduğunu sayan metod hangisidir?",
+        "options": [
+            "find()",
+            "total()",
+            "sum()",
+            "count()"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "Bir elemanın demet içindeki ilk nerede olduğunu (ilk indeksini) bulan metod hangisidir?",
+        "options": [
+            "locate()",
+            "find()",
+            "search()",
+            "index()"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "renkler = (\"Kırmızı\", \"Yeşil\", \"Mavi\")\nprint(renkler[0])\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "('Kırmızı',)",
+            "\"Kırmızı\"",
+            "0",
+            "\"Yeşil\""
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Aşağıdaki liste metodlarından hangisi demetlerde (tuple) KULLANILAMAZ?",
+        "options": [
+            "count()",
+            "len()",
+            "index()",
+            "append()"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "koordinatlar = 41.0082, 28.9784\n\nParantez kullanılmadan sadece virgülle ayrılan yukarıdaki değişkenin veri tipi nedir?",
+        "options": [
+            "<class 'tuple'>",
+            "<class 'list'>",
+            "<class 'float'>",
+            "SyntaxError"
+        ],
+        "correct_option": 0
+    }
+]

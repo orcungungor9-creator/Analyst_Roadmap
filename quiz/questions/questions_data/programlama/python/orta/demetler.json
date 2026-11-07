@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "demet = (10, 20, 30)\ndemet[0] = 50\n\nYukarıdaki eleman güncelleme kodu çalıştırıldığında Python ne tepki verir?",
+        "options": [
+            "demet (50, 20, 30) olarak güncellenir.",
+            "demet listeye dönüşür.",
+            "Sadece konsola bir uyarı yazar ama çalışır.",
+            "TypeError verir; tuple nesneleri eleman atamasını desteklemez (immutable yapı)."
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "t = (1, 5, 3, 5, 9, 5)\nprint(t.count(5))\n\nYukarıdaki kodun konsol çıktısı kaçtır?",
+        "options": [
+            "9",
+            "1",
+            "3",
+            "5"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "t = (10, 20, 30, 40, 20)\nprint(t.index(20))\n\nYukarıdaki kodun çıktısı kaçtır?",
+        "options": [
+            "2",
+            "1 (Elemanın ilk görüldüğü indeksi verir)",
+            "20",
+            "4"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "kullanici = (\"Orçun\", 20, \"Ekonometri\")\nisim, yas, bolum = kullanici\nprint(isim, yas)\n\nYukarıdaki paket açma (unpacking) işleminin çıktısı nedir?",
+        "options": [
+            "Orçun 20",
+            "('Orçun', 20)",
+            "\"Orçun, 20\"",
+            "TypeError"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "mevsimler = (\"İlkbahar\", \"Yaz\", \"Sonbahar\", \"Kış\")\nprint(mevsimler[0:2])\n\nYukarıdaki dilimlemenin çıktısı nedir?",
+        "options": [
+            "('Yaz', 'Sonbahar')",
+            "['İlkbahar', 'Yaz']",
+            "('İlkbahar', 'Yaz', 'Sonbahar')",
+            "('İlkbahar', 'Yaz')"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "a = (5)\nb = (5,)\nprint(type(a) == type(b))\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "True",
+            "False (a bir int iken, b bir tuple'dır)",
+            "TypeError",
+            "None"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "t = (1, 2, 3)\nprint(t[-1])\n\nYukarıdaki negatif indeks sorgusunun çıktısı kaçtır?",
+        "options": [
+            "1",
+            "-1",
+            "3",
+            "IndexError"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Demetler (tuple) değiştirilemez (immutable) olduğu için Python'da yalnızca kaç adet yerleşik metoda sahiptir?",
+        "options": [
+            "5 adet",
+            "Hiç metodu yoktur (0)",
+            "Listelerle aynı sayıda (11)",
+            "2 adet (count ve index)"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "Harita koordinatları veya sistem sabitleri için listeler yerine neden tuple tercih edilir?",
+        "options": [
+            "Tuple'ların sadece harita verisi saklayabilmesi nedeniyle",
+            "Verilerin sonradan yanlışlıkla değiştirilmesini, silinmesini veya ekleme yapılmasını engellemek için",
+            "Tuple'ların daha renkli görünmesi nedeniyle",
+            "Listelerin sayı tutamaması nedeniyle"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "bilgi = (10, 20, 30)\na, b = bilgi\n\nYukarıdaki satır çalıştırıldığında ne gerçekleşir?",
+        "options": [
+            "ValueError verir; 3 elemanlı tuple 2 değişkene paket açılarak (unpack) atanamaz.",
+            "a=(10, 20), b=30 atanır.",
+            "a=10, b=20 atanır ve 30 değeri yoksayılır.",
+            "Çalışır ve hata vermez."
+        ],
+        "correct_option": 0
+    }
+]

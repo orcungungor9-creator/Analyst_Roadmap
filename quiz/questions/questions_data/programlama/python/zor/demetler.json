@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "t = (1, 2, [3, 4])\nt[2][0] = 99\nprint(t)\n\nTuple'ın kendi elemanı bir liste olduğunda listenin güncellenmesi sonucunda çıktı ne olur?",
+        "options": [
+            "(1, 2, [99, 4]) (Tuple değiştirilemez olsa da içindeki liste mutable kalır)",
+            "(1, 2, [3, 4])",
+            "TypeError verir; hiçbir elemanı değiştirilemez.",
+            "([99, 4],)"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "x = 1, 2, 3\ny = (4,)\nz = x + y\nprint(z)\n\nYukarıdaki tuple birleştirme işleminin çıktısı nedir?",
+        "options": [
+            "(1, 2, 3, 4)",
+            "(1, 2, 3, (4,))",
+            "TypeError verir; virgüllü x ile parantezli y toplanamaz.",
+            "[1, 2, 3, 4]"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "t = (\"a\", \"b\", \"c\")\nprint(t[::-1])\n\nYukarıdaki tersten dilimleme işleminin çıktısı nedir?",
+        "options": [
+            "['c', 'b', 'a']",
+            "\"cba\"",
+            "('c', 'b', 'a')",
+            "('a', 'b', 'c')"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "t = (10, 20, 30)\na, b, c = t\nprint(a + b * c)\n\nİşlem önceliğine göre yukarıdaki kodun çıktısı kaçtır?",
+        "options": [
+            "700",
+            "60",
+            "900",
+            "610 (20 * 30 = 600, 10 + 600 = 610)"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "t = (1, 2, 3, 2, 1)\nsonuc = t.index(1) + t.count(2)\nprint(sonuc)\n\nYukarıdaki işlemin sonucu kaçtır?",
+        "options": [
+            "4",
+            "1",
+            "3",
+            "2 (index(1) = 0, count(2) = 2 -> 0 + 2 = 2)"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "tek = (\"Python\") * 3\nprint(type(tek), len(tek))\n\nVirgülsüz string çoğaltma kuralına göre yukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "<class 'str'> 3",
+            "<class 'str'> 18",
+            "<class 'tuple'> 18",
+            "<class 'tuple'> 3"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "tek = (\"Python\",) * 3\nprint(type(tek), len(tek))\n\nVirgüllü tek elemanlı tuple çoğaltma kuralına göre yukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "<class 'str'> 3",
+            "<class 'tuple'> 18",
+            "<class 'str'> 18",
+            "<class 'tuple'> 3"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "t = (5, 10, 15, 20)\nprint(t[1:3])\n\nYukarıdaki dilimlemenin çıktısı ve türü nedir?",
+        "options": [
+            "(10, 15) ve tipi tuple'dır",
+            "(10,)",
+            "(10, 15, 20)",
+            "[10, 15] ve tipi list'tir"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "t = (1, 2, 3)\nt += (4,)\nprint(t)\n\nYukarıdaki kod çalıştırıldığında ne gerçekleşir?",
+        "options": [
+            "Hata verir; += sadece sayılarda çalışır.",
+            "(1, 2, 3, 4) çıktısını verir; arka planda yeni bir tuple üretilip t'ye atanır.",
+            "TypeError verir; tuple'lara eleman eklenemez.",
+            "(1, 2, 3, 4,)"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "a, b = 10, 20\na, b = b, a\nprint(a, b)\n\nPython'da tuple unpacking ile yapılan değişken takasının çıktısı nedir?",
+        "options": [
+            "10 10",
+            "20 20",
+            "20 10",
+            "10 20"
+        ],
+        "correct_option": 2
+    }
+]
