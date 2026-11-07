@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "R dilinde 1'den 50'ye kadar ardışık tam sayıları tek tek yazmadan üretmek için hangi operatör kullanılır?",
+        "options": [
+            ": (İki nokta üst üste, örn: 1:50)",
+            ".. (İki nokta yan yana)",
+            "~ (Tilde)",
+            "-> (Ok işareti)"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "rep(5, times = 10)\n\nYukarıdaki kodun konsol çıktısı nedir?",
+        "options": [
+            "1'den 10'a kadar 5'er 5'er atlar",
+            "5 sayısını 10 kez yan yana yazar",
+            "5 ile 10'u çarpar (50)",
+            "5 ve 10 sayılarından bir vektör oluşturur"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Bir kümeden rastgele eleman seçmek veya örneklem çekmek için hangi fonksiyon kullanılır?",
+        "options": [
+            "random()",
+            "choose()",
+            "pick()",
+            "sample()"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "Zar atma simülasyonunda aynı sayının birden fazla kez gelebilmesi (iadeli seçim) için sample() fonksiyonunda hangi argüman TRUE yapılmalıdır?",
+        "options": [
+            "allow_duplicate = TRUE",
+            "repeat = TRUE",
+            "replace = TRUE",
+            "again = TRUE"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Rastgele sayı üretimini sabitlemek ve kod her çalıştırıldığında birebir aynı sayıların üretilmesini sağlamak için hangi komut kullanılır?",
+        "options": [
+            "fix.random()",
+            "set.seed()",
+            "freeze()",
+            "seed.lock()"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Belirli bir başlangıç ve bitiş aralığında (örn: 10'dan 100'e) belirli adımlarla (örn: 10'ar 10'ar) sayı dizisi üretmek için hangi fonksiyon kullanılır?",
+        "options": [
+            "seq()",
+            "series()",
+            "step()",
+            "range()"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Doğadaki boy, kilo veya sınav notları gibi ölçümlerin uyduğu çan eğrisi şeklindeki Normal Dağılımdan veri üretmek için hangi fonksiyon kullanılır?",
+        "options": [
+            "norm()",
+            "rand_norm()",
+            "rnorm()",
+            "dnorm()"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Belirli bir min ve max aralığındaki her sayının gelme olasılığının eşit olduğu düzgün (Uniform) dağılımdan rastgele sayı üretmek için hangi fonksiyon kullanılır?",
+        "options": [
+            "rand()",
+            "runif()",
+            "requal()",
+            "uniform()"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Ondalıklı olarak üretilen sayıları en yakın tam sayıya yuvarlamak için derste hangi fonksiyon kullanılmıştır?",
+        "options": [
+            "floor()",
+            "ceiling()",
+            "round()",
+            "trunc()"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "rep(c(\"A\", \"B\"), times = 3)\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "\"AB\" \"AB\" \"AB\"",
+            "\"A\" \"B\" 3",
+            "\"A\" \"A\" \"A\" \"B\" \"B\" \"B\"",
+            "\"A\" \"B\" \"A\" \"B\" \"A\" \"B\""
+        ],
+        "correct_option": 3
+    }
+]

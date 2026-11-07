@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "sample(c(\"Ali\", \"Ayşe\", \"Mehmet\"), size = 5)\n\nYukarıdaki kod varsayılan argümanlarla çalıştırıldığında ne olur?",
+        "options": [
+            "Eksik kalan 2 yere NA atar.",
+            "Hata verir; çünkü varsayılan replace = FALSE olduğunda 3 elemanlı bir kümeden 5 eleman seçilemez.",
+            "Sadece ilk 3 kişiyi getirir.",
+            "İlk iki kişiyi tekrar seçerek 5 elemanlı vektör üretir."
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "seq(from = 10, to = 50, by = 10)\n\nYukarıdaki kodun çıktısında toplam kaç eleman bulunur?",
+        "options": [
+            "10",
+            "6",
+            "4",
+            "5 (10, 20, 30, 40, 50)"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "rnorm(n = 50, mean = 65, sd = 15)\n\nYukarıdaki fonksiyon çağrısında yer alan 'sd' parametresi neyi ifade eder?",
+        "options": [
+            "Üretilecek verinin standart sapmasını (15)",
+            "Kullanılacak seed değerini",
+            "Verinin ortalamasını",
+            "Üretilecek veri sayısını"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "runif(n = 20, min = 0, max = 100)\n\nBu fonksiyon çalıştırıldığında R nasıl sayılar üretir?",
+        "options": [
+            "0 ile 100 arasında sadece tam sayılar",
+            "0 ile 100 arasında rastgele ondalıklı sayılar",
+            "Normal dağılıma uyan sayılar",
+            "Yalnızca 0 ve 100 değerlerini"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "sample(c(\"Kız\", \"Erkek\"), size = 100, replace = TRUE)\n\nYukarıdaki kod parçasının amacı nedir?",
+        "options": [
+            "Sadece 2 kişilik bir küme oluşturmak",
+            "Hata verir; metinlerde replace kullanılamaz",
+            "100 tane Kız, 100 tane Erkek üretmek",
+            "\"Kız\" ve \"Erkek\" kategorilerinden 100 kişilik rastgele bir liste üretmek"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "sample(1:6, size = 1)\n\nYukarıdaki kod gerçek hayattaki hangi olayın simülasyonudur?",
+        "options": [
+            "Piyango çekilişi",
+            "1'den 6'ya kadar sayma",
+            "Bir adet 6 yüzlü zar atma simülasyonu",
+            "Yazı-tura atma simülasyonu"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "set.seed(123) komutundaki '123' sayısı ne anlama gelir?",
+        "options": [
+            "Rastgele sayı üretecini başlatan çekirdek (tohum) değeri",
+            "Üretilecek maksimum sayı değeri",
+            "Hata tolerans eşiği",
+            "Üretilecek rastgele sayı adedi"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "sample(1:10, size = 10, replace = FALSE)\n\nYukarıdaki komut ne işe yarar?",
+        "options": [
+            "1'den 10'a kadar sayıları sıralar",
+            "Hata verir; size ile vektör boyutu aynı olamaz",
+            "1'den 10'a kadar olan sayıların sırasını rastgele karıştırır (permütasyonunu alır)",
+            "10 tane 1 üretir"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Sentetik bir öğrenci veri seti oluştururken 'Ogrenci_No = 1:50' sütununu tanımlamanın faydası nedir?",
+        "options": [
+            "Öğrencileri cinsiyete göre gruplamak",
+            "Tabloyu matrise dönüştürmek",
+            "Sınav notlarını belirlemek",
+            "Her öğrenciye 1'den 50'ye kadar ardışık, benzersiz bir kimlik numarası atamak"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "seq(from = 0, to = 1, by = 0.25)\n\nYukarıdaki kod parçasının çıktısı kaç elemanlıdır?",
+        "options": [
+            "25 elemanlı",
+            "5 elemanlı (0, 0.25, 0.50, 0.75, 1.00)",
+            "3 elemanlı",
+            "4 elemanlı"
+        ],
+        "correct_option": 1
+    }
+]

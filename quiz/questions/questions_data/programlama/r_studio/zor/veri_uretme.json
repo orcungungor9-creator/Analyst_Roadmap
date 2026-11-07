@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "v <- seq(from = 10, to = 30, by = 5)\nv[3]\n\nYukarıdaki kodun çıktısı kaçtır?",
+        "options": [
+            "30",
+            "15",
+            "20",
+            "25"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "set.seed(42) çalıştırıldıktan sonra üretilen rnorm(1) değeri ile daha sonra aynı seed verilerek üretilen rnorm(1) değeri eşit midir?",
+        "options": [
+            "Evet, aynı seed değeri kullanıldığında üretilen rastgele sayılar tamamen aynıdır.",
+            "Hayır, her çalıştırmada farklı sonuç gelir.",
+            "Sadece tam sayılarda aynıdır, rnorm'da farklıdır.",
+            "Yalnızca aynı dakika içinde çalıştırılırsa aynıdır."
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "x <- rep(1:2, times = 4)\nlength(x)\nsum(x)\n\nYukarıdaki işlemler sonucunda length(x) ve sum(x) değerleri sırasıyla nedir?",
+        "options": [
+            "4 ve 12",
+            "8 ve 6",
+            "4 ve 6",
+            "8 ve 12"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "df <- data.frame(No = 1:5, Not = round(c(55.2, 60.8, 74.5, 80.1, 90.9)))\ndf$Not[2]\n\nYukarıdaki yuvarlama işleminden sonra df$Not[2] elemanı hangi değeri alır?",
+        "options": [
+            "60",
+            "55",
+            "61",
+            "60.8"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "sample(1:5, size = 2, replace = FALSE) işleminde ilk çekilen sayı 3 ise, ikinci çekilen sayının 3 olma olasılığı nedir?",
+        "options": [
+            "0'dır (replace = FALSE olduğunda seçilen eleman kümeden çıkarılır)",
+            "%25'tir",
+            "%50'dir",
+            "%20'dir"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "runif(n = 10, min = 5, max = 10)\n\nYukarıdaki komutla üretilen sayıların minimumu hakkında hangisi doğrudur?",
+        "options": [
+            "Sayılar negatif çıkabilir.",
+            "Üretilen tüm sayılar kesinlikle 5 ile 10 arasındadır, 5'ten küçük olamaz.",
+            "Sadece 5 ve 10 tam sayıları üretilir.",
+            "Ortalama 5'ten küçük olabilir."
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "df <- data.frame(ID = 1:20, Puan = rnorm(20, mean = 50, sd = 10))\nnrow(df)\n\nYukarıdaki sentetik veri çerçevesinin satır sayısı kaçtır?",
+        "options": [
+            "10",
+            "50",
+            "40",
+            "20"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "x <- seq(2, 10, by = 2)\nsum(x)\n\nYukarıdaki kod parçasının sonucu kaçtır?",
+        "options": [
+            "20",
+            "30 (2 + 4 + 6 + 8 + 10)",
+            "24",
+            "28"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "rep(c(10, 20), times = 2)[3]\n\nYukarıdaki indekslemenin çıktısı nedir?",
+        "options": [
+            "20",
+            "Hata verir",
+            "10",
+            "NA"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "sample(c(\"Tura\", \"Yazi\"), size = 10, replace = TRUE)\n\nYukarıdaki simülasyon kodunun çıktısının veri tipi (class) nedir?",
+        "options": [
+            "\"logical\"",
+            "\"factor\"",
+            "\"numeric\"",
+            "\"character\""
+        ],
+        "correct_option": 3
+    }
+]
