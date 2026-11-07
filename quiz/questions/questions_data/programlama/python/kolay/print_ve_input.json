@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "Python'da ekrana bir metin, sayı veya değişken değerini çıktı olarak yazdırmak için hangi fonksiyon kullanılır?",
+        "options": [
+            "write()",
+            "input()",
+            "print()",
+            "echo()"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "print() fonksiyonunda virgülle ayrılmış değerlerin arasına ne konulacağını belirleyen parametre hangisidir?",
+        "options": [
+            "sep (Ayırıcı)",
+            "split (Bölücü)",
+            "space (Boşluk)",
+            "end (Sonlandırıcı)"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "print() fonksiyonunda sep parametresinin varsayılan (default) değeri nedir?",
+        "options": [
+            "Virgül (\",\")",
+            "Alt satıra geçme (\"\\n\")",
+            "Boş hiçlik (\"\")",
+            "Bir adet boşluk karakteri (\" \")"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "print() fonksiyonunda çıktı tamamlandığında cümlenin sonuna ne ekleneceğini belirleyen parametre hangisidir?",
+        "options": [
+            "last",
+            "end",
+            "sep",
+            "finish"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "print() fonksiyonunda end parametresinin varsayılan (default) değeri nedir?",
+        "options": [
+            "Alt satıra geçme karakteri (\"\\n\")",
+            "Nokta (\".\")",
+            "Bir adet boşluk (\" \")",
+            "Boş hiçlik (\"\")"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Metin içerisine değişkenleri süslü parantez {} ile doğrudan gömmeyi sağlayan f-string yönteminde tırnağın başına hangi harf yazılır?",
+        "options": [
+            "m",
+            "s",
+            "f (Örn: f\"Puan: {puan}\")",
+            "p"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Kullanıcıdan klavye aracılığıyla bir veri almak için hangi fonksiyon kullanılır?",
+        "options": [
+            "read()",
+            "input()",
+            "print()",
+            "scan()"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "print(\"A\", \"B\", \"C\", sep=\"-\")\n\nYukarıdaki kodun konsol çıktısı nedir?",
+        "options": [
+            "ABC-",
+            "A-B-C",
+            "A-B-C-",
+            "A B C"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Kullanıcıdan alınan doğum yılı bilgisiyle yaş hesabı gibi matematiksel işlem yapabilmek için input() verisi hangi fonksiyona sokulmalıdır?",
+        "options": [
+            "str()",
+            "type()",
+            "int()",
+            "round()"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "print(\"Merhaba\", end=\" \")\nprint(\"Dünya\")\n\nYukarıdaki iki satırlık kodun konsol çıktısı nasıl görünür?",
+        "options": [
+            "Üst satırda Merhaba, alt satırda Dünya",
+            "Hata verir; print satırları birleştirilemez",
+            "MerhabaDünya (Bitişik)",
+            "Merhaba Dünya (Aralarında bir boşlukla aynı satırda)"
+        ],
+        "correct_option": 3
+    }
+]

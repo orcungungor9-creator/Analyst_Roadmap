@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "print(\"X\", \"Y\", sep=\"*\", end=\"#\")\nprint(\"Z\")\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "X*Y\\n#Z",
+            "X*Y#Z",
+            "X*Y*#Z",
+            "X Y#Z"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "s1 = float(\"10\")\ns2 = int(\"5\")\nprint(f\"{s1 + s2}\")\n\nYukarıdaki f-string çıktısı nedir?",
+        "options": [
+            "105.0",
+            "\"15\"",
+            "15.0",
+            "15"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "a = \"Ali\"\nb = 100\nprint(f\"{a} \" * 2 + f\"{b}\")\n\nYukarıdaki string birleştirme ve çarpma işleminin çıktısı nedir?",
+        "options": [
+            "Ali 100 Ali 100",
+            "Ali 2 100",
+            "AliAli100",
+            "Ali Ali 100"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "print(\"A\", \"B\", \"C\", sep=\"-\", end=\".\")\nprint(\"D\", \"E\", sep=\"*\")\n\nYukarıdaki iki satırlık kodun birleşik çıktısı nedir?",
+        "options": [
+            "A-B-C D*E",
+            "A-B-C.D-E",
+            "A-B-C. D*E",
+            "A-B-C.D*E"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "s = \"10\"\nprint(int(s) + float(s))\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "20",
+            "1010",
+            "20.0",
+            "\"20.0\""
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "print(1, 2, sep=\"3\", end=\"4\")\nprint(5)\n\nYukarıdaki sayısal parametrelerle çalışan kodun çıktısı nedir?",
+        "options": [
+            "12345",
+            "13245",
+            "132 45",
+            "1 2 3 4 5"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "ad = \"Efe\"\npuan = 90\n# 1. Kod: print(\"Öğrenci \" + ad + \" puanı: \" + str(puan))\n# 2. Kod: print(f\"Öğrenci {ad} puanı: {puan}\")\n\nYukarıdaki 1. ve 2. kodların ürettiği çıktılar hakkında hangisi doğrudur?",
+        "options": [
+            "İkisi de tamamen aynı çıktıyı verir: 'Öğrenci Efe puanı: 90'",
+            "1. kod sayıyı metne çeviremez.",
+            "2. kod hata verir çünkü f-string'de int gömülemez.",
+            "1. kod hata verir çünkü str() kullanılamaz."
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "print(\"A\", end=\"\\t\")\nprint(\"B\")\n\nYukarıdaki kod parçasının konsol çıktısı nasıldır?",
+        "options": [
+            "A ile B arasında TAB boşluğu bırakılarak aynı satırda yazılır.",
+            "A\\tB metni aynen görünür.",
+            "A ile B bitişik yazılır.",
+            "Üstte A, altta B yazar."
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "s1 = int(\"4\")\ns2 = float(\"2.5\")\ncarpim = s1 * s2\nprint(f\"Sonuç: {carpim}\")\n\nYukarıdaki kod parçasının konsol çıktısı nedir?",
+        "options": [
+            "Sonuç: 10",
+            "Sonuç: 10.0",
+            "Sonuç: 8.0",
+            "Sonuç: 10.00"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "print(\"1\", \"2\", sep=\":\", end=\";\")\nprint(\"3\", \"4\", sep=\":\")\n\nYukarıdaki kodun konsol çıktısı tam olarak nedir?",
+        "options": [
+            "1:2;3:4",
+            "1:2; 3:4",
+            "1:2 3:4",
+            "1:2:3:4;"
+        ],
+        "correct_option": 0
+    }
+]

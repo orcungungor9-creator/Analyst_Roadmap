@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "print(\"01\", \"05\", \"2026\", sep=\".\")\n\nYukarıdaki kod parçasının konsol çıktısı nedir?",
+        "options": [
+            "01 05 2026",
+            "01052026",
+            "01.05.2026.",
+            "01.05.2026"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "print(\"Python\", end=\"\")\nprint(\"3\")\n\nYukarıdaki kod çalıştırıldığında çıktı ne olur?",
+        "options": [
+            "Üstte Python, altta 3",
+            "Python\\n3",
+            "Python3 (Aralarında boşluk olmadan bitişik)",
+            "Python 3"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "ad = \"Can\"\nnotu = 85\nprint(f\"Öğrenci: {ad}, Not: {notu}\")\n\nYukarıdaki f-string kodunun çıktısı nedir?",
+        "options": [
+            "Can 85",
+            "Öğrenci: Can, Not: 85",
+            "Öğrenci: Can Not: 85",
+            "Öğrenci: {ad}, Not: {notu}"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "print(\"1\", \"2\", \"3\", sep=\"\")\n\nsep parametresine boş tırnak (\"\") verildiğinde çıktı ne olur?",
+        "options": [
+            "123",
+            "Hata verir",
+            "1 2 3",
+            "1, 2, 3"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "sayi1 = float(\"5.5\")\nsayi2 = float(\"4.5\")\nprint(sayi1 + sayi2)\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "10",
+            "5.54.5",
+            "\"10.0\"",
+            "10.0"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "print(\"A\", \"B\", end=\"*\")\nprint(\"C\")\n\nYukarıdaki kod parçasının konsol çıktısı nedir?",
+        "options": [
+            "A*B\\nC",
+            "A B*C",
+            "A B * C",
+            "A*B*C"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "yil = input()  # Kullanıcının 20 yazdığını varsayalım\nprint(yil * 2)\n\nYukarıdaki kodun çıktısı ne olur?",
+        "options": [
+            "\"2020\" (String tekrarı yapar, çünkü input str üretir)",
+            "20 20",
+            "40 (Sayısal çarpma yapar)",
+            "TypeError"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "print(\"Elma\", \"Armut\", sep=\"\\n\")\n\nYukarıdaki sep=\"\\n\" parametresinin çıktısı ekranda nasıl görünür?",
+        "options": [
+            "Tek satırda 'Elma\\nArmut'",
+            "Elma-Armut",
+            "Üst satırda Elma, alt satırda Armut",
+            "Tek satırda 'Elma Armut'"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "guncel = 2026\ndogum = int(\"2000\")\nprint(f\"Yaş: {guncel - dogum}\")\n\nYukarıdaki kodun konsol çıktısı nedir?",
+        "options": [
+            "26",
+            "Yaş: 26",
+            "Yaş: 2026 - 2000",
+            "Yaş: {guncel - dogum}"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "x = 10\ny = 20\nprint(x, y, sep=\" + \", end=\" = 30\\n\")\n\nYukarıdaki kodun çıktısı tam olarak nedir?",
+        "options": [
+            "10+20=30",
+            "30 = 30",
+            "10 20 + = 30",
+            "10 + 20 = 30"
+        ],
+        "correct_option": 3
+    }
+]
