@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "meyveler = [\"Elma\", \"Muz\"]\nmeyveler.insert(1, \"Kavun\")\nprint(meyveler)\n\nYukarıdaki kodun konsol çıktısı nedir?",
+        "options": [
+            "['Kavun', 'Muz']",
+            "['Elma', 'Muz', 'Kavun']",
+            "['Elma', 'Kavun', 'Muz']",
+            "['Kavun', 'Elma', 'Muz']"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "diller = [\"Python\", \"Java\", \"C++\"]\ndiller[1] = \"JavaScript\"\nprint(diller)\n\nListelerin değiştirilebilir (mutable) olması kuralına göre yukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "TypeError verir",
+            "['Python', 'JavaScript', 'C++']",
+            "['Python', 'Java', 'JavaScript', 'C++']",
+            "['JavaScript', 'Java', 'C++']"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "sayilar = [8, 1, 5, 2]\nsayilar.sort(reverse=True)\nprint(sayilar)\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "[8, 5, 2, 1] (Büyükten küçüğe sıralar)",
+            "[1, 2, 5, 8] (Küçükten büyüğe sıralar)",
+            "[2, 5, 1, 8]",
+            "[-8, -5, -2, -1]"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "liste = [10, 20, 30, 40]\nsilinen = liste.pop(1)\nprint(silinen, liste)\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "20 [10, 30, 40]",
+            "20 [10, 20, 30, 40]",
+            "30 [10, 20, 40]",
+            "10 [20, 30, 40]"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "sayilar = [1, 2, 3, 2, 4]\nsayilar.remove(2)\nprint(sayilar)\n\nremove() metodunun çalışma kuralına göre yukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "[1, 3, 4] (Listedeki tüm 2'leri siler)",
+            "[1, 3, 2, 4] (Yalnızca ilk bulduğu 2'yi siler)",
+            "[1, 2, 3, 4]",
+            "ValueError verir"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "karisik = [1, \"Python\", [5, 6]]\nlen(karisik)\n\nİç içe liste yapısına göre yukarıdaki kodun çıktısı kaçtır?",
+        "options": [
+            "5",
+            "TypeError",
+            "3 (İçteki liste tek bir eleman sayılır)",
+            "4"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "diller = [\"Python\", \"Java\", \"C++\", \"R\"]\nprint(diller[0:2])\n\nYukarıdaki dilimlemenin konsol çıktısı nedir?",
+        "options": [
+            "['Java', 'C++']",
+            "['Python']",
+            "['Python', 'Java', 'C++']",
+            "['Python', 'Java']"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "liste = [10, 20]\nliste.append([30, 40])\nprint(len(liste))\n\nYukarıdaki kod parçasının konsol çıktısı kaçtır?",
+        "options": [
+            "2",
+            "4",
+            "Hata verir; liste içine liste eklenemez",
+            "3 (Eklenen liste tek bir eleman olarak eklenir)"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "liste = [5, 2, 9, 1]\nliste.sort()\nprint(liste)\n\nYukarıdaki kodun konsol çıktısı nedir?",
+        "options": [
+            "[9, 5, 2, 1]",
+            "[1, 2, 5, 9]",
+            "[5, 2, 9, 1]",
+            "None"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "a = [\"A\", \"B\", \"C\"]\na.pop()\na.append(\"D\")\nprint(a)\n\nYukarıdaki işlemler sonucunda liste ne hale gelir?",
+        "options": [
+            "['A', 'B', 'D']",
+            "['A', 'B', 'C', 'D']",
+            "['D', 'A', 'B']",
+            "['B', 'C', 'D']"
+        ],
+        "correct_option": 0
+    }
+]

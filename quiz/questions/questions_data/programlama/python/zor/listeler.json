@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "karisik = [1, \"Python\", 3.14, True, [5, 6]]\nprint(karisik[4][0])\n\nYukarıdaki iç içe liste indekslemesinin çıktısı kaçtır?",
+        "options": [
+            "6",
+            "5",
+            "[5, 6]",
+            "1"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "sayilar = [10, 20, 30]\nsayilar.insert(0, 5)\nprint(sayilar[-1])\n\nYukarıdaki kodun konsol çıktısı kaçtır?",
+        "options": [
+            "30",
+            "10",
+            "20",
+            "5"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "x = [1, 2, 3]\ny = x.append(4)\nprint(y)\n\nappend() metodunun geriye bir değer döndürmemesi (in-place) kuralına göre print(y) ne yazar?",
+        "options": [
+            "True",
+            "4",
+            "None",
+            "[1, 2, 3, 4]"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "liste = [\"A\", \"B\", \"C\", \"D\"]\nliste[1:3] = [\"X\", \"Y\"]\nprint(liste)\n\nYukarıdaki dilimleme yoluyla güncelleme işleminin çıktısı nedir?",
+        "options": [
+            "['A', 'X', 'Y', 'D']",
+            "['X', 'Y', 'C', 'D']",
+            "['A', 'X', 'Y', 'C', 'D']",
+            "TypeError"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "sepet = [\"Elma\", \"Armut\", \"Muz\", \"Çilek\"]\nsepet.remove(\"Armut\")\nsepet.pop()\nprint(len(sepet))\n\nYukarıdaki işlemlerden sonra sepet listesinde kaç eleman kalır?",
+        "options": [
+            "4",
+            "1",
+            "3",
+            "2 (Geriye 'Elma' ve 'Muz' kalır)"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "rakamlar = [3, 1, 4]\nrakamlar.sort()\nrakamlar.append(2)\nprint(rakamlar[-1])\n\nYukarıdaki işlemler sonucunda rakamlar listesinin son elemanı kaçtır?",
+        "options": [
+            "1",
+            "2",
+            "4",
+            "3"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "a = [1, 2, 3]\nb = a\nb[0] = 99\nprint(a[0])\n\nListelerin bellekte referans tutması kuralına göre a[0] değeri ne olur?",
+        "options": [
+            "None",
+            "1 (a değişmez)",
+            "99 (b üzerinde yapılan değişiklik a'yı da etkiler)",
+            "TypeError"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "liste = [10, 20, 30, 40, 50]\nliste.pop(0)\nliste.pop()\nprint(liste)\n\nYukarıdaki işlemler sonucunda listenin yeni hali nedir?",
+        "options": [
+            "[20, 30, 40, 50]",
+            "[30]",
+            "[10, 20, 30, 40]",
+            "[20, 30, 40]"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "x = [1, 2, 3]\nx.insert(len(x), 4)\n\nYukarıdaki insert() komutu hangi standart liste metoduyla tamamen aynı işi yapar?",
+        "options": [
+            "x.append(4)",
+            "x.extend([4])",
+            "x.insert(0, 4)",
+            "x.pop(4)"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "liste = [\"a\", \"b\", \"c\"]\nx = liste.pop(1) + \"!\"\nprint(x)\n\nYukarıdaki kodun konsol çıktısı nedir?",
+        "options": [
+            "\"c!\"",
+            "TypeError",
+            "\"b!\"",
+            "\"a!\""
+        ],
+        "correct_option": 2
+    }
+]

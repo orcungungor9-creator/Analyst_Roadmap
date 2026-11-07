@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "Python'da listeler (list) hangi parantez sembolü kullanılarak tanımlanır?",
+        "options": [
+            "{ } (Süslü Parantez)",
+            "( ) (Normal Parantez)",
+            "[ ] (Köşeli Parantez)",
+            "< > (Açılı Parantez)"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Listelerin metinlerin (string) aksine sonradan güncellenebilir, yeni eleman eklenebilir veya silinebilir olmasına ne ad verilir?",
+        "options": [
+            "Static (Sabit)",
+            "Coercion",
+            "Immutable (Değiştirilemez)",
+            "Mutable (Değiştirilebilir)"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "sayilar = [10, 20, 30, 40, 50]\nsayilar[0]\n\nYukarıdaki ifadenin konsol çıktısı nedir?",
+        "options": [
+            "10",
+            "0",
+            "20",
+            "50"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Bir listenin kaç adet elemandan oluştuğunu öğrenmek için hangi fonksiyon kullanılır?",
+        "options": [
+            "length()",
+            "len()",
+            "count()",
+            "size()"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Bir listenin EN SONUNA yeni bir eleman eklemek için hangi liste metodu kullanılır?",
+        "options": [
+            "push()",
+            "append()",
+            "insert()",
+            "add()"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Listenin belirli bir indeksine yeni bir eleman ekleyip diğer elemanları sağa kaydırmak için hangi metod kullanılır?",
+        "options": [
+            "insert()",
+            "inject()",
+            "append()",
+            "place()"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "sepet = [\"Elma\", \"Armut\", \"Muz\"]\nsilinmis = sepet.pop()\n\nİçine indeks yazılmayan pop() metodu listeden hangi elemanı siler?",
+        "options": [
+            "\"Armut\" (Ortadaki elemanı)",
+            "Tüm elemanları siler",
+            "\"Muz\" (Listenin en sonundaki elemanı)",
+            "\"Elma\" (Listenin ilk elemanını)"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Bir listedeki elemanları küçükten büyüğe veya alfabetik olarak sıralamak için hangi metod kullanılır?",
+        "options": [
+            "arrange()",
+            "align()",
+            "sort()",
+            "order()"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "sepet = [\"Elma\", \"Armut\", \"Muz\"]\n\nListeden doğrudan 'Armut' değerini aratıp silmek için hangi komut yazılmalıdır?",
+        "options": [
+            "sepet.remove(\"Armut\")",
+            "sepet.drop(\"Armut\")",
+            "sepet.pop(\"Armut\")",
+            "sepet.delete(\"Armut\")"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "liste = [1, 2, 3]\nliste[-1]\n\nYukarıdaki negatif indeksli sorgunun çıktısı nedir?",
+        "options": [
+            "1 (İlk eleman)",
+            "-1",
+            "IndexError",
+            "3 (Son eleman)"
+        ],
+        "correct_option": 3
+    }
+]
