@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "a = input(\"Veri girin: \")\n\nKullanıcı klavyeden 'True' yazıp Enter'a bastığında type(a) ne olur?",
+        "options": [
+            "<class 'int'>",
+            "<class 'str'> (input() daima str üretir)",
+            "<class 'bool'>",
+            "NameError"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "x = \"5\"\ny = 2\nprint(x * y)\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "10",
+            "TypeError",
+            "\"55\" (Metin çoğaltma / tekrar)",
+            "25"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "a = 10\nb = \"5\"\nprint(int(a) + int(b) * 2)\n\nİşlem önceliğine göre yukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "105",
+            "30",
+            "\"1010\"",
+            "20"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "metin = \"A\\tB\\nC\\tD\"\nprint(metin)\n\nYukarıdaki metin print() ile basıldığında toplam kaç satır oluşur?",
+        "options": [
+            "1 satır",
+            "2 satır (Her satırda TAB ile ayrılmış harfler)",
+            "4 satır",
+            "3 satır"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "x = [1, \"2\", 3.0, True]\nres = (type(x[1]) == str) and (type(x[2]) == float)\nprint(res)\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "False",
+            "None",
+            "True",
+            "TypeError"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "deger = \"50\"\nprint(type(int(deger)))\n\nYukarıdaki kodun konsol çıktısı tam olarak nedir?",
+        "options": [
+            "<class 'int'>",
+            "int",
+            "<type 'int'>",
+            "50"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "a = 3\nb = 4\nprint(f\"{a}\\n{b}\")\n\nF-string içerisinde \\n kaçış dizisi kullanıldığında çıktı nasıldır?",
+        "options": [
+            "Tek satırda '3\\n4'",
+            "7",
+            "Hata verir; f-string içinde \\n kullanılamaz",
+            "Üstte 3, altta 4 (2 satır)"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "x = float(10) + int(5.8)\nprint(x)\n\nPython'da float ile int toplandığında sonuç ne olur ve çıktı nedir?",
+        "options": [
+            "15.0 (Sonuç float tipine yükseltilir)",
+            "15.8",
+            "15 (int olur)",
+            "TypeError"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "liste = [10, \"20\", 30]\nprint(liste[0] + int(liste[1]))\n\nYukarıdaki kodun konsol çıktısı kaçtır?",
+        "options": [
+            "30",
+            "TypeError",
+            "\"1020\"",
+            "10"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "a = \"100\"\nb = int(a)\nc = str(b)\nprint(type(c))\n\nYukarıdaki ardışık tip dönüşümlerinden sonra c'nin tipi nedir?",
+        "options": [
+            "<class 'int'>",
+            "ValueError",
+            "<class 'str'>",
+            "<class 'float'>"
+        ],
+        "correct_option": 2
+    }
+]

@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "Python'da bir değişkenin veya değerin hangi veri tipinde (türünde) olduğunu öğrenmek için hangi fonksiyon kullanılır?",
+        "options": [
+            "class()",
+            "typeof()",
+            "kind()",
+            "type()"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "input() fonksiyonu, kullanıcı klavyeden bir rakam dahi girse veriyi varsayılan olarak hangi veri tipinde alır?",
+        "options": [
+            "float (Ondalıklı Sayı)",
+            "str (Metin)",
+            "bool (Mantıksal)",
+            "int (Tam Sayı)"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "x = 3.14\n\nYukarıdaki değişkenin veri tipi (class) aşağıdakilerden hangisidir?",
+        "options": [
+            "str",
+            "float",
+            "int",
+            "double"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Bir metin içinde kendisinden sonra gelen kısmı bir alt satıra indirmek (Enter tuşu görevi görmek) için hangi kaçış dizisi kullanılır?",
+        "options": [
+            "\\n (New Line)",
+            "\\r (Return)",
+            "\\t (Tab)",
+            "\\b (Break)"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Metinler arasında klavyedeki TAB tuşuna basılmış gibi geniş bir boşluk bırakarak hizalama yapmak için hangi kaçış dizisi kullanılır?",
+        "options": [
+            "\\s (Space)",
+            "\\n (New Line)",
+            "\\w (Wide)",
+            "\\t (Tab)"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "x = [1, 2, \"Elma\", True]\n\nYukarıdaki değişkenin veri tipi aşağıdakilerden hangisidir?",
+        "options": [
+            "tuple",
+            "str",
+            "list",
+            "dict"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "yas = int(input(\"Lütfen yaşınızı giriniz: \"))\n\nYukarıdaki kodda int() fonksiyonunun kullanılma amacı nedir?",
+        "options": [
+            "Girdinin ekranda görünmesini engellemek",
+            "Metni büyük harfe çevirmek",
+            "Kullanıcıdan varsayılan olarak metin (str) gelen veriyi tam sayıya (int) dönüştürmek (Type Casting)",
+            "Yaşın negatif girilmesini önlemek"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "x = True\n\nYukarıdaki değişkenin veri tipi aşağıdakilerden hangisidir?",
+        "options": [
+            "bool",
+            "int",
+            "logical",
+            "str"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Kullanıcıdan boy bilgisini metre cinsinden (örneğin 1.75 gibi küsuratlı) almak için hangi tip dönüştürme fonksiyonu kullanılmalıdır?",
+        "options": [
+            "str()",
+            "float()",
+            "int()",
+            "round()"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "a = \"10\"\nb = 10\n\ntype(a) ve type(b) fonksiyonlarının sonuçları sırasıyla hangi veri tipleridir?",
+        "options": [
+            "int ve str",
+            "int ve int",
+            "str ve str",
+            "str ve int"
+        ],
+        "correct_option": 3
+    }
+]

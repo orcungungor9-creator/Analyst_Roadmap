@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "sayi1 = input(\"1. Sayı: \")\nsayi2 = input(\"2. Sayı: \")\nprint(sayi1 + sayi2)\n\nKullanıcı 1. sayıya 5, 2. sayıya 10 girerse yukarıdaki kodun çıktısı ne olur?",
+        "options": [
+            "50",
+            "\"510\" (Metin birleştirme yapar)",
+            "TypeError verir",
+            "15 (Matematiksel toplama yapar)"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "x = \"Python\\nProgramlama\"\nprint(x)\n\nYukarıdaki kod çalıştırıldığında ekranda nasıl bir görüntü oluşur?",
+        "options": [
+            "Tek satırda 'Python Programlama' yazar.",
+            "Hata verir.",
+            "Metin arasında '\\n' karakteri görünür.",
+            "Üst satırda 'Python', alt satırda 'Programlama' yazar."
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "a = 15\nb = \"20\"\nprint(a + int(b))\n\nYukarıdaki kod parçasının konsol çıktısı nedir?",
+        "options": [
+            "35",
+            "1520",
+            "TypeError",
+            "\"1520\""
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "liste = [10, 20.5, \"Metin\", False]\ntype(liste)\n\nPython'da bir liste içinde farklı türde veriler yer aldığında listenin kendi tipi ne olur?",
+        "options": [
+            "Hata verir",
+            "<class 'mixed'>",
+            "<class 'str'> (Coercion olur)",
+            "<class 'list'>"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "veri = \"25.5\"\nx = float(veri)\ntype(x)\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "ValueError",
+            "<class 'int'>",
+            "<class 'str'>",
+            "<class 'float'>"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "print(\"Adı:\\tAli\\nYaşı:\\t25\")\n\nYukarıdaki kodda \\t kaçış dizisinin kullanım amacı nedir?",
+        "options": [
+            "Alt satıra geçmek",
+            "Metni koyu (bold) yapmak",
+            "Metinler arasında TAB boşluğu bırakarak verileri sütun hizasında düzenli göstermek",
+            "Metnin sonuna nokta koymak"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "sayi = int(input(\"Sayı girin: \"))\n\nKullanıcı ekrana 'ahmet' yazıp Enter tuşuna basarsa ne gerçekleşir?",
+        "options": [
+            "ValueError (Değer Hatası) verir; harflerden oluşan bir metin int'e dönüştürülemez.",
+            "0 değerini atar.",
+            "None değerini atar.",
+            "Program çöker ama hata mesajı vermez."
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "a = 5\nb = float(a)\nprint(b)\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "5",
+            "5.0",
+            "5.00",
+            "float(5)"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "x = type(100) == int\nprint(x)\n\nYukarıdaki sorgunun çıktısı nedir?",
+        "options": [
+            "<class 'int'>",
+            "False",
+            "True",
+            "int"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "liste = [1, 2, 3]\ntype(liste[0]) ve type(liste)\n\nYukarıdaki ifadelerin sonuçları sırasıyla nedir?",
+        "options": [
+            "<class 'int'> ve <class 'int'>",
+            "<class 'str'> ve <class 'list'>",
+            "<class 'int'> ve <class 'list'>",
+            "<class 'list'> ve <class 'list'>"
+        ],
+        "correct_option": 2
+    }
+]
