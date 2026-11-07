@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "R dilinde bir fonksiyonun resmi kullanım kılavuzunu (Help sekmesini) açmak için fonksiyon adının başına hangi işaret konulur?",
+        "options": [
+            "? (Soru İşareti, örn: ?mean)",
+            "! (Ünlem)",
+            "# (Kare)",
+            "$ (Dolar)"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Bir vektördeki veya tablodaki eksik verileri (NA) kontrol etmek ve nerede olduklarını bulmak için hangi fonksiyon kullanılır?",
+        "options": [
+            "is.na()",
+            "find.na()",
+            "check.null()",
+            "has.na()"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Bir veri çerçevesini (data frame) RStudio içinde Excel benzeri bir sekmede görsel olarak incelemek için hangi komut kullanılır?",
+        "options": [
+            "show()",
+            "View() (Büyük V ile)",
+            "view() (Küçük v ile)",
+            "display()"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Bir vektör içerisindeki en büyük değerin KAÇINCI SIRADA (hangi indekste) olduğunu bulan fonksiyon hangisidir?",
+        "options": [
+            "max()",
+            "index.max()",
+            "which.max()",
+            "find.max()"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Bir vektörün en küçük (min) ve en büyük (max) değerlerini aynı anda bir aralık olarak döndüren fonksiyon hangisidir?",
+        "options": [
+            "minmax()",
+            "limits()",
+            "interval()",
+            "range()"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "Kategorik bir değişkende hangi kategoriden kaç adet olduğunu (frekans/sıklık tablosunu) çıkaran fonksiyon hangisidir?",
+        "options": [
+            "count()",
+            "table()",
+            "freq()",
+            "summary_table()"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "R'da rastgele sayı üretimini sabitlemek ve kod tekrar çalıştırıldığında aynı rastgele sayıları elde etmek için hangi komut kullanılır?",
+        "options": [
+            "freeze()",
+            "seed.lock()",
+            "fix.random()",
+            "set.seed()"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "Doğa olaylarının çoğunun uyduğu çan eğrisi şeklindeki Normal Dağılımdan rastgele sayı üretmek için hangi fonksiyon kullanılır?",
+        "options": [
+            "norm()",
+            "rnorm()",
+            "rand_norm()",
+            "dnorm()"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Bir regresyon modelinde gerçek gözlem değeri ile modelin tahmin ettiği değer arasındaki farka ne ad verilir?",
+        "options": [
+            "Varyans",
+            "Kovaryans",
+            "Z-skoru",
+            "Residual (Hata / Kalıntı)"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "R'da bir vektörün standart sapmasını hesaplayan temel fonksiyon hangisidir?",
+        "options": [
+            "dev()",
+            "std()",
+            "sd()",
+            "stdev()"
+        ],
+        "correct_option": 2
+    }
+]

@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "v <- c(10, 50, 20, 50, 30)\nwhich.max(v)\n\nYukarıdaki vektörde iki adet 50 olmasına rağmen which.max(v) çıktısı kaçtır?",
+        "options": [
+            "2 (En büyük değerin görüldüğü ilk indeksi verir)",
+            "4",
+            "50",
+            "2 4"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "v <- c(10, 20, NA, 30)\nmean(v)\nmean(v, na.rm = TRUE)\n\nYukarıdaki iki mean() çağrısının çıktıları sırasıyla nedir?",
+        "options": [
+            "Hata ve 20",
+            "20 ve 20",
+            "NA ve 20",
+            "0 ve 20"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "ornek_tablo <- data.frame(a = 1:5, b = 6:10, c = 11:15)\nlength(ornek_tablo) + dim(ornek_tablo)[1]\n\nYukarıdaki işlemin sonucu kaçtır?",
+        "options": [
+            "18",
+            "8 (3 sütun + 5 satır)",
+            "6",
+            "15"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "R dilinde cor(x, y) korelasyon katsayısı hakkında aşağıdakilerden hangisi HER ZAMAN doğrudur?",
+        "options": [
+            "Yalnızca pozitif değerler alabilir.",
+            "-1 ile +1 arasındadır; +1 mükemmel pozitif, -1 mükemmel negatif ilişkiyi gösterir.",
+            "Değeri her zaman kovaryans (cov) ile aynıdır.",
+            "0 ile 100 arasında bir yüzde değeridir."
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Bir regresyon modelinde residuals(model) sonucu c(-2, 3, -1) olarak elde edilmiştir. Bu modelin RSS (Residual Sum of Squares - Hata Kareler Toplamı) değeri kaçtır?",
+        "options": [
+            "36",
+            "0",
+            "14",
+            "6"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "tab <- table(c(\"Kedi\", \"Kopek\", \"Kedi\", \"Kus\", \"Kedi\"))\ntab[\"Kedi\"]\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "\"Kedi\"",
+            "5",
+            "1",
+            "3"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "reg <- lm(Y ~ X)\nsummary(reg)\n\nsummary(reg) çıktısındaki 'Estimate' sütunu temelde neyi ifade eder?",
+        "options": [
+            "P-değerinin anlamlılık seviyesini",
+            "Katsayı tahminlerini (Sabit terim - Intercept ve bağımsız değişkenin eğim katsayısını)",
+            "Modelin genel R-kare değerini",
+            "Hataların ortalamasını"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "v <- c(2, 4, 6)\nvar(v)\n\nÖrneklem varyansı formülüne göre (N-1 böleni ile) yukarıdaki kodun çıktısı kaçtır?",
+        "options": [
+            "2",
+            "2.67",
+            "8",
+            "4"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "range(c(15, 3, 28, 9, -2))\n\nYukarıdaki kodun konsol çıktısı nedir?",
+        "options": [
+            "-2 28",
+            "30",
+            "-2",
+            "28 -2"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "rnorm(n = 100, mean = 50, sd = 10)\n\nYukarıdaki komutla üretilen sayıların teorik ortalaması ve standart sapması sırasıyla kaçtır?",
+        "options": [
+            "Ortalama: 0, Standart Sapma: 1",
+            "Ortalama: 10, Standart Sapma: 50",
+            "Ortalama: 50, Standart Sapma: 10",
+            "Ortalama: 100, Standart Sapma: 50"
+        ],
+        "correct_option": 2
+    }
+]

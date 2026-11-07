@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "Bir veri çerçevesi (data frame) doğrudan length() fonksiyonuna verildiğinde (örn: length(tablo)) konsola ne döner?",
+        "options": [
+            "Tablonun satır sayısı",
+            "Toplam hücre sayısı",
+            "İlk sütunun uzunluğu",
+            "Tablonun sütun sayısı"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "kirli_vektor <- c(10, 20, NA, 40, NA, 60)\nsum(is.na(kirli_vektor))\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "0",
+            "NA",
+            "2",
+            "4"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "R dilinde var() (varyans) ve sd() (standart sapma) komutları hesaplama yaparken hangi formülü baz alır?",
+        "options": [
+            "Örneklem formülü (N - 1 böleni ile)",
+            "Medyan bazlı mutlak sapma",
+            "Logaritmik oranlama",
+            "Popülasyon formülü (N böleni ile)"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Farklı boyutlardaki verileri (örneğin 3200 kalori ve 5 saat uyku) aynı teraziye koymak ve Z-skoruna çevirmek için hangi fonksiyon kullanılır?",
+        "options": [
+            "normalize()",
+            "scale()",
+            "balance()",
+            "standard()"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "calisma_saati ve sinav_notu arasındaki standartlaşmış ilişki katsayısını (-1 ile +1 aralığında) hesaplamak için hangi fonksiyon kullanılır?",
+        "options": [
+            "cov()",
+            "cor()",
+            "r2()",
+            "rel()"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Yazı-tura veya geçti-kaldı gibi sadece iki ihtimalli durumlara uygun Binom/Bernoulli dağılımından veri üretmek için hangi fonksiyon kullanılır?",
+        "options": [
+            "runif()",
+            "rcoin()",
+            "rbinom()",
+            "rnorm()"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Belirli bir minimum ve maksimum aralıkta her sayının gelme olasılığının eşit olduğu tekdüze (Uniform) dağılımdan sayı üretmek için hangi komut kullanılır?",
+        "options": [
+            "runiform()",
+            "run_random()",
+            "runif()",
+            "requal()"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "lm(sinav_notu ~ calisma_saati) modelinde bağımlı (hedef) değişken ve bağımsız (etkileyen) değişken sırasıyla hangileridir?",
+        "options": [
+            "İkisi de bağımsız değişkendir",
+            "calisma_saati: Bağımlı değişken, sinav_notu: Bağımsız değişken",
+            "İkisi de bağımlı değişkendir",
+            "sinav_notu: Bağımlı değişken, calisma_saati: Bağımsız değişken"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "kirli <- c(1, NA, 3, NA, 5)\nna.omit(kirli)\n\nYukarıdaki na.omit() komutunun çıktısı nedir?",
+        "options": [
+            "1 3 5 (NA değerleri ayıklanmış temiz vektör)",
+            "0 0 0",
+            "Hata verir",
+            "NA NA"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "kan_gruplari <- c(\"A\", \"B\", \"0\", \"AB\", \"A\", \"0\")\nkan_faktor <- as.factor(kan_gruplari)\nlevels(kan_faktor)\n\nlevels() fonksiyonunun konsola döndürdüğü kategoriler nasıl sıralanır?",
+        "options": [
+            "\"0\" \"A\" \"AB\" \"B\" (Alfabetik sırada)",
+            "\"A\" \"B\" \"0\" \"AB\" (İlk giriliş sırasına göre)",
+            "\"A\" \"0\" \"B\" \"AB\" (Frekans sırasına göre)",
+            "Rastgele sırada"
+        ],
+        "correct_option": 0
+    }
+]
