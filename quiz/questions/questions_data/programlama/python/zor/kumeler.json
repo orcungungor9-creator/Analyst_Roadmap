@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "A = {1, 2, 3, 4, 5}\nB = {4, 5, 6, 7, 8}\nprint(A ^ B)\n\nYukarıdaki simetrik fark (^) işleminin çıktısı nedir?",
+        "options": [
+            "{1, 2, 3}",
+            "{1, 2, 3, 6, 7, 8}",
+            "{4, 5}",
+            "{1, 2, 3, 4, 5, 6, 7, 8}"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "k = set()\nk.add(1)\nk.add(2)\nk.clear()\nprint(k)\n\nclear() metodundan sonra boş kümenin konsol çıktısı nasıl görünür?",
+        "options": [
+            "None",
+            "{ }",
+            "{}",
+            "set()"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "a = {1, 2, 3}\nb = {2, 3, 4}\nc = {3, 4, 5}\nprint(a & b & c)\n\nYukarıdaki üçlü kesişim işleminin çıktısı nedir?",
+        "options": [
+            "{3}",
+            "{1, 2, 3, 4, 5}",
+            "set()",
+            "{2, 3, 4}"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "x = set(\"ankara\")\nprint(len(x))\n\nYukarıdaki kodun konsol çıktısı kaçtır?",
+        "options": [
+            "4 ('a', 'n', 'k', 'r')",
+            "3",
+            "6",
+            "5"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "A = {10, 20, 30}\nB = {20, 30, 40}\nres = (A - B) | (B - A)\nprint(res)\n\nYukarıdaki işlemin sonucu nedir?",
+        "options": [
+            "{10, 40} (A ^ B simetrik farkına denktir)",
+            "set()",
+            "{20, 30}",
+            "{10, 20, 30, 40}"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "k = {True, 1, 0, False}\nprint(len(k))\n\nPython'da True == 1 ve False == 0 kabul edildiği kuralına göre yukarıdaki kümenin eleman sayısı kaçtır?",
+        "options": [
+            "TypeError",
+            "1",
+            "2 (Yalnızca {True, 0} veya {1, False} gibi iki eleman kalır)",
+            "4"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "A = {1, 2, 3}\nB = {4, 5}\nprint(A.intersection(B))\n\nOrtak elemanı olmayan iki kümenin kesişim çıktısı konsolda ne yazar?",
+        "options": [
+            "None",
+            "set()",
+            "0",
+            "{}"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "liste = [5, 1, 5, 2, 1]\nk = set(liste)\nprint(sum(k))\n\nYukarıdaki işlemin çıktısı kaçtır?",
+        "options": [
+            "14",
+            "10",
+            "8 (5 + 1 + 2)",
+            "12"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "A = {1, 2, 3}\nB = {1, 2, 3}\nprint(A - B)\n\nBirebir aynı iki kümenin farkının çıktısı nedir?",
+        "options": [
+            "{0}",
+            "0",
+            "{}",
+            "set()"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "k = {1, 2, 3}\nk.add(\"1\")\nprint(len(k))\n\nPython'da int(1) ile str(\"1\") farklı tipler olduğu kuralına göre yukarıdaki kodun çıktısı kaçtır?",
+        "options": [
+            "TypeError",
+            "4",
+            "3",
+            "1"
+        ],
+        "correct_option": 1
+    }
+]

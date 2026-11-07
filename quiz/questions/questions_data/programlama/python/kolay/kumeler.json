@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "Python'da kümeler (set) hangi parantez sembolü kullanılarak oluşturulur?",
+        "options": [
+            "{ } (Süslü Parantez)",
+            "( ) (Normal Parantez)",
+            "[ ] (Köşeli Parantez)",
+            "< > (Açılı Parantez)"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Kümelerin (set) listelerden ve demetlerden en belirgin temel özelliği aşağıdakilerden hangisidir?",
+        "options": [
+            "Değerlerinin değiştirilemez olması",
+            "Yalnızca metin verileri tutabilmeleri",
+            "Sırasız olmaları (indekslenememeleri) ve aynı elemandan birden fazla barındırmamaları (benzersizlik)",
+            "Hiçbir metodunun bulunmaması"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Python'da sıfırdan BOŞ bir küme oluşturmak için hangisi kullanılmalıdır?",
+        "options": [
+            "set({})",
+            "set()",
+            "{}",
+            "[]"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "x = {}\n\nPython'da içi boş süslü parantez kullanıldığında oluşan değişkenin veri tipi (class) ne olur?",
+        "options": [
+            "<class 'dict'> (Sözlük)",
+            "<class 'set'> (Küme)",
+            "<class 'tuple'>",
+            "SyntaxError"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "kume = {1, 2, 2, 3, 3, 3}\nprint(len(kume))\n\nKümelerin tekrar eden verileri elemesi kuralına göre yukarıdaki kodun çıktısı kaçtır?",
+        "options": [
+            "TypeError",
+            "1",
+            "6",
+            "3"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "Mevcut bir kümeye yeni tekil bir eleman eklemek için hangi metod kullanılır?",
+        "options": [
+            "push()",
+            "append()",
+            "add()",
+            "insert()"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "İki kümenin kesişimini (her ikisinde de ortak olan elemanları) bulmak için hangi metod kullanılır?",
+        "options": [
+            "union()",
+            "difference()",
+            "common()",
+            "intersection()"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "İki kümenin tüm elemanlarını bir araya getiren (birleşim) metod hangisidir?",
+        "options": [
+            "union()",
+            "collect()",
+            "join()",
+            "merge()"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Bir kümenin içindeki tüm elemanları silerek kümeyi tamamen boşaltmak için hangi metod kullanılır?",
+        "options": [
+            "empty()",
+            "clear()",
+            "remove_all()",
+            "delete()"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "kume = {\"A\", \"B\", \"C\"}\nprint(kume[0])\n\nYukarıdaki indeksleme satırı çalıştırılırsa ne gerçekleşir?",
+        "options": [
+            "None döner.",
+            "\"A\" çıktısını verir.",
+            "\"C\" çıktısını verir.",
+            "TypeError verir; kümeler sırasız olduğu için indekslemeyi desteklemez."
+        ],
+        "correct_option": 3
+    }
+]
