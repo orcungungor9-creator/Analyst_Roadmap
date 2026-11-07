@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "m <- matrix(1:9, nrow = 3, byrow = TRUE)\nt(m)[1, 2]\n\nYukarıdaki kod parçasının sonucu kaçtır?",
+        "options": [
+            "2",
+            "4",
+            "6",
+            "8"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "m <- matrix(c(10, 20, NA, 30), nrow = 2)\ncolMeans(m, na.rm = TRUE)[2]\n\nYukarıdaki kodun çıktısı kaçtır?",
+        "options": [
+            "30",
+            "15",
+            "20",
+            "NA"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "v1 <- c(1, 2)\nv2 <- c(\"A\", \"B\")\nm <- cbind(v1, v2)\nclass(m[1, 1])\n\nTek tip veri zorunluluğu kuralına göre yukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "\"numeric\"",
+            "\"integer\"",
+            "\"character\"",
+            "Hata verir"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "m <- matrix(1:4, nrow = 2)\nm2 <- matrix(2, nrow = 2, ncol = 2)\n(m * m2)[2, 2]\n\nYukarıdaki eleman bazlı matris çarpımının sonucu nedir?",
+        "options": [
+            "8",
+            "4",
+            "6",
+            "16"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "m <- matrix(1:6, nrow = 2)\ndim(t(m))\n\nYukarıdaki kodun konsol çıktısı nedir?",
+        "options": [
+            "3 2",
+            "2 3",
+            "6 1",
+            "3 3"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "m <- matrix(1:6, nrow = 2, byrow = TRUE)\nrownames(m) <- c(\"R1\", \"R2\")\ncolnames(m) <- c(\"C1\", \"C2\", \"C3\")\nm[\"R2\", \"C2\"]\n\nYukarıdaki kodun çıktısı kaçtır?",
+        "options": [
+            "4",
+            "6",
+            "2",
+            "5"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "m <- matrix(1:4, nrow = 2)\nsum(m[m > 2])\n\nYukarıdaki mantıksal filtreleme ve toplama işleminin çıktısı nedir?",
+        "options": [
+            "4",
+            "7",
+            "10",
+            "3"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "m <- matrix(1:6, nrow = 2, byrow = FALSE)\nrowSums(m)[1]\n\nYukarıdaki kodun çıktısı kaçtır?",
+        "options": [
+            "15",
+            "6",
+            "12",
+            "9"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "x <- matrix(1:4, nrow = 2)\nx[, 1] <- x[, 1] + 10\nx[2, 1]\n\nYukarıdaki güncellemeden sonra x[2, 1] elemanı hangi değeri alır?",
+        "options": [
+            "2",
+            "20",
+            "12",
+            "11"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "m <- matrix(1:9, nrow = 3)\nm[c(1, 3), 2]\n\nVarsayılan sütun doldurmalı matriste yukarıdaki indekslemenin çıktısı nedir?",
+        "options": [
+            "2 8",
+            "1 3",
+            "4 6",
+            "4 5 6"
+        ],
+        "correct_option": 2
+    }
+]

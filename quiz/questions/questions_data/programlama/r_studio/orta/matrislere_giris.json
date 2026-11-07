@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "m <- matrix(1:6, nrow = 2, ncol = 3, byrow = FALSE)\nm[2, 1]\n\nYukarıdaki kodun konsol çıktısı nedir?",
+        "options": [
+            "1",
+            "4",
+            "2",
+            "3"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "m <- matrix(1:6, nrow = 2, ncol = 3, byrow = TRUE)\nm[2, 1]\n\nYukarıdaki kodun konsol çıktısı nedir?",
+        "options": [
+            "5",
+            "2",
+            "3",
+            "4"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "a <- c(1, 2)\nb <- c(3, 4)\nm <- cbind(a, b)\ndim(m)\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "2 2",
+            "4 1",
+            "2 4",
+            "1 4"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Bir matrisin bir sütununda eksik veri (NA) varken mean() fonksiyonu ile ortalama hesaplandığında sonucun NA çıkmaması için hangi argüman eklenmelidir?",
+        "options": [
+            "clean = TRUE",
+            "ignore.na = TRUE",
+            "na.rm = TRUE",
+            "remove.na = TRUE"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "m <- matrix(1:4, nrow = 2)\nm * 2\n\nYukarıdaki işlemin sonucu nedir?",
+        "options": [
+            "Matrisin içindeki her eleman tek tek 2 ile çarpılır.",
+            "Matris 2 satır daha uzatılır.",
+            "Hata verir; matrisler sayılarla çarpılamaz.",
+            "Sadece ilk eleman 2 ile çarpılır."
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "m <- matrix(1:9, nrow = 3)\nm[, 2]\n\nYukarıdaki kodun çıktısı nedir?",
+        "options": [
+            "2 5 8 (2. satırın tamamı)",
+            "1 2 3",
+            "5 (ortadaki eleman)",
+            "4 5 6 (2. sütunun tamamı)"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "dim(matris)[1] ifadesi bir matrisin hangi özelliğini verir?",
+        "options": [
+            "Sütun sayısını",
+            "İlk elemanın değerini",
+            "Satır sayısını",
+            "Toplam eleman sayısını"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Bir matrisin her satırının kendi içindeki elemanlar toplamını tek işlemde veren fonksiyon hangisidir?",
+        "options": [
+            "rowSums()",
+            "sumRows()",
+            "colSums()",
+            "totalRows()"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "R dilinde iki matris arasında lineer cebir kurallarına göre gerçek matris çarpımı yapmak için hangi operatör kullanılır?",
+        "options": [
+            "**",
+            "%*%",
+            "*",
+            "%/%"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "a <- c(10, 20)\nb <- c(30, 40)\nm <- rbind(a, b)\nm[1, 2]\n\nYukarıdaki kodun çıktısı kaçtır?",
+        "options": [
+            "30",
+            "20",
+            "40",
+            "10"
+        ],
+        "correct_option": 1
+    }
+]

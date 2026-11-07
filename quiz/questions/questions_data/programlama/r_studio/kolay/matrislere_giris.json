@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "R dilinde satır ve sütunlardan oluşan iki boyutlu ve tüm elemanları aynı tipte olan veri yapısı hangisidir?",
+        "options": [
+            "Matris (Matrix)",
+            "Vektör (Vector)",
+            "Faktör (Factor)",
+            "Liste (List)"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "matrix() fonksiyonunda verilerin varsayılan sütun sütun doldurulması yerine satır satır doldurulmasını sağlayan argüman hangisidir?",
+        "options": [
+            "rows = TRUE",
+            "align = 'row'",
+            "byrow = TRUE",
+            "bycol = TRUE"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Birden fazla vektörü alt alta 'satır' olarak birleştirip matris oluşturmak için hangi komut kullanılır?",
+        "options": [
+            "rowMerge()",
+            "cbind()",
+            "rbind()",
+            "bindRows()"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Birden fazla vektörü yan yana 'sütun' olarak birleştirip matris oluşturmak için hangi komut kullanılır?",
+        "options": [
+            "bindCols()",
+            "colMerge()",
+            "rbind()",
+            "cbind()"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "Bir matrisin sütunlarına isim vermek için hangi fonksiyon kullanılır?",
+        "options": [
+            "colNames()",
+            "colnames()",
+            "setCols()",
+            "names()"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Bir matrisin satırlarına isim vermek için hangi fonksiyon kullanılır?",
+        "options": [
+            "rownames()",
+            "rowNames()",
+            "setRows()",
+            "rowLabels()"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Bir matrisin 2. satır ve 3. sütunundaki elemanı çekmek için hangi indeksleme kullanılır?",
+        "options": [
+            "matris[3, 2]",
+            "matris(2, 3)",
+            "matris[[2, 3]]",
+            "matris[2, 3]"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "Bir matriste sütun kısıtlaması olmadan yalnızca 2. satırın tüm elemanlarını çekmek için hangi kod yazılır?",
+        "options": [
+            "matris[2, ALL]",
+            "matris[2, ]",
+            "matris[2]",
+            "matris[, 2]"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Bir matrisin boyutlarını (satır ve sütun sayısını) bir vektör olarak döndüren fonksiyon hangisidir?",
+        "options": [
+            "size()",
+            "dim()",
+            "shape()",
+            "length()"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Bir matrisin satırlarını sütun, sütunlarını satır yapmak (transpozunu almak) için hangi fonksiyon kullanılır?",
+        "options": [
+            "t()",
+            "transpose()",
+            "rev()",
+            "flip()"
+        ],
+        "correct_option": 0
+    }
+]
