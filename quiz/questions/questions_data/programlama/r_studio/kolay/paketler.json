@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "R dilinin resmi, güvenilir ve virüs taramasından geçmiş paket deposuna (uygulama mağazasına) ne ad verilir?",
+        "options": [
+            "CRAN (The Comprehensive R Archive Network)",
+            "R-Store",
+            "Bioconductor",
+            "GitHub"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Bir paketi bilgisayara ilk kez indirmek ve kurmak için hangi fonksiyon kullanılır?",
+        "options": [
+            "install.packages()",
+            "get.packages()",
+            "library()",
+            "download.package()"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "install.packages() komutunu kullanırken paket ismi nasıl yazılmalıdır?",
+        "options": [
+            "Tırnaksız olarak (örn: install.packages(dplyr))",
+            "Büyük harflerle ve tırnaksız",
+            "Mutlaka tırnak içinde (\" \", örn: install.packages(\"dplyr\"))",
+            "Köşeli parantez içinde"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Bilgisayara kurulmuş olan bir paketi o anki R oturumunda aktif edip kullanıma açmak için hangi komut kullanılır?",
+        "options": [
+            "import()",
+            "using()",
+            "open()",
+            "library()"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "library() komutu ile bir paketi çağırırken tırnak işareti kullanımıyla ilgili kural nedir?",
+        "options": [
+            "Tırnak kullanılırsa hata verir",
+            "Tırnak işaretine gerek yoktur (örn: library(dplyr) doğrudan çalışır)",
+            "Mutlaka çift tırnak zorunludur",
+            "Sadece tek tırnak kullanılabilir"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Bir paket için install.packages() indirme işlemi ne sıklıkla yapılmalıdır?",
+        "options": [
+            "Her oturum kapatıldığında silinir",
+            "Her hafta otomatik yenilenmelidir",
+            "Bilgisayara sadece bir kez yapılır; silinmedikçe kalır",
+            "R her açıldığında tekrar yapılmalıdır"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Excel dosyalarını bilgisayardan R içine aktarmak için derste 'hamal usta' olarak benzetilen paket hangisidir?",
+        "options": [
+            "ggplot2",
+            "dplyr",
+            "tidyr",
+            "readxl"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "RStudio arayüzünde yüklü olan tüm paketleri görsel olarak görmek ve kutucuğa tıklayarak aktif etmek için hangi sekme kullanılır?",
+        "options": [
+            "Environment sekmesi",
+            "Packages sekmesi (Sağ alt panel)",
+            "History sekmesi",
+            "Files sekmesi"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "Kurulu bir paketin yeni bir sürümü yayınlandığında güncelleme yapmak için hangi komut kullanılır?",
+        "options": [
+            "refresh.packages()",
+            "upgrade.packages()",
+            "update.packages()",
+            "install.update()"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Analizlerimizde kullandığımız bir paketin geliştiricilerine bilimsel/akademik atıfta bulunmak için hangi fonksiyon kullanılır?",
+        "options": [
+            "credit()",
+            "citation()",
+            "author()",
+            "reference()"
+        ],
+        "correct_option": 1
+    }
+]

@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "detach(\"package:dplyr\", unload = FALSE) ile uykuya alınan bir paket hangi fonksiyonun çıktısında GÖRÜNMEZ?",
+        "options": [
+            "library()",
+            "installed.packages()",
+            "search()",
+            "loadedNamespaces()"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "detach(\"package:dplyr\", unload = FALSE) ile uykuya alınan bir paket hangi fonksiyonun çıktısında GÖRÜNMEYE DEVAM EDER?",
+        "options": [
+            "activePackages()",
+            "loadedNamespaces()",
+            "sessionInfo()$search",
+            "search()"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "stats::filter() ve dplyr::filter() kodlarının farkı nedir?",
+        "options": [
+            "Biri hata verir diğeri çalışır.",
+            "stats:: orijinal Base R zaman serisi filtresini, dplyr:: ise veri manipülasyon filtresini çalıştırır.",
+            "stats:: olanı internetten indirilen pakettir.",
+            "İkisi de tamamen aynı işlemi yapar."
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "library() ile library(\"dplyr\") arasındaki temel fark nedir?",
+        "options": [
+            "İkisi de aynı işi yapar.",
+            "Parametresiz library() yüklü paketleri listeler, içine paket ismi yazıldığında o paketi oturuma dahil eder.",
+            "Parametresiz olanı RStudio'yu günceller.",
+            "Biri paketi siler, diğeri yükler."
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "citation(\"dplyr\") çalıştırıldığında dönen metin analist tarafından nerede kullanılır?",
+        "options": [
+            "Paketi silerken onay vermek için",
+            "Paketin lisans anahtarını girmek için",
+            "GitHub şifresini doğrulamak için",
+            "Akademik makalelerde ve analiz raporlarında paketin yazarlarına bilimsel atıf (kaynakça) göstermek için"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "Bir projede sırasıyla library(readxl), library(dplyr) ve library(ggplot2) çağrılmıştır. Bu paketler sırasıyla hangi işlevleri üstlenir?",
+        "options": [
+            "İstatistik modelleme -> Veri silme -> Raporlama",
+            "Görselleştirme -> Veri aktarma -> Temizleme",
+            "Veriyi içeri aktarma -> Veriyi temizleme/manipüle etme -> Veriyi görselleştirme",
+            "Veri dışa aktarma -> Matris çarpımı -> Tablo silme"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "search() listesinde [1] \".GlobalEnv\" en başta yer alır. Bunun pratik anlamı nedir?",
+        "options": [
+            "Global değişkenlerin silindiğini belirtir.",
+            "Paketlerin yüklenemediğini ifade eder.",
+            "R bir değişken veya fonksiyon ararken öncelikle kullanıcının kendi çalışma ortamına (.GlobalEnv) bakar.",
+            "R'ın kapalı olduğunu gösterir."
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "install.packages(c(\"dplyr\", \"ggplot2\")) sözdizimi hakkında hangisi doğrudur?",
+        "options": [
+            "Geçerlidir; c() vektörü ile birden fazla paket aynı anda indirilebilir.",
+            "Hata verir; c() sadece sayılarla çalışır.",
+            "Geçersizdir; paketler yalnızca tek tek indirilebilir.",
+            "İndirir fakat kurulmaz."
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Konsolda bir paket çağrıldığında çıkan 'The following objects are masked from...' uyarısının nedeni nedir?",
+        "options": [
+            "Yeni çağrılan paketteki bazı fonksiyon isimlerinin, daha önceki paketlerle aynı ismi taşıması ve onları maskelemesi",
+            "Paketin virüslü olduğunu bildirmesi",
+            "RAM'in tamamen dolduğunu söylemesi",
+            "Paketin lisansının sona erdiğini belirtmesi"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "unload = TRUE parametresi ile detach edilmiş bir paket daha sonra tekrar kullanılmak istendiğinde ne yapılmalıdır?",
+        "options": [
+            "RStudio baştan kurulmalıdır.",
+            "CRAN hesabı açılmalıdır.",
+            "install.packages() ile baştan indirilmelidir.",
+            "Yeniden indirmeye gerek yoktur, sadece library() ile tekrar çağrılması yeterlidir."
+        ],
+        "correct_option": 3
+    }
+]

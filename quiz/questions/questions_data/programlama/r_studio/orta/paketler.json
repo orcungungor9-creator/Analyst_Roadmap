@@ -1,1 +1,102 @@
-[]
+﻿[
+    {
+        "question": "İki farklı pakette aynı isimli fonksiyonların bulunması sebebiyle ortaya çıkan isimlendirme çakışmasına ne ad verilir?",
+        "options": [
+            "Overloading",
+            "Deadlock",
+            "Masking (Maskeleme)",
+            "Coercion"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "İki farklı pakette aynı isimde fonksiyon olduğunda (örn. filter), paketi aktif etmeden doğrudan o paketin fonksiyonunu çalıştırmak için hangi sözdizimi kullanılır?",
+        "options": [
+            "@ (Et işareti)",
+            "$ (Dolar işareti)",
+            "-> (Ok işareti)",
+            ":: (Çift iki nokta, örn: dplyr::filter())"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "detach(\"package:dplyr\", unload = TRUE) komutundaki 'unload = TRUE' parametresinin görevi nedir?",
+        "options": [
+            "Paketi bilgisayardan kalıcı olarak siler",
+            "Paketi arka planda uykuya alır",
+            "Paketin tüm verilerini konsola yazdırır",
+            "Paketi hafızadan (RAM'den) tamamen çıkarır"
+        ],
+        "correct_option": 3
+    },
+    {
+        "question": "detach(\"package:dplyr\", unload = FALSE) yapıldığında pakete ne olur?",
+        "options": [
+            "Paket tekrar aktif hale gelir",
+            "Paketi uykuya alır ama RAM'de yer kaplamaya devam eder",
+            "Hata verir",
+            "Paket tamamen silinir"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "O anki çalışma oturumunda sahada aktif olarak çalışan (arama yolundaki) paketleri listelemek için hangi fonksiyon kullanılır?",
+        "options": [
+            "list.packages()",
+            "loadedNamespaces()",
+            "search()",
+            "active.packages()"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Sahada aktif çalışanlar ile birlikte arka planda uyuyan tüm paketlerin tam listesini veren fonksiyon hangisidir?",
+        "options": [
+            "loadedNamespaces()",
+            "getLoaded()",
+            "search()",
+            "allPackages()"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "help(package = \"dplyr\") komutu çalıştırıldığında ne gerçekleşir?",
+        "options": [
+            "Belirtilen paketin içindeki tüm komut ve fonksiyonların resmi kılavuzu açılır",
+            "dplyr paketi güncellenir",
+            "dplyr paketinin kaynak kodları silinir",
+            "RStudio yeniden başlar"
+        ],
+        "correct_option": 0
+    },
+    {
+        "question": "Birden fazla paket çağrıldığında aynı isimli bir fonksiyon çalıştırılırsa R varsayılan olarak hangi paketin fonksiyonunu geçerli sayar?",
+        "options": [
+            "İlk çağrılan paketin fonksiyonunu",
+            "En son çağrılan (aktif edilen) paketin fonksiyonunu",
+            "Her zaman Base R fonksiyonunu",
+            "Alfabetik olarak önde olan paketi"
+        ],
+        "correct_option": 1
+    },
+    {
+        "question": "R'ın açık kaynak kodlu (Open Source) olmasının analistler için sağladığı temel avantaj nedir?",
+        "options": [
+            "Her analistin kendi R sürümünü derlemesinin zorunlu olması",
+            "Paketlerin virüs içermeme garantisinin olmaması",
+            "Dünyanın her yerindeki uzmanların geliştirdiği paketlere ücretsiz ve anında erişilebilmesi",
+            "Yalnızca internet olmadan çalışabilmesi"
+        ],
+        "correct_option": 2
+    },
+    {
+        "question": "Bilgisayarınızda yüklü olan tüm paketlerin listesini R konsolunda görmek için parametresiz olarak hangi komut çalıştırılır?",
+        "options": [
+            "library()",
+            "packages()",
+            "show.all()",
+            "installed()"
+        ],
+        "correct_option": 0
+    }
+]
