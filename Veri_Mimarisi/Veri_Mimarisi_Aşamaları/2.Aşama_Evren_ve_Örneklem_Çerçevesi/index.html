@@ -6,7 +6,9 @@
     <title>2. Aşama: Evren ve Örneklem Çerçevesi | Veri Mimarisi | Analyst Roadmap</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="../../styles.css">
+    <!-- Ortak stiller (proje kökü: 3 klasör yukarıda) -->
+    <link rel="stylesheet" href="../../../styles.css">
+    <!-- Bu aşamaya özel stiller -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,52 +21,588 @@
         })();
     </script>
 
+    <!-- ARKA PLAN GRAFİK AĞI (HAREKETSİZ) -->
+    <div class="bg-analytics-mesh">
+        <div class="bg-chart-item bg-chart-1">
+            <svg viewBox="0 0 400 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="s2-bg-area-grad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="var(--neon-blue)" stop-opacity="0.4" />
+                        <stop offset="100%" stop-color="var(--neon-blue)" stop-opacity="0.0" />
+                    </linearGradient>
+                </defs>
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40 L 370,190 L 10,190 Z" fill="url(#s2-bg-area-grad)" />
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40" fill="none" stroke="var(--neon-blue)" stroke-width="4" stroke-linecap="round" />
+                <circle cx="130" cy="150" r="6" fill="var(--neon-green)" />
+                <circle cx="250" cy="90" r="6" fill="var(--neon-purple)" />
+                <circle cx="370" cy="40" r="8" fill="var(--neon-blue)" />
+            </svg>
+        </div>
+        <div class="bg-chart-item bg-chart-2">
+            <svg viewBox="0 0 200 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <g transform="translate(100,100)">
+                    <path d="M 0,-80 A 80,80 0 0,1 76,25 L 57,18 A 60,60 0 0,0 0,-60 Z" fill="var(--neon-blue)" />
+                    <path d="M 76,25 A 80,80 0 0,1 -64,48 L -48,36 A 60,60 0 0,0 57,18 Z" fill="var(--neon-green)" />
+                    <path d="M -64,48 A 80,80 0 0,1 0,-80 L 0,-60 A 60,60 0 0,0 -48,36 Z" fill="var(--neon-purple)" />
+                    <circle cx="0" cy="0" r="45" fill="none" stroke="var(--glass-border)" stroke-width="2" stroke-dasharray="5,5" />
+                </g>
+            </svg>
+        </div>
+        <div class="bg-chart-item bg-chart-3">
+            <svg viewBox="0 0 250 250" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <line x1="20" y1="50" x2="230" y2="50" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4" />
+                <line x1="20" y1="100" x2="230" y2="100" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4" />
+                <line x1="20" y1="150" x2="230" y2="150" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4" />
+                <line x1="20" y1="200" x2="230" y2="200" stroke="var(--glass-border)" stroke-width="2" />
+                <rect x="35" y="120" width="30" height="80" rx="6" fill="var(--neon-blue)" />
+                <rect x="85" y="70" width="30" height="130" rx="6" fill="var(--neon-green)" />
+                <rect x="135" y="150" width="30" height="50" rx="6" fill="var(--neon-purple)" />
+                <rect x="185" y="90" width="30" height="110" rx="6" fill="var(--neon-blue)" />
+            </svg>
+        </div>
+        <div class="bg-chart-item bg-chart-4">
+            <svg viewBox="0 0 280 220" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <line x1="50" y1="30" x2="50" y2="170" stroke="var(--neon-green)" stroke-width="3" />
+                <rect x="38" y="70" width="24" height="60" rx="4" fill="var(--neon-green)" />
+                <line x1="110" y1="50" x2="110" y2="190" stroke="var(--neon-blue)" stroke-width="3" />
+                <rect x="98" y="90" width="24" height="70" rx="4" fill="var(--neon-blue)" />
+                <line x1="170" y1="20" x2="170" y2="150" stroke="var(--neon-purple)" stroke-width="3" />
+                <rect x="158" y="50" width="24" height="50" rx="4" fill="var(--neon-purple)" />
+                <line x1="230" y1="60" x2="230" y2="200" stroke="var(--neon-green)" stroke-width="3" />
+                <rect x="218" y="100" width="24" height="55" rx="4" fill="var(--neon-green)" />
+            </svg>
+        </div>
+    </div>
+
     <!-- Header injected via components.js -->
 
-    <main class="main-container" style="max-width: 1200px; margin: 40px auto; padding: 0 24px 80px 24px;">
-        <!-- Breadcrumb & Geri Dön Butonu -->
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
-            <a href="../../Veri_Mimarisi/index.html#asama-ayrintilari" style="display: inline-flex; align-items: center; gap: 8px; color: var(--neon-purple); text-decoration: none; font-weight: 600; font-size: 0.95rem; padding: 8px 16px; border-radius: 12px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); transition: all 0.2s ease;">
-                <i data-lucide="arrow-left" style="width: 18px; height: 18px;"></i>
-                Aşama Ayrıntılarına Dön
-            </a>
-            <div style="color: var(--text-muted); font-size: 0.9rem;">
-                Veri Mimarisi / <span style="color: var(--text-main); font-weight: 600;">2. Aşama</span>
+    <!-- HERO BANNER -->
+    <div class="hero-banner-wrapper s2-hero">
+        <div class="hero-banner-bg"></div>
+        <div class="hero-banner-overlay"></div>
+        <section class="hero-section s2-hero-section">
+            <div class="hero-content s2-hero-content">
+                <div class="s2-hero-meta">
+                    <a href="../../index.html#asama-ayrintilari" class="s2-back-link">
+                        <i data-lucide="arrow-left"></i>
+                        Aşama Ayrıntılarına Dön
+                    </a>
+                    <span class="s2-stage-pill">2. Aşama · Veri Mimarisi</span>
+                </div>
+                <h1 class="hero-title custom-brand-title s2-hero-title">Evren ve Örneklem Çerçevesinin Tanımlanması</h1>
+                <p class="hero-subtitle s2-hero-subtitle">
+                    Araştırma sorusunu belirledikten sonra, bu sorunun cevabını <strong>kimden veya nereden</strong>
+                    arayacağımızı kesin sınırlarla çizmemiz gerekir. Veri mimarisinin altın kuralı olan
+                    <strong>"Population = Sample"</strong> dengesinin matematiksel olarak kurulduğu yer tam olarak burasıdır.
+                </p>
+                <div class="hero-actions s2-hero-actions">
+                    <button type="button" class="s2-hero-btn acc-purple" data-scroll-target="blok-1">
+                        <i data-lucide="globe"></i> 1. Evren / Anakütle (N)
+                    </button>
+                    <button type="button" class="s2-hero-btn acc-blue" data-scroll-target="blok-2">
+                        <i data-lucide="list-filter"></i> 2. Örneklem Çerçevesi
+                    </button>
+                    <button type="button" class="s2-hero-btn acc-green" data-scroll-target="blok-3">
+                        <i data-lucide="users"></i> 3. Örneklem (n)
+                    </button>
+                    <button type="button" class="s2-hero-btn acc-amber" data-scroll-target="saglama-testi">
+                        <i data-lucide="shield-check"></i> Sağlama Testi
+                    </button>
+                </div>
             </div>
-        </div>
+        </section>
+    </div>
 
-        <!-- Aşama Hero Kartı -->
-        <section class="glass" style="padding: 36px; border-radius: 20px; border-left: 6px solid var(--neon-purple) !important; margin-bottom: 32px;">
-            <span style="background: var(--neon-purple); color: #fff; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; display: inline-block; margin-bottom: 16px;">
-                2. Aşama
-            </span>
-            <h1 style="font-size: 2.2rem; font-weight: 800; color: var(--text-main); margin-bottom: 12px;">
-                Evren ve Örneklem Çerçevesinin Tanımlanması
-            </h1>
-            <p style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.7; max-width: 900px; margin: 0;">
-                Modelin kapsayacağı hedef kitlenin (Population - N) coğrafi ve mantıksal sınırlarını çizmek; seçim yanlılığına düşmeden çerçeve listesini eksiksiz oluşturmak.
+    <main class="s2-main">
+
+        <!-- GİRİŞ: ALTIN KURAL VE ÜÇ HALKALI MİMARİ -->
+        <section class="s2-section acc-purple" id="giris">
+            <div class="s2-section-head">
+                <div class="s2-head-icon"><i data-lucide="scale"></i></div>
+                <div>
+                    <h2 class="s2-section-title">"Population = Sample" Kuralının Kurulduğu Yer</h2>
+                    <p class="s2-section-sub">Soruyu hazırladık; peki merceği nereye tutacağız?</p>
+                </div>
+            </div>
+
+            <p>
+                Birinci aşamada <strong>"Ticari gayrimenkullerin m² satış fiyatını hangi faktörler belirler?"</strong>
+                sorusunu kurduk, bağımlı değişkenimizi (Y) ve açıklayıcı değişkenlerimizi (X) seçtik. Ancak ortada
+                çok kritik bir tehlike var: Doğru soruyu <strong>yanlış kitleye</strong> veya <strong>eksik bir listeye</strong>
+                sorarsan, alacağın cevap matematiksel olarak kusursuz görünse bile gerçek hayatta tamamen yanıltıcı olur.
             </p>
+            <p>
+                İyi bir veri mimarı, veriyi toplamaya başlamadan önce birbiri içine geçen üç halkayı net biçimde ayırır:
+                söz söylemek istediğimiz <strong>Evren (N)</strong>, elimizdeki somut liste olan
+                <strong>Örneklem Çerçevesi</strong> ve fiilen analiz edeceğimiz <strong>Örneklem (n)</strong>.
+            </p>
+
+            <!-- İÇ İÇE KÜME / DARALMA MİMARİSİ -->
+            <div class="s2-nested-map">
+                <div class="s2-ring ring-outer">
+                    <div class="s2-ring-header">
+                        <span class="s2-ring-tag tag-purple">1. Halka · Teorik Bütün</span>
+                        <strong>Evren / Anakütle (N)</strong>
+                        <p>Denizli'deki tüm aktif ticari gayrimenkuller (ilanda olan + el altından satılan + yerel portföyler).</p>
+                    </div>
+
+                    <div class="s2-leak-banner leak-amber">
+                        <i data-lucide="eye-off"></i>
+                        <span><strong>Sızıntı Noktası 1 — Kapsama Hatası (Undercoverage):</strong> İlana çıkmadan el altından devredilen dükkânlar çerçeveye hiç giremez.</span>
+                    </div>
+
+                    <div class="s2-ring ring-middle">
+                        <div class="s2-ring-header">
+                            <span class="s2-ring-tag tag-blue">2. Halka · Ulaşılabilir Liste</span>
+                            <strong>Örneklem Çerçevesi (Sampling Frame)</strong>
+                            <p>Dijital ilan platformları + yerel gayrimenkul danışmanlıklarının kayıtlı portföyleri.</p>
+                        </div>
+
+                        <div class="s2-leak-banner leak-red">
+                            <i data-lucide="triangle-alert"></i>
+                            <span><strong>Sızıntı Noktası 2 — Seçim Yanlılığı (Selection Bias):</strong> Listeden yalnızca popüler caddelerdeki kolay satılan mülkleri seçersek temsil bozulur.</span>
+                        </div>
+
+                        <div class="s2-ring ring-inner">
+                            <div class="s2-ring-header">
+                                <span class="s2-ring-tag tag-green">3. Halka · Analiz Edilen Küme</span>
+                                <strong>Örneklem (Sample — n)</strong>
+                                <p>Modeli kurmak için fiilen seçtiğimiz ve anakütlenin minyatürü olması gereken alt küme.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="s2-callout acc-amber">
+                <i data-lucide="map-pin" class="s2-callout-icon"></i>
+                <div>
+                    <strong>Sayfa boyunca kullanacağımız saha senaryosu: Denizli Ticari Emlak Piyasası</strong>
+                    <p>
+                        1. aşamadaki gayrimenkul modelimizi artık sahaya indiriyoruz: Hedefimiz <strong>Denizli'deki aktif
+                        ticari gayrimenkullerin</strong> m² satış fiyatlarını modellemek. Çamlık ve Kınıklı'daki popüler cadde
+                        mağazalarından Kaleiçi esnaf dükkânlarına, sanayi sitesi atölyelerinden tekstil hanlarına kadar uzanan
+                        gerçekçi bir pazar düşün.
+                    </p>
+                </div>
+            </div>
         </section>
 
-        <!-- İçerik Alanı -->
-        <section class="glass" style="padding: 40px; border-radius: 20px; text-align: center;">
-            <div style="width: 64px; height: 64px; border-radius: 50%; background: color-mix(in srgb, var(--neon-purple) 15%, transparent); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 16px;">
-                <i data-lucide="users" style="width: 32px; height: 32px; color: var(--neon-purple);"></i>
+        <!-- BLOK 1: EVREN / ANAKÜTLE -->
+        <section class="s2-section acc-purple" id="blok-1">
+            <div class="s2-section-head">
+                <div class="s2-head-num">1</div>
+                <div>
+                    <h2 class="s2-section-title">Evren / Anakütle (Population — N)</h2>
+                    <p class="s2-section-sub">Araştırma sonuçlarını genellemek istediğimiz teorik ve eksiksiz bütün.</p>
+                </div>
             </div>
-            <h3 style="font-size: 1.4rem; font-weight: 700; color: var(--text-main); margin-bottom: 8px;">
-                Bu Aşamanın İçeriği Yapılandırılıyor
-            </h3>
-            <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 600px; margin: 0 auto 24px auto;">
-                Metodoloji detayları, formüller ve uygulama örnekleri eklendiğinde bu alanda görüntülenecektir.
+
+            <p>
+                <strong>Evren (Anakütle)</strong>, araştırma sorumuzun kapsadığı ve kuracağımız modelin sonuçlarını
+                genellemek istediğimiz ortak özelliklere sahip tüm birimlerin (insanlar, haneler, şirketler, mülkler,
+                finansal işlemler) oluşturduğu eksiksiz gruptur. İstatistikte büyüklüğü büyük <strong>N</strong> harfiyle gösterilir.
             </p>
+
+            <div class="s2-callout acc-purple">
+                <i data-lucide="globe" class="s2-callout-icon"></i>
+                <div>
+                    <strong>Örneğimizde Evren (N)</strong>
+                    <p class="s2-quote">"Denizli'deki tüm aktif ticari gayrimenkuller."</p>
+                    <p>
+                        İster dev bir cadde mağazası olsun, ister ara sokakta camına elle yazılmış "Satılık" kâğıdı asılmış
+                        küçük bir dükkân, isterse hiç kâğıt bile asılmadan komşu esnafa fısıltıyla satılan bir işyeri olsun;
+                        ticari nitelikte ve aktif piyasadaki her mülk bu evrenin bir üyesidir.
+                    </p>
+                </div>
+            </div>
+
+            <h3 class="s2-subtitle">Evren Tanımlanırken Çizilmesi Gereken 3 Sınır</h3>
+            <div class="s2-grid-3">
+                <div class="s2-card acc-purple">
+                    <div class="s2-card-icon"><i data-lucide="box"></i></div>
+                    <span class="s2-card-tag">Birim Tanımı</span>
+                    <h3>"Kimi / Neyi sayıyoruz?"</h3>
+                    <p>Analiz birimimiz ne? Konutlar ve arsalar hariç; yalnızca <strong>ticari nitelikli bağımsız bölümler</strong> (dükkân, mağaza, ofis, depo).</p>
+                </div>
+                <div class="s2-card acc-blue">
+                    <div class="s2-card-icon"><i data-lucide="compass"></i></div>
+                    <span class="s2-card-tag">Coğrafi Sınır</span>
+                    <h3>"Nerede arıyoruz?"</h3>
+                    <p>Denizli il sınırları mı, yoksa yalnızca merkez ilçeler (Merkezefendi ve Pamukkale) mi? Sınır baştan net çizilmezse genelleme çöker.</p>
+                </div>
+                <div class="s2-card acc-green">
+                    <div class="s2-card-icon"><i data-lucide="activity"></i></div>
+                    <span class="s2-card-tag">Durum Kriteri</span>
+                    <h3>"Hangi koşulda?"</h3>
+                    <p>Yalnızca <strong>aktif</strong> ticari mülkler. Yıkım kararı olan metruk binalar veya kamuya tahsisli devredilemez alanlar kapsam dışıdır.</p>
+                </div>
+            </div>
+
+            <h3 class="s2-subtitle">Neden Evrenin Tamamını (Tam Sayım / Census) İncelemiyoruz?</h3>
+            <p>
+                "Madem evren Denizli'deki tüm ticari mülkler, hepsini tek tek gezip sayalım!" diyebilirsin.
+                Tüm evreni eksiksiz ölçmeye <strong>Tam Sayım (Census)</strong> denir. Ancak gerçek dünyada üç duvarla karşılaşırız:
+            </p>
+            <div class="s2-grid-3">
+                <div class="s2-mini-box">
+                    <b>1. Maliyet Duvarı</b>
+                    <span>On binlerce dükkânı sahada tek tek tespit edip ekspertiz yapmak milyonlarca liralık bütçe gerektirir.</span>
+                </div>
+                <div class="s2-mini-box">
+                    <b>2. Zaman Duvarı</b>
+                    <span>Sen sonuncu mahalledeki dükkânı kaydedene kadar ilk mahalledeki fiyatlar enflasyon ve faizle çoktan değişmiş olur.</span>
+                </div>
+                <div class="s2-mini-box">
+                    <b>3. Erişim Duvarı</b>
+                    <span>Resmî kayıtlarda görünmeyen veya mülk sahibinin bilgi paylaşmadığı birimler her zaman vardır.</span>
+                </div>
+            </div>
         </section>
+
+        <!-- BLOK 2: ÖRNEKLEM ÇERÇEVESİ -->
+        <section class="s2-section acc-blue" id="blok-2">
+            <div class="s2-section-head">
+                <div class="s2-head-num">2</div>
+                <div>
+                    <h2 class="s2-section-title">Örneklem Çerçevesi (Sampling Frame)</h2>
+                    <p class="s2-section-sub">Teorinin pratiğe çarptığı nokta: Elimizdeki somut ve ulaşılabilir liste.</p>
+                </div>
+            </div>
+
+            <p>
+                Evren zihnimizdeki kusursuz hedeftir; fakat seçim yapabilmek için önümüzde satır satır bakabileceğimiz
+                <strong>somut, ulaşılabilir ve listelenebilir bir kaynak</strong> gerekir. İşte bu fiziksel veya dijital
+                listeye <strong>Örneklem Çerçevesi (Sampling Frame)</strong> denir.
+            </p>
+
+            <div class="s2-callout acc-blue">
+                <i data-lucide="database" class="s2-callout-icon"></i>
+                <div>
+                    <strong>Örneğimizde Örneklem Çerçevesi ve Kapsama Hatası</strong>
+                    <p>
+                        <strong>Evrenimiz:</strong> Denizli'deki tüm aktif ticari gayrimenkuller.<br>
+                        <strong>Örneklem Çerçevemiz:</strong> Yerel gayrimenkul danışmanlıklarının kayıtlı portföyleri
+                        veya dijital ilan platformlarındaki satılık işyeri kayıtları.
+                    </p>
+                    <p>
+                        Peki ya Kaleiçi'nde veya sanayi sitesinde bir dükkân satılıksa ama sahibi komisyon ödememek ya da
+                        ticari itibarını korumak için ilana çıkmayıp <strong>el altından</strong> pazarlıyorsa? O dükkân
+                        <strong>evrende vardır</strong>, ancak dijital <strong>örneklem çerçevemizde yoktur</strong>!
+                        Çerçeve evreni tam kapsayamadığı anda <strong>Kapsama Hatası (Undercoverage)</strong> doğar.
+                    </p>
+                </div>
+            </div>
+
+            <h3 class="s2-subtitle">Örneklem Çerçevesinde Karşılaşılan 3 Büyük Kusur</h3>
+            <div class="s2-grid-3">
+                <div class="s2-defect-card is-under">
+                    <div class="s2-defect-top">
+                        <i data-lucide="user-minus"></i>
+                        <span>Eksik Kapsama (Undercoverage)</span>
+                    </div>
+                    <p><strong>Evrende var, listede yok.</strong></p>
+                    <p>
+                        İlana çıkmadan eş-dost ağıyla devredilen sanayi dükkânları, yalnızca cama pankart asan geleneksel esnaf
+                        mülkleri. Bu kesim sistematik olarak daha uygun fiyatlıysa, modelin fiyat algısı yukarı kayar.
+                    </p>
+                </div>
+
+                <div class="s2-defect-card is-over">
+                    <div class="s2-defect-top">
+                        <i data-lucide="user-plus"></i>
+                        <span>Aşırı Kapsama (Overcoverage)</span>
+                    </div>
+                    <p><strong>Listede var, evrende yok.</strong></p>
+                    <p>
+                        Aylar önce satıldığı hâlde platformdan silinmemiş "hayalet" ilanlar, müşteri çekmek için konulan
+                        sahte yem ilanlar veya aslında konut/arsa olduğu hâlde yanlışlıkla "ticari" kategorisine girilmiş kayıtlar.
+                    </p>
+                </div>
+
+                <div class="s2-defect-card is-dup">
+                    <div class="s2-defect-top">
+                        <i data-lucide="copy"></i>
+                        <span>Tekrarlı Kayıt (Duplication)</span>
+                    </div>
+                    <p><strong>Aynı birim listede birden fazla kez var.</strong></p>
+                    <p>
+                        Aynı köşe mağazayı 4 farklı emlak ofisinin farklı fotoğraflarla ve farklı fiyatlarla ilana koyması.
+                        Temizlenmezse o tek mülk örneklemde 4 mülk ağırlığı kazanır.
+                    </p>
+                </div>
+            </div>
+
+            <h3 class="s2-subtitle">Farklı Veri Kaynaklarının Çerçeve Kalitesi</h3>
+            <div class="s2-table-wrap">
+                <table class="s2-table">
+                    <thead>
+                        <tr>
+                            <th>Olası Örneklem Çerçevesi</th>
+                            <th>Güçlü Yönü</th>
+                            <th>Dışarıda Bıraktığı Kör Nokta (Risk)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>Dijital İlan Platformları</b></td>
+                            <td>Hızlı erişim, m², kat, konum gibi zengin özellik sütunları.</td>
+                            <td>El altından satışlar yok; ayrıca nihai satış fiyatı değil, şişirilmiş <em>istenen fiyat</em> (asking price) yazar.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Yerel Emlak Portföyleri</b></td>
+                            <td>Gerçekleşen pazarlık payları ve bölge dinamikleri daha net bilinir.</td>
+                            <td>Danışmanların çalıştığı orta-üst segment mahallelere yoğunlaşır; kenar bölgeler eksik kalır.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Tapu / Belediye İşyeri Kayıtları</b></td>
+                            <td>Evrene en yakın tam kapsama; tüm resmî devirler listededir.</td>
+                            <td>Erişimi kısıtlıdır; tapuda beyan edilen bedel gerçek piyasa değerinden düşük gösterilmiş olabilir.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- BLOK 3: ÖRNEKLEM VE SEÇİM YANLILIĞI -->
+        <section class="s2-section acc-green" id="blok-3">
+            <div class="s2-section-head">
+                <div class="s2-head-num">3</div>
+                <div>
+                    <h2 class="s2-section-title">Örneklem (Sample — n) ve Seçim Yanlılığı</h2>
+                    <p class="s2-section-sub">Anakütlenin küçük bir minyatürü: Sayıdan önce temsiliyet.</p>
+                </div>
+            </div>
+
+            <p>
+                <strong>Örneklem (n)</strong>, örneklem çerçevesi içinden üzerine model kurmak için fiilen seçtiğimiz
+                ve analizini yapacağımız alt kümedir. Temel ilkemiz nettir: <strong>Örneklem, anakütlenin küçük bir
+                versiyonu olmalı ve onu her yönüyle yansıtmalıdır.</strong>
+            </p>
+            <p>
+                Bunu bir tencere çorbaya benzetebiliriz. Çorbanın tuzunu anlamak için koca tencerenin (<strong>N</strong>)
+                tamamını içmene gerek yoktur; bir kaşık (<strong>n</strong>) yeterlidir. Ama tek bir şartla:
+                <strong>Kaşığı daldırmadan önce tencereyi iyice karıştırmış olmalısın!</strong> Sadece üstte biriken
+                yağlı kısımdan kaşık alırsan, kaç kaşık alırsan al çorbanın gerçek tadını öğrenemezsin.
+            </p>
+
+            <div class="s2-compare">
+                <div class="s2-compare-card is-bad">
+                    <div class="s2-compare-head"><i data-lucide="circle-x"></i> Yanlı Örneklem (Selection Bias)</div>
+                    <p class="s2-quote">"Verisi en temiz ve ulaşması en kolay diye sadece popüler caddelerdeki mülkleri aldık."</p>
+                    <ul>
+                        <li>Sadece Çamlık, Kınıklı ve ana bulvar üzerindeki lüks/hızlı satılan işyerleri seçildi.</li>
+                        <li>Sanayi dükkânları, arka sokak esnafı ve uzun süredir satılamayan mülkler dışarıda kaldı.</li>
+                        <li><strong>Sonuç:</strong> Veri temizlemen ne kadar kusursuz olursa olsun model gerçeği değil, yalnızca "vitrin piyasasını" öğrenir.</li>
+                    </ul>
+                </div>
+
+                <div class="s2-compare-card is-good">
+                    <div class="s2-compare-head"><i data-lucide="circle-check"></i> Temsili Örneklem (Population ≈ Sample)</div>
+                    <p class="s2-quote">"Denizli'deki her bölge, büyüklük ve ticari segment evrendeki ağırlığıyla örneklemde yer alıyor."</p>
+                    <ul>
+                        <li>Ana cadde mağazaları, mahalle arası dükkânlar, ofisler ve sanayi birimleri dengeli oranda seçildi.</li>
+                        <li>Dijital ilan verisi, saha/portföy bilgisiyle çapraz kontrol edilerek kör noktalar yamandı.</li>
+                        <li><strong>Sonuç:</strong> Tahmin edilen β katsayıları yansızdır (unbiased); model Denizli geneline güvenle genellenebilir.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="s2-callout acc-amber">
+                <i data-lucide="sparkles" class="s2-callout-icon"></i>
+                <div>
+                    <strong>Kritik Uyarı: Veri Temizleme, Seçim Yanlılığını İyileştiremez!</strong>
+                    <p>
+                        Analistlerin en büyük yanılgısı, eksik verileri doldurarak, aykırı değerleri (outlier) silerek veya
+                        çok karmaşık makine öğrenmesi algoritmaları kullanarak kötü bir örneklemi kurtarabileceğini sanmaktır.
+                        <strong>Hayır:</strong> Yanlı bir örneklemi temizlersen, elinde sadece <em>"tertemiz bir yanılgı"</em> kalır.
+                        Temsiliyet sorunu kod satırında değil, <strong>mimari aşamasında</strong> çözülür.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SAĞLAMA TESTİ VE ETKİLEŞİMLİ SİMÜLATÖR -->
+        <section class="s2-section acc-amber" id="saglama-testi">
+            <div class="s2-section-head">
+                <div class="s2-head-icon"><i data-lucide="shield-check"></i></div>
+                <div>
+                    <h2 class="s2-section-title">Aşamanın Sağlama Testi ve Yanlılık Simülatörü</h2>
+                    <p class="s2-section-sub">Bir sonraki adıma geçmeden önce kendine sorman gereken tek soru.</p>
+                </div>
+            </div>
+
+            <div class="s2-audit-banner">
+                <span class="s2-audit-badge">SAĞLAMA SORUSU</span>
+                <p>
+                    "Seçim yapacağım çerçeve (liste / veritabanı), analiz etmek istediğim kütlenin
+                    <strong>görünmez veya ulaşılamaz kısımlarını</strong> dışarıda bırakıyor mu?"
+                </p>
+            </div>
+
+            <h3 class="s2-subtitle">Mini Laboratuvar: Çerçeven Daraldıkça Modelin Nasıl Sapar?</h3>
+            <p>
+                Diyelim ki Denizli'deki tüm ticari gayrimenkullerin (<strong>Evren, N = 12.000 mülk</strong>) gerçek
+                ortalama m² değeri <strong>42.000 TL/m²</strong> olsun. Aşağıdaki butonlardan hangi mülk gruplarını
+                çerçeveye dahil edebildiğini açıp kapat; kapsam dışı bıraktığın her görünmez kesimin model tahminini
+                gerçekten nasıl kopardığını canlı izle:
+            </p>
+
+            <div class="s2-sim" id="s2-sim">
+                <div class="s2-sim-segments">
+                    <label class="s2-seg-toggle is-locked">
+                        <input type="checkbox" checked disabled data-seg="populer">
+                        <div class="s2-seg-body">
+                            <div class="s2-seg-top">
+                                <strong>Popüler Cadde &amp; Vitrin Mağazalar</strong>
+                                <span class="s2-seg-share">Evrenin %20'si</span>
+                            </div>
+                            <small>Ort. 72.000 TL/m² · Tamamı dijital ilanda (her zaman görünür)</small>
+                        </div>
+                    </label>
+
+                    <label class="s2-seg-toggle">
+                        <input type="checkbox" checked data-seg="ilce">
+                        <div class="s2-seg-body">
+                            <div class="s2-seg-top">
+                                <strong>Standart Mahalle &amp; İşhanı Ofis/Dükkânları</strong>
+                                <span class="s2-seg-share">Evrenin %45'i</span>
+                            </div>
+                            <small>Ort. 40.000 TL/m² · İlan platformları + yerel emlak portföyleri</small>
+                        </div>
+                    </label>
+
+                    <label class="s2-seg-toggle">
+                        <input type="checkbox" checked data-seg="sanayi">
+                        <div class="s2-seg-body">
+                            <div class="s2-seg-top">
+                                <strong>Sanayi Sitesi &amp; Üretim/Depo Birimleri</strong>
+                                <span class="s2-seg-share">Evrenin %20'si</span>
+                            </div>
+                            <small>Ort. 27.000 TL/m² · Çoğu yerel ağlarda, dijitalde kısmen görünür</small>
+                        </div>
+                    </label>
+
+                    <label class="s2-seg-toggle">
+                        <input type="checkbox" checked data-seg="elalti">
+                        <div class="s2-seg-body">
+                            <div class="s2-seg-top">
+                                <strong>El Altından / İlan Dışı Devredilen Esnaf Mülkleri</strong>
+                                <span class="s2-seg-share">Evrenin %15'i</span>
+                            </div>
+                            <small>Ort. 28.000 TL/m² · Dijital çerçevede görünmez (Undercoverage riski!)</small>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="s2-sim-presets">
+                    <span>Hızlı Senaryo Dene:</span>
+                    <button type="button" class="s2-preset-btn" data-preset="full">Tam Temsil (%100)</button>
+                    <button type="button" class="s2-preset-btn" data-preset="digital">Sadece Dijital İlanlar (Kapsama Hatası)</button>
+                    <button type="button" class="s2-preset-btn" data-preset="biased">Sadece Popüler Caddeler (Ağır Seçim Yanlılığı)</button>
+                </div>
+
+                <div class="s2-sim-metrics">
+                    <div class="s2-metric-box">
+                        <small>Gerçek Evren Ortalaması (μ)</small>
+                        <strong id="s2-true-mean">42.000 TL/m²</strong>
+                        <span>Sabit gerçek değer</span>
+                    </div>
+                    <div class="s2-metric-box">
+                        <small>Çerçevenin Kapsama Oranı</small>
+                        <strong id="s2-coverage-pct">%100</strong>
+                        <span id="s2-coverage-sub">12.000 / 12.000 mülk erişilebilir</span>
+                    </div>
+                    <div class="s2-metric-box is-highlight" id="s2-est-box">
+                        <small>Modelinin Tahmin Ettiği Ortalama (x̄)</small>
+                        <strong id="s2-est-mean">42.000 TL/m²</strong>
+                        <span id="s2-bias-label">Sapma: %0.0 (Yansız)</span>
+                    </div>
+                </div>
+
+                <div class="s2-sim-bars">
+                    <div class="s2-bar-row">
+                        <span>Gerçek Evren (μ)</span>
+                        <div class="s2-bar-track">
+                            <div class="s2-bar-fill is-true" style="width: 58.3%;"></div>
+                        </div>
+                        <b>42.000 ₺</b>
+                    </div>
+                    <div class="s2-bar-row">
+                        <span>Senin Örneklemin (x̄)</span>
+                        <div class="s2-bar-track">
+                            <div class="s2-bar-fill is-est" id="s2-est-bar" style="width: 58.3%;"></div>
+                        </div>
+                        <b id="s2-est-bar-val">42.000 ₺</b>
+                    </div>
+                </div>
+
+                <div class="s2-sim-verdict" id="s2-sim-verdict">
+                    <i data-lucide="check-circle-2"></i>
+                    <div>
+                        <strong id="s2-verdict-title">Mükemmel Temsiliyet (Population ≈ Sample)</strong>
+                        <p id="s2-verdict-text"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ÖZET VE GEÇİŞ -->
+        <section class="s2-section acc-purple" id="ozet">
+            <div class="s2-section-head">
+                <div class="s2-head-icon"><i data-lucide="flag"></i></div>
+                <div>
+                    <h2 class="s2-section-title">2. Aşamanın Sonunda Masadaki Taşlar</h2>
+                    <p class="s2-section-sub">Kimi inceleyeceğimizi ve kör noktalarımızı netleştirdik.</p>
+                </div>
+            </div>
+
+            <div class="s2-grid-3">
+                <div class="s2-summary-card acc-purple">
+                    <span class="s2-summary-key">1. Evren (N)</span>
+                    <strong>Denizli Aktif Ticari Mülkler</strong>
+                    <p>Söz söylemek ve modeli genellemek istediğimiz eksiksiz hedef kitle çizildi.</p>
+                </div>
+                <div class="s2-summary-card acc-blue">
+                    <span class="s2-summary-key">2. Örneklem Çerçevesi</span>
+                    <strong>İlanlar + Yerel Portföyler</strong>
+                    <p>Ulaşılabilir listemiz belirlendi; ilan dışı (el altı) satışların yarattığı <em>kapsama hatası</em> not edildi.</p>
+                </div>
+                <div class="s2-summary-card acc-green">
+                    <span class="s2-summary-key">3. Örneklem (n)</span>
+                    <strong>Temsili Alt Küme</strong>
+                    <p>Yalnızca popüler lokasyonlara sıkışmadan, anakütlenin minyatürü olacak seçim ilkesi korundu.</p>
+                </div>
+            </div>
+
+            <p class="s2-closing">
+                Ne aradığımızı (<strong>1. Aşama</strong>) ve cevabı kimden arayacağımızı (<strong>2. Aşama</strong>)
+                kesinleştirdik. Şimdi sıra üçüncü mimari kararda: Bu mülkleri <strong>tek bir zaman diliminde mi</strong>
+                fotoğraflayacağız, yoksa <strong>zaman içindeki değişimlerini mi</strong> izleyeceğiz?
+            </p>
+
+            <div class="s2-nav">
+                <a href="../1.Aşama_Hipotezin_Belirlenmesi/index.html" class="s2-nav-btn is-secondary">
+                    <i data-lucide="arrow-left"></i>
+                    <span><small>Önceki: 1. Aşama</small>Araştırma Sorusu ve Hipotez</span>
+                </a>
+                <a href="../3.Aşama_Zaman_ve_Mekan_Boyutu/index.html" class="s2-nav-btn is-primary">
+                    <span><small>Sıradaki: 3. Aşama</small>Zaman ve Mekân Boyutu</span>
+                    <i data-lucide="arrow-right"></i>
+                </a>
+            </div>
+        </section>
+
     </main>
 
     <!-- Footer injected via components.js -->
-    <script src="../../js/components.js"></script>
-    <script src="../../js/nav.js"></script>
-    <script src="../../js/modal.js"></script>
-    <script src="../../js/script.js"></script>
+
+    <!-- Ortak betikler (proje kökü: 3 klasör yukarıda) -->
+    <script src="../../../js/components.js"></script>
+    <script src="../../../js/nav.js"></script>
+    <script src="../../../js/modal.js"></script>
+    <script src="../../../js/script.js"></script>
+    <!-- Bu aşamaya özel betik -->
     <script src="script.js"></script>
     <script>
         lucide.createIcons();

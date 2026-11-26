@@ -6,7 +6,9 @@
     <title>1. Aşama: Araştırma Sorusu ve Hipotez | Veri Mimarisi | Analyst Roadmap</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="../../styles.css">
+    <!-- Ortak stiller (proje kökü: 3 klasör yukarıda) -->
+    <link rel="stylesheet" href="../../../styles.css">
+    <!-- Bu aşamaya özel stiller -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,52 +21,578 @@
         })();
     </script>
 
+    <!-- ARKA PLAN GRAFİK AĞI (HAREKETSİZ) -->
+    <div class="bg-analytics-mesh">
+        <div class="bg-chart-item bg-chart-1">
+            <svg viewBox="0 0 400 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="s1-bg-area-grad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="var(--neon-blue)" stop-opacity="0.4" />
+                        <stop offset="100%" stop-color="var(--neon-blue)" stop-opacity="0.0" />
+                    </linearGradient>
+                </defs>
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40 L 370,190 L 10,190 Z" fill="url(#s1-bg-area-grad)" />
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40" fill="none" stroke="var(--neon-blue)" stroke-width="4" stroke-linecap="round" />
+                <circle cx="130" cy="150" r="6" fill="var(--neon-green)" />
+                <circle cx="250" cy="90" r="6" fill="var(--neon-purple)" />
+                <circle cx="370" cy="40" r="8" fill="var(--neon-blue)" />
+            </svg>
+        </div>
+        <div class="bg-chart-item bg-chart-2">
+            <svg viewBox="0 0 200 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <g transform="translate(100,100)">
+                    <path d="M 0,-80 A 80,80 0 0,1 76,25 L 57,18 A 60,60 0 0,0 0,-60 Z" fill="var(--neon-blue)" />
+                    <path d="M 76,25 A 80,80 0 0,1 -64,48 L -48,36 A 60,60 0 0,0 57,18 Z" fill="var(--neon-green)" />
+                    <path d="M -64,48 A 80,80 0 0,1 0,-80 L 0,-60 A 60,60 0 0,0 -48,36 Z" fill="var(--neon-purple)" />
+                    <circle cx="0" cy="0" r="45" fill="none" stroke="var(--glass-border)" stroke-width="2" stroke-dasharray="5,5" />
+                </g>
+            </svg>
+        </div>
+        <div class="bg-chart-item bg-chart-3">
+            <svg viewBox="0 0 250 250" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <line x1="20" y1="50" x2="230" y2="50" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4" />
+                <line x1="20" y1="100" x2="230" y2="100" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4" />
+                <line x1="20" y1="150" x2="230" y2="150" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4" />
+                <line x1="20" y1="200" x2="230" y2="200" stroke="var(--glass-border)" stroke-width="2" />
+                <rect x="35" y="120" width="30" height="80" rx="6" fill="var(--neon-blue)" />
+                <rect x="85" y="70" width="30" height="130" rx="6" fill="var(--neon-green)" />
+                <rect x="135" y="150" width="30" height="50" rx="6" fill="var(--neon-purple)" />
+                <rect x="185" y="90" width="30" height="110" rx="6" fill="var(--neon-blue)" />
+            </svg>
+        </div>
+        <div class="bg-chart-item bg-chart-4">
+            <svg viewBox="0 0 280 220" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <line x1="50" y1="30" x2="50" y2="170" stroke="var(--neon-green)" stroke-width="3" />
+                <rect x="38" y="70" width="24" height="60" rx="4" fill="var(--neon-green)" />
+                <line x1="110" y1="50" x2="110" y2="190" stroke="var(--neon-blue)" stroke-width="3" />
+                <rect x="98" y="90" width="24" height="70" rx="4" fill="var(--neon-blue)" />
+                <line x1="170" y1="20" x2="170" y2="150" stroke="var(--neon-purple)" stroke-width="3" />
+                <rect x="158" y="50" width="24" height="50" rx="4" fill="var(--neon-purple)" />
+                <line x1="230" y1="60" x2="230" y2="200" stroke="var(--neon-green)" stroke-width="3" />
+                <rect x="218" y="100" width="24" height="55" rx="4" fill="var(--neon-green)" />
+            </svg>
+        </div>
+    </div>
+
     <!-- Header injected via components.js -->
 
-    <main class="main-container" style="max-width: 1200px; margin: 40px auto; padding: 0 24px 80px 24px;">
-        <!-- Breadcrumb & Geri Dön Butonu -->
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
-            <a href="../../Veri_Mimarisi/index.html#asama-ayrintilari" style="display: inline-flex; align-items: center; gap: 8px; color: var(--neon-blue); text-decoration: none; font-weight: 600; font-size: 0.95rem; padding: 8px 16px; border-radius: 12px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); transition: all 0.2s ease;">
-                <i data-lucide="arrow-left" style="width: 18px; height: 18px;"></i>
-                Aşama Ayrıntılarına Dön
-            </a>
-            <div style="color: var(--text-muted); font-size: 0.9rem;">
-                Veri Mimarisi / <span style="color: var(--text-main); font-weight: 600;">1. Aşama</span>
+    <!-- HERO BANNER -->
+    <div class="hero-banner-wrapper s1-hero">
+        <div class="hero-banner-bg"></div>
+        <div class="hero-banner-overlay"></div>
+        <section class="hero-section s1-hero-section">
+            <div class="hero-content s1-hero-content">
+                <div class="s1-hero-meta">
+                    <a href="../../index.html#asama-ayrintilari" class="s1-back-link">
+                        <i data-lucide="arrow-left"></i>
+                        Aşama Ayrıntılarına Dön
+                    </a>
+                    <span class="s1-stage-pill">1. Aşama · Veri Mimarisi</span>
+                </div>
+                <h1 class="hero-title custom-brand-title s1-hero-title">Araştırma Sorusu ve Hipotezin Belirlenmesi</h1>
+                <p class="hero-subtitle s1-hero-subtitle">
+                    Her veri toplama süreci, çözülmesi gereken bir problemle başlar. Yönü ve amacı net olmayan bir araştırma,
+                    anlamsız bir veri yığını üretmekten öteye gidemez. Bu aşamada pusulamızı ayarlıyoruz:
+                    <strong>neyi arıyoruz, neyle açıklayacağız ve neyi kanıtlamaya çalışıyoruz?</strong>
+                </p>
+                <div class="hero-actions s1-hero-actions">
+                    <button type="button" class="s1-hero-btn acc-blue" data-scroll-target="blok-1">
+                        <i data-lucide="compass"></i> 1. Araştırma Sorusu
+                    </button>
+                    <button type="button" class="s1-hero-btn acc-purple" data-scroll-target="blok-2">
+                        <i data-lucide="variable"></i> 2. Değişkenler (Y ve X)
+                    </button>
+                    <button type="button" class="s1-hero-btn acc-green" data-scroll-target="blok-3">
+                        <i data-lucide="scale"></i> 3. Hipotez (H0 ve H1)
+                    </button>
+                </div>
             </div>
-        </div>
+        </section>
+    </div>
 
-        <!-- Aşama Hero Kartı -->
-        <section class="glass" style="padding: 36px; border-radius: 20px; border-left: 6px solid var(--neon-blue) !important; margin-bottom: 32px;">
-            <span style="background: var(--neon-blue); color: #fff; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; display: inline-block; margin-bottom: 16px;">
-                1. Aşama
-            </span>
-            <h1 style="font-size: 2.2rem; font-weight: 800; color: var(--text-main); margin-bottom: 12px;">
-                Araştırma Sorusu ve Hipotezin Belirlenmesi
-            </h1>
-            <p style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.7; max-width: 900px; margin: 0;">
-                Çözülecek analitik problemi netleştirmek, hedef çıktıyı (Y) ve açıklayıcı değişkenleri (X₁, X₂, ...) formüle ederek test edilebilir hipotezler (H₀ / H₁) kurmak.
+    <main class="s1-main">
+
+        <!-- GİRİŞ: NEDEN BU AŞAMA? -->
+        <section class="s1-section acc-blue" id="giris">
+            <div class="s1-section-head">
+                <div class="s1-head-icon"><i data-lucide="lightbulb"></i></div>
+                <div>
+                    <h2 class="s1-section-title">Neden Önce Soru, Sonra Veri?</h2>
+                    <p class="s1-section-sub">Pusulasız bir gemi ne kadar hızlı giderse gitsin, limana varamaz.</p>
+                </div>
+            </div>
+
+            <p>
+                Yeni başlayan analistlerin en sık düştüğü tuzak şudur: <strong>"Önce elimizdeki bütün veriyi toplayalım,
+                sonra içinden bir şey çıkar."</strong> Ne yazık ki çıkmaz. Hedefi belli olmayan veri toplama;
+                gereksiz sütunlarla dolu tablolar, eksik kalan kritik bilgiler, boşa harcanan bütçe ve
+                hiçbir karara dönüşmeyen raporlar üretir.
             </p>
+            <p>
+                Bunu bir dedektife benzetebiliriz. İyi bir dedektif olay yerindeki her toz zerresini torbalamaz.
+                Önce <strong>"Kim, neden yaptı?"</strong> sorusunu sorar, ardından yalnızca bu soruya cevap verecek
+                ipuçlarını toplar. Bizim için de soru, hangi verinin değerli, hangisinin gürültü olduğunu belirleyen filtredir.
+            </p>
+
+            <div class="s1-roadmap">
+                <div class="s1-roadmap-step acc-blue">
+                    <span class="s1-step-num">1</span>
+                    <div>
+                        <strong>Araştırma Sorusu</strong>
+                        <span>Ne arıyoruz?</span>
+                    </div>
+                </div>
+                <i data-lucide="arrow-right" class="s1-roadmap-arrow"></i>
+                <div class="s1-roadmap-step acc-purple">
+                    <span class="s1-step-num">2</span>
+                    <div>
+                        <strong>Değişkenler</strong>
+                        <span>Neyi (Y), neyle (X) açıklayacağız?</span>
+                    </div>
+                </div>
+                <i data-lucide="arrow-right" class="s1-roadmap-arrow"></i>
+                <div class="s1-roadmap-step acc-green">
+                    <span class="s1-step-num">3</span>
+                    <div>
+                        <strong>Hipotez</strong>
+                        <span>Neyi kanıtlamaya çalışıyoruz?</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="s1-callout acc-amber">
+                <i data-lucide="building-2" class="s1-callout-icon"></i>
+                <div>
+                    <strong>Sayfa boyunca kullanacağımız örnek</strong>
+                    <p>
+                        Bir gayrimenkul yatırım şirketinde analist olduğunu düşün. Yönetim, belirli bir bölgede
+                        ticari mülk (dükkân, ofis) almayı planlıyor ve bir mülkün fiyatının hangi koşullarda
+                        "pahalı" ya da "fırsat" olduğunu anlamak istiyor. Tüm bloklarda bu senaryo üzerinden ilerleyeceğiz.
+                    </p>
+                </div>
+            </div>
         </section>
 
-        <!-- İçerik Alanı -->
-        <section class="glass" style="padding: 40px; border-radius: 20px; text-align: center;">
-            <div style="width: 64px; height: 64px; border-radius: 50%; background: color-mix(in srgb, var(--neon-blue) 15%, transparent); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 16px;">
-                <i data-lucide="help-circle" style="width: 32px; height: 32px; color: var(--neon-blue);"></i>
+        <!-- BLOK 1: ARAŞTIRMA SORUSU -->
+        <section class="s1-section acc-blue" id="blok-1">
+            <div class="s1-section-head">
+                <div class="s1-head-num">1</div>
+                <div>
+                    <h2 class="s1-section-title">Araştırma Sorusunun (Problemin) Tanımlanması</h2>
+                    <p class="s1-section-sub">Ne arıyoruz? Betimleme mi, tahmin mi, yoksa nedensellik mi?</p>
+                </div>
             </div>
-            <h3 style="font-size: 1.4rem; font-weight: 700; color: var(--text-main); margin-bottom: 8px;">
-                Bu Aşamanın İçeriği Yapılandırılıyor
-            </h3>
-            <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 600px; margin: 0 auto 24px auto;">
-                Metodoloji detayları, formüller ve uygulama örnekleri eklendiğinde bu alanda görüntülenecektir.
+
+            <p>
+                Araştırma sorusu, tüm projenin omurgasıdır. Sorunun <strong>türü</strong>, hangi veriyi toplayacağını,
+                hangi yöntemi kullanacağını ve sonuçları nasıl yorumlayacağını doğrudan belirler.
+                Temelde üç farklı soru tipiyle karşılaşırsın:
             </p>
+
+            <div class="s1-grid-3">
+                <div class="s1-type-card acc-blue">
+                    <div class="s1-type-icon"><i data-lucide="eye"></i></div>
+                    <span class="s1-type-tag">Betimleyici (Descriptive)</span>
+                    <h3>"Ne oluyor?"</h3>
+                    <p>Mevcut durumu olduğu gibi resmeder. Ortalamalar, dağılımlar ve trendlerle ilgilenir.</p>
+                    <div class="s1-type-example">
+                        <span>Örnek:</span> "Bölgedeki ticari mülklerin ortalama m² fiyatı son 3 yılda nasıl değişti?"
+                    </div>
+                </div>
+                <div class="s1-type-card acc-purple">
+                    <div class="s1-type-icon"><i data-lucide="trending-up"></i></div>
+                    <span class="s1-type-tag">Tahmin Edici (Predictive)</span>
+                    <h3>"Ne olacak?"</h3>
+                    <p>Geçmiş örüntülerden yola çıkarak geleceği ya da bilinmeyen bir değeri öngörür.</p>
+                    <div class="s1-type-example">
+                        <span>Örnek:</span> "Özellikleri bilinen bir dükkân, piyasada kaç liraya satılır?"
+                    </div>
+                </div>
+                <div class="s1-type-card acc-green">
+                    <div class="s1-type-icon"><i data-lucide="link"></i></div>
+                    <span class="s1-type-tag">Nedensel (Causal)</span>
+                    <h3>"Neden oluyor?"</h3>
+                    <p>Bir faktörün diğerini gerçekten <em>değiştirip değiştirmediğini</em> kanıtlamaya çalışır. En zorlu olanıdır.</p>
+                    <div class="s1-type-example">
+                        <span>Örnek:</span> "Faiz artışı fiyatları gerçekten düşürüyor mu, yoksa sadece aynı döneme mi denk geliyor?"
+                    </div>
+                </div>
+            </div>
+
+            <div class="s1-callout acc-blue">
+                <i data-lucide="target" class="s1-callout-icon"></i>
+                <div>
+                    <strong>Bu sayfadaki araştırma sorumuz</strong>
+                    <p class="s1-quote">
+                        "Bir bölgedeki ticari gayrimenkullerin metrekare satış fiyatlarını belirleyen ana faktörler nelerdir?"
+                    </p>
+                    <p>
+                        Bu soru hem <strong>açıklayıcı</strong> (hangi faktörler etkili?) hem de ileride
+                        <strong>tahmine</strong> dönüştürülebilir (bu faktörlerle yeni bir mülkün fiyatını öngörebilir miyiz?).
+                    </p>
+                </div>
+            </div>
+
+            <h3 class="s1-subtitle">İyi Bir Araştırma Sorusu Nasıl Olur?</h3>
+            <div class="s1-compare">
+                <div class="s1-compare-card is-bad">
+                    <div class="s1-compare-head"><i data-lucide="circle-x"></i> Zayıf Soru</div>
+                    <p class="s1-quote">"Gayrimenkul fiyatlarını araştıralım."</p>
+                    <ul>
+                        <li>Hangi bölge? Hangi mülk tipi? Konut mu, ticari mi?</li>
+                        <li>Hangi zaman aralığı?</li>
+                        <li>Fiyatın neyini? Toplam fiyat mı, m² fiyatı mı?</li>
+                        <li>Sonunda hangi karar verilecek? Belirsiz.</li>
+                    </ul>
+                </div>
+                <div class="s1-compare-card is-good">
+                    <div class="s1-compare-head"><i data-lucide="circle-check"></i> Güçlü Soru</div>
+                    <p class="s1-quote">"2022–2025 yılları arasında X ilçesinde satılan ticari mülklerin m² fiyatlarını hangi faktörler belirliyor?"</p>
+                    <ul>
+                        <li><strong>Spesifik:</strong> Mülk tipi ve ölçüt (m² fiyatı) net.</li>
+                        <li><strong>Sınırlı:</strong> Zaman (2022–2025) ve mekân (X ilçesi) belli.</li>
+                        <li><strong>Ölçülebilir:</strong> Fiyat sayısal ve kayıt altında.</li>
+                        <li><strong>Yanıtlanabilir:</strong> Tapu ve ilan verileriyle cevaplanabilir.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOK 2: DEĞİŞKENLER -->
+        <section class="s1-section acc-purple" id="blok-2">
+            <div class="s1-section-head">
+                <div class="s1-head-num">2</div>
+                <div>
+                    <h2 class="s1-section-title">Değişkenlerin Kavramsal Seçimi (Y ve X'ler)</h2>
+                    <p class="s1-section-sub">Ekonometrik modelin yapı taşları burada seçilir.</p>
+                </div>
+            </div>
+
+            <p>
+                Soruyu netleştirdikten sonra onu <strong>ölçülebilir parçalara</strong> ayırırız. Her modelde iki tip
+                oyuncu vardır: açıklanmak istenen <strong>sonuç</strong> ve o sonucu etkilediği düşünülen <strong>sebepler</strong>.
+            </p>
+
+            <div class="s1-grid-2">
+                <div class="s1-var-card acc-purple">
+                    <div class="s1-var-letter">Y</div>
+                    <h3>Bağımlı Değişken <span>(Hedef Değişken)</span></h3>
+                    <p>
+                        Açıklamaya, tahmin etmeye veya optimize etmeye çalıştığımız ana sonuçtur.
+                        Sistemimizin odak noktasıdır. Değeri, diğer değişkenlere <em>bağlıdır</em>, adı da buradan gelir.
+                    </p>
+                    <div class="s1-type-example"><span>Örneğimizde:</span> Y = Gayrimenkulün m² Satış Fiyatı (TL/m²)</div>
+                </div>
+                <div class="s1-var-card acc-blue">
+                    <div class="s1-var-letter">X</div>
+                    <h3>Bağımsız Değişkenler <span>(Açıklayıcı Değişkenler)</span></h3>
+                    <p>
+                        Y üzerinde etkisi olduğunu düşündüğümüz, onu değiştiren faktörlerdir.
+                        Bir mülkün değerini ne açıklar? Bu sorunun her cevabı bir X adayıdır.
+                    </p>
+                    <div class="s1-type-example"><span>Örneğimizde:</span> Uzaklık, kat, ticari hacim, faiz oranı…</div>
+                </div>
+            </div>
+
+            <!-- X → Y DİYAGRAMI -->
+            <h3 class="s1-subtitle">Model Haritası: Hangi X, Y'yi Nasıl Etkiler?</h3>
+            <div class="s1-diagram">
+                <div class="s1-diagram-xs">
+                    <div class="s1-x-item"><i data-lucide="map-pin"></i><span><b>X<sub>1</sub></b> Merkeze Uzaklık</span><em class="neg">−</em></div>
+                    <div class="s1-x-item"><i data-lucide="layers"></i><span><b>X<sub>2</sub></b> Bulunduğu Kat</span><em class="neg">−</em></div>
+                    <div class="s1-x-item"><i data-lucide="store"></i><span><b>X<sub>3</sub></b> Bölgedeki Ticari Hacim</span><em class="pos">+</em></div>
+                    <div class="s1-x-item"><i data-lucide="percent"></i><span><b>X<sub>4</sub></b> Kredi Faiz Oranı</span><em class="neg">−</em></div>
+                </div>
+                <div class="s1-diagram-arrow"><i data-lucide="arrow-right"></i></div>
+                <div class="s1-diagram-y">
+                    <span class="s1-var-letter">Y</span>
+                    <strong>m² Satış Fiyatı</strong>
+                    <small>Hedef değişken</small>
+                </div>
+            </div>
+            <p class="s1-note">
+                <em class="pos">+</em> işareti X arttıkça Y'nin artmasını, <em class="neg">−</em> işareti X arttıkça Y'nin düşmesini beklediğimizi gösterir.
+                Bu beklentiler, 3. bloktaki hipotezlerin hammaddesidir.
+            </p>
+
+            <div class="s1-table-wrap">
+                <table class="s1-table">
+                    <thead>
+                        <tr>
+                            <th>Değişken</th>
+                            <th>Ölçü Birimi</th>
+                            <th>Beklenen Etki</th>
+                            <th>Mantığı (Neden?)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>X<sub>1</sub></b> Merkeze Uzaklık</td>
+                            <td>km</td>
+                            <td><em class="neg">Negatif (−)</em></td>
+                            <td>Merkezden uzaklaştıkça müşteri trafiği ve erişilebilirlik azalır.</td>
+                        </tr>
+                        <tr>
+                            <td><b>X<sub>2</sub></b> Bulunduğu Kat</td>
+                            <td>Kat no (0 = zemin)</td>
+                            <td><em class="neg">Negatif (−)</em></td>
+                            <td>Konutun tersine, ticari mülkte <strong>zemin kat</strong> vitrin ve yaya erişimi sağladığı için en değerli kattır.</td>
+                        </tr>
+                        <tr>
+                            <td><b>X<sub>3</sub></b> Ticari Hacim</td>
+                            <td>Bölgedeki işyeri sayısı</td>
+                            <td><em class="pos">Pozitif (+)</em></td>
+                            <td>Canlı bir ticaret bölgesi daha fazla talep, dolayısıyla daha yüksek fiyat demektir.</td>
+                        </tr>
+                        <tr>
+                            <td><b>X<sub>4</sub></b> Kredi Faiz Oranı</td>
+                            <td>Yıllık %</td>
+                            <td><em class="neg">Negatif (−)</em></td>
+                            <td>Faiz yükseldikçe finansman pahalanır, alıcı sayısı azalır, fiyatlar baskılanır.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="s1-subtitle">Kavramdan Matematiğe: Model Denklemi</h3>
+            <p>Seçtiğimiz değişkenler bir araya geldiğinde, ekonometrik modelimizin ilk taslağı ortaya çıkar:</p>
+            <div class="s1-equation">
+                Fiyat = β<sub>0</sub> + β<sub>1</sub>·Uzaklık + β<sub>2</sub>·Kat + β<sub>3</sub>·TicariHacim + β<sub>4</sub>·Faiz + ε
+            </div>
+            <div class="s1-grid-3 s1-legend">
+                <div><b>β<sub>0</sub> (Sabit Terim)</b><span>Tüm X'ler sıfır olduğunda beklenen başlangıç fiyatı.</span></div>
+                <div><b>β<sub>1</sub> … β<sub>4</sub> (Katsayılar)</b><span>Her X'in Y üzerindeki etkisinin büyüklüğü ve yönü. Örneğin β<sub>4</sub>, faizdeki 1 puanlık artışın m² fiyatını kaç TL değiştirdiğini söyler.</span></div>
+                <div><b>ε (Hata Terimi)</b><span>Modele almadığımız her şey: manzara, binanın yaşı, şans, pazarlık becerisi…</span></div>
+            </div>
+
+            <div class="s1-callout acc-amber">
+                <i data-lucide="triangle-alert" class="s1-callout-icon"></i>
+                <div>
+                    <strong>Altın kural: Değişkenleri teori seçer, veri değil</strong>
+                    <p>
+                        X'leri "elimizde hangi sütun varsa" mantığıyla değil, <strong>ekonomik mantık ve literatür</strong>
+                        ışığında seçeriz. Önemli bir değişkeni unutmak (örneğin mülkün <strong>metrekaresi</strong> veya
+                        <strong>binanın yaşı</strong>) diğer katsayıları yanıltır. Buna <em>ihmal edilmiş değişken yanlılığı</em>
+                        (omitted variable bias) denir. Alakasız onlarca değişken eklemek de modeli bulanıklaştırır.
+                        Hedef, az ama öz değişkendir.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOK 3: HİPOTEZ -->
+        <section class="s1-section acc-green" id="blok-3">
+            <div class="s1-section-head">
+                <div class="s1-head-num">3</div>
+                <div>
+                    <h2 class="s1-section-title">Hipotez Kurulumu (H0 ve H1)</h2>
+                    <p class="s1-section-sub">İstatistiksel olarak test edeceğimiz iddiaların matematiksel dille yazılması.</p>
+                </div>
+            </div>
+
+            <p>
+                Hipotez, bir tahmin değil, <strong>test edilebilir bir iddiadır</strong>. Bir hipotez her zaman
+                ikili bir yapıda kurulur: biri mevcut durumu savunur, diğeri ona meydan okur.
+            </p>
+
+            <div class="s1-grid-2">
+                <div class="s1-hyp-card is-null">
+                    <div class="s1-hyp-badge">H<sub>0</sub></div>
+                    <h3>Sıfır Hipotezi <span>(Null Hypothesis)</span></h3>
+                    <p>
+                        Statükoyu temsil eder. Her zaman <strong>"etki yoktur"</strong>, <strong>"fark yoktur"</strong>
+                        veya <strong>"ilişki yoktur"</strong> der. Sıkıcı olandır.
+                    </p>
+                    <div class="s1-hyp-statement">
+                        Kredi faiz oranlarındaki değişimin gayrimenkul fiyatları üzerinde istatistiksel olarak anlamlı bir etkisi yoktur.
+                    </div>
+                    <div class="s1-hyp-math">H<sub>0</sub>: β<sub>4</sub> = 0</div>
+                </div>
+                <div class="s1-hyp-card is-alt">
+                    <div class="s1-hyp-badge">H<sub>1</sub></div>
+                    <h3>Alternatif Hipotez <span>(Alternative Hypothesis)</span></h3>
+                    <p>
+                        Araştırmacının, yani <strong>senin</strong> kanıtlamaya çalıştığın asıl iddiadır.
+                        Heyecan verici olan budur.
+                    </p>
+                    <div class="s1-hyp-statement">
+                        Kredi faiz oranları arttıkça gayrimenkul fiyatları düşer; aralarında ters yönlü ve anlamlı bir ilişki vardır.
+                    </div>
+                    <div class="s1-hyp-math">H<sub>1</sub>: β<sub>4</sub> &lt; 0</div>
+                </div>
+            </div>
+
+            <div class="s1-callout acc-blue">
+                <i data-lucide="gavel" class="s1-callout-icon"></i>
+                <div>
+                    <strong>Mahkeme benzetmesi: Masumiyet karinesi</strong>
+                    <p>
+                        Hipotez testi bir mahkeme gibi işler. Sanık (H<sub>0</sub>), suçu kanıtlanana kadar <strong>masum</strong>
+                        kabul edilir. Savcı (sen), delilleri (veriyi) sunar. Deliller yeterince güçlüyse hâkim
+                        "suçlu" der ve <strong>H<sub>0</sub> reddedilir</strong>. Deliller zayıfsa sanık serbest kalır,
+                        ama bu onun <em>kesinlikle masum</em> olduğu anlamına gelmez. Sadece suçu kanıtlanamamıştır.
+                        Bu yüzden istatistikte "H<sub>0</sub>'ı kabul ettik" değil, <strong>"H<sub>0</sub>'ı reddedemedik"</strong> deriz.
+                    </p>
+                </div>
+            </div>
+
+            <h3 class="s1-subtitle">Tek Yönlü mü, Çift Yönlü mü?</h3>
+            <div class="s1-grid-2">
+                <div class="s1-mini-card">
+                    <b>Çift Yönlü (İki Kuyruklu)</b>
+                    <div class="s1-hyp-math">H<sub>1</sub>: β ≠ 0</div>
+                    <span>Sadece "bir etki var" deriz, yönünü iddia etmeyiz. Etkinin yönünden emin değilsek kullanılır.</span>
+                </div>
+                <div class="s1-mini-card">
+                    <b>Tek Yönlü (Tek Kuyruklu)</b>
+                    <div class="s1-hyp-math">H<sub>1</sub>: β &lt; 0 &nbsp;veya&nbsp; β &gt; 0</div>
+                    <span>Etkinin yönünü de iddia ederiz. Faiz örneğimizde teori net olduğu için "ters yönlü" (β<sub>4</sub> &lt; 0) diyoruz.</span>
+                </div>
+            </div>
+
+            <h3 class="s1-subtitle">Modelimizdeki Tüm Hipotezler</h3>
+            <div class="s1-table-wrap">
+                <table class="s1-table">
+                    <thead>
+                        <tr>
+                            <th>Değişken</th>
+                            <th>H<sub>0</sub> (Etki yok)</th>
+                            <th>H<sub>1</sub> (Senin iddian)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>X<sub>1</sub></b> Uzaklık</td>
+                            <td>β<sub>1</sub> = 0</td>
+                            <td>β<sub>1</sub> &lt; 0 · Merkezden uzaklaştıkça fiyat düşer.</td>
+                        </tr>
+                        <tr>
+                            <td><b>X<sub>2</sub></b> Kat</td>
+                            <td>β<sub>2</sub> = 0</td>
+                            <td>β<sub>2</sub> &lt; 0 · Kat yükseldikçe ticari değer düşer.</td>
+                        </tr>
+                        <tr>
+                            <td><b>X<sub>3</sub></b> Ticari Hacim</td>
+                            <td>β<sub>3</sub> = 0</td>
+                            <td>β<sub>3</sub> &gt; 0 · Ticari hareketlilik arttıkça fiyat artar.</td>
+                        </tr>
+                        <tr>
+                            <td><b>X<sub>4</sub></b> Faiz</td>
+                            <td>β<sub>4</sub> = 0</td>
+                            <td>β<sub>4</sub> &lt; 0 · Faiz arttıkça fiyat düşer.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- ETKİLEŞİMLİ KARAR SİMÜLATÖRÜ -->
+            <h3 class="s1-subtitle">Mini Laboratuvar: Hâkim Sensin</h3>
+            <p>
+                Veriyi topladık, modeli çalıştırdık ve faiz katsayısı için bir <strong>p-değeri</strong> elde ettik.
+                p-değeri şunu söyler: <em>"Eğer H<sub>0</sub> doğru olsaydı, yani faizin gerçekten hiçbir etkisi olmasaydı,
+                bu kadar güçlü bir sonucu sırf şans eseri görme olasılığı nedir?"</em> Bu olasılık, önceden belirlediğimiz
+                eşikten (<strong>α, anlamlılık düzeyi</strong>) küçükse H<sub>0</sub>'ı reddederiz. Kaydırıcıyla oyna ve kararı izle:
+            </p>
+
+            <div class="s1-sim" id="s1-sim">
+                <div class="s1-sim-controls">
+                    <div class="s1-sim-row">
+                        <label for="s1-p-range">p-değeri: <b id="s1-p-value">0.032</b></label>
+                        <input type="range" id="s1-p-range" min="1" max="200" value="32" step="1">
+                    </div>
+                    <div class="s1-sim-row">
+                        <span class="s1-sim-label">Anlamlılık düzeyi (α):</span>
+                        <div class="s1-alpha-group">
+                            <button type="button" class="s1-alpha-btn" data-alpha="0.01">0.01</button>
+                            <button type="button" class="s1-alpha-btn is-active" data-alpha="0.05">0.05</button>
+                            <button type="button" class="s1-alpha-btn" data-alpha="0.10">0.10</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="s1-sim-track">
+                    <div class="s1-sim-reject" id="s1-sim-reject"><span>Red bölgesi</span></div>
+                    <div class="s1-sim-marker" id="s1-sim-marker"><span>p</span></div>
+                </div>
+                <div class="s1-sim-scale"><span>0</span><span>0.05</span><span>0.10</span><span>0.15</span><span>0.20</span></div>
+
+                <div class="s1-sim-result" id="s1-sim-result">
+                    <i data-lucide="gavel"></i>
+                    <div>
+                        <strong id="s1-sim-title">Karar</strong>
+                        <p id="s1-sim-text"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="s1-callout acc-amber">
+                <i data-lucide="triangle-alert" class="s1-callout-icon"></i>
+                <div>
+                    <strong>Sık yapılan hatalar</strong>
+                    <ul class="s1-list">
+                        <li><strong>Hipotezi veriye baktıktan sonra kurmak:</strong> Önce veriyi karıştırıp anlamlı çıkan ilişkiye göre hipotez yazmak (HARKing), bilimsel olarak geçersizdir. Hipotez <em>veri toplanmadan önce</em> yazılır. Bu aşamanın en başta olmasının sebebi de budur.</li>
+                        <li><strong>"H<sub>0</sub>'ı kabul ettik" demek:</strong> Doğrusu "reddedemedik" demektir.</li>
+                        <li><strong>Korelasyonu nedensellik sanmak:</strong> Faiz ve fiyatın birlikte hareket etmesi, birinin diğerine yol açtığını tek başına kanıtlamaz. Arkada ikisini de etkileyen üçüncü bir faktör (örneğin genel ekonomik kriz) olabilir.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ÖZET -->
+        <section class="s1-section acc-blue" id="ozet">
+            <div class="s1-section-head">
+                <div class="s1-head-icon"><i data-lucide="flag"></i></div>
+                <div>
+                    <h2 class="s1-section-title">Masaya Koyduğumuz Taşlar</h2>
+                    <p class="s1-section-sub">Birinci adımın sonunda elimizde ne var?</p>
+                </div>
+            </div>
+
+            <div class="s1-grid-3">
+                <div class="s1-summary-card acc-purple">
+                    <span class="s1-summary-key">Neyi?</span>
+                    <strong>Y = m² Satış Fiyatı</strong>
+                    <p>Açıklamak ve tahmin etmek istediğimiz hedef belli.</p>
+                </div>
+                <div class="s1-summary-card acc-blue">
+                    <span class="s1-summary-key">Neyle?</span>
+                    <strong>X<sub>1</sub> … X<sub>4</sub></strong>
+                    <p>Uzaklık, kat, ticari hacim ve faiz: teoriye dayalı açıklayıcılar seçildi.</p>
+                </div>
+                <div class="s1-summary-card acc-green">
+                    <span class="s1-summary-key">Neyi kanıtlamaya?</span>
+                    <strong>H<sub>1</sub>: β<sub>4</sub> &lt; 0</strong>
+                    <p>Test edilebilir, yönü belli ve veri toplanmadan önce yazılmış iddialar hazır.</p>
+                </div>
+            </div>
+
+            <p class="s1-closing">
+                Artık rastgele veri toplamıyoruz; <strong>neye ihtiyacımız olduğunu biliyoruz</strong>. Ancak bir soru hâlâ
+                cevapsız: Bu veriyi <em>kimden</em> ya da <em>neyden</em> toplayacağız? Tüm ticari mülkleri mi inceleyeceğiz,
+                yoksa bir kısmını mı? İşte bu, bir sonraki aşamanın konusu.
+            </p>
+
+            <div class="s1-nav">
+                <a href="../../index.html#asama-ayrintilari" class="s1-nav-btn is-secondary">
+                    <i data-lucide="arrow-left"></i>
+                    <span><small>Geri dön</small>Aşama Ayrıntıları</span>
+                </a>
+                <a href="../2.Aşama_Evren_ve_Örneklem_Çerçevesi/index.html" class="s1-nav-btn is-primary">
+                    <span><small>Sıradaki: 2. Aşama</small>Evren ve Örneklem Çerçevesi</span>
+                    <i data-lucide="arrow-right"></i>
+                </a>
+            </div>
         </section>
     </main>
 
     <!-- Footer injected via components.js -->
-    <script src="../../js/components.js"></script>
-    <script src="../../js/nav.js"></script>
-    <script src="../../js/modal.js"></script>
-    <script src="../../js/script.js"></script>
+
+    <!-- Ortak betikler (proje kökü: 3 klasör yukarıda) -->
+    <script src="../../../js/components.js"></script>
+    <script src="../../../js/nav.js"></script>
+    <script src="../../../js/modal.js"></script>
+    <script src="../../../js/script.js"></script>
+    <!-- Bu aşamaya özel betik -->
     <script src="script.js"></script>
     <script>
         lucide.createIcons();
