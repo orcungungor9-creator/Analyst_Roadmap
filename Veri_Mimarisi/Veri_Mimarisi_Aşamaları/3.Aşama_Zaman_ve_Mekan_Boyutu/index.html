@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3. Aşama: Zaman ve Mekan Boyutu | Veri Mimarisi | Analyst Roadmap</title>
+    <title>3. Aşama: Zaman ve Mekân Boyutu | Veri Mimarisi | Analyst Roadmap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet"></noscript>
+    <!-- Ortak stiller (proje kökü: 3 klasör yukarıda) -->
     <link rel="stylesheet" href="../../../styles.css">
+    <!-- Bu aşamaya özel stiller -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,55 +23,525 @@
         })();
     </script>
 
+    <!-- ARKA PLAN GRAFİK AĞI (HAREKETSİZ) -->
+    <div class="bg-analytics-mesh">
+        <div class="bg-chart-item bg-chart-1">
+            <svg viewBox="0 0 400 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="s3-bg-area-grad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="var(--neon-blue)" stop-opacity="0.4" />
+                        <stop offset="100%" stop-color="var(--neon-blue)" stop-opacity="0.0" />
+                    </linearGradient>
+                </defs>
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40 L 370,190 L 10,190 Z" fill="url(#s3-bg-area-grad)" />
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40" fill="none" stroke="var(--neon-blue)" stroke-width="4" stroke-linecap="round" />
+                <circle cx="130" cy="150" r="6" fill="var(--neon-green)" />
+                <circle cx="250" cy="90" r="6" fill="var(--neon-purple)" />
+                <circle cx="370" cy="40" r="8" fill="var(--neon-blue)" />
+            </svg>
+        </div>
+        <div class="bg-chart-item bg-chart-2">
+            <svg viewBox="0 0 200 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <g transform="translate(100,100)">
+                    <path d="M 0,-80 A 80,80 0 0,1 76,25 L 57,18 A 60,60 0 0,0 0,-60 Z" fill="var(--neon-blue)" />
+                    <path d="M 76,25 A 80,80 0 0,1 -64,48 L -48,36 A 60,60 0 0,0 57,18 Z" fill="var(--neon-green)" />
+                    <path d="M -64,48 A 80,80 0 0,1 0,-80 L 0,-60 A 60,60 0 0,0 -48,36 Z" fill="var(--neon-purple)" />
+                    <circle cx="0" cy="0" r="45" fill="none" stroke="var(--glass-border)" stroke-width="2" stroke-dasharray="5,5" />
+                </g>
+            </svg>
+        </div>
+        <div class="bg-chart-item bg-chart-3">
+            <svg viewBox="0 0 250 250" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <line x1="20" y1="50" x2="230" y2="50" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4" />
+                <line x1="20" y1="100" x2="230" y2="100" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4" />
+                <line x1="20" y1="150" x2="230" y2="150" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4" />
+                <line x1="20" y1="200" x2="230" y2="200" stroke="var(--glass-border)" stroke-width="2" />
+                <rect x="35" y="120" width="30" height="80" rx="6" fill="var(--neon-blue)" />
+                <rect x="85" y="70" width="30" height="130" rx="6" fill="var(--neon-green)" />
+                <rect x="135" y="150" width="30" height="50" rx="6" fill="var(--neon-purple)" />
+                <rect x="185" y="90" width="30" height="110" rx="6" fill="var(--neon-blue)" />
+            </svg>
+        </div>
+        <div class="bg-chart-item bg-chart-4">
+            <svg viewBox="0 0 280 220" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <line x1="50" y1="30" x2="50" y2="170" stroke="var(--neon-green)" stroke-width="3" />
+                <rect x="38" y="70" width="24" height="60" rx="4" fill="var(--neon-green)" />
+                <line x1="110" y1="50" x2="110" y2="190" stroke="var(--neon-blue)" stroke-width="3" />
+                <rect x="98" y="90" width="24" height="70" rx="4" fill="var(--neon-blue)" />
+                <line x1="170" y1="20" x2="170" y2="150" stroke="var(--neon-purple)" stroke-width="3" />
+                <rect x="158" y="50" width="24" height="50" rx="4" fill="var(--neon-purple)" />
+                <line x1="230" y1="60" x2="230" y2="200" stroke="var(--neon-green)" stroke-width="3" />
+                <rect x="218" y="100" width="24" height="55" rx="4" fill="var(--neon-green)" />
+            </svg>
+        </div>
+    </div>
+
     <!-- Header injected via components.js -->
 
-    <main class="main-container" style="max-width: 1200px; margin: 40px auto; padding: 0 24px 80px 24px;">
-        <!-- Breadcrumb & Geri Dön Butonu -->
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
-            <a href="../../index.html#asama-ayrintilari" style="display: inline-flex; align-items: center; gap: 8px; color: var(--neon-green); text-decoration: none; font-weight: 600; font-size: 0.95rem; padding: 8px 16px; border-radius: 12px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); transition: all 0.2s ease;">
-                <i data-lucide="arrow-left" style="width: 18px; height: 18px;"></i>
-                Aşama Ayrıntılarına Dön
-            </a>
-            <div style="color: var(--text-muted); font-size: 0.9rem;">
-                Veri Mimarisi / <span style="color: var(--text-main); font-weight: 600;">3. Aşama</span>
+    <!-- HERO BANNER -->
+    <div class="hero-banner-wrapper s3-hero">
+        <div class="hero-banner-bg"></div>
+        <div class="hero-banner-overlay"></div>
+        <a href="../../index.html#asama-ayrintilari" class="s3-back-link">
+            <i data-lucide="arrow-left"></i>
+            Aşama Ayrıntılarına Dön
+        </a>
+        <section class="hero-section s3-hero-section">
+            <div class="hero-content s3-hero-content">
+                <div class="badge-pill floating-slow">3. Aşama · Veri Mimarisi</div>
+                <h1 class="hero-title custom-brand-title s3-hero-title">Zaman ve Mekân Boyutunu Belirlemek</h1>
+                <p class="hero-subtitle s3-hero-subtitle">
+                    Verinin <strong>zaman ve mekân (birim)</strong> ekseninde nasıl dizileceği, sadece bir Excel veya SQL
+                    tablo düzeni değildir; kuracağın modelin matematiksel varsayımlarını ve karşılaşacağın
+                    ekonometrik hastalıkları doğrudan belirleyen ana mimari karardır.
+                </p>
             </div>
-        </div>
+        </section>
+    </div>
 
-        <!-- Aşama Hero Kartı -->
-        <section class="glass" style="padding: 36px; border-radius: 20px; border-left: 6px solid var(--neon-green) !important; margin-bottom: 32px;">
-            <span style="background: var(--neon-green); color: #fff; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; display: inline-block; margin-bottom: 16px;">
-                3. Aşama
-            </span>
-            <h1 style="font-size: 2.2rem; font-weight: 800; color: var(--text-main); margin-bottom: 12px;">
-                Zaman ve Mekan Boyutunu Belirlemek
-            </h1>
-            <p style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.7; max-width: 900px; margin: 0;">
-                Veri setinin mimarisini belirlemek; analiz için Yatay Kesit (Cross-Sectional), Zaman Serisi (Time-Series) veya Panel Veri (Panel Data) yapılarından hangisinin inşa edileceğini kararlaştırmak.
+    <main class="s3-main">
+
+        <!-- GİRİŞ: İKİ EKSENLİ MİMARİ -->
+        <section class="s3-section acc-green" id="giris">
+            <div class="s3-section-head">
+                <div class="s3-head-icon"><i data-lucide="axis-3d"></i></div>
+                <div>
+                    <h2 class="s3-section-title">Bir Veri Tablosunun İki Boyutu: Birim (i) ve Zaman (t)</h2>
+                    <p class="s3-section-sub">Satırları neyin temsil ettiğini bilmeden doğru ekonometrik model kuramazsın.</p>
+                </div>
+            </div>
+
+            <p>
+                Her veri seti temelde iki soruya göre şekillenir: <strong>"Kaç farklı birim (<i>i</i>) inceliyorum?"</strong>
+                ve <strong>"Kaç farklı zaman noktasına (<i>t</i>) bakıyorum?"</strong> Tek bir ayda yüzlerce konuta mı
+                bakıyorsun, yoksa 16 yıl boyunca tek bir ülkenin enflasyonunu mu izliyorsun? Yoksa aynı 100 dükkânı
+                yıllar boyunca mı takip ediyorsun?
             </p>
+            <p>
+                İşte bu iki eksenin kesişiminden <strong>dört temel veri mimarisi</strong> doğar. Aynı değişkenleri
+                (örneğin gayrimenkul fiyatı ve faiz) toplasan bile, seçtiğin yapıya göre kuracağın model de,
+                karşılaşacağın risk de tamamen değişir:
+            </p>
+
+            <div class="s3-grid-4">
+                <div class="s3-axis-card acc-blue">
+                    <span class="s3-axis-badge">1. Yapı</span>
+                    <strong>Yatay Kesit</strong>
+                    <div class="s3-axis-meta">
+                        <span>Çok birim (<i>i</i> = 1…<i>n</i>)</span>
+                        <span>Tek zaman (<i>t</i> sabit)</span>
+                    </div>
+                    <small>Anlık fotoğraf</small>
+                </div>
+                <div class="s3-axis-card acc-green">
+                    <span class="s3-axis-badge">2. Yapı</span>
+                    <strong>Zaman Serisi</strong>
+                    <div class="s3-axis-meta">
+                        <span>Tek birim (<i>i</i> sabit)</span>
+                        <span>Çok zaman (<i>t</i> = 1…<i>T</i>)</span>
+                    </div>
+                    <small>Tarihsel film şeridi</small>
+                </div>
+                <div class="s3-axis-card acc-purple">
+                    <span class="s3-axis-badge">3. Yapı</span>
+                    <strong>Panel Veri</strong>
+                    <div class="s3-axis-meta">
+                        <span>Aynı birimler (<i>i</i>)</span>
+                        <span>Çok zaman (<i>t</i>)</span>
+                    </div>
+                    <small>Çift boyutlu tam takip</small>
+                </div>
+                <div class="s3-axis-card acc-amber">
+                    <span class="s3-axis-badge">4. Yapı</span>
+                    <strong>Havuzlanmış Kesit</strong>
+                    <div class="s3-axis-meta">
+                        <span>Farklı birimler (<i>i</i>)</span>
+                        <span>Farklı zamanlar (<i>t</i>)</span>
+                    </div>
+                    <small>Dönemler arası havuz</small>
+                </div>
+            </div>
         </section>
 
-        <!-- İçerik Alanı -->
-        <section class="glass" style="padding: 40px; border-radius: 20px; text-align: center;">
-            <div style="width: 64px; height: 64px; border-radius: 50%; background: color-mix(in srgb, var(--neon-green) 15%, transparent); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 16px;">
-                <i data-lucide="calendar-clock" style="width: 32px; height: 32px; color: var(--neon-green);"></i>
+        <!-- 1. YATAY KESİT VERİSİ -->
+        <section class="s3-section acc-blue" id="blok-1">
+            <div class="s3-section-head">
+                <div class="s3-head-num">1</div>
+                <div>
+                    <h2 class="s3-section-title">Yatay Kesit Verisi (Cross-Sectional Data)</h2>
+                    <p class="s3-section-sub">Farklı birimlerin (<i>i</i> = 1, 2, …, <i>n</i>) tek bir zaman noktasındaki fotoğrafı.</p>
+                </div>
             </div>
-            <h3 style="font-size: 1.4rem; font-weight: 700; color: var(--text-main); margin-bottom: 8px;">
-                Bu Aşamanın İçeriği Yapılandırılıyor
-            </h3>
-            <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 600px; margin: 0 auto 24px auto;">
-                Metodoloji detayları, formüller ve uygulama örnekleri eklendiğinde bu alanda görüntülenecektir.
+
+            <p>
+                Zamanı dondurup aynı anda yüzlerce veya binlerce farklı birime (insan, şirket, konut, şehir) bakmaktır.
+                Her satır farklı bir birimi temsil eder ve veri denklemi <strong><i>Y<sub>i</sub></i> = β<sub>0</sub> + β<sub>1</sub><i>X<sub>i</sub></i> + ε<sub>i</sub></strong>
+                şeklinde yalnızca <strong><i>i</i></strong> indisiyle yazılır.
             </p>
+
+            <div class="s3-grid-2">
+                <div class="s3-info-card acc-blue">
+                    <div class="s3-info-head"><i data-lucide="shuffle"></i> Temel Özelliği: Sıra Önemsizdir</div>
+                    <p>
+                        Gözlemler birbirinden bağımsız birimlerden oluştuğu için tablodaki satırların sırası önemsizdir.
+                        Excel'de 500 satırı rastgele karıştırsan da kuracağın regresyon modelinin katsayıları, R² değeri ve
+                        test sonuçları <strong>kesinlikle değişmez</strong>.
+                    </p>
+                </div>
+                <div class="s3-info-card acc-green">
+                    <div class="s3-info-head"><i data-lucide="camera"></i> Örnek Senaryo</div>
+                    <p>
+                        <strong>2026 Kasım ayında</strong> Denizli'deki <strong>500 farklı konutun</strong> satış fiyatı,
+                        metrekaresi ve oda sayısı. Zaman herkes için aynı aydır; tüm farklar konutların kendi özelliklerinden doğar.
+                    </p>
+                </div>
+            </div>
+
+            <div class="s3-risk-box is-red">
+                <div class="s3-risk-head">
+                    <i data-lucide="triangle-alert"></i>
+                    <div>
+                        <span class="s3-risk-tag">Kritik Ekonometrik Risk</span>
+                        <strong>Değişen Varyans (Heteroscedasticity)</strong>
+                    </div>
+                </div>
+                <p>
+                    Farklı ölçek ve büyüklükteki birimler (örneğin 30 milyon TL'lik lüks bir villa ile 2,5 milyon TL'lik
+                    1+1 daire) aynı havuzda bulunduğunda hata terimlerinin yayılımı sabit kalmaz. Küçük dairelerde fiyat
+                    tahmin hatası ±150 bin TL iken, lüks villalarda ±4 milyon TL'ye fırlar. Buna <strong>Değişen Varyans</strong> denir.
+                </p>
+                <div class="s3-risk-fix">
+                    <b>Ne bozar, nasıl çözülür?</b> OLS katsayıları yansız kalır ama <strong>standart hatalar bozulur</strong>;
+                    bu yüzden hipotez testleri (<i>t</i> ve <i>p</i> değerleri) yanlış alarm verebilir. Çözüm:
+                    <strong>Logaritmik dönüşüm (ln Fiyat)</strong> veya <strong>White Dirençli (Robust) Standart Hatalar</strong> kullanmaktır.
+                </div>
+            </div>
         </section>
+
+        <!-- 2. ZAMAN SERİSİ VERİSİ -->
+        <section class="s3-section acc-green" id="blok-2">
+            <div class="s3-section-head">
+                <div class="s3-head-num">2</div>
+                <div>
+                    <h2 class="s3-section-title">Zaman Serisi Verisi (Time Series Data)</h2>
+                    <p class="s3-section-sub">Tek bir birimin farklı zaman noktalarındaki (<i>t</i> = 1, 2, …, <i>T</i>) hareketinin izlenmesi.</p>
+                </div>
+            </div>
+
+            <p>
+                Bu kez birimi sabit tutar, zamanı akıtırız. Satırlar saatleri, günleri, ayları, çeyrekleri veya yılları
+                temsil eder. Model <strong><i>Y<sub>t</sub></i> = β<sub>0</sub> + β<sub>1</sub><i>X<sub>t</sub></i> + ε<sub>t</sub></strong>
+                şeklinde <strong><i>t</i></strong> indisiyle ifade edilir.
+            </p>
+
+            <div class="s3-grid-2">
+                <div class="s3-info-card acc-green">
+                    <div class="s3-info-head"><i data-lucide="clock"></i> Temel Özelliği: Kronolojik Sıra Hayatidir</div>
+                    <p>
+                        Burada satırları <strong>asla karıştıramazsın</strong>! Ekonomik ve finansal gerçeklikte hafıza vardır:
+                        Bugünkü değer (<i>Y<sub>t</sub></i>) genellikle dünkü değerden (<i>Y<sub>t−1</sub></i>) doğrudan etkilenir.
+                        Sırayı bozduğun anda serinin dinamiği, mevsimselliği ve şokların gecikmeli etkisi yok olur.
+                    </p>
+                </div>
+                <div class="s3-info-card acc-blue">
+                    <div class="s3-info-head"><i data-lucide="trending-up"></i> Örnek Senaryo</div>
+                    <p>
+                        <strong>Türkiye'nin 2010–2026 yılları arasındaki</strong> aylık enflasyon oranları veya
+                        konut kredi faiz oranları (<i>T</i> = 204 ay). Tek bir ülke var; izlediğimiz şey zaman içindeki seyir.
+                    </p>
+                </div>
+            </div>
+
+            <h3 class="s3-subtitle">Zaman Serisinde Karşılaşılan İki Büyük Ekonometrik Risk</h3>
+            <div class="s3-grid-2">
+                <div class="s3-risk-box is-amber">
+                    <div class="s3-risk-head">
+                        <i data-lucide="repeat"></i>
+                        <div>
+                            <span class="s3-risk-tag">Risk 1 · Bağımlılık</span>
+                            <strong>Otokorelasyon (Autocorrelation)</strong>
+                        </div>
+                    </div>
+                    <p>
+                        Gözlemler birbirinden bağımsız değildir; bu ayki faiz şoku gelecek aylara da sarkar.
+                        Hata terimi ε<sub><i>t</i></sub> ile geçmiş dönemin hatası ε<sub><i>t−1</i></sub> ilişkili çıktığında
+                        standart hatalar yapay olarak küçülür ve model olmayan ilişkileri "anlamlı" sanır.
+                    </p>
+                    <div class="s3-risk-fix">
+                        <b>Tanı &amp; Çözüm:</b> Durbin–Watson / Breusch–Godfrey testi; gecikmeli değişken (<i>Y<sub>t−1</sub></i>)
+                        eklemek veya <strong>Newey–West (HAC)</strong> standart hatalar kullanmak.
+                    </div>
+                </div>
+
+                <div class="s3-risk-box is-red">
+                    <div class="s3-risk-head">
+                        <i data-lucide="activity"></i>
+                        <div>
+                            <span class="s3-risk-tag">Risk 2 · Trend Tuzağı</span>
+                            <strong>Durağanlık (Stationarity / Birim Kök)</strong>
+                        </div>
+                    </div>
+                    <p>
+                        Zamanla sürekli artan iki seri (örneğin son 15 yıldaki dondurma satışları ile konut fiyatları)
+                        birbiriyle hiç alakası olmasa bile ortak trend yüzünden R² = 0,95 çıkarabilir! Buna
+                        <strong>Sahte Regresyon (Spurious Regression)</strong> denir.
+                    </p>
+                    <div class="s3-risk-fix">
+                        <b>Tanı &amp; Çözüm:</b> <strong>ADF Birim Kök Testi</strong> ile kontrol et; seri durağan değilse
+                        farkını al (Δ<i>Y<sub>t</sub></i> = <i>Y<sub>t</sub></i> − <i>Y<sub>t−1</sub></i>) veya yüzdesel değişimle çalış.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. PANEL VERİ -->
+        <section class="s3-section acc-purple" id="blok-3">
+            <div class="s3-section-head">
+                <div class="s3-head-num">3</div>
+                <div>
+                    <h2 class="s3-section-title">Panel Veri (Panel / Longitudinal Data)</h2>
+                    <p class="s3-section-sub">Yatay kesit ile zaman serisinin en güçlü birleşimi: Çift boyut (<i>i</i> ve <i>t</i>).</p>
+                </div>
+            </div>
+
+            <p>
+                <strong>Aynı birimlerin (<i>i</i>) birden fazla zaman noktasında (<i>t</i>) düzenli olarak takip edilmesidir.</strong>
+                Her gözlem hem "hangi birim?" hem de "hangi zaman?" bilgisini taşır:
+                <strong><i>Y<sub>it</sub></i> = α<sub>i</sub> + β<sub>1</sub><i>X<sub>it</sub></i> + ε<sub>it</sub></strong>.
+            </p>
+
+            <div class="s3-callout acc-purple">
+                <i data-lucide="sparkles" class="s3-callout-icon"></i>
+                <div>
+                    <strong>Panel Verinin Süper Gücü: Gözlemlenemeyen Sabit Etkileri (α<sub>i</sub>) Kontrol Etmek</strong>
+                    <p>
+                        Hem birimler arası farkı hem de zaman içindeki değişimi aynı anda yakalar. Örneğin bir semtin
+                        yıllar boyu değişmeyen <strong>prestiji</strong>, bir dükkanın sokak köşesindeki <strong>cephe avantajı</strong>
+                        veya bir şirketin <strong>yönetim kültürü</strong> veri tablosuna sayı olarak kolayca yazılamaz.
+                        Aynı mülkü yıllarca takip ettiğin için, zamanla değişmeyen bu gizli özellikleri <strong>Sabit Etkiler
+                        (Fixed Effects)</strong> modeliyle matematiksel olarak temizleyebilirsin!
+                    </p>
+                </div>
+            </div>
+
+            <div class="s3-grid-2">
+                <div class="s3-info-card acc-purple">
+                    <div class="s3-info-head"><i data-lucide="building-2"></i> Örnek Senaryo</div>
+                    <p>
+                        Seçilen <strong>aynı 100 ticari gayrimenkulün</strong> 2020'den 2026'ya kadar her yılki kira getirisi.
+                        Toplam 100 birim × 7 yıl = <strong>700 gözlem</strong>; her mülkün kendine ait bir kimlik numarası (ID) vardır.
+                    </p>
+                </div>
+                <div class="s3-info-card acc-blue">
+                    <div class="s3-info-head"><i data-lucide="scale"></i> Dengeli vs. Dengesiz Panel</div>
+                    <p>
+                        <strong>Dengeli Panel (Balanced):</strong> Her birimin tüm yıllarda (100 × 7) eksiksiz verisi vardır.<br>
+                        <strong>Dengesiz Panel (Unbalanced):</strong> Bazı mülkler 2023'te yıkılmış veya yeni inşa edilmiş olabilir;
+                        gözlem sayısı birimden birime değişir.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. HAVUZLANMIŞ YATAY KESİT -->
+        <section class="s3-section acc-amber" id="blok-4">
+            <div class="s3-section-head">
+                <div class="s3-head-num">4</div>
+                <div>
+                    <h2 class="s3-section-title">Havuzlanmış Yatay Kesit (Pooled Cross-Section)</h2>
+                    <p class="s3-section-sub">Panel veriyle sık karıştırılır ama arkasındaki mimari tamamen farklıdır.</p>
+                </div>
+            </div>
+
+            <p>
+                Farklı zamanlarda, <strong>farklı rastgele birimlerden</strong> veri toplanıp tek bir havuzda birleştirilmesidir.
+                Örneğin 2024'te rastgele seçilen 300 evin verisi ile 2026'da rastgele seçilen başka 300 evin verisini birleştirip
+                piyasadaki yapısal değişimi incelemek tam bir havuzlanmış yatay kesittir.
+            </p>
+
+            <div class="s3-callout acc-amber">
+                <i data-lucide="git-compare" class="s3-callout-icon"></i>
+                <div>
+                    <strong>Altın Ayırım: Aynı Birimleri mi İzliyoruz, Yoksa Taze Örneklem mi Çekiyoruz?</strong>
+                    <p>
+                        <strong>Panel Veri:</strong> 2024'te ölçtüğün <em>Ahmet Bey'in dükkanını</em> (ID: #104) bulup 2026'da tekrar ölçersin.<br>
+                        <strong>Havuzlanmış Yatay Kesit:</strong> 2024'te rastgele 300 satış ilanı çekersin; 2026'da tamamen yeni,
+                        o yıl piyasada olan başka rastgele 300 satış ilanı çekip alt alta eklersin. Birim takibi olmadığı için
+                        Sabit Etkiler (Fixed Effects) kurulamaz; bunun yerine dönemsel kaymayı ölçmek için modele
+                        <strong>Zaman Kukla Değişkeni (ör. D<sub>2026</sub> = 1)</strong> eklenir.
+                    </p>
+                </div>
+            </div>
+
+            <h3 class="s3-subtitle">Karıştırılan İkili: Panel Veri vs. Havuzlanmış Yatay Kesit</h3>
+            <div class="s3-table-wrap">
+                <table class="s3-table">
+                    <thead>
+                        <tr>
+                            <th>Özellik</th>
+                            <th>Panel Veri (Panel Data)</th>
+                            <th>Havuzlanmış Yatay Kesit (Pooled)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>Birim Takibi (ID)</b></td>
+                            <td><strong>Aynı</strong> birimler her dönem tekrar ölçülür.</td>
+                            <td>Her dönem <strong>farklı</strong> rastgele birimler çekilir.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Veri Toplama Maliyeti</b></td>
+                            <td>Yüksek (birimi kaybetmeme / attrition zorluğu).</td>
+                            <td>Daha düşük (her yıl taze kesit alınabilir).</td>
+                        </tr>
+                        <tr>
+                            <td><b>Sabit Etkiler (α<sub>i</sub>)</b></td>
+                            <td>Kontrol edilebilir (Fixed / Random Effects).</td>
+                            <td>Bireysel sabit etki izlenemez; yıl kuklası kullanılır.</td>
+                        </tr>
+                        <tr>
+                            <td><b>En İyi Kullanım Alanı</b></td>
+                            <td>Aynı mülkün yıllar içindeki değer artışı / kira dinamiği.</td>
+                            <td>2024 ile 2026 arasında genel piyasa yapısının değişimi.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ETKİLEŞİMLİ LABORATUVAR -->
+        <section class="s3-section acc-blue" id="laboratuvar">
+            <div class="s3-section-head">
+                <div class="s3-head-icon"><i data-lucide="table-2"></i></div>
+                <div>
+                    <h2 class="s3-section-title">Mini Laboratuvar: Tablo Yapısı ve Ekonometrik Risk Simülatörü</h2>
+                    <p class="s3-section-sub">Seçtiğin mimariye göre veri tablonun nasıl şekillendiğini ve satırları karıştırırsan ne olacağını gör.</p>
+                </div>
+            </div>
+
+            <div class="s3-lab" id="s3-lab">
+                <div class="s3-lab-tabs" role="tablist">
+                    <button type="button" class="s3-lab-tab is-active" data-mode="cross">1. Yatay Kesit</button>
+                    <button type="button" class="s3-lab-tab" data-mode="time">2. Zaman Serisi</button>
+                    <button type="button" class="s3-lab-tab" data-mode="panel">3. Panel Veri</button>
+                    <button type="button" class="s3-lab-tab" data-mode="pooled">4. Havuzlanmış Kesit</button>
+                </div>
+
+                <div class="s3-lab-meta">
+                    <div class="s3-lab-badge-row">
+                        <span class="s3-meta-pill" id="s3-meta-index">İndis: i = 1…n</span>
+                        <span class="s3-meta-pill" id="s3-meta-order">Sıra Önemi: Önemsiz</span>
+                        <span class="s3-meta-pill" id="s3-meta-risk">Ana Risk: Değişen Varyans</span>
+                    </div>
+                    <button type="button" class="s3-shuffle-btn" id="s3-shuffle-btn">
+                        <i data-lucide="shuffle"></i> Satırları Karıştır (Test Et)
+                    </button>
+                </div>
+
+                <div class="s3-table-wrap">
+                    <table class="s3-table" id="s3-lab-table">
+                        <thead id="s3-lab-thead"></thead>
+                        <tbody id="s3-lab-tbody"></tbody>
+                    </table>
+                </div>
+
+                <div class="s3-lab-verdict" id="s3-lab-verdict">
+                    <i data-lucide="info"></i>
+                    <div>
+                        <strong id="s3-verdict-title">Mimari Analizi</strong>
+                        <p id="s3-verdict-text"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ÖZET MATRİSİ VE NAVİGASYON -->
+        <section class="s3-section acc-green" id="ozet">
+            <div class="s3-section-head">
+                <div class="s3-head-icon"><i data-lucide="flag"></i></div>
+                <div>
+                    <h2 class="s3-section-title">Mimari Karar Matrisi ve Geçiş</h2>
+                    <p class="s3-section-sub">Dört veri yapısının tek bakışta özeti.</p>
+                </div>
+            </div>
+
+            <div class="s3-table-wrap">
+                <table class="s3-table">
+                    <thead>
+                        <tr>
+                            <th>Veri Yapısı</th>
+                            <th>Boyut</th>
+                            <th>Satır Sırası</th>
+                            <th>Kritik Risk</th>
+                            <th>İlk Önlem</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>Yatay Kesit</b></td>
+                            <td>Çok birim · 1 zaman (<i>i</i>)</td>
+                            <td>Önemsiz</td>
+                            <td>Değişen Varyans (Heteroscedasticity)</td>
+                            <td>Robust Standart Hata / ln(<i>Y</i>)</td>
+                        </tr>
+                        <tr>
+                            <td><b>Zaman Serisi</b></td>
+                            <td>1 birim · Çok zaman (<i>t</i>)</td>
+                            <td>Hayati (Kronolojik)</td>
+                            <td>Otokorelasyon &amp; Durağanlık (Birim Kök)</td>
+                            <td>ADF Testi, Fark Alma, HAC (Newey–West)</td>
+                        </tr>
+                        <tr>
+                            <td><b>Panel Veri</b></td>
+                            <td>Aynı birimler · Çok zaman (<i>i</i>, <i>t</i>)</td>
+                            <td>Birim içinde kronolojik</td>
+                            <td>Birim içi otokorelasyon / Eksik yıl</td>
+                            <td>Sabit Etkiler (Fixed Effects) &amp; Küme Hata</td>
+                        </tr>
+                        <tr>
+                            <td><b>Havuzlanmış Kesit</b></td>
+                            <td>Farklı birimler · Farklı zamanlar</td>
+                            <td>Dönem bilgisi sütunla taşınır</td>
+                            <td>Dönemler arası yapısal kayma</td>
+                            <td>Zaman Kukla Değişkeni (<i>D<sub>t</sub></i>)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="s3-closing">
+                Ne aradığımızı (<strong>1. Aşama</strong>), kimden veri çekeceğimizi (<strong>2. Aşama</strong>) ve
+                verinin zaman/mekân iskeletini (<strong>3. Aşama</strong>) belirledik. Şimdi sıra tek tek topladığımız her
+                değişkenin <strong>matematiksel doğasını ve ölçüm ölçeğini</strong> tayin etmekte.
+            </p>
+
+            <div class="s3-nav">
+                <a href="../2.Aşama_Evren_ve_Örneklem_Çerçevesi/index.html" class="s3-nav-btn is-secondary">
+                    <i data-lucide="arrow-left"></i>
+                    <span><small>Önceki: 2. Aşama</small>Evren ve Örneklem Çerçevesi</span>
+                </a>
+                <a href="../4.Aşama_Değişkenlerin_Matematiksel_Doğası/index.html" class="s3-nav-btn is-primary">
+                    <span><small>Sıradaki: 4. Aşama</small>Değişkenlerin Matematiksel Doğası</span>
+                    <i data-lucide="arrow-right"></i>
+                </a>
+            </div>
+        </section>
+
     </main>
 
     <!-- Footer injected via components.js -->
+
+    <!-- Ortak betikler (proje kökü: 3 klasör yukarıda) -->
     <script src="../../../js/components.js"></script>
     <script src="../../../js/nav.js"></script>
     <script src="../../../js/modal.js"></script>
     <script src="../../../js/script.js"></script>
+    <!-- Bu aşamaya özel betik -->
     <script src="script.js"></script>
     <script>
-        if (window.lucide) { lucide.createIcons(); }
+        if (window.lucide) {
+            lucide.createIcons();
+        }
     </script>
 </body>
 </html>
