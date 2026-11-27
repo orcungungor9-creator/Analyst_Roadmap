@@ -3,14 +3,16 @@
 // ==========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Üst bar yüksekliğini ölçerek Hero Banner'ın ilk ekrana milimetrik oturmasını sağla
+    // 1. Üst bar yüksekliğini anında ölçerek Hero Banner'ın kayma yapmadan ekrana oturmasını sağla
     const syncHeaderHeight = () => {
         const header = document.querySelector('.site-header');
         if (header && header.offsetHeight > 0) {
-            document.documentElement.style.setProperty('--s1-header-h', `${header.offsetHeight}px`);
+            const h = header.offsetHeight;
+            document.documentElement.style.setProperty('--s1-header-h', `${h}px`);
+            document.body.style.paddingTop = `${h}px`;
         }
     };
-    setTimeout(syncHeaderHeight, 25);
+    syncHeaderHeight();
     window.addEventListener('resize', syncHeaderHeight);
 
     // 2. Hero bölüm butonları ile ilgili bloğa yumuşak kaydırma

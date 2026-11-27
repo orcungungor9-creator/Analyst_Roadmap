@@ -16,6 +16,7 @@
 /* 1. TEMA DEĞİŞKENLERİ
    Varsayılan: koyu temalar. Açık temalarda aşağıda ezilir. */
 body {
+    padding-top: var(--s1-header-h, 74px);
     --s1-surface: #111a2b;
     --s1-surface-2: #0d1524;
     --s1-border: #26344f;
@@ -77,6 +78,7 @@ body.theme-light-purple {
     text-align: center !important;
     padding: 44px 24px !important;
     margin: 0 auto;
+    animation: none !important;
 }
 
 .s1-hero-content {
