@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>5. Aşama: Kısıtlar ve Etik Çerçeve | Veri Mimarisi | Analyst Roadmap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet"></noscript>
+    <!-- Ortak stiller (proje kökü: 3 klasör yukarıda) -->
     <link rel="stylesheet" href="../../../styles.css">
+    <!-- Bu aşamaya özel stiller -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,55 +23,398 @@
         })();
     </script>
 
+    <!-- ARKA PLAN GRAFİK AĞI (HAREKETSİZ) -->
+    <div class="bg-analytics-mesh">
+        <div class="bg-chart-item bg-chart-1">
+            <svg viewBox="0 0 400 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="s5-bg-area-grad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="var(--neon-blue)" stop-opacity="0.4" />
+                        <stop offset="100%" stop-color="var(--neon-blue)" stop-opacity="0.0" />
+                    </linearGradient>
+                </defs>
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40 L 370,190 L 10,190 Z" fill="url(#s5-bg-area-grad)" />
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40" fill="none" stroke="var(--neon-blue)" stroke-width="4" stroke-linecap="round" />
+                <circle cx="130" cy="150" r="6" fill="var(--neon-green)" />
+                <circle cx="250" cy="90" r="6" fill="var(--neon-purple)" />
+                <circle cx="370" cy="40" r="8" fill="var(--neon-blue)" />
+            </svg>
+        </div>
+        <div class="bg-chart-item bg-chart-2">
+            <svg viewBox="0 0 200 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <g transform="translate(100,100)">
+                    <path d="M 0,-80 A 80,80 0 0,1 76,25 L 57,18 A 60,60 0 0,0 0,-60 Z" fill="var(--neon-blue)" />
+                    <path d="M 76,25 A 80,80 0 0,1 -64,48 L -48,36 A 60,60 0 0,0 57,18 Z" fill="var(--neon-green)" />
+                    <path d="M -64,48 A 80,80 0 0,1 0,-80 L 0,-60 A 60,60 0 0,0 -48,36 Z" fill="var(--neon-purple)" />
+                    <circle cx="0" cy="0" r="45" fill="none" stroke="var(--glass-border)" stroke-width="2" stroke-dasharray="5,5" />
+                </g>
+            </svg>
+        </div>
+        <div class="bg-chart-item bg-chart-3">
+            <svg viewBox="0 0 250 250" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <line x1="20" y1="50" x2="230" y2="50" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4" />
+                <line x1="20" y1="100" x2="230" y2="100" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4" />
+                <line x1="20" y1="150" x2="230" y2="150" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4" />
+                <line x1="20" y1="200" x2="230" y2="200" stroke="var(--glass-border)" stroke-width="2" />
+                <rect x="35" y="120" width="30" height="80" rx="6" fill="var(--neon-blue)" />
+                <rect x="85" y="70" width="30" height="130" rx="6" fill="var(--neon-green)" />
+                <rect x="135" y="150" width="30" height="50" rx="6" fill="var(--neon-purple)" />
+                <rect x="185" y="90" width="30" height="110" rx="6" fill="var(--neon-blue)" />
+            </svg>
+        </div>
+        <div class="bg-chart-item bg-chart-4">
+            <svg viewBox="0 0 280 220" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <line x1="50" y1="30" x2="50" y2="170" stroke="var(--neon-green)" stroke-width="3" />
+                <rect x="38" y="70" width="24" height="60" rx="4" fill="var(--neon-green)" />
+                <line x1="110" y1="50" x2="110" y2="190" stroke="var(--neon-blue)" stroke-width="3" />
+                <rect x="98" y="90" width="24" height="70" rx="4" fill="var(--neon-blue)" />
+                <line x1="170" y1="20" x2="170" y2="150" stroke="var(--neon-purple)" stroke-width="3" />
+                <rect x="158" y="50" width="24" height="50" rx="4" fill="var(--neon-purple)" />
+                <line x1="230" y1="60" x2="230" y2="200" stroke="var(--neon-green)" stroke-width="3" />
+                <rect x="218" y="100" width="24" height="55" rx="4" fill="var(--neon-green)" />
+            </svg>
+        </div>
+    </div>
+
     <!-- Header injected via components.js -->
 
-    <main class="main-container" style="max-width: 1200px; margin: 40px auto; padding: 0 24px 80px 24px;">
-        <!-- Breadcrumb & Geri Dön Butonu -->
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
-            <a href="../../index.html#asama-ayrintilari" style="display: inline-flex; align-items: center; gap: 8px; color: #ec4899; text-decoration: none; font-weight: 600; font-size: 0.95rem; padding: 8px 16px; border-radius: 12px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); transition: all 0.2s ease;">
-                <i data-lucide="arrow-left" style="width: 18px; height: 18px;"></i>
-                Aşama Ayrıntılarına Dön
-            </a>
-            <div style="color: var(--text-muted); font-size: 0.9rem;">
-                Veri Mimarisi / <span style="color: var(--text-main); font-weight: 600;">5. Aşama</span>
+    <!-- HERO BANNER -->
+    <div class="hero-banner-wrapper s5-hero">
+        <div class="hero-banner-bg"></div>
+        <div class="hero-banner-overlay"></div>
+        <a href="../../index.html#asama-ayrintilari" class="s5-back-link">
+            <i data-lucide="arrow-left"></i>
+            Aşama Ayrıntılarına Dön
+        </a>
+        <section class="hero-section s5-hero-section">
+            <div class="hero-content s5-hero-content">
+                <div class="badge-pill floating-slow">5. Aşama · Veri Mimarisi</div>
+                <h1 class="hero-title custom-brand-title s5-hero-title">Kısıtlar ve Etik Çerçevenin Belirlenmesi</h1>
+                <p class="hero-subtitle s5-hero-subtitle">
+                    Teoride kusursuz bir model kurgulayabilirsin ama sahada seni durduran şey gerçek dünyanın sınırlarıdır.
+                    Bu aşama, veri toplama projesinin <strong>yapılabilirliğini (fizibilite)</strong> ve
+                    <strong>meşruiyetini</strong> netleştirdiğimiz üç ayaklı bir kontrol noktasıdır.
+                </p>
             </div>
-        </div>
+        </section>
+    </div>
 
-        <!-- Aşama Hero Kartı -->
-        <section class="glass" style="padding: 36px; border-radius: 20px; border-left: 6px solid #ec4899 !important; margin-bottom: 32px;">
-            <span style="background: #ec4899; color: #fff; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; display: inline-block; margin-bottom: 16px;">
-                5. Aşama
-            </span>
-            <h1 style="font-size: 2.2rem; font-weight: 800; color: var(--text-main); margin-bottom: 12px;">
-                Kısıtlar ve Etik Çerçevenin Belirlenmesi
-            </h1>
-            <p style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.7; max-width: 900px; margin: 0;">
-                Bütçe ve takvim gibi operasyonel kısıtları netleştirmek; KVKK, GDPR uyumluluğu, veri minimizasyonu, bilgilendirilmiş onam ve anonimleştirme protokollerini devreye almak.
+    <main class="s5-main">
+
+        <!-- GİRİŞ: ÜÇ AYAKLI KONTROL NOKTASI -->
+        <section class="s5-section acc-pink" id="giris">
+            <div class="s5-section-head">
+                <div class="s5-head-icon"><i data-lucide="shield-alert"></i></div>
+                <div>
+                    <h2 class="s5-section-title">Teori Sahaya Çarptığında: Üç Ayaklı Denetim</h2>
+                    <p class="s5-section-sub">"Toplayabiliyor muyuz?", "İznimiz var mı?" ve "Doğru mu?" soruları aynı masada.</p>
+                </div>
+            </div>
+
+            <p>
+                İlk dört aşamada neyi ölçeceğimizi, kimi inceleyeceğimizi, zaman–mekân iskeletini ve değişkenlerin
+                matematiksel ölçeklerini kurduk. Fakat sahaya inmeden önce projenin <strong>gerçek dünya duvarlarına
+                çarpıp çarpmayacağını</strong> test etmek zorundayız.
             </p>
+            <p>
+                Hukuka aykırı toplanmış bir veri setiyle dünyanın en isabetli modelini bile kursan o proje çöpe gider;
+                bütçesi bitip yarım kalmış bir anket ise hiçbir hipotezi test edemez. Bu yüzden 5. aşama üç temel ayağa oturur:
+            </p>
+
+            <div class="s5-grid-3">
+                <div class="s5-pillar-card acc-amber">
+                    <span class="s5-pillar-num">1. Ayak</span>
+                    <strong>Operasyonel Kısıtlar</strong>
+                    <span>Bütçe, zaman ve teknik/donanım sınırları içinde bu veri gerçekten toplanabilir mi?</span>
+                </div>
+                <div class="s5-pillar-card acc-blue">
+                    <span class="s5-pillar-num">2. Ayak</span>
+                    <strong>Yasal Çerçeve</strong>
+                    <span>KVKK / GDPR ve platform kullanım şartları (ToS / telif) açısından kırmızı çizgi ihlali var mı?</span>
+                </div>
+                <div class="s5-pillar-card acc-green">
+                    <span class="s5-pillar-num">3. Ayak</span>
+                    <strong>Etik Çerçeve</strong>
+                    <span>Anonimleştirme analitik gücü bozuyor mu ve gerçekten yalnızca gereken minimum veri mi isteniyor?</span>
+                </div>
+            </div>
         </section>
 
-        <!-- İçerik Alanı -->
-        <section class="glass" style="padding: 40px; border-radius: 20px; text-align: center;">
-            <div style="width: 64px; height: 64px; border-radius: 50%; background: color-mix(in srgb, #ec4899 15%, transparent); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 16px;">
-                <i data-lucide="shield-check" style="width: 32px; height: 32px; color: #ec4899;"></i>
+        <!-- 1. OPERASYONEL KISITLAR -->
+        <section class="s5-section acc-amber" id="blok-1">
+            <div class="s5-section-head">
+                <div class="s5-head-num">1</div>
+                <div>
+                    <h2 class="s5-section-title">Operasyonel Kısıtlar (Kaynak ve Teknik Sınırlar)</h2>
+                    <p class="s5-section-sub">Kağıt üzerindeki planın bütçe, takvim ve donanımla yüzleşmesi.</p>
+                </div>
             </div>
-            <h3 style="font-size: 1.4rem; font-weight: 700; color: var(--text-main); margin-bottom: 8px;">
-                Bu Aşamanın İçeriği Yapılandırılıyor
-            </h3>
-            <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 600px; margin: 0 auto 24px auto;">
-                Metodoloji detayları, formüller ve uygulama örnekleri eklendiğinde bu alanda görüntülenecektir.
-            </p>
+
+            <div class="s5-grid-3">
+                <div class="s5-card acc-amber">
+                    <div class="s5-card-icon"><i data-lucide="wallet"></i></div>
+                    <h3>Bütçe Sınırı</h3>
+                    <p>
+                        Veri toplamanın gerçek maliyeti nedir? Ücretli API erişimleri, anket katılımcı teşvikleri,
+                        saha ekibi harcamaları veya bulut sunucu / depolama giderleri bütçeyi aşıyor mu?
+                    </p>
+                    <div class="s5-card-note">
+                        <b>Mimari Karar:</b> Bütçe yetersizse daha ucuz ikincil kaynaklara yönelmek veya örneklem
+                        stratejisini (ör. küme örneklemesi) optimize etmek bu aşamada kararlaştırılır.
+                    </div>
+                </div>
+
+                <div class="s5-card acc-pink">
+                    <div class="s5-card-icon"><i data-lucide="hourglass"></i></div>
+                    <h3>Zaman &amp; Zamanlama Yanlılığı</h3>
+                    <p>
+                        Veriyi toplamak ne kadar sürecek? Özellikle yüksek enflasyon veya hızlı faiz değişimi yaşanan
+                        dinamik piyasalarda toplama süresi çok uzarsa, ilk hafta alınan veri ile son ay alınan veri
+                        aynı evreni temsil etmez.
+                    </p>
+                    <div class="s5-card-note">
+                        <b>Kritik Risk:</b> İlk ve son gözlemler arasındaki yapısal kaymaya <strong>Zamanlama Yanlılığı
+                        (Timing Bias)</strong> denir. Tarih damgası mutlaka kaydedilmelidir.
+                    </div>
+                </div>
+
+                <div class="s5-card acc-blue">
+                    <div class="s5-card-icon"><i data-lucide="cpu"></i></div>
+                    <h3>Erişim &amp; Teknik Sınırlar</h3>
+                    <p>
+                        Hedeflediğin veriye gerçekten ulaşabiliyor musun? API istek limitleri (rate limits), web
+                        sitelerinin bot korumaları, kurumların veri paylaşım engelleri veya eldeki donanımın (RAM / CPU)
+                        işleyebileceği maksimum veri hacmi hesaba katılır.
+                    </p>
+                    <div class="s5-card-note">
+                        <b>Pratik Örnek:</b> Saniyede 1 istek izni veren bir API'den 10 milyon kayıt çekmeye kalkışmak
+                        yaklaşık 115 gün sürer; mimari baştan çöker.
+                    </div>
+                </div>
+            </div>
         </section>
+
+        <!-- 2. YASAL ÇERÇEVE -->
+        <section class="s5-section acc-blue" id="blok-2">
+            <div class="s5-section-head">
+                <div class="s5-head-num">2</div>
+                <div>
+                    <h2 class="s5-section-title">Yasal Çerçeve (Hukuki Kırmızı Çizgiler)</h2>
+                    <p class="s5-section-sub">Analistin geçemeyeceği mutlak hukuk sınırları.</p>
+                </div>
+            </div>
+
+            <div class="s5-grid-2">
+                <div class="s5-legal-card acc-blue">
+                    <div class="s5-legal-head"><i data-lucide="lock"></i> Kişisel Verilerin Korunması (KVKK / GDPR)</div>
+                    <p>
+                        İsim, telefon, TC kimlik numarası, tam ev/işyeri adresi, kesin GPS konumu veya IP adresi gibi
+                        kişiyi <strong>doğrudan</strong> ya da birden fazla sütun birleştiğinde <strong>dolaylı
+                        (quasi-identifier)</strong> tanımlayan veriler toplanıyorsa üç yasal şart devreye girer:
+                    </p>
+                    <ul>
+                        <li><strong>Açık Rıza:</strong> Kişiye verisinin hangi amaçla kullanılacağı açıklanıp onay alınması.</li>
+                        <li><strong>Güvenli Saklama:</strong> Şifreleme, yetki kısıtlama ve sızıntıya karşı koruma.</li>
+                        <li><strong>Silme Hakkı:</strong> Kişi talep ettiğinde verisinin sistemden kalıcı olarak silinmesi.</li>
+                    </ul>
+                </div>
+
+                <div class="s5-legal-card acc-purple">
+                    <div class="s5-legal-head"><i data-lucide="file-text"></i> Kullanım Koşulları ve Telif (ToS)</div>
+                    <p>
+                        İkincil veri (özellikle web scraping veya harici API) kullanılacaksa, verinin "internette herkese
+                        açık görünmesi" onu dilediğin gibi kullanabileceğin anlamına gelmez. Şunlar mutlaka denetlenir:
+                    </p>
+                    <ul>
+                        <li><strong><code>robots.txt</code> ve Kazıma Kuralları:</strong> Platform otomatik veri çekmeye izin veriyor mu?</li>
+                        <li><strong>Telif Hakları (Copyright):</strong> Fotoğraflar, özel raporlar veya tescilli endeksler telifli mi?</li>
+                        <li><strong>Ticari Kısıtlar:</strong> Akademik araştırma için ücretsiz olan veri ticari modelde yasak olabilir.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="s5-callout acc-amber">
+                <i data-lucide="fingerprint" class="s5-callout-icon"></i>
+                <div>
+                    <strong>Gizli Tuzak: "İsim Sütununu Sildik, Artık Anonim Oldu" Yanılgısı</strong>
+                    <p>
+                        Tablodan ad–soyadı silmek tek başına KVKK uyumu sağlamaz. Eğer tabloda <strong>"Denizli · Kaleiçi Mahallesi ·
+                        42 yaş · Kadın · Züccaciye Sahibi"</strong> sütunları yan yana duruyorsa, o bölgede o profile uyan
+                        yalnızca 1 kişi olabilir! Buna <strong>Yeniden Kimliklendirme (Re-identification) Riski</strong> denir.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. ETİK ÇERÇEVE (5 İLKE KONTROL LİSTESİ) -->
+        <section class="s5-section acc-green" id="blok-3">
+            <div class="s5-section-head">
+                <div class="s5-head-num">3</div>
+                <div>
+                    <h2 class="s5-section-title">Etik Çerçeve (5 Temel İlke Kontrol Listesi)</h2>
+                    <p class="s5-section-sub">Yasal olarak izin verilen her şey etik olmayabilir; bilimsel sorumluluk burada başlar.</p>
+                </div>
+            </div>
+
+            <p>
+                Bilimsel araştırmanın ve veri analizinin temelini oluşturan <strong>5 etik ilke</strong>, veri mimarisinin
+                bu adımında somut kararlara ve kontrol sorularına dönüşür:
+            </p>
+
+            <div class="s5-ethics-list">
+                <div class="s5-ethic-item acc-blue">
+                    <span class="s5-ethic-num">1</span>
+                    <div>
+                        <strong>Bilgilendirilmiş Onam (Informed Consent)</strong>
+                        <p>Katılımcıya veya veri sağlayıcıya verinin hangi hipotezi test etmek için kullanılacağı, kimlerle paylaşılacağı açıkça bildirildi mi?</p>
+                    </div>
+                </div>
+                <div class="s5-ethic-item acc-purple">
+                    <span class="s5-ethic-num">2</span>
+                    <div>
+                        <strong>Gizlilik ve Anonimlik (Privacy &amp; Anonymity) — Analiz Gücü Dengesi</strong>
+                        <p>
+                            Kimlik bilgileri maskelendi mi? Kritik soru: <strong>Veri seti anonimleştirildiğinde analiz gücü bozuluyor mu?</strong>
+                            Örneğin tam kapı numarasını silip mahalle kodunu bırakmak gizliliği korurken ekonometrik lokasyon etkisini yaşatır; ama ilçeyi bile silersen mekânsal model çöker.
+                        </p>
+                    </div>
+                </div>
+                <div class="s5-ethic-item acc-pink">
+                    <span class="s5-ethic-num">3</span>
+                    <div>
+                        <strong>Zarar Vermeme (Non-Maleficence)</strong>
+                        <p>Model çıktıları veya veri sızıntısı bir kişi ya da esnaf grubunu haksız fişlemeye, kredi ayrımcılığına veya ticari zarara sürükleyebilir mi?</p>
+                    </div>
+                </div>
+                <div class="s5-ethic-item acc-green">
+                    <span class="s5-ethic-num">4</span>
+                    <div>
+                        <strong>Veri Minimizasyonu (Data Minimization)</strong>
+                        <p>
+                            <strong>Sadece hipotezi test etmek için gereken minimum veri mi isteniyor?</strong> "Belki ileride lazım olur" diyerek TC kimlik, telefon veya alakasız kişisel detay toplamak kesinlikle reddedilir.
+                        </p>
+                    </div>
+                </div>
+                <div class="s5-ethic-item acc-amber">
+                    <span class="s5-ethic-num">5</span>
+                    <div>
+                        <strong>Objektiflik ve Şeffaflık (Objectivity &amp; Transparency)</strong>
+                        <p>Hipotezi desteklemeyen veriler ayıklanmadan, tüm kısıtlar, kör noktalar ve etik sınırlar raporda açıkça beyan ediliyor mu?</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ETKİLEŞİMLİ FİZİBİLİTE & ETİK DENETİM MASASI -->
+        <section class="s5-section acc-pink" id="laboratuvar">
+            <div class="s5-section-head">
+                <div class="s5-head-icon"><i data-lucide="clipboard-check"></i></div>
+                <div>
+                    <h2 class="s5-section-title">Mini Laboratuvar: Sahaya Çıkış Denetim Masası (Go / No-Go)</h2>
+                    <p class="s5-section-sub">Projenin sahaya hazır olup olmadığını 6 maddede test et.</p>
+                </div>
+            </div>
+
+            <div class="s5-audit" id="s5-audit">
+                <div class="s5-audit-grid">
+                    <label class="s5-check-card">
+                        <input type="checkbox" checked data-key="budget" data-weight="1" data-critical="false">
+                        <div>
+                            <strong>1. Bütçe &amp; Donanım Uyumu</strong>
+                            <small>API, saha ve depolama maliyetleri bütçe sınırının içinde; donanım veri hacmini işleyebiliyor.</small>
+                        </div>
+                    </label>
+                    <label class="s5-check-card">
+                        <input type="checkbox" checked data-key="time" data-weight="1" data-critical="false">
+                        <div>
+                            <strong>2. Zaman Penceresi Kontrolü</strong>
+                            <small>Veri toplama süresi zamanlama yanlılığı (Timing Bias) yaratmayacak kadar kısa ve tarih damgalı.</small>
+                        </div>
+                    </label>
+                    <label class="s5-check-card">
+                        <input type="checkbox" checked data-key="tos" data-weight="2" data-critical="true">
+                        <div>
+                            <strong>3. ToS, Telif ve <code>robots.txt</code> Onayı</strong>
+                            <small>İkincil veri kaynağının kullanım koşulları ve telif hakları ihlal edilmiyor (Kritik Kriter).</small>
+                        </div>
+                    </label>
+                    <label class="s5-check-card">
+                        <input type="checkbox" checked data-key="kvkk" data-weight="2" data-critical="true">
+                        <div>
+                            <strong>4. KVKK / GDPR ve Açık Rıza</strong>
+                            <small>Kişisel veriler için açık rıza, güvenli şifreleme ve silme mekanizması hazır (Kritik Kriter).</small>
+                        </div>
+                    </label>
+                    <label class="s5-check-card">
+                        <input type="checkbox" checked data-key="min" data-weight="1" data-critical="false">
+                        <div>
+                            <strong>5. Veri Minimizasyonu</strong>
+                            <small>Tabloda yalnızca hipotezi test edecek minimum sütunlar var; gereksiz kişisel veri istenmiyor.</small>
+                        </div>
+                    </label>
+                    <label class="s5-check-card">
+                        <input type="checkbox" checked data-key="mask" data-weight="1" data-critical="false">
+                        <div>
+                            <strong>6. Anonimleştirme vs. Analiz Dengesi</strong>
+                            <small>Kimlikler maskelendiğinde bile model değişkenlerinin analitik gücü korunuyor.</small>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="s5-audit-verdict" id="s5-audit-verdict">
+                    <i data-lucide="shield-check"></i>
+                    <div>
+                        <strong id="s5-verdict-title">SAHAYA ÇIKABİLİRSİN — Tam Uyum (6 / 6)</strong>
+                        <p id="s5-verdict-text"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ÖZET VE NAVİGASYON -->
+        <section class="s5-section acc-green" id="ozet">
+            <div class="s5-section-head">
+                <div class="s5-head-icon"><i data-lucide="flag"></i></div>
+                <div>
+                    <h2 class="s5-section-title">5. Aşamanın Sonunda Masadaki Güvence</h2>
+                    <p class="s5-section-sub">Hem yapılabilir hem yasal hem de bilimsel olarak savunulabilir bir proje.</p>
+                </div>
+            </div>
+
+            <p class="s5-closing">
+                Artık projenin bütçe ve zaman sınırlarını (<strong>Operasyonel</strong>), KVKK ve telif kurallarını
+                (<strong>Yasal</strong>) ve gizlilik–minimizasyon dengesini (<strong>Etik</strong>) güvence altına aldık.
+                Sıradaki adımda bu veriyi fiziksel olarak hangi <strong>dosya formatı, veritabanı ve dijital altyapı</strong>
+                üzerinde saklayacağımızı tasarlayacağız.
+            </p>
+
+            <div class="s5-nav">
+                <a href="../4.Aşama_Değişkenlerin_Matematiksel_Doğası/index.html" class="s5-nav-btn is-secondary">
+                    <i data-lucide="arrow-left"></i>
+                    <span><small>Önceki: 4. Aşama</small>Değişkenlerin Matematiksel Doğası</span>
+                </a>
+                <a href="../6.Aşama_Dijital_Altyapı_ve_Format/index.html" class="s5-nav-btn is-primary">
+                    <span><small>Sıradaki: 6. Aşama</small>Dijital Altyapı ve Format</span>
+                    <i data-lucide="arrow-right"></i>
+                </a>
+            </div>
+        </section>
+
     </main>
 
     <!-- Footer injected via components.js -->
+
+    <!-- Ortak betikler (proje kökü: 3 klasör yukarıda) -->
     <script src="../../../js/components.js"></script>
     <script src="../../../js/nav.js"></script>
     <script src="../../../js/modal.js"></script>
     <script src="../../../js/script.js"></script>
+    <!-- Bu aşamaya özel betik -->
     <script src="script.js"></script>
     <script>
-        if (window.lucide) { lucide.createIcons(); }
+        if (window.lucide) {
+            lucide.createIcons();
+        }
     </script>
 </body>
 </html>

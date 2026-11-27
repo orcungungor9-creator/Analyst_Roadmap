@@ -1,4 +1,540 @@
-/* 5. Aşama Özel Stilleri */
-.stage-detail-container {
-    padding: 20px;
+/* ==========================================================================
+   5. AŞAMA: KISITLAR VE ETİK ÇERÇEVENİN BELİRLENMESİ — SAYFAYA ÖZEL STİLLER
+   Tasarım kuralları:
+   - SIFIR GLASSMORPHISM (backdrop-filter yok)
+   - Kartlarda gölge / neon parlama yok, düz ve mat renkler
+   - Tüm kartlarda mat, renkli çerçeveler
+   - Koyu ve açık temalarda yüksek okunabilirlikli kontrast
+   ========================================================================== */
+
+/* 0. Glassmorphism'i tüm sayfada kapat */
+*, *::before, *::after {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/* 1. TEMA DEĞİŞKENLERİ */
+body {
+    padding-top: var(--s5-header-h, 74px);
+    --s5-surface: #111a2b;
+    --s5-surface-2: #0d1524;
+    --s5-border: #26344f;
+    --s5-text: #cbd5e1;
+    --s5-muted: #94a3b8;
+    --s5-strong: #ffffff;
+}
+
+body.theme-light-pure,
+body.theme-mono-light,
+body.theme-light-warm,
+body.theme-pink,
+body.theme-light-emerald,
+body.theme-light-purple {
+    --s5-surface: #ffffff;
+    --s5-surface-2: #f8fafc;
+    --s5-border: #e2e8f0;
+    --s5-text: #334155;
+    --s5-muted: #64748b;
+    --s5-strong: #0f172a;
+}
+
+/* Mat vurgu renkleri */
+.acc-pink   { --accent: #db2777; }
+.acc-amber  { --accent: #d97706; }
+.acc-blue   { --accent: #2563eb; }
+.acc-purple { --accent: #7c3aed; }
+.acc-green  { --accent: #16a34a; }
+
+.acc-pink, .acc-amber, .acc-blue, .acc-purple, .acc-green {
+    --accent-text: color-mix(in srgb, var(--accent) 62%, var(--s5-strong));
+    --accent-tint: color-mix(in srgb, var(--accent) 10%, var(--s5-surface));
+}
+
+/* 2. ÜST BAR VE HERO BANNER */
+.site-header {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-bottom: 2px solid var(--neon-blue) !important;
+    box-shadow: 0 4px 20px var(--neon-blue-glow, rgba(56, 189, 248, 0.4)) !important;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.hero-banner-wrapper.s5-hero {
+    min-height: calc(100vh - var(--s5-header-h, 74px)) !important;
+    min-height: calc(100svh - var(--s5-header-h, 74px)) !important;
+    margin-bottom: 84px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid var(--neon-blue) !important;
+    box-shadow: 0 4px 20px var(--neon-blue-glow, rgba(56, 189, 248, 0.4)) !important;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.s5-hero-section {
+    max-width: 1300px !important;
+    width: 100%;
+    text-align: center !important;
+    padding: 80px 24px 60px 24px !important;
+    margin: 0 auto;
+    animation: none !important;
+}
+
+.s5-hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+    justify-content: center;
+    text-align: center !important;
+    width: 100%;
+}
+
+.s5-back-link {
+    position: absolute;
+    top: 24px;
+    left: 28px;
+    z-index: 5;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: 2px solid var(--neon-blue);
+    background: var(--s5-surface);
+    color: var(--neon-blue);
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    box-shadow: none !important;
+    white-space: nowrap;
+    transition: transform 0.2s ease;
+}
+.s5-back-link:hover { transform: translateX(-3px); }
+.s5-back-link svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+.s5-hero-title {
+    font-size: 3.5rem !important;
+    letter-spacing: 3px !important;
+    font-weight: 700 !important;
+    line-height: 1.15 !important;
+    max-width: 1200px;
+    margin: 0 auto 24px auto !important;
+    padding-bottom: 10px !important;
+    text-align: center !important;
+}
+
+.s5-hero-subtitle {
+    font-size: 1.35rem !important;
+    font-weight: 500 !important;
+    line-height: 1.7 !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+}
+
+/* 3. ANA KAPSAYICI VE BÖLÜM KARTLARI */
+.s5-main {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px 100px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    position: relative;
+    z-index: 2;
+}
+
+.s5-section {
+    background: var(--s5-surface);
+    border: 2px solid var(--accent);
+    border-radius: 20px;
+    padding: 36px;
+    color: var(--s5-text);
+    box-shadow: none !important;
+    scroll-margin-top: 100px;
+}
+
+.s5-section p {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--s5-text);
+    margin-bottom: 16px;
+}
+
+.s5-section strong,
+.s5-section b { color: var(--s5-strong); }
+
+.s5-section code {
+    padding: 2px 7px;
+    border-radius: 6px;
+    background: color-mix(in srgb, var(--accent) 14%, var(--s5-surface-2));
+    color: var(--s5-strong);
+    font-size: 0.92em;
+    font-weight: 700;
+}
+
+.s5-section-head {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 26px;
+    padding-bottom: 22px;
+    border-bottom: 2px dashed color-mix(in srgb, var(--accent) 35%, var(--s5-border));
+}
+
+.s5-head-num,
+.s5-head-icon {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: var(--accent);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-title);
+    font-size: 1.6rem;
+    font-weight: 900;
+}
+.s5-head-icon svg { width: 28px; height: 28px; flex-shrink: 0; }
+
+.s5-section-title {
+    font-family: var(--font-title);
+    font-size: 1.75rem;
+    font-weight: 800;
+    line-height: 1.25;
+    color: var(--accent-text);
+    margin: 0 0 4px 0;
+}
+
+.s5-section-sub {
+    margin: 0 !important;
+    font-size: 1rem !important;
+    color: var(--s5-muted) !important;
+}
+
+/* 4. GRİDLER VE ÜÇ AYAK KARTLARI */
+.s5-grid-2,
+.s5-grid-3 {
+    display: grid;
+    gap: 16px;
+    margin: 22px 0;
+}
+.s5-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.s5-grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+.s5-pillar-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 22px;
+    border-radius: 18px;
+    border: 2px solid var(--accent);
+    background: var(--accent-tint);
+}
+.s5-pillar-num {
+    align-self: flex-start;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 800;
+}
+.s5-pillar-card strong {
+    font-family: var(--font-title);
+    font-size: 1.16rem;
+    color: var(--accent-text);
+}
+.s5-pillar-card span:not(.s5-pillar-num) {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--s5-text);
+}
+
+/* 5. OPERASYONEL VE YASAL KARTLAR */
+.s5-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 24px;
+    border-radius: 18px;
+    border: 2px solid var(--accent);
+    background: var(--s5-surface-2);
+}
+.s5-card-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: var(--accent);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.s5-card-icon svg { width: 24px; height: 24px; flex-shrink: 0; }
+.s5-card h3 {
+    font-family: var(--font-title);
+    font-size: 1.22rem;
+    font-weight: 800;
+    color: var(--accent-text);
+    margin: 0;
+}
+.s5-card p { margin: 0 !important; font-size: 0.97rem !important; }
+.s5-card-note {
+    margin-top: auto;
+    padding: 11px 14px;
+    border-radius: 12px;
+    border: 1px dashed var(--accent);
+    background: var(--accent-tint);
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: var(--s5-text);
+}
+
+.s5-legal-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px;
+    border-radius: 18px;
+    border: 2px solid var(--accent);
+    background: var(--s5-surface-2);
+}
+.s5-legal-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-title);
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--accent-text);
+}
+.s5-legal-head svg { width: 24px; height: 24px; flex-shrink: 0; }
+.s5-legal-card p { margin: 0 !important; font-size: 0.97rem !important; }
+.s5-legal-card ul { margin: 0; padding-left: 20px; }
+.s5-legal-card li {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: 6px;
+    color: var(--s5-text);
+}
+
+.s5-callout {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    margin: 22px 0 6px 0;
+    padding: 22px 24px;
+    border-radius: 0 16px 16px 0;
+    border: 2px solid var(--accent);
+    border-left-width: 6px;
+    background: var(--accent-tint);
+}
+.s5-callout > div > strong {
+    display: block;
+    font-size: 1.08rem;
+    color: var(--accent-text);
+    margin-bottom: 6px;
+}
+.s5-callout p:last-child { margin-bottom: 0; }
+.s5-callout-icon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    color: var(--accent-text);
+    margin-top: 2px;
+}
+
+/* 6. 5 ETİK İLKE KONTROL LİSTESİ */
+.s5-ethics-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 16px;
+}
+
+.s5-ethic-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 22px;
+    border-radius: 16px;
+    border: 2px solid var(--accent);
+    background: var(--s5-surface-2);
+}
+
+.s5-ethic-num {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-title);
+    font-size: 1.05rem;
+    font-weight: 900;
+}
+
+.s5-ethic-item strong {
+    display: block;
+    font-size: 1.08rem;
+    color: var(--accent-text);
+    margin-bottom: 4px;
+}
+.s5-ethic-item p {
+    margin: 0 !important;
+    font-size: 0.97rem !important;
+}
+
+/* 7. ETKİLEŞİMLİ DENETİM MASASI */
+.s5-audit {
+    padding: 24px;
+    border-radius: 18px;
+    border: 2px solid #db2777;
+    background: var(--s5-surface-2);
+}
+
+.s5-audit-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.s5-check-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 15px 16px;
+    border-radius: 14px;
+    border: 2px solid var(--s5-border);
+    background: var(--s5-surface);
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+.s5-check-card:hover { border-color: #db2777; }
+.s5-check-card input[type="checkbox"] {
+    margin-top: 3px;
+    width: 19px;
+    height: 19px;
+    accent-color: #16a34a;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+.s5-check-card strong {
+    display: block;
+    font-size: 0.97rem;
+    color: var(--s5-strong);
+    margin-bottom: 3px;
+}
+.s5-check-card small {
+    font-size: 0.86rem;
+    line-height: 1.45;
+    color: var(--s5-muted);
+}
+
+.s5-audit-verdict {
+    --av: #16a34a;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-top: 18px;
+    padding: 18px 20px;
+    border-radius: 14px;
+    border: 2px solid var(--av);
+    background: color-mix(in srgb, var(--av) 10%, var(--s5-surface));
+}
+.s5-audit-verdict.is-warn  { --av: #d97706; }
+.s5-audit-verdict.is-block { --av: #dc2626; }
+.s5-audit-verdict svg {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    color: color-mix(in srgb, var(--av) 65%, var(--s5-strong));
+}
+.s5-audit-verdict strong {
+    display: block;
+    font-size: 1.08rem;
+    color: color-mix(in srgb, var(--av) 65%, var(--s5-strong)) !important;
+    margin-bottom: 4px;
+}
+.s5-audit-verdict p { margin: 0 !important; font-size: 0.97rem !important; }
+
+/* 8. KAPANIŞ VE NAVİGASYON */
+.s5-closing {
+    font-size: 1.08rem !important;
+    margin-top: 6px;
+}
+
+.s5-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+}
+
+.s5-nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 22px;
+    border-radius: 16px;
+    border: 2px solid #db2777;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.02rem;
+    transition: transform 0.2s ease;
+}
+.s5-nav-btn span { display: flex; flex-direction: column; }
+.s5-nav-btn small { font-size: 0.78rem; font-weight: 600; opacity: 0.85; }
+.s5-nav-btn svg { width: 22px; height: 22px; flex-shrink: 0; }
+.s5-nav-btn:hover { transform: translateY(-2px); }
+
+.s5-nav-btn.is-secondary {
+    background: var(--s5-surface);
+    color: color-mix(in srgb, #db2777 62%, var(--s5-strong));
+}
+.s5-nav-btn.is-primary {
+    background: #db2777;
+    color: #ffffff;
+    text-align: right;
+    margin-left: auto;
+}
+
+/* 9. MOBİL VE DİZÜSTÜ UYUM */
+@media (max-width: 960px) {
+    .s5-grid-3 { grid-template-columns: 1fr; }
+    .s5-audit-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px) {
+    .hero-banner-wrapper.s5-hero {
+        min-height: auto !important;
+        margin-bottom: 48px !important;
+    }
+    .s5-back-link {
+        top: 14px;
+        left: 14px;
+        padding: 8px 14px;
+        font-size: 0.84rem;
+    }
+    .s5-hero-title { font-size: 2.1rem !important; letter-spacing: 1px !important; }
+    .s5-hero-subtitle { font-size: 1.08rem !important; }
+    .s5-hero-section { padding: 74px 16px 40px 16px !important; }
+    .s5-main { padding: 0 14px 80px 14px; gap: 28px; }
+    .s5-section { padding: 24px 18px; border-radius: 18px; }
+    .s5-section-title { font-size: 1.35rem; }
+    .s5-head-num, .s5-head-icon { width: 46px; height: 46px; font-size: 1.3rem; }
+    .s5-grid-2 { grid-template-columns: 1fr; }
+    .s5-callout, .s5-ethic-item { flex-direction: column; gap: 10px; padding: 18px; }
+    .s5-nav-btn { flex: 1 1 100%; justify-content: space-between; }
+    .s5-nav-btn.is-primary { margin-left: 0; }
 }
