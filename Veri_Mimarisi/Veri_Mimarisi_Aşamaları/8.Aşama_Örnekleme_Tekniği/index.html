@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>8. Aşama: Örnekleme Tekniği | Veri Mimarisi | Analyst Roadmap</title>
+    <title>8. Aşama: Örnekleme Tekniğinin Kararlaştırılması | Veri Mimarisi | Analyst Roadmap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet"></noscript>
+    <!-- Ortak stiller (proje kökü: 3 klasör yukarıda) -->
     <link rel="stylesheet" href="../../../styles.css">
+    <!-- Bu aşamaya özel stiller -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,55 +23,449 @@
         })();
     </script>
 
+    <!-- ARKA PLAN GRAFİK AĞI (HAREKETSİZ) -->
+    <div class="bg-analytics-mesh">
+        <div class="bg-chart-item bg-chart-1">
+            <svg viewBox="0 0 400 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="s8-bg-area-grad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="var(--neon-blue)" stop-opacity="0.4" />
+                        <stop offset="100%" stop-color="var(--neon-blue)" stop-opacity="0.0" />
+                    </linearGradient>
+                </defs>
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40 L 370,190 L 10,190 Z" fill="url(#s8-bg-area-grad)" />
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40" fill="none" stroke="var(--neon-blue)" stroke-width="4" stroke-linecap="round" />
+                <circle cx="130" cy="150" r="6" fill="var(--neon-green)" />
+                <circle cx="250" cy="90" r="6" fill="var(--neon-purple)" />
+                <circle cx="370" cy="40" r="8" fill="var(--neon-blue)" />
+            </svg>
+        </div>
+        <div class="bg-chart-item bg-chart-2">
+            <svg viewBox="0 0 200 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <g transform="translate(100,100)">
+                    <path d="M 0,-80 A 80,80 0 0,1 76,25 L 57,18 A 60,60 0 0,0 0,-60 Z" fill="var(--neon-blue)" />
+                    <path d="M 76,25 A 80,80 0 0,1 -64,48 L -48,36 A 60,60 0 0,0 57,18 Z" fill="var(--neon-green)" />
+                    <path d="M -64,48 A 80,80 0 0,1 0,-80 L 0,-60 A 60,60 0 0,0 -48,36 Z" fill="var(--neon-purple)" />
+                    <circle cx="0" cy="0" r="45" fill="none" stroke="var(--glass-border)" stroke-width="2" stroke-dasharray="5,5" />
+                </g>
+            </svg>
+        </div>
+        <div class="bg-chart-item bg-chart-3">
+            <svg viewBox="0 0 250 250" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <line x1="20" y1="50" x2="230" y2="50" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4" />
+                <line x1="20" y1="100" x2="230" y2="100" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4" />
+                <line x1="20" y1="150" x2="230" y2="150" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4" />
+                <line x1="20" y1="200" x2="230" y2="200" stroke="var(--glass-border)" stroke-width="2" />
+                <rect x="35" y="120" width="30" height="80" rx="6" fill="var(--neon-blue)" />
+                <rect x="85" y="70" width="30" height="130" rx="6" fill="var(--neon-green)" />
+                <rect x="135" y="150" width="30" height="50" rx="6" fill="var(--neon-purple)" />
+                <rect x="185" y="90" width="30" height="110" rx="6" fill="var(--neon-blue)" />
+            </svg>
+        </div>
+        <div class="bg-chart-item bg-chart-4">
+            <svg viewBox="0 0 280 220" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <line x1="50" y1="30" x2="50" y2="170" stroke="var(--neon-green)" stroke-width="3" />
+                <rect x="38" y="70" width="24" height="60" rx="4" fill="var(--neon-green)" />
+                <line x1="110" y1="50" x2="110" y2="190" stroke="var(--neon-blue)" stroke-width="3" />
+                <rect x="98" y="90" width="24" height="70" rx="4" fill="var(--neon-blue)" />
+                <line x1="170" y1="20" x2="170" y2="150" stroke="var(--neon-purple)" stroke-width="3" />
+                <rect x="158" y="50" width="24" height="50" rx="4" fill="var(--neon-purple)" />
+                <line x1="230" y1="60" x2="230" y2="200" stroke="var(--neon-green)" stroke-width="3" />
+                <rect x="218" y="100" width="24" height="55" rx="4" fill="var(--neon-green)" />
+            </svg>
+        </div>
+    </div>
+
     <!-- Header injected via components.js -->
 
-    <main class="main-container" style="max-width: 1200px; margin: 40px auto; padding: 0 24px 80px 24px;">
-        <!-- Breadcrumb & Geri Dön Butonu -->
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
-            <a href="../../index.html#asama-ayrintilari" style="display: inline-flex; align-items: center; gap: 8px; color: #d97706; text-decoration: none; font-weight: 600; font-size: 0.95rem; padding: 8px 16px; border-radius: 12px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); transition: all 0.2s ease;">
-                <i data-lucide="arrow-left" style="width: 18px; height: 18px;"></i>
-                Aşama Ayrıntılarına Dön
-            </a>
-            <div style="color: var(--text-muted); font-size: 0.9rem;">
-                Veri Mimarisi / <span style="color: var(--text-main); font-weight: 600;">8. Aşama</span>
+    <!-- HERO BANNER -->
+    <div class="hero-banner-wrapper s8-hero">
+        <div class="hero-banner-bg"></div>
+        <div class="hero-banner-overlay"></div>
+        <a href="../../index.html#asama-ayrintilari" class="s8-back-link">
+            <i data-lucide="arrow-left"></i>
+            Aşama Ayrıntılarına Dön
+        </a>
+        <section class="hero-section s8-hero-section">
+            <div class="hero-content s8-hero-content">
+                <div class="badge-pill floating-slow">8. Aşama · Veri Mimarisi</div>
+                <h1 class="hero-title custom-brand-title s8-hero-title">Örnekleme Tekniğinin Kararlaştırılması</h1>
+                <p class="hero-subtitle s8-hero-subtitle">
+                    Örneklem çerçevemiz, veri formatımız ve araçlarımız artık hazır. Sahaya inmeden veya kodu
+                    çalıştırmadan önceki son karar, çerçeveden gözlemleri <strong>hangi matematiksel kuralla
+                    çekeceğimiz</strong> ve <strong>kaç gözlem (<i>n</i>)</strong> alacağımızdır.
+                </p>
             </div>
-        </div>
+        </section>
+    </div>
 
-        <!-- Aşama Hero Kartı -->
-        <section class="glass" style="padding: 36px; border-radius: 20px; border-left: 6px solid #d97706 !important; margin-bottom: 32px;">
-            <span style="background: #d97706; color: #fff; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; display: inline-block; margin-bottom: 16px;">
-                8. Aşama
-            </span>
-            <h1 style="font-size: 2.2rem; font-weight: 800; color: var(--text-main); margin-bottom: 12px;">
-                Örnekleme Tekniğinin Kararlaştırılması
-            </h1>
-            <p style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.7; max-width: 900px; margin: 0;">
-                Anakütleyi en yansız şekilde yansıtacak gözlemleri seçmek için Olasılıklı (Basit Rastgele, Tabakalı, Küme) veya Olasılıksız matematiksel çekiliş yöntemini belirlemek.
+    <main class="s8-main">
+
+        <!-- 1. OLASILIĞA DAYALI YÖNTEMLER -->
+        <section class="s8-section acc-blue" id="blok-1">
+            <div class="s8-section-head">
+                <div class="s8-head-num">1</div>
+                <div>
+                    <h2 class="s8-section-title">Olasılığa Dayalı (Rastsal / Probability) Yöntemler</h2>
+                    <p class="s8-section-sub">Her birimin seçilme olasılığı bilinir ve sıfırdan büyüktür; bilimsel çıkarımın tek yoludur.</p>
+                </div>
+            </div>
+
+            <p>
+                Eğer amacın <strong>hipotez testi yapmak, güven aralığı kurmak</strong> ve bulduğun sonuçları tüm
+                anakütleye (evrene) bilimsel olarak genellemekse olasılıklı seçim şarttır. Torbadan kimin çıkacağına
+                insan duygusu değil, matematiksel rastgelelik karar verir:
             </p>
+
+            <div class="s8-grid-2">
+                <div class="s8-method-card acc-blue">
+                    <span class="s8-method-tag">1A · Eşit Şans</span>
+                    <h3>Basit Rastsal Örnekleme (Simple Random)</h3>
+                    <p>
+                        Evrendeki her birimin seçilme şansı <strong>birebir eşittir</strong> (kura çekmek veya rastgele
+                        sayı üreteci mantığı).
+                    </p>
+                    <div class="s8-method-note">
+                        <b>Ne zaman?</b> Evren görece homojense ve elinde tüm birimleri içeren eksiksiz bir liste (çerçeve) varsa en temiz yöntemdir.
+                    </div>
+                </div>
+
+                <div class="s8-method-card acc-purple">
+                    <span class="s8-method-tag">1B · Sabit Adım</span>
+                    <h3>Sistematik Örnekleme (Systematic)</h3>
+                    <p>
+                        Evren büyüklüğü (<i>N</i>) istenen örneklem büyüklüğüne (<i>n</i>) bölünerek bir atlama aralığı
+                        (<code><i>k</i> = <i>N</i> / <i>n</i></code>) bulunur. İlk <i>k</i> birim arasından rastgele bir
+                        başlangıç noktası seçilir; ardından her <i>k</i>'ıncı birim alınır.
+                    </p>
+                    <div class="s8-method-note is-warn">
+                        <b>Gizli Risk:</b> Listede gizli bir periyodik düzen varsa (ör. her 10. dükkân köşe başı ise) ağır yanlılık üretir.
+                    </div>
+                </div>
+
+                <div class="s8-method-card acc-green">
+                    <span class="s8-method-tag">1C · Alt Grup Garantisi</span>
+                    <h3>Tabakalı Örnekleme (Stratified)</h3>
+                    <p>
+                        Evren kendi içinde homojen ama birbirinden farklı alt gruplara/tabakalara (ör. ilçeler, gelir
+                        dilimleri, sanayi vs. cadde mağazaları) ayrılır. Her tabakadan, tabakanın evrendeki ağırlığına
+                        (<strong>orantılı</strong>) veya varyansına göre (<strong>orantısız</strong>) basit rastsal seçim yapılır.
+                    </p>
+                    <div class="s8-method-note">
+                        <b>Süper Gücü:</b> Tahmin varyansını düşürür ve nüfusta küçük kalan azınlık grupların örneklemde temsilini garanti altına alır.
+                    </div>
+                </div>
+
+                <div class="s8-method-card acc-amber">
+                    <span class="s8-method-tag">1D · Saha Tasarrufu</span>
+                    <h3>Küme Örneklemesi (Cluster)</h3>
+                    <p>
+                        Evren doğal coğrafi veya kurumsal kümelere (okullar, mahalleler, şirketler) bölünür. Rastgele
+                        birkaç küme seçilir ve <strong>seçilen kümelerin içindeki tüm birimler</strong> (ya da çok aşamalıysa
+                        rastgele bir kısmı) örnekleme alınır.
+                    </p>
+                    <div class="s8-method-note">
+                        <b>Denge:</b> Saha ve seyahat maliyetini ciddi oranda düşürür; ancak küme içi benzerlik nedeniyle örnekleme hatasını bir miktar artırır.
+                    </div>
+                </div>
+            </div>
+
+            <div class="s8-callout acc-blue">
+                <i data-lucide="split" class="s8-callout-icon"></i>
+                <div>
+                    <strong>Karıştırılan İkili: Tabakalı vs. Küme Örneklemesi</strong>
+                    <p>
+                        <strong>Tabakalıda</strong> Denizli'nin <em>bütün ilçelerini</em> listeye alırsın ve her birinin
+                        içinden örneklem seçersin (maliyet biraz yüksektir ama kesinlik maksimumdur). <strong>Kümede</strong>
+                        ise 100 mahalleden rastgele yalnızca <em>12 mahalleyi</em> seçip sahada yalnızca o 12 mahallenin kapısını
+                        çalarsın (bütçe ve zaman dostudur).
+                    </p>
+                </div>
+            </div>
         </section>
 
-        <!-- İçerik Alanı -->
-        <section class="glass" style="padding: 40px; border-radius: 20px; text-align: center;">
-            <div style="width: 64px; height: 64px; border-radius: 50%; background: color-mix(in srgb, #d97706 15%, transparent); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 16px;">
-                <i data-lucide="pie-chart" style="width: 32px; height: 32px; color: #d97706;"></i>
+        <!-- 2. OLASILIĞA DAYALI OLMAYAN YÖNTEMLER -->
+        <section class="s8-section acc-purple" id="blok-2">
+            <div class="s8-section-head">
+                <div class="s8-head-num">2</div>
+                <div>
+                    <h2 class="s8-section-title">Olasılığa Dayalı Olmayan (Non-Probability) Yöntemler</h2>
+                    <p class="s8-section-sub">Seçim şansa değil; erişim kolaylığına, uzman kararına veya referans ağına dayanır.</p>
+                </div>
             </div>
-            <h3 style="font-size: 1.4rem; font-weight: 700; color: var(--text-main); margin-bottom: 8px;">
-                Bu Aşamanın İçeriği Yapılandırılıyor
-            </h3>
-            <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 600px; margin: 0 auto 24px auto;">
-                Metodoloji detayları, formüller ve uygulama örnekleri eklendiğinde bu alanda görüntülenecektir.
+
+            <p>
+                Burada seçim kuraya değil araştırmacının inisiyatifine, bütçe veya zaman kısıtına dayanır. Bu yüzden
+                bulgular anakütleye <strong>istatistiksel olarak genellenemez</strong>; daha çok keşifsel (exploratory)
+                çalışmalarda, pilot testlerde veya elimizde hiçbir evren çerçevesi bulunmadığında kullanılır:
             </p>
+
+            <div class="s8-grid-2">
+                <div class="s8-method-card acc-amber">
+                    <span class="s8-method-tag">2A · En Hızlı / En Riskli</span>
+                    <h3>Kolayda Örnekleme (Convenience)</h3>
+                    <p>
+                        O an ulaşması en hızlı, en ucuz ve en zahmetsiz birimlerden veri toplanmasıdır (ör. sosyal medyada
+                        anket linki paylaşmak, meydandan geçenlere sormak). <strong>En yüksek seçim yanlılığı</strong> riskini taşır.
+                    </p>
+                </div>
+
+                <div class="s8-method-card acc-purple">
+                    <span class="s8-method-tag">2B · Sabit Sayılı Hedef</span>
+                    <h3>Kota Örneklemesi (Quota)</h3>
+                    <p>
+                        Tabakalı örneklemenin rastsal olmayan ikizidir. Araştırmacı alt gruplar için sabit sayılar belirler
+                        (ör. 50 kadın, 50 erkek) ve bu kotaları kura çekmeden, ilk ulaştığı uygun kişilerle doldurur.
+                    </p>
+                </div>
+
+                <div class="s8-method-card acc-blue">
+                    <span class="s8-method-tag">2C · Uzman Seçimi</span>
+                    <h3>Amaçsal / Yargısal Örnekleme (Purposive)</h3>
+                    <p>
+                        Araştırmacı kendi alan uzmanlığına dayanarak soruya en kritik bilgiyi verecek spesifik birimleri
+                        bilinçli seçer (ör. yalnızca sektördeki en büyük 10 gayrimenkul şirketinin CEO'su ile görüşmek).
+                    </p>
+                </div>
+
+                <div class="s8-method-card acc-green">
+                    <span class="s8-method-tag">2D · Referans Ağı</span>
+                    <h3>Kartopu Örneklemesi (Snowball)</h3>
+                    <p>
+                        Ulaşılması zor, nadir veya gizli gruplar için kullanılır (ör. el altından dükkân devreden yatırımcılar).
+                        Ulaşılan ilk katılımcıdan aynı özelliği taşıyan başka kişilere referans olması istenir ve örneklem ağ gibi büyür.
+                    </p>
+                </div>
+            </div>
         </section>
+
+        <!-- 3. ÖRNEKLEM BÜYÜKLÜĞÜNÜN BELİRLENMESİ -->
+        <section class="s8-section acc-amber" id="blok-3">
+            <div class="s8-section-head">
+                <div class="s8-head-num">3</div>
+                <div>
+                    <h2 class="s8-section-title">Örneklem Büyüklüğünün (<i>n</i>) Belirlenmesi</h2>
+                    <p class="s8-section-sub">"Kaç gözlem yeterlidir?" sorusu sahaya çıkmadan matematikle yanıtlanır.</p>
+                </div>
+            </div>
+
+            <p>
+                Yöntemi seçmek tek başına yetmez; kaç kişi veya mülk toplayacağımızı da önceden hesaplamak zorundayız.
+                Örneklem büyüklüğü üç temel parametreye bağlıdır:
+            </p>
+
+            <div class="s8-grid-3">
+                <div class="s8-param-card acc-blue">
+                    <span class="s8-param-sym">Z</span>
+                    <strong>Güven Düzeyi</strong>
+                    <p>Sonuçtan ne kadar emin olmak istiyoruz? Genellikle <strong>%95 güven</strong> için <code>Z = 1.96</code> (%99 için 2.576) seçilir.</p>
+                </div>
+                <div class="s8-param-card acc-amber">
+                    <span class="s8-param-sym">E</span>
+                    <strong>Hata Payı (Tolerans)</strong>
+                    <p>Gerçek anakütle değerinden ne kadar sapmaya izin veriyoruz? Örneğin <strong>± %5</strong> sapma için <code>E = 0.05</code> alınır.</p>
+                </div>
+                <div class="s8-param-card acc-purple">
+                    <span class="s8-param-sym">p</span>
+                    <strong>Evren Oranı / Varyansı</strong>
+                    <p>Evren ne kadar heterojen? Oran bilinmiyorsa maksimum varyansı (en kötü durumu) varsayan en güvenli değer <code>p = 0.50</code> alınır.</p>
+                </div>
+            </div>
+
+            <div class="s8-formula-grid">
+                <div class="s8-formula-card acc-amber">
+                    <span class="s8-formula-label">Büyük Evrende Temel Formül (Cochran)</span>
+                    <div class="s8-math-row">
+                        <span class="s8-lhs"><i>n</i><sub>0</sub> =</span>
+                        <div class="s8-frac">
+                            <span class="s8-num"><i>Z</i><sup>2</sup> · <i>p</i> · (1 − <i>p</i>)</span>
+                            <span class="s8-den"><i>E</i><sup>2</sup></span>
+                        </div>
+                    </div>
+                    <small>Örneğin Z = 1.96, p = 0.50 ve E = 0.05 koyduğunda sonuç <strong>384,16 &rarr; 385 gözlem</strong> çıkar.</small>
+                </div>
+
+                <div class="s8-formula-card acc-blue">
+                    <span class="s8-formula-label">Bilinen Sonlu Evren Düzeltmesi (FPC)</span>
+                    <div class="s8-math-row">
+                        <span class="s8-lhs"><i>n</i> =</span>
+                        <div class="s8-frac">
+                            <span class="s8-num"><i>n</i><sub>0</sub></span>
+                            <span class="s8-den">1 + (<i>n</i><sub>0</sub> − 1) / <i>N</i></span>
+                        </div>
+                    </div>
+                    <small>Evren küçükse (ör. <i>N</i> = 600 esnaf) 385 yerine yalnızca <strong>235 gözlem</strong> aynı güveni verir!</small>
+                </div>
+            </div>
+
+            <h3 class="s8-subtitle"><i>N</i> = <i>n</i> Kuralı ve Her Zaman "Sonsuz Evren" Formülüne Sıkışmamak</h3>
+            <p>
+                Analistlerin sahada yaptığı en klasik hatalardan biri, karşısına çıkan her probleme ezbere
+                <strong>"385 gözlem lazım"</strong> damgası vurmasıdır. Oysa yukarıdaki Cochran formülü yalnızca
+                <em>sonsuz (veya yüz binlerce birimli) bir evrende oran tahmini</em> yaparken geçerlidir. Pratikte
+                örneklem büyüklüğün (<i>n</i>) çoğu zaman çok daha küçük — hatta bazen <strong>evrenin tamamı (<i>n</i> = <i>N</i>)</strong> — olabilir:
+            </p>
+
+            <div class="s8-grid-2">
+                <div class="s8-exception-card acc-purple">
+                    <span class="s8-method-tag">1. Altın İlke · Tam Sayım &amp; Temsil</span>
+                    <h3><i>N</i> = <i>n</i> Kuralı (İki Yüzlü Altın Kural)</h3>
+                    <p>
+                        <strong>1. Temsiliyet Anlamı:</strong> 2. aşamada gördüğümüz üzere örneklem (<i>n</i>), anakütlenin
+                        (<i>N</i>) küçük ve yansız bir minyatürü olmak zorundadır.<br>
+                        <strong>2. Tam Sayım (Census) Anlamı:</strong> Eğer hedef evrenin zaten küçük ve erişilebilir ise
+                        (örneğin bir holdinge bağlı <strong>45 şube</strong>, Borsa İstanbul'daki <strong>30 banka/şirket</strong>
+                        veya tek bir sanayi sitesindeki <strong>80 atölye</strong>), örneklem çekmene hiç gerek yoktur:
+                        <strong>Doğrudan <i>n</i> = <i>N</i> yapar, hepsini toplarsın!</strong> Bu durumda örnekleme hatası sıfırdır.
+                    </p>
+                </div>
+
+                <div class="s8-exception-card acc-green">
+                    <span class="s8-method-tag">2. Sonlu Evren Etkisi</span>
+                    <h3>Evren Küçükse <i>n</i> de Doğal Olarak Küçülür</h3>
+                    <p>
+                        İncelediğin kitle <strong><i>N</i> = 150</strong> ticari plaza iken sonsuz evren formülünden
+                        <strong>385</strong> çıkarmak anlamsızdır! Sonlu Evren Düzeltmesi (FPC) ile <i>N</i> = 150 için
+                        yalnızca <strong>109</strong>, <i>N</i> = 80 için yalnızca <strong>67 gözlem</strong> sana birebir aynı
+                        %95 güven düzeyini ve ±%5 hata payını sağlar.
+                    </p>
+                </div>
+
+                <div class="s8-exception-card acc-blue">
+                    <span class="s8-method-tag">3. Sürekli Ortalama &amp; Homojenlik</span>
+                    <h3>Homojen Bir Kitlede 30–60 Gözlem Yetebilir</h3>
+                    <p>
+                        Sayısal bir ortalamayı (ör. m² fiyatı) tahmin ediyorsan formül
+                        <code><i>n</i><sub>0</sub> = (<i>Z</i> · σ / <i>E</i>)²</code> şekline döner. Evrenin kendi
+                        içinde çok benzerse (standart sapma σ küçükse veya tabakalı örnekleme yaptıysan) çok daha
+                        küçük <i>n</i> değerleriyle son derece keskin tahminler elde edersin.
+                    </p>
+                </div>
+
+                <div class="s8-exception-card acc-amber">
+                    <span class="s8-method-tag">4. Pilot, Nitel &amp; Küçük Örneklem Teorisi</span>
+                    <h3>Küçük Örneklem (<i>n</i> &lt; 30) ve <i>t</i>-Dağılımı</h3>
+                    <p>
+                        Derinlemesine mülakatlarda genellikle <strong>15–25 görüşmede</strong> veri doygunluğuna
+                        (saturation) ulaşılır. Kontrollü laboratuvar deneylerinde veya pilot testlerde de 20–50 gözlem
+                        yeterli olur; bu durumda normal dağılım (<i>Z</i>) yerine küçük örneklemlerin kalın kuyruklu yapısını
+                        düzeltmek için <strong>Student <i>t</i>-dağılımı</strong> (veya parametrik olmayan testler) kullanılır.
+                    </p>
+                </div>
+            </div>
+
+            <!-- ETKİLEŞİMLİ ÖRNEKLEM BÜYÜKLÜĞÜ HESAPLAYICI -->
+            <h3 class="s8-subtitle">Mini Laboratuvar: Canlı Örneklem Büyüklüğü (<i>n</i>) Hesaplayıcı</h3>
+            <div class="s8-calc" id="s8-calc">
+                <div class="s8-calc-controls">
+                    <div class="s8-calc-group">
+                        <span class="s8-calc-label">Güven Düzeyi (<i>Z</i>)</span>
+                        <div class="s8-btn-row">
+                            <button type="button" class="s8-z-btn" data-z="1.645">%90 (1.645)</button>
+                            <button type="button" class="s8-z-btn is-active" data-z="1.96">%95 (1.96)</button>
+                            <button type="button" class="s8-z-btn" data-z="2.576">%99 (2.576)</button>
+                        </div>
+                    </div>
+
+                    <div class="s8-calc-group">
+                        <span class="s8-calc-label">Evren Büyüklüğü (<i>N</i>)</span>
+                        <div class="s8-btn-row">
+                            <button type="button" class="s8-n-btn is-active" data-pop="0">Çok Büyük (100.000+)</button>
+                            <button type="button" class="s8-n-btn" data-pop="12000">12.000 (Denizli)</button>
+                            <button type="button" class="s8-n-btn" data-pop="500">500</button>
+                            <button type="button" class="s8-n-btn" data-pop="150">150</button>
+                            <button type="button" class="s8-n-btn" data-pop="45">45 (Tam Sayım!)</button>
+                        </div>
+                    </div>
+
+                    <div class="s8-calc-group">
+                        <label for="s8-err-range" class="s8-calc-label">Hata Payı (<i>E</i>): <b id="s8-err-val">± %5 (0.05)</b></label>
+                        <input type="range" id="s8-err-range" min="1" max="10" value="5" step="1">
+                    </div>
+
+                    <div class="s8-calc-group">
+                        <label for="s8-p-range" class="s8-calc-label">Evren Oranı (<i>p</i>): <b id="s8-p-val">0.50 (En Güvenli)</b></label>
+                        <input type="range" id="s8-p-range" min="10" max="90" value="50" step="5">
+                    </div>
+                </div>
+
+                <div class="s8-calc-outputs">
+                    <div class="s8-out-box">
+                        <small>Temel Formül (<i>n</i><sub>0</sub>)</small>
+                        <strong id="s8-out-n0">385</strong>
+                        <span>Sonsuz evren varsayımı</span>
+                    </div>
+                    <div class="s8-out-box is-main">
+                        <small>Gereken Minimum Örneklem (<i>n</i>)</small>
+                        <strong id="s8-out-n">385 gözlem</strong>
+                        <span id="s8-out-sub">%95 güven ve ± %5 hata payı ile</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MİMARİ TAMAMLANDI -> 9. ADIM FAALİYET -->
+        <section class="s8-section acc-green" id="ozet">
+            <div class="s8-section-head">
+                <div class="s8-head-icon"><i data-lucide="check-circle-2"></i></div>
+                <div>
+                    <h2 class="s8-section-title">Tasarım &amp; Mimari Evresi Tamamlandı: Sıra Faaliyette!</h2>
+                    <p class="s8-section-sub">8 adımın sonunda artık her taş yerine oturdu.</p>
+                </div>
+            </div>
+
+            <p>
+                Sekizinci adımı da tamamlamamızla birlikte, <strong>Tasarım ve Mimari Evresi</strong> uçtan uca bitmiş oldu.
+                Artık elinde tüm bileşenleri kilitlenmiş eksiksiz bir mühendislik sistemi var:
+            </p>
+
+            <div class="s8-chain-grid">
+                <div class="s8-chain-item"><b>1. Soru &amp; Hipotez</b><span>Y, X ve H₀/H₁</span></div>
+                <div class="s8-chain-item"><b>2. Evren &amp; Çerçeve</b><span>N = n temsiliyeti</span></div>
+                <div class="s8-chain-item"><b>3. Zaman &amp; Mekân</b><span>Kesit / Seri / Panel</span></div>
+                <div class="s8-chain-item"><b>4. Ölçüm Ölçeği</b><span>NOIR ve kuklalar</span></div>
+                <div class="s8-chain-item"><b>5. Kısıt &amp; Etik</b><span>Bütçe, KVKK, ToS</span></div>
+                <div class="s8-chain-item"><b>6. Dijital Altyapı</b><span>Parquet, Göl / Ambar</span></div>
+                <div class="s8-chain-item"><b>7. Kaynak &amp; Araç</b><span>API, CAPI, SQL</span></div>
+                <div class="s8-chain-item"><b>8. Örnekleme</b><span>Yöntem ve n hesabı</span></div>
+            </div>
+
+            <div class="s8-final-box">
+                <div class="s8-final-badge">9. ADIM · FAALİYET (İCRA)</div>
+                <p>
+                    Buradan sonrası doğrudan <strong>Faaliyet (İcra)</strong> aşamasıdır — yani anketörlerin sahaya inmesi,
+                    API ve veri kazıma betiklerinin çalıştırılması ve verinin tasarladığın altyapıya akmaya başlaması.
+                    Mimarin sağlam olduğu için bu aşama artık şans veya tesadüf değil, öngörülebilir bir mühendislik icrasıdır.
+                </p>
+            </div>
+
+            <div class="s8-nav">
+                <a href="../7.Aşama_Veri_Toplama_Kaynağı_ve_Aracı/index.html" class="s8-nav-btn is-secondary">
+                    <i data-lucide="arrow-left"></i>
+                    <span><small>Önceki: 7. Aşama</small>Veri Toplama Kaynağı ve Aracı</span>
+                </a>
+                <a href="../../index.html#veri-toplama-asamalari" class="s8-nav-btn is-primary">
+                    <span><small>Mimari Tamamlandı</small>9 Adımlı Veri Mimarisine Dön</span>
+                    <i data-lucide="layers"></i>
+                </a>
+            </div>
+        </section>
+
     </main>
 
     <!-- Footer injected via components.js -->
+
+    <!-- Ortak betikler (proje kökü: 3 klasör yukarıda) -->
     <script src="../../../js/components.js"></script>
     <script src="../../../js/nav.js"></script>
     <script src="../../../js/modal.js"></script>
     <script src="../../../js/script.js"></script>
+    <!-- Bu aşamaya özel betik -->
     <script src="script.js"></script>
     <script>
-        if (window.lucide) { lucide.createIcons(); }
+        if (window.lucide) {
+            lucide.createIcons();
+        }
     </script>
 </body>
 </html>
