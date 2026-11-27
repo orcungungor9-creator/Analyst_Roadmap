@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>6. Aşama: Dijital Altyapı ve Format | Veri Mimarisi | Analyst Roadmap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet"></noscript>
+    <!-- Ortak stiller (proje kökü: 3 klasör yukarıda) -->
     <link rel="stylesheet" href="../../../styles.css">
+    <!-- Bu aşamaya özel stiller -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,55 +23,623 @@
         })();
     </script>
 
+    <!-- ARKA PLAN GRAFİK AĞI (HAREKETSİZ) -->
+    <div class="bg-analytics-mesh">
+        <div class="bg-chart-item bg-chart-1">
+            <svg viewBox="0 0 400 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="s6-bg-area-grad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="var(--neon-blue)" stop-opacity="0.4" />
+                        <stop offset="100%" stop-color="var(--neon-blue)" stop-opacity="0.0" />
+                    </linearGradient>
+                </defs>
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40 L 370,190 L 10,190 Z" fill="url(#s6-bg-area-grad)" />
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40" fill="none" stroke="var(--neon-blue)" stroke-width="4" stroke-linecap="round" />
+                <circle cx="130" cy="150" r="6" fill="var(--neon-green)" />
+                <circle cx="250" cy="90" r="6" fill="var(--neon-purple)" />
+                <circle cx="370" cy="40" r="8" fill="var(--neon-blue)" />
+            </svg>
+        </div>
+        <div class="bg-chart-item bg-chart-2">
+            <svg viewBox="0 0 200 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <g transform="translate(100,100)">
+                    <path d="M 0,-80 A 80,80 0 0,1 76,25 L 57,18 A 60,60 0 0,0 0,-60 Z" fill="var(--neon-blue)" />
+                    <path d="M 76,25 A 80,80 0 0,1 -64,48 L -48,36 A 60,60 0 0,0 57,18 Z" fill="var(--neon-green)" />
+                    <path d="M -64,48 A 80,80 0 0,1 0,-80 L 0,-60 A 60,60 0 0,0 -48,36 Z" fill="var(--neon-purple)" />
+                    <circle cx="0" cy="0" r="45" fill="none" stroke="var(--glass-border)" stroke-width="2" stroke-dasharray="5,5" />
+                </g>
+            </svg>
+        </div>
+        <div class="bg-chart-item bg-chart-3">
+            <svg viewBox="0 0 250 250" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <line x1="20" y1="50" x2="230" y2="50" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4" />
+                <line x1="20" y1="100" x2="230" y2="100" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4" />
+                <line x1="20" y1="150" x2="230" y2="150" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4" />
+                <line x1="20" y1="200" x2="230" y2="200" stroke="var(--glass-border)" stroke-width="2" />
+                <rect x="35" y="120" width="30" height="80" rx="6" fill="var(--neon-blue)" />
+                <rect x="85" y="70" width="30" height="130" rx="6" fill="var(--neon-green)" />
+                <rect x="135" y="150" width="30" height="50" rx="6" fill="var(--neon-purple)" />
+                <rect x="185" y="90" width="30" height="110" rx="6" fill="var(--neon-blue)" />
+            </svg>
+        </div>
+        <div class="bg-chart-item bg-chart-4">
+            <svg viewBox="0 0 280 220" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <line x1="50" y1="30" x2="50" y2="170" stroke="var(--neon-green)" stroke-width="3" />
+                <rect x="38" y="70" width="24" height="60" rx="4" fill="var(--neon-green)" />
+                <line x1="110" y1="50" x2="110" y2="190" stroke="var(--neon-blue)" stroke-width="3" />
+                <rect x="98" y="90" width="24" height="70" rx="4" fill="var(--neon-blue)" />
+                <line x1="170" y1="20" x2="170" y2="150" stroke="var(--neon-purple)" stroke-width="3" />
+                <rect x="158" y="50" width="24" height="50" rx="4" fill="var(--neon-purple)" />
+                <line x1="230" y1="60" x2="230" y2="200" stroke="var(--neon-green)" stroke-width="3" />
+                <rect x="218" y="100" width="24" height="55" rx="4" fill="var(--neon-green)" />
+            </svg>
+        </div>
+    </div>
+
     <!-- Header injected via components.js -->
 
-    <main class="main-container" style="max-width: 1200px; margin: 40px auto; padding: 0 24px 80px 24px;">
-        <!-- Breadcrumb & Geri Dön Butonu -->
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
-            <a href="../../index.html#asama-ayrintilari" style="display: inline-flex; align-items: center; gap: 8px; color: #06b6d4; text-decoration: none; font-weight: 600; font-size: 0.95rem; padding: 8px 16px; border-radius: 12px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); transition: all 0.2s ease;">
-                <i data-lucide="arrow-left" style="width: 18px; height: 18px;"></i>
-                Aşama Ayrıntılarına Dön
-            </a>
-            <div style="color: var(--text-muted); font-size: 0.9rem;">
-                Veri Mimarisi / <span style="color: var(--text-main); font-weight: 600;">6. Aşama</span>
+    <!-- HERO BANNER -->
+    <div class="hero-banner-wrapper s6-hero">
+        <div class="hero-banner-bg"></div>
+        <div class="hero-banner-overlay"></div>
+        <a href="../../index.html#asama-ayrintilari" class="s6-back-link">
+            <i data-lucide="arrow-left"></i>
+            Aşama Ayrıntılarına Dön
+        </a>
+        <section class="hero-section s6-hero-section">
+            <div class="hero-content s6-hero-content">
+                <div class="badge-pill floating-slow">6. Aşama · Veri Mimarisi</div>
+                <h1 class="hero-title custom-brand-title s6-hero-title">Dijital Altyapı ve Formatın Seçilmesi</h1>
+                <p class="hero-subtitle s6-hero-subtitle">
+                    Verinin sadece hangi dosyaya kaydedileceğini değil; <strong>nasıl taşınacağını, nerede barındırılacağını</strong>
+                    ve analize hazır hale gelene kadar hangi <strong>mühendislik boru hattından (pipeline)</strong> geçeceğini
+                    belirleyen aşamadır. Uçtan uca kapsayıcı bir altyapı tasarımı beş ana katmandan oluşur.
+                </p>
             </div>
-        </div>
+        </section>
+    </div>
 
-        <!-- Aşama Hero Kartı -->
-        <section class="glass" style="padding: 36px; border-radius: 20px; border-left: 6px solid #06b6d4 !important; margin-bottom: 32px;">
-            <span style="background: #06b6d4; color: #fff; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; display: inline-block; margin-bottom: 16px;">
-                6. Aşama
-            </span>
-            <h1 style="font-size: 2.2rem; font-weight: 800; color: var(--text-main); margin-bottom: 12px;">
-                Dijital Altyapı ve Formatın Seçilmesi
-            </h1>
-            <p style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.7; max-width: 900px; margin: 0;">
-                Veri akışının hacim ve hızına göre SQL, NoSQL, Parquet, JSON veya CSV formatlarını seçmek; veri boru hattının (pipeline) depolama mimarisini kurmak.
+    <main class="s6-main">
+
+        <!-- GİRİŞ: 5 KATMANLI BORU HATTI -->
+        <section class="s6-section acc-cyan" id="giris">
+            <div class="s6-section-head">
+                <div class="s6-head-icon"><i data-lucide="server"></i></div>
+                <div>
+                    <h2 class="s6-section-title">Uçtan Uca 5 Katmanlı Dijital Altyapı</h2>
+                    <p class="s6-section-sub">Verinin doğuşundan modele girdiği ana kadar izlediği teknik omurga.</p>
+                </div>
+            </div>
+
+            <p>
+                50 bin satırlık veriyi masaüstünde bir <code>.xlsx</code> dosyasına atıp geçmek kolaydır. Peki veri
+                <strong>50 milyon satıra</strong> çıktığında, canlı API'den saniyede yüzlerce kayıt aktığında veya
+                geçen ayki modeli birebir tekrar üretmen gerektiğinde ne olur? Altyapı en baştan kurulmamışsa sistem kilitlenir.
+                Sağlam bir dijital altyapı birbiri üstüne oturan şu <strong>5 katmandan</strong> oluşur:
             </p>
+
+            <div class="s6-layers-row">
+                <div class="s6-layer-chip acc-blue"><b>1. Katman</b><span>Formatlar &amp; Dosya</span></div>
+                <i data-lucide="chevron-right" class="s6-layer-arrow"></i>
+                <div class="s6-layer-chip acc-purple"><b>2. Katman</b><span>Depolama Mimarisi</span></div>
+                <i data-lucide="chevron-right" class="s6-layer-arrow"></i>
+                <div class="s6-layer-chip acc-green"><b>3. Katman</b><span>Aktarım &amp; ETL/ELT</span></div>
+                <i data-lucide="chevron-right" class="s6-layer-arrow"></i>
+                <div class="s6-layer-chip acc-amber"><b>4. Katman</b><span>Barındırma Ortamı</span></div>
+                <i data-lucide="chevron-right" class="s6-layer-arrow"></i>
+                <div class="s6-layer-chip acc-cyan"><b>5. Katman</b><span>Yönetişim &amp; Sürüm</span></div>
+            </div>
         </section>
 
-        <!-- İçerik Alanı -->
-        <section class="glass" style="padding: 40px; border-radius: 20px; text-align: center;">
-            <div style="width: 64px; height: 64px; border-radius: 50%; background: color-mix(in srgb, #06b6d4 15%, transparent); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 16px;">
-                <i data-lucide="database" style="width: 32px; height: 32px; color: #06b6d4;"></i>
+        <!-- 1. KATMAN: VERİ FORMATLARI -->
+        <section class="s6-section acc-blue" id="blok-1">
+            <div class="s6-section-head">
+                <div class="s6-head-num">1</div>
+                <div>
+                    <h2 class="s6-section-title">Veri Formatları ve Dosya Yapıları (Data Formats)</h2>
+                    <p class="s6-section-sub">Verinin diskte nasıl kodlanacağı, okuma hızını ve depolama maliyetini doğrudan etkiler.</p>
+                </div>
             </div>
-            <h3 style="font-size: 1.4rem; font-weight: 700; color: var(--text-main); margin-bottom: 8px;">
-                Bu Aşamanın İçeriği Yapılandırılıyor
-            </h3>
-            <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 600px; margin: 0 auto 24px auto;">
-                Metodoloji detayları, formüller ve uygulama örnekleri eklendiğinde bu alanda görüntülenecektir.
-            </p>
+
+            <div class="s6-grid-2">
+                <div class="s6-card acc-amber">
+                    <div class="s6-card-top">
+                        <span class="s6-card-tag">İnsan Odaklı</span>
+                        <h3>Satır Bazlı (Row-Oriented) Formatlar</h3>
+                    </div>
+                    <p><strong>Örnekler:</strong> <code>CSV</code>, <code>TSV</code>, <code>Excel (.xlsx)</code></p>
+                    <p>
+                        İnsan gözüyle okunması kolaydır; küçük ve orta ölçekli veri setleri için standarttır.
+                        Ancak veri büyüdükçe (milyonlarca satır) diskten okunması yavaşlar ve <strong>veri tiplerini
+                        (tarih, tam sayı, metin) koruyamaz</strong> — örneğin Excel'de baştaki sıfırlar (<code>0258</code>) silinir veya tarihler bozulur.
+                    </p>
+                </div>
+
+                <div class="s6-card acc-green">
+                    <div class="s6-card-top">
+                        <span class="s6-card-tag">Altın Standart</span>
+                        <h3>Sütun Bazlı (Columnar) Formatlar</h3>
+                    </div>
+                    <p><strong>Örnekler:</strong> <code>Parquet</code>, <code>ORC</code>, <code>Feather</code></p>
+                    <p>
+                        Büyük veri ve analitik (ekonometri / makine öğrenmesi) için <strong>altın standarttır</strong>.
+                        Veriyi sütun bazında sıkıştırır (benzer veriler yan yana durduğu için %70–%90 yer kazanılır), şemayı/tipleri
+                        korur ve sadece seçtiğin 3 sütunu okuyarak analiz hızını 10–50 kat artırır.
+                    </p>
+                </div>
+
+                <div class="s6-card acc-blue">
+                    <div class="s6-card-top">
+                        <span class="s6-card-tag">Hiyerarşik</span>
+                        <h3>Yarı-Yapılandırılmış Formatlar</h3>
+                    </div>
+                    <p><strong>Örnekler:</strong> <code>JSON</code>, <code>XML</code>, <code>YAML</code></p>
+                    <p>
+                        İç içe geçmiş (nested) ağaç yapılarını tutabilir (örneğin bir mülk kaydının içinde liste halinde oda
+                        özellikleri ve adres nesnesi). Web API'lerinden veya sistem loglarından gelen ham verilerin varsayılan formatıdır.
+                    </p>
+                </div>
+
+                <div class="s6-card acc-purple">
+                    <div class="s6-card-top">
+                        <span class="s6-card-tag">Ham Medya</span>
+                        <h3>Yapılandırılmamış Formatlar</h3>
+                    </div>
+                    <p><strong>Örnekler:</strong> <code>PDF</code>, <code>.txt</code>, ses, görüntü, video</p>
+                    <p>
+                        Doğrudan sayısal satır-sütun tablosu değildir; işlenebilmesi için önce
+                        <strong>özellik çıkarımı (feature extraction)</strong>, OCR ya da metin madenciliği / NLP aşamasından
+                        geçirilip yapılandırılmış tabloya dönüştürülmesi gerekir.
+                    </p>
+                </div>
+            </div>
+
+            <div class="s6-callout acc-blue">
+                <i data-lucide="zap" class="s6-callout-icon"></i>
+                <div>
+                    <strong>Neden Sütun Bazlı (Parquet) Analizde Fark Yaratır?</strong>
+                    <p>
+                        50 sütunlu dev bir tabloda sadece <em>"Fiyat"</em> sütununun ortalamasını alacaksan,
+                        <strong>CSV</strong> satır satır ilerlediği için disktaki 50 sütunun tamamını okumak zorundadır.
+                        <strong>Parquet</strong> ise yalnızca "Fiyat" bloğunu çeker; diğer 49 sütuna hiç dokunmaz.
+                    </p>
+                </div>
+            </div>
         </section>
+
+        <!-- 2. KATMAN: DEPOLAMA MİMARİLERİ -->
+        <section class="s6-section acc-purple" id="blok-2">
+            <div class="s6-section-head">
+                <div class="s6-head-num">2</div>
+                <div>
+                    <h2 class="s6-section-title">Depolama Mimarileri (Storage Architectures)</h2>
+                    <p class="s6-section-sub">Verinin hacmine, hızına ve kullanım amacına (operasyonel kayıt vs. analitik model) göre seçilir.</p>
+                </div>
+            </div>
+
+            <h3 class="s6-subtitle">A. Operasyonel Veritabanları (Günlük Kayıt ve Uygulama Odaklı)</h3>
+            <div class="s6-grid-3">
+                <div class="s6-card acc-blue">
+                    <div class="s6-card-top"><span class="s6-card-tag">SQL / RDBMS</span><h3>İlişkisel Veritabanları</h3></div>
+                    <p><strong>Araçlar:</strong> PostgreSQL, MySQL, SQLite</p>
+                    <p>
+                        Katı bir şeması (tablo ve sütun kuralları) vardır. <strong>ACID prensipleri</strong> sayesinde
+                        veri tutarlılığı en üst düzeydedir; finansal kayıtlar ve düzenli ilişkili tablolar için rakipsizdir.
+                    </p>
+                </div>
+
+                <div class="s6-card acc-purple">
+                    <div class="s6-card-top"><span class="s6-card-tag">NoSQL</span><h3>İlişkisel Olmayan Veritabanları</h3></div>
+                    <p><strong>Esnek şemalı üç ana kolu vardır:</strong></p>
+                    <ul>
+                        <li><strong>Belge (MongoDB):</strong> JSON benzeri iç içe kayıtlar tutar.</li>
+                        <li><strong>Anahtar-Değer (Redis):</strong> Bellek içi ultra hızlı önbellek.</li>
+                        <li><strong>Graf (Neo4j):</strong> Sosyal ağ, sahiplik ve ilişki zinciri analizi.</li>
+                    </ul>
+                </div>
+
+                <div class="s6-card acc-green">
+                    <div class="s6-card-top"><span class="s6-card-tag">TSDB</span><h3>Zaman Serisi Veritabanları</h3></div>
+                    <p><strong>Araçlar:</strong> TimescaleDB, InfluxDB</p>
+                    <p>
+                        Finansal fiyat akışları, IoT sensör telemetrileri veya yüksek frekanslı makroekonomik göstergeler gibi
+                        zaman damgalı verileri yüksek hızda yazmak ve aralık bazlı sorgulamak için özelleşmiştir.
+                    </p>
+                </div>
+            </div>
+
+            <h3 class="s6-subtitle">B. Analitik Depolama Sistemleri: Veri Ambarı, Veri Gölü ve Veri Gölü Evi</h3>
+            <p>
+                Operasyonel veritabanları uygulamanın anlık çalışmasını sağlar ("bir siparişi kaydet"). Analitik depolama
+                sistemleri ise milyonlarca satırı tarayıp <strong>ekonometrik model kurmak, trend bulmak ve yapay zeka
+                eğitmek</strong> için tasarlanır. Burada üç temel mimari mantığı birbiriyle yarışır:
+            </p>
+
+            <div class="s6-grid-3">
+                <div class="s6-arch-card acc-blue">
+                    <span class="s6-card-tag">Raf Etiketli Depo</span>
+                    <h3>Veri Ambarı (Data Warehouse)</h3>
+                    <p>
+                        İçeri yalnızca önceden temizlenmiş, sütun adları ve veri tipleri kesinleşmiş
+                        <strong>yapılandırılmış tablolar</strong> girebilir. Satır, tarih ya da sayı formatı kurala uymuyorsa
+                        sistem o veriyi kapıdan geri çevirir.
+                    </p>
+                    <div class="s6-arch-meta">
+                        <span><b>Kural:</b> Schema-on-Write (Yazarken Şema)</span>
+                        <span><b>Örnek:</b> BigQuery, Snowflake, Redshift</span>
+                        <span><b>Ne zaman?</b> Düzenli SQL, BI raporları, net finansal tablolar</span>
+                    </div>
+                </div>
+
+                <div class="s6-arch-card acc-cyan">
+                    <span class="s6-card-tag">Ham Rezervuar</span>
+                    <h3>Veri Gölü (Data Lake)</h3>
+                    <p>
+                        "Önce her şeyi ham haliyle ucuza depola, ne şekilde okuyacağına analiz anında karar ver" mantığıyla çalışır.
+                        Tablolar yanında ham <strong>JSON, PDF, ses ve fotoğraflar</strong> da filtrelenmeden aynı gölde durabilir.
+                    </p>
+                    <div class="s6-arch-meta">
+                        <span><b>Kural:</b> Schema-on-Read (Okurken Şema)</span>
+                        <span><b>Örnek:</b> AWS S3, Google Cloud Storage, HDFS</span>
+                        <span><b>Ne zaman?</b> Dev ham veri, NLP/görüntü işleme, keşifçi ML</span>
+                    </div>
+                </div>
+
+                <div class="s6-arch-card acc-purple">
+                    <span class="s6-card-tag">Hibrit Çatı</span>
+                    <h3>Veri Gölü Evi (Data Lakehouse)</h3>
+                    <p>
+                        Gölün düşük maliyetini ve tüm formatları kabul eden esnekliğini alırken, üzerine Veri Ambarının
+                        <strong>ACID tutarlılığını, hızlı indekslemesini ve versiyonlamasını (Time Travel)</strong> ekler.
+                        Hem göl hem ambar kurup veriyi iki kez taşıma derdini bitirir.
+                    </p>
+                    <div class="s6-arch-meta">
+                        <span><b>Kural:</b> Hibrit (Esnek ama Kontrollü)</span>
+                        <span><b>Örnek:</b> Delta Lake, Apache Iceberg, Hudi</span>
+                        <span><b>Ne zaman?</b> Tek platformda hem BI hem ML yürütülecekse</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="s6-callout acc-amber">
+                <i data-lucide="alert-triangle" class="s6-callout-icon"></i>
+                <div>
+                    <strong>Veri Gölü Nasıl "Veri Bataklığına" (Data Swamp) Dönüşür?</strong>
+                    <p>
+                        Veri Gölü çok esnektir; ama içine metadata, klasör düzeni ve sahiplik etiketi olmadan "belki lazım olur"
+                        diye her bulduğun CSV ve JSON'u dökersen, 6 ay içinde içinde ne olduğu bilinmeyen, kimsenin güvenip
+                        analiz edemediği bir <strong>Veri Bataklığı (Data Swamp)</strong> oluşur. Çözüm, göl içinde katmanlı
+                        temizlik kuran <strong>Madalyon Mimarisi</strong>dir.
+                    </p>
+                </div>
+            </div>
+
+            <h3 class="s6-subtitle">Şema Mantığı Farkı: Schema-on-Write vs. Schema-on-Read</h3>
+            <div class="s6-grid-2">
+                <div class="s6-card acc-blue">
+                    <div class="s6-card-top"><span class="s6-card-tag">Ambar Mantığı</span><h3>Schema-on-Write (Yazarken Şema)</h3></div>
+                    <p>
+                        Veri diske <strong>yazılmadan önce</strong> şablona zorlanır. Yarın emlak ilan kaynağın yeni bir
+                        <code>"Şarj İstasyonu"</code> alanı eklerse, Ambar tablosunu önceden güncellemediğin sürece yeni veri
+                        içeri alınamaz — hata verir. Bu sayede içerideki veri her zaman tertemiz ve çok hızlıdır.
+                    </p>
+                </div>
+                <div class="s6-card acc-cyan">
+                    <div class="s6-card-top"><span class="s6-card-tag">Göl Mantığı</span><h3>Schema-on-Read (Okurken Şema)</h3></div>
+                    <p>
+                        Veri diske <strong>hiç kontrolsüz ham halde</strong> hızla yazılır; <code>"Şarj İstasyonu"</code> alanı
+                        kaynağa eklendiği saniye gölde saklanır. Sen aylar sonra Python/Spark ile okuyacağın zaman hangi sütunları
+                        nasıl ayrıştıracağını tanımlarsın. Esneklik zirvededir ama okuma sırasında ek işlem gerekir.
+                    </p>
+                </div>
+            </div>
+
+            <h3 class="s6-subtitle">Modern Standart: Madalyon Mimarisi (Bronze &rarr; Silver &rarr; Gold)</h3>
+            <p>
+                Veri Gölü ve Lakehouse sistemlerinde ham veriyi veri bataklığına dönüştürmeden adım adım değere çeviren
+                3 katmanlı arıtma hattı:
+            </p>
+            <div class="s6-medallion">
+                <div class="s6-medal-card is-bronze">
+                    <span class="s6-medal-tag">1. Bronze (Ham Katman)</span>
+                    <strong>Değiştirilmemiş Ham Kayıt</strong>
+                    <p>
+                        API'den veya sahadan geldiği haliyle (ham JSON, CSV, log) birebir saklanır. Tek kural: <em>Üstüne yazma,
+                        tarih damgalı arşivle.</em> İleride temizlik kodunda hata fark edersen bu katmana dönüp baştan üretebilirsin.
+                    </p>
+                </div>
+                <div class="s6-medal-card is-silver">
+                    <span class="s6-medal-tag">2. Silver (Gümüş Katman)</span>
+                    <strong>Temizlenmiş &amp; Birleştirilmiş</strong>
+                    <p>
+                        Tekrarlı kayıtların atıldığı, boş değerlerin işaretlendiği, tarih ve TL/m² birimlerinin eşitlendiği,
+                        farklı kaynakların ID üzerinden birleştirildiği <strong>Parquet</strong> tablolarıdır. Veri bilimciler
+                        buradan çalışır.
+                    </p>
+                </div>
+                <div class="s6-medal-card is-gold">
+                    <span class="s6-medal-tag">3. Gold (Altın Katman)</span>
+                    <strong>Analiz &amp; Model Hazır Tablolar</strong>
+                    <p>
+                        Ekonometrik regresyon modeli, makine öğrenmesi özellikleri veya yönetim panoları (BI) için doğrudan
+                        sorgulanan, özetlenmiş ve doğrulanmış nihai tablolardır.
+                    </p>
+                </div>
+            </div>
+
+            <div class="s6-table-wrap">
+                <table class="s6-table">
+                    <thead>
+                        <tr>
+                            <th>Mimari</th>
+                            <th>Şema Kuralı</th>
+                            <th>Veri Türü</th>
+                            <th>Temel Amaç</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>Veri Ambarı (Data Warehouse)</b></td>
+                            <td>Yazarken şema (<code>Schema-on-Write</code>)</td>
+                            <td>Yalnızca yapılandırılmış ve temiz</td>
+                            <td>Raporlama, BI panoları ve yüksek hızlı SQL analizleri (Snowflake, BigQuery)</td>
+                        </tr>
+                        <tr>
+                            <td><b>Veri Gölü (Data Lake)</b></td>
+                            <td>Okurken şema (<code>Schema-on-Read</code>)</td>
+                            <td>Yapılandırılmış, yarı-yapılandırılmış, ham</td>
+                            <td>Düşük maliyetli ham depolama, keşifçi analiz, derin öğrenme (S3, GCS)</td>
+                        </tr>
+                        <tr>
+                            <td><b>Veri Gölü Evi (Data Lakehouse)</b></td>
+                            <td>Hibrit (Esnek ama kontrollü)</td>
+                            <td>Tüm veri türleri</td>
+                            <td>Göl esnekliği ile ambar performansını tek çatıda birleştirmek (Delta Lake, Iceberg)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 3. KATMAN: VERİ AKTARIM VE İŞLEME MODELLERİ -->
+        <section class="s6-section acc-green" id="blok-3">
+            <div class="s6-section-head">
+                <div class="s6-head-num">3</div>
+                <div>
+                    <h2 class="s6-section-title">Veri Aktarım ve İşleme Modelleri (Ingestion &amp; Pipelines)</h2>
+                    <p class="s6-section-sub">Verinin kaynaktan depoya hangi ritimle ve hangi sırayla akacağına karar verilir.</p>
+                </div>
+            </div>
+
+            <div class="s6-grid-2">
+                <div class="s6-card acc-green">
+                    <div class="s6-card-top"><span class="s6-card-tag">Periyodik Paket</span><h3>Toplu İşleme (Batch Processing)</h3></div>
+                    <p>
+                        Veriler belirli aralıklarla (örneğin her gece saat 02:00'de, haftalık veya ayda bir) paket halinde
+                        çekilip depoya aktarılır. Kurulumu kolay ve maliyeti düşüktür; çoğu ekonometrik ve akademik
+                        çalışma için fazlasıyla yeterlidir.
+                    </p>
+                </div>
+
+                <div class="s6-card acc-amber">
+                    <div class="s6-card-top"><span class="s6-card-tag">Gerçek Zamanlı</span><h3>Akış İşleme (Stream Processing)</h3></div>
+                    <p>
+                        Veriler üretildiği milisaniyede kesintisiz olarak (real-time) sisteme akar: borsa emir defterleri,
+                        anlık kredi kartı dolandırıcılık tespiti veya canlı trafik sensörleri. Genellikle
+                        <strong>Apache Kafka</strong> veya Flink gibi kuyruk/akış motorları kullanılır.
+                    </p>
+                </div>
+            </div>
+
+            <h3 class="s6-subtitle">Dönüşüm Sırası Kararı: ETL vs. ELT</h3>
+            <div class="s6-grid-2">
+                <div class="s6-pipe-card acc-blue">
+                    <strong>ETL (Extract &rarr; Transform &rarr; Load)</strong>
+                    <div class="s6-pipe-steps">
+                        <span>1. Kaynaktan Çek</span>
+                        <i data-lucide="arrow-right"></i>
+                        <span>2. Ara Sunucuda Temizle</span>
+                        <i data-lucide="arrow-right"></i>
+                        <span>3. Ambara Yükle</span>
+                    </div>
+                    <p>
+                        Veri depoya girmeden önce dışarıda temizlenip dönüştürülür; ardından genellikle
+                        <strong>Veri Ambarına (Schema-on-Write)</strong> yüklenir. Eski ve sıkı kurallı sistemlerde yaygındır.
+                    </p>
+                </div>
+
+                <div class="s6-pipe-card acc-cyan">
+                    <strong>ELT (Extract &rarr; Load &rarr; Transform)</strong>
+                    <div class="s6-pipe-steps">
+                        <span>1. Kaynaktan Çek</span>
+                        <i data-lucide="arrow-right"></i>
+                        <span>2. Ham Halde Göle Yükle</span>
+                        <i data-lucide="arrow-right"></i>
+                        <span>3. İhtiyaçta Dönüştür</span>
+                    </div>
+                    <p>
+                        Veri ham haliyle doğrudan (genelde <strong>Veri Gölü / Lakehouse</strong> içine) yüklenir; temizleme
+                        ve dönüştürme işlemi analiz zamanı geldiğinde depo içinde (SQL/dbt/Spark ile) yapılır. Ham veri hiç kaybolmaz.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. KATMAN: BARINDIRMA ORTAMI -->
+        <section class="s6-section acc-amber" id="blok-4">
+            <div class="s6-section-head">
+                <div class="s6-head-num">4</div>
+                <div>
+                    <h2 class="s6-section-title">Barındırma Ortamı (Hosting / Deployment)</h2>
+                    <p class="s6-section-sub">Altyapının fiziksel olarak nerede çalışacağının belirlenmesi.</p>
+                </div>
+            </div>
+
+            <div class="s6-grid-3">
+                <div class="s6-card acc-blue">
+                    <div class="s6-card-top"><span class="s6-card-tag">Tam Kontrol</span><h3>Yerel / Kurum İçi (On-Premise)</h3></div>
+                    <p>
+                        Kendi bilgisayarın veya kurumun fiziksel sunucu odası. En yüksek fiziksel kontrol ve gizlilik
+                        sağlar, internet bağımsız çalışabilir; ancak eldeki RAM, disk ve CPU donanım kapasitesiyle sınırlıdır.
+                    </p>
+                </div>
+
+                <div class="s6-card acc-cyan">
+                    <div class="s6-card-top"><span class="s6-card-tag">Elastik Güç</span><h3>Bulut (Cloud)</h3></div>
+                    <p>
+                        <strong>AWS, Google Cloud, Azure</strong> gibi sağlayıcılar. Depolama ve işlem gücü ihtiyaca göre
+                        saniyeler içinde büyütülüp küçültülebilir (ölçeklenebilirlik); "kullandığın kadar öde" mantığıyla çalışır.
+                    </p>
+                </div>
+
+                <div class="s6-card acc-purple">
+                    <div class="s6-card-top"><span class="s6-card-tag">Çift Katmanlı</span><h3>Hibrit (Hybrid)</h3></div>
+                    <p>
+                        KVKK veya banka/devlet mevzuatı gereği dışarı çıkamayacak hassas veriler kurum içi sunucularda tutulurken,
+                        ağır işlem gücü gerektiren anonimleştirilmiş model eğitimleri bulutta çalıştırılır.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. KATMAN: YÖNETİŞİM, METADATA VE VERSİYONLAMA -->
+        <section class="s6-section acc-cyan" id="blok-5">
+            <div class="s6-section-head">
+                <div class="s6-head-num">5</div>
+                <div>
+                    <h2 class="s6-section-title">Veri Yönetişimi, Metadata ve Versiyonlama</h2>
+                    <p class="s6-section-sub">Uzun soluklu projelerde verinin kaybolmaması ve tekrarlanabilir (reproducible) olması için kontrol katmanı.</p>
+                </div>
+            </div>
+
+            <div class="s6-grid-3">
+                <div class="s6-card acc-cyan">
+                    <div class="s6-card-icon"><i data-lucide="book-open"></i></div>
+                    <h3>Metadata (Verinin Verisi)</h3>
+                    <p>
+                        Toplanan verinin ne zaman çekildiği, hangi kaynaktan geldiği, sütunların ölçü birimleri (m² mi,
+                        dönüm mü; TL mi, bin TL mi?) ve kodlama anlamları bir <strong>Veri Sözlüğü (Data Dictionary)</strong>
+                        içinde mutlaka kayıt altına alınır.
+                    </p>
+                </div>
+
+                <div class="s6-card acc-purple">
+                    <div class="s6-card-icon"><i data-lucide="git-branch"></i></div>
+                    <h3>Veri Versiyonlama</h3>
+                    <p>
+                        Kod için Git neyse, veri için de versiyonlama odur (örn. <strong>DVC</strong> veya Lakehouse
+                        <em>Time Travel</em> özelliği). <em>"Geçen ay kurduğum modelin beslendiği veri setinin birebir
+                        aynısına dön"</em> diyebilmek bilimsel tekrarlanabilirlik için kritiktir.
+                    </p>
+                </div>
+
+                <div class="s6-card acc-green">
+                    <div class="s6-card-icon"><i data-lucide="hard-drive"></i></div>
+                    <h3>Yedekleme ve Erişim Kontrolü</h3>
+                    <p>
+                        Veriyi kimin okuyabileceği, kimin değiştirebileceği (rol bazlı yetkilendirme) ve sistem çökmesine
+                        karşı yedekleme periyodu belirlenir. Pratik kural: <strong>3 kopya, 2 farklı ortam, 1 uzak konum (3-2-1)</strong>.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ETKİLEŞİMLİ MİMARİ STACK ÖNERİCİ -->
+        <section class="s6-section acc-blue" id="laboratuvar">
+            <div class="s6-section-head">
+                <div class="s6-head-icon"><i data-lucide="sliders-horizontal"></i></div>
+                <div>
+                    <h2 class="s6-section-title">Mini Laboratuvar: Altyapı Mimarisi Tasarlayıcı</h2>
+                    <p class="s6-section-sub">Projenin ölçeğini ve ihtiyacını seç; sana uygun 5 katmanlı teknik yığını (stack) oluşturalım.</p>
+                </div>
+            </div>
+
+            <div class="s6-lab" id="s6-lab">
+                <div class="s6-lab-grid">
+                    <div class="s6-lab-group">
+                        <span class="s6-lab-label">1. Veri Hacmi &amp; Türü</span>
+                        <div class="s6-btn-col">
+                            <button type="button" class="s6-pick-btn is-active" data-dim="size" data-val="small">Küçük / Orta Tablo (&lt; 100 MB)</button>
+                            <button type="button" class="s6-pick-btn" data-dim="size" data-val="big">Büyük Analitik Tablo (&gt; 10 GB)</button>
+                            <button type="button" class="s6-pick-btn" data-dim="size" data-val="mixed">API JSON + PDF / Ham Karma</button>
+                        </div>
+                    </div>
+
+                    <div class="s6-lab-group">
+                        <span class="s6-lab-label">2. Veri Akış Hızı</span>
+                        <div class="s6-btn-col">
+                            <button type="button" class="s6-pick-btn is-active" data-dim="speed" data-val="batch">Toplu / Periyodik (Batch)</button>
+                            <button type="button" class="s6-pick-btn" data-dim="speed" data-val="stream">Anlık Kesintisiz (Stream)</button>
+                        </div>
+                    </div>
+
+                    <div class="s6-lab-group">
+                        <span class="s6-lab-label">3. Gizlilik &amp; Ortam</span>
+                        <div class="s6-btn-col">
+                            <button type="button" class="s6-pick-btn is-active" data-dim="host" data-val="local">Tek Bilgisayar / Yerel</button>
+                            <button type="button" class="s6-pick-btn" data-dim="host" data-val="cloud">Esnek Bulut (Cloud)</button>
+                            <button type="button" class="s6-pick-btn" data-dim="host" data-val="hybrid">KVKK Hassas / Hibrit</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="s6-blueprint" id="s6-blueprint">
+                    <div class="s6-bp-grid">
+                        <div class="s6-bp-item"><span>Format</span><strong id="s6-bp-format">-</strong></div>
+                        <div class="s6-bp-item"><span>Depolama</span><strong id="s6-bp-storage">-</strong></div>
+                        <div class="s6-bp-item"><span>Aktarım / Model</span><strong id="s6-bp-pipe">-</strong></div>
+                        <div class="s6-bp-item"><span>Barındırma</span><strong id="s6-bp-host">-</strong></div>
+                        <div class="s6-bp-item"><span>Yönetişim</span><strong id="s6-bp-gov">-</strong></div>
+                    </div>
+                    <p id="s6-bp-why" class="s6-bp-why"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ÖZET VE NAVİGASYON -->
+        <section class="s6-section acc-cyan" id="ozet">
+            <div class="s6-section-head">
+                <div class="s6-head-icon"><i data-lucide="flag"></i></div>
+                <div>
+                    <h2 class="s6-section-title">6. Aşamanın Sonunda Altyapı Hazır</h2>
+                    <p class="s6-section-sub">Kalıbımız ve boru hattımız kuruldu; şimdi vanaları kaynağa bağlayacağız.</p>
+                </div>
+            </div>
+
+            <p class="s6-closing">
+                Verinin hangi dosyaya (<strong>Format</strong>), hangi sisteme (<strong>Depolama</strong>), hangi ritimle
+                (<strong>Batch/Stream &amp; ETL/ELT</strong>), nerede (<strong>Yerel/Bulut</strong>) ve hangi sözlükle
+                (<strong>Metadata &amp; Versiyonlama</strong>) aktarılacağı netleşti. Sıradaki <strong>7. Aşamada</strong>,
+                bu altyapıyı besleyecek birincil/ikincil kaynakları ve sahada veya webde kullanacağımız veri toplama araçlarını seçeceğiz.
+            </p>
+
+            <div class="s6-nav">
+                <a href="../5.Aşama_Kısıtlar_ve_Etik_Çerçeve/index.html" class="s6-nav-btn is-secondary">
+                    <i data-lucide="arrow-left"></i>
+                    <span><small>Önceki: 5. Aşama</small>Kısıtlar ve Etik Çerçeve</span>
+                </a>
+                <a href="../7.Aşama_Veri_Toplama_Kaynağı_ve_Aracı/index.html" class="s6-nav-btn is-primary">
+                    <span><small>Sıradaki: 7. Aşama</small>Veri Toplama Kaynağı ve Aracı</span>
+                    <i data-lucide="arrow-right"></i>
+                </a>
+            </div>
+        </section>
+
     </main>
 
     <!-- Footer injected via components.js -->
+
+    <!-- Ortak betikler (proje kökü: 3 klasör yukarıda) -->
     <script src="../../../js/components.js"></script>
     <script src="../../../js/nav.js"></script>
     <script src="../../../js/modal.js"></script>
     <script src="../../../js/script.js"></script>
+    <!-- Bu aşamaya özel betik -->
     <script src="script.js"></script>
     <script>
-        if (window.lucide) { lucide.createIcons(); }
+        if (window.lucide) {
+            lucide.createIcons();
+        }
     </script>
 </body>
 </html>

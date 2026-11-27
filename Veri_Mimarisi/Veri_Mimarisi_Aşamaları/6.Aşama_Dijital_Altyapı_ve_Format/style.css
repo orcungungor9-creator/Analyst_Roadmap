@@ -1,4 +1,668 @@
-/* 6. Aşama Özel Stilleri */
-.stage-detail-container {
+/* ==========================================================================
+   6. AŞAMA: DİJİTAL ALTYAPI VE FORMATIN SEÇİLMESİ — SAYFAYA ÖZEL STİLLER
+   Tasarım kuralları:
+   - SIFIR GLASSMORPHISM (backdrop-filter yok)
+   - Kartlarda gölge / neon parlama yok, düz ve mat renkler
+   - Tüm kartlarda mat, renkli çerçeveler
+   - Koyu ve açık temalarda yüksek okunabilirlikli kontrast
+   ========================================================================== */
+
+/* 0. Glassmorphism'i tüm sayfada kapat */
+*, *::before, *::after {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/* 1. TEMA DEĞİŞKENLERİ */
+body {
+    padding-top: var(--s6-header-h, 74px);
+    --s6-surface: #111a2b;
+    --s6-surface-2: #0d1524;
+    --s6-border: #26344f;
+    --s6-text: #cbd5e1;
+    --s6-muted: #94a3b8;
+    --s6-strong: #ffffff;
+}
+
+body.theme-light-pure,
+body.theme-mono-light,
+body.theme-light-warm,
+body.theme-pink,
+body.theme-light-emerald,
+body.theme-light-purple {
+    --s6-surface: #ffffff;
+    --s6-surface-2: #f8fafc;
+    --s6-border: #e2e8f0;
+    --s6-text: #334155;
+    --s6-muted: #64748b;
+    --s6-strong: #0f172a;
+}
+
+/* Mat vurgu renkleri */
+.acc-cyan   { --accent: #0891b2; }
+.acc-blue   { --accent: #2563eb; }
+.acc-purple { --accent: #7c3aed; }
+.acc-green  { --accent: #16a34a; }
+.acc-amber  { --accent: #d97706; }
+
+.acc-cyan, .acc-blue, .acc-purple, .acc-green, .acc-amber {
+    --accent-text: color-mix(in srgb, var(--accent) 62%, var(--s6-strong));
+    --accent-tint: color-mix(in srgb, var(--accent) 10%, var(--s6-surface));
+}
+
+/* 2. ÜST BAR VE HERO BANNER */
+.site-header {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-bottom: 2px solid var(--neon-blue) !important;
+    box-shadow: 0 4px 20px var(--neon-blue-glow, rgba(56, 189, 248, 0.4)) !important;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.hero-banner-wrapper.s6-hero {
+    min-height: calc(100vh - var(--s6-header-h, 74px)) !important;
+    min-height: calc(100svh - var(--s6-header-h, 74px)) !important;
+    margin-bottom: 84px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid var(--neon-blue) !important;
+    box-shadow: 0 4px 20px var(--neon-blue-glow, rgba(56, 189, 248, 0.4)) !important;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.s6-hero-section {
+    max-width: 1300px !important;
+    width: 100%;
+    text-align: center !important;
+    padding: 80px 24px 60px 24px !important;
+    margin: 0 auto;
+    animation: none !important;
+}
+
+.s6-hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+    justify-content: center;
+    text-align: center !important;
+    width: 100%;
+}
+
+.s6-back-link {
+    position: absolute;
+    top: 24px;
+    left: 28px;
+    z-index: 5;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: 2px solid var(--neon-blue);
+    background: var(--s6-surface);
+    color: var(--neon-blue);
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    box-shadow: none !important;
+    white-space: nowrap;
+    transition: transform 0.2s ease;
+}
+.s6-back-link:hover { transform: translateX(-3px); }
+.s6-back-link svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+.s6-hero-title {
+    font-size: 3.5rem !important;
+    letter-spacing: 3px !important;
+    font-weight: 700 !important;
+    line-height: 1.15 !important;
+    max-width: 1200px;
+    margin: 0 auto 24px auto !important;
+    padding-bottom: 10px !important;
+    text-align: center !important;
+}
+
+.s6-hero-subtitle {
+    font-size: 1.35rem !important;
+    font-weight: 500 !important;
+    line-height: 1.7 !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+}
+
+/* 3. ANA KAPSAYICI VE BÖLÜM KARTLARI */
+.s6-main {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px 100px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    position: relative;
+    z-index: 2;
+}
+
+.s6-section {
+    background: var(--s6-surface);
+    border: 2px solid var(--accent);
+    border-radius: 20px;
+    padding: 36px;
+    color: var(--s6-text);
+    box-shadow: none !important;
+    scroll-margin-top: 100px;
+}
+
+.s6-section p {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--s6-text);
+    margin-bottom: 16px;
+}
+
+.s6-section strong,
+.s6-section b { color: var(--s6-strong); }
+
+.s6-section code {
+    padding: 2px 7px;
+    border-radius: 6px;
+    background: color-mix(in srgb, var(--accent) 14%, var(--s6-surface-2));
+    color: var(--s6-strong);
+    font-size: 0.92em;
+    font-weight: 700;
+}
+
+.s6-section-head {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 26px;
+    padding-bottom: 22px;
+    border-bottom: 2px dashed color-mix(in srgb, var(--accent) 35%, var(--s6-border));
+}
+
+.s6-head-num,
+.s6-head-icon {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: var(--accent);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-title);
+    font-size: 1.6rem;
+    font-weight: 900;
+}
+.s6-head-icon svg { width: 28px; height: 28px; flex-shrink: 0; }
+
+.s6-section-title {
+    font-family: var(--font-title);
+    font-size: 1.75rem;
+    font-weight: 800;
+    line-height: 1.25;
+    color: var(--accent-text);
+    margin: 0 0 4px 0;
+}
+
+.s6-section-sub {
+    margin: 0 !important;
+    font-size: 1rem !important;
+    color: var(--s6-muted) !important;
+}
+
+.s6-subtitle {
+    font-family: var(--font-title);
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--s6-strong);
+    margin: 34px 0 16px 0;
+    padding-left: 14px;
+    border-left: 5px solid var(--accent);
+}
+
+/* 4. 5 KATMAN ZİNCİRİ */
+.s6-layers-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.s6-layer-chip {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 16px 14px;
+    border-radius: 16px;
+    border: 2px solid var(--accent);
+    background: var(--accent-tint);
+    text-align: center;
+}
+.s6-layer-chip b {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--accent-text);
+}
+.s6-layer-chip span {
+    font-size: 0.94rem;
+    font-weight: 800;
+    color: var(--s6-strong);
+}
+
+.s6-layer-arrow {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    color: var(--s6-muted);
+}
+
+/* 5. GRİDLER VE KARTLAR */
+.s6-grid-2,
+.s6-grid-3 {
+    display: grid;
+    gap: 16px;
+    margin: 20px 0;
+}
+.s6-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.s6-grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+.s6-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 24px;
+    border-radius: 18px;
+    border: 2px solid var(--accent);
+    background: var(--s6-surface-2);
+}
+
+.s6-card-top {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.s6-card-tag {
+    align-self: flex-start;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #ffffff;
+    font-size: 0.74rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.s6-card h3 {
+    font-family: var(--font-title);
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--accent-text);
+    margin: 0;
+}
+
+.s6-card p { margin: 0 !important; font-size: 0.97rem !important; }
+.s6-card ul { margin: 0; padding-left: 18px; }
+.s6-card li {
+    font-size: 0.94rem;
+    line-height: 1.6;
+    margin-bottom: 5px;
+    color: var(--s6-text);
+}
+
+.s6-card-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: var(--accent);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.s6-card-icon svg { width: 24px; height: 24px; flex-shrink: 0; }
+
+.s6-callout {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    margin: 22px 0 6px 0;
+    padding: 22px 24px;
+    border-radius: 0 16px 16px 0;
+    border: 2px solid var(--accent);
+    border-left-width: 6px;
+    background: var(--accent-tint);
+}
+.s6-callout > div > strong {
+    display: block;
+    font-size: 1.08rem;
+    color: var(--accent-text);
+    margin-bottom: 6px;
+}
+.s6-callout p:last-child { margin-bottom: 0; }
+.s6-callout-icon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    color: var(--accent-text);
+    margin-top: 2px;
+}
+
+/* 6. ETL / ELT AKIŞ KARTLARI, DEPOLAMA MİMARİLERİ VE MADALYON */
+.s6-arch-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px;
+    border-radius: 18px;
+    border: 2px solid var(--accent);
+    background: var(--s6-surface-2);
+}
+.s6-arch-card h3 {
+    font-family: var(--font-title);
+    font-size: 1.22rem;
+    font-weight: 800;
+    color: var(--accent-text);
+    margin: 0;
+}
+.s6-arch-card p { margin: 0 !important; font-size: 0.96rem !important; }
+
+.s6-arch-meta {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px dashed var(--accent);
+    background: var(--accent-tint);
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: var(--s6-text);
+}
+
+.s6-medallion {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 18px 0 22px 0;
+}
+
+.s6-medal-card {
+    --mc: #b45309;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 22px;
+    border-radius: 18px;
+    border: 2px solid var(--mc);
+    background: color-mix(in srgb, var(--mc) 9%, var(--s6-surface));
+}
+.s6-medal-card.is-silver { --mc: #64748b; }
+.s6-medal-card.is-gold   { --mc: #d97706; }
+
+.s6-medal-tag {
+    align-self: flex-start;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: var(--mc);
+    color: #ffffff;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+}
+.s6-medal-card strong {
+    font-family: var(--font-title);
+    font-size: 1.12rem;
+    color: color-mix(in srgb, var(--mc) 62%, var(--s6-strong));
+}
+.s6-medal-card p { margin: 0 !important; font-size: 0.95rem !important; }
+
+.s6-pipe-card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 24px;
+    border-radius: 18px;
+    border: 2px solid var(--accent);
+    background: var(--accent-tint);
+}
+.s6-pipe-card strong {
+    font-family: var(--font-title);
+    font-size: 1.16rem;
+    color: var(--accent-text);
+}
+.s6-pipe-card p { margin: 0 !important; font-size: 0.96rem !important; }
+
+.s6-pipe-steps {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.s6-pipe-steps span {
+    padding: 7px 12px;
+    border-radius: 10px;
+    border: 2px solid var(--accent);
+    background: var(--s6-surface);
+    font-size: 0.86rem;
+    font-weight: 800;
+    color: var(--s6-strong);
+}
+.s6-pipe-steps svg {
+    width: 18px;
+    height: 18px;
+    color: var(--accent-text);
+    flex-shrink: 0;
+}
+
+/* 7. TABLO */
+.s6-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    margin: 18px 0 4px 0;
+    border-radius: 16px;
+    border: 2px solid var(--s6-border);
+}
+
+.s6-table {
+    width: 100%;
+    min-width: 650px;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+.s6-table th {
+    text-align: left;
+    padding: 14px 16px;
+    background: var(--s6-surface-2);
+    color: var(--s6-strong);
+    font-weight: 800;
+    border-bottom: 2px solid var(--s6-border);
+}
+.s6-table td {
+    padding: 13px 16px;
+    color: var(--s6-text);
+    line-height: 1.55;
+    border-bottom: 1px solid var(--s6-border);
+    vertical-align: top;
+}
+.s6-table tr:last-child td { border-bottom: none; }
+
+/* 8. ETKİLEŞİMLİ LABORATUVAR (STACK TASARLAYICI) */
+.s6-lab {
+    padding: 24px;
+    border-radius: 18px;
+    border: 2px solid #2563eb;
+    background: var(--s6-surface-2);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.s6-lab-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.s6-lab-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.s6-lab-label {
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: var(--s6-strong);
+}
+
+.s6-btn-col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.s6-pick-btn {
+    text-align: left;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 2px solid var(--s6-border);
+    background: var(--s6-surface);
+    color: var(--s6-text);
+    font-family: var(--font-main);
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+.s6-pick-btn:hover { border-color: #2563eb; }
+.s6-pick-btn.is-active {
+    background: #2563eb;
+    border-color: #2563eb;
+    color: #ffffff;
+}
+
+.s6-blueprint {
     padding: 20px;
+    border-radius: 16px;
+    border: 2px solid #0891b2;
+    background: color-mix(in srgb, #0891b2 8%, var(--s6-surface));
+}
+
+.s6-bp-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.s6-bp-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--s6-border);
+    background: var(--s6-surface);
+}
+.s6-bp-item span {
+    font-size: 0.76rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: color-mix(in srgb, #0891b2 65%, var(--s6-strong));
+}
+.s6-bp-item strong {
+    font-size: 0.94rem;
+    line-height: 1.4;
+    color: var(--s6-strong);
+}
+
+.s6-bp-why {
+    margin: 0 !important;
+    font-size: 0.97rem !important;
+}
+
+/* 9. KAPANIŞ VE NAVİGASYON */
+.s6-closing {
+    font-size: 1.08rem !important;
+    margin-top: 6px;
+}
+
+.s6-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+}
+
+.s6-nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 22px;
+    border-radius: 16px;
+    border: 2px solid #0891b2;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.02rem;
+    transition: transform 0.2s ease;
+}
+.s6-nav-btn span { display: flex; flex-direction: column; }
+.s6-nav-btn small { font-size: 0.78rem; font-weight: 600; opacity: 0.85; }
+.s6-nav-btn svg { width: 22px; height: 22px; flex-shrink: 0; }
+.s6-nav-btn:hover { transform: translateY(-2px); }
+
+.s6-nav-btn.is-secondary {
+    background: var(--s6-surface);
+    color: color-mix(in srgb, #0891b2 62%, var(--s6-strong));
+}
+.s6-nav-btn.is-primary {
+    background: #0891b2;
+    color: #ffffff;
+    text-align: right;
+    margin-left: auto;
+}
+
+/* 10. MOBİL VE DİZÜSTÜ UYUM */
+@media (max-width: 960px) {
+    .s6-layers-row { flex-direction: column; align-items: stretch; }
+    .s6-layer-arrow { align-self: center; transform: rotate(90deg); }
+    .s6-grid-3, .s6-lab-grid, .s6-medallion { grid-template-columns: 1fr; }
+    .s6-bp-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 720px) {
+    .hero-banner-wrapper.s6-hero {
+        min-height: auto !important;
+        margin-bottom: 48px !important;
+    }
+    .s6-back-link {
+        top: 14px;
+        left: 14px;
+        padding: 8px 14px;
+        font-size: 0.84rem;
+    }
+    .s6-hero-title { font-size: 2.1rem !important; letter-spacing: 1px !important; }
+    .s6-hero-subtitle { font-size: 1.08rem !important; }
+    .s6-hero-section { padding: 74px 16px 40px 16px !important; }
+    .s6-main { padding: 0 14px 80px 14px; gap: 28px; }
+    .s6-section { padding: 24px 18px; border-radius: 18px; }
+    .s6-section-title { font-size: 1.35rem; }
+    .s6-head-num, .s6-head-icon { width: 46px; height: 46px; font-size: 1.3rem; }
+    .s6-grid-2, .s6-bp-grid { grid-template-columns: 1fr; }
+    .s6-callout { flex-direction: column; gap: 10px; padding: 18px; }
+    .s6-nav-btn { flex: 1 1 100%; justify-content: space-between; }
+    .s6-nav-btn.is-primary { margin-left: 0; }
 }
