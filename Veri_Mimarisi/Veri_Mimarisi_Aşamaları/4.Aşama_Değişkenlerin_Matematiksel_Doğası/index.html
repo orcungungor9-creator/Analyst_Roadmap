@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>4. Aşama: Değişkenlerin Matematiksel Doğası | Veri Mimarisi | Analyst Roadmap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet"></noscript>
+    <!-- Ortak stiller (proje kökü: 3 klasör yukarıda) -->
     <link rel="stylesheet" href="../../../styles.css">
+    <!-- Bu aşamaya özel stiller -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,55 +23,528 @@
         })();
     </script>
 
+    <!-- ARKA PLAN GRAFİK AĞI (HAREKETSİZ) -->
+    <div class="bg-analytics-mesh">
+        <div class="bg-chart-item bg-chart-1">
+            <svg viewBox="0 0 400 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="s4-bg-area-grad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="var(--neon-blue)" stop-opacity="0.4" />
+                        <stop offset="100%" stop-color="var(--neon-blue)" stop-opacity="0.0" />
+                    </linearGradient>
+                </defs>
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40 L 370,190 L 10,190 Z" fill="url(#s4-bg-area-grad)" />
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40" fill="none" stroke="var(--neon-blue)" stroke-width="4" stroke-linecap="round" />
+                <circle cx="130" cy="150" r="6" fill="var(--neon-green)" />
+                <circle cx="250" cy="90" r="6" fill="var(--neon-purple)" />
+                <circle cx="370" cy="40" r="8" fill="var(--neon-blue)" />
+            </svg>
+        </div>
+        <div class="bg-chart-item bg-chart-2">
+            <svg viewBox="0 0 200 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <g transform="translate(100,100)">
+                    <path d="M 0,-80 A 80,80 0 0,1 76,25 L 57,18 A 60,60 0 0,0 0,-60 Z" fill="var(--neon-blue)" />
+                    <path d="M 76,25 A 80,80 0 0,1 -64,48 L -48,36 A 60,60 0 0,0 57,18 Z" fill="var(--neon-green)" />
+                    <path d="M -64,48 A 80,80 0 0,1 0,-80 L 0,-60 A 60,60 0 0,0 -48,36 Z" fill="var(--neon-purple)" />
+                    <circle cx="0" cy="0" r="45" fill="none" stroke="var(--glass-border)" stroke-width="2" stroke-dasharray="5,5" />
+                </g>
+            </svg>
+        </div>
+        <div class="bg-chart-item bg-chart-3">
+            <svg viewBox="0 0 250 250" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <line x1="20" y1="50" x2="230" y2="50" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4" />
+                <line x1="20" y1="100" x2="230" y2="100" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4" />
+                <line x1="20" y1="150" x2="230" y2="150" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4" />
+                <line x1="20" y1="200" x2="230" y2="200" stroke="var(--glass-border)" stroke-width="2" />
+                <rect x="35" y="120" width="30" height="80" rx="6" fill="var(--neon-blue)" />
+                <rect x="85" y="70" width="30" height="130" rx="6" fill="var(--neon-green)" />
+                <rect x="135" y="150" width="30" height="50" rx="6" fill="var(--neon-purple)" />
+                <rect x="185" y="90" width="30" height="110" rx="6" fill="var(--neon-blue)" />
+            </svg>
+        </div>
+        <div class="bg-chart-item bg-chart-4">
+            <svg viewBox="0 0 280 220" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <line x1="50" y1="30" x2="50" y2="170" stroke="var(--neon-green)" stroke-width="3" />
+                <rect x="38" y="70" width="24" height="60" rx="4" fill="var(--neon-green)" />
+                <line x1="110" y1="50" x2="110" y2="190" stroke="var(--neon-blue)" stroke-width="3" />
+                <rect x="98" y="90" width="24" height="70" rx="4" fill="var(--neon-blue)" />
+                <line x1="170" y1="20" x2="170" y2="150" stroke="var(--neon-purple)" stroke-width="3" />
+                <rect x="158" y="50" width="24" height="50" rx="4" fill="var(--neon-purple)" />
+                <line x1="230" y1="60" x2="230" y2="200" stroke="var(--neon-green)" stroke-width="3" />
+                <rect x="218" y="100" width="24" height="55" rx="4" fill="var(--neon-green)" />
+            </svg>
+        </div>
+    </div>
+
     <!-- Header injected via components.js -->
 
-    <main class="main-container" style="max-width: 1200px; margin: 40px auto; padding: 0 24px 80px 24px;">
-        <!-- Breadcrumb & Geri Dön Butonu -->
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
-            <a href="../../index.html#asama-ayrintilari" style="display: inline-flex; align-items: center; gap: 8px; color: var(--neon-orange); text-decoration: none; font-weight: 600; font-size: 0.95rem; padding: 8px 16px; border-radius: 12px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); transition: all 0.2s ease;">
-                <i data-lucide="arrow-left" style="width: 18px; height: 18px;"></i>
-                Aşama Ayrıntılarına Dön
-            </a>
-            <div style="color: var(--text-muted); font-size: 0.9rem;">
-                Veri Mimarisi / <span style="color: var(--text-main); font-weight: 600;">4. Aşama</span>
+    <!-- HERO BANNER -->
+    <div class="hero-banner-wrapper s4-hero">
+        <div class="hero-banner-bg"></div>
+        <div class="hero-banner-overlay"></div>
+        <a href="../../index.html#asama-ayrintilari" class="s4-back-link">
+            <i data-lucide="arrow-left"></i>
+            Aşama Ayrıntılarına Dön
+        </a>
+        <section class="hero-section s4-hero-section">
+            <div class="hero-content s4-hero-content">
+                <div class="badge-pill floating-slow">4. Aşama · Veri Mimarisi</div>
+                <h1 class="hero-title custom-brand-title s4-hero-title">Değişkenlerin Matematiksel Doğasını Seçmek</h1>
+                <p class="hero-subtitle s4-hero-subtitle">
+                    Bir değişkenin ölçüm düzeyi, üzerinde hangi matematiksel işlemlerin anlamlı olduğunu ve kuracağın
+                    ekonometrik modelde (EKK/OLS, Logit, Probit, Sabit Etkiler) nasıl temsil edileceğini belirler.
+                    <strong>Sayıya benzeyen her veri sayısal işlem görmez!</strong>
+                </p>
             </div>
-        </div>
+        </section>
+    </div>
 
-        <!-- Aşama Hero Kartı -->
-        <section class="glass" style="padding: 36px; border-radius: 20px; border-left: 6px solid var(--neon-orange) !important; margin-bottom: 32px;">
-            <span style="background: var(--neon-orange); color: #fff; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; display: inline-block; margin-bottom: 16px;">
-                4. Aşama
-            </span>
-            <h1 style="font-size: 2.2rem; font-weight: 800; color: var(--text-main); margin-bottom: 12px;">
-                Değişkenlerin Matematiksel Doğasını Seçmek (Ölçüm Düzeyi)
-            </h1>
-            <p style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.7; max-width: 900px; margin: 0;">
-                Değişkenlerin modeldeki matematiksel ölçeğini (Nitel: Nominal/Ordinal veya Nicel: Kesikli/Sürekli) tayin ederek kukla değişken ve parametrik test sınırlarını belirlemek.
+    <main class="s4-main">
+
+        <!-- GİRİŞ: STEVENS HİYERARŞİSİ (NOIR) -->
+        <section class="s4-section acc-orange" id="giris">
+            <div class="s4-section-head">
+                <div class="s4-head-icon"><i data-lucide="ruler"></i></div>
+                <div>
+                    <h2 class="s4-section-title">Stanley Smith Stevens'ın Ölçüm Hiyerarşisi (NOIR)</h2>
+                    <p class="s4-section-sub">En zayıf bilgiden en güçlü bilgiye doğru tırmanan dört katmanlı merdiven.</p>
+                </div>
+            </div>
+
+            <p>
+                Bilgisayar için tablodaki <code>34</code> plakalı İstanbul da bir sayıdır, <code>34°C</code> sıcaklık da,
+                <code>34 m²</code> oda da. Ama matematiksel açıdan bu üçü bambaşka dünyalara aittir.
+                Psikolog <strong>Stanley Smith Stevens (1946)</strong> tarafından kurulan ve tüm istatistik ile ekonometrinin
+                temeli sayılan dört ölçek düzeyi — baş harfleriyle <strong>N-O-I-R</strong> — bir üst basamağa çıktıkça
+                önceki basamağın tüm özelliklerini korur ve üzerine yeni bir matematiksel güç ekler:
             </p>
+
+            <div class="s4-grid-4">
+                <div class="s4-ladder-card acc-blue">
+                    <span class="s4-ladder-num">1 · N</span>
+                    <strong>Nominal (İsimsel)</strong>
+                    <span class="s4-ops">İşlem: = , ≠</span>
+                    <small>Sadece etiketler ve gruplar. Sıralama yok.</small>
+                </div>
+                <div class="s4-ladder-card acc-purple">
+                    <span class="s4-ladder-num">2 · O</span>
+                    <strong>Ordinal (Sıralayıcı)</strong>
+                    <span class="s4-ops">İşlem: = , ≠ , &lt; , &gt;</span>
+                    <small>Sıralar ama aradaki mesafe eşit değildir.</small>
+                </div>
+                <div class="s4-ladder-card acc-amber">
+                    <span class="s4-ladder-num">3 · I</span>
+                    <strong>Aralık (Interval)</strong>
+                    <span class="s4-ops">İşlem: + , −</span>
+                    <small>Mesafe eşit; ancak mutlak sıfır yoktur.</small>
+                </div>
+                <div class="s4-ladder-card acc-green">
+                    <span class="s4-ladder-num">4 · R</span>
+                    <strong>Oran (Ratio)</strong>
+                    <span class="s4-ops">İşlem: + , − , × , ÷</span>
+                    <small>Mesafe eşit ve mutlak sıfır var. Tam güç.</small>
+                </div>
+            </div>
         </section>
 
-        <!-- İçerik Alanı -->
-        <section class="glass" style="padding: 40px; border-radius: 20px; text-align: center;">
-            <div style="width: 64px; height: 64px; border-radius: 50%; background: color-mix(in srgb, var(--neon-orange) 15%, transparent); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 16px;">
-                <i data-lucide="binary" style="width: 32px; height: 32px; color: var(--neon-orange);"></i>
+        <!-- 1. NOMİNAL ÖLÇEK -->
+        <section class="s4-section acc-blue" id="blok-1">
+            <div class="s4-section-head">
+                <div class="s4-head-num">1</div>
+                <div>
+                    <h2 class="s4-section-title">Nominal (İsimsel / Sınıflayıcı) Ölçek</h2>
+                    <p class="s4-section-sub">En temel bilgi düzeyi: Yalnızca kimlik ve grup etiketi.</p>
+                </div>
             </div>
-            <h3 style="font-size: 1.4rem; font-weight: 700; color: var(--text-main); margin-bottom: 8px;">
-                Bu Aşamanın İçeriği Yapılandırılıyor
-            </h3>
-            <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 600px; margin: 0 auto 24px auto;">
-                Metodoloji detayları, formüller ve uygulama örnekleri eklendiğinde bu alanda görüntülenecektir.
+
+            <p>
+                Sadece etiketleme ve gruplama yapar. Kategoriler arasında <strong>büyüklük, küçüklük veya üstünlük
+                sıralaması yoktur</strong>. Örneğin "Doğalgaz", "Klima" ve "Soba" ısıtma tipleri birbirinden farklıdır;
+                ama matematiksel olarak birinin diğerinden "2 kat büyük" olması söz konusu değildir.
             </p>
+
+            <div class="s4-grid-2">
+                <div class="s4-info-card acc-blue">
+                    <div class="s4-info-head"><i data-lucide="equal"></i> İzin Verilen İşlemler &amp; İstatistikler</div>
+                    <p>
+                        Yalnızca <strong>eşitlik (=)</strong> ve <strong>farklılık (≠)</strong> kontrolü yapılabilir.
+                        Aritmetik ortalama veya medyan alınamaz ("şehirlerin ortalaması 18,4 çıkmaz"); yalnızca
+                        <strong>frekans (sayım)</strong> ve <strong>mod (en sık tekrar eden)</strong> hesaplanır.
+                    </p>
+                </div>
+                <div class="s4-info-card acc-orange">
+                    <div class="s4-info-head"><i data-lucide="tag"></i> Örnekler</div>
+                    <p>
+                        <strong>Isınma tipi</strong> (Doğalgaz, Klima, Soba), <strong>tapu durumu</strong>
+                        (Kat Mülkiyeti, Kat İrtifakı, Hisseli), <strong>şehirler</strong>, plaka kodları, ödeme yöntemi.
+                    </p>
+                </div>
+            </div>
+
+            <div class="s4-callout acc-blue">
+                <i data-lucide="code-2" class="s4-callout-icon"></i>
+                <div>
+                    <strong>Ekonometrik Karşılığı: Kukla (Dummy) Değişken &amp; "k − 1" Kuralı</strong>
+                    <p>
+                        Nominal değişkenler modele doğrudan 1, 2, 3 gibi sayı verilerek <strong>giremez</strong>!
+                        Bunun yerine her kategori için <strong>Kukla (Dummy) Değişken (0 ve 1)</strong> üretilir.
+                        Dikkat: 3 kategori varsa (Doğalgaz, Klima, Soba) modele yalnızca <strong>2 kukla (k − 1)</strong>
+                        konulur; üçüncüsü referans (baz) grup olarak dışarıda bırakılır. Hepsini birden eklersen
+                        <strong>Kukla Değişken Tuzağı (Çoklu Doğrusal Bağlantı)</strong> oluşur ve model hata verir.
+                    </p>
+                </div>
+            </div>
         </section>
+
+        <!-- 2. ORDİNAL ÖLÇEK -->
+        <section class="s4-section acc-purple" id="blok-2">
+            <div class="s4-section-head">
+                <div class="s4-head-num">2</div>
+                <div>
+                    <h2 class="s4-section-title">Ordinal (Sıralayıcı) Ölçek</h2>
+                    <p class="s4-section-sub">Doğal bir sıra ve hiyerarşi vardır; ancak basamak aralıkları eşit değildir.</p>
+                </div>
+            </div>
+
+            <p>
+                Kategoriler arasında net bir <strong>büyüklük-küçüklük sıralaması</strong> bulunur; fakat iki ardışık
+                derece arasındaki gerçek fark ölçülemez veya birbirine eşit değildir. Bir yarışmada 1., 2. ve 3. olanı
+                bilirsin ama 1. ile 2. arasındaki fark 0,1 saniye iken, 2. ile 3. arasındaki fark 15 saniye olabilir.
+            </p>
+
+            <div class="s4-grid-2">
+                <div class="s4-info-card acc-purple">
+                    <div class="s4-info-head"><i data-lucide="arrow-up-down"></i> İzin Verilen İşlemler &amp; İstatistikler</div>
+                    <p>
+                        Eşitlik (=, ≠) ve <strong>sıralama (&lt;, &gt;)</strong> yapılabilir. Frekans ve moda ek olarak
+                        <strong>medyan (ortanca)</strong> ve <strong>yüzdelik dilimler</strong> anlamlıdır.
+                    </p>
+                </div>
+                <div class="s4-info-card acc-orange">
+                    <div class="s4-info-head"><i data-lucide="list-ordered"></i> Örnekler</div>
+                    <p>
+                        <strong>Kredi notu</strong> (AAA, AA, A, B, C), <strong>eğitim düzeyi</strong> (İlkokul, Lise,
+                        Lisans, Yüksek Lisans), anketlerdeki <strong>Likert ölçeği</strong> (1'den 5'e memnuniyet), enerji sınıfı (A++ … G).
+                    </p>
+                </div>
+            </div>
+
+            <div class="s4-risk-box is-red">
+                <div class="s4-risk-head">
+                    <i data-lucide="triangle-alert"></i>
+                    <div>
+                        <span class="s4-risk-tag">Kritik Ekonometrik Risk</span>
+                        <strong>Eşit Mesafe Yanılgısı (Sürekli Sayı Gibi Modele Sokmak)</strong>
+                    </div>
+                </div>
+                <p>
+                    Sıralı bir değişkeni (örneğin Kredi Notu ya da Eğitim: <strong>1: Lise, 2: Lisans, 3: Doktora</strong>)
+                    modele doğrudan sürekli sayı gibi sokarsan, model 1'den 2'ye geçişin etkisiyle 2'den 3'e geçişin etkisinin
+                    <strong>birebir aynı</strong> olduğunu varsayar. Oysa piyasada AAA'dan AA'ya düşmek fiyat üzerinde çok
+                    küçük etki yaparken, Yatırım Yapılabilir (BBB−) sınırından çöp (BB+) seviyesine düşmek devasa bir şok yaratır!
+                </p>
+                <div class="s4-risk-fix">
+                    <b>Doğru Yöntem:</b> Açıklayıcı değişken (X) ise k − 1 kukla değişken kullan; hedef değişken (Y) ise
+                    <strong>Ordered Logit / Ordered Probit</strong> modeli kur.
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. ARALIK ÖLÇEĞİ -->
+        <section class="s4-section acc-amber" id="blok-3">
+            <div class="s4-section-head">
+                <div class="s4-head-num">3</div>
+                <div>
+                    <h2 class="s4-section-title">Aralık (Interval) Ölçeği</h2>
+                    <p class="s4-section-sub">Sayısaldır ve birimler arası mesafe eşittir; ancak gerçek (mutlak) bir sıfır yoktur.</p>
+                </div>
+            </div>
+
+            <p>
+                Bu basamakta artık gerçek sayılara geçeriz. 10 ile 20 arasındaki fark, 30 ile 40 arasındaki farkla
+                <strong>matematiksel olarak tamamen eşittir</strong>. Ancak çok ince bir sınır vardır: Sıfır değeri o özelliğin
+                "hiç olmadığını" değil, insan icadı <strong>keyfi bir başlangıç noktasını</strong> ifade eder.
+            </p>
+
+            <div class="s4-grid-2">
+                <div class="s4-info-card acc-amber">
+                    <div class="s4-info-head"><i data-lucide="plus"></i> İzin Verilen İşlemler</div>
+                    <p>
+                        <strong>Toplama (+) ve çıkarma (−)</strong> tamamen anlamlıdır. <strong>Aritmetik ortalama</strong> ve
+                        <strong>standart sapma</strong> hesaplanır; fakat <strong>oranlama (×, ÷) YAPILAMAZ</strong>!
+                    </p>
+                </div>
+                <div class="s4-info-card acc-orange">
+                    <div class="s4-info-head"><i data-lucide="thermometer"></i> Örnekler</div>
+                    <p>
+                        <strong>Santigrat sıcaklık:</strong> 0°C "sıcaklığın yokluğu" değildir (suyun donma noktasıdır). Bu
+                        yüzden 20°C, 10°C'nin "iki katı sıcak" değildir (Kelvin'e çevirirsen 293K / 283K = 1,035 kat çıkar!).
+                        Diğer örnekler: <strong>Takvim yılları</strong> (2000 yılı 1000 yılının iki katı değildir), <strong>IQ puanı</strong>.
+                    </p>
+                </div>
+            </div>
+
+            <div class="s4-callout acc-amber">
+                <i data-lucide="ban" class="s4-callout-icon"></i>
+                <div>
+                    <strong>Ekonometride Kritik Tuzak: Aralık Ölçeğinin Logaritmasını Alma!</strong>
+                    <p>
+                        Değişkende gerçek sıfır olmadığı için negatif veya keyfi sıfır değerleri görülebilir (örneğin −5°C
+                        veya kâr/zarar farkları). Aralık ölçeğindeki bir veride <code>% değişim</code> veya
+                        <code>ln(X)</code> dönüşümü matematiksel olarak anlamsızdır / hata verir; fark alma
+                        (<code>ΔX = X₂ − X₁</code>) ile çalışılır.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. ORAN ÖLÇEĞİ -->
+        <section class="s4-section acc-green" id="blok-4">
+            <div class="s4-section-head">
+                <div class="s4-head-num">4</div>
+                <div>
+                    <h2 class="s4-section-title">Oran (Ratio) Ölçeği</h2>
+                    <p class="s4-section-sub">İstatistiksel olarak en yüksek bilgi düzeyi: Eşit mesafe + Gerçek (mutlak) sıfır.</p>
+                </div>
+            </div>
+
+            <p>
+                Buradaki sıfır, o özelliğin veya büyüklüğün <strong>gerçekten hiç olmadığı (yokluğu)</strong> anlamına gelir:
+                0 TL fiyat "bedava / para yok", 0 m² "alan yok", 0 müşteri "kimse gelmedi" demektir. Bu sayede
+                <strong>dört işlemin tamamı (+, −, ×, ÷)</strong>, logaritmik dönüşümler ve tüm parametrik testler serbesttir.
+                Oranlama anlamlıdır: <strong>200 m² bir daire, 100 m² bir dairenin tam iki katıdır.</strong>
+            </p>
+
+            <h3 class="s4-subtitle">Oran Ölçeğinin Alt Ayrımı: Kesikli vs. Sürekli</h3>
+            <div class="s4-grid-2">
+                <div class="s4-subscale-card acc-blue">
+                    <span class="s4-subscale-tag">Sayarak Bulunur</span>
+                    <h3>Kesikli (Discrete) Veri</h3>
+                    <p>
+                        İki değer arasında sonsuz ara değer alamayan, genellikle <strong>tam sayılarla</strong> ifade edilen verilerdir.
+                        1 oda, 2 oda, 3 oda olur ama "2,47 oda" olmaz.
+                    </p>
+                    <div class="s4-example-pill">Örnek: Oda sayısı, çocuk sayısı, çalışan sayısı, şube adedi.</div>
+                </div>
+
+                <div class="s4-subscale-card acc-green">
+                    <span class="s4-subscale-tag">Ölçülerek Bulunur</span>
+                    <h3>Sürekli (Continuous) Veri</h3>
+                    <p>
+                        Ölçüm aletinin hassasiyetine göre iki sayı arasında <strong>sonsuz ondalıklı değer</strong> alabilen verilerdir.
+                        Ekonometride esneklik (elasticity) hesabı için sıklıkla <code>ln(X)</code> dönüşümü uygulanır.
+                    </p>
+                    <div class="s4-example-pill">Örnek: Metrekare (114,5 m²), satış fiyatı, aylık gelir, mesafe (km).</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. DÜNYADA SIKÇA KARŞILAŞILAN DİĞER ÖZEL ÖLÇEKLER -->
+        <section class="s4-section acc-orange" id="blok-5">
+            <div class="s4-section-head">
+                <div class="s4-head-icon"><i data-lucide="sparkles"></i></div>
+                <div>
+                    <h2 class="s4-section-title">Klasik 4'lü Dışında Dünyada Sıkça Karşımıza Çıkan Özel Ölçekler</h2>
+                    <p class="s4-section-sub">Gerçek veri setlerinde Stevens'ın 4 basamağı tek başına yetmez; işte sahadaki 6 kritik özel yapı.</p>
+                </div>
+            </div>
+
+            <div class="s4-grid-3">
+                <div class="s4-special-card acc-blue">
+                    <div class="s4-special-top"><i data-lucide="toggle-right"></i> İkili / Dikotom (Binary)</div>
+                    <p>
+                        Yalnızca iki durumu temsil eder: <code>0 / 1</code>, <code>Evet / Hayır</code>,
+                        <code>Satıldı / Satılmadı</code>, <code>Temerrüt = 1</code>.
+                    </p>
+                    <div class="s4-special-note">
+                        <b>Özel Gücü:</b> Teknik olarak nominaldir ama 0/1 kodlandığında ortalaması doğrudan <strong>olasılığı (%)</strong> verir. Logit / Probit hedef değişkenidir.
+                    </div>
+                </div>
+
+                <div class="s4-special-card acc-purple">
+                    <div class="s4-special-top"><i data-lucide="star"></i> Likert &amp; NPS Ölçekleri</div>
+                    <p>
+                        Anket ve müşteri deneyiminde kullanılan 5'li / 7'li puanlar ("Kesinlikle Katılmıyorum → Katılıyorum") veya
+                        <strong>0–10 NPS (Tavsiye Skoru)</strong>.
+                    </p>
+                    <div class="s4-special-note">
+                        <b>Pratik Not:</b> Tek soru ordinaldir; fakat 5–10 benzer sorunun puanı toplanarak indeks oluşturulduğunda literatürde aralık (quasi-interval) gibi modellenir.
+                    </div>
+                </div>
+
+                <div class="s4-special-card acc-amber">
+                    <div class="s4-special-top"><i data-lucide="compass"></i> Döngüsel / Periyodik (Circular)</div>
+                    <p>
+                        Bitişi başlangıcına bağlanan değerler: <strong>Günün saatleri (00–23)</strong>, haftanın günleri,
+                        aylar (1–12), pusula açısı (0°–360°).
+                    </p>
+                    <div class="s4-special-note">
+                        <b>Tuzak &amp; Çözüm:</b> Saat <code>23:00</code> ile <code>01:00</code> gerçekte 2 saat yakındır ama sayı olarak 22 birim uzaktır! Modele <strong>sin(θ) ve cos(θ)</strong> dönüşümüyle sokulur.
+                    </div>
+                </div>
+
+                <div class="s4-special-card acc-green">
+                    <div class="s4-special-top"><i data-lucide="hash"></i> Sayma Verisi (Count Data)</div>
+                    <p>
+                        Sıfırdan başlayan negatif olmayan tam sayılar: ilan tıklanma sayısı, aylık çağrı merkezi şikâyeti,
+                        bir yıldaki kaza sayısı (0, 1, 2…).
+                    </p>
+                    <div class="s4-special-note">
+                        <b>Model Tercihi:</b> Genellikle sıfır yığılmalı ve sağa çarpıktır. Standart OLS yerine <strong>Poisson</strong> veya <strong>Negatif Binom</strong> regresyonu gerekir.
+                    </div>
+                </div>
+
+                <div class="s4-special-card acc-orange">
+                    <div class="s4-special-top"><i data-lucide="scissors"></i> Sansürlü &amp; Kesik (Censored)</div>
+                    <p>
+                        Belli bir eşiğin üstü veya altı tek gruba sıkıştırılır: gelir anketlerinde <em>"100.000 TL ve üzeri"</em>,
+                        ya da sadece kredi onayı alanların ödeme geçmişi.
+                    </p>
+                    <div class="s4-special-note">
+                        <b>Model Tercihi:</b> Tavan/taban yığılması doğrusal modeli büker. Bu yapılarda <strong>Tobit</strong> veya <strong>Heckman Seçim Modeli</strong> kullanılır.
+                    </div>
+                </div>
+
+                <div class="s4-special-card acc-blue">
+                    <div class="s4-special-top"><i data-lucide="pie-chart"></i> Sınırlı Oran &amp; Kompozisyon</div>
+                    <p>
+                        <code>[0, 1]</code> veya <code>%0–%100</code> arasına sıkışmış oranlar (doluluk oranı, pazar payı) ya da
+                        toplamı %100 etmek zorunda olan bütçe/portföy dağılımları.
+                    </p>
+                    <div class="s4-special-note">
+                        <b>Model Tercihi:</b> Tahminlerin %100'ü aşmaması için <strong>Beta Regresyonu</strong>, Fractional Logit veya Log-oran dönüşümü uygulanır.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ETKİLEŞİMLİ ÖLÇEK DENETÇİSİ -->
+        <section class="s4-section acc-blue" id="laboratuvar">
+            <div class="s4-section-head">
+                <div class="s4-head-icon"><i data-lucide="flask-conical"></i></div>
+                <div>
+                    <h2 class="s4-section-title">Mini Laboratuvar: Ölçek Denetçisi</h2>
+                    <p class="s4-section-sub">Bir değişken seç ve üzerine uygulamak istediğin matematiksel işlemi test et.</p>
+                </div>
+            </div>
+
+            <div class="s4-lab" id="s4-lab">
+                <div class="s4-lab-block">
+                    <span class="s4-lab-label">1. Adım — Test edilecek değişkeni seç:</span>
+                    <div class="s4-var-tabs" id="s4-var-tabs">
+                        <button type="button" class="s4-var-btn is-active" data-var="heating">Isınma Tipi (Doğalgaz / Klima / Soba)</button>
+                        <button type="button" class="s4-var-btn" data-var="rating">Kredi Notu (AAA / AA / B)</button>
+                        <button type="button" class="s4-var-btn" data-var="temp">Sıcaklık (°C)</button>
+                        <button type="button" class="s4-var-btn" data-var="price">Satış Fiyatı (TL)</button>
+                        <button type="button" class="s4-var-btn" data-var="hour">İşlem Saati (00–23)</button>
+                        <button type="button" class="s4-var-btn" data-var="sold">Satıldı mı? (0 / 1)</button>
+                    </div>
+                </div>
+
+                <div class="s4-lab-block">
+                    <span class="s4-lab-label">2. Adım — Uygulamak istediğin matematiksel işlemi seç:</span>
+                    <div class="s4-op-tabs" id="s4-op-tabs">
+                        <button type="button" class="s4-op-btn is-active" data-op="mean">Aritmetik Ortalama</button>
+                        <button type="button" class="s4-op-btn" data-op="median">Medyan &amp; Sıralama (&lt;, &gt;)</button>
+                        <button type="button" class="s4-op-btn" data-op="ratio">Oranlama ("2 Katı" / ×, ÷)</button>
+                        <button type="button" class="s4-op-btn" data-op="log">Logaritma ln(X)</button>
+                        <button type="button" class="s4-op-btn" data-op="model">Ekonometrik Kodlama</button>
+                    </div>
+                </div>
+
+                <div class="s4-lab-result" id="s4-lab-result">
+                    <div class="s4-res-header">
+                        <span class="s4-res-scale" id="s4-res-scale">Ölçek: Nominal</span>
+                        <span class="s4-res-badge" id="s4-res-badge">GEÇERSİZ İŞLEM</span>
+                    </div>
+                    <strong id="s4-res-title">Sonuç</strong>
+                    <p id="s4-res-text"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ÖZET VE NAVİGASYON -->
+        <section class="s4-section acc-orange" id="ozet">
+            <div class="s4-section-head">
+                <div class="s4-head-icon"><i data-lucide="flag"></i></div>
+                <div>
+                    <h2 class="s4-section-title">Ölçekler Özeti ve Sonraki Adım</h2>
+                    <p class="s4-section-sub">Değişkenlerinin matematiksel kimliği artık net.</p>
+                </div>
+            </div>
+
+            <div class="s4-table-wrap">
+                <table class="s4-table">
+                    <thead>
+                        <tr>
+                            <th>Ölçek Düzeyi</th>
+                            <th>Mutlak Sıfır</th>
+                            <th>İzin Verilen İstatistik</th>
+                            <th>Modeldeki Doğru Temsili</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>Nominal</b></td>
+                            <td>Yok</td>
+                            <td>Frekans, Mod</td>
+                            <td><em>k − 1</em> adet Kukla Değişken (0/1)</td>
+                        </tr>
+                        <tr>
+                            <td><b>Ordinal</b></td>
+                            <td>Yok</td>
+                            <td>Frekans, Mod, Medyan</td>
+                            <td>Kukla (X ise) · Ordered Logit/Probit (Y ise)</td>
+                        </tr>
+                        <tr>
+                            <td><b>Aralık (Interval)</b></td>
+                            <td>Yok (Keyfi 0)</td>
+                            <td>Ortalama, Std. Sapma, Fark</td>
+                            <td>Doğrusal fark (ΔX); oran ve ln alınmaz</td>
+                        </tr>
+                        <tr>
+                            <td><b>Oran (Ratio)</b></td>
+                            <td>Var (Mutlak 0)</td>
+                            <td>Tüm parametrik işlemler</td>
+                            <td>Doğrudan sayısal veya ln(X) / Esneklik</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="s4-closing">
+                Değişkenlerimizin ölçüm düzeylerini ve matematiksel sınırlarını (<strong>4. Aşama</strong>) belirledik.
+                Ancak veri mimarisi yalnızca matematikten ibaret değildir: Sahada veri toplarken karşımıza çıkacak
+                <strong>bütçe, zaman, teknik ve yasal/etik sınırları (KVKK, GDPR, gizlilik)</strong> çizmeden altyapıya geçemeyiz.
+            </p>
+
+            <div class="s4-nav">
+                <a href="../3.Aşama_Zaman_ve_Mekan_Boyutu/index.html" class="s4-nav-btn is-secondary">
+                    <i data-lucide="arrow-left"></i>
+                    <span><small>Önceki: 3. Aşama</small>Zaman ve Mekân Boyutu</span>
+                </a>
+                <a href="../5.Aşama_Kısıtlar_ve_Etik_Çerçeve/index.html" class="s4-nav-btn is-primary">
+                    <span><small>Sıradaki: 5. Aşama</small>Kısıtlar ve Etik Çerçeve</span>
+                    <i data-lucide="arrow-right"></i>
+                </a>
+            </div>
+        </section>
+
     </main>
 
     <!-- Footer injected via components.js -->
+
+    <!-- Ortak betikler (proje kökü: 3 klasör yukarıda) -->
     <script src="../../../js/components.js"></script>
     <script src="../../../js/nav.js"></script>
     <script src="../../../js/modal.js"></script>
     <script src="../../../js/script.js"></script>
+    <!-- Bu aşamaya özel betik -->
     <script src="script.js"></script>
     <script>
-        if (window.lucide) { lucide.createIcons(); }
+        if (window.lucide) {
+            lucide.createIcons();
+        }
     </script>
 </body>
 </html>
