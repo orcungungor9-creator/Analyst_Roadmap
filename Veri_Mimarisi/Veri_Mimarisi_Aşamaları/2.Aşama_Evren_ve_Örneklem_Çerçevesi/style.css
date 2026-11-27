@@ -71,10 +71,10 @@ body.theme-light-purple {
 }
 
 .s2-hero-section {
-    max-width: 1140px !important;
+    max-width: 1300px !important;
     width: 100%;
     text-align: center !important;
-    padding: 44px 24px !important;
+    padding: 80px 24px 60px 24px !important;
     margin: 0 auto;
     animation: none !important;
 }
@@ -88,65 +88,65 @@ body.theme-light-purple {
     width: 100%;
 }
 
-.s2-hero-meta {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 20px;
-}
-
-.s2-back-link,
-.s2-stage-pill {
+.s2-back-link {
+    position: absolute;
+    top: 24px;
+    left: 28px;
+    z-index: 5;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    height: 38px;
-    padding: 0 18px;
-    margin: 0;
-    border-radius: 999px;
-    font-size: 0.88rem;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: 2px solid var(--neon-blue);
+    background: var(--s2-surface);
+    color: var(--neon-blue);
+    font-size: 0.95rem;
     font-weight: 700;
     line-height: 1;
+    text-decoration: none;
+    box-shadow: none !important;
+    white-space: nowrap;
+    transition: transform 0.2s ease;
+}
+.s2-back-link:hover { transform: translateX(-3px); }
+.s2-back-link svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+.s2-stage-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 22px;
+    margin: 0 0 22px 0;
+    border-radius: 30px;
+    border: 2px solid #7c3aed;
+    background: #7c3aed;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
     box-shadow: none !important;
     white-space: nowrap;
 }
 
-.s2-back-link {
-    border: 2px solid var(--neon-blue);
-    background: var(--s2-surface);
-    color: var(--neon-blue);
-    text-decoration: none;
-    transition: transform 0.2s ease;
-}
-.s2-back-link:hover { transform: translateX(-3px); }
-.s2-back-link svg { width: 17px; height: 17px; flex-shrink: 0; }
-
-.s2-stage-pill {
-    border: 2px solid #7c3aed;
-    background: #7c3aed;
-    color: #ffffff;
-    letter-spacing: 0.3px;
-}
-
 .s2-hero-title {
-    font-size: clamp(2rem, 3.2vw, 2.95rem) !important;
-    letter-spacing: 0.5px !important;
+    font-size: clamp(2.2rem, 4.2vw, 3.5rem) !important;
+    letter-spacing: 1px !important;
     font-weight: 800 !important;
-    line-height: 1.2 !important;
-    max-width: 900px;
-    margin: 0 auto 16px auto !important;
-    padding-bottom: 4px !important;
+    line-height: 1.15 !important;
+    max-width: 1120px;
+    margin: 0 auto 22px auto !important;
+    padding-bottom: 6px !important;
     text-align: center !important;
 }
 
 .s2-hero-subtitle {
-    font-size: clamp(0.98rem, 1.15vw, 1.12rem) !important;
-    line-height: 1.72 !important;
-    max-width: 820px !important;
-    margin: 0 auto 28px auto !important;
+    font-size: clamp(1.08rem, 1.45vw, 1.35rem) !important;
+    line-height: 1.7 !important;
+    max-width: 1080px !important;
+    margin: 0 auto !important;
     text-align: center !important;
 }
 
@@ -155,7 +155,7 @@ body.theme-light-purple {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 16px;
     margin: 0;
 }
 
@@ -163,14 +163,14 @@ body.theme-light-purple {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 9px;
-    padding: 11px 20px;
-    border-radius: 999px;
+    gap: 10px;
+    padding: 14px 26px;
+    border-radius: 30px;
     border: 2px solid var(--accent);
     background: var(--accent);
     color: #ffffff;
     font-family: var(--font-main);
-    font-size: 0.92rem;
+    font-size: 1.02rem;
     font-weight: 700;
     line-height: 1.2;
     cursor: pointer;
@@ -178,7 +178,7 @@ body.theme-light-purple {
     transition: transform 0.2s ease;
 }
 .s2-hero-btn:hover { transform: translateY(-2px); }
-.s2-hero-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+.s2-hero-btn svg { width: 22px; height: 22px; flex-shrink: 0; }
 
 /* 3. ANA KAPSAYICI VE BÖLÜM KARTLARI */
 .s2-main {
@@ -895,8 +895,14 @@ body.theme-light-purple {
         min-height: auto !important;
         margin-bottom: 48px !important;
     }
-    .s2-hero-title { font-size: 1.85rem !important; }
-    .s2-hero-section { padding: 40px 16px 36px 16px !important; }
+    .s2-back-link {
+        top: 14px;
+        left: 14px;
+        padding: 8px 14px;
+        font-size: 0.84rem;
+    }
+    .s2-hero-title { font-size: 2rem !important; }
+    .s2-hero-section { padding: 74px 16px 40px 16px !important; }
     .s2-hero-btn { flex: 1 1 100%; justify-content: center; }
     .s2-main { padding: 0 14px 80px 14px; gap: 28px; }
     .s2-section { padding: 24px 18px; border-radius: 18px; }
