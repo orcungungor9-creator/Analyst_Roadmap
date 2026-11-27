@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7. Aşama: Veri Kaynağı ve Araçlar | Veri Mimarisi | Analyst Roadmap</title>
+    <title>7. Aşama: Veri Toplama Kaynağı ve Aracı | Veri Mimarisi | Analyst Roadmap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet"></noscript>
+    <!-- Ortak stiller (proje kökü: 3 klasör yukarıda) -->
     <link rel="stylesheet" href="../../../styles.css">
+    <!-- Bu aşamaya özel stiller -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,55 +23,387 @@
         })();
     </script>
 
+    <!-- ARKA PLAN GRAFİK AĞI (HAREKETSİZ) -->
+    <div class="bg-analytics-mesh">
+        <div class="bg-chart-item bg-chart-1">
+            <svg viewBox="0 0 400 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="s7-bg-area-grad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="var(--neon-blue)" stop-opacity="0.4" />
+                        <stop offset="100%" stop-color="var(--neon-blue)" stop-opacity="0.0" />
+                    </linearGradient>
+                </defs>
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40 L 370,190 L 10,190 Z" fill="url(#s7-bg-area-grad)" />
+                <path d="M 10,180 Q 70,120 130,150 T 250,90 T 370,40" fill="none" stroke="var(--neon-blue)" stroke-width="4" stroke-linecap="round" />
+                <circle cx="130" cy="150" r="6" fill="var(--neon-green)" />
+                <circle cx="250" cy="90" r="6" fill="var(--neon-purple)" />
+                <circle cx="370" cy="40" r="8" fill="var(--neon-blue)" />
+            </svg>
+        </div>
+        <div class="bg-chart-item bg-chart-2">
+            <svg viewBox="0 0 200 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <g transform="translate(100,100)">
+                    <path d="M 0,-80 A 80,80 0 0,1 76,25 L 57,18 A 60,60 0 0,0 0,-60 Z" fill="var(--neon-blue)" />
+                    <path d="M 76,25 A 80,80 0 0,1 -64,48 L -48,36 A 60,60 0 0,0 57,18 Z" fill="var(--neon-green)" />
+                    <path d="M -64,48 A 80,80 0 0,1 0,-80 L 0,-60 A 60,60 0 0,0 -48,36 Z" fill="var(--neon-purple)" />
+                    <circle cx="0" cy="0" r="45" fill="none" stroke="var(--glass-border)" stroke-width="2" stroke-dasharray="5,5" />
+                </g>
+            </svg>
+        </div>
+        <div class="bg-chart-item bg-chart-3">
+            <svg viewBox="0 0 250 250" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <line x1="20" y1="50" x2="230" y2="50" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4" />
+                <line x1="20" y1="100" x2="230" y2="100" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4" />
+                <line x1="20" y1="150" x2="230" y2="150" stroke="var(--glass-border)" stroke-width="1" stroke-dasharray="4,4" />
+                <line x1="20" y1="200" x2="230" y2="200" stroke="var(--glass-border)" stroke-width="2" />
+                <rect x="35" y="120" width="30" height="80" rx="6" fill="var(--neon-blue)" />
+                <rect x="85" y="70" width="30" height="130" rx="6" fill="var(--neon-green)" />
+                <rect x="135" y="150" width="30" height="50" rx="6" fill="var(--neon-purple)" />
+                <rect x="185" y="90" width="30" height="110" rx="6" fill="var(--neon-blue)" />
+            </svg>
+        </div>
+        <div class="bg-chart-item bg-chart-4">
+            <svg viewBox="0 0 280 220" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <line x1="50" y1="30" x2="50" y2="170" stroke="var(--neon-green)" stroke-width="3" />
+                <rect x="38" y="70" width="24" height="60" rx="4" fill="var(--neon-green)" />
+                <line x1="110" y1="50" x2="110" y2="190" stroke="var(--neon-blue)" stroke-width="3" />
+                <rect x="98" y="90" width="24" height="70" rx="4" fill="var(--neon-blue)" />
+                <line x1="170" y1="20" x2="170" y2="150" stroke="var(--neon-purple)" stroke-width="3" />
+                <rect x="158" y="50" width="24" height="50" rx="4" fill="var(--neon-purple)" />
+                <line x1="230" y1="60" x2="230" y2="200" stroke="var(--neon-green)" stroke-width="3" />
+                <rect x="218" y="100" width="24" height="55" rx="4" fill="var(--neon-green)" />
+            </svg>
+        </div>
+    </div>
+
     <!-- Header injected via components.js -->
 
-    <main class="main-container" style="max-width: 1200px; margin: 40px auto; padding: 0 24px 80px 24px;">
-        <!-- Breadcrumb & Geri Dön Butonu -->
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
-            <a href="../../index.html#asama-ayrintilari" style="display: inline-flex; align-items: center; gap: 8px; color: #8b5cf6; text-decoration: none; font-weight: 600; font-size: 0.95rem; padding: 8px 16px; border-radius: 12px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); transition: all 0.2s ease;">
-                <i data-lucide="arrow-left" style="width: 18px; height: 18px;"></i>
-                Aşama Ayrıntılarına Dön
-            </a>
-            <div style="color: var(--text-muted); font-size: 0.9rem;">
-                Veri Mimarisi / <span style="color: var(--text-main); font-weight: 600;">7. Aşama</span>
+    <!-- HERO BANNER -->
+    <div class="hero-banner-wrapper s7-hero">
+        <div class="hero-banner-bg"></div>
+        <div class="hero-banner-overlay"></div>
+        <a href="../../index.html#asama-ayrintilari" class="s7-back-link">
+            <i data-lucide="arrow-left"></i>
+            Aşama Ayrıntılarına Dön
+        </a>
+        <section class="hero-section s7-hero-section">
+            <div class="hero-content s7-hero-content">
+                <div class="badge-pill floating-slow">7. Aşama · Veri Mimarisi</div>
+                <h1 class="hero-title custom-brand-title s7-hero-title">Veri Toplama Kaynağının ve Aracının Seçimi</h1>
+                <p class="hero-subtitle s7-hero-subtitle">
+                    Bu aşama, verinin <strong>nereden geleceğine (kaynak)</strong> ve hangi <strong>operasyonel
+                    mekanizmayla çekileceğine (araç)</strong> karar verilen köprüdür. Tüm seçenekler verinin sıfırdan
+                    üretilip üretilmemesine göre iki ana kola ayrılır.
+                </p>
             </div>
-        </div>
+        </section>
+    </div>
 
-        <!-- Aşama Hero Kartı -->
-        <section class="glass" style="padding: 36px; border-radius: 20px; border-left: 6px solid #8b5cf6 !important; margin-bottom: 32px;">
-            <span style="background: #8b5cf6; color: #fff; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; display: inline-block; margin-bottom: 16px;">
-                7. Aşama
-            </span>
-            <h1 style="font-size: 2.2rem; font-weight: 800; color: var(--text-main); margin-bottom: 12px;">
-                Veri Toplama Kaynağının ve Aracının Seçimi
-            </h1>
-            <p style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.7; max-width: 900px; margin: 0;">
-                Verinin birincil (anket, mülakat, IoT) mi yoksa ikincil (API, web scraping, açık kaynak ambarları) mi olduğunu belirleyip uygun araçları (Python/R/SQL) seçmek.
+    <main class="s7-main">
+
+        <!-- GİRİŞ: BİRİNCİL VS İKİNCİL DENGE -->
+        <section class="s7-section acc-indigo" id="giris">
+            <div class="s7-section-head">
+                <div class="s7-head-icon"><i data-lucide="plug-zap"></i></div>
+                <div>
+                    <h2 class="s7-section-title">İki Ana Kol: Sıfırdan Üretmek mi, Hazır Kaynaktan Çekmek mi?</h2>
+                    <p class="s7-section-sub">Her zaman hız, maliyet ve kontrol gücü arasındaki dengeyi yönetirsin.</p>
+                </div>
+            </div>
+
+            <p>
+                Altyapımız (6. Aşama) artık hazır. Şimdi boru hattının ucunu gerçek dünyaya bağlama zamanı. Veriyi bizzat
+                senin tasarlayıp sahadan üretmenle (<strong>Birincil</strong>) başka bir kurumun veya sistemin ürettiği
+                veriyi içeri alman (<strong>İkincil</strong>) arasında gece ile gündüz kadar fark vardır:
             </p>
+
+            <div class="s7-grid-2">
+                <div class="s7-branch-card acc-green">
+                    <span class="s7-branch-tag">1. Kol · Sıfırdan Üretim</span>
+                    <h3>Birincil Veri (Primary Data)</h3>
+                    <p>Araştırma soruna özel, ilk elden toplanan ham veridir. Her sütun senin tanımına uyar.</p>
+                    <div class="s7-branch-pros">
+                        <span><b>Artı:</b> Kontrol %100 sendedir; birebir hipotezine uygun tasarlanır.</span>
+                        <span><b>Eksi:</b> Zaman, bütçe ve saha operasyonu yükü yüksektir.</span>
+                    </div>
+                </div>
+                <div class="s7-branch-card acc-blue">
+                    <span class="s7-branch-tag">2. Kol · Hazır &amp; Dış Kaynak</span>
+                    <h3>İkincil / 3. Taraf Veri (Secondary Data)</h3>
+                    <p>Başka kurumlar veya platformlar tarafından halihazırda üretilmiş verilerin projeye katılmasıdır.</p>
+                    <div class="s7-branch-pros">
+                        <span><b>Artı:</b> Çok hızlı ve ekonomiktir; geniş tarihsel derinlik sunabilir.</span>
+                        <span><b>Eksi:</b> Veri yapısı üzerinde kontrolün yoktur; ciddi temizlik ve doğrulama ister.</span>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- İçerik Alanı -->
-        <section class="glass" style="padding: 40px; border-radius: 20px; text-align: center;">
-            <div style="width: 64px; height: 64px; border-radius: 50%; background: color-mix(in srgb, #8b5cf6 15%, transparent); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 16px;">
-                <i data-lucide="cpu" style="width: 32px; height: 32px; color: #8b5cf6;"></i>
+        <!-- 1. BİRİNCİL VERİ KAYNAKLARI VE ARAÇLARI -->
+        <section class="s7-section acc-green" id="blok-1">
+            <div class="s7-section-head">
+                <div class="s7-head-num">1</div>
+                <div>
+                    <h2 class="s7-section-title">Birincil Veri Kaynakları ve Araçları (Sıfırdan Üretim)</h2>
+                    <p class="s7-section-sub">Araştırma sorusuna özel olarak doğrudan sahadan, deneyden veya sensörden toplanır.</p>
+                </div>
             </div>
-            <h3 style="font-size: 1.4rem; font-weight: 700; color: var(--text-main); margin-bottom: 8px;">
-                Bu Aşamanın İçeriği Yapılandırılıyor
-            </h3>
-            <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 600px; margin: 0 auto 24px auto;">
-                Metodoloji detayları, formüller ve uygulama örnekleri eklendiğinde bu alanda görüntülenecektir.
-            </p>
+
+            <div class="s7-grid-2">
+                <div class="s7-method-card acc-green">
+                    <div class="s7-method-top"><i data-lucide="clipboard-list"></i><h3>Anket ve Yapılandırılmış Formlar</h3></div>
+                    <p>
+                        Geniş kitlelerden standartlaştırılmış (nicel ve kategorik) veri toplamak için kullanılır. Sorular
+                        önceden sabitlenir; böylece her katılımcıdan aynı formatta sütunlar elde edilir.
+                    </p>
+                    <div class="s7-tools-pill">
+                        <b>Araçlar:</b> Google Forms, Typeform, Qualtrics, LimeSurvey, saha tabletleri (<code>CAPI</code>)
+                    </div>
+                </div>
+
+                <div class="s7-method-card acc-purple">
+                    <div class="s7-method-top"><i data-lucide="mic"></i><h3>Mülakat ve Odak Grupları</h3></div>
+                    <p>
+                        Sayısal verilerin açıklayamadığı <strong>"neden"</strong> ve <strong>"nasıl"</strong> sorularına
+                        yanıt arayan derinlemesine nitel yöntemlerdir. Örneğin fiyat neden düştü sorusunun arkasındaki esnaf
+                        algısını keşfetmek için idealdir.
+                    </p>
+                    <div class="s7-tools-pill">
+                        <b>Araçlar:</b> Ses/video kayıt sistemleri, otomatik deşifre (transkripsiyon), kodlama yazılımları (<code>MAXQDA</code>, <code>NVivo</code>)
+                    </div>
+                </div>
+
+                <div class="s7-method-card acc-amber">
+                    <div class="s7-method-top"><i data-lucide="flask-conical"></i><h3>Kontrollü Deneyler ve A/B Testleri</h3></div>
+                    <p>
+                        Değişkenlere bilinçli müdahale ederek sadece korelasyon değil doğrudan <strong>nedensellik
+                        (causality)</strong> ölçmek için kullanılır. Kullanıcılar rastgele Kontrol (A) ve Müdahale (B)
+                        gruplarına ayrılır.
+                    </p>
+                    <div class="s7-tools-pill">
+                        <b>Araçlar:</b> Web/uygulama içi A/B test motorları, deney takip logları, laboratuvar kayıt sistemleri
+                    </div>
+                </div>
+
+                <div class="s7-method-card acc-blue">
+                    <div class="s7-method-top"><i data-lucide="radio"></i><h3>Doğrudan Gözlem, Sensör ve Telemetri</h3></div>
+                    <p>
+                        İnsan beyanına dayanmadan, gerçekleşen davranışın veya fiziksel durumun otomatik kaydedilmesidir.
+                        İnsanların "günde kaç saat çalışıyorsunuz?" sorusuna yanlış cevap verme (<strong>hatırlama ve
+                        gözlemci yanlılığı</strong>) riskini ortadan kaldırır.
+                    </p>
+                    <div class="s7-tools-pill">
+                        <b>Araçlar:</b> IoT sensörleri (GPS, sıcaklık, akış), web analitik (tıklama/oturum logları), barkod/POS tarayıcıları
+                    </div>
+                </div>
+            </div>
         </section>
+
+        <!-- 2. İKİNCİL / ÜÇÜNCÜ TARAF VERİ KAYNAKLARI VE ARAÇLARI -->
+        <section class="s7-section acc-blue" id="blok-2">
+            <div class="s7-section-head">
+                <div class="s7-head-num">2</div>
+                <div>
+                    <h2 class="s7-section-title">İkincil / 3. Taraf Veri Kaynakları ve Araçları</h2>
+                    <p class="s7-section-sub">Halihazırda üretilmiş kurumsal veya kamusal verileri programa aktarmak.</p>
+                </div>
+            </div>
+
+            <div class="s7-grid-2">
+                <div class="s7-method-card acc-blue">
+                    <div class="s7-method-top"><i data-lucide="landmark"></i><h3>Resmî ve Açık Veri Portalları</h3></div>
+                    <p>
+                        Güvenilirliği yüksek, toplanma metodolojisi belgelenmiş makro ve mikro veri setleridir. Ekonomik
+                        modellerin temel taşları genellikle bu kaynaklardan çekilir.
+                    </p>
+                    <div class="s7-tools-pill">
+                        <b>Kaynaklar:</b> TÜİK, TCMB (EVDS), Dünya Bankası, Eurostat, FRED, Kaggle, akademik havuzlar.<br>
+                        <b>Araçlar:</b> Doğrudan indirme, hazır R/Python paketleri (<code>evds</code>, <code>wbdata</code>).
+                    </div>
+                </div>
+
+                <div class="s7-method-card acc-indigo">
+                    <div class="s7-method-top"><i data-lucide="webhook"></i><h3>API (Uygulama Programlama Arayüzü)</h3></div>
+                    <p>
+                        Platformların ve kurumların verilerini programatik, düzenli ve anlık olarak paylaştığı
+                        <strong>resmî uç noktalardır</strong>. En temiz, yasal ve sürdürülebilir dış veri çekme yoludur.
+                    </p>
+                    <div class="s7-tools-pill">
+                        <b>Araçlar:</b> Python (<code>requests</code>, <code>httpx</code>), R (<code>httr2</code>, <code>jsonlite</code>), API test (<code>Postman</code>).
+                    </div>
+                </div>
+
+                <div class="s7-method-card acc-amber">
+                    <div class="s7-method-top"><i data-lucide="code"></i><h3>Web Scraping (Web Kazıma)</h3></div>
+                    <p>
+                        API sunmayan ancak halka açık web sayfalarındaki verilerin otomatik betiklerle toplanmasıdır.
+                        Sayfanın teknolojisine göre araç değişir:
+                    </p>
+                    <div class="s7-tools-pill">
+                        <b>Statik HTML:</b> Python (<code>BeautifulSoup</code>, <code>Scrapy</code>) veya R (<code>rvest</code>).<br>
+                        <b>Dinamik JS Sayfalar:</b> Tarayıcı otomasyonu (<code>Playwright</code>, <code>Selenium</code>).
+                    </div>
+                </div>
+
+                <div class="s7-method-card acc-purple">
+                    <div class="s7-method-top"><i data-lucide="database"></i><h3>Kurumsal İç Veritabanları</h3></div>
+                    <p>
+                        Şirketlerin kendi operasyonel süreçlerinde (satış, müşteri, stok, ERP, CRM, finans) zaten biriken
+                        birinci sınıf verilerdir; sadece analitik ortama doğru sorguyla çekilmesi gerekir.
+                    </p>
+                    <div class="s7-tools-pill">
+                        <b>Araçlar:</b> SQL sorguları, veritabanı sürücüleri ve bağlayıcıları (<code>SQLAlchemy</code>, <code>psycopg2</code>, R <code>DBI</code>).
+                    </div>
+                </div>
+            </div>
+
+            <div class="s7-callout acc-amber">
+                <i data-lucide="scale" class="s7-callout-icon"></i>
+                <div>
+                    <strong>Web Scraping Altın Kuralı: Önce API Ara, Sonra ToS Kontrol Et</strong>
+                    <p>
+                        Bir siteden veri çekerken izlenen en doğru mühendislik sırası şudur: <strong>(1)</strong> Resmî bir API
+                        var mı? Varsa her zaman API kullan. <strong>(2)</strong> Yoksa <code>robots.txt</code> ve Kullanım Koşulları
+                        (ToS) izin veriyor mu? <strong>(3)</strong> İzin veriyorsa hedef sunucuyu kilitlememek için istekler arasına
+                        bekleme süresi (rate limiting) koyarak çek.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. KARAR KRİTERLERİ -->
+        <section class="s7-section acc-indigo" id="blok-3">
+            <div class="s7-section-head">
+                <div class="s7-head-num">3</div>
+                <div>
+                    <h2 class="s7-section-title">Kaynak ve Araç Seçiminde 4 Karar Kriteri</h2>
+                    <p class="s7-section-sub">Hangi kombinasyonun seçileceğini dört temel denge belirler.</p>
+                </div>
+            </div>
+
+            <div class="s7-grid-4">
+                <div class="s7-criteria-card acc-blue">
+                    <div class="s7-crit-icon"><i data-lucide="target"></i></div>
+                    <strong>1. Uygunluk &amp; Vekil Değişken</strong>
+                    <p>
+                        İkincil veri araştırma sorundaki değişkeni birebir karşılıyor mu, yoksa <strong>vekil değişken
+                        (proxy)</strong> mi kullanmak zorundasın? (Örn. geliri bilmiyorsan elektrik faturasını vekil almak).
+                    </p>
+                </div>
+                <div class="s7-criteria-card acc-green">
+                    <div class="s7-crit-icon"><i data-lucide="clock"></i></div>
+                    <strong>2. Güncellik (Freshness)</strong>
+                    <p>
+                        Verinin ne kadar taze olması gerekiyor? Günlük döviz kuru için anlık API şarttır; yapısal analiz için
+                        yıllık TÜİK bülteni yeterlidir.
+                    </p>
+                </div>
+                <div class="s7-criteria-card acc-amber">
+                    <div class="s7-crit-icon"><i data-lucide="repeat"></i></div>
+                    <strong>3. Otomasyon İhtiyacı</strong>
+                    <p>
+                        Veri tek seferlik mi çekilecek (manuel indirme yeterli), yoksa her hafta/ay yeniden güncellenecek mi
+                        (zamanlanmış betik / <code>cron job</code> veya Airflow şart)?
+                    </p>
+                </div>
+                <div class="s7-criteria-card acc-purple">
+                    <div class="s7-crit-icon"><i data-lucide="shield-check"></i></div>
+                    <strong>4. Güvenilirlik</strong>
+                    <p>
+                        Veriyi üreten kaynağın kendi toplama metodolojisi şeffaf, belgelenmiş ve tutarlı mı? Metodolojisi
+                        meçhul tablolar modeli sessizce zehirler.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ETKİLEŞİMLİ KAYNAK & ARAÇ SEÇİM SİHİRBAZI -->
+        <section class="s7-section acc-blue" id="laboratuvar">
+            <div class="s7-section-head">
+                <div class="s7-head-icon"><i data-lucide="wrench"></i></div>
+                <div>
+                    <h2 class="s7-section-title">Mini Laboratuvar: Kaynak &amp; Araç Eşleştirici</h2>
+                    <p class="s7-section-sub">Verinin kaynağını ve çekme ritmini seç; sahada kullanacağın doğru araç setini gör.</p>
+                </div>
+            </div>
+
+            <div class="s7-lab" id="s7-lab">
+                <div class="s7-lab-row">
+                    <span class="s7-lab-label">1. Hedef Veri Kaynağın Hangisi?</span>
+                    <div class="s7-btn-wrap">
+                        <button type="button" class="s7-src-btn is-active" data-src="survey">Anket / Mülakat (İnsan Beyanı)</button>
+                        <button type="button" class="s7-src-btn" data-src="sensor">Sensör / Uygulama Telemetrisi</button>
+                        <button type="button" class="s7-src-btn" data-src="portal">Resmî Portal (TÜİK / EVDS / FRED)</button>
+                        <button type="button" class="s7-src-btn" data-src="api">Platform API (JSON Uç Noktası)</button>
+                        <button type="button" class="s7-src-btn" data-src="scrape_static">Web Sayfası (Statik HTML)</button>
+                        <button type="button" class="s7-src-btn" data-src="scrape_js">Web Sayfası (Dinamik JS / Etkileşimli)</button>
+                        <button type="button" class="s7-src-btn" data-src="erp">Kurumsal İç Veritabanı (ERP / CRM)</button>
+                    </div>
+                </div>
+
+                <div class="s7-lab-row">
+                    <span class="s7-lab-label">2. Ne Sıklıkla Çekilecek?</span>
+                    <div class="s7-btn-wrap">
+                        <button type="button" class="s7-freq-btn is-active" data-freq="once">Tek Seferlik</button>
+                        <button type="button" class="s7-freq-btn" data-freq="periodic">Periyodik (Günlük / Aylık)</button>
+                    </div>
+                </div>
+
+                <div class="s7-recipe" id="s7-recipe">
+                    <div class="s7-recipe-grid">
+                        <div class="s7-rec-item"><span>Kategori</span><strong id="s7-rec-cat">-</strong></div>
+                        <div class="s7-rec-item"><span>Önerilen Araç / Paket</span><strong id="s7-rec-tools">-</strong></div>
+                        <div class="s7-rec-item"><span>Çekme / Otomasyon</span><strong id="s7-rec-auto">-</strong></div>
+                    </div>
+                    <p id="s7-rec-note" class="s7-rec-note"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ÖZET VE NAVİGASYON -->
+        <section class="s7-section acc-indigo" id="ozet">
+            <div class="s7-section-head">
+                <div class="s7-head-icon"><i data-lucide="flag"></i></div>
+                <div>
+                    <h2 class="s7-section-title">7. Aşamanın Sonunda Bağlantılar Tamam</h2>
+                    <p class="s7-section-sub">Verinin nereden ve hangi yazılımla geleceği belli; geriye tek bir mühendislik kararı kaldı.</p>
+                </div>
+            </div>
+
+            <p class="s7-closing">
+                Artık kaynağımız (<strong>Birincil / İkincil</strong>) ve çekim aracımız (<code>CAPI</code>, <code>API</code>,
+                <code>Playwright</code>, <code>SQL</code>, <code>evds</code> vb.) belli. Şimdi sahaya çıkıp butona basmadan
+                önceki son adımı atacağız: Bu kaynak içinden gözlemleri <strong>hangi matematiksel çekiliş tekniğiyle
+                (Olasılıklı vs. Olasılıksız Örnekleme)</strong> seçeceğiz?
+            </p>
+
+            <div class="s7-nav">
+                <a href="../6.Aşama_Dijital_Altyapı_ve_Format/index.html" class="s7-nav-btn is-secondary">
+                    <i data-lucide="arrow-left"></i>
+                    <span><small>Önceki: 6. Aşama</small>Dijital Altyapı ve Format</span>
+                </a>
+                <a href="../8.Aşama_Örnekleme_Tekniği/index.html" class="s7-nav-btn is-primary">
+                    <span><small>Sıradaki: 8. Aşama</small>Örnekleme Tekniği</span>
+                    <i data-lucide="arrow-right"></i>
+                </a>
+            </div>
+        </section>
+
     </main>
 
     <!-- Footer injected via components.js -->
+
+    <!-- Ortak betikler (proje kökü: 3 klasör yukarıda) -->
     <script src="../../../js/components.js"></script>
     <script src="../../../js/nav.js"></script>
     <script src="../../../js/modal.js"></script>
     <script src="../../../js/script.js"></script>
+    <!-- Bu aşamaya özel betik -->
     <script src="script.js"></script>
     <script>
-        if (window.lucide) { lucide.createIcons(); }
+        if (window.lucide) {
+            lucide.createIcons();
+        }
     </script>
 </body>
 </html>
