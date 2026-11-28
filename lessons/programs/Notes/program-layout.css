@@ -785,3 +785,78 @@ body.theme-dark .syn-string, body.theme-ocean .syn-string, body.theme-purple .sy
 body.theme-dark .syn-number, body.theme-ocean .syn-number, body.theme-purple .syn-number, body.theme-emerald .syn-number, body.theme-cyberpunk .syn-number, body.theme-cyber-neon .syn-number, body.theme-amber .syn-number, body.theme-dark-sakura .syn-number, body.theme-mono-dark .syn-number { color: #82B1FF; }
 body.theme-dark .syn-kw, body.theme-ocean .syn-kw, body.theme-purple .syn-kw, body.theme-emerald .syn-kw, body.theme-cyberpunk .syn-kw, body.theme-cyber-neon .syn-kw, body.theme-amber .syn-kw, body.theme-dark-sakura .syn-kw, body.theme-mono-dark .syn-kw { color: #EA80FC; }
 body.theme-dark .syn-fn, body.theme-ocean .syn-fn, body.theme-purple .syn-fn, body.theme-emerald .syn-fn, body.theme-cyberpunk .syn-fn, body.theme-cyber-neon .syn-fn, body.theme-amber .syn-fn, body.theme-dark-sakura .syn-fn, body.theme-mono-dark .syn-fn { color: #FFD180; }
+
+/* Shared Curriculum Section Group & Static Heading Styles */
+.curriculum-section {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.curriculum-section:last-child {
+    margin-bottom: 0;
+}
+
+.curriculum-section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 6px 4px 12px;
+    border-bottom: 2px solid var(--theme-color-glow);
+    margin-bottom: 4px;
+    cursor: default;
+    user-select: none;
+}
+
+.section-icon-badge {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--theme-color-light);
+    border: 2px solid var(--theme-color);
+    color: var(--theme-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.45rem;
+    flex-shrink: 0;
+}
+
+.section-heading-title {
+    font-family: 'Outfit', var(--font-title), sans-serif;
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.section-lesson-count {
+    margin-left: auto;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--theme-color);
+    background: var(--theme-color-light);
+    border: 1px solid var(--theme-color-glow);
+    padding: 4px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+@media (max-width: 576px) {
+    .curriculum-section-header {
+        gap: 10px;
+    }
+    .section-icon-badge {
+        width: 38px;
+        height: 38px;
+        font-size: 1.25rem;
+    }
+    .section-heading-title {
+        font-size: 1.15rem;
+    }
+    .section-lesson-count {
+        display: none;
+    }
+}
