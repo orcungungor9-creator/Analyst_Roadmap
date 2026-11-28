@@ -346,7 +346,90 @@ satis_analizi_gercekten_son_v2.py</div>
                     </div>
                     <div class="accordion-content">
                         <div class="accordion-inner">
-                            <p>5. Ders içeriği buraya gelecek...</p>
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Versiyon Kaydetme ve İyi Commit Yazma (git commit)</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Bir önceki derste <code>analiz.py</code> dosyasını sahneye (<em>Staging Area</em>) almıştık. Şimdi fotoğrafın deklanşörüne basma zamanı: sahnede bekleyen bu değişiklikleri kalıcı bir kayıt noktası olarak depoya (<em>Repository</em>) kaydedeceğiz. Git dünyasında bu işleme <strong>commit</strong> denir.</p>
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 28px; font-size: 1.2rem; font-weight: 700;">1. İlk Commit'ini Atma (git commit -m)</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Değişiklikleri kaydederken Git senden mutlaka ne yaptığını açıklayan kısa bir mesaj ister. Bu mesajı terminalden doğrudan yazmak için <code>-m</code> (<em>message</em>) parametresini kullanırız:</p>
+
+                            <div class="code-box"><span class="syn-kw">git</span> <span class="syn-fn">commit</span> -m <span class="syn-string">"analiz.py dosyası oluşturuldu"</span>
+
+<span class="syn-comment"># Çıktı:
+# [main (root-commit) a1b2c3d] analiz.py dosyası oluşturuldu
+#  1 file changed, 0 insertions(+), 0 deletions(-)
+#  create mode 100644 analiz.py</span></div>
+
+                            <p style="margin-bottom: 12px; line-height: 1.6; font-weight: 600; color: var(--text-main);">Bu çıktının sana söyledikleri şunlardır:</p>
+                            <ul style="margin-bottom: 20px; padding-left: 20px; line-height: 1.6; font-weight: 500; color: var(--text-main);">
+                                <li style="margin-bottom: 8px;"><strong><code>main</code>:</strong> Kayıt, <code>main</code> dalına yapıldı.</li>
+                                <li style="margin-bottom: 8px;"><strong><code>a1b2c3d</code>:</strong> Bu commit'in benzersiz kimlik numarasıdır (<em>hash</em>). İleride bu ana geri dönmek istediğinde bu kodu kullanacaksın.</li>
+                                <li style="margin-bottom: 8px;"><strong><code>1 file changed...</code>:</strong> Kaç dosyanın değiştiğini, kaç satır eklendiğini (<em>insertions</em>) ve kaç satır silindiğini (<em>deletions</em>) özetler.</li>
+                            </ul>
+
+                            <div style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #F59E0B; padding: 15px 20px; border-radius: 4px; margin: 20px 0 25px;">
+                                <h5 style="color: #F59E0B; margin-bottom: 6px; font-size: 1rem; font-weight: 700; display: flex; align-items: center; gap: 8px;"><i class="ph ph-warning"></i> Dikkat: -m Parametresini Unutma!</h5>
+                                <p style="margin: 0; line-height: 1.6; font-size: 0.95rem; color: var(--text-main);">Eğer <code>-m "mesaj"</code> kısmını yazmadan sadece <code>git commit</code> yazarsan, Git senden mesaj istemek için terminal içinde bir metin editörü (genellikle <strong>Vim</strong>) açar. Yeni başlayanların en sık kilitlendiği yer burasıdır. Yanlışlıkla Vim'e düşersen klavyeden sırasıyla <code>Esc</code> tuşuna basıp <code>:q!</code> yazarak <code>Enter</code>'a basabilir ve çıkış yapabilirsin.</p>
+                            </div>
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 28px; font-size: 1.2rem; font-weight: 700;">2. Kayıttan Sonra Durumu Kontrol Etme</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Commit attıktan sonra hemen pusulamıza bakalım:</p>
+
+                            <div class="code-box"><span class="syn-kw">git</span> <span class="syn-fn">status</span>
+
+<span class="syn-comment"># Çıktı:
+# On branch main
+# nothing to commit, working tree clean</span></div>
+
+                            <p style="margin-bottom: 20px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><code>working tree clean</code> mesajı, çalışma klasöründeki tüm değişikliklerin güvenle kaydedildiğini ve bekleyen hiçbir iş olmadığını gösterir. Artık dosyan Git'in zaman makinesinde kalıcı olarak koruma altında.</p>
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 28px; font-size: 1.2rem; font-weight: 700;">3. İyi Bir Commit Nasıl Olmalı?</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><code>git commit</code> komutunu çalıştırmak kolaydır, ancak profesyonel bir geliştirici veya veri analisti olmanın farkı commit alışkanlığında ortaya çıkar.</p>
+
+                            <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 700; color: var(--text-main);">A. Anlamlı Commit Mesajları Yaz</p>
+                            <p style="margin-bottom: 14px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Aylar sonra geçmişe baktığında hangi kayıtta ne yaptığını tek bakışta anlayabilmelisin:</p>
+
+                            <div style="width: 100%; overflow-x: auto; border-radius: 8px; margin-bottom: 22px; border: 1px solid var(--glass-border);">
+                                <table style="width: 100%; border-collapse: collapse; font-size: 0.92rem; background: var(--bg-card);">
+                                    <thead>
+                                        <tr>
+                                            <th style="padding: 12px 16px; text-align: left; background: rgba(239, 68, 68, 0.12); color: #EF4444; border-bottom: 1px solid var(--glass-border); border-right: 1px solid var(--glass-border); font-weight: 700;">Kötü Mesajlar</th>
+                                            <th style="padding: 12px 16px; text-align: left; background: rgba(16, 185, 129, 0.12); color: #10B981; border-bottom: 1px solid var(--glass-border); font-weight: 700;">İyi Mesajlar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="padding: 10px 16px; border-bottom: 1px solid var(--glass-border); border-right: 1px solid var(--glass-border); color: var(--text-main);"><code>"güncelleme"</code></td>
+                                            <td style="padding: 10px 16px; border-bottom: 1px solid var(--glass-border); color: var(--text-main);"><code>"Eksik maaş verileri ortalama ile dolduruldu"</code></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 10px 16px; border-bottom: 1px solid var(--glass-border); border-right: 1px solid var(--glass-border); color: var(--text-main);"><code>"hata düzeltildi"</code></td>
+                                            <td style="padding: 10px 16px; border-bottom: 1px solid var(--glass-border); color: var(--text-main);"><code>"Tarih sütunundaki format hatası giderildi"</code></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 10px 16px; border-bottom: 1px solid var(--glass-border); border-right: 1px solid var(--glass-border); color: var(--text-main);"><code>"son hal v2"</code></td>
+                                            <td style="padding: 10px 16px; border-bottom: 1px solid var(--glass-border); color: var(--text-main);"><code>"Aylık satış grafiği için eksen başlıkları eklendi"</code></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 10px 16px; border-right: 1px solid var(--glass-border); color: var(--text-main);"><code>"asdfgh"</code></td>
+                                            <td style="padding: 10px 16px; color: var(--text-main);"><code>"Regresyon modeli için eğitim/test ayrımı yapıldı"</code></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <p style="margin-bottom: 10px; line-height: 1.6; font-weight: 700; color: var(--text-main);">B. Atomik Commit (Tek Kayıt, Tek İş) Mantığı</p>
+                            <p style="margin-bottom: 12px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Tek bir commit'in içine birbiriyle alakasız 10 farklı değişikliği doldurma. Örneğin:</p>
+                            <ul style="margin-bottom: 15px; padding-left: 20px; line-height: 1.6; font-weight: 500; color: var(--text-main);">
+                                <li style="margin-bottom: 8px;">Veri temizleme işlemini bitirdin &rarr; <strong>1. Commit</strong></li>
+                                <li style="margin-bottom: 8px;">Grafik kodlarını ekledin &rarr; <strong>2. Commit</strong></li>
+                                <li style="margin-bottom: 8px;">Rapor metnindeki yazım hatasını düzelttin &rarr; <strong>3. Commit</strong></li>
+                            </ul>
+                            <p style="margin-bottom: 20px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Her commit tek bir mantıksal işi temsil ederse, ileride sadece grafik kodunda bir hata çıktığında veri temizleme kodlarına hiç dokunmadan yalnızca 2. commit'i geri alabilirsin.</p>
+
+                            <div style="background: rgba(56, 189, 248, 0.08); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-top: 20px;">
+                                <h5 style="color: var(--neon-blue); margin-bottom: 6px; font-size: 1rem; font-weight: 700; display: flex; align-items: center; gap: 8px;"><i class="ph ph-info"></i> Temel Git Döngüsü Tamamlandı</h5>
+                                <p style="margin: 0; line-height: 1.6; font-size: 0.95rem; color: var(--text-main);">Artık temel Git döngüsünü (<strong>değişiklik yap &rarr; <code>git add</code> &rarr; <code>git commit</code></strong>) tamamladın. Bir sonraki derste, projede oluşan geçici dosyaları, şifreleri veya devasa veri setlerini Git'in takibinden nasıl gizleyeceğimizi (<code>.gitignore</code>) öğreneceğiz.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -357,7 +440,89 @@ satis_analizi_gercekten_son_v2.py</div>
                     </div>
                     <div class="accordion-content">
                         <div class="accordion-inner">
-                            <p>6. Ders içeriği buraya gelecek...</p>
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">İstenmeyen Dosyaları Gizleme (.gitignore)</h4>
+                            <p style="margin-bottom: 12px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Bir proje klasöründe sadece senin yazdığın kodlar bulunmaz. Çalıştıkça klasörde geçici sistem dosyaları, büyük ham veri setleri veya içinde şifre/API anahtarı barındıran ayar dosyaları birikir. Bu dosyaların Git tarafından takip edilmesini istemezsin.</p>
+                            <p style="margin-bottom: 20px; line-height: 1.6; font-weight: 500; color: var(--text-main);">İşte tam bu noktada <code>.gitignore</code> devreye girer. Bu dosya, Git'e <em>"Şu dosya ve klasörleri görmezden gel, <code>git status</code> veya <code>git add .</code> yaparken bunları bana hiç gösterme"</em> demenin yoludur.</p>
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 28px; font-size: 1.2rem; font-weight: 700;">Neleri Gizlemelisin?</h4>
+                            <ul style="margin-bottom: 20px; padding-left: 20px; line-height: 1.6; font-weight: 500; color: var(--text-main);">
+                                <li style="margin-bottom: 10px;"><strong>Hassas Bilgiler:</strong> Veritabanı şifreleri, API anahtarları (<code>.env</code> dosyaları). Bunları asla versiyon kontrolüne dahil etme.</li>
+                                <li style="margin-bottom: 10px;"><strong>Büyük Veri Dosyaları:</strong> Yüzlerce megabaytlık <code>.csv</code>, <code>.xlsx</code> veya <code>.parquet</code> ham veri setleri (Git kod takibi içindir, büyük veriler depoyu yavaşlatır ve şişirir).</li>
+                                <li style="margin-bottom: 10px;"><strong>Otomatik Oluşan Geçici Dosyalar:</strong> Python'ın oluşturduğu <code>__pycache__/</code>, R'ın oluşturduğu <code>.Rhistory</code> ve <code>.RData</code>, işletim sistemlerinin oluşturduğu <code>.DS_Store</code> (macOS) veya <code>Thumbs.db</code> (Windows) dosyaları.</li>
+                            </ul>
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 28px; font-size: 1.2rem; font-weight: 700;">1. .gitignore Dosyası Nasıl Oluşturulur?</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Projenin ana klasöründe (<code>.git</code> klasörünün olduğu dizinde) tam olarak <code>.gitignore</code> adında bir dosya oluşturman yeterlidir. Başındaki noktaya dikkat et; uzantısı yoktur.</p>
+
+                            <div class="code-box"><span class="syn-fn">touch</span> .gitignore</div>
+
+                            <p style="margin-bottom: 20px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><em>(Alternatif olarak VS Code veya kullandığın editörden doğrudan <code>.gitignore</code> adıyla yeni bir dosya da açabilirsin. Windows Dosya Gezgini başında nokta olan dosyalarda bazen isim uyarısı verebildiği için terminal veya editör kullanmak en pratik yoldur.)</em></p>
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 28px; font-size: 1.2rem; font-weight: 700;">2. Kurallar Nasıl Yazılır?</h4>
+                            <p style="margin-bottom: 12px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><code>.gitignore</code> dosyasının içine her satıra bir kural yazılır. Temel kurallar oldukça basittir:</p>
+                            <ul style="margin-bottom: 18px; padding-left: 20px; line-height: 1.6; font-weight: 500; color: var(--text-main);">
+                                <li style="margin-bottom: 8px;"><strong>Tek bir dosyayı gizlemek için:</strong> Tam adını yaz (<code>gizli_ayarlar.txt</code>).</li>
+                                <li style="margin-bottom: 8px;"><strong>Belirli bir uzantıdaki tüm dosyaları gizlemek için:</strong> Yıldız (<code>*</code>) kullan (<code>*.csv</code>, <code>*.log</code>).</li>
+                                <li style="margin-bottom: 8px;"><strong>Tüm bir klasörü gizlemek için:</strong> Klasör adının sonuna <code>/</code> koy (<code>ham_veriler/</code>, <code>venv/</code>).</li>
+                                <li style="margin-bottom: 8px;"><strong>Yorum satırı eklemek için:</strong> Başına <code>#</code> koy.</li>
+                            </ul>
+
+                            <p style="margin-bottom: 12px; line-height: 1.6; font-weight: 600; color: var(--text-main);">Bir veri analizi veya yazılım projesi için örnek bir <code>.gitignore</code> içeriği:</p>
+                            <div class="code-box"><span class="syn-comment"># Hassas ayar ve şifre dosyaları</span>
+.env
+
+<span class="syn-comment"># Büyük veri dosyaları</span>
+*.csv
+*.xlsx
+ham_veriler/
+
+<span class="syn-comment"># Python geçici dosyaları ve sanal ortam</span>
+__pycache__/
+venv/
+.ipynb_checkpoints/
+
+<span class="syn-comment"># R geçici dosyaları</span>
+.Rhistory
+.RData
+
+<span class="syn-comment"># İşletim sistemi dosyaları</span>
+.DS_Store
+Thumbs.db</div>
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 28px; font-size: 1.2rem; font-weight: 700;">3. Çalıştığını Test Edelim</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Klasöründe <code>veriler.csv</code> adında bir dosya olduğunu ve <code>.gitignore</code> içine <code>*.csv</code> yazdığını varsayalım. Şimdi pusulamızı çalıştıralım:</p>
+
+                            <div class="code-box"><span class="syn-kw">git</span> <span class="syn-fn">status</span>
+
+<span class="syn-comment"># Çıktı:
+# On branch main
+# Untracked files:
+#   (use "git add &lt;file&gt;..." to include in what will be committed)
+#         .gitignore
+#
+# (Dikkat: veriler.csv dosyası listede hiç görünmüyor!)</span></div>
+
+                            <p style="margin-bottom: 18px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Çıktıda <code>veriler.csv</code> dosyasının hiç görünmediğini, sadece <code>.gitignore</code> dosyasının kendisinin <code>Untracked files</code> altında listelendiğini göreceksin.</p>
+
+                            <div style="background: rgba(56, 189, 248, 0.08); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin: 18px 0 25px;">
+                                <h5 style="color: var(--neon-blue); margin-bottom: 6px; font-size: 1rem; font-weight: 700; display: flex; align-items: center; gap: 8px;"><i class="ph ph-info"></i> Önemli: .gitignore Dosyasını da Commit'le</h5>
+                                <p style="margin: 0; line-height: 1.6; font-size: 0.95rem; color: var(--text-main);"><code>.gitignore</code> dosyasının kendisini mutlaka <code>git add .gitignore</code> ve <code>git commit -m ".gitignore dosyası eklendi"</code> diyerek kaydetmelisin. Böylece gizleme kuralların da projenin bir parçası olarak saklanır.</p>
+                            </div>
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 28px; font-size: 1.2rem; font-weight: 700;">4. Sık Düşülen Tuzak: "Dosyayı .gitignore'a Yazdım Ama Hâlâ Görünüyor!"</h4>
+
+                            <div style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #F59E0B; padding: 15px 20px; border-radius: 4px; margin: 15px 0 20px;">
+                                <h5 style="color: #F59E0B; margin-bottom: 6px; font-size: 1rem; font-weight: 700; display: flex; align-items: center; gap: 8px;"><i class="ph ph-warning"></i> Önceden Takip Edilen Dosyalar Kuralı</h5>
+                                <p style="margin: 0; line-height: 1.6; font-size: 0.95rem; color: var(--text-main);"><code>.gitignore</code>, yalnızca <strong>henüz takip edilmeyen (untracked)</strong> dosyaları görmezden gelir. Eğer bir dosyayı daha önce <code>git add</code> ve <code>git commit</code> ile depoya kaydettiysen, sonradan adını <code>.gitignore</code>'a yazsan bile Git o dosyayı takip etmeye devam eder.</p>
+                            </div>
+
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Bu durumda dosyayı bilgisayarından silmeden <strong>sadece Git'in takibinden çıkarmak</strong> için şu komutu kullanırsın:</p>
+
+                            <div class="code-box"><span class="syn-kw">git</span> <span class="syn-fn">rm</span> --cached veriler.csv
+<span class="syn-kw">git</span> <span class="syn-fn">commit</span> -m <span class="syn-string">"veriler.csv takipten çıkarıldı"</span></div>
+
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Bu işlemin ardından <code>veriler.csv</code> dosyası bilgisayarında durmaya devam eder ama Git artık onu tamamen görmezden gelir.</p>
+                            <p style="margin-bottom: 0; line-height: 1.6; font-weight: 500; color: var(--text-main);">Artık temel kayıt döngüsünü ve proje hijyenini tamamladın. Bir sonraki bölümde geçmişe bakmayı ve yaptığın değişiklikleri satır satır incelemeyi öğreneceğiz.</p>
                         </div>
                     </div>
                 </div>
