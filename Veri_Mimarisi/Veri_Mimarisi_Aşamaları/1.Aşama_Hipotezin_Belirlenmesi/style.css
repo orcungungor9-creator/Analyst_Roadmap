@@ -61,9 +61,9 @@ body.theme-light-purple {
 }
 
 .hero-banner-wrapper.s1-hero {
-    min-height: calc(100vh - var(--s1-header-h, 74px)) !important;
-    min-height: calc(100svh - var(--s1-header-h, 74px)) !important;
-    margin-bottom: 84px !important;
+    min-height: 100vh !important;
+    flex-shrink: 0;
+    margin-bottom: 100px !important;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -932,8 +932,7 @@ em.neg { color: #fff; background: #dc2626; }
 
 @media (max-width: 720px) {
     .hero-banner-wrapper.s1-hero {
-        min-height: auto !important;
-        margin-bottom: 48px !important;
+        margin-bottom: 64px !important;
     }
     .s1-back-link {
         top: 14px;
