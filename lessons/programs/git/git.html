@@ -66,12 +66,48 @@
                 </div>
                 <div class="accordion-item">
                     <div class="accordion-header">
-                        <h3 class="accordion-title">1. Ders: Versiyon Kontrolü ve Git Nedir</h3>
+                        <h3 class="accordion-title">1. Ders: Versiyon Kontrolü ve Git Nedir?</h3>
                         <div class="accordion-icon"><i class="ph ph-caret-down"></i></div>
                     </div>
                     <div class="accordion-content">
                         <div class="accordion-inner">
-                            <p>1. Ders içeriği buraya gelecek...</p>
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Versiyon Kontrolü ve Git Nedir?</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Bir proje, rapor veya analiz dosyası üzerinde çalışırken klasörünün şu hale geldiği mutlaka olmuştur:</p>
+
+                            <div class="code-box" style="margin-bottom: 18px;"><span class="syn-comment"># Klasördeki klasik versiyon kaosu:</span>
+satis_analizi.py
+satis_analizi_yeni.py
+satis_analizi_son.py
+satis_analizi_gercekten_son_v2.py</div>
+
+                            <p style="margin-bottom: 20px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Bu yöntem bir süre sonra hangi dosyada neyi değiştirdiğini unutmana, çalışan kodu yanlışlıkla bozmana ve saatlerce geriye dönük hata aramana neden olur. <strong>Versiyon Kontrol Sistemi (VCS)</strong> tam olarak bu kaosu bitirmek için vardır.</p>
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 28px; font-size: 1.2rem; font-weight: 700;">Versiyon Kontrolü Ne İşe Yarar?</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Versiyon kontrolü, dosyalarının zaman içindeki tüm değişikliklerini kaydeden bir zaman makinesi gibidir.</p>
+                            <ul style="margin-bottom: 20px; padding-left: 20px; line-height: 1.6; font-weight: 500; color: var(--text-main);">
+                                <li style="margin-bottom: 10px;"><strong>Geçmişi Saklar:</strong> Hangi gün, hangi dosyada, tam olarak hangi satırı değiştirdiğini kaydeder.</li>
+                                <li style="margin-bottom: 10px;"><strong>Geri Dönüş Sağlar:</strong> Kodunu bozduğunda veya yanlış bir analiz yöntemi denediğinde, tek bir komutla 3 gün önceki çalışan haline dönebilirsin.</li>
+                                <li style="margin-bottom: 10px;"><strong>Güvenli Deneme Alanı Sunar:</strong> Ana dosyanı bozmadan farklı fikirler deneyebilir, beğenirsen ana projene dahil edebilirsin.</li>
+                            </ul>
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 28px; font-size: 1.2rem; font-weight: 700;">Git Nedir?</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>Git</strong>, dünyanın en yaygın kullanılan dağıtık (<em>distributed</em>) versiyon kontrol sistemidir. 2005 yılında Linux'un yaratıcısı <strong>Linus Torvalds</strong> tarafından geliştirilmiştir.</p>
+                            <p style="margin-bottom: 12px; line-height: 1.6; font-weight: 600; color: var(--text-main);">Git hakkında bilmen gereken en temel 3 gerçek:</p>
+                            <ul style="margin-bottom: 20px; padding-left: 20px; line-height: 1.6; font-weight: 500; color: var(--text-main);">
+                                <li style="margin-bottom: 10px;"><strong>Bilgisayarında Çalışır:</strong> Git tamamen yerel (<em>local</em>) bir araçtır. Kullanmak için internete veya herhangi bir web sitesine ihtiyacın yoktur.</li>
+                                <li style="margin-bottom: 10px;"><strong>Hızlıdır:</strong> Sadece değişen kısımları akıllıca takip ettiği için binlerce dosyadan oluşan projelerde bile saniyeler içinde çalışır.</li>
+                                <li style="margin-bottom: 10px;"><strong>Git ve GitHub Aynı Şey Değildir:</strong> Yeni başlayanların en sık karıştırdığı nokta budur.</li>
+                            </ul>
+
+                            <div style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #F59E0B; padding: 15px 20px; border-radius: 4px; margin: 20px 0 25px;">
+                                <h5 style="color: #F59E0B; margin-bottom: 6px; font-size: 1rem; font-weight: 700; display: flex; align-items: center; gap: 8px;"><i class="ph ph-warning"></i> Git ve GitHub Farkı</h5>
+                                <p style="margin: 0; line-height: 1.6; font-size: 0.95rem; color: var(--text-main);"><strong>Git</strong>, bilgisayarında çalışan ve versiyonları yöneten yazılımdır. <strong>GitHub</strong> ise Git ile yönettiğin projeleri internette yedeklediğin ve paylaştığın bir bulut platformudur. Önce Git'in mantığını oturtmak, tüm platformları (GitHub, GitLab, Bitbucket) kolayca kullanmanı sağlar.</p>
+                            </div>
+
+                            <div style="background: rgba(56, 189, 248, 0.08); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-top: 20px;">
+                                <h5 style="color: var(--neon-blue); margin-bottom: 6px; font-size: 1rem; font-weight: 700; display: flex; align-items: center; gap: 8px;"><i class="ph ph-info"></i> Özetle</h5>
+                                <p style="margin: 0; line-height: 1.6; font-size: 0.95rem; color: var(--text-main);">Git, projende her önemli adımda bir <strong>"kayıt noktası"</strong> (oyunlardaki <em>save</em> mantığı gibi) almanı ve istediğin zaman bu kayıt noktaları arasında güvenle dolaşmanı sağlayan araçtır.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -82,7 +118,55 @@
                     </div>
                     <div class="accordion-content">
                         <div class="accordion-inner">
-                            <p>2. Ders içeriği buraya gelecek...</p>
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Kurulum ve Temel Yapılandırma (git config)</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Git'i kullanmaya başlamadan önce bilgisayarına kurman ve ona kim olduğunu tanıtman gerekir. Çünkü Git, ileride alacağın her kayıt noktasının (<em>commit</em>) üzerine <strong>"Bu değişikliği kim yaptı?"</strong> bilgisini bir imza gibi ekler. Bu ayarları bir kez yaparsın ve bilgisayarındaki tüm projelerde geçerli olur.</p>
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 28px; font-size: 1.2rem; font-weight: 700;">1. Git Kurulumu</h4>
+                            <ul style="margin-bottom: 20px; padding-left: 20px; line-height: 1.6; font-weight: 500; color: var(--text-main);">
+                                <li style="margin-bottom: 10px;"><strong>Windows:</strong> <a href="https://git-scm.com" target="_blank" rel="noopener noreferrer" style="color: var(--theme-color); text-decoration: underline; font-weight: bold;">git-scm.com</a> adresinden Windows sürümünü indir. Kurulum sırasında karşına birçok teknik ayar çıkacaktır; şimdilik hiçbirini değiştirmeden <em>Next</em> diyerek varsayılan ayarlarla kurulumu tamamla. Kurulum bitince bilgisayarında <strong>Git Bash</strong> adında bir terminal uygulaması oluşacaktır.</li>
+                                <li style="margin-bottom: 10px;"><strong>macOS:</strong> Terminali açıp <code>git --version</code> yaz. Eğer kurulu değilse macOS sana kurulum penceresini otomatik olarak çıkaracaktır.</li>
+                                <li style="margin-bottom: 10px;"><strong>Linux (Ubuntu/Debian):</strong> Terminale <code>sudo apt install git</code> yazman yeterlidir.</li>
+                            </ul>
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 28px; font-size: 1.2rem; font-weight: 700;">2. Kurulumu Doğrulama</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Terminalini (Windows'ta Git Bash, VS Code Terminali veya PowerShell) aç ve şu komutu yaz:</p>
+
+                            <div class="code-box"><span class="syn-kw">git</span> <span class="syn-fn">--version</span>
+<span class="syn-comment"># Örnek Çıktı: git version 2.4x.x</span></div>
+
+                            <p style="margin-bottom: 20px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Ekranda <code>git version 2.4x.x</code> benzeri bir sürüm numarası görüyorsan Git başarıyla kurulmuş demektir.</p>
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 28px; font-size: 1.2rem; font-weight: 700;">3. Kendini Git'e Tanıtma (git config)</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Şimdi Git'e adını ve e-posta adresini söyleyelim. Komuttaki <code>--global</code> ifadesi, bu ayarın sadece tek bir klasör için değil, bilgisayarındaki tüm Git projeleri için geçerli olmasını sağlar.</p>
+
+                            <div class="code-box"><span class="syn-kw">git</span> <span class="syn-fn">config</span> --global user.name <span class="syn-string">"Adın Soyadın"</span>
+<span class="syn-kw">git</span> <span class="syn-fn">config</span> --global user.email <span class="syn-string">"eposta@adresin.com"</span>
+
+<span class="syn-comment"># Örnek:</span>
+<span class="syn-kw">git</span> <span class="syn-fn">config</span> --global user.name <span class="syn-string">"Ahmet Yılmaz"</span>
+<span class="syn-kw">git</span> <span class="syn-fn">config</span> --global user.email <span class="syn-string">"ahmet.yilmaz@gmail.com"</span></div>
+
+                            <div style="background: rgba(56, 189, 248, 0.08); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+                                <h5 style="color: var(--neon-blue); margin-bottom: 6px; font-size: 1rem; font-weight: 700; display: flex; align-items: center; gap: 8px;"><i class="ph ph-info"></i> İpucu</h5>
+                                <p style="margin: 0; line-height: 1.6; font-size: 0.95rem; color: var(--text-main);">İleride GitHub kullanacaksan, buraya GitHub hesabında kullanacağın e-posta adresini yazman işini çok kolaylaştırır.</p>
+                            </div>
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 28px; font-size: 1.2rem; font-weight: 700;">4. Varsayılan Ana Dalı main Yapma</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Git eskiden projelerin ana dalına (<em>branch</em>) varsayılan olarak <code>master</code> adını verirdi. Modern standartlarda ise bu isim <code>main</code> olarak kullanılır. Her yeni projede isim değiştirmekle uğraşmamak için bunu tek seferde ayarlayalım:</p>
+
+                            <div class="code-box"><span class="syn-kw">git</span> <span class="syn-fn">config</span> --global init.defaultBranch main</div>
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 28px; font-size: 1.2rem; font-weight: 700;">5. Ayarları Kontrol Etme</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Yaptığın tüm ayarların doğru kaydedildiğinden emin olmak için şu komutu çalıştır:</p>
+
+                            <div class="code-box"><span class="syn-kw">git</span> <span class="syn-fn">config</span> --list
+
+<span class="syn-comment"># Örnek Çıktı:
+# user.name=Ahmet Yılmaz
+# user.email=ahmet.yilmaz@gmail.com
+# init.defaultbranch=main</span></div>
+
+                            <p style="margin-bottom: 0; line-height: 1.6; font-weight: 500; color: var(--text-main);">Çıktının içinde şuna benzer satırlar görüyorsan kurulum ve yapılandırma tamamdır. Artık Git seni tanıyor ve ilk projeni takip etmeye hazır. Bir sonraki derste bir klasörü Git deposuna çevirecek ve Git'in arka planda nasıl çalıştığını göreceğiz.</p>
                         </div>
                     </div>
                 </div>
@@ -93,7 +177,80 @@
                     </div>
                     <div class="accordion-content">
                         <div class="accordion-inner">
-                            <p>3. Ders içeriği buraya gelecek...</p>
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Depo Oluşturma ve Git'in 3 Alanı (init, status)</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Git, bilgisayarındaki her klasörü otomatik olarak takip etmez; aksi halde tüm bilgisayarın gereksiz yere izlenirdi. Bir projeyi Git ile yönetmek istediğinde, önce o klasörü bir <strong>Git Deposuna (Repository)</strong> dönüştürmen gerekir.</p>
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 28px; font-size: 1.2rem; font-weight: 700;">1. İlk Deponu Oluşturma (git init)</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Önce terminalde boş bir proje klasörü oluşturalım ve içine girelim (mevcut bir projen varsa doğrudan o klasörün içine <code>cd</code> ile girebilirsin):</p>
+
+                            <div class="code-box"><span class="syn-fn">mkdir</span> satis-analizi
+<span class="syn-fn">cd</span> satis-analizi</div>
+
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Şimdi bu klasörü Git'in takip edeceği bir depoya çevirmek için şu komutu yaz:</p>
+
+                            <div class="code-box"><span class="syn-kw">git</span> <span class="syn-fn">init</span>
+
+<span class="syn-comment"># Çıktı:
+# Initialized empty Git repository in .../satis-analizi/.git/</span></div>
+
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>Arka Planda Ne Oldu?</strong> <code>git init</code> komutu, klasörünün içinde <code>.git</code> adında gizli bir klasör oluşturdu. Projendeki tüm versiyon geçmişi, ayarlar ve kayıt noktaları bu gizli klasörün içinde saklanır. (Gizli dosyaları göstermeyen dosya gezginlerinde görünmeyebilir; Git Bash'te <code>ls -a</code> komutuyla var olduğunu görebilirsin.)</p>
+
+                            <div style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #F59E0B; padding: 15px 20px; border-radius: 4px; margin: 20px 0 25px;">
+                                <h5 style="color: #F59E0B; margin-bottom: 6px; font-size: 1rem; font-weight: 700; display: flex; align-items: center; gap: 8px;"><i class="ph ph-warning"></i> Önemli: .git Klasörüne Dokunma</h5>
+                                <p style="margin: 0; line-height: 1.6; font-size: 0.95rem; color: var(--text-main);">Bu <code>.git</code> klasörünü asla manuel olarak silme veya içindeki dosyaları elle değiştirme. Onu silersen kendi çalışma dosyaların kalır ancak projenin tüm versiyon geçmişi yok olur ve klasör tekrar sıradan bir klasöre döner.</p>
+                            </div>
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 28px; font-size: 1.2rem; font-weight: 700;">2. Git'in 3 Temel Alanı (Zihinsel Model)</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Komutları ezberlemek yerine Git'in çalışma mantığını anlamak işini çok kolaylaştırır. Git, dosyalarını <strong>3 farklı aşamada (alanda)</strong> yönetir. Bunu bir fotoğraf çekimi gibi düşünebilirsin:</p>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin: 18px 0 20px;">
+                                <div style="background: var(--bg-card); border: 2px solid var(--glass-border); border-top: 4px solid var(--theme-color); border-radius: 10px; padding: 16px;">
+                                    <h5 style="color: var(--theme-color); margin: 0 0 8px 0; font-size: 1rem; font-weight: 700;">1. Çalışma Dizini (Working Directory)</h5>
+                                    <p style="margin: 0; font-size: 0.92rem; line-height: 1.55; color: var(--text-main);">Senin normal proje klasöründür. Kodlarını yazdığın, dosyaları düzenlediğin, sildiğin yer burasıdır.<br><em style="opacity: 0.8;">(Fotoğraf çekilecek odadaki herkes)</em></p>
+                                </div>
+                                <div style="background: var(--bg-card); border: 2px solid var(--glass-border); border-top: 4px solid #F59E0B; border-radius: 10px; padding: 16px;">
+                                    <h5 style="color: #F59E0B; margin: 0 0 8px 0; font-size: 1rem; font-weight: 700;">2. Sahne Alanı (Staging Area)</h5>
+                                    <p style="margin: 0; font-size: 0.92rem; line-height: 1.55; color: var(--text-main);">Bir sonraki kayıt noktasına dahil etmek istediğin değişiklikleri geçici olarak topladığın bekleme alanıdır.<br><em style="opacity: 0.8;">(Sadece fotoğrafa girmek için sahneye çağırdığın kişiler)</em></p>
+                                </div>
+                                <div style="background: var(--bg-card); border: 2px solid var(--glass-border); border-top: 4px solid var(--neon-blue); border-radius: 10px; padding: 16px;">
+                                    <h5 style="color: var(--neon-blue); margin: 0 0 8px 0; font-size: 1rem; font-weight: 700;">3. Depo (Repository)</h5>
+                                    <p style="margin: 0; font-size: 0.92rem; line-height: 1.55; color: var(--text-main);">Sahneye aldığın dosyaların kalıcı olarak kaydedildiği, zaman makinesinin arşividir (<code>.git</code> klasörü).<br><em style="opacity: 0.8;">(Çekilen fotoğrafın albüme yapıştırılması)</em></p>
+                                </div>
+                            </div>
+
+                            <p style="margin-bottom: 20px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong>Neden doğrudan kaydetmek yerine arada "Sahne" alanı var?</strong> Çünkü aynı anda birden fazla dosyada çalışıyor olabilirsin; sahne alanı sayesinde her şeyi tek seferde kaydetmek zorunda kalmadan, yalnızca o kayda dahil etmek istediğin değişiklikleri özenle seçebilirsin.</p>
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 28px; font-size: 1.2rem; font-weight: 700;">3. Git'in Pusulası: Durum Kontrolü (git status)</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Git kullanırken nerede olduğunu, hangi dosyaların değiştiğini veya bir sonraki adımda ne yapman gerektiğini unuttuğunda yazacağın ilk komut her zaman <code>git status</code> olmalıdır.</p>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Hemen test edelim. Klasörünün içinde <code>analiz.py</code> adında boş bir dosya oluştur ve durumu kontrol et <em>(Git Bash'te <code>touch</code> doğrudan çalışır; editörden yeni dosya açman da aynı işi görür)</em>:</p>
+
+                            <div class="code-box"><span class="syn-fn">touch</span> analiz.py
+<span class="syn-kw">git</span> <span class="syn-fn">status</span>
+
+<span class="syn-comment"># Çıktı:
+# On branch main
+#
+# No commits yet
+#
+# Untracked files:
+#   (use "git add &lt;file&gt;..." to include in what will be committed)
+#         analiz.py
+#
+# nothing added to commit but untracked files present (use "git add" to track)</span></div>
+
+                            <p style="margin-bottom: 12px; line-height: 1.6; font-weight: 600; color: var(--text-main);">Bu çıktıyı satır satır okuyalım:</p>
+                            <ul style="margin-bottom: 20px; padding-left: 20px; line-height: 1.6; font-weight: 500; color: var(--text-main);">
+                                <li style="margin-bottom: 10px;"><strong><code>On branch main</code>:</strong> Şu an <code>main</code> (ana) dalında çalışıyorsun.</li>
+                                <li style="margin-bottom: 10px;"><strong><code>No commits yet</code>:</strong> Henüz hiç kayıt noktası (versiyon) alınmamış.</li>
+                                <li style="margin-bottom: 10px;"><strong><code>Untracked files</code> (Takip edilmeyen dosyalar):</strong> Git, <code>analiz.py</code> dosyasını gördü ama <em>"Bu yeni bir dosya, bunu henüz sahneye almadın ve takip etmemi söylemedin"</em> diyor (terminalde genellikle kırmızı görünür).</li>
+                            </ul>
+
+                            <div style="background: rgba(56, 189, 248, 0.08); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin: 20px 0 20px;">
+                                <h5 style="color: var(--neon-blue); margin-bottom: 6px; font-size: 1rem; font-weight: 700; display: flex; align-items: center; gap: 8px;"><i class="ph ph-info"></i> Güvenli Komut: Çekinmeden Sor!</h5>
+                                <p style="margin: 0; line-height: 1.6; font-size: 0.95rem; color: var(--text-main);"><code>git status</code> yalnızca okuma yapar; hiçbir dosyanı değiştirmez veya silmez. Kafan karıştığı her an bu komutu çalıştırarak deponun o anki durumunu ve Git'in sana verdiği ipucu mesajlarını görebilirsin.</p>
+                            </div>
+
+                            <p style="margin-bottom: 0; line-height: 1.6; font-weight: 500; color: var(--text-main);">Artık depon hazır ve Git klasöründeki hareketleri görebiliyor. Bir sonraki derste bu dosyayı sahneye almayı (<code>git add</code>) öğreneceğiz.</p>
                         </div>
                     </div>
                 </div>
