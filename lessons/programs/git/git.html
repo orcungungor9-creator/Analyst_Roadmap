@@ -261,7 +261,81 @@ satis_analizi_gercekten_son_v2.py</div>
                     </div>
                     <div class="accordion-content">
                         <div class="accordion-inner">
-                            <p>4. Ders içeriği buraya gelecek...</p>
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 700;">Dosyaları Sahneye Alma (git add)</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Bir önceki derste <code>analiz.py</code> dosyasını oluşturduğumuzda <code>git status</code> bize bu dosyanın takip edilmediğini (<em>untracked</em>) söylemişti. Şimdi bu dosyayı kalıcı olarak kaydetmeden (<em>commit</em>) önceki durak olan <strong>Sahne (Staging Area)</strong> alanına alacağız.</p>
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 28px; font-size: 1.2rem; font-weight: 700;">Neden Doğrudan Kaydetmiyoruz?</h4>
+                            <p style="margin-bottom: 12px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Yeni başlayanlar genelde şu soruyu sorar: <em>"Neden tek seferde kaydetmek yerine önce sahneye alıyoruz?"</em> Bunu bir senaryoyla düşünelim: Projende aynı anda iki dosya üzerinde çalışıyorsun:</p>
+                            <ul style="margin-bottom: 15px; padding-left: 20px; line-height: 1.6; font-weight: 500; color: var(--text-main);">
+                                <li style="margin-bottom: 8px;"><code>veri_temizleme.py</code> dosyasını tamamen bitirdin, kusursuz çalışıyor.</li>
+                                <li style="margin-bottom: 8px;"><code>grafik.py</code> dosyası ise henüz yarım, içinde yarım kalmış denemeler var.</li>
+                            </ul>
+                            <p style="margin-bottom: 20px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Sahne alanı sayesinde sadece biten <code>veri_temizleme.py</code> dosyasını seçip bir sonraki kayda hazırlayabilir, yarım kalan <code>grafik.py</code> dosyasını ise dışarıda bırakabilirsin. Yani <code>git add</code>, bir sonraki kayıt noktasına nelerin gireceğini seçme aracıdır.</p>
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 28px; font-size: 1.2rem; font-weight: 700;">1. Tek Bir Dosyayı Sahneye Alma</h4>
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Geçen derste oluşturduğumuz <code>analiz.py</code> dosyasını sahneye almak için şu komutu yaz:</p>
+
+                            <div class="code-box"><span class="syn-kw">git</span> <span class="syn-fn">add</span> analiz.py</div>
+
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Bu komut çalıştığında terminalde herhangi bir başarı mesajı görünmez; Git'te sessizlik her şeyin yolunda olduğu anlamına gelir. Durumu görmek için hemen pusulamızı çalıştıralım:</p>
+
+                            <div class="code-box"><span class="syn-kw">git</span> <span class="syn-fn">status</span>
+
+<span class="syn-comment"># Çıktı:
+# On branch main
+#
+# No commits yet
+#
+# Changes to be committed:
+#   (use "git rm --cached &lt;file&gt;..." to unstage)
+#         new file:   analiz.py</span></div>
+
+                            <p style="margin-bottom: 20px; line-height: 1.6; font-weight: 500; color: var(--text-main);"><strong><code>Changes to be committed</code> (Kaydedilmeye hazır değişiklikler):</strong> <code>analiz.py</code> artık kırmızı değil <strong>yeşil</strong> görünür. Bu, dosyanın sahnede yerini aldığı ve bir sonraki kayda (<em>commit</em>) hazır olduğu anlamına gelir.</p>
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 28px; font-size: 1.2rem; font-weight: 700;">2. Birden Fazla veya Tüm Dosyaları Sahneye Alma</h4>
+                            <p style="margin-bottom: 12px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Projede birden fazla dosya değiştiğinde her birini tek tek yazmak zorunda değilsin:</p>
+                            <ul style="margin-bottom: 15px; padding-left: 20px; line-height: 1.6; font-weight: 500; color: var(--text-main);">
+                                <li style="margin-bottom: 8px;"><strong>Seçtiğin birkaç dosyayı eklemek için:</strong> Dosya adlarını aralarına boşluk koyarak yazabilirsin.</li>
+                            </ul>
+
+                            <div class="code-box"><span class="syn-kw">git</span> <span class="syn-fn">add</span> analiz.py rapor.txt</div>
+
+                            <ul style="margin-bottom: 15px; padding-left: 20px; line-height: 1.6; font-weight: 500; color: var(--text-main);">
+                                <li style="margin-bottom: 8px;"><strong>Klasördeki tüm değişiklikleri tek seferde eklemek için:</strong> Nokta (<code>.</code>) <em>"bulunduğum klasördeki her şey"</em> anlamına gelir.</li>
+                            </ul>
+
+                            <div class="code-box"><span class="syn-kw">git</span> <span class="syn-fn">add</span> .</div>
+
+                            <div style="background: rgba(56, 189, 248, 0.08); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 4px; margin: 20px 0 25px;">
+                                <h5 style="color: var(--neon-blue); margin-bottom: 6px; font-size: 1rem; font-weight: 700; display: flex; align-items: center; gap: 8px;"><i class="ph ph-info"></i> İpucu: Noktadan (.) Önce Durumu Gör</h5>
+                                <p style="margin: 0; line-height: 1.6; font-size: 0.95rem; color: var(--text-main);"><code>git add .</code> çok pratiktir ama kullanmadan önce mutlaka <code>git status</code> ile klasörde neler olduğuna göz at. Böylece yanlışlıkla yarım kalmış veya gereksiz dosyaları sahneye almaktan kurtulursun.</p>
+                            </div>
+
+                            <h4 style="color: var(--theme-color); margin-bottom: 10px; margin-top: 28px; font-size: 1.2rem; font-weight: 700;">3. Sık Düşülen Tuzak: "Sahneye Aldıktan Sonra Değişiklik Yapmak"</h4>
+
+                            <div style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #F59E0B; padding: 15px 20px; border-radius: 4px; margin: 15px 0 20px;">
+                                <h5 style="color: #F59E0B; margin-bottom: 6px; font-size: 1rem; font-weight: 700; display: flex; align-items: center; gap: 8px;"><i class="ph ph-warning"></i> Anlık Kopya (Snapshot) Kuralı</h5>
+                                <p style="margin: 0; line-height: 1.6; font-size: 0.95rem; color: var(--text-main);"><code>git add</code> komutu, bir dosyayı "sonsuza kadar takip et" demek değildir; yalnızca o dosyanın <strong>tam o andaki halinin</strong> bir kopyasını sahneye koyar.</p>
+                            </div>
+
+                            <p style="margin-bottom: 12px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Örneğin şu sırayı izlediğini düşünelim:</p>
+                            <ol style="margin-bottom: 18px; padding-left: 22px; line-height: 1.6; font-weight: 500; color: var(--text-main);">
+                                <li style="margin-bottom: 8px;"><code>git add analiz.py</code> yazdın (dosyanın 1. hali sahnede).</li>
+                                <li style="margin-bottom: 8px;">Sonra vazgeçip <code>analiz.py</code> içine 5 satır daha kod ekledin.</li>
+                                <li style="margin-bottom: 8px;">Bu durumda <code>git status</code> yazarsan <code>analiz.py</code> dosyasını hem <strong>yeşil</strong> (eski hali sahnede) hem <strong>kırmızı</strong> (yeni eklediğin 5 satır sahnede değil) olarak görürsün:</li>
+                            </ol>
+
+                            <div class="code-box"><span class="syn-kw">git</span> <span class="syn-fn">status</span>
+
+<span class="syn-comment"># Çıktı (Aynı dosya iki bölümde birden görünür!):
+# Changes to be committed:
+#         new file:   analiz.py     (Yeşil - 1. hali sahnede)
+#
+# Changes not staged for commit:
+#         modified:   analiz.py     (Kırmızı - Yeni eklenen 5 satır sahnede değil)</span></div>
+
+                            <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 500; color: var(--text-main);">Yeni eklediğin satırların da kayda girmesi için tekrar <code>git add analiz.py</code> çalıştırman gerekir.</p>
+                            <p style="margin-bottom: 0; line-height: 1.6; font-weight: 500; color: var(--text-main);">Dosyamız artık sahnede ve fotoğraf çekilmeye hazır. Bir sonraki derste bu sahnedeki değişiklikleri kalıcı bir versiyona dönüştürmeyi (<code>git commit</code>) öğreneceğiz.</p>
                         </div>
                     </div>
                 </div>
